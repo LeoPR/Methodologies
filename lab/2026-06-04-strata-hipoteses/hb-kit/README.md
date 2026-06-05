@@ -19,9 +19,21 @@ Avaliação **cega** contra um gabarito de 7 problemas plantados.
   para a avaliação aqui.
 - (você gera) `planos/` — a saída de cada modelo; `cego/` — versão anonimizada.
 
-## Protocolo (você roda)
+## Protocolo
 
-### Modelos sugeridos (≥4; rode cada um **2 vezes** p/ ver variância)
+> **Divisão de execução**: o **tier local** (Ollama) é rodado **automaticamente** pela
+> sessão Claude (API `localhost:11434`); o **tier nuvem** (Copilot Chat + Claude
+> frontier) é rodado **por você** (GUI). Eu não dirijo o Copilot Chat.
+>
+> **Prompt fixo = controle (F1)**: o prompt abaixo é mantido constante para isolar a
+> variável *modelo*. A sensibilidade ao prompt é o **H-B′** (ver
+> `../README.md`) — ablação à parte (1 modelo × vários framings). O resultado do H-B
+> vale "sob o prompt F1".
+
+### Modelos (rode/rodo cada um **2 vezes** p/ ver variância)
+**Local (automático, eu rodo):** llama3.1:8b, qwen3:14b, qwen2.5-coder:7b,
+deepseek-r1:8b, gemma3:12b, phi4 (spread de famílias/tamanhos).
+**Nuvem (você roda):**
 1. **Copilot Chat — GPT-4.1** (multiplier-0)
 2. **Copilot Chat — GPT-5-mini ou Gemini** (outro multiplier-0)
 3. **Copilot Chat — Claude Sonnet 4.6** (1x)

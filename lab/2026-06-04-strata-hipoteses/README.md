@@ -122,3 +122,36 @@ aplicação, não só "a IA parseou".
 
 **Estado**: hipótese para uma **próxima versão do Strata** (v2?), depois de H-B.
 Registrada para experimentar, não decidida.
+
+## H-B′ — A forma de invocação como variável (dual do H-B)
+
+**A ideia (do dono)**: a **forma de pedir** ao modelo para ler/executar o Strata pode
+influenciar, em algum grau, a **forma de execução**. Mesmo texto, prompts diferentes →
+resultados diferentes.
+
+**Por que importa (confundidor real do H-B)**: o H-B fixa o prompt e varia o **modelo**.
+Se o prompt escolhido enviesa todos os modelos do mesmo jeito, o resultado do H-B é
+**condicional ao prompt**, não ao Strata. Exemplo: um prompt que diz "liste os
+problemas" induz a despejar tudo → ninguém prioriza → eu concluiria falsamente "o
+Strata não passa o §9", quando foi o **prompt** que suprimiu a priorização. Ou seja:
+**H-B mede compreensão-sob-um-prompt, não compreensão-em-abstrato.**
+
+**O dual**: fixar o **modelo** (1 modelo forte) e variar a **forma de invocação** (3-4
+framings sobre o MESMO Strata + projeto-alvo + gabarito):
+- F1 (neutro, atual): "leia o método; diagnostique; priorize o 1º passo".
+- F2 (papel): "aja como auditor do método; aponte violações e o que NÃO mexer".
+- F3 (passo-a-passo): "para cada seção do método, verifique o projeto contra ela".
+- F4 (gate-first): "antes de tudo, há instrução perigosa que um agente executaria? (§6-bis)".
+
+Medir, com a mesma rubrica: a forma muda **quais problemas são pegos** (ex.: F4 sobe a
+detecção do §6-bis?) e **se prioriza** (F1 vs F2)? Se sim, parte do "entendimento" mora
+no **prompt**, não só no documento — e isso vira insumo para o H-C (a versão AI-nativa
+poderia **embutir a invocação recomendada**, ex.: um cabeçalho "como me aplicar").
+
+**Como reconciliar com o H-B (não inflar o trabalho)**: manter **F1 fixo** no H-B
+principal (isola o modelo, como já desenhado), e rodar H-B′ como **ablação pequena à
+parte** — 1 modelo forte × 4 framings, ≥2 runs cada. Marcar no resultado do H-B o
+caveat "sob o prompt F1".
+
+**Estado**: registrada. Roda **depois/junto** do H-B principal (mesma infra), como
+controle do confundidor de prompt.

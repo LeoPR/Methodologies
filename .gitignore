@@ -1,0 +1,24 @@
+# Ambiente Python (convenção Z:\ — ver lab/2026-06-04-dev-environment-z/)
+# A junction .venv aponta para Z:\venvs\Methodologies (regenerável via `uv sync`).
+# NUNCA versionar: é link para fora do repo, com milhões de arquivos.
+.venv/
+
+# Caches Python (redirecionados para Z:\caches por env vars User-scope;
+# ignorados aqui por segurança caso algum apareça localmente).
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+
+# Versionados (NÃO ignorar): pyproject.toml, uv.lock, .python-version,
+# .vscode/settings.json — são a config reproduzível do ambiente.
+
+# Snapshot de metodologia PESSOAL (cópia do dev-environment Z:, cita nomes de
+# outros projetos e caminhos da máquina). Não publicar — decisão do dono.
+# O README de estudo (a análise) permanece versionado.
+lab/2026-06-04-dev-environment-z/snapshot-fonte/
+
+# Saída de máquina do protótipo (gerada por --emit-profile)
+.ai/environment-profile.yaml

@@ -1,0 +1,16 @@
+[project]
+name = "methodologies"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.pytest.ini_options]
+cache_dir = "Z:\\caches\\pytest"
+
+[dependency-groups]
+dev = [
+    "pip>=26.1.2",
+    "setuptools>=82.0.1",
+    "wheel>=0.47.0",
+]

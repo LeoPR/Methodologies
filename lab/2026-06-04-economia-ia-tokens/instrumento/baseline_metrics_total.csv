@@ -1,0 +1,5 @@
+session_id,model,is_sidechain,n_messages,input_tokens,output_tokens,cache_creation_input_tokens,cache_read_input_tokens,est_cost_usd,price_table_date
+443991ed-5cbb-4e58-a1f0-65e0034b407b,claude-opus-4-8,False,200,16037,582996,1972712,47360238,58.0623,2026-06-04
+443991ed-5cbb-4e58-a1f0-65e0034b407b,claude-opus-4-8,True,761,229410,61303,5134477,33447956,51.4941,2026-06-04
+443991ed-5cbb-4e58-a1f0-65e0034b407b,claude-sonnet-4-6,False,125,1517,108404,643658,12296033,9.1814,2026-06-04
+443991ed-5cbb-4e58-a1f0-65e0034b407b,claude-sonnet-4-6,True,220,10954,31937,628873,2922540,3.7469,2026-06-04

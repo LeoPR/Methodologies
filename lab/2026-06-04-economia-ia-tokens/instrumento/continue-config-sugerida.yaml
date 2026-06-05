@@ -1,0 +1,39 @@
+# Config sugerida para Continue.dev (~/.continue/config.yaml) — Estágio 4
+# Derivada das medições dos Estágios 2-3 nesta máquina (RTX 3060 12GB).
+# NÃO instalada automaticamente — copie para ~/.continue/config.yaml depois de
+# instalar a extensão Continue.dev no perfil do VSCode que você usa.
+#
+# Racional das escolhas (medido, não chutado):
+#   - autocomplete: qwen2.5-coder:7b → TTFT 68ms (C1), decode 55 t/s (B1). Rápido.
+#       (opcional, ainda mais rápido: `ollama pull qwen2.5-coder:1.5b` e trocar aqui)
+#   - chat/edit:    qwen2.5-coder:7b → forte em código, 55 t/s.
+#   - agente/tool:  llama3.1:8b → ÚNICO local que emite tool_use estruturado (GATE-3);
+#       ~20 t/s, marginal mas funcional para agente local leve.
+#   - manter contexto <= 16k (B2: a 32k há penhasco de VRAM nesta máquina).
+
+models:
+  - name: Qwen2.5-Coder 7B (chat/edit)
+    provider: ollama
+    model: qwen2.5-coder:7b
+    roles: [chat, edit, apply]
+    defaultCompletionOptions:
+      contextLength: 16384
+
+  - name: Qwen2.5-Coder 7B (autocomplete)
+    provider: ollama
+    model: qwen2.5-coder:7b
+    roles: [autocomplete]
+
+  - name: Llama 3.1 8B (agente/tool_use)
+    provider: ollama
+    model: llama3.1:8b
+    roles: [chat]
+    capabilities: [tool_use]
+    defaultCompletionOptions:
+      contextLength: 16384
+
+context:
+  - provider: file
+  - provider: code
+  - provider: diff
+  - provider: terminal

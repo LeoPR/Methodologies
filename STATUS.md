@@ -1,0 +1,253 @@
+---
+name: status-methodologies-project
+type: status
+status: active
+created: 2026-06-03
+updated: 2026-06-03
+---
+
+# STATUS — 2026-06-03
+
+## Foco atual
+
+- **Refinar a metodologia de organizacao+rastreamento por camadas de
+  durabilidade** (L0 atemporal / L1 padroes consolidados / L2 adaptacao
+  datada). Novo produto: `recipe/knowledge-architecture.md`.
+- **Feito**: esqueleto L0/L1/L2; Parte I (L0) escrita; **fundamentacao do L0
+  verificada** (22 fontes primarias web-verificadas em
+  `lab/2026-06-03-fundamentacao-L0/`) e tecida de volta no L0 (linha
+  "Fundamentacao" por secao). Auto-revisao = evidencia de que o metodo funciona.
+- **Feito tambem**: Parte II (L1) escrita — catalogo `necessidade L0 ->
+  formalizacao` com sinal-de-troca; 6 identidades de framework web-verificadas
+  (Diataxis, ADR/MADR, FAIR4RS, Research Compendium, Lakatos, Zettelkasten).
+- **Feito tambem**: Parte III (L2) escrita — ferramentas de hoje (IA/editor/
+  git/filesystem/SaaS) mapeadas ao L0/L1, datadas e destacaveis. As 3 camadas
+  do knowledge-architecture.md estao completas.
+- **Feito (2026-06-03)**: revisao critica do L0 + **varredura future-proof** em
+  2 rodadas multi-lente com verificacao adversarial (registrada em
+  `lab/2026-06-03-future-proof-sweep/`). Veredito: L0 NAO era atemporalmente
+  completo (ponto cego sistematico: assumia substrato perpetuo + leitor que ja
+  decodifica + crescimento monotonico). Principio-mae: "autoridade-logica e'
+  ortogonal a instancia/expressao/acesso/portador".
+  - **Onda 1 APLICADA** ao knowledge-architecture.md: +§3-bis (tipo-de-ato
+    dispositivo/probatorio + referencial), +§6-bis (autoridade-para-agir, eixo
+    SEGURANCA), +§10 (durabilidade do portador/redundancia), gradiente
+    append-only em §3 (traco/superficie/conhecimento-vivo + disposicao-tombstone
+    + bitemporal). Numeracao `-bis` p/ NAO renumerar §4-§9.
+  - **Onda 2 APLICADA** (refinos): principio-mae "autoridade-logica ⊥ instancia"
+    em §5; auto-decifrabilidade (chave semantica redundante) em §3-bis;
+    vazio-tipado / fronteira-de-cobertura em §6; proofreading-na-promocao em §7;
+    proporcionalidade-a-distancia como regulador em §9. L0 agora = 12 secoes.
+  - **Verificacao concluida** `[WEB ✓ 2026-06-03]`: todas as fundamentacoes
+    novas das ondas 1-2 verificadas via web (Bjork&Bjork 1992, Brunner 1880,
+    Schellenberg 1956, Snodgrass 1999, Hardy 1988, Kuny 1997, Reynolds&Wilson,
+    LOCKSS, FRBR, Grice 1975, etc.).
+  - **Eixo 5 (seguranca)** tocado pelo §6-bis: merece varredura propria depois.
+  - Aplicados antes: revisao A+B+C (§5 generalizado, §7 DIKW->ANALOGIA, §3/§8 separados).
+- **Gap conhecido**: o bloco OPERACIONAL do predecessor (fases de adocao,
+  assessment brownfield, auditoria periodica) ainda NAO migrou. Decidir se vira
+  "Parte IV — Adocao e operacao" antes de aposentar organization-methodology.md.
+- Principio-guia: IA/VSCode/git sao FORMAS (L2) que expressam um nucleo que
+  precede o computador; escrever o nucleo atemporal e' completo primeiro.
+
+## Ultimo estado
+
+- Monolito original (`README.methodology.md`, ~97KB) **modernizado** (camada
+  IA-2026: MCP, Skills, memoria em camadas, context engineering, evals,
+  proveniencia) — verificado na web (5 lentes de analise).
+- **Explorado** como suite de 10 docs (experimento de estrutura).
+- **Decisao**: o produto e' **1 arquivo** (`recipe/`); a suite de 10 docs
+  virou **registro de pesquisa congelado** em `lab/.../experimento-split/`.
+- Projeto **reorganizado** nas 3 cozinhas (recipe / lab / prototype) +
+  wayfinding (README/AGENTS/MAP/STATUS) — dogfood da propria metodologia.
+
+## Aderencia, brownfield, IA e portabilidade (2026-06-04)
+
+- **Varredura multi-lente** (4 lentes + refutacao adversarial + sintese, 9
+  agentes) registrada em `lab/2026-06-04-aderencia-portabilidade/`. Respostas:
+  - **Segmentacao**: MANTER 1 arquivo (acoplamento L0->L2 medido = baixissimo;
+    0 nomes de ferramenta no corpo dos principios). 1 arquivo e' trunfo de transporte.
+  - **Aderencia**: 4 secoes universais (§1/§2/§5/§9), 7 condicionais com gatilho.
+  - **Brownfield**: buraco real mas ADR-003 (adiar) nao errou no timing.
+  - **IA**: majoritariamente raciocinavel; faltavam GATES de autoridade humana.
+- **Aplicado ao produto** (v1.0.0 -> **v1.1.0**): carimbos de aderencia leves
+  ("— §9", template de §10) em §4/§6/§7/§8; linha imperativa fail-closed em
+  §6-bis; regra-dupla TRACO/SUPERFICIE em §3; split universal/condicional em §4;
+  `canonical-source` no frontmatter.
+- **Adiado** (decisao do dono): Parte IV brownfield espera dor empirica
+  (prototype/ ainda N=0); caminho FORTE/LOCAL registrado no lab.
+- **License**: **CC BY-SA 4.0** (copyleft) no frontmatter, com URL — a chave de
+  licenca viaja com qualquer copia vendorada.
+- **Licao de metodo**: o adversarial derrubou 2 achados "estruturais" por erro
+  factual de evidencia — registrado como prova de que o ceticismo (§6) funciona.
+
+## Batismo e auto-aplicacao (2026-06-03)
+
+- Projeto batizado: **Strata**. Nome registrado em frontmatter do produto
+  (`project: Strata`, `version: 1.0.0`) e no README.
+- **3 ADRs criados** em `decisions/` (dogfood de §3/L1 — MADR):
+  - ADR-001: formato 1 arquivo vs suíte
+  - ADR-002: estrutura L0/L1/L2
+  - ADR-003: aposentadoria predecessor (opção 0b)
+- **Fronteira de cobertura** declarada em AGENTS.md (dogfood de §6 vazio-tipado):
+  o que Strata NAO cobre (financas, RH, qualidade de codigo, conteudo de dominio).
+- MAP.md atualizado com `decisions/`.
+
+## Aposentadoria do predecessor (2026-06-03)
+
+- `recipe/organization-methodology.md` **aposentado** → movido para
+  `lab/2026-06-03-predecessor/` (FROZEN, registro histórico).
+- Bloco operacional (adoção, brownfield, auditoria periódica) **não migrou**
+  (decisão 0b: coberto implicitamente por L1/L2). Matéria-prima preservada em
+  `lab/2026-06-03-predecessor/README.md` caso vire "Parte IV" futuramente.
+- `recipe/knowledge-architecture.md` promovido de `draft` → **`active`**.
+- Wayfinding re-apontado: `README.md`, `AGENTS.md`, `MAP.md` todos atualizados.
+
+## Lacunas L1 fechadas (Passo 2, 2026-06-03)
+
+- **§3-bis → L1**: ISAD(G) (dispositivo/probatório em escala institucional),
+  SI/ISO 80000 (datum formal), PRONOM/DROID (auto-decifrabilidade de longo prazo).
+- **§6-bis → L1**: PKI/X.509 (canal out-of-band), Zero-trust/NIST SP 800-207,
+  RBAC/ABAC (autoridade delegada explícita).
+- **§10 → L1**: OAIS/ISO 14721 (modelo de referência de preservação digital),
+  Regra 3-2-1 (redundância mínima), BagIt/RFC 8493 (pacote verificável),
+  Fixity checking (preservar é um verbo — verificação ativa).
+
+## Economia de IA: tokens, hardware local e fornecedores (2026-06-04)
+
+- Fase de lab sujo (2º ciclo): hipóteses confrontadas, nenhuma decisão tomada.
+  Registrado em `lab/2026-06-04-economia-ia-tokens/`.
+- **Copilot**: completions inline ilimitadas em todos os planos pagos (sem quota);
+  modelos multiplier-0 (GPT-4.1, GPT-5 mini); Claude Sonnet = 1x (não grátis).
+  Pro $10/mês cobre uso razoável de chat.
+- **RTX 3060 12 GB**: Qwen2.5-Coder 7B Q4_K_M = sweet spot (4.8 GB VRAM,
+  ~50 t/s, HumanEval 84.1%). 14B cabe apertado. Phi-4 Q5 não cabe na prática.
+- **Ollama + VSCode**: integração oficial via Continue.dev (chat + autocomplete)
+  e Copilot Chat (VSCode 1.113+, chat apenas). OllamaClaude MCP conecta Claude
+  Code ao Ollama local (claim de 98.75% redução tokens — não verificado).
+- **Compressão**: LLMLingua (20× com 1.5% perda, EMNLP 2023) e MCCom (47.9%
+  redução latência, 46.3% redução cloud, arXiv 2026) validam local→cloud cascata.
+- **Métricas**: Claude Code é o melhor instrumentado (JSONL + SDK + OTel).
+  AgentsRoom e cc-statistics como trackers externos.
+- **Framework de decisão**: local para autocomplete/arquivo único (GPU necessário);
+  cloud para multi-arquivo/raciocínio complexo — validado por MCCom e Mellum.
+
+## Economia de IA: mapa epistemico + plano experimental (2026-06-04, ciclo 2)
+
+- **Mapa de recursos** (`lab/.../mapa-recursos-llm.md`, workflow 38 agentes):
+  4 primitivas (memoria/processamento/E-S/custo) + 5 vetores; **NAO existe
+  metrica de esforco escalar** (e vetor de 5 coords, coordenada vinculante muda
+  com regime). Grade epistemica: **8 sempre-otimo** (caminho feliz — leis/garantias/
+  contratos), **26 depende** (com gatilho), **8 nao-savel** (7 viram experimento).
+  10 chutes sinalizados.
+- **Descoberta de metodo**: quase nada e "sempre faca X"; o universal e "X e
+  sempre VERDADE (lei/garantia/fato)" e a ACAO depende do regime. Mesmo formato
+  do aderencia-condicional do Strata, em outro dominio.
+- **Plano experimental** (`lab/.../plano-experimental.md`, workflow 26 agentes
+  com verificacao adversarial): 6 estagios de ablacao, custo zero ate a Fase 2,
+  cada um com gate objetivo. A verificacao LEU os JSONL reais e pegou: bug de
+  dupla-contagem (7,33x por requestId), bloqueador de tool_use no shim Ollama,
+  regime Max (quota nao USD), GPU contaminada (78% util idle).
+- **Mentira de custo corrigida** (ambos os workflows): "Sonnet 4.6 gratis no
+  Copilot" e FALSO — e 1x multiplier sobre 300 req/mes. So GPT-4.1/GPT-5 mini
+  e autocomplete inline sao multiplier-0. Se vazar pra recipe, leitor gasta achando
+  que e zero.
+- **Status**: NADA executado. Plano aguarda aprovacao do dono para rodar Estagio 1.
+
+## Ambiente Python + Estagio 1 EXECUTADOS (2026-06-04)
+
+- **Ambiente Python** configurado via metodologia dev-environment Z:\
+  (`New-ZPythonProject.ps1`): venv em `Z:\venvs\Methodologies`, junction `.venv`,
+  pyproject canonico, `.gitignore` criado (lacuna do git que a metodologia nao
+  cobria). Metodologia importada para estudo em `lab/2026-06-04-dev-environment-z/`.
+- **Estagio 1 do plano experimental EXECUTADO** (custo zero), artefatos em
+  `lab/2026-06-04-economia-ia-tokens/instrumento/`:
+  - A1: `parse_usage.py` — dedup por message.id, 0 parse-fails, 6,87x inflacao evitada.
+  - A3: baseline congelada SHA256 `b804afeb...` reproduzivel; cache_hit_rate 0,9454.
+  - A2: cc-statistics concorda <1% no opus; ambos deduplicam (corroboracao independente).
+  - Achado: cache_read domina (94,5% hit) — prompt caching ja quente.
+- **GATE-1 substancialmente aberto** → Estagio 2 (inferencia local raw, custo zero)
+  e o proximo, aguardando OK do dono.
+
+## Estagio 2 EXECUTADO (2026-06-04) — GATE-2 aberto
+
+- **B1 (decode 7B)**: qwen2.5-coder:7b @ 4k = **55,5 t/s**, @ 16k = 50,7 t/s,
+  IQR <0,5% (estabilissimo), 100% GPU. Passa GATE-2 (>=40 t/s). Bate a literatura (~50).
+- **B2 (VRAM x contexto)**: cresce linear (KV cache) 4,9/5,9/6,9 GB a 4k/16k/32k —
+  footprint a 32k = 6,9 GB (confirma previsao adversarial, refuta "4,8 GB weights-only").
+- **PENHASCO descoberto**: a 32k (7B) e no 14B inteiro a VRAM livre cai <2,7 GB e o
+  decode despenca p/ ~13 t/s instavel (WDDM shared-memory fallback do Windows, nao
+  offload de CPU). **Sweet spot: 7B @ <=16k.**
+- **B4a (Ollama vs Foundry)**: conclusao "OS-gated" RETRATADA (era prematura — o
+  dono cobrou com razao). O catalogo vazio da CLI era rate-limit/DNS (a extensao
+  VSCode tem 112 modelos cacheados); WinML pulado != sem GPU (ha 40 variantes CUDA
+  + 32 WebGPU/DirectML que rodam no Win10). EM VERIFICACAO: baixando
+  qwen2.5-coder-0.5b-cuda-gpu p/ medir GPU real no nvidia-smi.
+- Artefatos: `instrumento/bench_decode.py`, `STAGE2.md`. Custo zero.
+
+## Estagio 3 EXECUTADO (2026-06-04) — GATE-3 destrava D1/E4 (com ressalva)
+
+- **GATE tool_use (D0.5)**: o shim /v1/messages do Ollama emite tool_use
+  ESTRUTURADO — DERRUBANDO a previsao adversarial de falha total. Dependente do
+  MODELO: llama3.1:8b PASS, qwen3:14b PASS, qwen2.5-coder:7b FAIL (emite a chamada
+  como texto/end_turn). Instrumento: `instrumento/test_toolcall.py`.
+- **Tensao central**: o modelo rapido (qwen2.5-coder:7b, 55 t/s) NAO faz tool_use;
+  o modelo agentico (llama3.1:8b) faz tool_use mas roda a ~21 t/s (2,6x mais lento).
+- **llama3.1:8b @ 32k** (contexto agentico): ~19,5 t/s, 1,4 GB livres — viavel mas
+  MARGINAL. Veredito: ramo Claude-Code-local e PROTOCOLO-VIAVEL, PERFORMANCE-MARGINAL.
+- **Stack local recomendada**: autocomplete=qwen2.5-coder:7b; agentico-local-leve=
+  llama3.1:8b; agentico-pesado=cloud (Claude Max). Ver `instrumento/STAGE3.md`.
+- **Licao**: o adversarial acertou o sintoma (qwen-coder falha) mas generalizou a
+  causa (shim quebrado). So a execucao real desambiguou. Mesmo padrao do B4a.
+
+## Estagio 4 + novas hipoteses (2026-06-04)
+
+- **Estagio 4 (integracao editor)**: C1 medido — autocomplete local (FIM) TTFT
+  **68ms p50** (<500ms, passa GATE-4); sugestao streama. C2 (overhead editor) e C3
+  (Copilot Chat+Ollama) preparados e ENTREGUES p/ uso real (precisam da extensao +
+  dias de uso; ha perfis de VSCode em jogo). Config pronta:
+  `instrumento/continue-config-sugerida.yaml`. VSCode 1.123 + Ollama 0.30 OK.
+- **H17 — visao/imagens** (registrada, avaliacao adiada): custo de tokens-por-imagem
+  dos providers vs visao local (dono ja tem llama3.2-vision:11b, qwen3-vl:8b) como
+  pre-filtro "imagem->descricao local->texto cloud". Modalidade como 4a dimensao de
+  roteamento. Ver `hipotese-visao.md`.
+- **Licoes de metodo** registradas (`licoes-de-metodo.md`): L1 nao concluir de 1
+  caminho; L2 sintoma != causa (varrer a variavel); L3 rodar o artefato e o arbitro;
+  L4 custo-zero primeiro; L5 adversarial pode super-generalizar. Candidatas a
+  realimentar o Strata (§4/§6).
+
+## Arvore de decisao de ambiente + prototipo (2026-06-04)
+
+- **Ciclo de arvore de decisao** (workflow wdoc3jreq, 22 agentes): 6 arquetipos de
+  ambiente (A1 do-zero ... A6 qualidade-max) x 15 movimentos confrontados. Resultado:
+  SO 3 movimentos sao T0 universais (M1 contexto enxuto, M2 info inicio/fim, M4
+  right-size); o resto e T4 dependente-do-estado. Registrado em `arvore-decisao.md`
+  com: camadas T0-T5, a arvore heuristica, cobertor-curto (Pareto por prioridade),
+  6 conceitos novos, estrategia de simulacao.
+- **Conceitos novos confirmados**: regimes de custo nao-fungiveis; T0-T5 como
+  durabilidade-sob-refutacao (candidato a realimentar Strata); cobertor-curto como
+  alocacao-de-Pareto; ambiente como artefato legivel-por-agente; fisico ⊥ policy como
+  eixos de bloqueio; tool_use como propriedade-do-modelo.
+- **Prototipo `prototipo/detect_env.py`** (funcional): detecta ambiente, classifica
+  arquetipo, emite LIGAR/CONSIDERAR/BLOQUEADO + environment-profile.yaml legivel-por-
+  agente. Modo `--simulate` teoriza outros ambientes. Validado em 3 casos. Achou e
+  corrigiu 2 bugs proprios: admin!=pode_instalar (classificava todo nao-admin como
+  corporativo); motivo de bloqueio agora DINAMICO (fisico vs policy). 2 limitacoes de
+  deteccao documentadas (Copilot tier offline; pode_instalar heuristico).
+
+## Proximo
+
+- **Economia de IA — destilar a recipe portavel**: ja ha base forte (arvore de
+  decisao + prototipo + numeros medidos dos Estagios 1-4). Consolidar num manual que
+  viaja para outro projeto/colega.
+- Calibrar deteccao do prototipo (ler entitlement Copilot; micro-bench local real).
+- Pendentes de uso real: C2/C3 (Continue.dev + Copilot Chat); H17 (visao); B4a (Foundry GPU).
+- **Cozinha prototipo**: testar a receita em 1-2 subprojetos reais (escala).
+- **Economia de IA — experimentos propostos** (dono decide):
+  - Continue.dev + qwen2.5-coder:7b por 1 semana (medir satisfação e escalada cloud)
+  - Copilot Chat + Ollama habilitado (VSCode 1.113 + Ollama 0.18.3)
+  - OllamaClaude MCP: medir redução de tokens em tarefa multi-arquivo real
+  - AgentsRoom/cc-statistics: baseline de custo antes de qualquer otimização
+- **Novas metodologias** candidatas (da analise): findability/busca
+  (FTS5+sqlite-vec, grep-first), economia-de-espaco/arquival do umbrella
+  (Borg/restic), catalogo de projetos (Backstage/codemeta).

@@ -275,12 +275,20 @@ updated: 2026-06-05
 
 ## Proximo
 
-- **DECISAO (Opcao B): rodar H-B AGORA** — fortalecer o Strata antes de destilar o
-  Comporta. Racional: o acesso multi-modelo ja esta verificado (nao precisa do Comporta
-  pronto); destilar o Comporta agora seria prematuro (prototipo N=0 — viola §9/ADR-003,
-  deixar amadurecer com uso real). **Kit pronto**: `lab/2026-06-04-strata-hipoteses/hb-kit/`
-  (projeto-alvo com 7 problemas plantados + gabarito + protocolo + rubrica cega).
-  Strata congelado v1.1.0 SHA256 F678F235... Dono roda 4-5 modelos; avaliacao cega volta aqui.
+- **H-B tier LOCAL + H-B' EXECUTADOS** (2026-06-05) — ver
+  `lab/2026-06-04-strata-hipoteses/hb-kit/RESULTADOS-tier-local.md`. Achados:
+  - **Tier local 7-8B**: entende a ESTRUTURA (L0/L1/L2 = 2/2) mas NAO os gates;
+    detecta 0-2 de 7 problemas; os 5 de maior risco passam batido; deepseek-r1:8b
+    ate endossou a fonte conflitante. Doc denso ~17k tokens nao sobrevive a locais fracos.
+  - **H-B' (forma de invocacao) VALIDADA** (hipotese do dono): so o prompt muda e muda
+    a deteccao. O agente fail-open (§6-bis, maior risco) SO foi pego no framing
+    gate-first (F4); em F1/F2/F3 o mesmo modelo declarou o ambiente seguro. A captura
+    do gate morava no PROMPT, nao no doc.
+  - **Alvos do H-C** (gates a tornar imperativos): §6 sem-fonte (0/9!), §6-bis fail-open
+    (1/9), §4 desonestidade, §5 fonte-unica, §3 traco/superficie.
+  - Bug corrigido no caminho: num_ctx tinha que ser > prompt (~17k tok); Strata grande
+    demais p/ locais = argumento empirico pro H-C (forma AI-nativa densa).
+  - **PENDENTE: tier NUVEM** (dono roda GPT-4.1/Gemini/Sonnet/Claude novo) — o sinal forte.
 - **Comporta — destilar a 1a recipe**: ADIADO ate ter uso real (rodar detect_env.py +
   arvore por ~1 semana). Base ja forte (arvore + prototipo + primitivas v2 + Estagios 1-4).
 - Pendentes: C2/C3, H17, B4a (Comporta); H-C (Strata, depende de H-B).

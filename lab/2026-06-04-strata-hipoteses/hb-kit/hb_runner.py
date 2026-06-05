@@ -21,7 +21,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 STRATA = os.path.normpath(os.path.join(HERE, "..", "..", "..", "recipe", "knowledge-architecture.md"))
 OLLAMA = "http://localhost:11434/api/chat"
 
-LOCAL_MODELS = ["llama3.1:8b", "qwen2.5-coder:7b", "deepseek-r1:8b", "qwen3:8b", "gemma3:12b"]
+# Strata em prosa ~17k tokens -> precisa num_ctx ~20k. Num 3060 de 12GB, so 7-8B
+# cabem com 20k de KV (12-14B estouram). Achado que motiva a versao AI-nativa (H-C).
+LOCAL_MODELS = ["llama3.1:8b", "qwen2.5-coder:7b", "deepseek-r1:8b", "qwen3:8b"]
 PRIME_MODEL = "qwen3:8b"
 
 TASK = {
@@ -127,7 +129,7 @@ def main():
     ap.add_argument("--label", default="lumen")
     ap.add_argument("--out", default=os.path.join(HERE, "planos"))
     ap.add_argument("--runs", type=int, default=1)
-    ap.add_argument("--num-ctx", type=int, default=16384)
+    ap.add_argument("--num-ctx", type=int, default=20480)  # > prompt (~17k) + folga p/ gerar
     ap.add_argument("--num-predict", type=int, default=2000)
     ap.add_argument("--models", nargs="*", default=LOCAL_MODELS)
     a = ap.parse_args()

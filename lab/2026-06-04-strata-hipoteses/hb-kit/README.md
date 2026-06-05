@@ -85,6 +85,43 @@ Mitigação: (1) **cego** — pontuo sem saber qual é o Claude; (2) **rubrica o
 contra o gabarito, não "qual é o melhor"; (3) *opcional* — peça a um modelo de outra
 família para pontuar os mesmos planos cegos com esta rubrica, como 2º juiz.
 
+## Coleta de saídas + segurança (read-only)
+
+**Onde as saídas vão** — `hb-kit/planos/` (criada pelo `hb_runner.py`), uma subpasta
+por alvo:
+- `planos/lumen/` — tier local sobre o fixture (F1).
+- `planos/lumen-hb-prime/` — H-B′ (qwen3:8b × F1–F4).
+- `planos/<projeto>/` — quando rodar em projeto real.
+
+Você e eu visualizamos os arquivos localmente. **`planos/` é gitignored**: as
+avaliações de projetos REAIS (NNN/TCF/pdf2md/project_ia) são **privadas** — não vão
+ao GitHub. Publicamos só um **resumo curado** depois.
+
+**Garantias read-only (o risco de "modelo surtar e modificar")**:
+- **Completion-only**: `hb_runner.py` chama `/api/chat` (texto entra, texto sai). O
+  modelo **não tem ferramenta** — não executa comando nem toca em arquivo. O pior de
+  um modelo surtado é escrever texto no arquivo de saída.
+- O projeto-alvo é lido com `open('r')` (read-only). **Nada** é escrito fora de `--out`.
+- **Guard**: o runner recusa `--out` fora do `hb-kit/` (não deixa escrever em projeto
+  alheio).
+- **Nunca usar modo agente** (Claude Code / Copilot agent com tools de escrita) para o
+  H-B. O modelo só recebe contexto e devolve um plano.
+
+## Generalizar para projetos reais (NNN, TCF, pdf2md, project_ia)
+
+O fixture `lumen` tem gabarito (scoring objetivo). Projetos reais **não** têm gabarito
+— testam validade ecológica (a avaliação é útil/sensata para um projeto de verdade?),
+julgada por mim + por você que conhece o projeto.
+
+- **Tier local (eu rodo)**: `python hb_runner.py --target <caminho-do-projeto> --label <nome>`.
+  O runner lê o projeto **read-only** (amostra de arquivos de texto, pula binários e
+  arquivos grandes; trunca no limite de contexto) e escreve em `planos/<nome>/`.
+- **Tier nuvem (você roda)**: no Copilot Chat / Claude, use **modo chat** (não agente);
+  anexe/cole os arquivos do projeto + o Strata. Nunca dê a um agente com escrita.
+- **Cuidado de contexto**: um projeto real pode exceder a janela; o runner amostra e
+  trunca. Para projetos grandes, a leitura precisa ser seletiva (estrutura + arquivos-
+  chave) — refinamento futuro.
+
 ## O que decidimos com o resultado
 - **Todos pontuam alto** (detecção + compreensão) → o claim de portabilidade-para-IA
   está **validado**; remover o "ainda não comprovado" do `recipe/README.md`.

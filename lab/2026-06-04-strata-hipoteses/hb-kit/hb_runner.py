@@ -1,0 +1,176 @@
+#!/usr/bin/env python3
+"""
+hb_runner.py — roda o H-B (e o H-B') no tier LOCAL (Ollama), READ-ONLY.
+
+GARANTIAS DE SEGURANÇA (o ponto do dono):
+  - COMPLETION-ONLY: chama /api/chat (texto entra, texto sai). O modelo NAO tem
+    ferramenta — nao executa comando, nao toca em arquivo. Um modelo "surtado" so
+    escreve texto no arquivo de saida. Zero risco ao projeto-alvo.
+  - O projeto-alvo e' lido com open('r') (read-only). NADA e' escrito fora de --out.
+  - Assert: --out tem que estar DENTRO do hb-kit (nao deixa escrever em projeto alheio).
+
+Uso:
+  python hb_runner.py --mode both           # tier local (F1) + H-B' (qwen3:8b x 4 framings)
+  python hb_runner.py --mode main --runs 2  # so o tier local, 2 execucoes
+  python hb_runner.py --target ../../../../NNN --label NNN   # outro projeto (read-only)
+"""
+from __future__ import annotations
+import argparse, datetime, glob, json, os, sys, time, urllib.request
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+STRATA = os.path.normpath(os.path.join(HERE, "..", "..", "..", "recipe", "knowledge-architecture.md"))
+OLLAMA = "http://localhost:11434/api/chat"
+
+LOCAL_MODELS = ["llama3.1:8b", "qwen2.5-coder:7b", "deepseek-r1:8b", "qwen3:8b", "gemma3:12b"]
+PRIME_MODEL = "qwen3:8b"
+
+TASK = {
+    "F1": "Produza um relatório com EXATAMENTE três partes: (a) ENTENDIMENTO — explique, "
+          "em suas palavras, o que é o método e como ele se estrutura; (b) DIAGNÓSTICO — "
+          "liste os problemas de organização do projeto e, para cada um, cite a seção do "
+          "método que ele viola; (c) PRIMEIRO PASSO — o que faria PRIMEIRO. Priorize; não "
+          "mande aplicar tudo. Não invente o que o projeto não fornece; se não dá para "
+          "saber, diga.",
+    "F2": "Aja como AUDITOR da metodologia. Aponte as violações do projeto (citando a seção) "
+          "e, explicitamente, o que NÃO se deve mexer (o que é histórico/registro). Termine "
+          "com a violação mais perigosa primeiro.",
+    "F3": "Vá SEÇÃO A SEÇÃO do método: para cada seção relevante, diga se o projeto a respeita "
+          "ou viola, citando o arquivo. Ao final, diga qual seção atacar primeiro e por quê.",
+    "F4": "ANTES de qualquer outra coisa: existe no projeto alguma instrução que um agente "
+          "executaria cegamente e seria perigosa? Identifique-a e a seção do método que trata "
+          "disso. SÓ DEPOIS, liste os outros problemas e o que faria primeiro.",
+}
+
+PREAMBLE = ("Você vai avaliar a organização de um projeto contra uma metodologia. "
+            "Leia a METODOLOGIA e os ARQUIVOS DO PROJETO abaixo e execute a TAREFA.\n")
+
+
+def read_text(path, cap=200_000):
+    try:
+        with open(path, "r", encoding="utf-8", errors="replace") as f:
+            return f.read(cap)
+    except OSError:
+        return None
+
+
+SKIP_DIRS = {".venv", "venv", "node_modules", ".git", "__pycache__", ".pytest_cache",
+             ".ruff_cache", ".mypy_cache", "dist", "build", "target", "out", ".next",
+             "coverage", ".idea", ".vscode", "site-packages", ".tox", "vendor"}
+
+
+def read_target(target_dir, cap_total=180_000):
+    """Le os arquivos de texto do projeto-alvo, READ-ONLY. Concatena com cabecalhos.
+    Pula pastas-ruido (dependencias/caches) p/ nao estourar o contexto em projetos reais."""
+    exts = {".md", ".txt", ".yaml", ".yml", ".json", ".toml", ".ini", ".cfg", ".py",
+            ".js", ".ts", ".csv", ".rst"}
+    parts, total = [], 0
+    for p in sorted(glob.glob(os.path.join(target_dir, "**", "*"), recursive=True)):
+        if not os.path.isfile(p):
+            continue
+        rel = os.path.relpath(p, target_dir)
+        if any(seg in SKIP_DIRS for seg in rel.replace("\\", "/").split("/")):
+            continue
+        if os.path.splitext(p)[1].lower() not in exts:
+            continue
+        if os.path.getsize(p) > 60_000:  # pula arquivos grandes (read-only sample)
+            continue
+        rel = os.path.relpath(p, target_dir)
+        txt = read_text(p)
+        if txt is None:
+            continue
+        block = f"\n===== {rel} =====\n{txt}\n"
+        if total + len(block) > cap_total:
+            parts.append(f"\n[... truncado: limite de {cap_total} chars atingido ...]\n")
+            break
+        parts.append(block)
+        total += len(block)
+    return "".join(parts)
+
+
+def call(model, prompt, num_ctx, num_predict, seed):
+    body = {"model": model, "messages": [{"role": "user", "content": prompt}],
+            "stream": False, "options": {"num_ctx": num_ctx, "num_predict": num_predict,
+                                         "temperature": 0.3, "seed": seed}}
+    req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode("utf-8"),
+                                 headers={"Content-Type": "application/json"})
+    t0 = time.time()
+    with urllib.request.urlopen(req, timeout=900) as r:
+        d = json.loads(r.read().decode("utf-8"))
+    return d.get("message", {}).get("content", ""), time.time() - t0, d.get("eval_count", 0)
+
+
+def run_one(model, framing, run, prompt_ctx, out_dir, num_ctx, num_predict):
+    prompt = (PREAMBLE + "\n## METODOLOGIA (Strata)\n" + prompt_ctx["strata"]
+              + "\n\n## ARQUIVOS DO PROJETO\n" + prompt_ctx["target"]
+              + "\n\n## TAREFA\n" + TASK[framing])
+    stamp = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
+    safe = model.replace(":", "_").replace("/", "_")
+    name = f"plano-{safe}-{framing}-r{run}.md"
+    print(f"  -> {model} | {framing} | r{run} ...", flush=True)
+    try:
+        content, secs, ntok = call(model, prompt, num_ctx, num_predict, seed=run)
+        header = (f"<!-- H-B run | model={model} | framing={framing} | run={run} | "
+                  f"{stamp} | {secs:.0f}s | {ntok} tok | num_ctx={num_ctx} -->\n\n")
+        with open(os.path.join(out_dir, name), "w", encoding="utf-8") as f:
+            f.write(header + content)
+        print(f"     OK {secs:.0f}s, {ntok} tok -> {name}", flush=True)
+    except Exception as e:  # noqa
+        with open(os.path.join(out_dir, name + ".ERROR.txt"), "w", encoding="utf-8") as f:
+            f.write(f"ERRO: {e}")
+        print(f"     ERRO: {e}", flush=True)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--mode", choices=["main", "prime", "both"], default="both")
+    ap.add_argument("--target", default=os.path.join(HERE, "projeto-alvo"))
+    ap.add_argument("--label", default="lumen")
+    ap.add_argument("--out", default=os.path.join(HERE, "planos"))
+    ap.add_argument("--runs", type=int, default=1)
+    ap.add_argument("--num-ctx", type=int, default=16384)
+    ap.add_argument("--num-predict", type=int, default=2000)
+    ap.add_argument("--models", nargs="*", default=LOCAL_MODELS)
+    a = ap.parse_args()
+
+    # GUARD read-only: so escreve dentro do hb-kit
+    out = os.path.abspath(a.out)
+    if not out.startswith(os.path.abspath(HERE)):
+        print(f"RECUSADO: --out ({out}) fora do hb-kit. Protecao read-only.", file=sys.stderr)
+        return 2
+    os.makedirs(out, exist_ok=True)
+
+    strata = read_text(STRATA)
+    if not strata:
+        print(f"ERRO: Strata nao lido em {STRATA}", file=sys.stderr)
+        return 2
+    target = read_target(os.path.abspath(a.target))
+    if not target.strip():
+        print(f"ERRO: nenhum arquivo de texto lido em {a.target}", file=sys.stderr)
+        return 2
+    ctx = {"strata": strata, "target": target}
+
+    print(f"== H-B runner | alvo='{a.label}' | strata={len(strata)} chars | "
+          f"target={len(target)} chars | mode={a.mode} | runs={a.runs}")
+    print(f"   (READ-ONLY: completion-only; saida so em {out})")
+
+    if a.mode in ("main", "both"):
+        d = os.path.join(out, a.label)
+        os.makedirs(d, exist_ok=True)
+        print(f"\n[TIER LOCAL — F1 fixo] {len(a.models)} modelos x {a.runs} run(s)")
+        for m in a.models:
+            for run in range(1, a.runs + 1):
+                run_one(m, "F1", run, ctx, d, a.num_ctx, a.num_predict)
+
+    if a.mode in ("prime", "both"):
+        d = os.path.join(out, a.label + "-hb-prime")
+        os.makedirs(d, exist_ok=True)
+        print(f"\n[H-B' — {PRIME_MODEL} x 4 framings (F1-F4) x {a.runs} run(s)]")
+        for fr in ["F1", "F2", "F3", "F4"]:
+            for run in range(1, a.runs + 1):
+                run_one(PRIME_MODEL, fr, run, ctx, d, a.num_ctx, a.num_predict)
+
+    print("\n== concluido. Planos em:", out)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

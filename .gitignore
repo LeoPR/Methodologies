@@ -22,3 +22,8 @@ lab/2026-06-04-dev-environment-z/snapshot-fonte/
 
 # Saída de máquina do protótipo (gerada por --emit-profile)
 .ai/environment-profile.yaml
+
+# Saídas BRUTAS dos modelos no H-B (planos gerados). São dados de pesquisa locais;
+# as avaliações de projetos REAIS (NNN/TCF/pdf2md/project_ia) são PRIVADAS. Não
+# publicar os dumps — publicar apenas um RESUMO curado. Visualização é local.
+lab/2026-06-04-strata-hipoteses/hb-kit/planos/

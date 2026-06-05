@@ -132,6 +132,7 @@ def main():
     ap.add_argument("--num-ctx", type=int, default=20480)  # > prompt (~17k) + folga p/ gerar
     ap.add_argument("--num-predict", type=int, default=2000)
     ap.add_argument("--models", nargs="*", default=LOCAL_MODELS)
+    ap.add_argument("--strata", default=STRATA, help="caminho do doc de metodologia (prose ou AN)")
     a = ap.parse_args()
 
     # GUARD read-only: so escreve dentro do hb-kit
@@ -141,9 +142,9 @@ def main():
         return 2
     os.makedirs(out, exist_ok=True)
 
-    strata = read_text(STRATA)
+    strata = read_text(os.path.abspath(a.strata))
     if not strata:
-        print(f"ERRO: Strata nao lido em {STRATA}", file=sys.stderr)
+        print(f"ERRO: Strata nao lido em {a.strata}", file=sys.stderr)
         return 2
     target = read_target(os.path.abspath(a.target))
     if not target.strip():

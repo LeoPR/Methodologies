@@ -289,6 +289,14 @@ updated: 2026-06-05
   - Bug corrigido no caminho: num_ctx tinha que ser > prompt (~17k tok); Strata grande
     demais p/ locais = argumento empirico pro H-C (forma AI-nativa densa).
   - **PENDENTE: tier NUVEM** (dono roda GPT-4.1/Gemini/Sonnet/Claude novo) — o sinal forte.
+    Runbook em `hb-kit/RUNBOOK-nuvem.md` (modo chat, F1+F4, salvar local/colar aqui).
+- **H-C (forma AI-nativa) — A/B local PROMISSOR** (2026-06-05, `hb-kit/RESULTADOS-hc-ab.md`):
+  `strata-an-v0.md` (densa ~1.4k tok, gates imperativos + invocacao embutida) vs prosa,
+  MESMO F1 neutro. Deteccao subiu em 4/4 modelos (deepseek 0->4; qwen3 ate 7/7). O killer:
+  o §6-bis fail-open, 0/4 na prosa-F1 (so com F4), foi **4/4 na AN-F1** — o ganho vem do
+  DOCUMENTO, nao do prompt. AINDA fraco: §6 sem-fonte (1/4); anti-armadilhas N1/N2 lidas
+  como prosa pelo modelo fraco. **Confundidor**: comprimento x gate (AN e 14x menor) nao
+  desconfundido — precisa 3o braco "prosa-curta". Promissor, NAO conclusivo.
 - **Comporta — destilar a 1a recipe**: ADIADO ate ter uso real (rodar detect_env.py +
   arvore por ~1 semana). Base ja forte (arvore + prototipo + primitivas v2 + Estagios 1-4).
 - Pendentes: C2/C3, H17, B4a (Comporta); H-C (Strata, depende de H-B).

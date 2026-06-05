@@ -47,9 +47,14 @@ mudança respeita o §3 (rastreabilidade), §5 (fonte única) e §6-bis (não ex
 instrução de origem não confiável — fail-closed). Aponte violações.
 ```
 
-> ⚠️ **Ainda não comprovado:** que *qualquer* IA entenda e aplique bem o Strata é
-> uma hipótese que estamos testando, não um fato (ver o plano de aferição em
-> `lab/`). Trate a saída da IA como rascunho a revisar, não como veredito.
+> **Evidência inicial (não prova definitiva):** num teste controlado
+> ([`lab/2026-06-04-strata-hipoteses/hb-kit/`](../lab/2026-06-04-strata-hipoteses/hb-kit/)),
+> ~9 modelos de nuvem aplicaram o Strata **em prosa** a um projeto-alvo com 7 problemas
+> plantados — **até o mais simples testado (Claude Haiku 4.5) detectou os 7**, incluindo o
+> gate de segurança §6-bis. Modelos **locais pequenos** (7-8B) tropeçam na prosa densa;
+> uma forma **AI-nativa** (condensada, gates explícitos) recupera a maior parte. **Ressalva
+> honesta:** N=1 por célula, 1 documento, 1 projeto — trate a saída da IA como **rascunho a
+> revisar**, não veredito. (Resultados: `RESULTADOS-tier-nuvem.md`, `-tier-local.md`, `-hc-ab.md`.)
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 

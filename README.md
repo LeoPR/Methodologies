@@ -102,7 +102,7 @@ O problema é **anterior ao computador**: bibliotecários, cientistas e engenhei
 enfrentam há séculos. As ferramentas de cada era (hoje: IA, editores, controle de
 versão) são **formas** que expressam esse método — moldam, mas não fundam.
 
-- **Formato:** 1 arquivo, ~800 linhas, portável (viaja sozinho). **Versão 1.1.0** ·
+- **Formato:** 1 arquivo, ~660 linhas, portável (viaja sozinho). **Versão 1.1.0** ·
   licença CC BY-SA 4.0. (A versão canônica fica no frontmatter do próprio arquivo.)
 - **Maturidade:** o **L0 (núcleo) está consolidado e verificado** (22 fontes
   primárias + varredura de atemporalidade). **Ainda em desenvolvimento:** o **eixo

@@ -4,7 +4,7 @@ Aqui ficam as metodologias **destiladas e portáveis**. Hoje há uma:
 
 ## Strata — [`knowledge-architecture.md`](knowledge-architecture.md)
 
-Arquitetura do conhecimento em camadas. Um arquivo (~800 linhas), auto-suficiente
+Arquitetura do conhecimento em camadas. Um arquivo (~660 linhas), auto-suficiente
 (todas as fundamentações *inline*), licença CC BY-SA 4.0.
 
 > Este README é **meta** — ensina a *usar* o arquivo. Ele **não** viaja junto: o

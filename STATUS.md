@@ -275,12 +275,15 @@ updated: 2026-06-05
 
 ## Proximo
 
-- **Comporta — destilar a 1a recipe**: ja ha base forte (arvore de decisao +
-  `prototipo/detect_env.py` + primitivas v2 + numeros medidos dos Estagios 1-4).
-  Consolidar `recipe/comporta-*.md` — o manual portavel de montar o ambiente IA otimo,
-  que viaja para outro projeto/colega (analogo ao Strata p/ conhecimento).
-- Pendentes de uso real (Comporta): C2/C3 (Continue.dev + Copilot Chat), H17 (visao),
-  B4a (Foundry GPU). Hipoteses do Strata: H-B (afericao multi-modelo) e H-C (AI-nativo).
+- **DECISAO (Opcao B): rodar H-B AGORA** — fortalecer o Strata antes de destilar o
+  Comporta. Racional: o acesso multi-modelo ja esta verificado (nao precisa do Comporta
+  pronto); destilar o Comporta agora seria prematuro (prototipo N=0 — viola §9/ADR-003,
+  deixar amadurecer com uso real). **Kit pronto**: `lab/2026-06-04-strata-hipoteses/hb-kit/`
+  (projeto-alvo com 7 problemas plantados + gabarito + protocolo + rubrica cega).
+  Strata congelado v1.1.0 SHA256 F678F235... Dono roda 4-5 modelos; avaliacao cega volta aqui.
+- **Comporta — destilar a 1a recipe**: ADIADO ate ter uso real (rodar detect_env.py +
+  arvore por ~1 semana). Base ja forte (arvore + prototipo + primitivas v2 + Estagios 1-4).
+- Pendentes: C2/C3, H17, B4a (Comporta); H-C (Strata, depende de H-B).
 - Calibrar deteccao do prototipo (ler entitlement Copilot; micro-bench local real).
 - Pendentes de uso real: C2/C3 (Continue.dev + Copilot Chat); H17 (visao); B4a (Foundry GPU).
 - **Cozinha prototipo**: testar a receita em 1-2 subprojetos reais (escala).

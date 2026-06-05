@@ -11,7 +11,8 @@ updated: 2026-06-03
 ```
 Methodologies/                        <- Projeto Strata v1.0
 ├── recipe/
-│   └── knowledge-architecture.md     <- PRODUTO (L0/L1/L2; núcleo atemporal verificado)
+│   ├── knowledge-architecture.md     <- PRODUTO Strata (L0/L1/L2; núcleo atemporal verificado)
+│   └── README.md                     <- guia de uso do Strata (humano + IA; efêmero; pendências)
 ├── decisions/                        <- ADRs (registros de decisão imutáveis)
 │   ├── ADR-001-formato-produto.md    <- 1 arquivo vs suíte de docs
 │   ├── ADR-002-estrutura-L0-L1-L2.md <- camadas de durabilidade
@@ -23,7 +24,8 @@ Methodologies/                        <- Projeto Strata v1.0
 │   ├── 2026-06-03-predecessor/       <- organization-methodology.md arquivado (FROZEN)
 │   ├── 2026-06-04-aderencia-portabilidade/ <- aderencia/brownfield/IA/portabilidade (4 lentes)
 │   ├── 2026-06-04-economia-ia-tokens/    <- tokens, hardware local, Copilot, Ollama, VSCode
-│   └── 2026-06-04-dev-environment-z/     <- metodologia Z:\ python/venv/cache (snapshot p/ estudo)
+│   ├── 2026-06-04-dev-environment-z/     <- metodologia Z:\ python/venv/cache (snapshot p/ estudo)
+│   └── 2026-06-04-strata-hipoteses/      <- código-como-documento + aferição de compreensão por IA
 ├── prototype/                        <- cozinha prototipo (escala; futuro)
 ├── README.md                         <- entry humano (as 3 cozinhas)
 ├── AGENTS.md                         <- entry IA

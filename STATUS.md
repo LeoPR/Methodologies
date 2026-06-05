@@ -235,11 +235,33 @@ updated: 2026-06-03
   corporativo); motivo de bloqueio agora DINAMICO (fisico vs policy). 2 limitacoes de
   deteccao documentadas (Copilot tier offline; pode_instalar heuristico).
 
+## Publicacao + ajustes finos do Strata (2026-06-04)
+
+- **Publicado** no GitHub (LeoPR/Methodologies): repo limpo com Strata na raiz;
+  snapshot dev-environment excluido; LICENSE CC BY-SA 4.0 (texto SPDX).
+- **README reescrito** apos critica de 4 metodos nomeados (Diataxis, convencoes de
+  README, posicionamento/Dunford, arquitetura-de-informacao) — veredito unanime: o
+  antigo posicionava o produto (Strata) como se fosse o continente (a oficina). Novo
+  README lidera pela abordagem + diagrama mermaid + 2 produtos (Strata pronto /
+  economia-IA no forno). Metafora padaria guiou a estrutura, NAO o vocabulario.
+- **Licenca analisada** (CC BY-SA vs MIT): MIT e de software (categoria errada p/
+  doc); o equivalente permissivo p/ documento e CC BY 4.0. BY-SA (copyleft) mantida
+  como recomendada (derivados ficam abertos). Licenca cobre o TEXTO, nao a IDEIA.
+- **README ajustado**: explicitado "le-se por humano E por IA"; corrigido overclaim
+  de "finalizada" (eixo seguranca §6-bis e Parte IV adocao/operacao PENDENTES).
+- **`recipe/README.md` novo**: guia de uso do Strata (humano + IA com prompts de
+  exemplo; arquivo EFEMERO — le de qualquer lugar, descarta, mas vale manter p/
+  revisao; pendencias de maturidade).
+- **2 hipoteses registradas** (`lab/2026-06-04-strata-hipoteses/`): (H-A)
+  codigo-como-documento (estende doc-vs-code + §3-bis); (H-B) aferir empiricamente
+  se outras IAs entendem/aplicam o Strata — protocolo multi-modelo com avaliacao
+  CEGA e rubrica (mitiga Claude-juiz-e-participante).
+
 ## Proximo
 
-- **Economia de IA — destilar a recipe portavel**: ja ha base forte (arvore de
-  decisao + prototipo + numeros medidos dos Estagios 1-4). Consolidar num manual que
-  viaja para outro projeto/colega.
+- **Voltar ao projeto de economia de IA** (pedido do dono) — destilar a recipe
+  portavel: ja ha base forte (arvore de decisao + prototipo + numeros medidos dos
+  Estagios 1-4). Consolidar num manual que viaja para outro projeto/colega.
 - Calibrar deteccao do prototipo (ler entitlement Copilot; micro-bench local real).
 - Pendentes de uso real: C2/C3 (Continue.dev + Copilot Chat); H17 (visao); B4a (Foundry GPU).
 - **Cozinha prototipo**: testar a receita em 1-2 subprojetos reais (escala).

@@ -297,6 +297,15 @@ updated: 2026-06-05
   DOCUMENTO, nao do prompt. AINDA fraco: §6 sem-fonte (1/4); anti-armadilhas N1/N2 lidas
   como prosa pelo modelo fraco. **Confundidor**: comprimento x gate (AN e 14x menor) nao
   desconfundido — precisa 3o braco "prosa-curta". Promissor, NAO conclusivo.
+- **H-B tier NUVEM CONCLUIDO** (2026-06-05, `hb-kit/RESULTADOS-tier-nuvem.md`): 9 modelos
+  (Sonnet 4.6, Haiku 4.5 think/no-think, Gemini 3 Flash, GPT-5.1-mini/5.3-Codex/5.4/
+  5.4-mini, Raptor) x F1/F4 na prosa. **A nuvem SATURA na prosa-F1**: ate o Haiku (mais
+  simples) tirou 7/7, incl. §6-bis e §6 — contraste gritante com o local. **P7/§6-bis em
+  17/18 celulas** (local era 1/9 so com F4). **F4 NAO ajuda na nuvem** (piora: troca largura
+  por foco). think≈no-think. Vazamento residual: §6 sem-fonte. **CONCLUSAO**: (1) "qualquer
+  IA moderna aplica o Strata" VALIDADO p/ nuvem na prosa; (2) H-C/AI-nativo so agrega no
+  **tier fraco/local** (fronteira tem teto); (3) §6 sem-fonte = ponto cego universal, alvo
+  do texto da prosa. Caveat: N=1, juiz-Claude avalia Haiku, reguas inconsistentes.
 - **Comporta — destilar a 1a recipe**: ADIADO ate ter uso real (rodar detect_env.py +
   arvore por ~1 semana). Base ja forte (arvore + prototipo + primitivas v2 + Estagios 1-4).
 - Pendentes: C2/C3, H17, B4a (Comporta); H-C (Strata, depende de H-B).

@@ -2,7 +2,8 @@
 title: Hipóteses abertas do Strata — código-como-documento + aferição de compreensão por IA
 status: open
 created: 2026-06-04
-tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-metodo]
+updated: 2026-06-05
+tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-metodo, ai-native]
 ---
 
 # Hipóteses abertas do Strata
@@ -82,3 +83,42 @@ qualitativamente) com uma medição multi-modelo. Resolve a ressalva do
 
 **Estado**: plano pronto, aguardando execução (precisa do dono rodar os modelos
 externos manualmente; a avaliação cega volta para cá).
+
+## H-C — Versão "AI-nativa" do Strata (densa/otimizada para máquina)
+
+**A ideia (do dono)**: depois de **medir** (H-B) quais modelos entendem o Strata,
+explorar **modificá-lo** — ou para ser otimizado **e** geral ao mesmo tempo, ou
+gerando **versões especiais** que mantêm a essência mas ficam numa forma muito mais
+**otimizada para uma IA parsear**: mais densa, simbólica, possivelmente **em inglês
+com códigos/marcadores estruturados**. (O dono chamou de "binarizado/tokenizado"; o
+termo mais preciso é uma **forma AI-nativa** — não literalmente binária, mas uma
+codificação densa e não-ambígua para consumo por modelo.)
+
+**Por que faz sentido**: o L0 já tem disciplina que ajuda a IA (§4: vocabulário
+sóbrio, seções explícitas, zero dependência de ferramenta) — então o Strata já é
+**legível** por IA. H-C vai além: uma forma onde cada princípio é um bloco
+estruturado (id, gatilho, aderência, ação) que um agente consome com **menos tokens
+e menos ambiguidade** que prosa — útil para colar no system prompt / num
+`AGENTS.md`-like que a IA obedece direto.
+
+**A tensão a resolver ANTES de fazer (§5 — fonte única)**: manter **duas formas**
+do mesmo conteúdo (narrativa humana + AI-nativa) é convite à divergência — é o erro
+que o §5 condena. O desenho tem que ter **uma canônica** e a outra **gerada** dela:
+- Opção A: humano é canônico → a forma AI-nativa é **derivada** (compilada) do L0.
+- Opção B: um núcleo estruturado é canônico → a narrativa humana é a "renderização"
+  legível dele (tipo doc gerada de um schema).
+- Decisão adiada: qual direção, e se a geração é manual, por script, ou por IA.
+
+**Pré-requisito**: **H-B primeiro**. Otimizar para IA sem medir a compreensão atual
+é otimizar no escuro. H-B dá a baseline (quais modelos entendem o quê, onde erram);
+H-C testa se a forma AI-nativa **fecha os gaps** que H-B encontrar — com o mesmo
+protocolo de avaliação cega, comparando narrativa-humana vs AI-nativa no mesmo
+modelo/projeto.
+
+**Risco a vigiar**: a forma AI-nativa pode ganhar parsing e **perder a fundamentação
+humana** (o *porquê*, as fontes, a Cerca de Chesterton do §6) que faz o método ser
+adotado com julgamento e não cargo-cult. Medir compreensão **E** qualidade de
+aplicação, não só "a IA parseou".
+
+**Estado**: hipótese para uma **próxima versão do Strata** (v2?), depois de H-B.
+Registrada para experimentar, não decidida.

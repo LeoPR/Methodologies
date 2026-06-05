@@ -3,10 +3,10 @@ name: status-methodologies-project
 type: status
 status: active
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-06-05
 ---
 
-# STATUS — 2026-06-03
+# STATUS — 2026-06-05
 
 ## Foco atual
 
@@ -257,11 +257,30 @@ updated: 2026-06-03
   se outras IAs entendem/aplicam o Strata — protocolo multi-modelo com avaliacao
   CEGA e rubrica (mitiga Claude-juiz-e-participante).
 
+## Comporta batizado + dogfood (2026-06-05)
+
+- **2a metodologia batizada: COMPORTA** (economia/roteamento de recursos de IA —
+  "cada decisao e uma comporta: abre o recurso certo, fecha o caro"). Declarada no
+  hub `lab/2026-06-04-economia-ia-tokens/` (`project: Comporta`); propagada em
+  README/AGENTS/MAP. Quando destilar, vira `recipe/comporta-*.md`.
+- **Dogfood (reaplicar Strata ao projeto)**: AGENTS.md (entrada ai-primary) estava
+  com inventario desatualizado (faltava Comporta, aderencia, dev-env, hipoteses,
+  decisions/) e `updated:` estagnado — CORRIGIDO. Datas de MAP/STATUS/AGENTS bumpadas.
+- **H-C registrada** (`lab/2026-06-04-strata-hipoteses/`): versao AI-nativa/densa do
+  Strata p/ proxima versao — depende de H-B; resolver tensao §5 (uma forma canonica,
+  a outra gerada). Decidido NAO overclaim "Strata otimizado p/ IA" (so legivel; a
+  otimizacao e' H-C futura).
+- **Licenca**: confirmada CC BY-SA 4.0 (vs MIT: MIT e' de software, categoria errada;
+  equivalente permissivo p/ doc seria CC BY 4.0).
+
 ## Proximo
 
-- **Voltar ao projeto de economia de IA** (pedido do dono) — destilar a recipe
-  portavel: ja ha base forte (arvore de decisao + prototipo + numeros medidos dos
-  Estagios 1-4). Consolidar num manual que viaja para outro projeto/colega.
+- **Comporta — destilar a 1a recipe**: ja ha base forte (arvore de decisao +
+  `prototipo/detect_env.py` + primitivas v2 + numeros medidos dos Estagios 1-4).
+  Consolidar `recipe/comporta-*.md` — o manual portavel de montar o ambiente IA otimo,
+  que viaja para outro projeto/colega (analogo ao Strata p/ conhecimento).
+- Pendentes de uso real (Comporta): C2/C3 (Continue.dev + Copilot Chat), H17 (visao),
+  B4a (Foundry GPU). Hipoteses do Strata: H-B (afericao multi-modelo) e H-C (AI-nativo).
 - Calibrar deteccao do prototipo (ler entitlement Copilot; micro-bench local real).
 - Pendentes de uso real: C2/C3 (Continue.dev + Copilot Chat); H17 (visao); B4a (Foundry GPU).
 - **Cozinha prototipo**: testar a receita em 1-2 subprojetos reais (escala).

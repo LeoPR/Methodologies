@@ -5,8 +5,8 @@
 > ferramenta ameaça obrigar a recomeçar. **Este repositório não é o manual de uma
 > metodologia — é uma abordagem para fabricá-las** de um jeito que sobrevive à
 > troca de ferramenta. É a oficina; [**Strata**](#produto-em-destaque-strata) é o
-> primeiro produto que saiu dela, e [uma segunda](#no-forno-economia-de-ia) está
-> no forno.
+> primeiro produto que saiu dela, e a segunda — [**Comporta**](#no-forno-comporta) —
+> está no forno.
 
 A abordagem, em uma frase: separar o que é **atemporal** do que é **datado**,
 maturar a ideia através de três cozinhas (`lab/` → `recipe/` → `prototype/`), e
@@ -26,7 +26,7 @@ não assumindo.
 |---|---|
 | **Usar um método pronto** | [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) (Strata) |
 | **Entender a abordagem** de fabricar metodologias | [A abordagem](#a-abordagem) (abaixo) |
-| Ver a **pesquisa em andamento** (2ª metodologia) | [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) |
+| Ver a **pesquisa em andamento** (Comporta, 2ª metodologia) | [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) |
 | Por que decidimos assim | [`decisions/`](decisions/) (ADRs) |
 | O mapa detalhado / o foco atual | [`MAP.md`](MAP.md) · [`STATUS.md`](STATUS.md) |
 
@@ -80,7 +80,7 @@ flowchart LR
     OFICINA --> COZINHAS
 
     REC --> STRATA["Strata — FINALIZADA<br/>arquitetura do conhecimento em camadas"]
-    LAB -.->|ainda no forno| ECON["Economia de IA — EM ANDAMENTO<br/>protótipo detect_env.py (A1–A6)"]
+    LAB -.->|ainda no forno| ECON["Comporta — EM ANDAMENTO<br/>economia/roteamento de recursos de IA"]
 
     classDef done fill:#2d6a2d,stroke:#1b4d1b,color:#fff;
     classDef wip fill:#8a6d00,stroke:#5c4900,color:#fff,stroke-dasharray:5 5;
@@ -112,12 +112,13 @@ versão) são **formas** que expressam esse método — moldam, mas não fundam.
   cada uma* (§9), os guias de **uso / brownfield / transporte** e **como usá-lo com
   uma IA** vivem com o produto — veja [`recipe/`](recipe/).
 
-## No forno: economia de IA
+## No forno: Comporta
 
-[`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) — **EM
-ANDAMENTO** (ainda nada destilado para `recipe/`). Investiga como usar bem os
-recursos de IA: custo de tokens, modelos locais (RTX 3060) vs nuvem, integração com
-o editor, e roteamento por tipo de ambiente.
+[`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) —
+**Comporta**, a 2ª metodologia, **EM ANDAMENTO** (ainda nada destilado para
+`recipe/`). *Cada decisão é uma comporta* que abre o recurso certo e fecha o caro.
+Investiga economia e roteamento de recursos de IA: custo de tokens, modelos locais
+(RTX 3060) vs nuvem, integração com o editor, e roteamento por tipo de ambiente.
 
 Já tem **instrumentos medidos** (baseline de tokens congelada, benchmarks de GPU) e
 um **protótipo funcional** — `prototipo/detect_env.py` classifica a máquina do dev em

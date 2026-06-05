@@ -1,18 +1,24 @@
 ---
-title: Economia de IA — tokens, hardware local e fornecedores
+title: Comporta — economia e roteamento de recursos de IA
+project: Comporta
 status: open
 created: 2026-06-04
-updated: 2026-06-04
-tags: [economia-tokens, local-llm, ollama, copilot, rtx3060, vscode, hardware, fornecedores, rag, prompt-compression]
-phase: lab-sujo (coleta concluída — hipóteses confrontadas — decisões pendentes com dono)
+updated: 2026-06-05
+tags: [comporta, economia-tokens, local-llm, ollama, copilot, rtx3060, vscode, hardware, fornecedores, roteamento]
+phase: lab-sujo (coleta concluída — hipóteses confrontadas — em direção à 1ª recipe)
 ---
 
-# Economia de IA — tokens, hardware local e fornecedores
+# Comporta — economia e roteamento de recursos de IA
 
-> **Fase de lab sujo**: hipóteses confrontadas com literatura e documentação
-> oficial. Nenhuma metodologia nova foi decidida. Nada aqui toca o
-> knowledge-architecture.md enquanto não houver evidência suficiente e
-> decisão explícita do dono.
+> **Projeto Comporta** (a 2ª metodologia desta oficina, ainda no `lab/`). *Cada
+> decisão é uma comporta*: abre o recurso certo (local / Copilot / cloud) e fecha
+> o caro, conforme o ambiente — o "cobertor curto". Irmã do **Strata**: enquanto o
+> Strata organiza **conhecimento**, o Comporta organiza o **uso de recursos de IA**
+> (compute / memória / E-S / custo) para render mais sob restrição.
+
+> **Fase de lab sujo**: hipóteses confrontadas com literatura, documentação oficial
+> e **medição de 1ª mão** (Estágios 1–4 rodados na RTX 3060). Nada destilado para
+> `recipe/` ainda — quando for, vira `recipe/comporta-*.md` com `project: Comporta`.
 
 ## Documentos deste lab (ordem de leitura)
 

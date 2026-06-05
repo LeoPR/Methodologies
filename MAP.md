@@ -3,7 +3,7 @@ name: map-methodologies-project
 type: navigation
 status: active
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-06-05
 ---
 
 # Methodologies — mapa
@@ -23,7 +23,7 @@ Methodologies/                        <- Projeto Strata v1.0
 │   ├── 2026-06-03-future-proof-sweep/ <- varredura multi-lente (2 rodadas, 15 agentes)
 │   ├── 2026-06-03-predecessor/       <- organization-methodology.md arquivado (FROZEN)
 │   ├── 2026-06-04-aderencia-portabilidade/ <- aderencia/brownfield/IA/portabilidade (4 lentes)
-│   ├── 2026-06-04-economia-ia-tokens/    <- tokens, hardware local, Copilot, Ollama, VSCode
+│   ├── 2026-06-04-economia-ia-tokens/    <- COMPORTA (2ª metodologia): economia/roteamento de recursos de IA
 │   ├── 2026-06-04-dev-environment-z/     <- metodologia Z:\ python/venv/cache (snapshot p/ estudo)
 │   └── 2026-06-04-strata-hipoteses/      <- código-como-documento + aferição de compreensão por IA
 ├── prototype/                        <- cozinha prototipo (escala; futuro)

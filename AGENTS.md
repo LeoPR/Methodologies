@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-06-05
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -16,15 +16,30 @@ Projeto de P&D de metodologia de organizacao. **3 cozinhas**: `lab/`
 
 ## Inventario — onde esta o que
 
-- `recipe/knowledge-architecture.md` — **O PRODUTO**: arquitetura do conhecimento
-  em camadas L0/L1/L2 (núcleo atemporal + padrões + ferramentas). **Single-source das técnicas.**
-- `lab/` — pesquisa (modo exploratório). Subpastas datadas:
-  - `2026-06-03-modernizacao/`: análise 5-lentes + `experimento-split/` (**FROZEN**)
-  - `2026-06-03-fundamentacao-L0/`: 22 fontes primárias verificadas do L0
+Esta e' uma **oficina de metodologias** (ver `README.md`). 2 produtos: **Strata**
+(FINALIZADO) e uma 2a metodologia de **economia de IA** (EM ANDAMENTO no `lab/`).
+
+- `recipe/` — **produtos prontos** (single-source das tecnicas):
+  - `knowledge-architecture.md` — **STRATA**: arquitetura do conhecimento em
+    camadas L0/L1/L2. Pendente: eixo seguranca (§6-bis) e Parte IV (adocao/operacao).
+  - `README.md` — guia de uso do Strata (humano + IA; o arquivo e' efemero).
+- `decisions/` — **ADRs** (ADR-001..003): por que cada decisao de design. Imutaveis.
+- `lab/` — pesquisa (modo exploratorio), subpastas datadas `YYYY-MM-DD-tema/`:
+  - `2026-06-03-modernizacao/`: analise 5-lentes + `experimento-split/` (**FROZEN**)
+  - `2026-06-03-fundamentacao-L0/`: 22 fontes primarias verificadas do L0
   - `2026-06-03-future-proof-sweep/`: varredura multi-lente (2 rodadas, 15 agentes)
-  - `2026-06-03-predecessor/`: `organization-methodology.md` arquivado (**FROZEN**)
+  - `2026-06-03-predecessor/`: predecessor arquivado (**FROZEN**)
+  - `2026-06-04-aderencia-portabilidade/`: aderencia/brownfield/IA/portabilidade
+  - `2026-06-04-economia-ia-tokens/`: **COMPORTA** — a 2a metodologia (economia e
+    roteamento de recursos de IA: compute/memoria/E-S/custo). Tem instrumentos medidos
+    (`instrumento/`), arvore de decisao, `prototipo/detect_env.py` (classifica ambiente
+    A1-A6). NAO destilado p/ recipe ainda (virara `recipe/comporta-*.md`).
+  - `2026-06-04-dev-environment-z/`: metodologia Z:\ importada p/ estudo
+    (`snapshot-fonte/` e' **gitignored** — nao publicar; so o README de estudo vai ao git)
+  - `2026-06-04-strata-hipoteses/`: hipoteses abertas do Strata (codigo-como-doc;
+    afericao multi-modelo H-B; versao AI-nativa H-C)
 - `prototype/` — placeholder (testar a receita em escala; futuro).
-- `MAP.md` / `STATUS.md` — mapa + foco atual.
+- `README.md` (oficina) / `MAP.md` (mapa) / `STATUS.md` (foco atual) — wayfinding.
 
 ## Antes de agir (checklist)
 

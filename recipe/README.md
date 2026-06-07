@@ -48,7 +48,7 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 ```
 
 > **Evidência inicial (não prova definitiva):** num teste controlado
-> ([`lab/2026-06-04-strata-hipoteses/hb-kit/`](../lab/2026-06-04-strata-hipoteses/hb-kit/)),
+> (conclusões em [`lab/2026-06-04-strata-hipoteses/`](../lab/2026-06-04-strata-hipoteses/); harness em [`eval/strata/`](../eval/strata/)),
 > ~9 modelos de nuvem aplicaram o Strata **em prosa** a um projeto-alvo com 7 problemas
 > plantados — **até o mais simples testado (Claude Haiku 4.5) detectou os 7**, incluindo o
 > gate de segurança §6-bis. Modelos **locais pequenos** (7-8B) tropeçam na prosa densa;

@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-06-05
+updated: 2026-06-07
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -17,7 +17,9 @@ Projeto de P&D de metodologia de organizacao. **3 cozinhas**: `lab/`
 ## Inventario — onde esta o que
 
 Esta e' uma **oficina de metodologias** (ver `README.md`). 2 produtos: **Strata**
-(FINALIZADO) e uma 2a metodologia de **economia de IA** (EM ANDAMENTO no `lab/`).
+(FINALIZADO) e **Comporta** (economia de IA, EM ANDAMENTO no `lab/`). **Tres territorios
+por tipo de artefato**: `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses/
+conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a metodologia).
 
 - `recipe/` — **produtos prontos** (single-source das tecnicas):
   - `knowledge-architecture.md` — **STRATA**: arquitetura do conhecimento em
@@ -36,8 +38,17 @@ Esta e' uma **oficina de metodologias** (ver `README.md`). 2 produtos: **Strata*
     A1-A6). NAO destilado p/ recipe ainda (virara `recipe/comporta-*.md`).
   - `2026-06-04-dev-environment-z/`: metodologia Z:\ importada p/ estudo
     (`snapshot-fonte/` e' **gitignored** — nao publicar; so o README de estudo vai ao git)
-  - `2026-06-04-strata-hipoteses/`: hipoteses abertas do Strata (codigo-como-doc;
-    afericao multi-modelo H-B; versao AI-nativa H-C)
+  - `2026-06-04-strata-hipoteses/`: **IDEIAS do Strata** — hipoteses (H-A/H-B/H-B'/H-C),
+    `RESULTADOS-*.md` (conclusoes: nuvem satura na prosa; H-C/AI-nativo so agrega no tier
+    fraco; piso local ~8B) e `strata-ai-native/` (variantes AN). O HARNESS que gerou isso
+    mora em `eval/strata/`.
+  - `2026-06-06-comprovacao-forte-strata/`: comprovacao forte (gates, testes faltantes,
+    criterio de promocao v2, envelope de operacao).
+- `eval/` — **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia
+  nem o foco; reutilizavel entre metodologias). `strata/` = harness do Strata (runner
+  multi-modelo, scorers, fixtures, cenarios, `RASTREAMENTO-E-MELHORIA.md`); `*/planos/` =
+  saidas brutas **gitignored** (projetos reais sao PRIVADOS). Regra: toda execucao e'
+  `evidencia|instrumento|infra`. Ver `eval/README.md`.
 - `prototype/` — placeholder (testar a receita em escala; futuro).
 - `README.md` (oficina) / `MAP.md` (mapa) / `STATUS.md` (foco atual) — wayfinding.
 
@@ -47,6 +58,9 @@ Esta e' uma **oficina de metodologias** (ver `README.md`). 2 produtos: **Strata*
   (`recipe/knowledge-architecture.md`), nao espalhe em varios lugares.
 - **Pesquisa / exploracao / descarte** de tecnica → `lab/` (pasta datada
   `YYYY-MM-DD-tema/`, modo exploratorio).
+- **Ferramenta/harness de prova** (runner, scorer, fixture, cenario) → `eval/`, NUNCA em
+  `recipe/` (produto) nem misturado com as IDEIAS do `lab/`. A ferramenta e' **meio, nao
+  fim**: nao gaste tempo aperfeicoando a chave de fenda; o fim e' **provar a metodologia**.
 - `Glob`/`Grep`/`Test-Path` antes de propor recriar algo — a propria
   metodologia manda (verificacao antes de afirmar).
 

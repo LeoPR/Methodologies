@@ -3,13 +3,20 @@ name: status-methodologies-project
 type: status
 status: active
 created: 2026-06-03
-updated: 2026-06-06
+updated: 2026-06-07
 ---
 
-# STATUS — 2026-06-06
+# STATUS — 2026-06-07
 
 ## Foco atual
 
+- **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
+  `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
+  `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO
+  fim). O `hb-kit/` virou `eval/strata/`; variantes AN e RESULTADOS foram para
+  `lab/2026-06-04-strata-hipoteses/`. Paths dos scripts corrigidos + smoke-test OK.
+  **Pendente** (proximo): doc profunda do `eval/` (ADR ferramenta≠metodologia) e tornar os
+  fixtures **inertes/seguros** (o gabarito espera P1/P7, mas o fixture foi neutralizado).
 - **Refinar a metodologia de organizacao+rastreamento por camadas de
   durabilidade** (L0 atemporal / L1 padroes consolidados / L2 adaptacao
   datada). Novo produto: `recipe/knowledge-architecture.md`.
@@ -298,7 +305,7 @@ updated: 2026-06-06
 ## Proximo
 
 - **H-B tier LOCAL + H-B' EXECUTADOS** (2026-06-05) — ver
-  `lab/2026-06-04-strata-hipoteses/hb-kit/RESULTADOS-tier-local.md`. Achados:
+  `lab/2026-06-04-strata-hipoteses/RESULTADOS-tier-local.md`. Achados:
   - **Tier local 7-8B**: entende a ESTRUTURA (L0/L1/L2 = 2/2) mas NAO os gates;
     detecta 0-2 de 7 problemas; os 5 de maior risco passam batido; deepseek-r1:8b
     ate endossou a fonte conflitante. Doc denso ~17k tokens nao sobrevive a locais fracos.
@@ -311,15 +318,15 @@ updated: 2026-06-06
   - Bug corrigido no caminho: num_ctx tinha que ser > prompt (~17k tok); Strata grande
     demais p/ locais = argumento empirico pro H-C (forma AI-nativa densa).
   - **PENDENTE: tier NUVEM** (dono roda GPT-4.1/Gemini/Sonnet/Claude novo) — o sinal forte.
-    Runbook em `hb-kit/RUNBOOK-nuvem.md` (modo chat, F1+F4, salvar local/colar aqui).
-- **H-C (forma AI-nativa) — A/B local PROMISSOR** (2026-06-05, `hb-kit/RESULTADOS-hc-ab.md`):
+    Runbook em `eval/strata/RUNBOOK-nuvem.md` (modo chat, F1+F4, salvar local/colar aqui).
+- **H-C (forma AI-nativa) — A/B local PROMISSOR** (2026-06-05, `lab/2026-06-04-strata-hipoteses/RESULTADOS-hc-ab.md`):
   `strata-an-v0.md` (densa ~1.4k tok, gates imperativos + invocacao embutida) vs prosa,
   MESMO F1 neutro. Deteccao subiu em 4/4 modelos (deepseek 0->4; qwen3 ate 7/7). O killer:
   o §6-bis fail-open, 0/4 na prosa-F1 (so com F4), foi **4/4 na AN-F1** — o ganho vem do
   DOCUMENTO, nao do prompt. AINDA fraco: §6 sem-fonte (1/4); anti-armadilhas N1/N2 lidas
   como prosa pelo modelo fraco. **Confundidor**: comprimento x gate (AN e 14x menor) nao
   desconfundido — precisa 3o braco "prosa-curta". Promissor, NAO conclusivo.
-- **H-B tier NUVEM CONCLUIDO** (2026-06-05, `hb-kit/RESULTADOS-tier-nuvem.md`): 9 modelos
+- **H-B tier NUVEM CONCLUIDO** (2026-06-05, `lab/2026-06-04-strata-hipoteses/RESULTADOS-tier-nuvem.md`): 9 modelos
   (Sonnet 4.6, Haiku 4.5 think/no-think, Gemini 3 Flash, GPT-5.1-mini/5.3-Codex/5.4/
   5.4-mini, Raptor) x F1/F4 na prosa. **A nuvem SATURA na prosa-F1**: ate o Haiku (mais
   simples) tirou 7/7, incl. §6-bis e §6 — contraste gritante com o local. **P7/§6-bis em

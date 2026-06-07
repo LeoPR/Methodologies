@@ -18,7 +18,7 @@ from __future__ import annotations
 import argparse, datetime, glob, json, os, sys, time, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-STRATA = os.path.normpath(os.path.join(HERE, "..", "..", "..", "recipe", "knowledge-architecture.md"))
+STRATA = os.path.normpath(os.path.join(HERE, "..", "..", "recipe", "knowledge-architecture.md"))
 OLLAMA = "http://localhost:11434/api/chat"
 
 # Strata em prosa ~17k tokens -> precisa num_ctx ~20k. Num 3060 de 12GB, so 7-8B

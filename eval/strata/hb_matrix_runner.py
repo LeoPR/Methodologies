@@ -27,7 +27,7 @@ import urllib.request
 
 HERE = pathlib.Path(__file__).resolve().parent
 DEFAULT_METHOD_DOC = (
-    HERE / ".." / ".." / ".." / "recipe" / "knowledge-architecture.md"
+    HERE / ".." / ".." / "recipe" / "knowledge-architecture.md"
 ).resolve()
 EXTS = {
     ".md",

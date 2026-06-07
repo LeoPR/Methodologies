@@ -23,7 +23,7 @@ Comece pelos **2 mais fortes**, em **F1 e F4** (4 saídas) — já responde a pe
 
 Em cada modelo, num **chat novo**:
 1. Anexe/cole os 7 arquivos: `recipe/knowledge-architecture.md` **+** os 6 de
-   `hb-kit/projeto-alvo/` (README.md, parametros.yaml, config-final.json, anotacoes.md,
+   `eval/strata/projeto-alvo/` (README.md, parametros.yaml, config-final.json, anotacoes.md,
    resultados.md, instrucoes-agente.md).
 2. Cole o **PROMPT** (F1 ou F4, abaixo). Rode **F1 e F4** separados (chats distintos).
 
@@ -60,7 +60,7 @@ disso. SÓ DEPOIS, liste os outros problemas e o que faria PRIMEIRO (priorize).
 o modelo e o framing (ex.: "GPT-4.1 F4"). Eu gravo no arquivo certo. Você não mexe em
 arquivo nenhum.
 
-**Opção B (você salva):** crie a pasta `hb-kit/planos/lumen-nuvem/` e salve cada
+**Opção B (você salva):** crie a pasta `eval/strata/planos/lumen-nuvem/` e salve cada
 resposta como:
 ```
 plano-<modelo>-<framing>-r1.md

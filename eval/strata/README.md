@@ -90,7 +90,7 @@ família para pontuar os mesmos planos cegos com esta rubrica, como 2º juiz.
 
 ## Coleta de saídas + segurança (read-only)
 
-**Onde as saídas vão** — `hb-kit/planos/` (criada pelo `hb_runner.py`), uma subpasta
+**Onde as saídas vão** — `eval/strata/planos/` (criada pelo `hb_runner.py`), uma subpasta
 por alvo:
 - `planos/lumen/` — tier local sobre o fixture (F1).
 - `planos/lumen-hb-prime/` — H-B′ (qwen3:8b × F1–F4).
@@ -105,7 +105,7 @@ ao GitHub. Publicamos só um **resumo curado** depois.
   modelo **não tem ferramenta** — não executa comando nem toca em arquivo. O pior de
   um modelo surtado é escrever texto no arquivo de saída.
 - O projeto-alvo é lido com `open('r')` (read-only). **Nada** é escrito fora de `--out`.
-- **Guard**: o runner recusa `--out` fora do `hb-kit/` (não deixa escrever em projeto
+- **Guard**: o runner recusa `--out` fora do `eval/strata/` (não deixa escrever em projeto
   alheio).
 - **Nunca usar modo agente** (Claude Code / Copilot agent com tools de escrita) para o
   H-B. O modelo só recebe contexto e devolve um plano.
@@ -276,7 +276,7 @@ Medimos se o modelo entende e diagnostica com base no Strata.
 Exemplo:
 
 ```bash
-pwsh -NoProfile -File lab/2026-06-04-strata-hipoteses/hb-kit/run_limit_search_serial.ps1 -CtxMin 4096 -CtxMax 12288 -TimeoutS 120
+pwsh -NoProfile -File eval/strata/run_limit_search_serial.ps1 -CtxMin 4096 -CtxMax 12288 -TimeoutS 120
 ```
 
 ### Etapa 2: acao proposta (o que ele faria)

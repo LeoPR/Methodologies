@@ -3,13 +3,13 @@ name: map-methodologies-project
 type: navigation
 status: active
 created: 2026-06-03
-updated: 2026-06-05
+updated: 2026-06-07
 ---
 
 # Methodologies — mapa
 
 ```
-Methodologies/                        <- Projeto Strata v1.0
+Methodologies/                        <- Oficina de metodologias (Strata pronto; Comporta no forno)
 ├── recipe/
 │   ├── knowledge-architecture.md     <- PRODUTO Strata (L0/L1/L2; núcleo atemporal verificado)
 │   └── README.md                     <- guia de uso do Strata (humano + IA; efêmero; pendências)
@@ -25,8 +25,11 @@ Methodologies/                        <- Projeto Strata v1.0
 │   ├── 2026-06-04-aderencia-portabilidade/ <- aderencia/brownfield/IA/portabilidade (4 lentes)
 │   ├── 2026-06-04-economia-ia-tokens/    <- COMPORTA (2ª metodologia): economia/roteamento de recursos de IA
 │   ├── 2026-06-04-dev-environment-z/     <- metodologia Z:\ python/venv/cache (snapshot p/ estudo)
-│   ├── 2026-06-04-strata-hipoteses/      <- código-como-documento + aferição de compreensão por IA
-│   └── 2026-06-06-comprovacao-forte-strata/ <- gates de evidência + testes faltantes + critério v2.0 + síntese do envelope de operação (bigtech/local, árvore de decisão)
+│   ├── 2026-06-04-strata-hipoteses/      <- IDEIAS do Strata: hipóteses H-A/B/B'/C + RESULTADOS-*.md + strata-ai-native/ (variantes AN)
+│   └── 2026-06-06-comprovacao-forte-strata/ <- gates de evidência + testes faltantes + critério v2.0 + síntese do envelope de operação
+├── eval/                             <- LABORATÓRIO DE PROVA (a "chave de fenda": comprova; NÃO é a metodologia, NÃO é o foco)
+│   ├── README.md                     <- princípio (meio≠fim) + 3 territórios + regra evidencia/instrumento/infra
+│   └── strata/                       <- harness do Strata: runner, scorers, fixtures, cenários + planos/ (gitignored)
 ├── prototype/                        <- cozinha prototipo (escala; futuro)
 ├── README.md                         <- entry humano (as 3 cozinhas)
 ├── AGENTS.md                         <- entry IA
@@ -39,6 +42,7 @@ Methodologies/                        <- Projeto Strata v1.0
 | Quero | Va para |
 |---|---|
 | **Usar a metodologia** (produto) | [recipe/knowledge-architecture.md](recipe/knowledge-architecture.md) |
+| Ver a **prova** de que o Strata funciona (a "chave de fenda") | [eval/](eval/) · conclusões em [lab/2026-06-04-strata-hipoteses/](lab/2026-06-04-strata-hipoteses/) |
 | Ver por que tomamos as decisoes que tomamos | [decisions/](decisions/) |
 | Entender como a gente pesquisou | [lab/2026-06-03-modernizacao/README.md](lab/2026-06-03-modernizacao/README.md) |
 | Ver a analise (inventario/gaps/sintese) | [lab/2026-06-03-modernizacao/analise-5-lentes.md](lab/2026-06-03-modernizacao/analise-5-lentes.md) |

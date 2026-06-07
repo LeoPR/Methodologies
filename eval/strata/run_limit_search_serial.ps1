@@ -1,6 +1,6 @@
 param(
     [string]$PythonExe = ".venv/Scripts/python.exe",
-    [string]$Method = "lab/2026-06-04-strata-hipoteses/hb-kit/strata-an-v1.md",
+    [string]$Method = "lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-an-v1.md",
     [string[]]$Scenarios = @("s03-simples", "s01-comum-brownfield", "s04-bem-formatado"),
     [int]$CtxMin = 4096,
     [int]$CtxMax = 12288,
@@ -63,7 +63,7 @@ foreach ($modelId in $ModelIds) {
     Invoke-Warmup -ModelName $modelName
 
     $args = @(
-        "lab/2026-06-04-strata-hipoteses/hb-kit/hb_limit_search.py",
+        "eval/strata/hb_limit_search.py",
         "--method", $Method,
         "--only-model", $modelId,
         "--only-scenario"

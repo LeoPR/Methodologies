@@ -24,7 +24,9 @@ import urllib.error
 import urllib.request
 
 HERE = pathlib.Path(__file__).resolve().parent
-DEFAULT_METHOD_DOC = (HERE / "strata-an-v1.md").resolve()
+DEFAULT_METHOD_DOC = (
+    HERE / ".." / ".." / "lab" / "2026-06-04-strata-hipoteses" / "strata-ai-native" / "strata-an-v1.md"
+).resolve()
 
 TRACEABILITY = {
     "tipo": "evidencia",

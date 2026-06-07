@@ -21,7 +21,7 @@ import urllib.error
 import urllib.request
 
 HERE = pathlib.Path(__file__).resolve().parent
-DEFAULT_METHOD = HERE / "strata-an-v1.md"
+DEFAULT_METHOD = HERE / ".." / ".." / "lab" / "2026-06-04-strata-hipoteses" / "strata-ai-native" / "strata-an-v1.md"
 DEFAULT_TARGET = HERE / "projeto-alvo"
 OLLAMA = "http://127.0.0.1:11434/api/chat"
 

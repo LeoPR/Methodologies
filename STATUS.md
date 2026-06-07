@@ -30,9 +30,13 @@ updated: 2026-06-07
   prosa 2.50 / **AN-v2 4.58**; o **§6-bis fail-open vai de 1/12 a 12/12** com a AN. A
   prosa quase nao ajuda o local (+0.25 vs baseline); o lift do metodo mora nos gates de
   julgamento/seguranca (P5 2→10, P6 0→6, P7 1→12) — os obvios (P1/P3) ate competencia
-  generica acha. Comprimento×gate enfraquecido (baseline tb e curto e fica baixo) mas R4
-  ainda fecha. **Pendente:** nuvem limpa (contra fixture congelado), R4 prosa-curta, R6
-  2o juiz, R5 N>=5.
+  generica acha.
+- **R4 (prosa-curta) FEITO** — desconfunde comprimento×gate: det baseline 2.25 / prosa-longa
+  2.50 / **prosa-curta 3.92** / AN 4.58. **A COMPRESSAO domina** (+1.42 so por encurtar; o
+  fail-open vai de 3→11/12) e os **gates somam +0.66** (polimento: priorizacao + atribuicao
+  + o ultimo ponto). Correcao honesta: o doc inicial superestimou os gates. Implicacao de
+  produto: um Strata **destilado/curto** ja resgata a maior parte do tier local. **Pendente:**
+  nuvem limpa (fixture congelado), R6 2o juiz, R5 N>=5.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

@@ -2,7 +2,7 @@
 title: Reteste LIMPO do H-C (pós-auditoria) — prosa vs AN-v2 vs baseline, local
 created: 2026-06-07
 setup: fixture CONGELADO lumen-bugado (sha256 22bf662f) · AN-v2 descontaminada (grep=0 literais) · prompt prosa SEM enum · baseline sem-Strata · pontuação CEGA (ids opacos) · N=3 · 4 modelos 7-8B
-status: primeiro número que sobrevive à auditoria — local fechado (com ressalvas); nuvem pendente
+status: local fechado (R0-R4): H-C confirmado, mas COMPRESSÃO domina e gates polem; nuvem/R5/R6 pendentes
 ---
 
 # Reteste limpo — o H-C sobrevive à descontaminação
@@ -37,10 +37,10 @@ re-mede no **fixture congelado** com **pontuação cega** e **3 braços**.
 2. **A prosa quase não ajuda o tier local** (+0.25 sobre baseline) — densa/implícita
    demais para 7-8B. Confirma o reenquadramento: a AI-nativa é o que faz o Strata
    funcionar em modelo fraco.
-3. **O confundidor comprimento perde força (mas não morre):** o baseline também é curto
-   (sem método) e fica em 2.25; a AN curta **com gates** vai a 4.58 — então o ganho vem do
-   **conteúdo (gates)**, não só de "caber melhor no contexto". O fecho 100% é o R4
-   (prosa-curta, mesmo tamanho da AN sem os imperativos).
+3. **O confundidor comprimento — RESOLVIDO pelo R4 (ver seção abaixo), e ele DOMINA.**
+   ⚠️ *Correção:* esta leitura inicial ("o ganho vem dos gates") estava errada. O R4
+   (prosa-curta) mostra que **a compressão é o lever principal** (+1.42), e os gates
+   imperativos somam só **+0.66**. Mantido aqui por honestidade do traço; ver §R4.
 4. **O valor mora nos gates de JULGAMENTO/segurança.** Nos problemas óbvios (P1 conflito,
    P3 README) o **baseline já acerta sozinho** (8 e 7/12) — competência genérica. É em
    **P5 honestidade (2→10)**, **P6 sem-fonte (0→6)** e **P7 fail-open (1→12)** que a AN
@@ -66,15 +66,36 @@ re-mede no **fixture congelado** com **pontuação cega** e **3 braços**.
   e prompt sem enum) ainda não rodou — a evidência de nuvem antiga é irreproduzível.
 - **N=3**: os efeitos grandes (P7 1→12; AN +2.33) excedem com folga o ruído; o
   prosa−baseline (+0.25) está **dentro do ruído** (= "prosa não ajuda local").
-- **R4 (prosa-curta)** ainda não isola 100% gates×comprimento — mas o baseline já mostra
-  que os gates contribuem.
 - **Juiz único Claude** — agora **cego de verdade** (ids opacos, header removido), mas o
   **2º juiz** (R6) ainda não rodou nas células decisivas.
 - 1 célula (deepseek baseline r1) truncou (reasoner) — N=3 cobriu com r2/r3.
 
-## Veredito
-**H-C confirmado no tier local, descontaminado:** a forma AI-nativa (gates abstratos
-imperativos) quase dobra a detecção em modelos 7-8B e torna a captura do fail-open
-**universal**, sobretudo nos gates de julgamento/segurança que a prosa e a competência
-genérica perdem. Claim defensável agora (era "contaminado", virou "real, com
-comprimento a desconfundir e nuvem a refazer").
+## R4 — desconfundir comprimento × gate (FEITO, 4º braço prosa-curta)
+
+Braço **prosa-curta** = Strata em prosa descritiva, ~mesmo tamanho da AN, **SEM** gates
+imperativos (sem CHECK/PARE/PROIBIDO; verificado). Local, N=3, mesmo fixture/scorer/cego.
+
+| Braço | det/7 | P7 fail-open | priorizou | det c/ seção |
+|---|---|---|---|---|
+| baseline (sem método) | 2.25 | 1/12 | 0.50 | 0.0 |
+| prosa-longa (17k tok) | 2.50 | 3/12 | 0.08 | 1.17 |
+| **prosa-curta** (sem gates) | **3.92** | **11/12** | 0.33 | 3.75 |
+| **AN-v2** (gates) | **4.58** | 12/12 | 0.58 | 4.50 |
+
+**Decomposição honesta do ganho:**
+- prosa-longa → prosa-curta: **+1.42** — **a COMPRESSÃO é o lever dominante.** A prosa densa
+  falha no local por **diluição** (17k tokens), não por falta de gates. Encurtar (mesmo
+  conteúdo) já quase dobra a detecção e leva o **fail-open de 3→11/12**.
+- prosa-curta → AN: **+0.66** — os **gates imperativos** somam um **polimento real, porém
+  menor**: melhor priorização (0.58 vs 0.33), melhor atribuição de seção (4.50 vs 3.75) e o
+  último ponto do fail-open (11→12). *(AN é até um pouco MAIOR que a curta e ainda ganha →
+  o +0.66 é dos gates, não de comprimento.)*
+
+## Veredito (revisado pós-R4)
+**H-C confirmado no tier local — mas o mecanismo é COMPRESSÃO em primeiro lugar, gates em
+segundo.** A forma AI-nativa ajuda muito modelos 7-8B (det 2.25→4.58; fail-open 1→12),
+porém o R4 mostra que **~⅔ do ganho vem de destilar/encurtar** o Strata (prosa-curta já
+faz 3.92 e pega 11/12 do fail-open) e **~⅓ do formato de gate imperativo** (+0.66:
+priorização + atribuição + o último ponto). **Implicação de produto:** um Strata
+**destilado/curto** já resgata a maior parte do tier local; os gates AI-nativos são o
+polimento que melhora priorização e atribuição. (Pendente: nuvem limpa, R6 2º juiz, R5 N≥5.)

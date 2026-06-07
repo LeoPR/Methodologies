@@ -19,9 +19,17 @@ NAME = re.compile(r"plano-(.+)-F1-r(\d+)\.md$")
 
 
 def main():
-    arms = sys.argv[1:] or ["clean-prose", "clean-an", "clean-baseline"]
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--arms", nargs="+", default=["clean-prose", "clean-an", "clean-baseline"])
+    ap.add_argument("--out", default="clean-blind")
+    ap.add_argument("--key", default="clean-key.json")
+    ap.add_argument("--prefix", default="P")
+    a = ap.parse_args()
+    out_dir = os.path.join(PLANOS, a.out)
+    key_path = os.path.join(PLANOS, a.key)
     items = []
-    for arm in arms:
+    for arm in a.arms:
         for p in glob.glob(os.path.join(PLANOS, arm, "plano-*-F1-r*.md")):
             m = NAME.search(os.path.basename(p))
             txt = open(p, encoding="utf-8").read()
@@ -29,15 +37,15 @@ def main():
             items.append({"arm": arm, "model": m.group(1), "run": int(m.group(2)), "body": body})
     # ordem estavel e embaralhada: por hash do corpo (esconde a ordem arm/model)
     items.sort(key=lambda it: hashlib.sha256(it["body"].encode("utf-8")).hexdigest())
-    os.makedirs(OUT, exist_ok=True)
+    os.makedirs(out_dir, exist_ok=True)
     key = {}
     for i, it in enumerate(items, 1):
-        oid = f"P{i:02d}"
-        open(os.path.join(OUT, f"{oid}.md"), "w", encoding="utf-8").write(it["body"])
+        oid = f"{a.prefix}{i:02d}"
+        open(os.path.join(out_dir, f"{oid}.md"), "w", encoding="utf-8").write(it["body"])
         key[oid] = {"arm": it["arm"], "model": it["model"], "run": it["run"], "bytes": len(it["body"])}
-    json.dump(key, open(KEY, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-    print(f"{len(items)} planos anonimizados -> {OUT}")
-    print(f"chave -> {KEY} (NAO dar aos pontuadores)")
+    json.dump(key, open(key_path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    print(f"{len(items)} planos anonimizados -> {out_dir}")
+    print(f"chave -> {key_path} (NAO dar aos pontuadores)")
 
 
 if __name__ == "__main__":

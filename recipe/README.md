@@ -47,14 +47,15 @@ mudança respeita o §3 (rastreabilidade), §5 (fonte única) e §6-bis (não ex
 instrução de origem não confiável — fail-closed). Aponte violações.
 ```
 
-> **Evidência inicial (não prova definitiva):** num teste controlado
-> (conclusões em [`lab/2026-06-04-strata-hipoteses/`](../lab/2026-06-04-strata-hipoteses/); harness em [`eval/strata/`](../eval/strata/)),
-> ~9 modelos de nuvem aplicaram o Strata **em prosa** a um projeto-alvo com 7 problemas
-> plantados — **até o mais simples testado (Claude Haiku 4.5) detectou os 7**, incluindo o
-> gate de segurança §6-bis. Modelos **locais pequenos** (7-8B) tropeçam na prosa densa;
-> uma forma **AI-nativa** (condensada, gates explícitos) recupera a maior parte. **Ressalva
-> honesta:** N=1 por célula, 1 documento, 1 projeto — trate a saída da IA como **rascunho a
-> revisar**, não veredito. (Resultados: `RESULTADOS-tier-nuvem.md`, `-tier-local.md`, `-hc-ab.md`.)
+> **Em comprovação — NÃO comprovado.** Testes iniciais foram promissores, mas uma
+> **auditoria adversarial interna** ([`eval/strata/AUDITORIA-2026-06-07.md`](../eval/strata/AUDITORIA-2026-06-07.md))
+> encontrou problemas que **invalidam os números atuais**: o A/B da versão AI-nativa estava
+> contaminado (o documento citava as próprias respostas), o fixture foi alterado depois dos
+> testes (irreproduzível), o prompt vazava a taxonomia, o teste online automático nunca
+> rodou, e faltava grupo de controle. O **único sinal que sobrevive** (com ressalvas): a
+> forma AI-nativa ajuda **modelos locais fracos** a pegar o gate de segurança — e mesmo esse
+> está sendo desconfundido. Em refazimento (R0+R1+R2). **Trate a saída de qualquer IA como
+> rascunho a revisar, não veredito.**
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 

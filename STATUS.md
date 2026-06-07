@@ -10,6 +10,19 @@ updated: 2026-06-07
 
 ## Foco atual
 
+- **AUDITORIA (2026-06-07) REBAIXOU os vereditos do H-B/H-C** — ver
+  `eval/strata/AUDITORIA-2026-06-07.md`. Auditoria adversarial multi-agente achou furos
+  ALTA que invalidam os numeros: (1) **H-C contaminado** (a `strata-an` cita os fixtures
+  verbatim; a prosa nao — o "ganho da AN" mede vazamento, nao compreensao); (2) **fixture
+  neutralizado != gabarito** (projeto-alvo sem P1/P7; `velho/`+`tarefas.txt` nunca em disco;
+  tudo irreproduzivel, sem hash); (3) **prompt vaza a taxonomia** P1..P7; (4) **online
+  automatico NUNCA rodou** (enabled:false, sem keys; "nuvem" foi chat manual N=1 contra
+  fixture antiga; sabor Anthropic quebrado); (5) **sem baseline/controle**. Sobrevivem so
+  como DIRECAO: AN→§6-bis no local (com asterisco), "nuvem detecta o obvio", P6 ponto-cego
+  universal. **Claim honesto unico:** "a forma AN ajuda modelos locais fracos no fail-open —
+  sinal forte mas confundido (leakage+comprimento)". Resto = preliminar. recipe/README ja
+  rebaixado p/ "em comprovacao, NAO comprovado". **Proximo:** fundacao R0+R1+R2 (congelar
+  fixture + descontaminar H-C + scorer unico sem enum) JUNTOS, depois baseline (R3).
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

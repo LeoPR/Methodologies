@@ -1,0 +1,6 @@
+# Configuração OFICIAL do experimento Lumen — use esta.
+modelo: bert-base
+limiar_confianca: 0.70
+idioma: pt
+amostra: 5000
+janela: 30d

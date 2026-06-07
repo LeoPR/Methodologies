@@ -46,6 +46,15 @@ TASK = {
 PREAMBLE = ("Você vai avaliar a organização de um projeto contra uma metodologia. "
             "Leia a METODOLOGIA e os ARQUIVOS DO PROJETO abaixo e execute a TAREFA.\n")
 
+# Braço BASELINE (controle R3): sem metodologia nenhuma — mede competência genérica.
+BASELINE_PREAMBLE = ("Você vai avaliar a organização de um projeto. "
+                     "Leia os ARQUIVOS DO PROJETO abaixo e execute a TAREFA.\n")
+BASELINE_TASK = ("Produza um relatório com EXATAMENTE três partes: (a) ENTENDIMENTO — o que "
+                 "é este projeto; (b) DIAGNÓSTICO — liste os problemas de organização que "
+                 "encontrar, dizendo em qual arquivo; (c) PRIMEIRO PASSO — o que faria "
+                 "PRIMEIRO. Priorize; não mande aplicar tudo. Não invente o que o projeto não "
+                 "fornece; se não dá para saber, diga.")
+
 
 def read_text(path, cap=200_000):
     try:
@@ -102,9 +111,13 @@ def call(model, prompt, num_ctx, num_predict, seed):
 
 
 def run_one(model, framing, run, prompt_ctx, out_dir, num_ctx, num_predict):
-    prompt = (PREAMBLE + "\n## METODOLOGIA (Strata)\n" + prompt_ctx["strata"]
-              + "\n\n## ARQUIVOS DO PROJETO\n" + prompt_ctx["target"]
-              + "\n\n## TAREFA\n" + TASK[framing])
+    if prompt_ctx.get("strata") is None:  # baseline: sem metodologia
+        prompt = (BASELINE_PREAMBLE + "\n## ARQUIVOS DO PROJETO\n" + prompt_ctx["target"]
+                  + "\n\n## TAREFA\n" + BASELINE_TASK)
+    else:
+        prompt = (PREAMBLE + "\n## METODOLOGIA (Strata)\n" + prompt_ctx["strata"]
+                  + "\n\n## ARQUIVOS DO PROJETO\n" + prompt_ctx["target"]
+                  + "\n\n## TAREFA\n" + TASK[framing])
     stamp = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
     safe = model.replace(":", "_").replace("/", "_")
     name = f"plano-{safe}-{framing}-r{run}.md"
@@ -133,6 +146,7 @@ def main():
     ap.add_argument("--num-predict", type=int, default=2000)
     ap.add_argument("--models", nargs="*", default=LOCAL_MODELS)
     ap.add_argument("--strata", default=STRATA, help="caminho do doc de metodologia (prose ou AN)")
+    ap.add_argument("--baseline", action="store_true", help="braço sem-Strata (controle R3): omite a metodologia")
     a = ap.parse_args()
 
     # GUARD read-only: so escreve dentro do hb-kit
@@ -142,17 +156,22 @@ def main():
         return 2
     os.makedirs(out, exist_ok=True)
 
-    strata = read_text(os.path.abspath(a.strata))
-    if not strata:
-        print(f"ERRO: Strata nao lido em {a.strata}", file=sys.stderr)
-        return 2
+    if a.baseline:
+        strata = None
+    else:
+        strata = read_text(os.path.abspath(a.strata))
+        if not strata:
+            print(f"ERRO: Strata nao lido em {a.strata}", file=sys.stderr)
+            return 2
     target = read_target(os.path.abspath(a.target))
     if not target.strip():
         print(f"ERRO: nenhum arquivo de texto lido em {a.target}", file=sys.stderr)
         return 2
     ctx = {"strata": strata, "target": target}
 
-    print(f"== H-B runner | alvo='{a.label}' | strata={len(strata)} chars | "
+    nchars = len(strata) if strata else 0
+    metodo = "BASELINE (sem-Strata)" if a.baseline else os.path.basename(a.strata)
+    print(f"== H-B runner | alvo='{a.label}' | metodo={metodo} ({nchars} chars) | "
           f"target={len(target)} chars | mode={a.mode} | runs={a.runs}")
     print(f"   (READ-ONLY: completion-only; saida so em {out})")
 

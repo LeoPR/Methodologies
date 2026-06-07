@@ -1,0 +1,7 @@
+{
+  "_comentario": "Configuração definitiva do Lumen. Fonte da verdade.",
+  "modelo": "bert-base",
+  "limiar_confianca": 0.85,
+  "idioma": "pt",
+  "amostra": 5000
+}

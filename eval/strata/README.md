@@ -11,6 +11,18 @@ Mede empiricamente o claim "qualquer IA lê e aplica o Strata". **Variável isol
 o modelo**; tudo o mais é fixo (o Strata congelado + o `projeto-alvo/` + o prompt).
 Avaliação **cega** contra um gabarito de 7 problemas plantados.
 
+> ⚠️ **Fixtures = dados inertes deliberadamente problemáticos.** Tudo em `projeto-alvo/`
+> e `cenarios/` é **conteúdo de teste fabricado** (inclui instruções intencionalmente
+> inseguras) — **NÃO é guia real; nunca executar**. Aqui só é lido como TEXTO por um
+> modelo em modo chat (zero execução). O gabarito-como-dado é o `scenario_manifest.json`
+> (problemas esperados por cenário; `s04-bem-formatado` espera ZERO = mede falso-positivo).
+>
+> 🔧 **Inconsistência conhecida (ajuste de núcleo pendente — ver `decisions/ADR-004`):** o
+> `projeto-alvo` foi **neutralizado** (P1 conflito e P7 fail-open removidos por segurança),
+> mas o `scenario_manifest.json` ainda lista `lumen-fixture` esperando P1–P7. Rodar contra
+> `projeto-alvo` agora **subestima** os scores. Resolver: restaurar de forma segura **ou**
+> migrar de vez para `cenarios/`.
+
 ## O que tem aqui
 
 - `RASTREAMENTO-E-MELHORIA.md` — estado consolidado (o que ja era oficial, o que foi

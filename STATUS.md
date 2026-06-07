@@ -23,6 +23,16 @@ updated: 2026-06-07
   sinal forte mas confundido (leakage+comprimento)". Resto = preliminar. recipe/README ja
   rebaixado p/ "em comprovacao, NAO comprovado". **Proximo:** fundacao R0+R1+R2 (congelar
   fixture + descontaminar H-C + scorer unico sem enum) JUNTOS, depois baseline (R3).
+- **RETESTE LIMPO (R0+R1+R2+R3 local) FEITO** (2026-06-07,
+  `lab/2026-06-04-strata-hipoteses/RESULTADOS-reteste-limpo.md`): fixture congelado
+  (sha 22bf662f) + AN-v2 descontaminada (grep=0) + prompt sem enum + baseline +
+  pontuacao CEGA + N=3. **O H-C SOBREVIVE a descontaminacao**: det medio baseline 2.25 /
+  prosa 2.50 / **AN-v2 4.58**; o **§6-bis fail-open vai de 1/12 a 12/12** com a AN. A
+  prosa quase nao ajuda o local (+0.25 vs baseline); o lift do metodo mora nos gates de
+  julgamento/seguranca (P5 2→10, P6 0→6, P7 1→12) — os obvios (P1/P3) ate competencia
+  generica acha. Comprimento×gate enfraquecido (baseline tb e curto e fica baixo) mas R4
+  ainda fecha. **Pendente:** nuvem limpa (contra fixture congelado), R4 prosa-curta, R6
+  2o juiz, R5 N>=5.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

@@ -1,0 +1,225 @@
+{
+    "description": "Catalogo de modelos para varredura automatica H-B/H-C.",
+    "models": [
+        {
+            "id": "gpt-5.4",
+            "provider": "openai_compat",
+            "channel": "online",
+            "intelligence_rank": 100,
+            "cost_rank": 10,
+            "enabled": false,
+            "model": "gpt-5.4",
+            "base_url": "https://api.openai.com/v1",
+            "api_key_env": "OPENAI_API_KEY"
+        },
+        {
+            "id": "claude-opus",
+            "provider": "openai_compat",
+            "channel": "online",
+            "intelligence_rank": 98,
+            "cost_rank": 9,
+            "enabled": false,
+            "model": "claude-opus-4-1",
+            "base_url": "https://api.anthropic.com/v1",
+            "api_key_env": "ANTHROPIC_API_KEY"
+        },
+        {
+            "id": "sonnet-4.6",
+            "provider": "openai_compat",
+            "channel": "online",
+            "intelligence_rank": 94,
+            "cost_rank": 7,
+            "enabled": false,
+            "model": "claude-sonnet-4-6",
+            "base_url": "https://api.anthropic.com/v1",
+            "api_key_env": "ANTHROPIC_API_KEY"
+        },
+        {
+            "id": "gpt-4.1",
+            "provider": "openai_compat",
+            "channel": "online",
+            "intelligence_rank": 90,
+            "cost_rank": 5,
+            "enabled": false,
+            "model": "gpt-4.1",
+            "base_url": "https://api.openai.com/v1",
+            "api_key_env": "OPENAI_API_KEY"
+        },
+        {
+            "id": "gemini-flash",
+            "provider": "openai_compat",
+            "channel": "online",
+            "intelligence_rank": 84,
+            "cost_rank": 2,
+            "enabled": false,
+            "model": "gemini-3-flash",
+            "base_url": "https://openrouter.ai/api/v1",
+            "api_key_env": "OPENROUTER_API_KEY"
+        },
+        {
+            "id": "qwen3-8b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 58,
+            "cost_rank": 1,
+            "enabled": true,
+            "model": "qwen3:8b",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        },
+        {
+            "id": "deepseek-r1-8b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 57,
+            "cost_rank": 2,
+            "enabled": true,
+            "model": "deepseek-r1:8b",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        },
+        {
+            "id": "granite3.3-8b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 56,
+            "cost_rank": 1,
+            "enabled": true,
+            "model": "granite3.3:8b",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        },
+        {
+            "id": "qwen2.5-coder-7b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 54,
+            "cost_rank": 1,
+            "enabled": true,
+            "model": "qwen2.5-coder:7b",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        },
+        {
+            "id": "llama3.1-8b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 52,
+            "cost_rank": 1,
+            "enabled": true,
+            "model": "llama3.1:8b",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        },
+        {
+            "id": "mistral-nemo-12b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 51,
+            "cost_rank": 3,
+            "enabled": true,
+            "model": "mistral-nemo:latest",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        },
+        {
+            "id": "phi4-14b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 50,
+            "cost_rank": 3,
+            "enabled": true,
+            "model": "phi4:latest",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        },
+        {
+            "id": "gemma3-4b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 42,
+            "cost_rank": 1,
+            "enabled": true,
+            "model": "gemma3:4b",
+            "num_ctx": 20480,
+            "num_predict": 2600
+        },
+        {
+            "id": "qwen3-4b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 41,
+            "cost_rank": 1,
+            "enabled": true,
+            "model": "qwen3:4b",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        },
+        {
+            "id": "nemotron-3-nano-4b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 40,
+            "cost_rank": 1,
+            "enabled": true,
+            "model": "nemotron-3-nano:4b",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        },
+        {
+            "id": "qwen3-1.7b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 33,
+            "cost_rank": 1,
+            "enabled": true,
+            "model": "qwen3:1.7b",
+            "num_ctx": 20480,
+            "num_predict": 2600
+        },
+        {
+            "id": "gemma3-1b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 28,
+            "cost_rank": 1,
+            "enabled": true,
+            "model": "gemma3:1b",
+            "num_ctx": 20480,
+            "num_predict": 2600
+        },
+        {
+            "id": "qwen3-0.6b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 24,
+            "cost_rank": 1,
+            "enabled": true,
+            "model": "qwen3:0.6b",
+            "num_ctx": 20480,
+            "num_predict": 2600
+        },
+        {
+            "id": "granite4.1-8b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 59,
+            "cost_rank": 2,
+            "enabled": true,
+            "model": "granite4.1:8b",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        },
+        {
+            "id": "lfm2.5-8b",
+            "provider": "ollama",
+            "channel": "offline",
+            "intelligence_rank": 55,
+            "cost_rank": 2,
+            "enabled": true,
+            "model": "lfm2.5:8b",
+            "num_ctx": 20480,
+            "num_predict": 2200
+        }
+    ]
+}

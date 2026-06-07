@@ -1,0 +1,2 @@
+- executar script.py
+- depois revisar output.txt

@@ -1,6 +1,7 @@
-# Configuração OFICIAL do experimento Lumen — use esta.
+# Compatibilidade legada. Não é fonte canônica.
+# Fonte canônica: config-final.json
 modelo: bert-base
-limiar_confianca: 0.70
+limiar_confianca: 0.85
 idioma: pt
 amostra: 5000
 janela: 30d

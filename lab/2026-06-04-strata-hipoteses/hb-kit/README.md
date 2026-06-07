@@ -13,6 +13,9 @@ Avaliação **cega** contra um gabarito de 7 problemas plantados.
 
 ## O que tem aqui
 
+- `RASTREAMENTO-E-MELHORIA.md` — estado consolidado (o que ja era oficial, o que foi
+  feito agora, onde houve confusao de trilha e como melhorar os proximos ciclos sem
+  redescoberta).
 - `projeto-alvo/` — projeto **deliberadamente bagunçado** (Lumen). É o que cada
   modelo avalia. Tem 7 problemas plantados (mapeados a seções do Strata).
 - `gabarito.md` — a chave de respostas. **NÃO entregue aos modelos testados.** Só
@@ -128,3 +131,204 @@ julgada por mim + por você que conhece o projeto.
 - **Buraco sistemático** (ex.: todos perdem P7/§6-bis, ou tratam P1 como "arquivo
   duplicado" e não §5) → o Strata precisa de GATES mais explícitos ali → **H-C**.
 - Variância intra-modelo alta → o texto é ambíguo naquele ponto.
+
+## Matriz automatica (modelos x cenarios)
+
+Para fechar o "menor modelo que resolve totalmente" e reduzir inferencia manual,
+este kit agora inclui uma malha automatica:
+
+- `matrix_models.json` — catalogo de modelos online/offline (do mais forte ao mais barato).
+- `scenario_manifest.json` — cenarios e expectativa por cenario (P1..P7).
+- `hb_matrix_runner.py` — executa matriz em batch (completion-only, sem tools).
+- `hb_matrix_score.py` — pontua automaticamente e marca `pass_full`.
+- `cenarios/` — projetos sinteticos: comum, pesquisa, simples, bem-formatado e borda.
+
+### Criterio de "resolve totalmente"
+
+Um teste passa em `pass_full=true` quando:
+
+1. detecta **todos** os problemas esperados do cenario com seção correta;
+2. nao cai nas armadilhas N1/N2;
+3. respeita o teto de alucinacao do cenario.
+
+### Como rodar (offline primeiro)
+
+```bash
+python hb_matrix_runner.py --channels offline --framing F1 F4 --runs 2
+```
+
+Isso cria uma pasta timestamp em `planos/matrix/` com `index.json` + saidas brutas/json.
+
+Depois pontue:
+
+```bash
+python hb_matrix_score.py --run planos/matrix/<timestamp>
+```
+
+Saidas do score:
+
+- `score.csv` (linha por teste)
+- `score-summary.md` (agregado por modelo)
+
+### Como ligar online (frontier ate barato)
+
+1. Ative os modelos desejados em `matrix_models.json` (`enabled: true`).
+2. Defina as chaves de API (`OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `OPENROUTER_API_KEY`).
+3. Rode por canal:
+
+```bash
+python hb_matrix_runner.py --channels online --framing F1 F4 --runs 1
+python hb_matrix_score.py --run planos/matrix/<timestamp-online>
+```
+
+### Observacoes importantes
+
+- O harness e completion-only; nao executa comandos do projeto-alvo.
+- `planos/` segue gitignored (dados brutos ficam locais).
+- O menor modelo confiavel e definido por **taxa de pass_full** ao longo de todos os
+  cenarios, nao por um unico fixture.
+
+## Caminho feliz revisado (auto calibragem por divisao)
+
+Objetivo: mapear limite de contexto e limite de capacidade do modelo sem explosao
+combinatoria, no estilo de testador de limite de equipamento.
+
+### Etapa A — Tatear possivel/impossivel rapidamente
+
+1. Rode com metodo curto (`strata-an-v1.md`) e 1 cenario simples para validar pipeline.
+2. Confirme que o modelo responde JSON valido no runner.
+3. Se falhar aqui, o modelo fica marcado como inviavel para o Strata operacional.
+
+### Etapa B — Buscar maior contexto viavel por modelo (binaria)
+
+Para cada modelo local:
+
+1. teste `ctx_min` e `ctx_max`;
+2. aplique busca binaria ate achar o maior `num_ctx` que ainda responde com qualidade minima;
+3. salve o `best_ctx` por modelo.
+
+Isso separa limites fisicos (contexto/memoria) de limites cognitivos (qualidade).
+
+### Etapa C — Buscar menor modelo que ainda resolve totalmente (binaria)
+
+Com `best_ctx` fixado por modelo:
+
+1. ordene modelos do mais forte ao mais fraco;
+2. rode extremos (maior e menor) para criar bracket de possivel/impossivel;
+3. rode busca binaria no eixo de modelos para achar a fronteira;
+4. valide vizinhos da fronteira para reduzir risco de nao-monotonia.
+
+### Etapa D — Escolha otima no cobertor curto
+
+Entre os que passam no target:
+
+1. maximize `pass_full_rate`;
+2. maximize score medio;
+3. maximize throughput (decode_tps);
+4. minimize tamanho/uso de memoria.
+
+### Comando pronto (offline)
+
+```bash
+python hb_limit_search.py --method strata-an-v1.md --only-scenario s03-simples s01-comum-brownfield s04-bem-formatado --ctx-min 4096 --ctx-max 32768 --runs 1 --target-pass-rate 1.0 --timeout-s 240
+```
+
+### Execucao em RTX 3060 12GB (um modelo por vez)
+
+Se a GPU nao comporta dois modelos grandes ao mesmo tempo, rode o limite em modo
+serial. Regra pratica:
+
+1. aquece e mede **um** modelo;
+2. descarrega o modelo (`ollama stop <modelo>`);
+3. so depois carrega o proximo.
+
+Exemplo por modelo (offline):
+
+```bash
+python hb_limit_search.py --method strata-an-v1.md --only-model qwen3-1.7b --only-scenario s03-simples s01-comum-brownfield s04-bem-formatado --ctx-min 4096 --ctx-max 12288 --runs 1 --target-pass-rate 1.0 --timeout-s 120
+```
+
+Depois descarregue explicitamente antes do proximo:
+
+```bash
+ollama stop qwen3:1.7b
+```
+
+Para reduzir cold start de disco, priorize esta ordem de trabalho:
+
+1. modelo pequeno para validar pipeline;
+2. modelo medio principal;
+3. modelos maiores por ultimo.
+
+O kit inclui um orquestrador serial pronto: `run_limit_search_serial.ps1`.
+
+## Protocolo de evidencia (foco em "funciona e entende")
+
+Para responder com evidencia forte se o Strata funciona em IAs modernas, use 3 etapas.
+
+### Etapa 1: entendimento (diagnostico)
+
+Medimos se o modelo entende e diagnostica com base no Strata.
+
+1. rode limit-search em modo serial (um modelo por vez);
+2. registre `best_ctx`, `pass_full_rate`, score e throughput.
+
+Exemplo:
+
+```bash
+pwsh -NoProfile -File lab/2026-06-04-strata-hipoteses/hb-kit/run_limit_search_serial.ps1 -CtxMin 4096 -CtxMax 12288 -TimeoutS 120
+```
+
+### Etapa 2: acao proposta (o que ele faria)
+
+Avaliamos se o primeiro passo e os artefatos propostos sao concretos e coerentes.
+
+- local (Ollama): use o `hb_l2_sandbox.py` para pedir entendimento + pacote minimo L2.
+- nuvem (Copilot/Claude): execute o mesmo prompt, salve a resposta em JSON e pontue com os mesmos criterios.
+
+Exemplo local:
+
+```bash
+python hb_l2_sandbox.py --model qwen3:1.7b --timeout-s 180
+```
+
+Para modelos de nuvem (ex.: Copilot GPT-5-mini), rode no chat e salve a resposta
+em arquivo texto. Depois pontue com o mesmo criterio:
+
+```bash
+python hb_l2_score_external.py --input <resposta-modelo.txt> --label copilot-gpt5mini
+```
+
+### Etapa 3: sandbox isolado com controle de versao
+
+Verificamos se o modelo gera arquivos de controle/versionamento sem tocar no projeto real.
+
+- a escrita ocorre somente em `planos/l2-sandbox/<timestamp>/<modelo>/generated`;
+- o script inicializa git local no sandbox e grava commit de evidencia;
+- criterio minimo: cobertura de grupos (controle, versionamento, decisao, operacao) + entendimento L0/L1/L2.
+
+### Inventario consolidado de testes
+
+Para ver rapidamente o que ja foi testado:
+
+```bash
+python hb_test_inventory.py
+```
+
+Saida em `planos/evidence/<timestamp>/` com:
+
+- `inventory.json`
+- `inventory.md`
+
+Saidas:
+
+- `planos/limit-search/<timestamp>/limit-search.json`
+- `planos/limit-search/<timestamp>/limit-search-summary.md`
+
+### Quando subir para metodo completo
+
+So depois de fechar fronteira no metodo curto. Em seguida, re-rodar com
+`knowledge-architecture.md` nos modelos candidatos para medir a queda real de capacidade.
+
+Isso documenta explicitamente onde o Strata e util para o dev dado o ambiente dele,
+sem exigir que o proprio modelo "fraco" saiba se autoavaliar.

@@ -25,7 +25,8 @@ Methodologies/                        <- Projeto Strata v1.0
 │   ├── 2026-06-04-aderencia-portabilidade/ <- aderencia/brownfield/IA/portabilidade (4 lentes)
 │   ├── 2026-06-04-economia-ia-tokens/    <- COMPORTA (2ª metodologia): economia/roteamento de recursos de IA
 │   ├── 2026-06-04-dev-environment-z/     <- metodologia Z:\ python/venv/cache (snapshot p/ estudo)
-│   └── 2026-06-04-strata-hipoteses/      <- código-como-documento + aferição de compreensão por IA
+│   ├── 2026-06-04-strata-hipoteses/      <- código-como-documento + aferição de compreensão por IA
+│   └── 2026-06-06-comprovacao-forte-strata/ <- gates de evidência + testes faltantes + critério v2.0 + síntese do envelope de operação (bigtech/local, árvore de decisão)
 ├── prototype/                        <- cozinha prototipo (escala; futuro)
 ├── README.md                         <- entry humano (as 3 cozinhas)
 ├── AGENTS.md                         <- entry IA

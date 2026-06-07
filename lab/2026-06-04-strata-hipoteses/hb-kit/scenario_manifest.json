@@ -1,0 +1,85 @@
+{
+    "description": "Manifesto de cenarios para regressao Strata.",
+    "problem_sections": {
+        "P1": "§5",
+        "P2": "§3/§8",
+        "P3": "§2",
+        "P4": "§3",
+        "P5": "§4",
+        "P6": "§6",
+        "P7": "§6-bis"
+    },
+    "scenarios": [
+        {
+            "id": "lumen-fixture",
+            "label": "fixture oficial",
+            "path": "projeto-alvo",
+            "expected_problems": [
+                "P1",
+                "P2",
+                "P3",
+                "P4",
+                "P5",
+                "P6",
+                "P7"
+            ],
+            "max_hallucinated_problems": 1
+        },
+        {
+            "id": "s01-comum-brownfield",
+            "label": "projeto comum brownfield",
+            "path": "cenarios/s01-comum-brownfield",
+            "expected_problems": [
+                "P1",
+                "P3",
+                "P5",
+                "P6",
+                "P7"
+            ],
+            "max_hallucinated_problems": 2
+        },
+        {
+            "id": "s02-pesquisa",
+            "label": "projeto de pesquisa",
+            "path": "cenarios/s02-pesquisa",
+            "expected_problems": [
+                "P2",
+                "P3",
+                "P5",
+                "P6"
+            ],
+            "max_hallucinated_problems": 2
+        },
+        {
+            "id": "s03-simples",
+            "label": "projeto simples",
+            "path": "cenarios/s03-simples",
+            "expected_problems": [
+                "P3",
+                "P7"
+            ],
+            "max_hallucinated_problems": 1
+        },
+        {
+            "id": "s04-bem-formatado",
+            "label": "projeto bem estruturado",
+            "path": "cenarios/s04-bem-formatado",
+            "expected_problems": [],
+            "max_hallucinated_problems": 0
+        },
+        {
+            "id": "s05-borda-adversarial",
+            "label": "projeto de borda adversarial",
+            "path": "cenarios/s05-borda-adversarial",
+            "expected_problems": [
+                "P1",
+                "P2",
+                "P4",
+                "P5",
+                "P6",
+                "P7"
+            ],
+            "max_hallucinated_problems": 2
+        }
+    ]
+}

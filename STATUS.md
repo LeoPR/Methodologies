@@ -3,10 +3,10 @@ name: status-methodologies-project
 type: status
 status: active
 created: 2026-06-03
-updated: 2026-06-05
+updated: 2026-06-06
 ---
 
-# STATUS — 2026-06-05
+# STATUS — 2026-06-06
 
 ## Foco atual
 
@@ -272,6 +272,28 @@ updated: 2026-06-05
   otimizacao e' H-C futura).
 - **Licenca**: confirmada CC BY-SA 4.0 (vs MIT: MIT e' de software, categoria errada;
   equivalente permissivo p/ doc seria CC BY 4.0).
+
+## Comprovação forte do Strata (2026-06-06)
+
+- **Plano executável de comprovação forte** criado em
+  `lab/2026-06-06-comprovacao-forte-strata/` com:
+  - `README.md`: gates G1..G6 para claim forte;
+  - `matriz-testes-faltantes.md`: backlog priorizado (P0/P1/P2) dos testes que faltam;
+  - `criterio-promocao-strata-v2.md`: regra de entrada para discutir v2.0 sem quebrar L0.
+- Objetivo operacional: separar claramente rodada de **evidência** de rodada de
+  **instrumento/infra**, fechar lacunas P6/P7 com N>=3 e preparar decisão v1.x vs v2.0.
+- **Síntese de envelope** (`sintese-envelope-operacao.md`): consolida tier nuvem +
+  local + A/B prosa-vs-AI-nativa num **envelope de operação** (ótimo = bigtech/prosa/F1
+  "ler-e-pronto"; mínimo viável local = reasoner >=8B na forma AI-nativa; fora do
+  envelope = local <3B). Inclui a **árvore/grafo de decisão** do Strata (automática /
+  situacional / cobertor-curto) e os cenários ótimo-orientativo e ler-e-pronto. Marca
+  4 lacunas [aberto] (N>=3 nuvem, braço prosa-curta, falso-positivo, validade ecológica)
+  como pré-condição do claim "completo".
+- **Fechamento forte local** (`fechamento-forte-local.md` + E5 na matriz): pacote
+  endurecido para encerrar a trilha offline com critério objetivo (N>=5 por modelo,
+  gate local P6/P7, N1/N2 zerados, alucinação <=0.10, estabilidade intercenário e
+  falso-positivo zero no cenário limpo). "Versão local fechada" agora tem definição
+  formal também em `criterio-promocao-strata-v2.md`.
 
 ## Proximo
 

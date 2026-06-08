@@ -106,6 +106,17 @@ updated: 2026-06-07
   alavanca real, mas NAO instala a discernancia do Opus -> nao fecha o gap de capacidade.**
   Auto-auditor confiavel = topo (P0) ou humano-no-loop; AN-v3 p/ medios = menos ruido, esperar
   sub-deteccao. PROXIMO: P6 (scatterplot dos eixos de borda) — pedido do dono.
+- **P6 (testes de borda + scatterplot) FEITO** (2026-06-08, `RESULTADOS-p6-shootout.md` +
+  `RESULTADOS-p6-scatter.md` + `VIZ-p6-scatter.svg`). Fase A (shootout de formas): tutoria
+  MONOTONICA — F0-bare (Strata cru 53KB) e o PIOR p/ modelo barato; F4-etapas (multi-turn) o
+  unico net-positivo; F1-checklist (2KB) o melhor portatil. Fase B (grid 12 modelos $0.02-$7
+  × forma F1 + overlay F4): SO o Opus (+1.75) e claramente positivo; custo NAO compra
+  qualidade entre baratos (os mais baratos sao os piores); etapas F4 levantam os baratos
+  (deepseek-v3 -2.25->+0.50 a $0.26/M). **Veredito: cheap+portatil+bom = ESCOLHA DOIS.**
+  Pontos da fronteira: (1) Opus+F1 max qualidade; (2) gpt-4.1-mini/gemini-flash+F1 = piso
+  portatil neutro (~$0.5); (3) deepseek-v3+F4-etapas = barato+positivo, menos portatil.
+  Novos: strata-checklist.md, hb_staged.py, gen_scatter.py (SVG puro), price_probe.py.
+  Gasto OpenRouter total ~\$7. (P6-A/B caveat: N pequeno; medias incluem NNN exemplar.)
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

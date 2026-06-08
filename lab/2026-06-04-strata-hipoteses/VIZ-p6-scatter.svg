@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" font-family="sans-serif">
+<rect width="960" height="620" fill="white"/>
+<text x="80" y="30" font-size="18" font-weight="bold">P6 — Custo × Qualidade do Strata por modelo (forma F1-checklist, projetos reais)</text>
+<text x="80" y="48" font-size="12" fill="#666">Y = genuino - falso-positivo (maior=melhor) · X = custo proxy $/M (log) · △=reasoner ☆=teto(Opus)</text>
+<line x1="80" y1="193.63636363636363" x2="730" y2="193.63636363636363" stroke="#999" stroke-dasharray="5,4"/>
+<text x="730" y="188.63636363636363" font-size="11" fill="#999" text-anchor="end">qualidade 0 (ruido=sinal)</text>
+<line x1="80" y1="60" x2="80" y2="550" stroke="#333"/>
+<line x1="80" y1="550" x2="730" y2="550" stroke="#333"/>
+<line x1="266.5707903641814" y1="60" x2="266.5707903641814" y2="550" stroke="#eee"/>
+<text x="266.5707903641814" y="568" font-size="11" text-anchor="middle" fill="#555">$0.1</text>
+<line x1="507.403403900362" y1="60" x2="507.403403900362" y2="550" stroke="#eee"/>
+<text x="507.403403900362" y="568" font-size="11" text-anchor="middle" fill="#555">$1</text>
+<text x="405.0" y="600" font-size="13" text-anchor="middle">custo (proxy $/M tokens, escala log) →</text>
+<text x="70" y="554.0" font-size="11" text-anchor="end" fill="#555">-6</text>
+<text x="70" y="494.6060606060606" font-size="11" text-anchor="end" fill="#555">-5</text>
+<text x="70" y="435.2121212121212" font-size="11" text-anchor="end" fill="#555">-4</text>
+<text x="70" y="375.8181818181818" font-size="11" text-anchor="end" fill="#555">-3</text>
+<text x="70" y="316.4242424242424" font-size="11" text-anchor="end" fill="#555">-2</text>
+<text x="70" y="257.030303030303" font-size="11" text-anchor="end" fill="#555">-1</text>
+<text x="70" y="197.63636363636363" font-size="11" text-anchor="end" fill="#555">+0</text>
+<text x="70" y="138.24242424242425" font-size="11" text-anchor="end" fill="#555">+1</text>
+<text x="70" y="78.84848484848484" font-size="11" text-anchor="end" fill="#555">+2</text>
+<text x="70" y="19.454545454545453" font-size="11" text-anchor="end" fill="#555">+3</text>
+<text x="20" y="305.0" font-size="13" text-anchor="middle" transform="rotate(-90 20 305.0)">qualidade (genuino - falso-pos) →</text>
+<circle cx="103.3390917105555" cy="505.45454545454544" r="6.5" fill="#f59e0b" stroke="#333"/>
+<text x="114.3390917105555" y="509.45454545454544" font-size="10.5" fill="#222">llama-3.1-8b (-5.2)</text>
+<circle cx="252.60443820949354" cy="520.3030303030303" r="6.5" fill="#e11d48" stroke="#333"/>
+<text x="263.60443820949354" y="524.3030303030303" font-size="10.5" fill="#222">mistral-small-3.2-24b (-5.5)</text>
+<circle cx="287.36905409012303" cy="401.51515151515156" r="6.5" fill="#f59e0b" stroke="#333"/>
+<text x="298.36905409012303" y="405.51515151515156" font-size="10.5" fill="#222">llama-3.3-70b (-3.5)</text>
+<circle cx="294.01206569531075" cy="386.66666666666663" r="6.5" fill="#10a37f" stroke="#333"/>
+<text x="305.01206569531075" y="390.66666666666663" font-size="10.5" fill="#222">gpt-4.1-nano (-3.2)</text>
+<circle cx="294.01206569531075" cy="253.03030303030303" r="6.5" fill="#4285f4" stroke="#333"/>
+<text x="305.01206569531075" y="257.030303030303" font-size="10.5" fill="#222">gemini-2.5-flash-lite (-1.0)</text>
+<circle cx="365.2960558311065" cy="327.27272727272725" r="6.5" fill="#7b3fe4" stroke="#333"/>
+<text x="376.2960558311065" y="331.27272727272725" font-size="10.5" fill="#222">deepseek-chat-v3 (-2.2)</text>
+<circle cx="401.7023030471507" cy="356.969696969697" r="6.5" fill="#dc2626" stroke="#333"/>
+<text x="412.7023030471507" y="360.969696969697" font-size="10.5" fill="#222">qwen-2.5-72b (-2.8)</text>
+<circle cx="439.0077469123941" cy="193.63636363636363" r="6.5" fill="#10a37f" stroke="#333"/>
+<text x="450.0077469123941" y="197.63636363636363" font-size="10.5" fill="#222">gpt-4.1-mini (+0.0)</text>
+<circle cx="439.0077469123941" cy="208.4848484848485" r="6.5" fill="#4285f4" stroke="#333"/>
+<text x="450.0077469123941" y="212.4848484848485" font-size="10.5" fill="#222">gemini-2.5-flash (-0.2)</text>
+<polygon points="494.03302073774216,245.03030303030303 502.03302073774216,260.030303030303 486.03302073774216,260.030303030303" fill="#7b3fe4" stroke="#333"/>
+<text x="505.03302073774216" y="257.030303030303" font-size="10.5" fill="#222">deepseek-r1 (-1.0)</text>
+<polygon points="544.8133877794269,170.7878787878788 552.8133877794269,185.7878787878788 536.8133877794269,185.7878787878788" fill="#10a37f" stroke="#333"/>
+<text x="555.8133877794269" y="182.7878787878788" font-size="10.5" fill="#222">o4-mini (+0.2)</text>
+<polygon points="710.9305735712992,80.6969696969697 713.5305735712992,86.8969696969697 719.5305735712992,86.8969696969697 714.7305735712991,91.2969696969697 716.5305735712992,97.2969696969697 710.9305735712992,93.4969696969697 705.3305735712992,97.2969696969697 707.1305735712992,91.2969696969697 702.3305735712992,86.8969696969697 708.3305735712992,86.8969696969697" fill="#111111" stroke="#000"/>
+<text x="721.9305735712992" y="93.6969696969697" font-size="10.5" fill="#222">claude-opus-4.8 (+1.8)</text>
+<defs><marker id="ah" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 z" fill="#16a34a"/></marker></defs>
+<line x1="90.3390917105555" y1="505.45454545454544" x2="90.3390917105555" y2="464.90909090909093" stroke="#16a34a" stroke-width="2" marker-end="url(#ah)" opacity="0.8"/>
+<circle cx="90.3390917105555" cy="460.90909090909093" r="3.2" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+<line x1="239.60443820949354" y1="520.3030303030303" x2="239.60443820949354" y2="227.33333333333331" stroke="#16a34a" stroke-width="2" marker-end="url(#ah)" opacity="0.8"/>
+<circle cx="239.60443820949354" cy="223.33333333333331" r="3.2" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+<line x1="352.2960558311065" y1="327.27272727272725" x2="352.2960558311065" y2="167.93939393939394" stroke="#16a34a" stroke-width="2" marker-end="url(#ah)" opacity="0.8"/>
+<circle cx="352.2960558311065" cy="163.93939393939394" r="3.2" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+<circle cx="426.0077469123941" cy="193.63636363636363" r="3.2" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+<line x1="426.0077469123941" y1="208.4848484848485" x2="426.0077469123941" y2="197.63636363636363" stroke="#16a34a" stroke-width="2" marker-end="url(#ah)" opacity="0.8"/>
+<circle cx="426.0077469123941" cy="193.63636363636363" r="3.2" fill="none" stroke="#16a34a" stroke-width="1.6"/>
+<text x="88" y="542" font-size="10.5" fill="#16a34a">↑ verde = ganho da forma F4-etapas (guiado) sobre a F1-checklist</text>
+<text x="754" y="70" font-size="12" font-weight="bold">operadora</text>
+<circle cx="764" cy="86" r="6" fill="#10a37f" stroke="#333"/>
+<text x="778" y="90" font-size="11">openai</text>
+<circle cx="764" cy="106" r="6" fill="#4285f4" stroke="#333"/>
+<text x="778" y="110" font-size="11">google</text>
+<circle cx="764" cy="126" r="6" fill="#7b3fe4" stroke="#333"/>
+<text x="778" y="130" font-size="11">deepseek</text>
+<circle cx="764" cy="146" r="6" fill="#f59e0b" stroke="#333"/>
+<text x="778" y="150" font-size="11">meta-llama</text>
+<circle cx="764" cy="166" r="6" fill="#dc2626" stroke="#333"/>
+<text x="778" y="170" font-size="11">qwen</text>
+<circle cx="764" cy="186" r="6" fill="#e11d48" stroke="#333"/>
+<text x="778" y="190" font-size="11">mistralai</text>
+<circle cx="764" cy="206" r="6" fill="#111111" stroke="#333"/>
+<text x="778" y="210" font-size="11">anthropic</text>
+</svg>

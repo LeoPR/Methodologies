@@ -51,7 +51,14 @@ updated: 2026-06-07
   **Falsa-inteligencia CONFIRMADA:** gemini-2.5-flash (barato) 7/7 supera llama-3.3-70b
   (3.33 prosa); llama-3.1-8b zera na prosa local E nuvem (e' o modelo, nao o ambiente).
   RESULTADOS-tier-nuvem.md (antigo) marcado SUPERSEDIDO. recipe/README recalibrado p/
-  "evidencia inicial reproduzivel". **Pendente:** R6 2o juiz, R5 N>=5, R8 projetos reais.
+  "evidencia inicial reproduzivel".
+- **R6 (2o juiz nao-Claude) FEITO** (2026-06-07, `RESULTADOS-r6-2o-juiz.md`): gpt-4.1-mini
+  re-pontuou cego os 63 planos nuvem. **AN > prosa > baseline vale com os 2 juizes** (deltas
+  ~iguais) -> conclusao ROBUSTA ao juiz. gpt e ~1 ponto mais leniente (MAE 1.14) -> reportar
+  DELTAS, nao absolutos. Concordancia alta nos gates criticos (P1 .94, P7 .90, P5 .86),
+  baixa nos moles (P2 .56). Vies: Claude foi ~0.87 mais generoso com o haiku que o juiz
+  neutro (indicio LEVE de familia, n=9, nao muda a conclusao). Instrumentos: judge_openrouter.py,
+  compare_judges.py. **Pendente:** R5 N>=5, R8 projetos reais, R7 sandbox.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

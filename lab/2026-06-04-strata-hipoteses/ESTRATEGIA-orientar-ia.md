@@ -45,3 +45,33 @@ nuvem/local. Dá para montar:
 > Status: registrado para visualização e nova estratégia. A próxima rodada deixa de medir
 > "o método" e passa a medir **a forma de orientar a IA** (etapas, modo, situar-no-tempo).
 > Ver também [[H-D temporalidade]] e o H-C (forma AI-nativa).
+
+## Plano P0 — PROVA DE TETO (a IA mais avançada consegue?) — pedido do dono
+
+**Pergunta:** existe **prova cabal** de que ao menos UMA IA muito avançada aplica o Strata
+a um projeto real **sem** o falso-positivo que derrubou os modelos médios/baratos? O dono
+roda no máximo **Opus 4.8** (e nem todos terão isso) — então é o **teto** a confirmar.
+
+**Lacuna:** o R8 testou modelos **médios/baratos** (gpt-4.1-mini, haiku, gemini-flash,
+deepseek, llama) — **nunca o topo (Opus 4.8)** como participante. Logo não sabemos se o
+falso-positivo é **limite de capacidade** (some no topo) ou **do modo auto-auditor** (vale
+até no topo).
+
+**Método (automatizável, limpo):**
+- Participante: **`anthropic/claude-opus-4.8`** via OpenRouter (confirmado disponível) —
+  instância **fresca**, fora desta conversa (não viu o gabarito). (E/ou o `claude.exe` do
+  dono, mesmo Opus 4.8, como segunda via.)
+- Alvos: os 3 digests reais — com ênfase em **NNN (exemplar = controle de falso-positivo)**
+  e **pdf2md (problemas reais claros)**. Braços: **baseline + AN**, N=2.
+- Juiz: **gpt-4.1-mini (não-Claude)** do R6 — evita o viés Claude-julga-Claude.
+
+**Interpretação:**
+- Se Opus 4.8 tem falso-positivo **<<** os médios (que deram 4.4-4.9 no NNN) **E** acha os
+  problemas reais → **prova de teto positiva**: *uma IA avançada consegue; o desafio é
+  orientar as menores.*
+- Se Opus 4.8 **também alucina** ~5 no NNN → o problema é o **modo auto-auditor**, não a
+  capacidade — e nem o topo salva sem mudar a forma (reforça H-E/forma/modo).
+
+**Confirma também** se o Opus 4.8 "executa em todas as condições" (bom/exemplar/messy) —
+os 3 tipos de projeto cobrem isso. **Custo:** Opus é mais caro (~$2-4 a rodada); confirmar
+antes de disparar.

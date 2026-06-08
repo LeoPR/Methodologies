@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="500" font-family="sans-serif">
+<rect width="940" height="500" fill="white"/>
+<text x="34" y="32" font-size="19" font-weight="bold">Strata — o que está PROVADO vs o que se TESTA agora</text>
+<text x="34" y="54" font-size="12.5" fill="#555">A pergunta de pesquisa mudou: não "o método funciona?" (sim, nas camadas atemporais) — mas "uma IA o aplica sozinha?"</text>
+
+<!-- eixo durabilidade -->
+<text x="22" y="300" font-size="11" fill="#888" text-anchor="middle" transform="rotate(-90 22 300)">← mais durável / mais abstrato     mais datado / mais concreto →</text>
+
+<!-- camadas -->
+<rect x="48" y="78" width="430" height="92" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+<text x="64" y="104" font-size="15" font-weight="bold" fill="#15803d">L0 — Núcleo atemporal</text>
+<text x="64" y="124" font-size="11.5" fill="#333">método científico, epistemologia, rastreabilidade, fonte única…</text>
+<text x="64" y="142" font-size="11" fill="#555" font-style="italic">"se a IA e o computador sumissem, continua verdadeiro" · décadas/séculos</text>
+<rect x="386" y="86" width="84" height="22" rx="11" fill="#16a34a"/><text x="428" y="101" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">PROVADO</text>
+
+<rect x="48" y="180" width="430" height="86" rx="6" fill="#dcfce7" stroke="#22c55e"/>
+<text x="64" y="205" font-size="15" font-weight="bold" fill="#15803d">L1 — Padrões consolidados</text>
+<text x="64" y="225" font-size="11.5" fill="#333">Diátaxis, ADR, FAIR, IMRaD, Conventional Commits…</text>
+<text x="64" y="243" font-size="11" fill="#555" font-style="italic">"uma boa forma de fazer o L0, não a única" · ~décadas · substituível</text>
+<rect x="386" y="188" width="84" height="22" rx="11" fill="#22c55e"/><text x="428" y="203" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">PROVADO</text>
+
+<rect x="48" y="276" width="430" height="150" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+<text x="64" y="301" font-size="15" font-weight="bold" fill="#b45309">L2 — Adaptação à era atual</text>
+<text x="64" y="321" font-size="11.5" fill="#333">como as ferramentas de hoje expressam L0/L1: agentes de IA, IDE, git…</text>
+<text x="64" y="339" font-size="11" fill="#555" font-style="italic">trocável sem tocar no L0 · meses · é AQUI que mora a automação por IA</text>
+<rect x="378" y="284" width="92" height="22" rx="11" fill="#f59e0b"/><text x="424" y="299" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">EM TESTE</text>
+<!-- mini-escala de modo dentro do L2 -->
+<text x="64" y="366" font-size="11" font-weight="bold" fill="#92400e">aplicar por IA — do mais fácil ao mais difícil:</text>
+<rect x="64" y="376" width="124" height="40" rx="4" fill="#16a34a" opacity="0.85"/><text x="126" y="392" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">manual (humano)</text><text x="126" y="407" font-size="9.5" fill="#fff" text-anchor="middle">funciona ✓</text>
+<rect x="196" y="376" width="124" height="40" rx="4" fill="#eab308"/><text x="258" y="392" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">IA orientada (etapas)</text><text x="258" y="407" font-size="9.5" fill="#fff" text-anchor="middle">parcial — varia</text>
+<rect x="328" y="376" width="140" height="40" rx="4" fill="#ea580c"/><text x="398" y="392" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">IA automática, de 1 vez</text><text x="398" y="407" font-size="9.5" fill="#fff" text-anchor="middle">só o topo (Opus)</text>
+
+<!-- painel direito: as duas perguntas -->
+<line x1="510" y1="78" x2="510" y2="426" stroke="#e5e7eb"/>
+<text x="536" y="98" font-size="14" font-weight="bold">As duas perguntas</text>
+
+<rect x="536" y="116" width="372" height="104" rx="6" fill="#f0fdf4" stroke="#16a34a"/>
+<text x="552" y="140" font-size="13" font-weight="bold" fill="#15803d">1. "O Strata funciona?"</text>
+<text x="552" y="162" font-size="12" fill="#166534" font-weight="bold">→ SIM — e isso não se testa mais.</text>
+<text x="552" y="182" font-size="11" fill="#333">As camadas L0/L1 são fundamentadas e <tspan font-weight="bold">independem de</tspan></text>
+<text x="552" y="198" font-size="11" fill="#333"><tspan font-weight="bold">tecnologia</tspan>: um humano (com tempo) aplica tudo, manualmente.</text>
+<text x="552" y="214" font-size="10.5" fill="#777" font-style="italic">"se sumissem IA e computador, o L0 continua verdadeiro"</text>
+
+<rect x="536" y="232" width="372" height="180" rx="6" fill="#fffbeb" stroke="#f59e0b"/>
+<text x="552" y="256" font-size="13" font-weight="bold" fill="#b45309">2. "Uma IA aplica sozinha?"</text>
+<text x="552" y="278" font-size="12" fill="#92400e" font-weight="bold">→ é a FRONTEIRA atual (camada L2).</text>
+<text x="552" y="300" font-size="11" fill="#333">• <tspan font-weight="bold">De uma vez (Opus-class):</tspan> aplica L0/L1 num passo —</text>
+<text x="560" y="316" font-size="11" fill="#333">acha o real, reconhece o bom, não inventa. ✓ provado.</text>
+<text x="552" y="338" font-size="11" fill="#333">• <tspan font-weight="bold">Orientando os outros:</tspan> seção a seção / em etapas,</text>
+<text x="560" y="354" font-size="11" fill="#333">com checklist — ajuda, mas varia (rascunho a revisar).</text>
+<text x="552" y="376" font-size="11" fill="#333">• <tspan font-weight="bold">Grátis / automático confiável:</tspan> ainda não.</text>
+<text x="552" y="398" font-size="10.5" fill="#777" font-style="italic">O que muda entre modelos é a CAPACIDADE, não a validade do método.</text>
+
+<text x="34" y="456" font-size="11" fill="#666">Resumo: a validade (L0/L1) está estabelecida e é independente de tecnologia. O trabalho aberto é a AUTOMAÇÃO (L2) — quão bem,</text>
+<text x="34" y="472" font-size="11" fill="#666">e quão barato, uma IA aplica o método sozinha. Guia prático de uso: recipe/strata-com-ia.md.</text>
+</svg>

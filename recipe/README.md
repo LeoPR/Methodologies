@@ -21,19 +21,52 @@ periodicamente, (b) acompanhar **atualizações** (compare sua cópia com a
 [fonte canônica](knowledge-architecture.md) e veja o que mudou), (c) registrar uma
 **versão adaptada** sua (atualize o campo `canonical-source` no frontmatter).
 
+### As três camadas — e o que cada uma exige
+
+O método é escrito em **camadas de durabilidade**. Saber em qual você está muda *como* aplicar:
+
+| Camada | O que é | Como aplicar |
+|---|---|---|
+| **L0 — núcleo atemporal** | os 12 princípios (método científico, rastreabilidade, fonte única, fail-closed…). "Se a IA e o computador sumissem, continua verdadeiro." | **sempre**, por julgamento. Independe de tecnologia. É o que você confere de fato. |
+| **L1 — padrões consolidados** | formas maduras de cumprir o L0 (Diátaxis, ADR, FAIR, IMRaD, Conventional Commits). | **escolha** a formalização que cabe na sua necessidade L0 — é *uma* boa forma, não a única; troca-se sem mexer no L0. |
+| **L2 — adaptação à era atual** | como as ferramentas de hoje (agentes de IA, IDE, git) expressam L0/L1. | **datado**, com prazo de revalidação. É aqui que mora a **automação por IA**. |
+
+![camadas e modo](strata-modo.svg)
+
+> **O que se testa agora — a automação, não a validade.** As camadas **L0/L1 estão
+> fundamentadas e independem de tecnologia**: um humano com tempo aplica tudo, manualmente.
+> A pergunta de pesquisa **não** é mais "o Strata funciona?" (funciona) — é "**uma IA o aplica
+> sozinha?**", que é uma questão de **L2** (ferramenta/era). Resposta curta: **de uma vez, só
+> um modelo de topo (Opus)**; os demais precisam ser **orientados** (seção a seção, em etapas),
+> e o resultado é rascunho a revisar. O que varia entre modelos é a **capacidade**, não a
+> validade do método.
+
 ### Como usar — por um humano
 
-1. Leia a **Parte I (L0)**: 12 princípios, nenhuma ferramenta. É o núcleo.
+1. Leia a **Parte I (L0)**: 12 princípios, nenhuma ferramenta. É o núcleo — e o que mais
+   importa conferir (é tech-independente; vale com ou sem IA).
 2. Use o **§9** como régua: ele diz *quais seções se aplicam ao seu caso* (nem todas
    valem para todo projeto — há universais e condicionais).
-3. Para projeto que já existe (**brownfield**), não recomece: para cada coisa que
+3. Para o **L1**, escolha as formalizações que servem (ADR para decisões, Diátaxis para docs…)
+   — sem confundir o padrão (trocável) com o princípio L0 (não).
+4. Para projeto que já existe (**brownfield**), não recomece: para cada coisa que
    você já faz, pergunte que necessidade L0 ela cumpre; só mude o que viola um
    princípio forte. (Guia completo dentro do arquivo.)
 
 ### Como usar — por uma IA (ela aplica ao seu projeto)
 
-O arquivo é escrito para um agente conseguir lê-lo e **agir**. Exemplos de pedido
-(Claude, Copilot Chat, etc.), em um chat novo com o seu projeto aberto:
+Há **dois modos**, e qual usar depende da força do modelo (guia completo, com custos e
+ambientes — local/grátis/pago — em **[`strata-com-ia.md`](strata-com-ia.md)**):
+
+- **De uma vez (modelo de topo, ex. Opus):** entregue o método + o projeto e peça a avaliação
+  inteira num passo. Funciona — acha o real, reconhece o bom, não inventa. Use os pedidos abaixo.
+- **Orientando (modelos médios/baratos/locais):** de-uma-vez eles **alucinam** (inventam
+  violações, criticam o que é bom). Em vez do texto canônico cru, dê uma **checklist** e aplique
+  **em etapas** (reconheça o bom → situe no tempo → gate a gate com evidência → priorize pelo
+  §9). Ajuda, mas o resultado é **rascunho a revisar**. (Receitas prontas em `strata-com-ia.md`.)
+
+Exemplos de pedido para o **modo de-uma-vez** (Claude, Copilot Chat, etc.), em um chat novo
+com o seu projeto aberto:
 
 ```text
 Leia knowledge-architecture.md e avalie se este projeto está aderente.

@@ -90,50 +90,74 @@ for env in ["local", "free", "paid"]:
         best = max(nofilter, key=lambda c: c["q"]) if nofilter else None
         print(f"  {env:6}: nenhuma >= limiar (melhor: {best['label']} {best['q']:+.2f})" if best else f"  {env:6}: -")
 
-# ---- grafico FRONTEIRA (positivo-only) ----
-work = [c for c in configs if c["q"] >= NEUTRO]
+# ---- grafico FRONTEIRA (positivo-only) — 1 melhor config por modelo, pontos numerados ----
+best_by_model = {}
+for c in configs:
+    if c["q"] >= NEUTRO:
+        m = c["model"]
+        if m not in best_by_model or c["q"] > best_by_model[m]["q"]:
+            best_by_model[m] = c
+work = sorted(best_by_model.values(), key=lambda c: (-c["q"], c["cost"]))
+for n, c in enumerate(work, 1):
+    c["rank"] = n
 ENVCOLOR = {"local": "#16a34a", "free": "#2563eb", "paid": "#7b3fe4"}
-ENVMARK = {"local": "🖥", "free": "☁", "paid": "💳"}
-W, H, ML, MR, MT, MB = 920, 540, 80, 230, 70, 70
+ENVNAME = {"local": "local/grátis", "free": "grátis remoto", "paid": "API paga"}
+W, H, ML, MR, MT, MB = 940, 430, 64, 300, 70, 52
 PW, PH = W - ML - MR, H - MT - MB
 if work:
-    costs = [max(c["cost"], 0.01) for c in work]
-    lxmin, lxmax = math.log10(min(costs) * 0.7), math.log10(max(costs) * 1.5)
-    qhi = max(c["q"] for c in work) + 0.4
-    qlo = min(NEUTRO, min(c["q"] for c in work)) - 0.2
+    costs = [max(c["cost"], 0.02) for c in work]
+    lxmin, lxmax = math.log10(min(costs) / 1.6), math.log10(max(costs) * 1.6)
+    qhi = max(c["q"] for c in work) + 0.25
+    qlo = min(c["q"] for c in work) - 0.25
 
-    def px(c): return ML + (math.log10(max(c, 0.01)) - lxmin) / (lxmax - lxmin) * PW
+    def px(c): return ML + (math.log10(max(c, 0.02)) - lxmin) / (lxmax - lxmin) * PW
     def py(q): return MT + (qhi - q) / (qhi - qlo) * PH
     svg = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" font-family="sans-serif">',
            f'<rect width="{W}" height="{H}" fill="white"/>']
-    svg.append(f'<text x="{ML}" y="30" font-size="18" font-weight="bold">Strata — o que FUNCIONA: custo × qualidade × ambiente</text>')
-    svg.append(f'<text x="{ML}" y="48" font-size="12" fill="#666">só configs que ajudam (≥ neutro) · verde=local🖥 azul=grátis☁ roxo=API💳 · faixa = variação entre projetos</text>')
-    svg.append(f'<rect x="{ML}" y="{MT}" width="{PW}" height="{py(BOM)-MT}" fill="#dcfce7" opacity="0.5"/>')
-    svg.append(f'<text x="{ML+8}" y="{MT+16}" font-size="11" fill="#16a34a">zona "ajuda de verdade" (≥ +0.5)</text>')
-    svg.append(f'<line x1="{ML}" y1="{py(0)}" x2="{ML+PW}" y2="{py(0)}" stroke="#999" stroke-dasharray="5,4"/>')
+    svg.append(f'<text x="{ML}" y="28" font-size="17" font-weight="bold">Strata por IA — o que FUNCIONA: custo × qualidade × ambiente</text>')
+    svg.append(f'<text x="{ML}" y="46" font-size="11.5" fill="#666">só configs que ajudam (≥ neutro). Y = problemas reais − falso-positivos · X = custo (log) · cor = ambiente</text>')
+    # zona "ajuda de verdade"
+    if py(BOM) > MT:
+        svg.append(f'<rect x="{ML}" y="{MT}" width="{PW}" height="{py(BOM)-MT:.0f}" fill="#dcfce7" opacity="0.55"/>')
+        svg.append(f'<text x="{ML+PW-6}" y="{MT+15}" font-size="10.5" fill="#15803d" text-anchor="end">↑ ajuda de verdade (≥ +0.5)</text>')
+    svg.append(f'<line x1="{ML}" y1="{py(0):.0f}" x2="{ML+PW}" y2="{py(0):.0f}" stroke="#9ca3af" stroke-dasharray="5,4"/>')
+    svg.append(f'<text x="{ML+4}" y="{py(0)-5:.0f}" font-size="10" fill="#9ca3af">0 = neutro (não ajuda, não atrapalha)</text>')
     svg.append(f'<line x1="{ML}" y1="{MT}" x2="{ML}" y2="{MT+PH}" stroke="#333"/><line x1="{ML}" y1="{MT+PH}" x2="{ML+PW}" y2="{MT+PH}" stroke="#333"/>')
     for dec in [0, 0.1, 0.3, 1, 3, 7]:
-        if dec == 0:
-            x = px(0.01); lab = "grátis/local"
-        else:
-            x = px(dec); lab = f"${dec}"
-        if lxmin <= math.log10(max(dec, 0.01)) <= lxmax:
-            svg.append(f'<line x1="{x}" y1="{MT}" x2="{x}" y2="{MT+PH}" stroke="#eee"/><text x="{x}" y="{MT+PH+18}" font-size="11" text-anchor="middle" fill="#555">{lab}</text>')
-    svg.append(f'<text x="{ML+PW/2}" y="{H-16}" font-size="13" text-anchor="middle">custo (proxy $/M, log) →</text>')
-    qy = math.floor(qlo)
-    while qy <= qhi:
-        svg.append(f'<text x="{ML-10}" y="{py(qy)+4}" font-size="11" text-anchor="end" fill="#555">{qy:+d}</text>'); qy += 1
-    svg.append(f'<text x="22" y="{MT+PH/2}" font-size="13" text-anchor="middle" transform="rotate(-90 22 {MT+PH/2})">qualidade (genuíno − falso-pos) →</text>')
-    for c in sorted(work, key=lambda c: c["cost"]):
+        xv = 0.02 if dec == 0 else dec
+        lab = "grátis" if dec == 0 else f"${dec}"
+        if lxmin <= math.log10(xv) <= lxmax:
+            x = px(xv)
+            svg.append(f'<line x1="{x:.0f}" y1="{MT}" x2="{x:.0f}" y2="{MT+PH}" stroke="#f0f0f0"/>')
+            svg.append(f'<text x="{x:.0f}" y="{MT+PH+16}" font-size="10.5" text-anchor="middle" fill="#666">{lab}</text>')
+    svg.append(f'<text x="{ML+PW/2:.0f}" y="{H-14}" font-size="12" text-anchor="middle" fill="#444">custo por milhão de tokens (escala log) →</text>')
+    for q10 in range(math.floor(qlo*2), math.ceil(qhi*2)+1):
+        q = q10/2
+        if qlo <= q <= qhi:
+            svg.append(f'<text x="{ML-8}" y="{py(q)+4:.0f}" font-size="10" text-anchor="end" fill="#666">{q:+.1f}</text>')
+    # pontos numerados (com nudge horizontal p/ colisoes) + faixa fina de variacao
+    placed = {}
+    for c in work:
         x, y = px(c["cost"]), py(c["q"])
+        cell = (round(x / 18), round(y / 18))
+        k = placed.get(cell, 0); placed[cell] = k + 1
+        x += k * 20  # afasta pontos coincidentes
         col = ENVCOLOR[c["env"]]
-        svg.append(f'<line x1="{x}" y1="{py(c["lo"])}" x2="{x}" y2="{py(c["hi"])}" stroke="{col}" stroke-width="2" opacity="0.35"/>')
-        svg.append(f'<circle cx="{x}" cy="{y}" r="6" fill="{col}" stroke="#fff"/>')
-        svg.append(f'<text x="{x+10}" y="{y+4}" font-size="10.5" fill="#222">{c["label"]} ({c["q"]:+.1f})</text>')
-    ly = MT + 6
-    for env in ["local", "free", "paid"]:
-        svg.append(f'<circle cx="{ML+PW+30}" cy="{ly}" r="6" fill="{ENVCOLOR[env]}"/><text x="{ML+PW+44}" y="{ly+4}" font-size="12">{env}</text>')
-        ly += 22
+        svg.append(f'<line x1="{x:.0f}" y1="{py(c["lo"]):.0f}" x2="{x:.0f}" y2="{py(c["hi"]):.0f}" stroke="{col}" stroke-width="1.5" opacity="0.3"/>')
+        svg.append(f'<circle cx="{x:.0f}" cy="{y:.0f}" r="10" fill="{col}"/>')
+        svg.append(f'<text x="{x:.0f}" y="{y+4:.0f}" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">{c["rank"]}</text>')
+    # painel lateral ranqueado
+    lx = ML + PW + 24
+    svg.append(f'<text x="{lx}" y="{MT+2}" font-size="12" font-weight="bold">ranking (melhor → pior)</text>')
+    ly = MT + 24
+    for c in work:
+        col = ENVCOLOR[c["env"]]
+        faixa = f" · varia [{c['lo']:+.0f},{c['hi']:+.0f}]" if c["hi"] != c["lo"] else " · estável"
+        custo = "grátis" if c["cost"] == 0 else f"${c['cost']:.2f}/M"
+        svg.append(f'<circle cx="{lx+8}" cy="{ly-4}" r="9" fill="{col}"/><text x="{lx+8}" y="{ly}" font-size="10.5" font-weight="bold" fill="#fff" text-anchor="middle">{c["rank"]}</text>')
+        svg.append(f'<text x="{lx+24}" y="{ly-2}" font-size="11.5" font-weight="bold">{c["label"]} ({c["q"]:+.1f})</text>')
+        svg.append(f'<text x="{lx+24}" y="{ly+11}" font-size="9.5" fill="#666">{ENVNAME[c["env"]]} · {custo}{faixa}</text>')
+        ly += 30
     svg.append('</svg>')
     open(os.path.join(LAB, "VIZ-entrega-fronteira.svg"), "w", encoding="utf-8").write("\n".join(svg))
     print(f"\n-> VIZ-entrega-fronteira.svg ({len(work)} configs que funcionam)")

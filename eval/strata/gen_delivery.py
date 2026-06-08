@@ -31,13 +31,16 @@ def cost_env(safemodel):
     return c, env, real
 
 
-def collect(scores, keyf, form):
+SUPERSEDED = {"deepseek-r1_8b", "qwen3_4b-thinking"}  # validados em p6e (N=3), substituem p6d (N=1 truncado)
+
+
+def collect(scores, keyf, form, skip=None):
     """retorna lista (config_model, form, quality) por celula."""
     key = json.load(open(os.path.join(PLANOS, keyf), encoding="utf-8"))
     sc = {s["id"]: s for s in scores}
     out = []
     for i, k in key.items():
-        if i in sc:
+        if i in sc and not (skip and k["model"] in skip):
             out.append((k["model"], form, sc[i]["genuine_real"] - sc[i]["false_positives"]))
     return out
 
@@ -49,9 +52,14 @@ cells += collect(p6b["pdf2md"], "p6b-f1-pdf2md-key.json", "F1")
 # Phase B F4 overlay (deepseek-v3 etc.) -> config "etapas"
 cells += collect(p6b["f4_nnn"], "p6b-f4-nnn-key.json", "F4")
 cells += collect(p6b["f4_pdf"], "p6b-f4-pdf2md-key.json", "F4")
-# #2 (value/free/local) F1
-cells += collect(p6d["nnn"], "p6d-nnn-key.json", "F1")
-cells += collect(p6d["pdf2md"], "p6d-pdf2md-key.json", "F1")
+# #2 (value/free/local) F1 — pula os reasoners locais (substituidos pela validacao p6e)
+cells += collect(p6d["nnn"], "p6d-nnn-key.json", "F1", skip=SUPERSEDED)
+cells += collect(p6d["pdf2md"], "p6d-pdf2md-key.json", "F1", skip=SUPERSEDED)
+# validacao N=3 dos reasoners locais (p6e) — numero honesto (concluindo, deepseek-r1:8b alucina)
+if len(sys.argv) > 3:
+    p6e = json.load(open(sys.argv[3], encoding="utf-8")); p6e = p6e.get("result", p6e)
+    cells += collect(p6e["nnn"], "p6e-nnn-key.json", "F1")
+    cells += collect(p6e["pdf2md"], "p6e-pdf2md-key.json", "F1")
 
 # agrega por (modelo, forma)
 agg = defaultdict(list)

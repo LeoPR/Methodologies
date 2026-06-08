@@ -18,16 +18,17 @@ Duas regras de ouro antes de qualquer modelo:
 
 | Eu quero… | Use | Custo | Como |
 |---|---|---|---|
-| **grátis, na minha máquina** | **deepseek-r1:8b** (Ollama) + checklist | $0 / local 🖥️ | `think:true`, `num_predict` alto (8000+), contexto grande |
-| **barato e bom (API)** | **deepseek-v3 + aplicação em ETAPAS** | ~$0.26/M 💳 | em 4 turnos: reconheça o bom → situe no tempo → gates com evidência → priorize |
-| **barato, 1 prompt só** | **glm-4.6** + checklist | ~$0.56/M 💳 | rápido, mas o resultado varia mais entre projetos |
-| **o melhor, direto** | **Claude Opus** + checklist | ~$7/M 💳 | 1 prompt; positivo e **consistente** |
-| **filtro barato do óbvio** | gpt-4.1-mini / gpt-5 + checklist | ~$0.5–2/M 💳 | não inventa, mas acha pouco — bom como peneira inicial |
+| **o melhor, confiável** | **Claude Opus** + checklist | ~$7/M 💳 | 1 prompt; o **único** positivo *e* consistente nos dois tipos de projeto |
+| **barato (aceitando variância)** | **deepseek-v3 + aplicação em ETAPAS** | ~$0.26/M 💳 | 4 turnos: reconheça o bom → situe no tempo → gates com evidência → priorize. Ajuda **em média**, mas varia — sempre revise |
+| **barato, 1 prompt só** | **glm-4.6** + checklist | ~$0.56/M 💳 | rápido; resultado **inconsistente** entre projetos |
+| **peneira inicial do óbvio** | gpt-4.1-mini / gpt-5 + checklist | ~$0.5–2/M 💳 | não inventa, mas acha pouco |
+| **grátis / na minha máquina** | *(sem opção confiável hoje)* | $0 🖥️ | os modelos locais ou **alucinam** ao concluir (deepseek-r1:8b) ou **acham nada** (qwen3:4b-thinking ≈ neutro). Veja "Limites" |
 
 ![fronteira custo × qualidade × ambiente](strata-com-ia-fronteira.svg)
 
-*(Verde = local, azul = grátis remoto, roxo = API paga. Eixo Y = problemas reais achados −
-falso-positivos; só aparecem as configurações que ajudam.)*
+*(Roxo = API paga, verde = local. Eixo Y = problemas reais achados − falso-positivos; só
+aparecem as configurações que **ajudam** (≥ neutro). Note: a faixa mostra a variação entre
+projetos — quase tudo, menos o Opus, oscila entre ajudar e atrapalhar.)*
 
 ## A forma importa mais que o modelo
 
@@ -46,11 +47,16 @@ A maior diferença de qualidade vem de **como** você pede, não de qual modelo:
 - **Ponto cego universal:** a dimensão **temporal** (datas/história, §3/§8) — o modelo marca o
   histórico/datado como problema atual. Revise esses achados com atenção.
 - **Padrão-ouro:** só o Opus é positivo **e** consistente nos dois tipos de projeto (limpo e
-  bagunçado). Os demais variam — por isso a coluna "como" acima.
+  bagunçado). Todos os outros **oscilam** entre ajudar e atrapalhar — trate como rascunho.
+- **Reasoner local engana:** um modelo de raciocínio pequeno (deepseek-r1:8b) pode parecer
+  "limpo" só porque **truncou antes de concluir**; quando ele de fato termina, **alucina** no
+  projeto limpo igual aos baratos (validado N=3: −1.5). Não confie no resultado parcial.
 
 ## Notas finais
 
-- **Grátis remoto** (gateways `:free`): rate-limit pesado e os modelos testados não alcançaram
-  qualidade útil nesta tarefa — preferível o **grátis local** (Ollama) ou um **pago barato**.
-- A análise completa — incluindo as configurações que **não** funcionam, os experimentos e os
-  gráficos de pesquisa — está em `lab/2026-06-04-strata-hipoteses/` (`RESULTADOS-p6-*`).
+- **Não há opção grátis confiável hoje** — nem local nem remota. Local: ou alucina ao concluir
+  (deepseek-r1:8b) ou acha nada (qwen3:4b-thinking ≈ neutro). Remoto `:free`: rate-limit pesado
+  e qualidade baixa. Para um auditor que **ajuda**, hoje é **pago** (barato-variável ou Opus).
+- A análise completa — configurações que **não** funcionam, a validação que derrubou o falso
+  "+0.50" local, os experimentos e gráficos — está em `lab/2026-06-04-strata-hipoteses/`
+  (`RESULTADOS-p6-*`).

@@ -118,8 +118,9 @@ updated: 2026-06-07
   Novos: strata-checklist.md, hb_staged.py, gen_scatter.py (SVG puro), price_probe.py.
   Gasto OpenRouter total ~\$7. (P6-A/B caveat: N pequeno; medias incluem NNN exemplar.)
 - **P6 #2 (value/free/local) + ENTREGA FEITO** (2026-06-08, `RESULTADOS-p6-grid2-value-free-
-  local.md` + `recipe/strata-com-ia.md`). Preencheu a fronteira de USO: grátis-LOCAL
-  deepseek-r1:8b = +0.50 (melhor "na minha maquina"); pago-barato deepseek-v3+etapas $0.26 e
+  local.md` + `recipe/strata-com-ia.md`). Preencheu a fronteira de USO. [VALIDACAO N=3 DEPOIS:
+  o "+0.50" do deepseek-r1:8b LOCAL era ARTEFATO DE TRUNCAGEM; validado = -1.50 (alucina ao
+  concluir). NAO ha free-local confiavel; auditor que ajuda = pago.] pago-barato deepseek-v3+etapas $0.26 e
   glm-4.6 $0.56 = +0.50; Opus +1.75 padrao-ouro. Pagar caro acima do barato-bom NAO compra
   qualidade (gemini-pro/gpt-5 piores que glm-4.6). Gratis REMOTO :free nao entregou (429 +
   qualidade baixa). FIX METODOLOGICO (apontado pelo dono): runner descartava message.thinking

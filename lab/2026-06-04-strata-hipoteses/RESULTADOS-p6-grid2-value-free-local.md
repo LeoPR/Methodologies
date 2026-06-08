@@ -2,7 +2,7 @@
 title: P6 #2 — grid de valor (não-Opus forte) + grátis (remoto/local) + eixo think
 created: 2026-06-08
 setup: forma F1-checklist × {value-tier pago, free remoto, free/local Ollama} × NNN+pdf2md · pontuação CEGA (gabarito corrigido) · qualidade = genuíno − falso-positivo · MERGE com Phase B no gen_delivery.py
-status: define a fronteira de USO; o grátis-LOCAL (deepseek-r1:8b) é a surpresa positiva — só visível após corrigir a captura de thinking
+status: define a fronteira de USO. ATUALIZADO pós-validação N=3: NÃO há free-local confiável (o +0.50 do deepseek-r1:8b era artefato de truncagem; validado −1.50). Auditor que ajuda = pago.
 ---
 
 # P6 #2 — preencher a entrega (value / grátis / local / think)
@@ -17,7 +17,7 @@ atende — sem re-rodar Opus (já é a prova de teto). Mostrar o que funciona; o
 | claude-opus-4.8 (ref) | pago | 7.00 | **+1.75** | [+1,+2] |
 | deepseek-v3 +etapas | pago | 0.26 | **+0.50** | [0,+1] |
 | glm-4.6 | pago | 0.56 | **+0.50** | [−1,+2] |
-| **deepseek-r1:8b** | **local 🖥️** | **0** | **+0.50** | [0,+1] |
+| ~~deepseek-r1:8b~~ → **validado −1.50** | local 🖥️ | 0 | ~~+0.50~~ **−1.50** | [−6,+1] |
 | o4-mini | pago | 1.43 | +0.25 | [−1,+1] |
 | gpt-5 | pago | 2.12 | +0.25 | [0,+1] |
 | gpt-4.1-mini | pago | 0.52 | 0.00 | [0,0] |
@@ -29,10 +29,11 @@ atende — sem re-rodar Opus (já é a prova de teto). Mostrar o que funciona; o
 
 ## Achados
 
-1. **O grátis-LOCAL funciona — deepseek-r1:8b (+0.50).** É o melhor do ambiente "na minha
-   máquina, de graça", empatado com as opções pagas baratas. **Só apareceu depois de corrigir
-   um erro meu** (ver abaixo). qwen3:4b-thinking fica neutro (0.0). Os locais não-reasoner
-   (qwen3:8b −1.5, llama3.1:8b −4.0) são fracos.
+1. **O grátis-LOCAL NÃO funciona de forma confiável (corrigido na validação).** Na 1ª rodada
+   (N=1) deepseek-r1:8b deu +0.50 — mas era **artefato de TRUNCAGEM** (ver §Validação). Com N=3
+   e espaço para concluir: **−1.50** (quando termina, alucina no projeto limpo: −3, −6). O
+   qwen3:4b-thinking fica neutro (0.0 — acha nada). Os locais não-reasoner (qwen3:8b −1.5,
+   llama3.1:8b −4.0) são fracos. **Conclusão: nenhum free-local entrega um auditor positivo.**
 2. **Não há vantagem em pagar caro acima do barato-que-funciona.** gemini-2.5-pro ($2.12) deu
    −0.25 e gpt-5 ($2.12) +0.25 — **piores ou iguais** ao glm-4.6 ($0.56) e ao deepseek-v3+etapas
    ($0.26). Acima do tier barato-bom, só o Opus compra qualidade real. A curva custo→qualidade
@@ -55,6 +56,26 @@ trabalho do modelo**. Corrigido (`think:true` + fallback p/ thinking; diag empí
 docs confirmam). Re-rodado → deepseek-r1:8b virou a melhor opção local. **Apontado pelo dono.**
 Limite real associado: o reasoner local é **lento** e pode **não terminar** (truncar) projetos
 grandes — precisa de orçamento de tokens alto.
+
+## Validação (N=3) — o "+0.50" local era artefato de truncagem
+
+O dono pediu para validar o destaque local (era N=1 + truncou no NNN). Rodado N=3 com
+`num_predict 12000` (espaço para concluir):
+
+| deepseek-r1:8b | q | estado |
+|---|---|---|
+| nnn r1 | 0 (FP=0) | **truncou** (não chegou a inventar) |
+| nnn r2 | **−3** (FP=3) | concluiu → **alucina** |
+| nnn r3 | **−6** (FP=6) | concluiu → **alucina** |
+| pdf2md r1/r2/r3 | +1 / −2 / +1 | concluiu |
+| **média** | **−1.50** (concluídos −1.80) | |
+
+**Lição:** o +0.50 da rodada N=1 só existiu porque aquele run **truncou no NNN antes de
+inventar** (q=0). Quando o reasoner local **conclui**, ele super-critica o projeto limpo igual
+aos baratos. **Validar com N maior + deixar concluir foi decisivo** — sem isso, o guia teria
+recomendado uma opção local que não funciona. (qwen3:4b-thinking = 0.0 estável: acha nada.)
+Os dois fixes desta sessão se completam: capturar o `thinking` (senão parecia "incapaz") **e**
+deixá-lo concluir (senão parecia "limpo"). A verdade no meio: capaz de raciocinar, mas alucina.
 
 ## Entrega (separada)
 O guia de USO positivo-only (tabela de decisão + fronteira) está em

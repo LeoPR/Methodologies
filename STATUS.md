@@ -68,6 +68,17 @@ updated: 2026-06-07
   projeto decente (os modelos furam o §9!). Hipotese: ajuda em problemas DENSOS, atrapalha
   onde o projeto ja e bom. recipe/README recalibrado: usar como CHECKLIST humano, NAO
   auto-auditor. **Caveat:** 1 projeto real (bem-organizado); falta um MESSY (NNN/TCF); N=2.
+- **R8 SINTESE 3 PROJETOS REAIS FEITA** (2026-06-08, `RESULTADOS-r8-sintese-3-projetos.md`):
+  pdf2md (bom), NNN (exemplar), FG2P (messy). **Veredito ecologico:** o Strata como
+  auto-auditor de IA **NAO bate a competencia pura** em projeto real — piorou no bom,
+  empatou no messy, e no exemplar TODOS (ate baseline) alucinaram (~4.4-4.9 falso-pos/plano).
+  Falha dominante = falso-positivo + criticar praticas boas, nos 3 projetos e 3 bracos. A
+  hipotese "ajuda onde e denso" NAO se confirmou. Mecanismo: framing "ache problemas" induz
+  fabricar (modelos furam o §9) + fraqueza temporal (H-D) marca historico como atual.
+  **Reposiciona o produto:** Strata = metodo + CHECKLIST humano; auto-auditor de IA =
+  pesquisa em aberto. recipe/README recalibrado. Achado mais importante do reteste.
+- **H-D (Temporalidade) registrada** (`README.md` do lab): LLMs nao situam artefatos no
+  tempo (atual vs superado); provavel causa-raiz de parte do falso-positivo do R8. A testar.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

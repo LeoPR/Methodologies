@@ -56,16 +56,19 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 > tiers e é **necessária** para modelos pequenos (~8B), que se afogam na prosa densa.
 > Achado lateral: **tamanho ≠ capacidade** (um *flash* barato supera um 70B nesta tarefa).
 >
-> ⚠️ **Ressalva ecológica (importante).** Isso foi num **fixture sintético denso em
-> problemas**. Num **projeto real bem-organizado** (teste R8, `lab/.../RESULTADOS-r8-projeto-real.md`),
-> usar o Strata como **auto-auditor de IA** foi **PIOR** que a competência pura: induziu
-> **falso-positivo** (criticou docs que eram bons, inventou problemas) e perdeu para o
-> baseline sem-método. Hipótese: **ajuda onde há problemas densos; atrapalha onde o projeto
-> já é bom.** Por ora, use o Strata como **checklist que um humano aplica com julgamento**,
-> não como IA marcando violações sozinha.
+> ⚠️ **Ressalva ecológica (decisiva).** O sucesso acima foi num **fixture sintético denso
+> em problemas**. Em **3 projetos reais** (teste R8, `lab/.../RESULTADOS-r8-sintese-3-projetos.md`
+> — um bom, um exemplar, um messy), usar o Strata como **auto-auditor de IA** **NÃO bateu a
+> competência pura**: piorou no bom, empatou no messy, e no exemplar **todos** (até o
+> baseline) **inventaram violações** e criticaram práticas boas. O modo auto-auditor é
+> **propenso a falso-positivo** em projeto real (o §9 — "às vezes o certo é não achar nada"
+> — é violado pelos próprios modelos; e a fraqueza temporal, H-D, faz tratar o histórico/
+> superado como problema atual). **Portanto: use o Strata como CHECKLIST que um HUMANO aplica
+> com julgamento — NÃO como IA marcando violações sozinha.**
 >
-> **Outras ressalvas:** N=2-3; juiz cego mas único; 1 projeto real (bem-organizado) testado.
-> **Trate a saída de qualquer IA como rascunho a revisar, não veredito.**
+> **Resumo honesto:** método de arquitetura de conhecimento **sólido** (L0 fundamentado) +
+> bom em benchmark sintético; **auto-auditor de IA em projeto real = caminho de pesquisa em
+> aberto, não um claim.** N=2-3; juiz cego mas único. **Saída de IA = rascunho a revisar.**
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 

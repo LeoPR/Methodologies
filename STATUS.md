@@ -37,6 +37,14 @@ updated: 2026-06-07
   + o ultimo ponto). Correcao honesta: o doc inicial superestimou os gates. Implicacao de
   produto: um Strata **destilado/curto** ja resgata a maior parte do tier local. **Pendente:**
   nuvem limpa (fixture congelado), R6 2o juiz, R5 N>=5.
+- **NUVEM = OpenRouter** (decidido 2026-06-07). Investigacao: extensoes de editor
+  (Gemini Code Assist, Copilot) **nao sao scriptaveis externamente**; so o Claude Code tem
+  binario (`...\anthropic.claude-code-*\resources\native-binary\claude.exe`). Sem node, sem
+  API keys, Copilot nao-instalado. Escolha: **OpenRouter** (1 key -> todos os sabores
+  openai_compat; resolve o bug do sabor Anthropic). `hb_runner.py` ganhou `--provider
+  openrouter` (mesmo prompt limpo/baseline/fixture do local -> paridade). **Bloqueio:**
+  dono setar `OPENROUTER_API_KEY` (setx). Depois: rodar prosa/AN/baseline × sabores × N=3 +
+  blind + agregar + checar falsa-inteligencia.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

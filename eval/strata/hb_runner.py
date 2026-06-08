@@ -15,11 +15,13 @@ Uso:
   python hb_runner.py --target ../../../../NNN --label NNN   # outro projeto (read-only)
 """
 from __future__ import annotations
-import argparse, datetime, glob, json, os, sys, time, urllib.request
+import argparse, datetime, glob, json, os, sys, time, urllib.error, urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 STRATA = os.path.normpath(os.path.join(HERE, "..", "..", "recipe", "knowledge-architecture.md"))
 OLLAMA = "http://localhost:11434/api/chat"
+OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
+PROVIDER = "ollama"  # setado em main() via --provider (ollama | openrouter)
 
 # Strata em prosa ~17k tokens -> precisa num_ctx ~20k. Num 3060 de 12GB, so 7-8B
 # cabem com 20k de KV (12-14B estouram). Achado que motiva a versao AI-nativa (H-C).
@@ -98,7 +100,7 @@ def read_target(target_dir, cap_total=180_000):
     return "".join(parts)
 
 
-def call(model, prompt, num_ctx, num_predict, seed):
+def call_ollama(model, prompt, num_ctx, num_predict, seed):
     body = {"model": model, "messages": [{"role": "user", "content": prompt}],
             "stream": False, "options": {"num_ctx": num_ctx, "num_predict": num_predict,
                                          "temperature": 0.3, "seed": seed}}
@@ -108,6 +110,43 @@ def call(model, prompt, num_ctx, num_predict, seed):
     with urllib.request.urlopen(req, timeout=900) as r:
         d = json.loads(r.read().decode("utf-8"))
     return d.get("message", {}).get("content", ""), time.time() - t0, d.get("eval_count", 0)
+
+
+def call_openrouter(model, prompt, num_predict, seed):
+    """Nuvem multi-sabor via OpenRouter (openai_compat; 1 key p/ todos os sabores).
+    Retry/backoff p/ 429/5xx (o que a auditoria apontou faltar)."""
+    key = os.environ.get("OPENROUTER_API_KEY")
+    if not key:
+        raise RuntimeError("OPENROUTER_API_KEY nao setada (veja eval/strata/RUNBOOK-nuvem.md)")
+    data = json.dumps({"model": model, "messages": [{"role": "user", "content": prompt}],
+                       "max_tokens": num_predict, "temperature": 0.3, "seed": seed}).encode("utf-8")
+    hdr = {"Content-Type": "application/json", "Authorization": f"Bearer {key}",
+           "HTTP-Referer": "https://github.com/LeoPR/Methodologies", "X-Title": "Strata-eval"}
+    last = None
+    for attempt in range(4):
+        try:
+            t0 = time.time()
+            with urllib.request.urlopen(urllib.request.Request(OPENROUTER, data=data, headers=hdr), timeout=300) as r:
+                d = json.loads(r.read().decode("utf-8"))
+            msg = d["choices"][0]["message"]["content"]
+            return msg, time.time() - t0, d.get("usage", {}).get("completion_tokens", 0)
+        except urllib.error.HTTPError as e:
+            last = e
+            if e.code in (429, 500, 502, 503, 529) and attempt < 3:
+                time.sleep(5 * (attempt + 1)); continue
+            raise
+        except Exception as e:  # noqa
+            last = e
+            if attempt < 3:
+                time.sleep(3 * (attempt + 1)); continue
+            raise
+    raise last
+
+
+def call(model, prompt, num_ctx, num_predict, seed):
+    if PROVIDER == "openrouter":
+        return call_openrouter(model, prompt, num_predict, seed)
+    return call_ollama(model, prompt, num_ctx, num_predict, seed)
 
 
 def run_one(model, framing, run, prompt_ctx, out_dir, num_ctx, num_predict):
@@ -147,12 +186,19 @@ def main():
     ap.add_argument("--models", nargs="*", default=LOCAL_MODELS)
     ap.add_argument("--strata", default=STRATA, help="caminho do doc de metodologia (prose ou AN)")
     ap.add_argument("--baseline", action="store_true", help="braço sem-Strata (controle R3): omite a metodologia")
+    ap.add_argument("--provider", choices=["ollama", "openrouter"], default="ollama",
+                    help="ollama=local; openrouter=nuvem multi-sabor (precisa OPENROUTER_API_KEY)")
     a = ap.parse_args()
+    global PROVIDER
+    PROVIDER = a.provider
+    if PROVIDER == "openrouter" and not os.environ.get("OPENROUTER_API_KEY"):
+        print("RECUSADO: --provider openrouter precisa da env OPENROUTER_API_KEY.", file=sys.stderr)
+        return 2
 
-    # GUARD read-only: so escreve dentro do hb-kit
+    # GUARD read-only: so escreve dentro do eval/strata
     out = os.path.abspath(a.out)
     if not out.startswith(os.path.abspath(HERE)):
-        print(f"RECUSADO: --out ({out}) fora do hb-kit. Protecao read-only.", file=sys.stderr)
+        print(f"RECUSADO: --out ({out}) fora do eval/strata. Protecao read-only.", file=sys.stderr)
         return 2
     os.makedirs(out, exist_ok=True)
 

@@ -79,6 +79,12 @@ updated: 2026-06-07
   pesquisa em aberto. recipe/README recalibrado. Achado mais importante do reteste.
 - **H-D (Temporalidade) registrada** (`README.md` do lab): LLMs nao situam artefatos no
   tempo (atual vs superado); provavel causa-raiz de parte do falso-positivo do R8. A testar.
+- **VIRADA ESTRATEGICA** (2026-06-08, `lab/2026-06-04-strata-hipoteses/ESTRATEGIA-orientar-ia.md`):
+  a pergunta deixa de ser "o Strata funciona?" e passa a ser "**como ORIENTAR uma IA a
+  aplica-lo bem?**". Novas hipoteses: **H-E** (aplicar em ETAPAS, nao de uma vez so) e
+  **modo-de-uso** (assistente-no-editor com humano no loop funciona; auto-auditor autonomo
+  falha). Alvos de visualizacao: capacidade por secao/camada (L0/L1/L2), suficiencia por
+  modelo/modo, sintetico×real. Ciclo de brainstorm (4 lentes) rodando p/ propor planos novos.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

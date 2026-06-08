@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="540" font-family="sans-serif">
+<rect width="820" height="540" fill="white"/>
+<text x="70" y="30" font-size="18" font-weight="bold">P6 — Vetor ORIENTAÇÃO: qualidade × forma (tutoria crescente →)</text>
+<text x="70" y="48" font-size="12" fill="#666">Y = genuíno − falso-positivo (média 2 projetos) · cada linha = um modelo barato · mais à direita = mais tutoria</text>
+<line x1="70" y1="132.2985074626866" x2="620" y2="132.2985074626866" stroke="#999" stroke-dasharray="5,4"/>
+<text x="620" y="127.29850746268659" font-size="11" fill="#999" text-anchor="end">0 (ruído=sinal)</text>
+<line x1="70" y1="64" x2="70" y2="480" stroke="#333"/><line x1="70" y1="480" x2="620" y2="480" stroke="#333"/>
+<text x="60" y="508.8358208955224" font-size="11" text-anchor="end" fill="#555">-6</text>
+<text x="60" y="446.74626865671644" font-size="11" text-anchor="end" fill="#555">-5</text>
+<text x="60" y="384.65671641791045" font-size="11" text-anchor="end" fill="#555">-4</text>
+<text x="60" y="322.56716417910445" font-size="11" text-anchor="end" fill="#555">-3</text>
+<text x="60" y="260.4776119402985" font-size="11" text-anchor="end" fill="#555">-2</text>
+<text x="60" y="198.38805970149258" font-size="11" text-anchor="end" fill="#555">-1</text>
+<text x="60" y="136.2985074626866" font-size="11" text-anchor="end" fill="#555">+0</text>
+<text x="60" y="74.20895522388061" font-size="11" text-anchor="end" fill="#555">+1</text>
+<line x1="70.0" y1="64" x2="70.0" y2="480" stroke="#eee"/>
+<text x="70.0" y="500" font-size="11" text-anchor="middle" fill="#333">F0 cru</text>
+<line x1="207.5" y1="64" x2="207.5" y2="480" stroke="#eee"/>
+<text x="207.5" y="500" font-size="11" text-anchor="middle" fill="#333">F1 check</text>
+<line x1="345.0" y1="64" x2="345.0" y2="480" stroke="#eee"/>
+<text x="345.0" y="500" font-size="11" text-anchor="middle" fill="#333">F1.5 check+</text>
+<line x1="482.5" y1="64" x2="482.5" y2="480" stroke="#eee"/>
+<text x="482.5" y="500" font-size="11" text-anchor="middle" fill="#333">F2 AN-v3</text>
+<line x1="620.0" y1="64" x2="620.0" y2="480" stroke="#eee"/>
+<text x="620.0" y="500" font-size="11" text-anchor="middle" fill="#333">F4 etapas</text>
+<path d="M70,412 L208,132 L345,148 L482,132 L620,132" fill="none" stroke="#10a37f" stroke-width="2.5"/>
+<circle cx="70.0" cy="411.70149253731347" r="5" fill="#10a37f" stroke="#fff"/>
+<circle cx="207.5" cy="132.2985074626866" r="5" fill="#10a37f" stroke="#fff"/>
+<circle cx="345.0" cy="147.82089552238807" r="5" fill="#10a37f" stroke="#fff"/>
+<circle cx="482.5" cy="132.2985074626866" r="5" fill="#10a37f" stroke="#fff"/>
+<circle cx="620.0" cy="132.2985074626866" r="5" fill="#10a37f" stroke="#fff"/>
+<text x="630.0" y="136.2985074626866" font-size="11" fill="#10a37f">gpt-4.1-mini</text>
+<path d="M70,288 L208,132 L345,148 L482,132 L620,163" fill="none" stroke="#4285f4" stroke-width="2.5"/>
+<circle cx="70.0" cy="287.52238805970154" r="5" fill="#4285f4" stroke="#fff"/>
+<circle cx="207.5" cy="132.2985074626866" r="5" fill="#4285f4" stroke="#fff"/>
+<circle cx="345.0" cy="147.82089552238807" r="5" fill="#4285f4" stroke="#fff"/>
+<circle cx="482.5" cy="132.2985074626866" r="5" fill="#4285f4" stroke="#fff"/>
+<circle cx="620.0" cy="163.34328358208955" r="5" fill="#4285f4" stroke="#fff"/>
+<text x="630.0" y="167.34328358208955" font-size="11" fill="#4285f4">gemini-2.5-flash</text>
+<path d="M70,288 L208,225 L345,194 L482,256 L620,101" fill="none" stroke="#7b3fe4" stroke-width="2.5"/>
+<circle cx="70.0" cy="287.52238805970154" r="5" fill="#7b3fe4" stroke="#fff"/>
+<circle cx="207.5" cy="225.43283582089555" r="5" fill="#7b3fe4" stroke="#fff"/>
+<circle cx="345.0" cy="194.38805970149258" r="5" fill="#7b3fe4" stroke="#fff"/>
+<circle cx="482.5" cy="256.4776119402985" r="5" fill="#7b3fe4" stroke="#fff"/>
+<circle cx="620.0" cy="101.25373134328359" r="5" fill="#7b3fe4" stroke="#fff"/>
+<text x="630.0" y="105.25373134328359" font-size="11" fill="#7b3fe4">deepseek-chat-v3</text>
+</svg>

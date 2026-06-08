@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" font-family="sans-serif">
+<rect width="980" height="620" fill="white"/>
+<text x="80" y="30" font-size="18" font-weight="bold">P6 — Qualidade do Strata por modelo: FAIXA de variação (candlestick)</text>
+<text x="80" y="48" font-size="12" fill="#666">barra = min..max nas 4 células (2 projetos × 2 runs) · ▬ = média · azul=projeto messy(pdf2md) vermelho=exemplar(NNN) · △reasoner ☆Opus</text>
+<line x1="80" y1="187.8823529411765" x2="760" y2="187.8823529411765" stroke="#999" stroke-dasharray="5,4"/>
+<text x="760" y="182.8823529411765" font-size="11" fill="#999" text-anchor="end">qualidade 0 (ruído=sinal)</text>
+<line x1="80" y1="64" x2="80" y2="550" stroke="#333"/><line x1="80" y1="550" x2="760" y2="550" stroke="#333"/>
+<line x1="275.1817499194513" y1="64" x2="275.1817499194513" y2="550" stroke="#eee"/><text x="275.1817499194513" y="568" font-size="11" text-anchor="middle" fill="#555">$0.1</text>
+<line x1="527.1297148496094" y1="64" x2="527.1297148496094" y2="550" stroke="#eee"/><text x="527.1297148496094" y="568" font-size="11" text-anchor="middle" fill="#555">$1</text>
+<text x="420.0" y="602" font-size="13" text-anchor="middle">custo (proxy $/M, log) →</text>
+<text x="70" y="573.0588235294118" font-size="11" text-anchor="end" fill="#555">-8</text>
+<text x="70" y="525.4117647058823" font-size="11" text-anchor="end" fill="#555">-7</text>
+<text x="70" y="477.7647058823529" font-size="11" text-anchor="end" fill="#555">-6</text>
+<text x="70" y="430.11764705882354" font-size="11" text-anchor="end" fill="#555">-5</text>
+<text x="70" y="382.47058823529414" font-size="11" text-anchor="end" fill="#555">-4</text>
+<text x="70" y="334.82352941176475" font-size="11" text-anchor="end" fill="#555">-3</text>
+<text x="70" y="287.1764705882353" font-size="11" text-anchor="end" fill="#555">-2</text>
+<text x="70" y="239.52941176470588" font-size="11" text-anchor="end" fill="#555">-1</text>
+<text x="70" y="191.8823529411765" font-size="11" text-anchor="end" fill="#555">+0</text>
+<text x="70" y="144.23529411764707" font-size="11" text-anchor="end" fill="#555">+1</text>
+<text x="70" y="96.58823529411765" font-size="11" text-anchor="end" fill="#555">+2</text>
+<text x="70" y="48.94117647058824" font-size="11" text-anchor="end" fill="#555">+3</text>
+<line x1="104.41628055873498" y1="521.4117647058823" x2="104.41628055873498" y2="378.47058823529414" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="104.41628055873498" cy="473.7647058823529" r="3.6" fill="#dc2626"/>
+<circle cx="104.41628055873498" cy="402.2941176470588" r="3.6" fill="#2563eb"/>
+<line x1="97.41628055873498" y1="438.0294117647059" x2="111.41628055873498" y2="438.0294117647059" stroke="#f59e0b" stroke-width="2.5"/>
+<text x="114.41628055873498" y="442.0294117647059" font-size="10" fill="#222">llama-3.1-8b</text>
+<line x1="260.57079689608554" y1="521.4117647058823" x2="260.57079689608554" y2="378.47058823529414" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="260.57079689608554" cy="497.5882352941177" r="3.6" fill="#dc2626"/>
+<circle cx="260.57079689608554" cy="402.2941176470588" r="3.6" fill="#2563eb"/>
+<line x1="253.57079689608554" y1="449.9411764705883" x2="267.57079689608554" y2="449.9411764705883" stroke="#e11d48" stroke-width="2.5"/>
+<text x="270.57079689608554" y="453.9411764705883" font-size="10" fill="#222">mistral-small-3.2-24b</text>
+<line x1="296.9399335096672" y1="378.47058823529414" x2="296.9399335096672" y2="330.82352941176475" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="296.9399335096672" cy="354.6470588235294" r="3.6" fill="#dc2626"/>
+<circle cx="296.9399335096672" cy="354.6470588235294" r="3.6" fill="#2563eb"/>
+<line x1="289.9399335096672" y1="354.6470588235294" x2="303.9399335096672" y2="354.6470588235294" stroke="#f59e0b" stroke-width="2.5"/>
+<text x="306.9399335096672" y="358.6470588235294" font-size="10" fill="#222">llama-3.3-70b</text>
+<line x1="303.8895456504789" y1="521.4117647058823" x2="303.8895456504789" y2="187.8823529411765" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="303.8895456504789" cy="354.6470588235294" r="3.6" fill="#dc2626"/>
+<circle cx="303.8895456504789" cy="330.82352941176475" r="3.6" fill="#2563eb"/>
+<line x1="296.8895456504789" y1="342.735294117647" x2="310.8895456504789" y2="342.735294117647" stroke="#10a37f" stroke-width="2.5"/>
+<text x="313.8895456504789" y="346.735294117647" font-size="10" fill="#222">gpt-4.1-nano</text>
+<line x1="303.8895456504789" y1="283.1764705882353" x2="303.8895456504789" y2="92.58823529411765" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="303.8895456504789" cy="283.1764705882353" r="3.6" fill="#dc2626"/>
+<circle cx="303.8895456504789" cy="187.8823529411765" r="3.6" fill="#2563eb"/>
+<line x1="296.8895456504789" y1="235.52941176470588" x2="310.8895456504789" y2="235.52941176470588" stroke="#4285f4" stroke-width="2.5"/>
+<text x="313.8895456504789" y="239.52941176470588" font-size="10" fill="#222">gemini-2.5-flash-lite</text>
+<line x1="378.4635661002345" y1="426.11764705882354" x2="378.4635661002345" y2="187.8823529411765" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="378.4635661002345" cy="378.47058823529414" r="3.6" fill="#dc2626"/>
+<circle cx="378.4635661002345" cy="211.7058823529412" r="3.6" fill="#2563eb"/>
+<line x1="371.4635661002345" y1="295.0882352941176" x2="385.4635661002345" y2="295.0882352941176" stroke="#7b3fe4" stroke-width="2.5"/>
+<text x="388.4635661002345" y="299.0882352941176" font-size="10" fill="#222">deepseek-chat-v3</text>
+<line x1="416.55010164932685" y1="378.47058823529414" x2="416.55010164932685" y2="235.52941176470588" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="416.55010164932685" cy="354.6470588235294" r="3.6" fill="#dc2626"/>
+<circle cx="416.55010164932685" cy="283.1764705882353" r="3.6" fill="#2563eb"/>
+<line x1="409.55010164932685" y1="318.9117647058824" x2="423.55010164932685" y2="318.9117647058824" stroke="#dc2626" stroke-width="2.5"/>
+<text x="426.55010164932685" y="322.9117647058824" font-size="10" fill="#222">qwen-2.5-72b</text>
+<line x1="455.57733523142764" y1="187.8823529411765" x2="455.57733523142764" y2="187.8823529411765" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="455.57733523142764" cy="187.8823529411765" r="3.6" fill="#dc2626"/>
+<circle cx="455.57733523142764" cy="187.8823529411765" r="3.6" fill="#2563eb"/>
+<line x1="448.57733523142764" y1="187.8823529411765" x2="462.57733523142764" y2="187.8823529411765" stroke="#10a37f" stroke-width="2.5"/>
+<text x="465.57733523142764" y="191.8823529411765" font-size="10" fill="#222">gpt-4.1-mini</text>
+<line x1="455.57733523142764" y1="283.1764705882353" x2="455.57733523142764" y2="92.58823529411765" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="455.57733523142764" cy="283.1764705882353" r="3.6" fill="#dc2626"/>
+<circle cx="455.57733523142764" cy="116.41176470588236" r="3.6" fill="#2563eb"/>
+<line x1="448.57733523142764" y1="199.79411764705884" x2="462.57733523142764" y2="199.79411764705884" stroke="#4285f4" stroke-width="2.5"/>
+<text x="465.57733523142764" y="203.79411764705884" font-size="10" fill="#222">gemini-2.5-flash</text>
+<line x1="513.1422370794841" y1="330.82352941176475" x2="513.1422370794841" y2="140.23529411764707" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="513.1422370794841" cy="307.0" r="3.6" fill="#dc2626"/>
+<circle cx="513.1422370794841" cy="164.05882352941177" r="3.6" fill="#2563eb"/>
+<line x1="506.14223707948406" y1="235.52941176470588" x2="520.1422370794841" y2="235.52941176470588" stroke="#7b3fe4" stroke-width="2.5"/>
+<text x="523.1422370794841" y="239.52941176470588" font-size="10" fill="#222">deepseek-r1</text>
+<line x1="566.2663133692465" y1="235.52941176470588" x2="566.2663133692465" y2="140.23529411764707" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="566.2663133692465" cy="211.7058823529412" r="3.6" fill="#dc2626"/>
+<circle cx="566.2663133692465" cy="140.23529411764707" r="3.6" fill="#2563eb"/>
+<line x1="559.2663133692465" y1="175.97058823529414" x2="573.2663133692465" y2="175.97058823529414" stroke="#10a37f" stroke-width="2.5"/>
+<text x="576.2663133692465" y="179.97058823529414" font-size="10" fill="#222">o4-mini</text>
+<line x1="740.0504461976668" y1="140.23529411764707" x2="740.0504461976668" y2="92.58823529411765" stroke="#bbb" stroke-width="7" stroke-linecap="round"/>
+<circle cx="740.0504461976668" cy="92.58823529411765" r="3.6" fill="#dc2626"/>
+<circle cx="740.0504461976668" cy="116.41176470588236" r="3.6" fill="#2563eb"/>
+<line x1="733.0504461976668" y1="104.5" x2="747.0504461976668" y2="104.5" stroke="#111111" stroke-width="2.5"/>
+<text x="750.0504461976668" y="108.5" font-size="10" fill="#222">claude-opus-4.8</text>
+</svg>

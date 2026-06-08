@@ -75,3 +75,20 @@ até no topo).
 **Confirma também** se o Opus 4.8 "executa em todas as condições" (bom/exemplar/messy) —
 os 3 tipos de projeto cobrem isso. **Custo:** Opus é mais caro (~$2-4 a rodada); confirmar
 antes de disparar.
+
+## Plano P6 — TESTES DE BORDA + scatterplot (do dono, depois de P1+P2)
+
+**Pergunta:** quais modelos resolvem **até falhar** — varrendo os eixos: **capacidade de
+think** (think/no-think, reasoning effort), **tipo de modelo** (reasoner vs não), **operadora**
+(OpenAI/Anthropic/Google/Meta/DeepSeek/Qwen...), e **modelos baratos** (achar o piso de custo).
+Resultado: um **scatterplot** com tudo — ex.: eixo X = custo (ou tamanho/preço), eixo Y =
+qualidade (det real − falso-positivo, em projeto real), cor = operadora, forma = reasoner/não.
+Identifica a **fronteira de Pareto** (melhor qualidade por $) e onde cada família "quebra".
+
+**Infra:** já temos OpenRouter (multi-sabor) + o pipeline (runner/blind/scorer) + as métricas
+(det real, falso-positivo, por seção). Falta: escolher o grid de modelos (incluir variantes
+*-fast*/think e baratos) e o eixo de custo (OpenRouter expõe preço por modelo). Rodar a
+mesma tarefa real (digests) em N modelos × forma AN-v3 → coletar (qualidade, custo) → plotar.
+
+**Estado:** registrado. Roda **depois** do P1+P2 (precisa da AN-v3 estabilizada como a forma
+que se leva ao grid).

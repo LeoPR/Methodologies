@@ -1,0 +1,25 @@
+
+=== NNN — AN-v2 (R8) vs AN-v3 (P1+P2) — gabarito corrigido ===
+forma       n FALSO-POS  genuino reconh.bom flag_extra
+AN-v2       8      1.25     0.12       0.50       0.00
+AN-v3       8      1.12     0.00       0.62       0.00
+Δ(v3-v2)          -0.12    -0.12      +0.12      +0.00
+  -- por modelo (FP / genuino) --
+    anthropic_claude v2: FP=5.0 gen=0.0  |  v3: FP=4.5 gen=0.0
+    deepseek_chat-v3 v2: FP=0.0 gen=0.5  |  v3: FP=0.0 gen=0.0
+    google_gemini-2. v2: FP=0.0 gen=0.0  |  v3: FP=0.0 gen=0.0
+    openai_gpt-4.1-m v2: FP=0.0 gen=0.0  |  v3: FP=0.0 gen=0.0
+
+=== PDF2MD — AN-v2 (R8) vs AN-v3 (P1+P2) — gabarito corrigido ===
+forma       n FALSO-POS  genuino reconh.bom flag_extra
+AN-v2       8      0.00     0.38       1.00       0.00
+AN-v3       8      0.00     0.00       1.00       0.00
+Δ(v3-v2)          +0.00    -0.38      +0.00      +0.00
+  -- por modelo (FP / genuino) --
+    anthropic_claude v2: FP=0.0 gen=0.0  |  v3: FP=0.0 gen=0.0
+    deepseek_chat-v3 v2: FP=0.0 gen=0.0  |  v3: FP=0.0 gen=0.0
+    google_gemini-2. v2: FP=0.0 gen=1.5  |  v3: FP=0.0 gen=0.0
+    openai_gpt-4.1-m v2: FP=0.0 gen=0.0  |  v3: FP=0.0 gen=0.0
+
+LEITURA: AN-v3 (anti-FP + etapas) baixa o FALSO-POSITIVO e sobe reconh.bom?
+Custo: pode baixar 'genuino' (modelo medio passa a dizer 'tudo ok' e perde os reais sutis)?

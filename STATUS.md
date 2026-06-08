@@ -96,6 +96,16 @@ updated: 2026-06-07
 - **P4 (capacidade por secao) FEITO** (`VIZ-capacidade-por-secao.md`): §5/§3 = 100%, §4/§6/
   §6-bis = 90%, §2 = 62%, **§3/§8 datas = 33% (mais fraca -> confirma H-D)**. Suficiencia:
   gemini-2.5-flash 7/7, gpt-4.1-mini/haiku/deepseek >=6. So L0 testada; melhor caso sintetico.
+- **P1+P2 (AN-v3: forma anti-FP + etapas) FEITO** (2026-06-08, `RESULTADOS-p1p2-anv3.md`):
+  embutiu as 6 condutas do Opus como processo em etapas; rodada nos 4 medios (NNN+pdf2md,
+  N=2), pontuada CEGA (juiz Claude + cross-check nao-Claude) contra gabarito CORRIGIDO.
+  RESULTADO: a forma BAIXA falso-positivo (NNN 4.25->2.88; pdf2md 1.88->0.38) e SOBE
+  reconhecer-o-bom (0.25->0.62); sinal-ruido melhora nos dois (pdf2md fica +0.50 positivo).
+  POReM: troca super-critica por SILENCIO em alguns modelos (gemini/gpt-4.1-mini ficam mudos,
+  perdem os reais); haiku IGNORA a forma; so deepseek melhora nos 2 eixos. **Orientar e'
+  alavanca real, mas NAO instala a discernancia do Opus -> nao fecha o gap de capacidade.**
+  Auto-auditor confiavel = topo (P0) ou humano-no-loop; AN-v3 p/ medios = menos ruido, esperar
+  sub-deteccao. PROXIMO: P6 (scatterplot dos eixos de borda) — pedido do dono.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

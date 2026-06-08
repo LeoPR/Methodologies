@@ -2,8 +2,8 @@
 title: Hipóteses abertas do Strata — código-como-documento + aferição de compreensão por IA
 status: open
 created: 2026-06-04
-updated: 2026-06-05
-tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-metodo, ai-native]
+updated: 2026-06-08
+tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-metodo, ai-native, temporalidade]
 ---
 
 # Hipóteses abertas do Strata
@@ -155,3 +155,43 @@ caveat "sob o prompt F1".
 
 **Estado**: registrada. Roda **depois/junto** do H-B principal (mesma infra), como
 controle do confundidor de prompt.
+
+## H-D — Temporalidade / orientação no tempo (do dono, 2026-06-08)
+
+**A observação (do dono)**: os modelos de linguagem modernos — **mesmo os online de
+fronteira** — têm uma dificuldade absurda de **organizar as coisas no tempo**: saber
+quando/onde algo ocorreu para decidir o que é **atual vs superado**. Eles **"comprimem"**
+artefatos espalhados por anos como se fossem **um único evento atual**.
+
+**Evidência de 1ª mão** (`~/Documents/NOTA-onedrive-git-observacao.md` — só registro, não
+ação): ao diagnosticar cópias de conflito do OneDrive, a análise (humana E IA) tratou
+fósseis de **2022–2023** como parte de **um incidente recente** — a decisão comprimiu ~2
+anos num "agora". Pior: a armadilha do ref — o arquivo de **nome simples** apontava para o
+commit **VELHO** e a cópia `-DESKTOP-*` tinha o estado **NOVO** (inverso da intuição); só
+**conferir as DATAS** resolvia. Sem orientação temporal, a decisão inverte.
+
+**Conexão com o que o Strata já trata**: §3 (traço vs superfície — registro **histórico**
+vs estado **vivo**) e §8 (versionamento = história imutável; *o que é atual vs antigo e
+**por que** mudou*). O princípio de fundo: **um documento tem história; não pode ser lido
+como atual-e-fixo.** Em pesquisa isso é normal — uma ideia era boa, depois algo a supera; o
+problema é **não ter visibilidade de qual versão/informação estou lendo**.
+
+**Conexão com o R8 (provável causa-raiz de falso-positivo)**: a fraqueza temporal pode
+**explicar parte das alucinações** do auto-auditor — o modelo marca uma nota
+**superada/histórica** ou uma duplicata **antiga** como **problema atual** porque não a
+situa no tempo. (Ver os resultados do R8: duplicatas `-DESKTOP` tratadas como "conflito
+atual" sem raciocínio sobre qual é a recente/canônica.)
+
+**Para avaliar/testar depois (não agora)**:
+1. **Clareza**: a diretriz já existe no Strata (§3/§8) — está **clara** o suficiente para
+   um modelo *aplicar* orientação temporal, ou precisa de um gate explícito ("antes de
+   julgar, situe cada artefato no tempo: quando? atual ou superado? qual a ordem?")?
+2. **Simulação de confusão temporal** (fixture novo): um projeto com artefatos **datados**
+   — uns antigos/superados, uns atuais — e uma **armadilha** onde a resposta intuitiva é a
+   errada e só o **raciocínio por datas** acerta (análogo ao "ref simples = velho;
+   `-DESKTOP` = novo"). Medir: o modelo **situa no tempo** ou **comprime/inverte**?
+3. Se for **difícil de capturar** num teste, melhorar o Strata (tornar a orientação
+   temporal um gate de 1ª classe, como o §6-bis virou).
+
+**Estado**: registrada para avaliação futura. Revisar junto com a síntese do R8 (a
+temporalidade pode ser uma lente que reinterpreta os falso-positivos). Sem ação agora.

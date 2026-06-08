@@ -15,7 +15,7 @@ PLANOS = os.path.join(HERE, "planos")
 OUT = os.path.join(PLANOS, "clean-blind")
 KEY = os.path.join(PLANOS, "clean-key.json")
 HEADER = re.compile(r"^<!--.*?-->\s*", re.DOTALL)
-NAME = re.compile(r"plano-(.+)-F1-r(\d+)\.md$")
+NAME = re.compile(r"plano-(.+)-F\d-r(\d+)\.md$")
 
 
 def main():
@@ -30,7 +30,7 @@ def main():
     key_path = os.path.join(PLANOS, a.key)
     items = []
     for arm in a.arms:
-        for p in glob.glob(os.path.join(PLANOS, arm, "plano-*-F1-r*.md")):
+        for p in glob.glob(os.path.join(PLANOS, arm, "plano-*-F*-r*.md")):
             m = NAME.search(os.path.basename(p))
             txt = open(p, encoding="utf-8").read()
             body = HEADER.sub("", txt).strip()

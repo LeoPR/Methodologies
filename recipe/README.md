@@ -55,8 +55,17 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 > **5–7 de 7** problemas plantados num projeto. A **forma AI-nativa** (densa) ajuda os dois
 > tiers e é **necessária** para modelos pequenos (~8B), que se afogam na prosa densa.
 > Achado lateral: **tamanho ≠ capacidade** (um *flash* barato supera um 70B nesta tarefa).
-> **Ressalvas honestas:** 1 documento, 1 projeto-alvo (validade ecológica em aberto); N=3;
-> juiz cego, mas único. **Trate a saída de qualquer IA como rascunho a revisar.**
+>
+> ⚠️ **Ressalva ecológica (importante).** Isso foi num **fixture sintético denso em
+> problemas**. Num **projeto real bem-organizado** (teste R8, `lab/.../RESULTADOS-r8-projeto-real.md`),
+> usar o Strata como **auto-auditor de IA** foi **PIOR** que a competência pura: induziu
+> **falso-positivo** (criticou docs que eram bons, inventou problemas) e perdeu para o
+> baseline sem-método. Hipótese: **ajuda onde há problemas densos; atrapalha onde o projeto
+> já é bom.** Por ora, use o Strata como **checklist que um humano aplica com julgamento**,
+> não como IA marcando violações sozinha.
+>
+> **Outras ressalvas:** N=2-3; juiz cego mas único; 1 projeto real (bem-organizado) testado.
+> **Trate a saída de qualquer IA como rascunho a revisar, não veredito.**
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 

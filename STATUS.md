@@ -59,6 +59,15 @@ updated: 2026-06-07
   baixa nos moles (P2 .56). Vies: Claude foi ~0.87 mais generoso com o haiku que o juiz
   neutro (indicio LEVE de familia, n=9, nao muda a conclusao). Instrumentos: judge_openrouter.py,
   compare_judges.py. **Pendente:** R5 N>=5, R8 projetos reais, R7 sandbox.
+- **R8 (projeto REAL pdf2md) FEITO — DISCONFIRMACAO importante** (2026-06-08,
+  `RESULTADOS-r8-projeto-real.md`): num projeto real BEM-ORGANIZADO, o Strata como
+  auto-auditor de IA PIOROU vs baseline. Baseline achou os 2 problemas reais (RI1 dupes
+  -DESKTOP/fonte-unica; RI2 versao 0.1.0-dev vs 0.7.0) 100%, ZERO alucinacao, priorizou
+  100%. Prosa/AN acharam menos, ALUCINARAM mais (prosa 0.75, AN 1.0/plano) e criticaram
+  docs BONS (DIARIO/CHANGELOG). O metodo prima "cacar violacoes" -> falso-positivo em
+  projeto decente (os modelos furam o §9!). Hipotese: ajuda em problemas DENSOS, atrapalha
+  onde o projeto ja e bom. recipe/README recalibrado: usar como CHECKLIST humano, NAO
+  auto-auditor. **Caveat:** 1 projeto real (bem-organizado); falta um MESSY (NNN/TCF); N=2.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

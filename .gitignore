@@ -31,3 +31,6 @@ eval/strata/planos/
 # Segredos locais (NUNCA versionar) — chave da OpenRouter para o tier nuvem
 .openrouter-key
 *.key
+
+# Digests de PROJETOS REAIS (privados) p/ o R8 (validade ecologica)
+eval/strata/fixtures-real/

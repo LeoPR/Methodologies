@@ -85,6 +85,17 @@ updated: 2026-06-07
   **modo-de-uso** (assistente-no-editor com humano no loop funciona; auto-auditor autonomo
   falha). Alvos de visualizacao: capacidade por secao/camada (L0/L1/L2), suficiencia por
   modelo/modo, sintetico×real. Ciclo de brainstorm (4 lentes) rodando p/ propor planos novos.
+- **P0 PROVA DE TETO (Opus 4.8) — POSITIVA** (2026-06-08, `RESULTADOS-p0-prova-teto-opus.md`):
+  Opus 4.8 (fresco, OpenRouter) aplicou o Strata a projeto real EXCELENTEMENTE — achou
+  problemas reais VERIFICADOS (incl. §5 no NNN que EU, o gabarito, perdi: 2070/2043/2145
+  conflitantes; pyproject leona/nnn vs README LeoPR/nnn), reconheceu o bom, tombstone (nao
+  N1), priorizou §9, recusou inventar. **O falso-positivo dos medios e' limite de CAPACIDADE,
+  nao do modo.** Recalibra o R8: auto-auditor FUNCIONA com modelo de topo; medios precisam de
+  orientacao (P1/P2/P5). recipe/README atualizado. (Meu gabarito do R8 estava INCOMPLETO — o
+  Opus foi mais rigoroso.)
+- **P4 (capacidade por secao) FEITO** (`VIZ-capacidade-por-secao.md`): §5/§3 = 100%, §4/§6/
+  §6-bis = 90%, §2 = 62%, **§3/§8 datas = 33% (mais fraca -> confirma H-D)**. Suficiencia:
+  gemini-2.5-flash 7/7, gpt-4.1-mini/haiku/deepseek >=6. So L0 testada; melhor caso sintetico.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

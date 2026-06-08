@@ -66,9 +66,17 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 > superado como problema atual). **Portanto: use o Strata como CHECKLIST que um HUMANO aplica
 > com julgamento — NÃO como IA marcando violações sozinha.**
 >
-> **Resumo honesto:** método de arquitetura de conhecimento **sólido** (L0 fundamentado) +
-> bom em benchmark sintético; **auto-auditor de IA em projeto real = caminho de pesquisa em
-> aberto, não um claim.** N=2-3; juiz cego mas único. **Saída de IA = rascunho a revisar.**
+> **PORÉM — prova de teto (P0, `lab/.../RESULTADOS-p0-prova-teto-opus.md`):** com um modelo
+> de **topo (Claude Opus 4.8)**, o auto-auditor **FUNCIONA bem** em projeto real — achou
+> problemas reais (alguns que o próprio gabarito humano tinha perdido, verificados nos
+> arquivos), reconheceu as práticas boas, prescreveu *tombstone* em vez de apagar, priorizou
+> por §9 e recusou inventar. Ou seja: **o falso-positivo dos modelos médios é limite de
+> CAPACIDADE, não do modo.**
+>
+> **Resumo honesto:** método **sólido** (L0 fundamentado); como auto-auditor de IA: **bom com
+> modelo de topo (Opus-class)**; **ruidoso (falso-positivo) com modelos médios/baratos** —
+> que precisam de orientação (etapas, forma anti-falso-positivo) ou humano-no-loop. N=2-3.
+> **Saída de IA = rascunho a revisar.**
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 

@@ -20,6 +20,10 @@ CANDS = [
     "mistralai/mistral-small-3.2-24b-instruct", "deepseek/deepseek-r1",
     "qwen/qwq-32b", "openai/o4-mini", "x-ai/grok-3-mini-beta",
     "anthropic/claude-opus-4.8",
+    # P6 #2 — value tier + free remoto
+    "google/gemini-2.5-pro", "openai/gpt-5", "anthropic/claude-sonnet-4.5",
+    "z-ai/glm-4.6", "moonshotai/kimi-k2",
+    "openai/gpt-oss-120b:free", "qwen/qwen3-next-80b-a3b-instruct:free", "z-ai/glm-4.5-air:free",
 ]
 out = {}
 print(f"{'model':44} {'in$/M':>8} {'out$/M':>8}  ctx")

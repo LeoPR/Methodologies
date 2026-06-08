@@ -101,15 +101,25 @@ def read_target(target_dir, cap_total=180_000):
 
 
 def call_ollama(model, prompt, num_ctx, num_predict, seed):
+    # think=True explicito: modelos de raciocinio (deepseek-r1, qwen3) retornam o raciocinio
+    # em message.thinking e a RESPOSTA em message.content (campos SEPARADOS no Ollama).
     body = {"model": model, "messages": [{"role": "user", "content": prompt}],
-            "stream": False, "options": {"num_ctx": num_ctx, "num_predict": num_predict,
-                                         "temperature": 0.3, "seed": seed}}
+            "stream": False, "think": True,
+            "options": {"num_ctx": num_ctx, "num_predict": num_predict,
+                        "temperature": 0.3, "seed": seed}}
     req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode("utf-8"),
                                  headers={"Content-Type": "application/json"})
     t0 = time.time()
     with urllib.request.urlopen(req, timeout=900) as r:
         d = json.loads(r.read().decode("utf-8"))
-    return d.get("message", {}).get("content", ""), time.time() - t0, d.get("eval_count", 0)
+    msg = d.get("message", {})
+    content = (msg.get("content") or "").strip()
+    thinking = (msg.get("thinking") or "").strip()
+    # fallback: se o modelo nao emitiu resposta separada (so raciocinou), usa o thinking —
+    # NAO descartar (era o bug que fazia reasoner parecer "incapaz"). done_reason marca truncamento.
+    if not content and thinking:
+        content = f"[NOTA: modelo so emitiu raciocinio (message.thinking), sem content separado; done_reason={d.get('done_reason')}]\n\n{thinking}"
+    return content, time.time() - t0, d.get("eval_count", 0)
 
 
 def call_openrouter(model, prompt, num_predict, seed):

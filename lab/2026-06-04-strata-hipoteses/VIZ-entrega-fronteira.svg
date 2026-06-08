@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="540" font-family="sans-serif">
+<rect width="920" height="540" fill="white"/>
+<text x="80" y="30" font-size="18" font-weight="bold">Strata — o que FUNCIONA: custo × qualidade × ambiente</text>
+<text x="80" y="48" font-size="12" fill="#666">só configs que ajudam (≥ neutro) · verde=local🖥 azul=grátis☁ roxo=API💳 · faixa = variação entre projetos</text>
+<rect x="80" y="70" width="610" height="269.3877551020408" fill="#dcfce7" opacity="0.5"/>
+<text x="88" y="86" font-size="11" fill="#16a34a">zona "ajuda de verdade" (≥ +0.5)</text>
+<line x1="80" y1="421.02040816326524" x2="690" y2="421.02040816326524" stroke="#999" stroke-dasharray="5,4"/>
+<line x1="80" y1="70" x2="80" y2="470" stroke="#333"/><line x1="80" y1="470" x2="690" y2="470" stroke="#333"/>
+<line x1="109.75046618131407" y1="70" x2="109.75046618131407" y2="470" stroke="#eee"/><text x="109.75046618131407" y="488" font-size="11" text-anchor="middle" fill="#555">grátis/local</text>
+<line x1="301.81043872170187" y1="70" x2="301.81043872170187" y2="470" stroke="#eee"/><text x="301.81043872170187" y="488" font-size="11" text-anchor="middle" fill="#555">$0.1</text>
+<line x1="393.44633380159564" y1="70" x2="393.44633380159564" y2="470" stroke="#eee"/><text x="393.44633380159564" y="488" font-size="11" text-anchor="middle" fill="#555">$0.3</text>
+<line x1="493.87041126208976" y1="70" x2="493.87041126208976" y2="470" stroke="#eee"/><text x="493.87041126208976" y="488" font-size="11" text-anchor="middle" fill="#555">$1</text>
+<line x1="585.5063063419835" y1="70" x2="585.5063063419835" y2="470" stroke="#eee"/><text x="585.5063063419835" y="488" font-size="11" text-anchor="middle" fill="#555">$3</text>
+<line x1="656.1799176211636" y1="70" x2="656.1799176211636" y2="470" stroke="#eee"/><text x="656.1799176211636" y="488" font-size="11" text-anchor="middle" fill="#555">$7</text>
+<text x="385.0" y="524" font-size="13" text-anchor="middle">custo (proxy $/M, log) →</text>
+<text x="70" y="588.2857142857142" font-size="11" text-anchor="end" fill="#555">-1</text>
+<text x="70" y="425.02040816326524" font-size="11" text-anchor="end" fill="#555">+0</text>
+<text x="70" y="261.75510204081627" font-size="11" text-anchor="end" fill="#555">+1</text>
+<text x="70" y="98.48979591836732" font-size="11" text-anchor="end" fill="#555">+2</text>
+<text x="22" y="270.0" font-size="13" text-anchor="middle" transform="rotate(-90 22 270.0)">qualidade (genuíno − falso-pos) →</text>
+<line x1="109.75046618131407" y1="421.02040816326524" x2="109.75046618131407" y2="421.02040816326524" stroke="#16a34a" stroke-width="2" opacity="0.35"/>
+<circle cx="109.75046618131407" cy="421.02040816326524" r="6" fill="#16a34a" stroke="#fff"/>
+<text x="119.75046618131407" y="425.02040816326524" font-size="10.5" fill="#222">qwen3_4b-thinking (+0.0)</text>
+<line x1="109.75046618131407" y1="421.02040816326524" x2="109.75046618131407" y2="257.75510204081627" stroke="#16a34a" stroke-width="2" opacity="0.35"/>
+<circle cx="109.75046618131407" cy="339.3877551020408" r="6" fill="#16a34a" stroke="#fff"/>
+<text x="119.75046618131407" y="343.3877551020408" font-size="10.5" fill="#222">deepseek-r1_8b (+0.5)</text>
+<line x1="380.5421831321058" y1="421.02040816326524" x2="380.5421831321058" y2="257.75510204081627" stroke="#7b3fe4" stroke-width="2" opacity="0.35"/>
+<circle cx="380.5421831321058" cy="339.3877551020408" r="6" fill="#7b3fe4" stroke="#fff"/>
+<text x="390.5421831321058" y="343.3877551020408" font-size="10.5" fill="#222">deepseek-chat-v3 +etapas (+0.5)</text>
+<line x1="439.32602123902734" y1="421.02040816326524" x2="439.32602123902734" y2="421.02040816326524" stroke="#7b3fe4" stroke-width="2" opacity="0.35"/>
+<circle cx="439.32602123902734" cy="421.02040816326524" r="6" fill="#7b3fe4" stroke="#fff"/>
+<text x="449.32602123902734" y="425.02040816326524" font-size="10.5" fill="#222">gpt-4.1-mini (+0.0)</text>
+<line x1="439.32602123902734" y1="421.02040816326524" x2="439.32602123902734" y2="421.02040816326524" stroke="#7b3fe4" stroke-width="2" opacity="0.35"/>
+<circle cx="439.32602123902734" cy="421.02040816326524" r="6" fill="#7b3fe4" stroke="#fff"/>
+<text x="449.32602123902734" y="425.02040816326524" font-size="10.5" fill="#222">gpt-4.1-mini +etapas (+0.0)</text>
+<line x1="439.32602123902734" y1="584.2857142857142" x2="439.32602123902734" y2="257.75510204081627" stroke="#7b3fe4" stroke-width="2" opacity="0.35"/>
+<circle cx="439.32602123902734" cy="421.02040816326524" r="6" fill="#7b3fe4" stroke="#fff"/>
+<text x="449.32602123902734" y="425.02040816326524" font-size="10.5" fill="#222">gemini-2.5-flash +etapas (+0.0)</text>
+<line x1="445.65622528833063" y1="584.2857142857142" x2="445.65622528833063" y2="94.48979591836732" stroke="#7b3fe4" stroke-width="2" opacity="0.35"/>
+<circle cx="445.65622528833063" cy="339.3877551020408" r="6" fill="#7b3fe4" stroke="#fff"/>
+<text x="455.65622528833063" y="343.3877551020408" font-size="10.5" fill="#222">glm-4.6 (+0.5)</text>
+<line x1="523.7042463521622" y1="584.2857142857142" x2="523.7042463521622" y2="257.75510204081627" stroke="#7b3fe4" stroke-width="2" opacity="0.35"/>
+<circle cx="523.7042463521622" cy="380.204081632653" r="6" fill="#7b3fe4" stroke="#fff"/>
+<text x="533.7042463521622" y="384.204081632653" font-size="10.5" fill="#222">o4-mini (+0.2)</text>
+<line x1="556.7429592111789" y1="421.02040816326524" x2="556.7429592111789" y2="257.75510204081627" stroke="#7b3fe4" stroke-width="2" opacity="0.35"/>
+<circle cx="556.7429592111789" cy="380.204081632653" r="6" fill="#7b3fe4" stroke="#fff"/>
+<text x="566.7429592111789" y="384.204081632653" font-size="10.5" fill="#222">gpt-5 (+0.2)</text>
+<line x1="656.1799176211636" y1="257.75510204081627" x2="656.1799176211636" y2="94.48979591836732" stroke="#7b3fe4" stroke-width="2" opacity="0.35"/>
+<circle cx="656.1799176211636" cy="135.30612244897958" r="6" fill="#7b3fe4" stroke="#fff"/>
+<text x="666.1799176211636" y="139.30612244897958" font-size="10.5" fill="#222">claude-opus-4.8 (+1.8)</text>
+<circle cx="720" cy="76" r="6" fill="#16a34a"/><text x="734" y="80" font-size="12">local</text>
+<circle cx="720" cy="98" r="6" fill="#2563eb"/><text x="734" y="102" font-size="12">free</text>
+<circle cx="720" cy="120" r="6" fill="#7b3fe4"/><text x="734" y="124" font-size="12">paid</text>
+</svg>

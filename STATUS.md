@@ -117,6 +117,15 @@ updated: 2026-06-07
   portatil neutro (~$0.5); (3) deepseek-v3+F4-etapas = barato+positivo, menos portatil.
   Novos: strata-checklist.md, hb_staged.py, gen_scatter.py (SVG puro), price_probe.py.
   Gasto OpenRouter total ~\$7. (P6-A/B caveat: N pequeno; medias incluem NNN exemplar.)
+- **P6 #2 (value/free/local) + ENTREGA FEITO** (2026-06-08, `RESULTADOS-p6-grid2-value-free-
+  local.md` + `recipe/strata-com-ia.md`). Preencheu a fronteira de USO: grátis-LOCAL
+  deepseek-r1:8b = +0.50 (melhor "na minha maquina"); pago-barato deepseek-v3+etapas $0.26 e
+  glm-4.6 $0.56 = +0.50; Opus +1.75 padrao-ouro. Pagar caro acima do barato-bom NAO compra
+  qualidade (gemini-pro/gpt-5 piores que glm-4.6). Gratis REMOTO :free nao entregou (429 +
+  qualidade baixa). FIX METODOLOGICO (apontado pelo dono): runner descartava message.thinking
+  do Ollama -> reasoners locais pareciam 'incapazes'; corrigido (think:true+fallback) ->
+  deepseek-r1:8b virou a melhor opcao local. ENTREGA positiva-only: guia-tabela + fronteira
+  (recipe/strata-com-ia.md, VIZ-entrega-fronteira.svg). Pesquisa (com negativos) separada em lab/.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

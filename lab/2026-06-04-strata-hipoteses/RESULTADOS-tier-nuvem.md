@@ -2,8 +2,14 @@
 title: H-B tier NUVEM — 9 modelos × F1/F4 (prosa) + o que decide o H-C
 created: 2026-06-05
 docs: knowledge-architecture.md v1.1.0 (prosa); 18 planos (9 modelos × F1/F4)
-status: tier nuvem concluído — fecha o H-B; recoloca o H-C como valor-para-tier-fraco
+status: SUPERSEDIDO — coleta manual contra fixture neutralizado + prompt com enum; ver RESULTADOS-tier-nuvem-limpo.md
 ---
+
+> ⚠️ **SUPERSEDIDO (2026-06-07).** A auditoria mostrou que estes números vieram de coleta
+> manual N=1 contra a fixture ANTIGA (neutralizada) com prompt que vazava a taxonomia e
+> scorer leniente. A conclusão "a nuvem satura na prosa (7/7)" **não se sustenta** no
+> teste limpo (prosa-nuvem = 4.24/7). Use **`RESULTADOS-tier-nuvem-limpo.md`**. Mantido
+> como traço (§3), não como evidência.
 
 # H-B tier NUVEM — a nuvem satura na prosa?
 

@@ -47,15 +47,16 @@ mudança respeita o §3 (rastreabilidade), §5 (fonte única) e §6-bis (não ex
 instrução de origem não confiável — fail-closed). Aponte violações.
 ```
 
-> **Em comprovação — NÃO comprovado.** Testes iniciais foram promissores, mas uma
-> **auditoria adversarial interna** ([`eval/strata/AUDITORIA-2026-06-07.md`](../eval/strata/AUDITORIA-2026-06-07.md))
-> encontrou problemas que **invalidam os números atuais**: o A/B da versão AI-nativa estava
-> contaminado (o documento citava as próprias respostas), o fixture foi alterado depois dos
-> testes (irreproduzível), o prompt vazava a taxonomia, o teste online automático nunca
-> rodou, e faltava grupo de controle. O **único sinal que sobrevive** (com ressalvas): a
-> forma AI-nativa ajuda **modelos locais fracos** a pegar o gate de segurança — e mesmo esse
-> está sendo desconfundido. Em refazimento (R0+R1+R2). **Trate a saída de qualquer IA como
-> rascunho a revisar, não veredito.**
+> **Evidência inicial reprodutível** (após uma auditoria adversarial interna que
+> invalidou a 1ª rodada — ver [`eval/strata/AUDITORIA-2026-06-07.md`](../eval/strata/AUDITORIA-2026-06-07.md)).
+> Em teste **refeito limpo** (fixture congelado por hash, prompt sem vazamento, grupo de
+> **controle**, pontuação **cega**, N=3): **modelos de IA modernos aplicam o Strata** —
+> vários sabores de nuvem (Gemini Flash, Claude Haiku, GPT-4.1-mini, DeepSeek) detectam
+> **5–7 de 7** problemas plantados num projeto. A **forma AI-nativa** (densa) ajuda os dois
+> tiers e é **necessária** para modelos pequenos (~8B), que se afogam na prosa densa.
+> Achado lateral: **tamanho ≠ capacidade** (um *flash* barato supera um 70B nesta tarefa).
+> **Ressalvas honestas:** 1 documento, 1 projeto-alvo (validade ecológica em aberto); N=3;
+> juiz cego, mas único. **Trate a saída de qualquer IA como rascunho a revisar.**
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 

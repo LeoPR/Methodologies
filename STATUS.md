@@ -42,9 +42,16 @@ updated: 2026-06-07
   binario (`...\anthropic.claude-code-*\resources\native-binary\claude.exe`). Sem node, sem
   API keys, Copilot nao-instalado. Escolha: **OpenRouter** (1 key -> todos os sabores
   openai_compat; resolve o bug do sabor Anthropic). `hb_runner.py` ganhou `--provider
-  openrouter` (mesmo prompt limpo/baseline/fixture do local -> paridade). **Bloqueio:**
-  dono setar `OPENROUTER_API_KEY` (setx). Depois: rodar prosa/AN/baseline × sabores × N=3 +
-  blind + agregar + checar falsa-inteligencia.
+  openrouter` (mesmo prompt limpo/baseline/fixture do local -> paridade).
+- **NUVEM LIMPA FEITA** (2026-06-07, `RESULTADOS-tier-nuvem-limpo.md`): 7 sabores via
+  OpenRouter × prosa/AN/baseline × N=3, fixture congelado, cego. det/7: baseline 3.43 /
+  prosa **4.24** / AN **5.67**. **2 conclusoes antigas CORRIGIDAS:** (a) "nuvem satura na
+  prosa (7/7)" FALSO (limpo=4.24; era contaminacao+enum); (b) "AN so serve pro local"
+  FALSO (AN ajuda a nuvem +1.43; resgata P6 sem-fonte 4→19, P5 12→19, P7 13→19).
+  **Falsa-inteligencia CONFIRMADA:** gemini-2.5-flash (barato) 7/7 supera llama-3.3-70b
+  (3.33 prosa); llama-3.1-8b zera na prosa local E nuvem (e' o modelo, nao o ambiente).
+  RESULTADOS-tier-nuvem.md (antigo) marcado SUPERSEDIDO. recipe/README recalibrado p/
+  "evidencia inicial reproduzivel". **Pendente:** R6 2o juiz, R5 N>=5, R8 projetos reais.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" font-family="Segoe UI, Arial, sans-serif">
+<rect width="1200" height="1200" fill="#ffffff"/>
+<rect x="0" y="0" width="1200" height="14" fill="#111827"/>
+
+<text x="80" y="118" font-size="64" font-weight="800" fill="#111827">Strata</text>
+<text x="80" y="166" font-size="30" fill="#374151">organizar conhecimento que dura</text>
+<text x="80" y="214" font-size="22" fill="#6b7280">Separe o que é atemporal do que é datado — e troque de ferramenta sem perder o porquê.</text>
+
+<!-- eixo durabilidade -->
+<text x="44" y="640" font-size="18" fill="#9ca3af" text-anchor="middle" transform="rotate(-90 44 640)">↑ mais durável        mais datado ↓</text>
+
+<!-- MNEME -->
+<rect x="80" y="262" width="1040" height="262" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<text x="116" y="330" font-size="42" font-weight="800" fill="#1d4ed8">Mneme</text>
+<text x="320" y="330" font-size="24" fill="#6b7280">memória · L0 — núcleo atemporal</text>
+<text x="116" y="378" font-size="25" fill="#111827">Os princípios que precedem o computador: método, rastreabilidade, fonte única.</text>
+<text x="116" y="416" font-size="22" fill="#374151" font-style="italic">"Se a IA e o computador sumissem, continuaria verdadeiro?"</text>
+<rect x="116" y="450" width="150" height="44" rx="22" fill="#2563eb"/><text x="191" y="479" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">séculos</text>
+
+<!-- MORFÉ -->
+<rect x="80" y="540" width="1040" height="262" rx="16" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+<text x="116" y="608" font-size="42" font-weight="800" fill="#15803d">Morfé</text>
+<text x="300" y="608" font-size="24" fill="#6b7280">forma · L1 — padrões consolidados</text>
+<text x="116" y="656" font-size="25" fill="#111827">As formas maduras que dão corpo aos princípios: ADR, Diátaxis, Conventional Commits.</text>
+<text x="116" y="694" font-size="22" fill="#374151" font-style="italic">Uma boa forma, não a única — troca-se sem tocar no núcleo.</text>
+<rect x="116" y="728" width="150" height="44" rx="22" fill="#16a34a"/><text x="191" y="757" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">décadas</text>
+
+<!-- ÓRGANON -->
+<rect x="80" y="818" width="1040" height="262" rx="16" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+<text x="116" y="886" font-size="42" font-weight="800" fill="#c2410c">Órganon</text>
+<text x="330" y="886" font-size="24" fill="#6b7280">instrumento · L2 — ferramentas datadas</text>
+<text x="116" y="934" font-size="25" fill="#111827">As ferramentas de hoje: a IA, o git, o editor. Destacáveis.</text>
+<text x="116" y="972" font-size="22" fill="#374151" font-style="italic">Quando a ferramenta morre, só esta camada muda.</text>
+<rect x="116" y="1006" width="150" height="44" rx="22" fill="#ea580c"/><text x="191" y="1035" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">meses</text>
+
+<line x1="80" y1="1112" x2="1120" y2="1112" stroke="#e5e7eb" stroke-width="2"/>
+<text x="80" y="1152" font-size="24" font-weight="700" fill="#111827">github.com/LeoPR/Methodologies</text>
+<text x="1120" y="1152" font-size="20" fill="#9ca3af" text-anchor="end">aberto · CC BY-SA 4.0</text>
+</svg>

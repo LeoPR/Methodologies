@@ -1,0 +1,23 @@
+
+=== NNN (veredito-verdade: JA-BOM) ===
+forma    n FALSO-POS  #acoes  genuino  rec.bom verdito-ok  veredictos
+M0       8      1.00    1.62     0.38     1.00       1.00  {'JA-BOM': 8}
+AUDIT    8      5.38    5.62     1.00     0.50       0.00  {'PRECISA-MUITO': 6, 'PRECISA-PONTOS': 2}
+  -- NNN por modelo (FALSO-POS M0 vs AUDIT; #acoes) --
+    anthropic_clau   M0: FP=0.5 ac=2.0  |  AUDIT: FP=3.5 ac=6.5
+    google_gemini-   M0: FP=2.5 ac=2.5  |  AUDIT: FP=5.5 ac=6.5
+    meta-llama_lla   M0: FP=0.0 ac=0.5  |  AUDIT: FP=4.5 ac=4.5
+    openai_gpt-4.1   M0: FP=1.0 ac=1.5  |  AUDIT: FP=8.0 ac=5.0
+
+=== PDF2MD (veredito-verdade: PRECISA-PONTOS) ===
+forma    n FALSO-POS  #acoes  genuino  rec.bom verdito-ok  veredictos
+M0       8      0.38    1.00     1.00     1.00       0.38  {'PRECISA-PONTOS': 3, 'JA-BOM': 5}
+AUDIT    8      3.12    5.75     1.88     0.50       1.00  {'PRECISA-PONTOS': 4, 'PRECISA-MUITO': 4}
+
+=== FG2P (veredito-verdade: PRECISA) ===
+forma    n FALSO-POS  #acoes  genuino  rec.bom verdito-ok  veredictos
+M0       8      0.88    1.12     0.25     1.00       0.12  {'JA-BOM': 7, 'PRECISA-PONTOS': 1}
+AUDIT    8      5.12    6.25     1.75     0.62       1.00  {'PRECISA-MUITO': 5, 'PRECISA-PONTOS': 3}
+
+LEITURA: no NNN (exemplar), M0 deve dar veredito JA-BOM + menos #acoes + menos FALSO-POS que AUDIT.
+Se sim -> foregrounding da abstencao conserta a raiz do falso-positivo. Ver tambem sub-deteccao (genuino) em pdf2md/fg2p.

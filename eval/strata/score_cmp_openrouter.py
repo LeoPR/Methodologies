@@ -41,7 +41,7 @@ def judge(plano, gab, proj):
               f"genuine_real = nº de PROBLEMAS REAIS do gabarito que o plano achou (0..3). recognized_good = reconheceu >=1 pratica boa explicitamente? "
               f"Retorne SOMENTE um JSON: {SCHEMA}")
     body = json.dumps({"model": JUDGE, "messages": [{"role": "user", "content": prompt}],
-                       "max_tokens": 600, "temperature": 0, "response_format": {"type": "json_object"}}).encode()
+                       "max_tokens": 4000, "temperature": 0, "response_format": {"type": "json_object"}}).encode()
     hdr = {"Content-Type": "application/json", "Authorization": f"Bearer {KEY}",
            "HTTP-Referer": "https://github.com/LeoPR/Methodologies", "X-Title": "Strata-p1p2-judge2"}
     for attempt in range(4):
@@ -78,6 +78,7 @@ for proj, (bdir, gab) in GAB.items():
             rows.append(r)
             print(f"  [{i}/{len(files)}] {oid} FP={r.get('false_positives')} gen={r.get('genuine_real')}", flush=True)
     result[proj] = rows
-OUT = os.path.join(PLANOS, "cmp-judge2.json")
+safe = JUDGE.replace("/", "_").replace(":", "_")
+OUT = os.path.join(PLANOS, f"cmp-judge-{safe}.json")
 json.dump({"judge": JUDGE, "result": result}, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 print(f"-> {OUT}")

@@ -43,16 +43,18 @@ Esses quatro podem ter **raiz comum** — não são quatro bugs avulsos. Candida
 
 ## A evidência que JÁ temos (ponteiros — não repetir aqui)
 
-- **[[H-D temporalidade]]** + `RESULTADOS-r8-*`: em projeto real, os modelos tratam o
-  **superado/histórico como problema atual** (falso-positivo temporal).
-- `VIZ-capacidade-por-secao.md` (P4): a seção **§3/§8 (datas/história) é o ponto cego de longe**
-  (~33%, a mais fraca) — em todos os modelos.
-- `RESULTADOS-p7-camadas-entender-aplicar.md`: na **verificação de fonte/conhecimento (§6/L1)**,
-  o modelo médio erra confiante e o pequeno admite que "precisaria pesquisar" — toca H-r4.
-- `RESULTADOS-f1-m0-abstencao.md`: parte do falso-positivo é **não situar** (atual vs histórico);
-  só o topo discrimina.
-- `~/Documents/NOTA-onedrive-git-observacao.md` (observação do dono): uma análise comprimiu
-  **artefatos com 2 anos de diferença** como se fossem eventos atuais.
+- **H-D** ([README.md](README.md), seção H-D) + [RESULTADOS-r8-sintese-3-projetos.md](RESULTADOS-r8-sintese-3-projetos.md)
+  (e [RESULTADOS-r8-projeto-real.md](RESULTADOS-r8-projeto-real.md)): em projeto real, os modelos
+  tratam o **superado/histórico como problema atual** (falso-positivo temporal).
+- [VIZ-capacidade-por-secao.md](VIZ-capacidade-por-secao.md) (P4): a seção **§3/§8 (datas/história)
+  é o ponto cego de longe** (~33%, a mais fraca) — em todos os modelos.
+- [RESULTADOS-p7-camadas-entender-aplicar.md](RESULTADOS-p7-camadas-entender-aplicar.md): na
+  **verificação de fonte/conhecimento (§6/L1)**, o modelo médio erra confiante e o pequeno admite
+  que "precisaria pesquisar" — toca H-r4.
+- [RESULTADOS-f1-m0-abstencao.md](RESULTADOS-f1-m0-abstencao.md): parte do falso-positivo é
+  **não situar** (atual vs histórico); só o topo discrimina.
+- `~/Documents/NOTA-onedrive-git-observacao.md` (observação do dono — **arquivo externo ao repo**):
+  uma análise comprimiu **artefatos com 2 anos de diferença** como se fossem eventos atuais.
 
 ## Perguntas de pesquisa (para quando estudarmos)
 
@@ -75,5 +77,5 @@ possível para o Strata; por isso vale estudar a fundo.
 
 ## Estado
 Hipótese/dossiê registrado. **Não estudar agora** — retomar com experimentos próprios.
-Cruza com: [[H-D temporalidade]], roadmap F5 (pesquisa) e F6 (temporalidade/longitudinal) em
-`PLANO-geral-modos-fechar-lacunas.md`.
+Cruza com: **H-D** ([README.md](README.md)), e o roadmap F5 (pesquisa) e F6 (temporalidade/
+longitudinal) em [PLANO-geral-modos-fechar-lacunas.md](PLANO-geral-modos-fechar-lacunas.md).

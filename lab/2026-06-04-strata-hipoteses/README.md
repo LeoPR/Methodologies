@@ -195,3 +195,8 @@ atual" sem raciocínio sobre qual é a recente/canônica.)
 
 **Estado**: registrada para avaliação futura. Revisar junto com a síntese do R8 (a
 temporalidade pode ser uma lente que reinterpreta os falso-positivos). Sem ação agora.
+
+> **Ampliada num dossiê** (2026-06-09): a temporalidade é parte de um *cluster* maior —
+> temporalidade + ordem + verificação de fonte primária + organização de pesquisa ao longo do
+> tempo, com possíveis raízes comuns. Registro da ideia (não estudado) em
+> [`DOSSIE-ia-temporalidade-ordem-fontes.md`](DOSSIE-ia-temporalidade-ordem-fontes.md).

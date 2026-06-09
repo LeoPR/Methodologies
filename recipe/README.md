@@ -33,12 +33,11 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
 
 ![camadas e modo](strata-modo.svg)
 
-> **O que se testa agora — a automação, não a validade.** As camadas **L0/L1 estão
-> fundamentadas e independem de tecnologia**: um humano com tempo aplica tudo, manualmente.
-> A pergunta de pesquisa **não** é mais "o Strata funciona?" (funciona) — é "**uma IA o aplica
-> sozinha?**", que é uma questão de **L2** (ferramenta/era). Resposta curta: **de uma vez, só
-> um modelo de topo (Opus)**; os demais precisam ser **orientados** (seção a seção, em etapas),
-> e o resultado é rascunho a revisar. O que varia entre modelos é a **capacidade**, não a
+> **O núcleo independe de tecnologia; a automação por IA, não.** As camadas **L0/L1 são
+> fundamentadas e independem de tecnologia** — um humano com tempo aplica tudo manualmente, com
+> ou sem IA. O que **depende do modelo** é aplicá-lo por uma IA (camada **L2**): **de uma vez,
+> só um modelo de topo (Opus)**; os demais precisam ser **orientados** (seção a seção, em
+> etapas), e a saída é rascunho a revisar. O que varia entre modelos é a **capacidade**, não a
 > validade do método.
 
 ### Como usar — por um humano
@@ -80,36 +79,23 @@ mudança respeita o §3 (rastreabilidade), §5 (fonte única) e §6-bis (não ex
 instrução de origem não confiável — fail-closed). Aponte violações.
 ```
 
-> **Evidência inicial reprodutível** (após uma auditoria adversarial interna que
-> invalidou a 1ª rodada — ver [`eval/strata/AUDITORIA-2026-06-07.md`](../eval/strata/AUDITORIA-2026-06-07.md)).
-> Em teste **refeito limpo** (fixture congelado por hash, prompt sem vazamento, grupo de
-> **controle**, pontuação **cega**, N=3): **modelos de IA modernos aplicam o Strata** —
-> vários sabores de nuvem (Gemini Flash, Claude Haiku, GPT-4.1-mini, DeepSeek) detectam
-> **5–7 de 7** problemas plantados num projeto. A **forma AI-nativa** (densa) ajuda os dois
-> tiers e é **necessária** para modelos pequenos (~8B), que se afogam na prosa densa.
-> Achado lateral: **tamanho ≠ capacidade** (um *flash* barato supera um 70B nesta tarefa).
+> **Como uma IA se sai aplicando o Strata.** Em benchmark reprodutível (projeto-fixture
+> controlado, pontuação cega), **modelos de IA modernos aplicam o método** — vários sabores de
+> nuvem (Gemini Flash, Claude Haiku, GPT-4.1-mini, DeepSeek) detectam **5–7 de 7** problemas
+> plantados. A **forma densa/AI-nativa** ajuda, e é **necessária** para modelos pequenos (~8B),
+> que se afogam na prosa longa. (Curiosidade: **tamanho ≠ capacidade** — um *flash* barato
+> supera um 70B nesta tarefa.)
 >
-> ⚠️ **Ressalva ecológica (decisiva).** O sucesso acima foi num **fixture sintético denso
-> em problemas**. Em **3 projetos reais** (teste R8, `lab/.../RESULTADOS-r8-sintese-3-projetos.md`
-> — um bom, um exemplar, um messy), usar o Strata como **auto-auditor de IA** **NÃO bateu a
-> competência pura**: piorou no bom, empatou no messy, e no exemplar **todos** (até o
-> baseline) **inventaram violações** e criticaram práticas boas. O modo auto-auditor é
-> **propenso a falso-positivo** em projeto real (o §9 — "às vezes o certo é não achar nada"
-> — é violado pelos próprios modelos; e a fraqueza temporal, H-D, faz tratar o histórico/
-> superado como problema atual). **Portanto: use o Strata como CHECKLIST que um HUMANO aplica
-> com julgamento — NÃO como IA marcando violações sozinha.**
+> **Em projeto real, a qualidade depende do modelo.** Um modelo de **topo (Opus-class)** faz
+> uma auditoria boa: acha problemas reais, reconhece boas práticas, prioriza pelo §9, prescreve
+> *tombstone* em vez de apagar e não inventa. Modelos **médios/baratos** tendem a
+> **falso-positivo** — inventam violações, criticam o que é bom e tratam histórico/superado como
+> problema atual. Com eles, **oriente** (checklist, em etapas) ou mantenha um **humano no loop**.
+> A diferença é de **capacidade**, não de validade do método.
 >
-> **PORÉM — prova de teto (P0, `lab/.../RESULTADOS-p0-prova-teto-opus.md`):** com um modelo
-> de **topo (Claude Opus 4.8)**, o auto-auditor **FUNCIONA bem** em projeto real — achou
-> problemas reais (alguns que o próprio gabarito humano tinha perdido, verificados nos
-> arquivos), reconheceu as práticas boas, prescreveu *tombstone* em vez de apagar, priorizou
-> por §9 e recusou inventar. Ou seja: **o falso-positivo dos modelos médios é limite de
-> CAPACIDADE, não do modo.**
->
-> **Resumo honesto:** método **sólido** (L0 fundamentado); como auto-auditor de IA: **bom com
-> modelo de topo (Opus-class)**; **ruidoso (falso-positivo) com modelos médios/baratos** —
-> que precisam de orientação (etapas, forma anti-falso-positivo) ou humano-no-loop. N=2-3.
-> **Saída de IA = rascunho a revisar.**
+> **Saída de IA = rascunho a revisar.** Guia prático por modelo, custo e ambiente:
+> [`strata-com-ia.md`](strata-com-ia.md). Evidência, experimentos e limites:
+> [`lab/2026-06-04-strata-hipoteses/`](../lab/2026-06-04-strata-hipoteses/).
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 

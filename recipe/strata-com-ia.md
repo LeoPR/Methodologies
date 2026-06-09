@@ -50,13 +50,13 @@ A maior diferença de qualidade vem de **como** você pede, não de qual modelo:
   bagunçado). Todos os outros **oscilam** entre ajudar e atrapalhar — trate como rascunho.
 - **Reasoner local engana:** um modelo de raciocínio pequeno (deepseek-r1:8b) pode parecer
   "limpo" só porque **truncou antes de concluir**; quando ele de fato termina, **alucina** no
-  projeto limpo igual aos baratos (validado N=3: −1.5). Não confie no resultado parcial.
+  projeto limpo igual aos baratos. Não confie no resultado parcial.
 
 ## Notas finais
 
 - **Não há opção grátis confiável hoje** — nem local nem remota. Local: ou alucina ao concluir
   (deepseek-r1:8b) ou acha nada (qwen3:4b-thinking ≈ neutro). Remoto `:free`: rate-limit pesado
   e qualidade baixa. Para um auditor que **ajuda**, hoje é **pago** (barato-variável ou Opus).
-- A análise completa — configurações que **não** funcionam, a validação que derrubou o falso
-  "+0.50" local, os experimentos e gráficos — está em `lab/2026-06-04-strata-hipoteses/`
+- A análise completa — configurações que **não** funcionam, os experimentos e os gráficos
+  de pesquisa — está em `lab/2026-06-04-strata-hipoteses/`
   (`RESULTADOS-p6-*`).

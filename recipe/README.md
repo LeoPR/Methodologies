@@ -27,9 +27,13 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
 
 | Camada | O que é | Como aplicar |
 |---|---|---|
-| **L0 — núcleo atemporal** | os 12 princípios (método científico, rastreabilidade, fonte única, fail-closed…). "Se a IA e o computador sumissem, continua verdadeiro." | **sempre**, por julgamento. Independe de tecnologia. É o que você confere de fato. |
-| **L1 — padrões consolidados** | formas maduras de cumprir o L0 (Diátaxis, ADR, FAIR, IMRaD, Conventional Commits). | **escolha** a formalização que cabe na sua necessidade L0 — é *uma* boa forma, não a única; troca-se sem mexer no L0. |
-| **L2 — adaptação à era atual** | como as ferramentas de hoje (agentes de IA, IDE, git) expressam L0/L1. | **datado**, com prazo de revalidação. É aqui que mora a **automação por IA**. |
+| **Mneme** · L0 — núcleo atemporal | os 12 princípios (método científico, rastreabilidade, fonte única, fail-closed…). "Se a IA e o computador sumissem, continua verdadeiro." | **sempre**, por julgamento. Independe de tecnologia. É o que você confere de fato. |
+| **Morfé** · L1 — padrões consolidados | formas maduras de cumprir o L0 (Diátaxis, ADR, FAIR, IMRaD, Conventional Commits). | **escolha** a formalização que cabe na sua necessidade L0 — é *uma* boa forma, não a única; troca-se sem mexer no L0. |
+| **Órganon** · L2 — adaptação à era atual | como as ferramentas de hoje (agentes de IA, IDE, git) expressam L0/L1. | **datado**, com prazo de revalidação. É aqui que mora a **automação por IA**. |
+
+> Os nomes das camadas (gregos) — **Mneme** (memória), **Morfé** (forma), **Órganon**
+> (instrumento) — vêm da progressão *o que perdura → a forma → a ferramenta*; `L0/L1/L2` é o
+> apelido técnico. Etimologia e porquê no [glossário](../GLOSSARIO.md).
 
 ![camadas e modo](strata-modo.svg)
 

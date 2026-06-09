@@ -31,9 +31,15 @@ e o que você deve esperar trocar.
 
 | Camada | O que é | Cadência | Teste |
 |---|---|---|---|
-| **L0 — Núcleo atemporal** | método científico, arquitetura da informação, epistemologia, rastreabilidade | décadas/séculos | "se a IA e o computador sumissem, continua verdadeiro?" |
-| **L1 — Padrões consolidados** | formalizações nomeadas, maduras, mas substituíveis (Diataxis, ADR, FAIR, IMRaD, Conventional Commits) | ~décadas | "é *uma* boa forma de fazer o L0, não a única" |
-| **L2 — Adaptação à era atual** | como as ferramentas de hoje expressam L0/L1 (agentes de IA, IDE/VSCode, git, caches) | meses | "trocável sem tocar no L0" |
+| **Mneme** · L0 — Núcleo atemporal | método científico, arquitetura da informação, epistemologia, rastreabilidade | décadas/séculos | "se a IA e o computador sumissem, continua verdadeiro?" |
+| **Morfé** · L1 — Padrões consolidados | formalizações nomeadas, maduras, mas substituíveis (Diataxis, ADR, FAIR, IMRaD, Conventional Commits) | ~décadas | "é *uma* boa forma de fazer o L0, não a única" |
+| **Órganon** · L2 — Adaptação à era atual | como as ferramentas de hoje expressam L0/L1 (agentes de IA, IDE/VSCode, git, caches) | meses | "trocável sem tocar no L0" |
+
+> **Os nomes das camadas** (gregos; `L0/L1/L2` segue como apelido técnico): **Mneme** (μνήμη,
+> *memória* — o que perdura e se transmite sem se perder), **Morfé** (μορφή, *forma* — como o
+> saber é codificado) e **Órganon** (ὄργανον, *instrumento* — a ferramenta datada que o porta).
+> Estratificar por **durabilidade** (a camada lenta restringe a rápida) tem precedente nomeado:
+> *pace layering* (Brand, 1999). Etimologia e fundamentação no [glossário](../GLOSSARIO.md).
 
 - A **Parte I** (este documento, abaixo) é o **L0** — completa e autônoma. Lê
   sozinha, sem mencionar nenhuma ferramenta.
@@ -794,6 +800,10 @@ engenharia clássica) permanece enquanto a forma (Parte III) é trocada.
 > **Estado**: Partes I (L0), II (L1) e III (L2) escritas. As citações vivem
 > inline (Fundamentação no L0; fonte+sinal-de-troca no L1; captura+re-verify no
 > L2); uma bibliografia consolidada por camada é um próximo passo opcional.
+>
+> **Os nomes das camadas** — **Mneme** (memória, L0), **Morfé** (forma, L1), **Órganon**
+> (instrumento, L2) — e o precedente da estratificação-por-durabilidade (*pace layering*,
+> Brand 1999) estão no **[glossário](../GLOSSARIO.md)**, com a etimologia e as ressalvas de fonte.
 >
 > **Pendências abertas**:
 > - **Eixo 5 (segurança/adversarialidade)**: §6-bis tocou o eixo; merece varredura

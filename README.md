@@ -37,9 +37,13 @@ parte resiste à passagem do tempo e à troca de ferramenta:
 
 | Camada | O que é | Cadência de troca |
 |---|---|---|
-| **L0** | núcleo atemporal (princípios que precedem o computador) | quase nunca |
-| **L1** | padrões consolidados (ADR, Diataxis, OAIS, Conventional Commits…) | quando o padrão é superado |
-| **L2** | ferramentas datadas (IA, git, editores) | a cada ciclo de ferramenta — **destacável** |
+| **Mneme** · L0 | núcleo atemporal (princípios que precedem o computador) | quase nunca |
+| **Morfé** · L1 | padrões consolidados (ADR, Diataxis, OAIS, Conventional Commits…) | quando o padrão é superado |
+| **Órganon** · L2 | ferramentas datadas (IA, git, editores) | a cada ciclo de ferramenta — **destacável** |
+
+As camadas têm nomes gregos — **Mneme** (memória), **Morfé** (forma), **Órganon** (instrumento)
+— pela progressão *o que perdura → a forma → a ferramenta*; `L0/L1/L2` é o apelido técnico.
+Etimologia e fundamentação no **[glossário](GLOSSARIO.md)**.
 
 E a ideia amadurece por **três cozinhas** (um pipeline de maturação):
 

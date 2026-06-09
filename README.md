@@ -102,10 +102,10 @@ flowchart LR
 do conhecimento em camadas**. Metodologia para organizar, rastrear e gerar
 conhecimento em qualquer trabalho intelectual que acumula artefatos.
 
-> **Escopo:** é uma camada de **ação/organização** — *arruma* o que o trabalho produz. **Não**
-> cria as ideias nem dita *como* você desenvolve (convive com Scrum, TDD, design…). Use em
-> projeto de **vida longa** que acumula artefatos; para algo descartável, não vale a pena.
-> Para quem/quando, em detalhe: [`recipe/README.md`](recipe/README.md).
+> **Escopo:** organiza e preserva o conhecimento que o trabalho produz — e **complementa** o seu
+> jeito de ter ideias e de desenvolver (Scrum, TDD, design…), sem substituí-los. Indicado para
+> projeto de **vida longa** que acumula artefatos. Quando/para quem, em detalhe:
+> [`recipe/README.md`](recipe/README.md).
 
 O problema é **anterior ao computador**: bibliotecários, cientistas e engenheiros o
 enfrentam há séculos. As ferramentas de cada era (hoje: IA, editores, controle de

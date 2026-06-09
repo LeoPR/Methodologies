@@ -7,23 +7,20 @@ Aqui ficam as metodologias **destiladas e portáveis**. Hoje há uma:
 Arquitetura do conhecimento em camadas. Um arquivo (~660 linhas), auto-suficiente
 (todas as fundamentações *inline*), licença CC BY-SA 4.0.
 
-### Para que serve — e para que **não**
+### Para que serve · quando · para quem
 
-Strata é sobre **arrumar o conhecimento que o trabalho produz** — não sobre *ter* as ideias,
-*quem* as tem, nem *como* você desenvolve. É uma camada de **ação/organização**, ortogonal ao
-que você faz:
+Strata é a camada de **ação** que **arruma o conhecimento que o trabalho produz**: registra,
+rastreia, encontra e preserva o que você decidiu e descobriu — de um jeito que não apodrece nem
+morre quando a ferramenta troca.
 
-- **NÃO** gera ideias nem conteúdo (não é brainstorming nem "IA criativa").
-- **NÃO** diz como construir (não substitui Scrum, TDD, design — **convive** com eles).
-- **É** como você **registra, rastreia, encontra e preserva** o que decidiu e descobriu — de um
-  jeito que não apodrece e não morre quando a ferramenta troca.
+**Quando usar:** projetos de **vida longa** que acumulam pesquisa, código, decisões e notas —
+quando você já sentiu (ou teme) o *"não acho o que decidi / não sei o que ainda vale"*.
 
-**Quando usar:** projetos de **vida longa** que acumulam pesquisa, código, decisões e notas — e
-onde você já sentiu (ou teme) o *"não acho o que decidi / não sei o que ainda vale"*. Para algo
-descartável ou de um fim de semana, o §9 do próprio método manda **não** aplicar.
+**Para quem:** pesquisador, dev, time ou solo — com ou sem IA; sem domínio nem ferramenta fixos.
 
-**Para quem:** qualquer um com um corpo de trabalho que dura — pesquisador, dev, time ou solo;
-com ou sem IA. Não é preso a um domínio nem a uma ferramenta.
+**Fora de escopo (por desenho):** gerar as ideias e decidir *como* você desenvolve continuam
+seus — e do seu método de trabalho (Scrum, TDD, design…); o Strata **complementa**, não
+substitui. E, pelo próprio §9, ao que é descartável não se aplica.
 
 > Este README é **meta** — ensina a *usar* o arquivo. Ele **não** viaja junto: o
 > que importa é o `knowledge-architecture.md`, que se basta sozinho.

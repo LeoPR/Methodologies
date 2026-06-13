@@ -28,7 +28,7 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 | **F1/M0** abstenção | sabe *não agir*? | ✅ fechado | média (N pequeno) | [F1/M0](RESULTADOS-f1-m0-abstencao.md) |
 | **P7** camadas | entende L0/L1/L2? | ✅ parcial | média | [P7](RESULTADOS-p7-camadas-entender-aplicar.md) |
 | **F3** recusa | recusa injeção? | ✅ nuvem + local | média-alta (juízes) | [F3](RESULTADOS-f3-recusa.md) |
-| **F4** execução | conserta sem destruir? | ✅ nuvem + local · 🔄 eco | média (N=2) | [F4](RESULTADOS-f4-execucao.md) |
+| **F4** execução | conserta sem destruir? | ✅ nuvem + local + eco (real) | média (N=2) | [F4](RESULTADOS-f4-execucao.md) |
 | **F5** pesquisa | ferramentas invertem o ranking? | ⬜ aberto | — | [PLANO](PLANO-geral-modos-fechar-lacunas.md) |
 | **F6** temporalidade | reauditar corpus que mudou | ⬜ aberto | — | [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
 
@@ -116,6 +116,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **F4-eco** (digest real pdf2md) **fechado**: o **§3 replica no real** — baseline
+  `gpt-4.1` **destruiu seções** (optional-dependencies/Empacotamento), Strata **preservou** (zero
+  destruição); mas **ninguém reconcilia tudo** (máx 2/3 pares) e o formato "arquivo inteiro" **estica/
+  trunca** em arquivos reais grandes. *(Manifest eco corrigido: tokens de versão = RI2, excluídos do
+  mecânico por design.)*
 - **2026-06-13** — **F4** fechado: nuvem (mecânico GOLD 100% + juiz cross-vendor 92%) + local (4-8B:
   **zero PASS**; gemma3 destruiu/obedeceu). **F4-eco** (digest real pdf2md) **iniciado**. Docs de entrega:
   README com tabelas+vocabulário, **este doc macro**, glossário de testes.

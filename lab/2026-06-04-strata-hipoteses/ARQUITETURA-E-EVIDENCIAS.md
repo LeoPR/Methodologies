@@ -109,6 +109,10 @@ IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degr
 - **Questão de design (método, não teste):** exportar/traduzir para normas externas (o "L3"?) — provável
   **corolário** de §5/§3 (eixo **transversal**, não 4ª camada de durabilidade); ferramenta como spinoff.
   Registro: [`IDEIA-exportacao-traducao.md`](IDEIA-exportacao-traducao.md).
+- **Setup operacional p/ agentes** (Claude Code/Copilot) e **organização de artefatos de ambiente**
+  (caches/temp/venvs, `Z:\caches`) — registrados na fila geral (área cinzenta Strata×Comporta).
+- **Fila geral / consolidação:** índice das pendências em [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md);
+  **próxima meta = defrag** (fundir as ideias num plano priorizado, **antes de mais testes**).
 - Roadmap de modos: [`PLANO-geral-modos-fechar-lacunas.md`](PLANO-geral-modos-fechar-lacunas.md).
 
 ## Índice da evidência granular
@@ -123,6 +127,9 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — registrada a **fila geral** ([`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md)) com 2 itens
+  novos: **setup-de-agente** (Claude Code/Copilot = L2/satélite; fronteira Strata×Comporta) e **artefatos de
+  ambiente/caches** (`Z:\caches` = classificar por canônico×regenerável×efêmero). **Meta pendente: defrag/consolidar.**
 - **2026-06-13** — refinado o plano de evidência (sintético=validade **interna** vs real=**descoberta de
   borda**; amostragem **externa** por espectro de conformidade: PyPI-comportados / científico-bagunçado /
   caótico) e registrada a **IDEIA de exportação/tradução** (o "L3"? — provável eixo transversal, corolário

@@ -1,7 +1,7 @@
 ---
-title: 'RESULTADOS — braço externo (tier bem-comportado): o falso-positivo é da FORMA, não do projeto-próprio'
+title: 'RESULTADOS — braço externo (bem-comportado + messy): o falso-positivo é da FORMA; o M0 sub-detecta'
 created: 2026-06-13
-status: 'tier bem-comportado fechado (3 repos de TERCEIRO, N=1). Messy/caótico pendentes. SINAL forte, quebra circularidade.'
+status: 'bem-comportado + messy fechados (6 repos de TERCEIRO, N=1). Os DOIS modos de falha externamente; messy gênero-confundido. Quebra circularidade.'
 ---
 
 # Braço externo — quebrar a circularidade do "projeto próprio"
@@ -24,6 +24,30 @@ O R8 (projetos do dono) mostrou over-detecção/falso-positivo do auto-auditor. 
 o falso-positivo é **FRAMING-dependente, não inerente nem circular**. A **forma de abstenção (M0) corrige**
 o viés — e isso **vale em projeto de TERCEIRO**, confirmando *"a forma corrige o viés"* (F1/M0) **sem
 circularidade**. O framing "ache-problemas" (audit) **ainda** over-detecta.
+
+## Tier messy/baixa-conformidade — o espelho (e o confundidor de gênero)
+3 repos externos de baixa conformidade objetiva: `mlscratch` **3/7**, `pytorchgan` **3/7** (científicos —
+sem tests/CI/changelog), `ml3months` **1/7** (só README — gênero "lista/notas", não software). M0 × 3 modelos:
+
+| repo (conf.) | gemini | gpt-4.1 | gpt-4o-mini |
+|---|---|---|---|
+| mlscratch (3/7) | PRECISA-PONTOS | JÁ-BOM | JÁ-BOM |
+| pytorchgan (3/7) | JÁ-BOM | JÁ-BOM | JÁ-BOM |
+| ml3months (1/7) | JÁ-BOM | JÁ-BOM | JÁ-BOM |
+
+**Leitura (honesta, dois lados):**
+- **O M0 tem forte viés de ABSTENÇÃO:** disse JÁ-BOM a quase tudo — inclusive ao repo **1/7**. Combinado com
+  o tier bem-comportado (JÁ-BOM nos organizados), isso **replica externamente o achado F1/M0**: a forma de
+  abstenção **conserta o falso-positivo MAS super-corrige em SUB-DETECÇÃO**. **Nem o gpt-4.1 discriminou** (só
+  o gemini flagou 1 caso) → discriminar é **capacidade**, e aqui ela quase não apareceu.
+- **PORÉM, confundidor de GÊNERO (o "decidir bom/ruim é difícil" que você apontou):** baixa-conformidade
+  **≠ defeito**. Repo de pesquisa sem CI/CHANGELOG ou uma **lista de links** (ml3months) podem estar
+  **genuinamente "já-bons" para o gênero** — §9 não manda exigir tests de uma lista. Então o JÁ-BOM pode ser
+  **correto**, não sub-detecção. **Sem gabarito gênero-consciente não dá para cravar** — o score de conformidade
+  é gênero-cego. (Liga direto à ideia AulaQuantum/DeepLearning: o gênero muda o gabarito.)
+- **Conclusão do espelho:** o braço externo mostra **os dois modos de falha** — *audit over-detecta* (falso-
+  positivo) e *M0 sub-detecta* (abstém de quase tudo); a forma move o viés, a capacidade (incompletamente)
+  calibra. O tier messy é **inconclusivo sobre sub-detecção** (confundido por gênero), mas **confirma o viés de abstenção do M0**.
 
 ## Limites (§6) — não generalizar além disto
 - **N=1**/célula, **3 repos**, **1 gênero** (pacote Python PyPI), **só o tier bem-comportado**.

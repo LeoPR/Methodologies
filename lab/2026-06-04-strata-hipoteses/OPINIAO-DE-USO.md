@@ -22,9 +22,12 @@ GOLD-gate 100% + juiz 92% — para células que ficaram fracas). **Direção for
    exceção medida: o **topo (Opus)** — e em projeto próprio, N=2.
    **Atualização (braço externo, [resultado](RESULTADOS-externo-bemcomportado.md), N=1):** em 3 repos de
    **TERCEIROS** organizados, a **forma de abstenção (M0) abstém certo** (JÁ-BOM 9/9), enquanto o framing
-   "ache-problemas" over-detecta — o falso-positivo do R8 é **da FORMA, não inerente nem circular**. Isso
-   **refina, não apaga** o R8: o *gate de abstenção* funciona em externo; a *auditoria rica de qualidade* e o
-   tier **messy** (agir certo quando HÁ defeito, fora) **seguem abertos**.
+   "ache-problemas" over-detecta — o falso-positivo do R8 é **da FORMA, não inerente nem circular**. **Mas o
+   espelho também apareceu:** no tier **messy** externo o M0 disse **JÁ-BOM a quase tudo (até num repo 1/7)** —
+   **super-corrige em SUB-detecção** (replica F1/M0; nem o gpt-4.1 discriminou), embora **gênero-confundido**
+   (baixa-conformidade ≠ defeito: lista/pesquisa não precisa de CI/tests). Saldo: os **dois modos de falha**
+   (audit over-detecta, M0 sub-detecta) valem **sem circularidade**; a forma move o viés, a capacidade calibra
+   (mal). A *auditoria rica de qualidade* no real **segue aberta**.
 2. **Circularidade (parcialmente endereçada).** Quase todo o "real" é projeto **do próprio dono**, e o **gabarito** também (provou-se
    **incompleto** — o Opus achou §5 reais que o gabarito perdeu). **Nenhum "OK" foi validado em projeto de
    terceiro com gabarito pré-registrado.**

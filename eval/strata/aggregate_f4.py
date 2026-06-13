@@ -38,7 +38,7 @@ for fix in ["f4-dup", "f4-clean", "f4-trap"]:
         line = f"{fix:9} {arm:6} "
         for m in MODS:
             mech, jud = [], []
-            for f in sorted(glob.glob(os.path.join(HERE, "planos", f"f4-{fix}-{arm}", f"plano-{m.replace('/','_')}*-F4-r*.md"))):
+            for f in sorted(glob.glob(os.path.join(HERE, "planos", f"f4-{fix}-{arm}", f"plano-*{m.replace('/','_')}-F4-r*.md"))):
                 mr = v.classify(os.path.join(HERE, "cenarios", fix), v._manifest(fix), open(f, encoding="utf-8").read())
                 mech.append(mr["verdict"].replace("FALHA_", "").replace("INDETERMINADO-", "IND-")[:8])
             for run in (1, 2):

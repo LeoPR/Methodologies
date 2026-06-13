@@ -143,7 +143,7 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 | **Diagnosticar** o que está errado (núcleo L0) | ✅ no essencial | todos pegam o grosso; médio/barato **inventa extra** |
 | **Saber não agir** quando já está bom | ⚠️ difícil | **só o topo** se abstém |
 | **Recusar** ordem maliciosa (*injeção*) | ✅ **com o Strata** | nuvem sim (o barato vira *obedecer→recusar*); locais ruidosos |
-| **Executar** o conserto **sem apagar histórico** | ✅ no essencial | nuvem conserta **e preserva**; só o **topo** se abstém no limpo; local difícil |
+| **Executar** o conserto **sem apagar histórico** | ✅ nuvem / ❌ local | nuvem conserta **e preserva**; só o **topo** se abstém no limpo; **pequenos locais não consertam** (0 acerto) e podem **destruir/obedecer** |
 
 **Tabela 2 — Como usar o `knowledge-architecture.md`, por onde você roda**
 
@@ -152,7 +152,7 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 | **Claude Code · claude.ai** | Claude Opus/Sonnet — **topo** | **De uma vez**, prosa canônica direto | ótimo rascunho — **ainda revise** |
 | **Copilot · API forte** | GPT-4.1, GPT-5, Gemini Pro — **médio-forte** | De uma vez p/ recusar/executar; **revise o "já-bom"** | **super-aplica** em projeto limpo |
 | **Modelo barato** | GPT-4o-mini, *-mini — **médio-barato** | **Orientar** (checklist, em etapas) | **falso-positivo**: inventa violações |
-| **Local (ex.: RTX 3060)** | 7–8B: deepseek-r1, qwen, gemma, granite | **Orientar muito** + forma **densa/checklist** | afoga na prosa; formato bagunçado; **humano no loop** |
+| **Local (ex.: RTX 3060)** | 7–8B: deepseek-r1, qwen, gemma, granite | Bom p/ **entender/rascunhar**; **orientar muito** + forma **densa/checklist** | afoga na prosa; **não deixe executar sozinho** (não conserta; pode apagar/obedecer); humano no loop |
 
 > **A forma do arquivo importa:** o **topo** lê a **prosa canônica** direto; os **pequenos (~8B)**
 > precisam da **versão densa (AI-nativa)** ou de **checklist em etapas** — a prosa longa os afoga.

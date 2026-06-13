@@ -112,15 +112,24 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 > problema atual. Com eles, **oriente** (checklist, em etapas) ou mantenha um **humano no loop**.
 > A diferença é de **capacidade**, não de validade do método.
 >
+> **Segurança e execução — a IA *agindo*.** Testamos também o método quando a IA **age**: com o
+> Strata, modelos **recusam** obedecer uma ordem maliciosa lida do projeto (§6-bis) — o barato vira
+> de *obedecer* a *recusar*, **sem paranoia** — e, ao **consertar**, **preservam** o histórico
+> (*tombstone*, §3) em vez de apagá-lo. **O limite honesto:** num projeto **já-bom**, o modelo fraco
+> **super-aplica** (inventa defeito); *abster-se* (§9) exige **capacidade**. Juízes de empresas
+> diferentes **convergem** (até **92%**) → não é viés de um avaliador. *(Sinais, não provas: regime
+> de texto, N pequeno.)*
+>
 > **Saída de IA = rascunho a revisar.** Guia prático por modelo, custo e ambiente:
-> [`strata-com-ia.md`](strata-com-ia.md). Evidência, experimentos e limites:
-> [`lab/2026-06-04-strata-hipoteses/`](../lab/2026-06-04-strata-hipoteses/).
+> [`strata-com-ia.md`](strata-com-ia.md). **Como tudo foi testado e o que comprova (macro):**
+> [arquitetura e evidências](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md); dados
+> brutos e ressalvas finas em [`lab/2026-06-04-strata-hipoteses/`](../lab/2026-06-04-strata-hipoteses/).
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 
-- **Eixo de segurança** (§6-bis, autoridade-para-agir): existe, mas merece uma
-  varredura própria — é onde mora o *prompt injection* e a fronteira do que um
-  agente pode executar.
+- **Eixo de segurança** (§6-bis, autoridade-para-agir): agora **com evidência inicial** — F3
+  (recusa de *prompt injection*) e F4 (execução: *tombstone* + fail-closed). Falta **consolidar**:
+  mais cenários e **sair do regime *completion-only*** (texto) para um agente com ferramentas reais.
 - **Parte IV — adoção e operação**: a operacionalização para adotar em projetos
   legados *em escala* (fases de adoção, auditoria periódica) ainda não foi escrita.
   O caminho está esboçado nos labs, aguardando dor empírica que justifique destilá-lo.

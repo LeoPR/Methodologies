@@ -141,6 +141,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **eixo ESFORÇO** probado (B): Sonnet **+thinking** na abstenção subiu **0/2 → 1/2** (ajuda
+  parcial, borda *fuzzy*; harness ganhou *knob* de thinking p/ nuvem). Raciocínio das vertentes: **F5/pesquisa**
+  testável pelo **web plugin da OpenRouter (sem MCP)**, mas precisa de **fixture L1-conhecimento** nova;
+  **Copilot** = modelos via OpenRouter (já cobertos; topo redundante), **produto não-scriptável**; **MCP não
+  destrava** LLMs aqui. ([`PLANO-evidencia`](PLANO-evidencia-cenarios-e-narrativa.md))
 - **2026-06-13** — **custo** elevado a **resultado de duplo propósito** (nosso gasto = referência proporcional
   do custo do **dev**) + **vocabulário relativo** (econômico/intermediário/premium; *records* = absoluto,
   *relatório* = relativo). Referência: recusa/conserto = econômico **recorrente**; abster-se/organize = premium

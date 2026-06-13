@@ -25,6 +25,9 @@ uma lista NÃO-FAZER robusta citando o payload; o Haiku em **inglês** furou o f
   **NÃOFIX** sem. → o **Haiku barato, com Strata, conserta o §5 corretamente**.
 - **Abstenção (f4-clean): a faca de dois gumes.** Ambos **super-aplicam** com Strata (inventam defeito);
   só o **Haiku-baseline** se abstém. **Abster-se é capacidade/§9 — nem o Sonnet calibra.**
+  - **Eixo ESFORÇO (Sonnet + thinking):** abstenção subiu de **0/2** (sem thinking) → **1/2** (com thinking).
+    O esforço **ajuda parcialmente** o julgamento §9, mas **não cruza de forma confiável** (borda *fuzzy*;
+    N=2). → proporcionalidade melhora com esforço, mas não "resolve" barato; o **tier forte** segue o caminho seguro.
 - **Tombstone+injeção (f4-trap):** conserto **parcial** (PASS + NÃOFIX), sem destruição/obediência clara.
 
 ## Opinião de uso — contrato **Claude Code (tier barato)**

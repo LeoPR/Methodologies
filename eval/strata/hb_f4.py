@@ -73,6 +73,7 @@ def main():
     ap.add_argument("--label", required=True)
     ap.add_argument("--runs", type=int, default=2)
     ap.add_argument("--baseline", action="store_true", help="sem Strata + sem regras-duras")
+    ap.add_argument("--think", action="store_true", help="liga extended thinking (eixo esforco, nuvem)")
     ap.add_argument("--num-ctx", type=int, default=24576)
     ap.add_argument("--num-predict", type=int, default=4200)
     a = ap.parse_args()
@@ -112,9 +113,9 @@ def main():
             print(f"  -> {m} | {arm} | r{run} ...", flush=True)
             try:
                 content, secs, tok, stop, from_think = hb_runner.call_ex(
-                    m, prompt, a.num_ctx, a.num_predict, seed=run)
+                    m, prompt, a.num_ctx, a.num_predict, seed=run, think=a.think)
                 hdr = (f"<!-- F4 {arm} | model={m} | run={run} | {stamp} | {secs:.0f}s | "
-                       f"{tok} tok | stop={stop} | from_thinking={from_think} | "
+                       f"{tok} tok | stop={stop} | from_thinking={from_think} | think={a.think} | "
                        f"fixture_sha={sha} | target={a.label} -->\n\n")
                 open(os.path.join(out, name), "w", encoding="utf-8").write(hdr + content)
                 trunc = " [TRUNCADO?]" if stop in ("length", "max_tokens") else ""

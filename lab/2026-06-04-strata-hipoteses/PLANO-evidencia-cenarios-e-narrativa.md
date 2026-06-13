@@ -104,10 +104,26 @@ O dev contrata **um** serviço; testar por **agrupamento de contrato** dá uma o
   depois voltar ao barato. Testar: o **topo** faz um *organize* **seguro** na tarefa dura (M4/brownfield)?
 - **Locais:** quão **pequeno/isolado** dá para ir e **quais partes** funcionam (já visto: execução não; entender sim).
 
-## Eixo PESQUISA / web (motiva o F5)
-Modelos que **pesquisam na internet** sob demanda podem **ler as referências de artigos do Strata** — vantagem
-sobre quem só vê o texto dado; somado à leitura de **arquivos locais**. Saber **quem** tem isso (provável: Opus
-research/multimodal) muda a leitura de capacidade. → é o **F5** (com/sem ferramentas), agora com motivação concreta.
+## Eixo PESQUISA / web (F5) — como testar, e o limite de acesso
+Modelos que **pesquisam** podem **ler as referências de artigos do Strata** (vantagem sobre quem só vê o texto)
++ ler **arquivos locais**.
+- **Como testar (SEM MCP):** a OpenRouter liga **web search** em qualquer modelo (sufixo `:online` / plugin
+  `web`) → par **com-web / sem-web** no mesmo modelo. Não precisa de MCP.
+- **Fixture NOVA necessária:** as atuais (s05, f4-*) são **julgamento L0** (recusar/consertar/abster) — web
+  **não ajuda** aí. O F5 precisa de uma tarefa de **conhecimento L1** (ex.: "aplique a formalização L1 certa" —
+  exige saber o que são Diátaxis/ADR/IMRaD). **Hipótese (P7):** web ajuda o **conhecimento L1**, não o **julgamento L0**.
+- Custo: web encarece um pouco. É um **ciclo distinto** (a desenhar).
+
+## Acesso aos modelos (a pergunta do MCP/VSCode) — escopo honesto
+- **Via scriptável = OpenRouter** (modelos subjacentes). É o que usamos.
+- **Copilot (produto):** **não** é scriptável de fora (chat preso ao IDE); seus **modelos** (GPT-4.1/GPT-5/Gemini)
+  são testáveis por OpenRouter — **já cobrimos** gpt-4o-mini / gpt-4.1 / gemini-flash; falta só o **topo**
+  (gpt-5/gemini-pro), **redundante** para a borda já localizada. O *wrapping* do Copilot (system prompt/tools) não é replicável.
+- **MCP aqui:** os servidores desta sessão (claude.ai Gmail/Calendar/Drive) são conectores de **dados**, não
+  **proxies de LLM** → **MCP não destrava o Copilot**.
+- **Produtos (Copilot Chat / Claude Code agente):** só **manual** (colar no chat, salvar a resposta) — ou, no caso
+  do agente, **"eu" (Claude Code) aplicando o Strata com ferramentas** — mas isso é **confundido** (sou o
+  experimentador) e é o **regime agente-com-ferramentas** (sair do completion-only — a fronteira maior).
 
 ## Busca da BORDA por cortes (bisseção) — método, não ladder exaustivo
 Os exemplos (ex.: "Haiku sem thinking") são **orientação**, não alvo literal. O objetivo: para **cada

@@ -195,12 +195,19 @@ def call_ollama_ex(model, prompt, num_ctx, num_predict, seed):
     return content, time.time() - t0, d.get("eval_count", 0), d.get("done_reason"), from_thinking
 
 
-def call_openrouter_ex(model, prompt, num_predict, seed):
+def call_openrouter_ex(model, prompt, num_predict, seed, think=False):
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
         raise RuntimeError("OPENROUTER_API_KEY nao setada (veja eval/strata/RUNBOOK-nuvem.md)")
-    data = json.dumps({"model": model, "messages": [{"role": "user", "content": prompt}],
-                       "max_tokens": num_predict, "temperature": 0.3, "seed": seed}).encode("utf-8")
+    body = {"model": model, "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": num_predict, "temperature": 0.3, "seed": seed}
+    if think:
+        # eixo ESFORCO: liga extended thinking (param unificado da OpenRouter). O raciocinio vem
+        # em message.reasoning; a resposta segue em message.content. Anthropic exige temperature=1.
+        body["reasoning"] = {"max_tokens": 3000}
+        body["max_tokens"] = num_predict + 3000
+        body["temperature"] = 1.0
+    data = json.dumps(body).encode("utf-8")
     hdr = {"Content-Type": "application/json", "Authorization": f"Bearer {key}",
            "HTTP-Referer": "https://github.com/LeoPR/Methodologies", "X-Title": "Strata-eval"}
     last = None
@@ -225,10 +232,11 @@ def call_openrouter_ex(model, prompt, num_predict, seed):
     raise last
 
 
-def call_ex(model, prompt, num_ctx, num_predict, seed):
-    """Como call(), mas retorna (content, secs, ntok, stop_reason, from_thinking)."""
+def call_ex(model, prompt, num_ctx, num_predict, seed, think=False):
+    """Como call(), mas retorna (content, secs, ntok, stop_reason, from_thinking). think=True liga o
+    eixo ESFORCO (extended thinking) na nuvem; no ollama o think ja e tentado por padrao."""
     if PROVIDER == "openrouter":
-        return call_openrouter_ex(model, prompt, num_predict, seed)
+        return call_openrouter_ex(model, prompt, num_predict, seed, think=think)
     return call_ollama_ex(model, prompt, num_ctx, num_predict, seed)
 
 

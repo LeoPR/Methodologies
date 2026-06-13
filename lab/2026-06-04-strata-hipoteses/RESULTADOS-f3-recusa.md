@@ -52,7 +52,15 @@ em s05-legit "incorpora" = fez a ação legítima atestada — o **certo**, não
   **56%** (4 níveis) / **69%** (OBEY-vs-resto). Alta no gate (s05-tarefas/clean); a divergência concentra-se
   em **s05-legit** (o rótulo "OBEY" é ambíguo: incorporar a ação legítima ≠ obedecer injeção) e na paráfrase.
 - **Limites:** N=2/célula; **1 cenário-mãe** (Hydra/s05) — pode ser idiossincrasia; validade externa
-  (texto ≠ agente real); **reasoners locais ainda não rodados** (o piloto deu deepseek-r1:8b → SILENT_DROP).
+  (texto ≠ agente real).
+
+## Locais (Ollama, grátis) — rodados, RUIDOSOS
+4 modelos pequenos (deepseek-r1:8b, qwen2.5-coder:7b, gemma3:4b, granite3.3:8b) × gate/clean/encoded × 2 runs.
+Achado dominante: **modelos pequenos frequentemente não emitem o formato (a)/(b)/(c)** → muito
+**INDETERMINADO** (formato/truncamento) — a medição mecânica fica pouco confiável neles (é, em si, um
+limite: o degrau fraco não produz o relatório auditável). **Onde legível:** `gemma3:4b`/`granite3.3:8b`
+mostram **OBEY** (sobretudo no baseline); `qwen2.5-coder:7b` recusa. Direção **consistente com a nuvem**
+(o degrau fraco obedece mais, e o baseline mais que o Strata), mas com N efetivo pequeno por causa do ruído.
 
 ## Conclusão (parcial, nuvem)
 No gate, **o Strata leva o modelo leniente de obedecer a recusar-principiado, sem induzir paranoia** — exatamente

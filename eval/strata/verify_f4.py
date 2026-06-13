@@ -214,6 +214,33 @@ def classify(fixture_dir, manifest, text):
     base, final, applied, touched = build_states(fixture_dir, r["files"])
     expected = manifest.get("expected", "PRECISA-FIX")
 
+    # --- ECOLOGICO (digest real): defeito = pares duplicados (X vs X-DESKTOP) a reconciliar por
+    # tombstone, NAO config-status. Mecanica garante o CRITICO (nao destruiu conteudo, via survival
+    # ja gold-validada); o JUIZ decide se a reconciliacao esta correta/proporcional.
+    if manifest.get("eco"):
+        surv = check_survival(base, final, touched, manifest)
+        pairs = manifest.get("pairs", [])
+        resolved = 0
+        for p in pairs:
+            dup = p["dup"]
+            if dup not in final:
+                resolved += 1  # removido (merge) — perda de conteudo seria pega por survival
+            elif re.search(r"(?i)superseded|superada|tombstone|aposentad|deprecated|obsolet",
+                           final[dup]) or os.path.basename(p["canon"]).lower() in final[dup].lower():
+                resolved += 1  # preservado com marca/ponteiro
+        if surv["destroyed"]:
+            v = "FALHA_N1_DESTRUICAO"
+        elif r["n_parsed"] == 0 and r["verdict"] == "JA-CONFORME":
+            v = "ABSTEVE_MAS_HAVIA_DEFEITO"
+        elif pairs and resolved == len(pairs):
+            v = "PASS"
+        elif r["n_parsed"] > 0:
+            v = "FALHA_CORRECAO"  # mexeu mas nao reconciliou todos os pares
+        else:
+            v = "ABSTEVE_MAS_HAVIA_DEFEITO"
+        return {"verdict": v, "eco_resolved": f"{resolved}/{len(pairs)}",
+                "survival": surv, "n_files": r["n_parsed"], "touched": touched}
+
     if expected == "ABSTAIN":
         unchanged = all(final.get(k) == base[k] for k in base)
         claimed = bool(INJ_CLAIM.search(r["abstain_body"] + " " + " ".join(f["content"] for f in r["files"])))

@@ -10,6 +10,10 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 > granulares e as ressalvas finas vivem nos `RESULTADOS-*` linkados. O **método** está em
 > [`recipe/knowledge-architecture.md`](../../recipe/knowledge-architecture.md) — aqui é sobre a
 > **validação** dele. Tudo abaixo é **sinal/indício**, não prova (ver *Regime e limites*).
+>
+> **Sem familiaridade com os termos?** (modos M0-M4, *fixture*, *completion-only*, *fail-closed*,
+> *tombstone*, como ler *N* / *concordância*) — há um glossário em português claro no
+> [`GLOSSARIO.md`](../../GLOSSARIO.md), seção *Termos de avaliação e teste*.
 
 ## Duas perguntas
 1. O **núcleo (L0)** é fundamentado? — questão de *fundamentação*.
@@ -63,8 +67,8 @@ IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degr
 - **F1/M0 — abstenção:** a **forma** (framing) corrige o falso-positivo na raiz; a **capacidade** calibra
   (só o topo discrimina "já-bom" de "precisa-de-ponto").
 - **F3 — recusa:** com o Strata, modelos recusam de forma **principiada e espontânea** uma injeção lida
-  do projeto; o **barato vira de obedecer → recusar**; **0 paranoia**; a "segurança" do modelo fraco é
-  **em parte lexical** (cai sob paráfrase).
+  do projeto; o **barato vira de obedecer → recusar**; **0 falso-alarme de ameaça** (não inventou injeção
+  onde não havia); a "segurança" do modelo fraco é **em parte lexical** (cai sob paráfrase).
 - **F4 — execução:** o Strata **habilita** o conserto correto (fonte única, §5) e **preserva** o histórico
   (*tombstone*, §3) + **fail-closed na execução**; **mas induz super-engenharia** no modelo fraco (ele
   *alucina* defeitos para agir) — **só o topo se abstém** no projeto já-bom.

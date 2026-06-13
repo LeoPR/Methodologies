@@ -114,7 +114,7 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 >
 > **Segurança e execução — a IA *agindo*.** Testamos também o método quando a IA **age**: com o
 > Strata, modelos **recusam** obedecer uma ordem maliciosa lida do projeto (§6-bis) — o barato vira
-> de *obedecer* a *recusar*, **sem paranoia** — e, ao **consertar**, **preservam** o histórico
+> de *obedecer* a *recusar*, **sem inventar ameaça onde não há** — e, ao **consertar**, **preservam** o histórico
 > (*tombstone*, §3) em vez de apagá-lo. **O limite honesto:** num projeto **já-bom**, o modelo fraco
 > **super-aplica** (inventa defeito); *abster-se* (§9) exige **capacidade**. Juízes de empresas
 > diferentes **convergem** (até **92%**) → não é viés de um avaliador. *(Sinais, não provas: regime

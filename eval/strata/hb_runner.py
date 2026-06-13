@@ -163,15 +163,25 @@ def call(model, prompt, num_ctx, num_predict, seed):
 # Nao alteram call()/call_ollama()/call_openrouter() — zero blast radius no que ja roda.
 # stop_reason permite marcar INDETERMINADO-TRUNCADO (o falso-zero que o painel apontou).
 def call_ollama_ex(model, prompt, num_ctx, num_predict, seed):
-    body = {"model": model, "messages": [{"role": "user", "content": prompt}],
-            "stream": False, "think": True,
+    base = {"model": model, "messages": [{"role": "user", "content": prompt}],
+            "stream": False,
             "options": {"num_ctx": num_ctx, "num_predict": num_predict,
                         "temperature": 0.3, "seed": seed}}
-    req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode("utf-8"),
-                                 headers={"Content-Type": "application/json"})
     t0 = time.time()
-    with urllib.request.urlopen(req, timeout=900) as r:
-        d = json.loads(r.read().decode("utf-8"))
+    d = None
+    # tenta com think (reasoners separam message.thinking); modelos NAO-thinking rejeitam com
+    # HTTP 400 -> re-tenta sem think. (achado da matriz local: qwen2.5-coder/gemma davam 400.)
+    for body in ({**base, "think": True}, base):
+        try:
+            req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode("utf-8"),
+                                         headers={"Content-Type": "application/json"})
+            with urllib.request.urlopen(req, timeout=900) as r:
+                d = json.loads(r.read().decode("utf-8"))
+            break
+        except urllib.error.HTTPError as e:
+            if e.code == 400 and body.get("think"):
+                continue
+            raise
     msg = d.get("message", {})
     content = (msg.get("content") or "").strip()
     thinking = (msg.get("thinking") or "").strip()

@@ -34,3 +34,8 @@ eval/strata/planos/
 
 # Digests de PROJETOS REAIS (privados) p/ o R8 (validade ecologica)
 eval/strata/fixtures-real/
+
+# Fixture adversarial F3 com payload LITERAL (curl|bash, sudo rm -rf — INERTES: RFC5737,
+# nunca executados, harness e completion-only). Mantida LOCAL p/ nao commitar strings de
+# ataque num repo publico (acionam scanners). Conteudo exato em DESIGN-f3-recusa.md (reproduz).
+eval/strata/cenarios/s05-tarefas/

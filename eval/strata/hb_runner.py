@@ -159,6 +159,69 @@ def call(model, prompt, num_ctx, num_predict, seed):
     return call_ollama(model, prompt, num_ctx, num_predict, seed)
 
 
+# --- variantes _ex (ADITIVAS, p/ F3): retornam tambem stop_reason e from_thinking.
+# Nao alteram call()/call_ollama()/call_openrouter() — zero blast radius no que ja roda.
+# stop_reason permite marcar INDETERMINADO-TRUNCADO (o falso-zero que o painel apontou).
+def call_ollama_ex(model, prompt, num_ctx, num_predict, seed):
+    body = {"model": model, "messages": [{"role": "user", "content": prompt}],
+            "stream": False, "think": True,
+            "options": {"num_ctx": num_ctx, "num_predict": num_predict,
+                        "temperature": 0.3, "seed": seed}}
+    req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode("utf-8"),
+                                 headers={"Content-Type": "application/json"})
+    t0 = time.time()
+    with urllib.request.urlopen(req, timeout=900) as r:
+        d = json.loads(r.read().decode("utf-8"))
+    msg = d.get("message", {})
+    content = (msg.get("content") or "").strip()
+    thinking = (msg.get("thinking") or "").strip()
+    from_thinking = False
+    if not content and thinking:
+        # so raciocinou, sem resposta separada: NAO descartar (era o bug do reasoner
+        # parecer "incapaz"). Mas marca from_thinking — recusa so-no-thinking NAO conta
+        # como fail-closed-na-acao (o agente executa o PLANO, nao o raciocinio).
+        content = thinking
+        from_thinking = True
+    return content, time.time() - t0, d.get("eval_count", 0), d.get("done_reason"), from_thinking
+
+
+def call_openrouter_ex(model, prompt, num_predict, seed):
+    key = os.environ.get("OPENROUTER_API_KEY")
+    if not key:
+        raise RuntimeError("OPENROUTER_API_KEY nao setada (veja eval/strata/RUNBOOK-nuvem.md)")
+    data = json.dumps({"model": model, "messages": [{"role": "user", "content": prompt}],
+                       "max_tokens": num_predict, "temperature": 0.3, "seed": seed}).encode("utf-8")
+    hdr = {"Content-Type": "application/json", "Authorization": f"Bearer {key}",
+           "HTTP-Referer": "https://github.com/LeoPR/Methodologies", "X-Title": "Strata-eval"}
+    last = None
+    for attempt in range(4):
+        try:
+            t0 = time.time()
+            with urllib.request.urlopen(urllib.request.Request(OPENROUTER, data=data, headers=hdr), timeout=300) as r:
+                d = json.loads(r.read().decode("utf-8"))
+            ch = d["choices"][0]
+            msg = ch["message"]["content"]
+            return msg, time.time() - t0, d.get("usage", {}).get("completion_tokens", 0), ch.get("finish_reason"), False
+        except urllib.error.HTTPError as e:
+            last = e
+            if e.code in (429, 500, 502, 503, 529) and attempt < 3:
+                time.sleep(5 * (attempt + 1)); continue
+            raise
+        except Exception as e:  # noqa
+            last = e
+            if attempt < 3:
+                time.sleep(3 * (attempt + 1)); continue
+            raise
+    raise last
+
+
+def call_ex(model, prompt, num_ctx, num_predict, seed):
+    """Como call(), mas retorna (content, secs, ntok, stop_reason, from_thinking)."""
+    if PROVIDER == "openrouter":
+        return call_openrouter_ex(model, prompt, num_predict, seed)
+    return call_ollama_ex(model, prompt, num_ctx, num_predict, seed)
+
+
 def run_one(model, framing, run, prompt_ctx, out_dir, num_ctx, num_predict):
     if prompt_ctx.get("strata") is None:  # baseline: sem metodologia
         prompt = (BASELINE_PREAMBLE + "\n## ARQUIVOS DO PROJETO\n" + prompt_ctx["target"]

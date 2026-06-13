@@ -15,6 +15,23 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 > *tombstone*, como ler *N* / *concordância*) — há um glossário em português claro no
 > [`GLOSSARIO.md`](../../GLOSSARIO.md), seção *Termos de avaliação e teste*.
 
+## Estado das fases — fonte única (atualizado em 2026-06-13)
+
+> Esta tabela é a **fonte canônica** (§5) do estado das evidências. README e demais docs **apontam
+> para cá** em vez de repetir números que envelhecem. **Mudou algo num lab? Atualize só aqui** e
+> acrescente uma linha no *Histórico* no fim (append-only, §3/§8).
+
+| Fase | Pergunta | Estado | Confiança | Detalhe |
+|---|---|---|---|---|
+| **Núcleo L0** | é fundamentado? | ✅ consolidado | alta (22 fontes) | [`GLOSSARIO`](../../GLOSSARIO.md) · método |
+| **F0** juízes | as conclusões são robustas? | ✅ fechado | alta (3 empresas convergem) | [F0](RESULTADOS-f0-confronto-juizes.md) |
+| **F1/M0** abstenção | sabe *não agir*? | ✅ fechado | média (N pequeno) | [F1/M0](RESULTADOS-f1-m0-abstencao.md) |
+| **P7** camadas | entende L0/L1/L2? | ✅ parcial | média | [P7](RESULTADOS-p7-camadas-entender-aplicar.md) |
+| **F3** recusa | recusa injeção? | ✅ nuvem + local | média-alta (juízes) | [F3](RESULTADOS-f3-recusa.md) |
+| **F4** execução | conserta sem destruir? | ✅ nuvem + local · 🔄 eco | média (N=2) | [F4](RESULTADOS-f4-execucao.md) |
+| **F5** pesquisa | ferramentas invertem o ranking? | ⬜ aberto | — | [PLANO](PLANO-geral-modos-fechar-lacunas.md) |
+| **F6** temporalidade | reauditar corpus que mudou | ⬜ aberto | — | [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
+
 ## Duas perguntas
 1. O **núcleo (L0)** é fundamentado? — questão de *fundamentação*.
 2. Uma **IA consegue aplicar** o Strata, e o método **ajuda**? — questão *empírica*.
@@ -92,3 +109,21 @@ Desenhos: [DESIGN-f3](DESIGN-f3-recusa.md) · [DESIGN-f4](DESIGN-f4-execucao.md)
 Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0-confronto-juizes.md) ·
 [P7 camadas](RESULTADOS-p7-camadas-entender-aplicar.md) · [F3](RESULTADOS-f3-recusa.md) ·
 [F4](RESULTADOS-f4-execucao.md). Hipóteses/índice: [`README.md`](README.md).
+
+## Histórico de evidências (append-only — §3/§8: não reescrever, só acrescentar)
+
+> Dogfooding do próprio Strata: cada mudança de estado vira uma **entrada datada** (rastreável), e
+> nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
+> `created` dos docs e pelo histórico de commits.)*
+
+- **2026-06-13** — **F4** fechado: nuvem (mecânico GOLD 100% + juiz cross-vendor 92%) + local (4-8B:
+  **zero PASS**; gemma3 destruiu/obedeceu). **F4-eco** (digest real pdf2md) **iniciado**. Docs de entrega:
+  README com tabelas+vocabulário, **este doc macro**, glossário de testes.
+- **2026-06-13** — **F3** (recusa/§6-bis) fechado: nuvem (recusa principiada; gpt-4o-mini vira
+  obedecer→recusar; 0 falso-alarme) + local (ruidoso, mesma direção).
+- **2026-06-12** — **F3** desenhado (painel adversarial) + harness validado (GOLD: 0 falso-neg de OBEY).
+- **2026-06-09** — **F0** (juízes cross-vendor robustos) e **F1/M0** (a forma corrige o viés; capacidade
+  calibra) fechados.
+- **2026-06-08** — **P6/P7** (fronteira de uso; entender ≠ barreira). *Nota: o "+0.50" do deepseek-r1:8b
+  local foi depois **superado** — era artefato de truncagem; validado −1.50 (ver P6).*
+- **2026-06-04** — núcleo **L0 consolidado** (22 fontes); dossiê de temporalidade registrado (a estudar).

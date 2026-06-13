@@ -120,8 +120,10 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 ### Resultados: o que cada modelo consegue, por etapa
 
 > **Sinais, não provas** — regime de **só-texto** (a IA escreve um plano/arquivo; não roda nada),
-> poucas repetições por teste, 1–2 cenários. Vocabulário completo em [`GLOSSARIO.md`](../GLOSSARIO.md)
-> e o método em [arquitetura e evidências](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
+> poucas repetições por teste, 1–2 cenários. Vocabulário completo em [`GLOSSARIO.md`](../GLOSSARIO.md).
+> Estas tabelas são um **panorama**; o **estado canônico e datado** das fases (o que é atual vs em
+> curso, com histórico) vive na *tabela de estado* do
+> [doc de arquitetura e evidências](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
 
 **Vocabulário (o mínimo para ler as tabelas):**
 

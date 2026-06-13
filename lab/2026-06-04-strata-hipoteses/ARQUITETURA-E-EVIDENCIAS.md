@@ -32,6 +32,7 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 | **F5** pesquisa | ferramentas invertem o ranking? | ⬜ aberto | — | [PLANO](PLANO-geral-modos-fechar-lacunas.md) |
 | **F6** temporalidade | reauditar corpus que mudou | ⬜ aberto | — | [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
 | **Eco/gênero** | vale em +cenários e fora de código? (+ viés do dono) | ⬜ planejado | — | [plano](PLANO-evidencia-cenarios-e-narrativa.md) |
+| **Escada Claude** (contrato) | Claude Code barato aplica? | ✅ Haiku+Sonnet · ⬜ Opus | média (F3 juiz + F4 mec) | [escada-claude](RESULTADOS-escada-claude.md) |
 
 ## Duas perguntas
 1. O **núcleo (L0)** é fundamentado? — questão de *fundamentação*.
@@ -127,6 +128,10 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **escada Claude (Haiku+Sonnet, sem thinking) como SUJEITO**: recusam injeção principiado
+  (F3, juiz — **piso mais seguro** que o barato da OpenAI, que obedecia) e, com Strata, **consertam §5** (F4
+  PASS até no Haiku); mas **super-aplicam no limpo** (abstenção = capacidade). Mecânico do F3 deu ~100%
+  **falso-OBEY** → juiz. [`RESULTADOS-escada-claude`](RESULTADOS-escada-claude.md). **Opus pendente.**
 - **2026-06-13** — framing de **agrupamento por CONTRATO** (testar a escada Claude/Copilot, não modelos
   aleatórios; achar se o **Haiku barato sem-thinking** já faz; "venda" do uso-único-caro p/ organizar) +
   **eixo web/pesquisa** (modelos que leem as referências do Strata) registrados no

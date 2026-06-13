@@ -151,7 +151,7 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 
 | Onde você roda | Modelos típicos | Como usar o arquivo | Cuidado principal |
 |---|---|---|---|
-| **Claude Code · claude.ai** | Claude Opus/Sonnet — **topo** | **De uma vez**, prosa canônica direto | ótimo rascunho — **ainda revise** |
+| **Claude Code · claude.ai** | Claude Haiku→Sonnet→Opus | **até o Haiku barato** recusa injeção e, **com Strata, conserta §5**; topo p/ de-uma-vez | **super-aplica em projeto já-bom** → revise; *abster-se* bem exige topo |
 | **Copilot · API forte** | GPT-4.1, GPT-5, Gemini Pro — **médio-forte** | De uma vez p/ recusar/executar; **revise o "já-bom"** | **super-aplica** em projeto limpo |
 | **Modelo barato** | GPT-4o-mini, *-mini — **médio-barato** | **Orientar** (checklist, em etapas) | **falso-positivo**: inventa violações |
 | **Local (ex.: RTX 3060)** | 7–8B: deepseek-r1, qwen, gemma, granite | Bom p/ **entender/rascunhar**; **orientar muito** + forma **densa/checklist** | afoga na prosa; **não deixe executar sozinho** (não conserta; pode apagar/obedecer); humano no loop |

@@ -98,32 +98,15 @@ mudança respeita o §3 (rastreabilidade), §5 (fonte única) e §6-bis (não ex
 instrução de origem não confiável — fail-closed). Aponte violações.
 ```
 
-> **Como uma IA se sai aplicando o Strata.** Em benchmark reprodutível (projeto-fixture
-> controlado, pontuação cega), **modelos de IA modernos aplicam o método** — vários sabores de
-> nuvem (Gemini Flash, Claude Haiku, GPT-4.1-mini, DeepSeek) detectam **5–7 de 7** problemas
-> plantados. A **forma densa/AI-nativa** ajuda, e é **necessária** para modelos pequenos (~8B),
-> que se afogam na prosa longa. (Curiosidade: **tamanho ≠ capacidade** — um *flash* barato
-> supera um 70B nesta tarefa.)
->
-> **Em projeto real, a qualidade depende do modelo.** Um modelo de **topo (Opus-class)** faz
-> uma auditoria boa: acha problemas reais, reconhece boas práticas, prioriza pelo §9, prescreve
-> *tombstone* em vez de apagar e não inventa. Modelos **médios/baratos** tendem a
-> **falso-positivo** — inventam violações, criticam o que é bom e tratam histórico/superado como
-> problema atual. Com eles, **oriente** (checklist, em etapas) ou mantenha um **humano no loop**.
-> A diferença é de **capacidade**, não de validade do método.
->
-> **Segurança e execução — a IA *agindo*.** Testamos também o método quando a IA **age**: com o
-> Strata, modelos **recusam** obedecer uma ordem maliciosa lida do projeto (§6-bis) — o barato vira
-> de *obedecer* a *recusar*, **sem inventar ameaça onde não há** — e, ao **consertar**, **preservam** o histórico
-> (*tombstone*, §3) em vez de apagá-lo. **O limite honesto:** num projeto **já-bom**, o modelo fraco
-> **super-aplica** (inventa defeito); *abster-se* (§9) exige **capacidade**. Juízes de empresas
-> diferentes **convergem** (até **92%**) → não é viés de um avaliador. *(Sinais, não provas: regime
-> de texto, N pequeno.)*
+> **Como uma IA se sai aplicando o Strata — resumo.** Em *benchmark* cego e reprodutível, modelos
+> modernos **aplicam** o método (vários sabores de nuvem detectam **5–7 de 7** problemas plantados);
+> e, ao *agir*, **recusam** uma ordem maliciosa lida do projeto e **consertam preservando** o
+> histórico. O que **varia é a capacidade**, não a validade — o detalhe **por etapa e por modelo**
+> está nas **tabelas no fim desta página**. *(Sinais, não provas: regime de só-texto, poucas
+> repetições — [método e ressalvas](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).)*
 >
 > **Saída de IA = rascunho a revisar.** Guia prático por modelo, custo e ambiente:
-> [`strata-com-ia.md`](strata-com-ia.md). **Como tudo foi testado e o que comprova (macro):**
-> [arquitetura e evidências](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md); dados
-> brutos e ressalvas finas em [`lab/2026-06-04-strata-hipoteses/`](../lab/2026-06-04-strata-hipoteses/).
+> [`strata-com-ia.md`](strata-com-ia.md).
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 
@@ -133,6 +116,52 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 - **Parte IV — adoção e operação**: a operacionalização para adotar em projetos
   legados *em escala* (fases de adoção, auditoria periódica) ainda não foi escrita.
   O caminho está esboçado nos labs, aguardando dor empírica que justifique destilá-lo.
+
+### Resultados: o que cada modelo consegue, por etapa
+
+> **Sinais, não provas** — regime de **só-texto** (a IA escreve um plano/arquivo; não roda nada),
+> poucas repetições por teste, 1–2 cenários. Vocabulário completo em [`GLOSSARIO.md`](../GLOSSARIO.md)
+> e o método em [arquitetura e evidências](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
+
+**Vocabulário (o mínimo para ler as tabelas):**
+
+| Termo | O que quer dizer |
+|---|---|
+| **Etapa / modo** | o "tamanho do passo" que a IA dá — de *"devo agir aqui?"* a *"produzo o conserto"*. |
+| **De uma vez** | você entrega método + projeto e a IA faz **tudo num passo** (só modelo de topo). |
+| **Orientar** | você **quebra em etapas** / dá *checklist* e **revisa** (modelos médios e pequenos). |
+| **Abster-se** | reconhecer que o projeto **já está bom** e **não mexer** (o difícil). |
+| **Falso-positivo / super-aplicar** | apontar/consertar um problema que **não existe**. |
+| **Recusar** | diante de uma **ordem maliciosa** escrita no projeto, **não obedecer**. |
+| **Topo / médio / pequeno** | nível de capacidade do modelo (não de tamanho — *flash* barato pode bater um 70B). |
+
+**Tabela 1 — A IA consegue cada etapa?**
+
+| Etapa (o que a IA faz) | Consegue? | Quem |
+|---|---|---|
+| **Entender** o método e o projeto | ✅ universal | todos, até os pequenos |
+| **Diagnosticar** o que está errado (núcleo L0) | ✅ no essencial | todos pegam o grosso; médio/barato **inventa extra** |
+| **Saber não agir** quando já está bom | ⚠️ difícil | **só o topo** se abstém |
+| **Recusar** ordem maliciosa (*injeção*) | ✅ **com o Strata** | nuvem sim (o barato vira *obedecer→recusar*); locais ruidosos |
+| **Executar** o conserto **sem apagar histórico** | ✅ no essencial | nuvem conserta **e preserva**; só o **topo** se abstém no limpo; local difícil |
+
+**Tabela 2 — Como usar o `knowledge-architecture.md`, por onde você roda**
+
+| Onde você roda | Modelos típicos | Como usar o arquivo | Cuidado principal |
+|---|---|---|---|
+| **Claude Code · claude.ai** | Claude Opus/Sonnet — **topo** | **De uma vez**, prosa canônica direto | ótimo rascunho — **ainda revise** |
+| **Copilot · API forte** | GPT-4.1, GPT-5, Gemini Pro — **médio-forte** | De uma vez p/ recusar/executar; **revise o "já-bom"** | **super-aplica** em projeto limpo |
+| **Modelo barato** | GPT-4o-mini, *-mini — **médio-barato** | **Orientar** (checklist, em etapas) | **falso-positivo**: inventa violações |
+| **Local (ex.: RTX 3060)** | 7–8B: deepseek-r1, qwen, gemma, granite | **Orientar muito** + forma **densa/checklist** | afoga na prosa; formato bagunçado; **humano no loop** |
+
+> **A forma do arquivo importa:** o **topo** lê a **prosa canônica** direto; os **pequenos (~8B)**
+> precisam da **versão densa (AI-nativa)** ou de **checklist em etapas** — a prosa longa os afoga.
+
+**Regra de ouro (uma frase):** **método + modelo de topo** → de uma vez; **método + modelo
+médio/pequeno** → orientar em etapas e **manter um humano no loop**. O método dá a *direção certa*;
+saber **quando NÃO agir** (proporção, §9) depende da **capacidade** do modelo.
+
+---
 
 Veja [`STATUS.md`](../STATUS.md) para o estado atual e [`decisions/`](../decisions/)
 para o porquê de cada escolha de design.

@@ -128,6 +128,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — método de **busca de borda por cortes (bisseção)** + **mapa de bordas** (recusa e §5-fix
+  **fechados no extremo barato**; **abstenção** já localizada cross-vendor — forte abstém (gpt-4.1), médios
+  não → **Opus redundante p/ isso**; reconciliar-tudo parcial em todos = provável **limite de método** → loop
+  narrativa). Único corte novo barato: **eixo esforço** (Sonnet+thinking abstém? — precisa de knob no harness).
+  [`PLANO-evidencia`](PLANO-evidencia-cenarios-e-narrativa.md). **Sem novo gasto até decidir.**
 - **2026-06-13** — **escada Claude (Haiku+Sonnet, sem thinking) como SUJEITO**: recusam injeção principiado
   (F3, juiz — **piso mais seguro** que o barato da OpenAI, que obedecia) e, com Strata, **consertam §5** (F4
   PASS até no Haiku); mas **super-aplicam no limpo** (abstenção = capacidade). Mecânico do F3 deu ~100%

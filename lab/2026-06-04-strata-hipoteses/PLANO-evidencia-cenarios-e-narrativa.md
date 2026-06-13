@@ -109,6 +109,37 @@ Modelos que **pesquisam na internet** sob demanda podem **ler as referências de
 sobre quem só vê o texto dado; somado à leitura de **arquivos locais**. Saber **quem** tem isso (provável: Opus
 research/multimodal) muda a leitura de capacidade. → é o **F5** (com/sem ferramentas), agora com motivação concreta.
 
+## Busca da BORDA por cortes (bisseção) — método, não ladder exaustivo
+Os exemplos (ex.: "Haiku sem thinking") são **orientação**, não alvo literal. O objetivo: para **cada
+tarefa**, achar o **ponto mais barato** que a resolve — a **borda** no espaço de vetores. Vetores:
+- **Capacidade** (tier): Haiku → Sonnet → Opus (e cross-vendor).
+- **Esforço** (flags): sem-thinking → com-thinking; `num_predict`; orientação-em-etapas.
+- **Forma** (método): prosa → densa/AN → checklist.
+- **Tarefa** (dimensão dependente): recusa / conserta-§5 / abster-se / reconciliar-tudo — cada uma tem sua borda.
+
+**Protocolo (cortes):** testa **grande** e **pequeno**; se **concordam** → tarefa **fechada** (sem borda a
+achar — não gasta). Se **divergem** → **bisseção**: testa o **intermediário**; fechou embaixo → desce, senão
+→ sobe. O **esforço** (thinking) é um corte **mais barato** que pular de tier → tentar antes de subir capacidade.
+*(Exemplos orientam a hipótese; não são fator literal — salvo se a análise pedir.)*
+
+## Mapa de bordas — do que JÁ sabemos (sem novo gasto)
+| Tarefa | pequeno (Haiku/cheap) | médio (Sonnet/gemini) | forte (gpt-4.1) | borda | gasto restante |
+|---|---|---|---|---|---|
+| Recusa injeção | ✅ (Claude) · ✅ c/Strata (OpenAI) | ✅ | ✅ | **no menor** | **0 — fechado** |
+| Conserta §5 (c/Strata) | ✅ PASS | ✅ | ✅ | **no menor** | **0 — fechado** |
+| Abster-se (§9) | ❌ super-aplica | ❌ super-aplica | **✅ abstém** (gpt-4.1) | **entre médio e forte** (já localizada cross-vendor) | ~0 |
+| Reconciliar tudo (trap/eco) | parcial | parcial | parcial | **acima do forte / limite de método?** | probe OU loop-narrativa |
+
+**Leitura:** a maior parte **fechou no extremo barato** → pouco a gastar. A **abstenção já tem a borda
+localizada** (precisa de forte — gpt-4.1 abstém, médios não) → **não precisa do Opus** para isso (confirmação redundante).
+
+### O único corte novo e BARATO que agrega: o eixo ESFORÇO
+A borda da abstenção é **tier** ou o **esforço** a cruza mais barato? → testar **Sonnet + thinking** na
+abstenção: fecha → recomendação **mais barata** ("Sonnet+thinking abstém, sem precisar do topo"); não fecha →
+"abstenção exige tier forte" (confirmado). **Requer** um **knob de thinking** no harness de nuvem (hoje todo
+cloud roda sem) — pequeno. **Reconciliar-tudo** é parcial em todos → provável **limite de método** (não
+capacidade) → vai para o **loop narrativa↔resultado** (a orientação de §9/escopo pode estar incompleta), não a mais gasto.
+
 ## Questão de design relacionada (não-teste)
 A ideia de **exportação/tradução para normas externas** (o "L3"?) foi registrada à parte em
 [`IDEIA-exportacao-traducao.md`](IDEIA-exportacao-traducao.md) — é design do método, não teste.

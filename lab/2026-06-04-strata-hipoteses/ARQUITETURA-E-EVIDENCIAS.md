@@ -31,6 +31,7 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 | **F4** execução | conserta sem destruir? | ✅ nuvem + local + eco (real) | média (N=2) | [F4](RESULTADOS-f4-execucao.md) |
 | **F5** pesquisa | ferramentas invertem o ranking? | ⬜ aberto | — | [PLANO](PLANO-geral-modos-fechar-lacunas.md) |
 | **F6** temporalidade | reauditar corpus que mudou | ⬜ aberto | — | [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
+| **Eco/gênero** | vale em +cenários e fora de código? (+ viés do dono) | ⬜ planejado | — | [plano](PLANO-evidencia-cenarios-e-narrativa.md) |
 
 ## Duas perguntas
 1. O **núcleo (L0)** é fundamentado? — questão de *fundamentação*.
@@ -98,11 +99,14 @@ IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degr
 > ou **método + humano no loop / orientação em etapas** para os demais.
 
 ## Fronteira (aberto, honesto)
-- **F4 local** (em curso) · **F5** (com/sem ferramentas inverte o ranking de capacidade?) · **F6**
-  (temporalidade/longitudinal — ver [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md)).
-- **2º cenário-mãe** (hoje quase tudo deriva de um) e **validade de agente-com-ferramentas-reais** (sair
-  do completion-only) são os dois maiores limites a atacar.
-- Roadmap: [`PLANO-geral-modos-fechar-lacunas.md`](PLANO-geral-modos-fechar-lacunas.md).
+- **F5** (com/sem ferramentas inverte o ranking de capacidade?) · **F6** (temporalidade/longitudinal —
+  ver [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md)).
+- **Mais cenários e novos gêneros** (PatchCraft = repetir; **AulaQuantum/DeepLearning** = acompanhamentos
+  de aula, não-projetos) + o **confundidor do "projeto próprio"** (conformidade/circularidade) + o **loop
+  narrativa↔resultado**: plano em [`PLANO-evidencia-cenarios-e-narrativa.md`](PLANO-evidencia-cenarios-e-narrativa.md).
+- **2º cenário-mãe** e **validade de agente-com-ferramentas-reais** (sair do completion-only) seguem os
+  dois maiores limites a atacar.
+- Roadmap de modos: [`PLANO-geral-modos-fechar-lacunas.md`](PLANO-geral-modos-fechar-lacunas.md).
 
 ## Índice da evidência granular
 Desenhos: [DESIGN-f3](DESIGN-f3-recusa.md) · [DESIGN-f4](DESIGN-f4-execucao.md) (+ `*-synthesis.json`).
@@ -116,6 +120,9 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **registrado** o plano de **expansão de evidência** (PatchCraft; AulaQuantum/DeepLearning
+  = acompanhamentos de aula; o **confundidor do "projeto próprio"**; o **loop narrativa↔resultado**) em
+  [`PLANO-evidencia-cenarios-e-narrativa.md`](PLANO-evidencia-cenarios-e-narrativa.md). **Não executado.**
 - **2026-06-13** — **F4-eco** (digest real pdf2md) **fechado**: o **§3 replica no real** — baseline
   `gpt-4.1` **destruiu seções** (optional-dependencies/Empacotamento), Strata **preservou** (zero
   destruição); mas **ninguém reconcilia tudo** (máx 2/3 pares) e o formato "arquivo inteiro" **estica/

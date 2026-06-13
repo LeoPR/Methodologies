@@ -106,6 +106,9 @@ IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degr
   narrativa↔resultado**: plano em [`PLANO-evidencia-cenarios-e-narrativa.md`](PLANO-evidencia-cenarios-e-narrativa.md).
 - **2º cenário-mãe** e **validade de agente-com-ferramentas-reais** (sair do completion-only) seguem os
   dois maiores limites a atacar.
+- **Questão de design (método, não teste):** exportar/traduzir para normas externas (o "L3"?) — provável
+  **corolário** de §5/§3 (eixo **transversal**, não 4ª camada de durabilidade); ferramenta como spinoff.
+  Registro: [`IDEIA-exportacao-traducao.md`](IDEIA-exportacao-traducao.md).
 - Roadmap de modos: [`PLANO-geral-modos-fechar-lacunas.md`](PLANO-geral-modos-fechar-lacunas.md).
 
 ## Índice da evidência granular
@@ -120,6 +123,10 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — refinado o plano de evidência (sintético=validade **interna** vs real=**descoberta de
+  borda**; amostragem **externa** por espectro de conformidade: PyPI-comportados / científico-bagunçado /
+  caótico) e registrada a **IDEIA de exportação/tradução** (o "L3"? — provável eixo transversal, corolário
+  §5/§3) em [`IDEIA-exportacao-traducao.md`](IDEIA-exportacao-traducao.md). **Não executado.**
 - **2026-06-13** — **registrado** o plano de **expansão de evidência** (PatchCraft; AulaQuantum/DeepLearning
   = acompanhamentos de aula; o **confundidor do "projeto próprio"**; o **loop narrativa↔resultado**) em
   [`PLANO-evidencia-cenarios-e-narrativa.md`](PLANO-evidencia-cenarios-e-narrativa.md). **Não executado.**

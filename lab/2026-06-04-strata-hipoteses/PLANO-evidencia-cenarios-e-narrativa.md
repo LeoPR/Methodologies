@@ -70,6 +70,34 @@ O risco a vigiar: a forma densa/checklist (que ajuda o modelo fraco) **não pode
 "sempre-ache-problema" (viés) nem num sistema rígido. Os **controles de abstenção/paranoia** são o
 termômetro disso — é por eles que se mede se a orientação ficou **balanceada**.
 
+## Sintético vs real — papéis epistêmicos distintos (esclarecimento do dono)
+- **Sintético** (s05, f4-dup…): **validade INTERNA**. Verifica o funcionamento **dentro de regras** —
+  mesmo testando **bordas**, são **bordas controladas** (desenhadas). Não é defeito; **já evidencia muito**
+  que o Strata funciona como projetado (é o que está fechado em F0-F4).
+- **Real** (próprios + externos): **validade EXTERNA / descoberta de borda**. O objetivo **não** é "provar
+  que funciona" (o sintético já faz isso dentro das regras), e sim ver **em que bordas o Strata TOCA no
+  mundo real e se ele ESTICA** (expande além das bordas controladas) — onde se aprende o que o desenho não previu.
+- **Logo:** complementares, **não** redundantes. O confundidor do projeto-próprio só afeta o **real-próprio**;
+  por isso o **real-externo** é essencial para a descoberta de borda **sem circularidade**.
+
+## Amostragem de projetos EXTERNOS (o braço que quebra a circularidade) — a sourcear
+Um **espectro de conformidade** — largar no drive Z, testar **local/privado**, publicar **só agregado**:
+
+| Tier | Onde achar | O que testa |
+|---|---|---|
+| **Comportados** | PyPI + GitHub (publicados) | seguem regras p/ publicar (README/licença/testes/empacotamento) → **alta conformidade** → testa **NÃO super-aplicar** (M0 "já-bom") em **real**, não só sintético |
+| **Científico/algoritmo/didático, difícil de instalar** | papers-with-code, repos de teoria/curso, implementações de algoritmo | **alto teor científico + muita desorganização** → perfil rico de **defeito real** — o tier de **maior sinal** |
+| **Realmente desorganizado** | **difícil achar** (heurística: repos sem README/licença/testes, "dump", abandonados, projetos de estudante) | o teto de bagunça — mas **achar é o problema** (questão aberta) |
+
+- **Ética/privacidade:** repo de terceiros = **local + privado**; publicar **só agregado/curado**, nunca
+  expor ou criticar projeto alheio nominalmente (mesmo princípio do `fixtures-real/` privado).
+- **Papel:** este é o **braço externo** que o protocolo do confundidor exige — e um **espectro** dele
+  cobre de muito-organizado a caótico, fortalecendo a generalização.
+
+## Questão de design relacionada (não-teste)
+A ideia de **exportação/tradução para normas externas** (o "L3"?) foi registrada à parte em
+[`IDEIA-exportacao-traducao.md`](IDEIA-exportacao-traducao.md) — é design do método, não teste.
+
 ## Onde entra na fila
 Eixo **ecológico/gênero**, paralelo a F5/F6. **Pré-requisito antes de rodar próprios:** o protocolo do
 confundidor (braço externo + pré-registro de gabarito + declaração de viés). **Não executar agora** — registro.

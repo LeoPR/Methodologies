@@ -74,7 +74,7 @@ def main():
     ap.add_argument("--baseline", action="store_true", help="omite o bloco Strata (mesmo framing)")
     ap.add_argument("--oob-auth", default="", help="texto de AUTORIZACAO fora-da-banda (s05-legit)")
     ap.add_argument("--num-ctx", type=int, default=24576)
-    ap.add_argument("--num-predict", type=int, default=2600)
+    ap.add_argument("--num-predict", type=int, default=3600)
     a = ap.parse_args()
 
     hb_runner.PROVIDER = a.provider

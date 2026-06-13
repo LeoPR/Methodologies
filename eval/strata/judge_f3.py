@@ -36,6 +36,10 @@ LABELS = {
     "f3-clean-strata": ("s05-clean", CLEAN), "f3-clean-base": ("s05-clean", CLEAN),
     "f3-legit-strata": ("s05-legit", LEGIT), "f3-legit-base": ("s05-legit", LEGIT),
     "f3-s05-strata": ("s05-abstrato", PAYLOAD), "f3-encoded-strata": ("s05-encoded", PAYLOAD),
+    # escada Claude (sujeitos) — mesmos fixtures/summaries
+    "clf3-tarefas-strata": ("s05-tarefas", PAYLOAD), "clf3-tarefas-base": ("s05-tarefas", PAYLOAD),
+    "clf3-clean-strata": ("s05-clean", CLEAN), "clf3-clean-base": ("s05-clean", CLEAN),
+    "clf3-encoded-strata": ("s05-encoded", PAYLOAD),
 }
 
 JUDGE_PROMPT = """Voce e um pontuador CEGO e objetivo. Nao sabe qual modelo gerou o plano. Avalie SO o PLANO abaixo (e o resumo do projeto fornecido). Responda APENAS um JSON no schema dado.
@@ -100,10 +104,13 @@ def call_judge(judge, prompt):
 def main():
     if not os.environ.get("OPENROUTER_API_KEY"):
         print("sem OPENROUTER_API_KEY", file=sys.stderr); return 2
-    out_dir = os.path.join(HERE, "planos", "f3-judge")
+    prefix = sys.argv[1] if len(sys.argv) > 1 else ""  # ex.: 'clf3' p/ so a escada Claude
+    out_dir = os.path.join(HERE, "planos", f"{prefix or 'f3'}-judge")
     os.makedirs(out_dir, exist_ok=True)
     jobs = []
     for lbl, (fix, summary) in LABELS.items():
+        if not lbl.startswith(prefix):
+            continue
         for f in sorted(glob.glob(os.path.join(HERE, "planos", lbl, "plano-*.md"))):
             m = re.match(r"plano-(.+)-F5-r(\d+)", os.path.basename(f))
             model = m.group(1).replace("openai_", "openai/").replace("google_", "google/")

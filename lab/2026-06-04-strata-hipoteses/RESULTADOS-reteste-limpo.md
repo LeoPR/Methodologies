@@ -2,7 +2,7 @@
 title: Reteste LIMPO do H-C (pós-auditoria) — prosa vs AN-v2 vs baseline, local
 created: 2026-06-07
 setup: fixture CONGELADO lumen-bugado (sha256 22bf662f) · AN-v2 descontaminada (grep=0 literais) · prompt prosa SEM enum · baseline sem-Strata · pontuação CEGA (ids opacos) · N=3 · 4 modelos 7-8B
-status: local fechado (R0-R4): H-C confirmado, mas COMPRESSÃO domina e gates polem; nuvem/R5/R6 pendentes
+status: 'local fechado (R0-R4): H-C confirmado, mas COMPRESSÃO domina e gates polem; nuvem/R5/R6 pendentes'
 ---
 
 # Reteste limpo — o H-C sobrevive à descontaminação

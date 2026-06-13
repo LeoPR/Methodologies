@@ -1,7 +1,7 @@
 ---
-title: F1 / M0 — abstenção: foregrounding do gate §9 conserta o falso-positivo (mas calibrar exige capacidade)
+title: 'F1 / M0 — abstenção: foregrounding do gate §9 conserta o falso-positivo (mas calibrar exige capacidade)'
 created: 2026-06-09
-setup: forma M0 (abstenção-primeiro: veredito JÁ-BOM/PRECISA + só-se-precisar) vs AUDIT (controle "ache problemas") × 4 modelos (Opus, gemini-flash, gpt-4.1-mini, llama-70b) × 3 projetos reais (NNN exemplar=controle de abstenção, pdf2md, FG2P) × N=2 · pontuação CEGA (juiz Claude) contra gabaritos com veredito-verdade
+setup: 'forma M0 (abstenção-primeiro: veredito JÁ-BOM/PRECISA + só-se-precisar) vs AUDIT (controle "ache problemas") × 4 modelos (Opus, gemini-flash, gpt-4.1-mini, llama-70b) × 3 projetos reais (NNN exemplar=controle de abstenção, pdf2md, FG2P) × N=2 · pontuação CEGA (juiz Claude) contra gabaritos com veredito-verdade'
 status: M0 elimina o falso-positivo no exemplar (universal), mas super-corrige em sub-detecção nos fracos; abstenção CALIBRADA é capacidade (só Opus discrimina)
 ---
 

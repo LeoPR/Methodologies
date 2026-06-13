@@ -1,7 +1,7 @@
 ---
 title: Plano geral — modos de aplicação por IA (M0-M4) e roadmap para fechar lacunas
 created: 2026-06-08
-status: roadmap. Revisado por painel adversarial (4 lentes: capacidade/medição, segurança, validade ecológica, completude). Executar incremental.
+status: 'roadmap. Revisado por painel adversarial (4 lentes: capacidade/medição, segurança, validade ecológica, completude). Executar incremental.'
 ---
 
 # Plano geral — o que falta testar em "uma IA aplica o Strata"

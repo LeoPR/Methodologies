@@ -1,8 +1,8 @@
 ---
-title: P6 #2 — grid de valor (não-Opus forte) + grátis (remoto/local) + eixo think
+title: 'P6 #2 — grid de valor (não-Opus forte) + grátis (remoto/local) + eixo think'
 created: 2026-06-08
-setup: forma F1-checklist × {value-tier pago, free remoto, free/local Ollama} × NNN+pdf2md · pontuação CEGA (gabarito corrigido) · qualidade = genuíno − falso-positivo · MERGE com Phase B no gen_delivery.py
-status: define a fronteira de USO. ATUALIZADO pós-validação N=3: NÃO há free-local confiável (o +0.50 do deepseek-r1:8b era artefato de truncagem; validado −1.50). Auditor que ajuda = pago.
+setup: 'forma F1-checklist × {value-tier pago, free remoto, free/local Ollama} × NNN+pdf2md · pontuação CEGA (gabarito corrigido) · qualidade = genuíno − falso-positivo · MERGE com Phase B no gen_delivery.py'
+status: 'define a fronteira de USO. ATUALIZADO pós-validação N=3: NÃO há free-local confiável (o +0.50 do deepseek-r1:8b era artefato de truncagem; validado −1.50). Auditor que ajuda = pago.'
 ---
 
 # P6 #2 — preencher a entrega (value / grátis / local / think)

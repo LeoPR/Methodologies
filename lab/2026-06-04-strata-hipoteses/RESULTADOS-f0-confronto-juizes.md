@@ -1,8 +1,8 @@
 ---
-title: F0 — confronto de juízes (cross-fornecedor) — as conclusões são robustas? "maior = melhor juiz"?
+title: 'F0 — confronto de juízes (cross-fornecedor) — as conclusões são robustas? "maior = melhor juiz"?'
 created: 2026-06-09
-setup: 9 juízes re-pontuam CEGO o mesmo conjunto P1+P2 (AN-v2 vs AN-v3) — OpenAI (nano/mini/gpt-4.1-mini/gpt-5/codex/o3/gpt-5.5), Google (flash/pro), Anthropic (Claude). Discriminador objetivo: no NNN exemplar, os planos AN-v2 COMPROVADAMENTE cometem falso-positivo (flagam os arquivos-IA como dup, criticam a navegação boa — fatos textuais), então FP-detectado ~4 = correto, ~0 = leniência.
-status: conclusões ROBUSTAS a fornecedor (3 empresas convergem); "maior=melhor juiz" vale DENTRO de um fornecedor mas é confundido entre eles (capacidade, não tamanho)
+setup: '9 juízes re-pontuam CEGO o mesmo conjunto P1+P2 (AN-v2 vs AN-v3) — OpenAI (nano/mini/gpt-4.1-mini/gpt-5/codex/o3/gpt-5.5), Google (flash/pro), Anthropic (Claude). Discriminador objetivo: no NNN exemplar, os planos AN-v2 COMPROVADAMENTE cometem falso-positivo (flagam os arquivos-IA como dup, criticam a navegação boa — fatos textuais), então FP-detectado ~4 = correto, ~0 = leniência.'
+status: 'conclusões ROBUSTAS a fornecedor (3 empresas convergem); "maior=melhor juiz" vale DENTRO de um fornecedor mas é confundido entre eles (capacidade, não tamanho)'
 ---
 
 # F0 — os juízes convergem? (e "maior = melhor" é verdade?)

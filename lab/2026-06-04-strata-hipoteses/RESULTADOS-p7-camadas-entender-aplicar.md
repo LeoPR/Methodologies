@@ -1,8 +1,8 @@
 ---
-title: P7 — por camada (L0/L1/L2): a IA ENTENDE, APLICA, ou precisaria PESQUISAR?
+title: 'P7 — por camada (L0/L1/L2): a IA ENTENDE, APLICA, ou precisaria PESQUISAR?'
 created: 2026-06-08
 setup: mineração das saídas F0-bare (método canônico completo) + sonda dedicada (explicar L0/L1/L2 + aplicar L1 a 3 necessidades + auto-reporte de necessidade de pesquisa) em 3 tiers — Opus 4.8, gpt-4.1-mini, deepseek-r1:8b local. Completion puro, SEM ferramentas/web.
-status: esclarece a ambiguidade "a IA aplica L0/L1?" — entender NÃO é a barreira; os gargalos são JULGAMENTO (L0) e CONHECIMENTO (L1), distintos e capacidade-graduados
+status: 'esclarece a ambiguidade "a IA aplica L0/L1?" — entender NÃO é a barreira; os gargalos são JULGAMENTO (L0) e CONHECIMENTO (L1), distintos e capacidade-graduados'
 ---
 
 # P7 — entender ≠ aplicar, e por camada

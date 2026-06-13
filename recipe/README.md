@@ -102,8 +102,9 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 > modernos **aplicam** o método (vários sabores de nuvem detectam **5–7 de 7** problemas plantados);
 > e, ao *agir*, **recusam** uma ordem maliciosa lida do projeto e **consertam preservando** o
 > histórico. O que **varia é a capacidade**, não a validade — o detalhe **por etapa e por modelo**
-> está nas **tabelas no fim desta página**. *(Sinais, não provas: regime de só-texto, poucas
-> repetições — [método e ressalvas](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).)*
+> está nas **tabelas no fim desta página**. *(Sinais em **fixture**, não provas; em **projeto real** o
+> auto-auditor autônomo só rendeu no **tier topo** — ressalva e opinião honesta:
+> [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).)*
 >
 > **Saída de IA = rascunho a revisar.** Guia prático por modelo, custo e ambiente:
 > [`strata-com-ia.md`](strata-com-ia.md).
@@ -121,8 +122,16 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 
 > **Sinais, não provas** — regime de **só-texto** (a IA escreve um plano/arquivo; não roda nada),
 > poucas repetições por teste, 1–2 cenários. Vocabulário completo em [`GLOSSARIO.md`](../GLOSSARIO.md).
-> Estas tabelas são um **panorama**; o **estado canônico e datado** das fases (o que é atual vs em
-> curso, com histórico) vive na *tabela de estado* do
+>
+> **⚠️ A ressalva que mais importa:** estas tabelas são de **fixtures sintéticas**. Em **projetos REAIS**,
+> o Strata como **auto-auditor autônomo de IA NÃO superou** a competência pura — o falso-positivo dominou
+> (até o braço sem método), e o ganho sintético **não se traduziu** ao real, **exceto no tier topo**. Quase
+> todo o "real" testado é **projeto do próprio autor** (circularidade). → use auto-auditor autônomo **só com
+> modelo forte**; com médio/barato, **checklist + humano no loop**.
+>
+> **Opinião de uso honesta e completa** (por tarefa/tier/custo, com todas as ressalvas):
+> [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). Estas tabelas são um
+> **panorama**; o estado datado vive no
 > [doc de arquitetura e evidências](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
 
 **Vocabulário (o mínimo para ler as tabelas):**

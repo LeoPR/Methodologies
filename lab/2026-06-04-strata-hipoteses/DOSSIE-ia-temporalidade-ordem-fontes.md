@@ -72,8 +72,14 @@ Esses quatro podem ter **raiz comum** — não são quatro bugs avulsos. Candida
 §3/§8 (rastreabilidade/história imutável), §5 (fonte única) e §6 (disciplina de fonte) são
 **exatamente os antídotos** desse cluster. Se a limitação da IA for **fundamental**, o método
 deixa de ser "boa prática" e vira o **andaime externo obrigatório**: o humano/método fornece o
-que a IA não tem — situar no tempo, ordenar, e verificar a fonte primária. É a tese mais forte
-possível para o Strata; por isso vale estudar a fundo.
+que a IA não tem — situar no tempo, ordenar, e verificar a fonte primária. É uma tese **promissora**
+para o Strata; por isso vale estudar a fundo.
+
+> **⚠️ Revisão retroativa (2026-06-13):** rebaixei "a tese **mais forte**" → "**promissora**". Na evidência
+> atual, a temporalidade é o **sinal MAIS RUIDOSO** do corpus (datas ~33% é média com variância enorme, juiz
+> único, pior concordância 0,56) e **F6 não rodou** — é **hipótese a testar**, não o argumento de valor mais
+> forte. Ver [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md). *(A §6 source-verification, essa sim, tem sinal:
+> ver [`RESULTADOS-f5`](RESULTADOS-f5-pesquisa.md).)*
 
 ## Estado
 Hipótese/dossiê registrado. **Não estudar agora** — retomar com experimentos próprios.

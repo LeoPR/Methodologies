@@ -16,7 +16,8 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 > [`GLOSSARIO.md`](../../GLOSSARIO.md), seção *Termos de avaliação e teste*.
 >
 > **➡️ Opinião de uso final (honesta, consolidada):** [`OPINIAO-DE-USO.md`](OPINIAO-DE-USO.md) ·
-> backlog priorizado: [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md).
+> backlog priorizado: [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md) ·
+> **o que envelheceu (revisão retroativa):** [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md).
 
 ## Estado das fases — fonte única (atualizado em 2026-06-13)
 
@@ -145,6 +146,12 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **revisão RETROATIVA** do corpus ([`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md)): a
+  técnica evoluiu → reavaliamos tudo. Núcleo sólido (F0, §5-fix, §3-tombstone) **sobrevive**; **over-claims
+  caíram**: datas/temporalidade ~33% **❌ não-achado** (média ruidosa, juiz único, F6 não rodou) e **R8
+  reinterpretado** (over-detecção = **FRAMING**, não falha inerente — o braço externo corrige). Anotados (§3,
+  não reescritos): R8-sintese, P4/datas, dossiê. Fixados os **campeões** (ótimo-até-agora) → testar desafiantes,
+  não combinatória tudo×tudo.
 - **2026-06-13** — **braço EXTERNO (quebra circularidade): bem-comportado + messy** (6 repos de terceiros).
   Bem-comportado: **M0 = JÁ-BOM 9/9** (abstém certo); AUDIT over-detecta → falso-positivo do **R8 é da FORMA,
   não circular**. Messy (3 repos 1-3/7): M0 disse **JÁ-BOM a quase tudo, até no 1/7** → **REPLICA F1/M0**

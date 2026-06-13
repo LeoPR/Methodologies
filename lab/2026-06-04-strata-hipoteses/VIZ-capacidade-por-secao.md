@@ -3,6 +3,11 @@ title: P4 — capacidade por secao x modelo (visualizacao)
 created: 2026-06-08
 ---
 
+> **⚠️ Revisão retroativa (2026-06-13):** o "**~33% em datas/§8**" abaixo **NÃO é um achado citável** — é
+> **média com variância enorme** (gemini-2.5-flash=100%, vários=0%), **juiz Claude único**, e a seção com a
+> **pior concordância inter-juiz (0,56)**. A "tese-mãe" da temporalidade está **rebaixada a hipótese** (F6, não
+> rodado). Não citar os ~33% como fato. Ver [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md).
+
 ```
 # Capacidade por SECAO x MODELO — arm 'cloud-an' (sintetico, % de runs que ACHARAM, N=3)
 

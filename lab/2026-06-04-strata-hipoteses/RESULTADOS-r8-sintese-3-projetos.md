@@ -7,6 +7,13 @@ status: VEREDITO ECOLÓGICO — o Strata como auto-auditor de IA NÃO generaliza
 
 # R8 — o Strata-auto-auditor encontra a realidade
 
+> **⚠️ Revisão retroativa (2026-06-13):** este "veredito ecológico" foi **reinterpretado**. A over-detecção
+> aqui é **FRAMING-dependente** (o framing "ache-problemas" over-detecta — até no real e no baseline), **não**
+> uma falha inerente do método: o **braço externo** ([`RESULTADOS-externo`](RESULTADOS-externo-bemcomportado.md))
+> mostrou que a **forma de abstenção corrige** o falso-positivo em projeto de terceiro. Ler "Strata-auto-auditor
+> não generaliza" como **"o framing ache-problemas over-detecta"**. Também: **circularidade** (projeto+gabarito
+> do dono, gabarito incompleto). Ver [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md).
+
 Três projetos reais, três "temperaturas" de organização. Pergunta: o método (Strata) faz
 um modelo **diagnosticar melhor um projeto real** do que a competência pura (baseline)?
 

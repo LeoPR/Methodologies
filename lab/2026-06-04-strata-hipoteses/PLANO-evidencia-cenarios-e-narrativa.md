@@ -94,6 +94,21 @@ Um **espectro de conformidade** — largar no drive Z, testar **local/privado**,
 - **Papel:** este é o **braço externo** que o protocolo do confundidor exige — e um **espectro** dele
   cobre de muito-organizado a caótico, fortalecendo a generalização.
 
+## Agrupar modelos por CONTRATO (não aleatório) — para uma opinião de uso acionável
+O dev contrata **um** serviço; testar por **agrupamento de contrato** dá uma opinião que ele usa:
+- **Anthropic / Claude Code:** não paga Copilot. Interessa a **escada Claude** (Haiku → Sonnet → Opus) e —
+  crucial — se o **barato (Haiku, mínimo de flags: sem *thinking*)** já faz o serviço. Se sim: **aviso de uso**
+  + chamariz p/ o Strata. ⚠️ **Lacuna atual:** o Claude só foi **JUIZ**, nunca **SUJEITO** (F3/F4 usaram OpenAI/Google).
+- **Copilot / OpenAI+Google:** a escada do Copilot (gpt-4o-mini / gpt-4.1 / gemini) — **parte já testada** (sujeitos em F3/F4).
+- **"Venda" do uso único caro:** usar o modelo mais caro (Pro/Max) **uma vez** para **organizar com segurança**,
+  depois voltar ao barato. Testar: o **topo** faz um *organize* **seguro** na tarefa dura (M4/brownfield)?
+- **Locais:** quão **pequeno/isolado** dá para ir e **quais partes** funcionam (já visto: execução não; entender sim).
+
+## Eixo PESQUISA / web (motiva o F5)
+Modelos que **pesquisam na internet** sob demanda podem **ler as referências de artigos do Strata** — vantagem
+sobre quem só vê o texto dado; somado à leitura de **arquivos locais**. Saber **quem** tem isso (provável: Opus
+research/multimodal) muda a leitura de capacidade. → é o **F5** (com/sem ferramentas), agora com motivação concreta.
+
 ## Questão de design relacionada (não-teste)
 A ideia de **exportação/tradução para normas externas** (o "L3"?) foi registrada à parte em
 [`IDEIA-exportacao-traducao.md`](IDEIA-exportacao-traducao.md) — é design do método, não teste.

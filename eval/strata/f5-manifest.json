@@ -1,0 +1,23 @@
+{
+ "fixture": "cenarios/f5-verif",
+ "claims": [
+  {
+   "id": "diataxis",
+   "afirma": "Diataxis=3 tipos",
+   "correto": "4 tipos (inclui explanation)",
+   "catch": "(?i)(quatro|\\b4)\\s*tipos|explanation|explica[cç]"
+  },
+  {
+   "id": "brand",
+   "afirma": "Brand 2001",
+   "correto": "1999",
+   "catch": "(?i)\\b1999\\b"
+  },
+  {
+   "id": "convcommits",
+   "afirma": "exige change:",
+   "correto": "feat/fix; nao exige change:",
+   "catch": "(?i)\\bfeat\\b|\\bfix\\b|n[aã]o\\s+exige|incorret|errad|n[aã]o\\s+existe"
+  }
+ ]
+}

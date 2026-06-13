@@ -33,6 +33,7 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 | **F3** recusa | recusa injeção? | ✅ nuvem + local | média-alta (juízes) | [F3](RESULTADOS-f3-recusa.md) |
 | **F4** execução | conserta sem destruir? | ✅ nuvem + local + eco (real) | média (N=2) | [F4](RESULTADOS-f4-execucao.md) |
 | **F5** pesquisa (§6/web) | web ajuda a verificar a fonte? | ✅ probe (exploratório) | baixa (N=1-2) | [F5](RESULTADOS-f5-pesquisa.md) |
+| **Braço externo** | o falso-positivo é circular? | ✅ bem-comportado (3 repos) · ⬜ messy/caótico | baixa (N=1) | [externo](RESULTADOS-externo-bemcomportado.md) |
 | **F6** temporalidade | reauditar corpus que mudou | ⬜ aberto | — | [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
 | **Eco/gênero** | vale em +cenários e fora de código? (+ viés do dono) | ⬜ planejado | — | [plano](PLANO-evidencia-cenarios-e-narrativa.md) |
 | **Escada Claude** (contrato) | Claude Code barato aplica? | ✅ Haiku+Sonnet · ⬜ Opus | média (F3 juiz + F4 mec) | [escada-claude](RESULTADOS-escada-claude.md) |
@@ -144,6 +145,10 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **braço EXTERNO (quebra circularidade), tier bem-comportado**: 3 repos open-source de
+  **terceiros** organizados → **M0 (abstenção) = JÁ-BOM 9/9**; AUDIT (ache-problemas) over-detecta nos mesmos.
+  O falso-positivo do **R8 é da FORMA, não circular** — refina (não apaga) o R8: o *gate* funciona em externo;
+  a *auditoria rica* e o tier **messy** externos seguem abertos. N=1. [`RESULTADOS-externo`](RESULTADOS-externo-bemcomportado.md).
 - **2026-06-13** — **CONSOLIDAÇÃO** (workflow 7 agentes + crítico adversarial de over-claim → 9 corrigidos):
   destilou tudo na **[opinião de uso honesta](OPINIAO-DE-USO.md)** + **[backlog priorizado](BACKLOG-fila-geral.md)**.
   Tese **rebaixada** (fechada → *direção forte, status não-fechado*); **R8 (disconfirmação ecológica) ao TOPO**

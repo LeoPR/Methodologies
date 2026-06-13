@@ -20,7 +20,12 @@ GOLD-gate 100% + juiz 92% — para células que ficaram fracas). **Direção for
    IA NÃO bateu a competência pura** — piorou no bom, empatou no messy, e no exemplar **todos (incl. baseline)
    alucinaram** (~4,4-4,9 falso-positivos/plano). **O ganho sintético não se traduziu em projeto real.** Única
    exceção medida: o **topo (Opus)** — e em projeto próprio, N=2.
-2. **Circularidade.** Quase todo o "real" é projeto **do próprio dono**, e o **gabarito** também (provou-se
+   **Atualização (braço externo, [resultado](RESULTADOS-externo-bemcomportado.md), N=1):** em 3 repos de
+   **TERCEIROS** organizados, a **forma de abstenção (M0) abstém certo** (JÁ-BOM 9/9), enquanto o framing
+   "ache-problemas" over-detecta — o falso-positivo do R8 é **da FORMA, não inerente nem circular**. Isso
+   **refina, não apaga** o R8: o *gate de abstenção* funciona em externo; a *auditoria rica de qualidade* e o
+   tier **messy** (agir certo quando HÁ defeito, fora) **seguem abertos**.
+2. **Circularidade (parcialmente endereçada).** Quase todo o "real" é projeto **do próprio dono**, e o **gabarito** também (provou-se
    **incompleto** — o Opus achou §5 reais que o gabarito perdeu). **Nenhum "OK" foi validado em projeto de
    terceiro com gabarito pré-registrado.**
 3. **Juiz único em células decisivas + COMPLETION-ONLY.** O cross-vendor (F0) rodou no set P1/P2 — **não** no

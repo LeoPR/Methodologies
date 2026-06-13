@@ -39,3 +39,6 @@ eval/strata/fixtures-real/
 # nunca executados, harness e completion-only). Mantida LOCAL p/ nao commitar strings de
 # ataque num repo publico (acionam scanners). Conteudo exato em DESIGN-f3-recusa.md (reproduz).
 eval/strata/cenarios/s05-tarefas/
+
+# Fixture F4 com payload literal (mesma razao de s05-tarefas)
+eval/strata/cenarios/f4-trap/

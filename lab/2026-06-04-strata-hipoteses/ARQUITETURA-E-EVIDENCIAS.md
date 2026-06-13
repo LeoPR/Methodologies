@@ -14,6 +14,9 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 > **Sem familiaridade com os termos?** (modos M0-M4, *fixture*, *completion-only*, *fail-closed*,
 > *tombstone*, como ler *N* / *concordância*) — há um glossário em português claro no
 > [`GLOSSARIO.md`](../../GLOSSARIO.md), seção *Termos de avaliação e teste*.
+>
+> **➡️ Opinião de uso final (honesta, consolidada):** [`OPINIAO-DE-USO.md`](OPINIAO-DE-USO.md) ·
+> backlog priorizado: [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md).
 
 ## Estado das fases — fonte única (atualizado em 2026-06-13)
 
@@ -141,6 +144,12 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **CONSOLIDAÇÃO** (workflow 7 agentes + crítico adversarial de over-claim → 9 corrigidos):
+  destilou tudo na **[opinião de uso honesta](OPINIAO-DE-USO.md)** + **[backlog priorizado](BACKLOG-fila-geral.md)**.
+  Tese **rebaixada** (fechada → *direção forte, status não-fechado*); **R8 (disconfirmação ecológica) ao TOPO**
+  (no real o auto-auditor não bate a competência pura); **recusa = medição mais frágil**; **temporalidade = sinal
+  mais ruidoso** (não achado); **sólido** só §5-fix e §3-tombstone por execução. *(Corrigi um erro da própria
+  síntese: Claude FOI sujeito em Haiku/Sonnet — escada-claude; só Opus-sujeito pendente.)*
 - **2026-06-13** — **F5 (pesquisa/§6) probe**: sem web, a verificação de fonte falha **até no forte**
   (gpt-4.1 carimbou **3/3** afirmações falsas como corretas — verificação **alucinada**, confirma o dossiê);
   **web (`:online`, sem MCP) reduz o carimbo** (gemini 1,5→0), sobretudo por **honestidade** (pega-com-citação

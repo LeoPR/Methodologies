@@ -1,51 +1,46 @@
 ---
-title: 'Fila geral — ideias/planos/hipóteses em aberto (a consolidar/defrag)'
+title: 'Fila geral — backlog PRIORIZADO (pós-consolidação)'
 created: 2026-06-13
-status: 'INDEX vivo das pendencias NAO executadas. Proxima META: defrag/compress -> 1 plano objetivo priorizado.'
+status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava — feito.'
 ---
 
-# Fila geral — o que está em aberto (para consolidar)
+# Fila geral — backlog priorizado (o que fazer, em ordem)
 
-> **Lugar único** (§5) das **ideias/planos/hipóteses não-executados**, para depois **consolidar** num
-> plano objetivo. Itens grandes têm doc próprio (linkado); itens novos/menores ficam aqui até a
-> consolidação. O **estado do que já foi FEITO** vive no [hub de evidências](ARQUITETURA-E-EVIDENCIAS.md).
+> Pós-**[consolidação](OPINIAO-DE-USO.md)** (que foi o "defrag" pedido). Estado do que já foi FEITO:
+> [hub](ARQUITETURA-E-EVIDENCIAS.md). Opinião de uso: [OPINIAO-DE-USO.md](OPINIAO-DE-USO.md).
 
-## Aberto — testes / evidência
-- **Expansão de cenários e gêneros** (PatchCraft; AulaQuantum/DeepLearning; amostragem externa; viés do
-  projeto-próprio): [`PLANO-evidencia-cenarios-e-narrativa.md`](PLANO-evidencia-cenarios-e-narrativa.md).
-- **F5** (com/sem ferramentas) · **F6** (temporalidade): [`PLANO-geral-modos-fechar-lacunas.md`](PLANO-geral-modos-fechar-lacunas.md).
-- **Dossiê** temporalidade/ordem/fonte (estudar): [`DOSSIE-ia-temporalidade-ordem-fontes.md`](DOSSIE-ia-temporalidade-ordem-fontes.md).
+## P0 — antes de mais testes
+- **Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
+  **circularidade** no **topo** de todo relatório/recipe de uso (não em "abertos"). **Recalibrar
+  `recipe/strata-com-ia.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.
+  *(O R8 era "o achado mais importante do reteste" e quase não aparecia na opinião de uso — o over-claim mais sério após a tese-mãe.)*
+- **Braço EXTERNO (decisivo para generalizar; intermediário):** ≥1 projeto open-source **não-próprio** +
+  **pré-registro de gabarito** + declaração de viés, espectro organizado→caótico (ética: repo de terceiro
+  local+privado, publicar só agregado). Rodar o auto-auditor (R8) contra ele. *Sem isso, nenhum "vale em geral" é legítimo.*
 
-## Aberto — design do método
-- **Exportação/tradução p/ normas externas (o "L3"?):** [`IDEIA-exportacao-traducao.md`](IDEIA-exportacao-traducao.md).
-- **Setup operacional p/ agentes (Claude Code / Copilot) — área cinzenta** *(canônico vs spinoff vs Comporta)*.
-  **Reflexão:** é **L2 (Órganon — ferramentas datadas)**. O **princípio** ("organize o projeto para os agentes
-  da era atual agirem; datado/revalidável") **já cabe** no L2 do Strata; as **receitas específicas** (AGENTS.md,
-  CLAUDE.md, config Copilot) **não** devem inchar o **arquivo canônico** — vão para um **satélite** (estender
-  [`strata-com-ia.md`](../../recipe/strata-com-ia.md) ou um `strata-agentes.md` novo). **Fronteira com Comporta:**
-  *organizar para o agente AGIR = Strata; escolher/custear/rotear o agente = Comporta.* (Pensar depois.)
-- **Organização de artefatos de ambiente (caches/temp/venvs) — `Z:\caches\README.md`:** liga ao lab
-  [`2026-06-04-dev-environment-z`](../2026-06-04-dev-environment-z/). **Reflexão:** é um **princípio L0/L1** —
-  *classifique cada artefato por **canônico × regenerável × efêmero × vínculo-com-o-projeto** e o coloque por
-  isso* — expresso por **L2** (junction p/ Z:, env vars, `.gitignore`, `%TEMP%`). Espectro a destilar:
-  - **efêmero de execução** (temp) → `%TEMP%/%TMP%` (some no reboot; só p/ descartável; **se a ferramenta
-    respeita é tool-dependente** — algumas têm cache próprio e ignoram TMP);
-  - **regenerável caro** (cache do pip/uv) → dir de cache (mantém entre runs, mas **apagável** — regenera);
-  - **regenerável mas VINCULADO ao projeto** (ex.: cache de palavras p/ acelerar um dicionário local) →
-    cache **com escopo de projeto** (gitignored, mas atado aos dados do projeto — **não** é `%TEMP%`);
-  - **canônico** (a fonte) → versionado.
-  **Overlap com Comporta** (cache que poupa recompute = economia de recurso). Perguntas a fechar depois:
-  TMP é o mesmo entre ferramentas? quão "vinculado" cada cache é? regenerável-de-projeto mora onde?
+## P1 — alto valor
+- **Claude como SUJEITO — fechar o topo:** **Opus** em **f4-clean** (abstenção por execução, célula decisiva
+  **não rodada**) + **f4-trap** (reconciliação), julgado por não-Claude. *(Haiku/Sonnet já rodaram — escada-claude.)*
+  Decisão de gasto: testar Opus **só** como sujeito-Claude, **não** como teste isolado de §9 (o mapa-de-bordas já
+  diz que gpt-4.1 basta → Opus isolado é redundante). Mitigar viés-de-família (R6) com juízes neutros.
+- **Eixo ESFORÇO (econômico):** Sonnet+thinking na abstenção com **N≥3 + 2º juiz** (hoje 0/2→1/2 está dentro do ruído).
+- **Strata CURTO AI-nativo (design) + replicar R4** (razão compressão:gates ~2/3:1/3) na nuvem com 2º juiz.
 
-## Próxima META — defrag / compress (consolidar)
-**Revisitar** todos os itens acima e **fundir** num **plano objetivo priorizado** (o que fazer, em ordem),
-cortando sobreposição (ex.: a fronteira **Strata × Comporta** aparece nos caches **e** no setup-de-agente —
-resolver uma vez). Hoje são ideias dispersas; a consolidação as torna acionáveis.
-> ⚠️ **LEMBRETE:** fazer este **defrag antes de disparar mais testes** — para não acumular dívida de ideias.
-> *(Quando for feito: bom candidato a um **workflow** de síntese — ler todos os docs de ideia em paralelo →
-> 1 plano priorizado.)*
+## P2 — blindar e melhorar
+- **Fechar a medição:** 2º juiz cross-vendor nas células **decisivas** (abstenção, compressão, datas, eco) +
+  **reteste-limpo da NUVEM** contra fixture congelado (remove o asterisco "juiz único" de várias linhas).
+- **Reescrita de NARRATIVA (loop):** reforçar **§9** ("quando NÃO agir" / permitir "nada a corrigir" / situar
+  no tempo antes de julgar) e **des-lexicalizar §6-bis** (recusa menos dependente de keyword). *(Os padrões que
+  NÃO somem com mais modelo — super-engenharia, falso-positivo no real, segurança lexical — são design da orientação.)*
+- **F6 / temporalidade longitudinal:** testar se a limitação temporal/fonte é **fundamental** (some com datas+
+  instrução? ferramentas? escala?). Decide a "tese-mãe" — hoje o sinal **mais ruidoso**; alto valor de tese, baixo de uso imediato.
 
-## Índice dos docs de ideia/plano
-[dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) · [plano-evidência](PLANO-evidencia-cenarios-e-narrativa.md) ·
-[IDEIA-exportação](IDEIA-exportacao-traducao.md) · [roadmap-modos](PLANO-geral-modos-fechar-lacunas.md) ·
-[hub de evidências](ARQUITETURA-E-EVIDENCIAS.md) · (este backlog).
+## P3 — cobertura e expansão
+- **Decompor L1/L2:** pontuar "nomear formalização" (L1) e "ferramentas datadas" (L2); testar **com-pesquisa**
+  num modelo pequeno **bem-calibrado** (onde P7 prevê maior ganho da web). *(Toda a detecção medida é L0.)*
+- **Cenários/gêneros:** PatchCraft (2º de código); **AulaQuantum/DeepLearning** (gênero "acompanhamento de aula"
+  + temporalidade). Combina com o braço externo.
+- **Decisões de design abertas:** exportação/tradução = **corolário L0 curto** (não uma "L3"); arquivo-extra
+  **Q&A** L1/L2 **só** se não colapsar em "sempre-ache-problema" (medir pelos controles de abstenção antes);
+  **fronteira Strata × Comporta** (aparece em caches E setup-de-agente — resolver de uma vez); classificar
+  artefatos de ambiente (canônico×regenerável×efêmero) como princípio L0/L1 em satélite L2.

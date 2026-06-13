@@ -27,7 +27,10 @@ GOLD-gate 100% + juiz 92% — para células que ficaram fracas). **Direção for
    **super-corrige em SUB-detecção** (replica F1/M0; nem o gpt-4.1 discriminou), embora **gênero-confundido**
    (baixa-conformidade ≠ defeito: lista/pesquisa não precisa de CI/tests). Saldo: os **dois modos de falha**
    (audit over-detecta, M0 sub-detecta) valem **sem circularidade**; a forma move o viés, a capacidade calibra
-   (mal). A *auditoria rica de qualidade* no real **segue aberta**.
+   (mal). A *auditoria rica de qualidade* no real **segue aberta**. **Refino (eixo gênero,
+   [resultado](RESULTADOS-genero.md)):** parte da "sub-detecção" do messy era **fit de gênero** — com framing
+   gênero-consciente, os modelos corretamente **não exigem testes de uma lista**; logo o §9 deveria ser
+   **gênero-consciente** (melhoria de narrativa, não de modelo).
 2. **Circularidade (parcialmente endereçada).** Quase todo o "real" é projeto **do próprio dono**, e o **gabarito** também (provou-se
    **incompleto** — o Opus achou §5 reais que o gabarito perdeu). **Nenhum "OK" foi validado em projeto de
    terceiro com gabarito pré-registrado.**

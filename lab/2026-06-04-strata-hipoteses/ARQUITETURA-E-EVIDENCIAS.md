@@ -35,6 +35,7 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 | **F4** execução | conserta sem destruir? | ✅ nuvem + local + eco (real) | média (N=2) | [F4](RESULTADOS-f4-execucao.md) |
 | **F5** pesquisa (§6/web) | web ajuda a verificar a fonte? | ✅ probe (exploratório) | baixa (N=1-2) | [F5](RESULTADOS-f5-pesquisa.md) |
 | **Braço externo** | o falso-positivo é circular? | ✅ bem-comportado + messy (6 repos) | baixa (N=1; messy gênero-confundido) | [externo](RESULTADOS-externo-bemcomportado.md) |
+| **Gênero** | aplica o padrão do gênero? | ✅ probe (com framing) | baixa (N=1) | [gênero](RESULTADOS-genero.md) |
 | **F6** temporalidade | reauditar corpus que mudou | ⬜ aberto | — | [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
 | **Eco/gênero** | vale em +cenários e fora de código? (+ viés do dono) | ⬜ planejado | — | [plano](PLANO-evidencia-cenarios-e-narrativa.md) |
 | **Escada Claude** (contrato) | Claude Code barato aplica? | ✅ Haiku+Sonnet · ⬜ Opus | média (F3 juiz + F4 mec) | [escada-claude](RESULTADOS-escada-claude.md) |
@@ -146,6 +147,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **eixo GÊNERO**: com framing gênero-consciente, os modelos reconhecem o gênero e **não
+  exigem tests/CI de uma lista/notas** (não são gênero-cegos quando perguntados) → **resolve em parte o
+  confundidor do messy** (o "JÁ-BOM" era em parte genre-appropriate, não sub-detecção). Implica **§9
+  gênero-consciente** (loop narrativa). N=1; AulaQuantum/DeepLearning pendem de digest do dono.
+  [`RESULTADOS-genero`](RESULTADOS-genero.md).
 - **2026-06-13** — **revisão RETROATIVA** do corpus ([`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md)): a
   técnica evoluiu → reavaliamos tudo. Núcleo sólido (F0, §5-fix, §3-tombstone) **sobrevive**; **over-claims
   caíram**: datas/temporalidade ~33% **❌ não-achado** (média ruidosa, juiz único, F6 não rodou) e **R8

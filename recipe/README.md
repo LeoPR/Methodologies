@@ -163,6 +163,11 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 médio/pequeno** → orientar em etapas e **manter um humano no loop**. O método dá a *direção certa*;
 saber **quando NÃO agir** (proporção, §9) depende da **capacidade** do modelo.
 
+**Custo (relativo):** recusar injeção e **consertar** fecham no **econômico**; *abster-se* / organizar
+por completo pede **premium** — mas como **uso único/esporádico**. Ou seja: **econômico no dia-a-dia,
+premium uma vez para o *organize* proporcional**. (Aplicar a IA a um projeto custa, na prática, de
+centavos a poucos dólares.)
+
 ---
 
 Veja [`STATUS.md`](../STATUS.md) para o estado atual e [`decisions/`](../decisions/)

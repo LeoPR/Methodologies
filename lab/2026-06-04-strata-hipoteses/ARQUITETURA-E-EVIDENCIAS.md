@@ -79,6 +79,19 @@ IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degr
   modelos enxuto (nuvem barata→forte + locais, estes **ruidosos** — pequenos não emitem o formato).
 - ⇒ As conclusões valem como **direção forte**, não prova; **generalizar pede mais cenários**.
 
+## Custo — duplo propósito (nosso gasto = referência do custo do dev)
+O custo dos experimentos tem **dois usos que viram um**: (1) o que **nós** gastamos testando; (2) o que um
+**dev gastaria** usando o Strata — proporcionalmente. Logo o custo é **resultado**, não só orçamento.
+- **Vocabulário relativo (para o relatório):** **econômico** · **intermediário** · **premium**. *Registros*
+  de experimento podem ter **valores absolutos** (referência); o **relatório final** usa o **relativo** —
+  um modelo mais capaz costuma custar mais, então basta o relativo. *(Assume capacidade≈custo: correlato, não idêntico.)*
+- **Referência de custo do dev (lendo o [mapa de bordas](PLANO-evidencia-cenarios-e-narrativa.md)):**
+  - **Recusa + conserta §5** fecham no **econômico** → uso **recorrente barato** é viável (rode sempre).
+  - **Abster-se (§9) / organize completo** pede **premium** → mas como **organize de uma vez** é **custo
+    único/esporádico** (pague premium 1×, mantenha o dia-a-dia no econômico).
+- **Âncora proporcional (record):** a validação **inteira** (F0-F4 + eco + escada Claude, dezenas de runs)
+  custou ~**US$15** de crédito; um dev aplicando a **um projeto** gastaria **centavos a poucos dólares**.
+
 ## O que a evidência mostra (macro)
 - **F0 — a fundação (juízes):** juízes de empresas diferentes **convergem** ⇒ as conclusões não são
   artefato. "Maior" **não** é automaticamente "melhor juiz" (um *flash* barato rivaliza com modelos de
@@ -128,6 +141,10 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **custo** elevado a **resultado de duplo propósito** (nosso gasto = referência proporcional
+  do custo do **dev**) + **vocabulário relativo** (econômico/intermediário/premium; *records* = absoluto,
+  *relatório* = relativo). Referência: recusa/conserto = econômico **recorrente**; abster-se/organize = premium
+  **único/esporádico**; validação inteira ~US$15 → projeto-de-dev ≈ centavos-a-poucos-dólares.
 - **2026-06-13** — método de **busca de borda por cortes (bisseção)** + **mapa de bordas** (recusa e §5-fix
   **fechados no extremo barato**; **abstenção** já localizada cross-vendor — forte abstém (gpt-4.1), médios
   não → **Opus redundante p/ isso**; reconciliar-tudo parcial em todos = provável **limite de método** → loop

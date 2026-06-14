@@ -4,22 +4,24 @@
 > apodrece: você não acha o que decidiu, não sabe o que ainda vale, e a próxima
 > ferramenta ameaça obrigar a recomeçar. **Este repositório não é o manual de uma
 > metodologia — é uma abordagem para fabricá-las** de um jeito que sobrevive à
-> troca de ferramenta. É a oficina; [**Strata**](#produto-em-destaque-strata) é o
-> primeiro produto que saiu dela, e a segunda — [**Comporta**](#no-forno-comporta) —
-> está no forno.
+> troca de ferramenta. **Esta é a nossa oficina**; [**Strata**](#produto-em-destaque-strata)
+> é o primeiro produto que saiu dela, e [**Comporta**](#no-forno-comporta) — a segunda
+> metodologia — está no forno.
 
 A abordagem, em uma frase: separar o que é **atemporal** do que é **datado**,
-maturar a ideia em três estágios — da pesquisa exploratória ao produto pronto — e
+maturar a ideia em três estágios — da pesquisa exploratória ao produto pronto —, e
 **provar cada decisão aplicando o método a si mesmo** (registrando por escrito o porquê
-de cada escolha e submetendo cada conclusão a uma revisão crítica antes de aceitá-la).
+de cada escolha e submetendo cada conclusão a uma revisão crítica antes de aceitá-la) —
+endurecendo o resultado contra o tempo, a troca de ferramenta **e o uso hostil**.
 
-**Lê-se por humano e por IA.** Os mesmos documentos servem de leitura para você
-e de instrução para um agente: o produto é escrito para que **uma IA** consiga
-**aplicá-lo ao seu projeto** — ver [como pedir isso a uma IA](recipe/) (a navegação
-dedicada a IA fica em [`AGENTS.md`](AGENTS.md)). E não é só teoria: **várias IAs
-populares — das econômicas às de topo — já leem e aplicam o método** nos casos que
-testamos, cada uma com o seu limite (mapeado na
-[opinião de uso](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)).
+**Lê-se por humano e por IA.** Os mesmos documentos servem de leitura para você e de
+instrução para um agente, e os produtos são escritos para que **uma IA** consiga
+**aplicá-los ao seu projeto** — ver [como pedir isso a uma IA](recipe/). E não é só
+teoria: **várias IAs populares — de diferentes fornecedores (OpenAI, Google, Anthropic),
+das econômicas às de topo — já leem e aplicam o primeiro produto (o Strata) nos casos que
+medimos**, cada uma até o seu limite (mapeado na
+[opinião de uso](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)); **Comporta** seguirá
+o mesmo princípio. *(A navegação dedicada a IA fica em [`AGENTS.md`](AGENTS.md).)*
 
 ## Quero… → vá para
 
@@ -52,14 +54,14 @@ Etimologia e fundamentação no **[glossário](GLOSSARIO.md)**.
 
 E a ideia amadurece por **três cozinhas** (um pipeline de maturação):
 
-- **`lab/`** — pesquisa exploratória, datada e honesta (pode estar errada).
+- **`lab/`** — pesquisa exploratória e datada, **posta à prova**: o que não se sustenta fica registrado como refutado (o resultado negativo também é conhecimento).
 - **`recipe/`** — o que sobreviveu, destilado em produto portável.
 - **`prototype/`** — o produto testado em escala, em projetos reais.
 
-O que torna isto uma *abordagem* e não um guia ad-hoc: **o método se aplica a si
+O que torna isto uma *abordagem* e não um guia de improviso: **o método se aplica a si
 mesmo** (dogfooding). As decisões de design viram ADRs em [`decisions/`](decisions/);
 cada formalização carrega um **sinal-de-troca** (quando aposentá-la sem perder o
-princípio); e as conclusões passam por **auto-revisão adversarial** (vários agentes
+princípio); e as conclusões passam por **revisão crítica multi-agente** (vários agentes
 tentando derrubar o achado antes de aceitá-lo). É por isso que a cura não apodrece
 junto com a ferramenta.
 
@@ -73,7 +75,7 @@ flowchart LR
         L0 --> L1 --> L2
     end
 
-    DOG["dogfooding: ADRs (decisions/)<br/>+ sinal-de-troca<br/>+ auto-revisão adversarial multi-agente"]
+    DOG["dogfooding: ADRs (decisions/)<br/>+ sinal-de-troca<br/>+ revisão crítica multi-agente"]
     OFICINA["Methodologies — a oficina<br/>(abordagem p/ fabricar metodologias duráveis)"]
 
     subgraph COZINHAS["as 3 cozinhas (pipeline de maturação)"]
@@ -127,7 +129,8 @@ versão) são **formas** que expressam esse método — moldam, mas não fundam.
   licença CC BY-SA 4.0. (A versão canônica fica no frontmatter do próprio arquivo.)
 - **Maturidade:** o **núcleo da metodologia está consolidado e verificado** (22 fontes primárias, e a
   checagem de que ele independe das ferramentas de hoje). A **aplicação por IA** já tem evidência empírica
-  (a IA sabe a hora de agir, a hora de não mexer e a hora de recusar instruções maliciosas) — **a opinião
+  (a IA acertou, nos casos testados, a hora de agir, a hora de não mexer e a hora de recusar instruções
+  maliciosas) — **a opinião
   honesta de uso** (por tipo de tarefa, exigência e custo, com ressalvas) está em
   [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); o **macro de como foi testado**
   no [hub de arquitetura e evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
@@ -139,7 +142,7 @@ versão) são **formas** que expressam esse método — moldam, mas não fundam.
 ## No forno: Comporta
 
 [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) —
-**Comporta**, a 2ª metodologia, **EM ANDAMENTO** (ainda nada destilado para
+**Comporta**, a 2ª metodologia, **em pesquisa** (ainda no forno — nada destilado para
 `recipe/`). *Cada decisão é uma comporta* que abre o recurso certo e fecha o caro.
 Investiga economia e roteamento de recursos de IA: custo de uso, **IA rodando no próprio
 computador vs na nuvem**, integração com o editor, e qual recurso usar em cada situação.

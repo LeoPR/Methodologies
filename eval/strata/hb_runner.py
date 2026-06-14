@@ -100,13 +100,13 @@ def read_target(target_dir, cap_total=180_000):
     return "".join(parts)
 
 
-def call_ollama(model, prompt, num_ctx, num_predict, seed):
+def call_ollama(model, prompt, num_ctx, num_predict, seed, temp=0.3):
     # think=True explicito: modelos de raciocinio (deepseek-r1, qwen3) retornam o raciocinio
     # em message.thinking e a RESPOSTA em message.content (campos SEPARADOS no Ollama).
     body = {"model": model, "messages": [{"role": "user", "content": prompt}],
             "stream": False, "think": True,
             "options": {"num_ctx": num_ctx, "num_predict": num_predict,
-                        "temperature": 0.3, "seed": seed}}
+                        "temperature": temp, "seed": seed}}
     req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode("utf-8"),
                                  headers={"Content-Type": "application/json"})
     t0 = time.time()
@@ -122,14 +122,14 @@ def call_ollama(model, prompt, num_ctx, num_predict, seed):
     return content, time.time() - t0, d.get("eval_count", 0)
 
 
-def call_openrouter(model, prompt, num_predict, seed):
+def call_openrouter(model, prompt, num_predict, seed, temp=0.3):
     """Nuvem multi-sabor via OpenRouter (openai_compat; 1 key p/ todos os sabores).
     Retry/backoff p/ 429/5xx (o que a auditoria apontou faltar)."""
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
         raise RuntimeError("OPENROUTER_API_KEY nao setada (veja eval/strata/RUNBOOK-nuvem.md)")
     data = json.dumps({"model": model, "messages": [{"role": "user", "content": prompt}],
-                       "max_tokens": num_predict, "temperature": 0.3, "seed": seed}).encode("utf-8")
+                       "max_tokens": num_predict, "temperature": temp, "seed": seed}).encode("utf-8")
     hdr = {"Content-Type": "application/json", "Authorization": f"Bearer {key}",
            "HTTP-Referer": "https://github.com/LeoPR/Methodologies", "X-Title": "Strata-eval"}
     last = None
@@ -153,10 +153,10 @@ def call_openrouter(model, prompt, num_predict, seed):
     raise last
 
 
-def call(model, prompt, num_ctx, num_predict, seed):
+def call(model, prompt, num_ctx, num_predict, seed, temp=0.3):
     if PROVIDER == "openrouter":
-        return call_openrouter(model, prompt, num_predict, seed)
-    return call_ollama(model, prompt, num_ctx, num_predict, seed)
+        return call_openrouter(model, prompt, num_predict, seed, temp=temp)
+    return call_ollama(model, prompt, num_ctx, num_predict, seed, temp=temp)
 
 
 # --- variantes _ex (ADITIVAS, p/ F3): retornam tambem stop_reason e from_thinking.
@@ -240,7 +240,7 @@ def call_ex(model, prompt, num_ctx, num_predict, seed, think=False):
     return call_ollama_ex(model, prompt, num_ctx, num_predict, seed)
 
 
-def run_one(model, framing, run, prompt_ctx, out_dir, num_ctx, num_predict):
+def run_one(model, framing, run, prompt_ctx, out_dir, num_ctx, num_predict, temp=0.3):
     if prompt_ctx.get("strata") is None:  # baseline: sem metodologia
         prompt = (BASELINE_PREAMBLE + "\n## ARQUIVOS DO PROJETO\n" + prompt_ctx["target"]
                   + "\n\n## TAREFA\n" + BASELINE_TASK)
@@ -253,9 +253,9 @@ def run_one(model, framing, run, prompt_ctx, out_dir, num_ctx, num_predict):
     name = f"plano-{safe}-{framing}-r{run}.md"
     print(f"  -> {model} | {framing} | r{run} ...", flush=True)
     try:
-        content, secs, ntok = call(model, prompt, num_ctx, num_predict, seed=run)
+        content, secs, ntok = call(model, prompt, num_ctx, num_predict, seed=run, temp=temp)
         header = (f"<!-- H-B run | model={model} | framing={framing} | run={run} | "
-                  f"{stamp} | {secs:.0f}s | {ntok} tok | num_ctx={num_ctx} -->\n\n")
+                  f"{stamp} | {secs:.0f}s | {ntok} tok | num_ctx={num_ctx} | temp={temp} -->\n\n")
         with open(os.path.join(out_dir, name), "w", encoding="utf-8") as f:
             f.write(header + content)
         print(f"     OK {secs:.0f}s, {ntok} tok -> {name}", flush=True)
@@ -274,6 +274,7 @@ def main():
     ap.add_argument("--runs", type=int, default=1)
     ap.add_argument("--num-ctx", type=int, default=20480)  # > prompt (~17k) + folga p/ gerar
     ap.add_argument("--num-predict", type=int, default=2000)
+    ap.add_argument("--temp", type=float, default=0.3, help="temperatura (default 0.3 = comportamento historico; varie p/ mapear variancia)")
     ap.add_argument("--models", nargs="*", default=LOCAL_MODELS)
     ap.add_argument("--strata", default=STRATA, help="caminho do doc de metodologia (prose ou AN)")
     ap.add_argument("--baseline", action="store_true", help="braço sem-Strata (controle R3): omite a metodologia")
@@ -318,7 +319,7 @@ def main():
         print(f"\n[TIER LOCAL — F1 fixo] {len(a.models)} modelos x {a.runs} run(s)")
         for m in a.models:
             for run in range(1, a.runs + 1):
-                run_one(m, "F1", run, ctx, d, a.num_ctx, a.num_predict)
+                run_one(m, "F1", run, ctx, d, a.num_ctx, a.num_predict, temp=a.temp)
 
     if a.mode in ("prime", "both"):
         d = os.path.join(out, a.label + "-hb-prime")
@@ -326,7 +327,7 @@ def main():
         print(f"\n[H-B' — {PRIME_MODEL} x 4 framings (F1-F4) x {a.runs} run(s)]")
         for fr in ["F1", "F2", "F3", "F4"]:
             for run in range(1, a.runs + 1):
-                run_one(PRIME_MODEL, fr, run, ctx, d, a.num_ctx, a.num_predict)
+                run_one(PRIME_MODEL, fr, run, ctx, d, a.num_ctx, a.num_predict, temp=a.temp)
 
     print("\n== concluido. Planos em:", out)
 

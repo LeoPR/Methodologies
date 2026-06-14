@@ -25,7 +25,7 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   - `knowledge-architecture.md` — **STRATA**: arquitetura do conhecimento em
     camadas L0/L1/L2. Pendente: eixo seguranca (§6-bis) e Parte IV (adocao/operacao).
   - `README.md` — guia de uso do Strata (humano + IA; o arquivo e' efemero).
-- `decisions/` — **ADRs** (ADR-001..005): por que cada decisao de design. Imutaveis.
+- `decisions/` — **ADRs** (ADR-001..006): por que cada decisao de design. Imutaveis.
 - `lab/` — pesquisa (modo exploratorio), subpastas datadas `YYYY-MM-DD-tema/`:
   - `2026-06-03-modernizacao/`: analise 5-lentes + `experimento-split/` (**FROZEN**)
   - `2026-06-03-fundamentacao-L0/`: 22 fontes primarias verificadas do L0

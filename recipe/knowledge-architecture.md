@@ -140,6 +140,15 @@ decisão revogada **permanece**, marcada como superada. Apagar furtivamente o
 passado destrói a rastreabilidade. (O mecanismo que torna isso praticável —
 histórico recuperável por estado — está em §8.)
 
+> **Operacional (por que isto importa para IA — F6)**: a rastreabilidade **legível** é
+> o que **deixa um modelo situar o tempo**. Numa fixture sem marcadores (sem datas,
+> sem `old/`, sem "DELETADO"), com a cronologia recuperável do **conteúdo**, modelos
+> barato+forte inferiram atual-vs-superado **8/8** — até **sem** serem perguntados
+> sobre tempo — e **não** se deixaram enganar por nome/ponteiro errados. O ponto-cego
+> temporal é então **condicional à legibilidade da evidência**, não fundamental: §3
+> (supersedência, versão, proveniência) e §8 **não suprem uma incapacidade — tornam o
+> tempo inferível**. Sinal (N=1): [lab F6](../lab/2026-06-04-strata-hipoteses/RESULTADOS-f6-temporal-sem-marcadores.md).
+
 Mas *append-only* governa o **traço**, não a **superfície de leitura**. Três
 planos que o registro ingênuo confunde num só:
 

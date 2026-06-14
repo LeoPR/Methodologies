@@ -76,16 +76,16 @@ flowchart TB
         L0["L0 · núcleo atemporal"] --> L1["L1 · padrões consolidados"] --> L2["L2 · ferramentas datadas"]
     end
 
-    subgraph COZ["as 3 cozinhas — a ideia amadurece (1 → 2 → 3)"]
+    subgraph COZ["as 3 cozinhas (a ideia amadurece de cima p/ baixo)"]
         direction TB
-        LAB["①  lab/ · pesquisa"] --> REC["②  recipe/ · produto"] --> PROTO["③  prototype/ · escala (futuro)"]
+        LAB["lab/ · pesquisa"] --> REC["recipe/ · produto"] --> PROTO["prototype/ · escala (futuro)"]
     end
 
     DOG["dogfooding: o método se aplica a si mesmo<br/>(ADRs + sinal-de-troca + revisão multi-agente)"]
 
     DUR -.->|organiza| OFICINA
     DOG -.->|prova| OFICINA
-    OFICINA ==>|amadurece a ideia nas| COZ
+    OFICINA ==>|amadurece a ideia| COZ
     REC ==> STRATA["<b>Strata</b> — núcleo pronto"]
     LAB -.->|ainda no forno| ECON["<b>Comporta</b> — em pesquisa"]
 

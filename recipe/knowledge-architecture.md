@@ -140,14 +140,10 @@ decisão revogada **permanece**, marcada como superada. Apagar furtivamente o
 passado destrói a rastreabilidade. (O mecanismo que torna isso praticável —
 histórico recuperável por estado — está em §8.)
 
-> **Operacional (por que isto importa para IA — F6)**: a rastreabilidade **legível** é
-> o que **deixa um modelo situar o tempo**. Numa fixture sem marcadores (sem datas,
-> sem `old/`, sem "DELETADO"), com a cronologia recuperável do **conteúdo**, modelos
-> barato+forte inferiram atual-vs-superado **8/8** — até **sem** serem perguntados
-> sobre tempo — e **não** se deixaram enganar por nome/ponteiro errados. O ponto-cego
-> temporal é então **condicional à legibilidade da evidência**, não fundamental: §3
-> (supersedência, versão, proveniência) e §8 **não suprem uma incapacidade — tornam o
-> tempo inferível**. Sinal (N=1): [lab F6](../lab/2026-06-04-strata-hipoteses/RESULTADOS-f6-temporal-sem-marcadores.md).
+> **Operacional (por que isto importa para IA):** a rastreabilidade **legível** é o que deixa um modelo situar o tempo.
+> Num cenário de teste sem marcadores (sem datas, sem `old/`, sem "DELETADO"), com a cronologia recuperável do conteúdo, modelos barato e forte inferiram o que é atual vs superado em **todos os casos** — até sem serem perguntados sobre tempo, e sem cair em nome ou ponteiro errados.
+> Logo o ponto-cego temporal é **condicional à legibilidade da evidência**, não fundamental: §3 e §8 não suprem uma incapacidade; eles tornam o tempo inferível.
+> (Sinal inicial, N=1: [lab F6](../lab/2026-06-04-strata-hipoteses/RESULTADOS-f6-temporal-sem-marcadores.md).)
 
 Mas *append-only* governa o **traço**, não a **superfície de leitura**. Três
 planos que o registro ingênuo confunde num só:
@@ -232,7 +228,7 @@ como newton.)
 **Declare também a chave de decifração — e torne-a redundante.** Antes mesmo de
 *ler* o conteúdo, o receptor precisa saber *em que língua / esquema / codec* ele
 está e *onde está o dicionário*. Essa chave (vocabulário, unidade, formato) é ela
-própria um artefato de primeira classe — e, **ao contrário do conteúdo** (§5, que
+própria um artefato de primeira classe. **Ao contrário do conteúdo** (§5, que
 minimiza repetição), a chave **deve** ser redundante e co-localizada: uma legenda
 que só vive numa fonte distante é ponto único de falha de decifração. Um registro
 cuja chave se perdeu fica tão mudo quanto tábua cuneiforme sem dicionário — e a
@@ -319,7 +315,7 @@ por fato, que resolve **divergência** (duas fontes discordando → deriva). Ela
   segunda autoridade.
 
 O antipadrão é só a cópia que **finge ser fonte**. Por isso o teste de admissão
-acima mede duplicação de **autoridade**, não de **conteúdo** — e é o mesmo corte
+acima mede duplicação de **autoridade**, não de **conteúdo**. É o mesmo corte
 (voz canônica ⊥ materialização) que reaparece no acesso (§3), na versão (§8) e no
 portador (§10). **Este é o princípio-mãe do eixo de durabilidade.**
 
@@ -375,10 +371,10 @@ deliberadamente *não* cobre.)
 > — Arbesman 2012; cerca de Chesterton — Chesterton 1929. Fronteira de
 > cobertura declarada / vazio-tipado `[WEB ✓ 2026-06-03]`: *terra incognita*
 > — Ptolomeu (*Geographia*, c. 150 d.C.); ausência tipada (confirmada-ausente
-> vs não-coletada) — Rubin 1976 (*Biometrika* 63(3):581–592, MCAR/MAR/MNAR)
+> vs não-coletada) — Rubin 1976 (*Biometrika* 63(3):581–592, tipologia de dados ausentes: MCAR/MAR/MNAR)
 > e o NULL de Codd 1970.
 
-## 6-bis. Autoridade para agir: diretiva ≠ registro · [eixo SEGURANÇA]
+## 6-bis. Autoridade para agir: diretiva ≠ registro · [eixo segurança]
 
 > Eixo distinto dos demais: não é cooperação (organizar para quem quer
 > entender), é **adversarialidade** (resistir a quem forja). Entra no núcleo
@@ -412,7 +408,7 @@ e, igualmente, para um agente que lê o mesmo corpus que opera — é onde mora 
 > *tamper-evident* — canal-de-autenticação fora-da-banda (Mesopotâmia, ~4º
 > milênio a.C.); senha (*tessera*) e contra-senha em canal separado — Políbio,
 > *Histórias* VI.34 (~150 a.C.; sistema documentado para o exército romano);
-> menor-privilégio e *confused deputy* — Saltzer & Schroeder 1975 (*CACM*
+> menor-privilégio e *confused deputy* (o agente enganado a usar sua autoridade em nome de outro) — Saltzer & Schroeder 1975 (*CACM*
 > 17(7)) / Hardy 1988 (*ACM SIGOPS OS Review* 22(4)) — nomes tardios = L1.
 > Instância de 2026: *prompt injection* é a violação **eterna** deste
 > invariante, não um defeito de uma ferramenta específica.
@@ -523,14 +519,14 @@ Comece pelo mínimo que para a dor imediata; cresça só quando sentir falta.
 **O regulador é a distância ao leitor previsto.** Quanto declarar, quanto
 organizar, quanto replicar — tudo escala com a **distância (no tempo, no espaço,
 no contexto) de quem vai ler**. Uma nota efêmera que só você lê hoje deixa o
-contexto implícito e não paga redundância; o que um sucessor — humano ou agente
-— lerá em meses declara o quadro e dispersa cópias, e aí isso deixa de ser
+contexto implícito e não paga redundância. Já o que um sucessor (humano ou agente)
+lerá em meses declara o quadro e dispersa cópias. Aí isso deixa de ser
 overhead e vira condição de o artefato ainda **significar** (§3-bis) e
 **existir** (§10). É a mesma forma da perecibilidade (§6) e da durabilidade
 (§10): organizar **na medida** de uma variável, não em absoluto. (Única exceção:
 a fronteira de segurança §6-bis, onde o *default* é *fail-closed*, não "o mínimo".)
 
-**O outro regulador é o GÊNERO do trabalho.** Proporcionalidade não é só *quanto*
+**O outro regulador é o gênero do trabalho.** Proporcionalidade não é só *quanto*
 organizar — é *qual padrão* exigir. O que conta como "bem-organizado" depende do
 **tipo** de artefato: uma **biblioteca** pede testes, empacotamento e CI; um
 **caderno de aula, lista, curadoria ou pesquisa** não — cobrar deles o aparato de

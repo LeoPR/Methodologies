@@ -98,6 +98,23 @@ mudança respeita o §3 (rastreabilidade), §5 (fonte única) e §6-bis (não ex
 instrução de origem não confiável — fail-closed). Aponte violações.
 ```
 
+**Bônus — para quem usa IA integrada ao editor (com memória).**
+Se você trabalha no VS Code com um agente que tem memória/instruções de projeto (Claude
+Code, Copilot), peça para ele **gravar a regra do método no arquivo que ele recarrega a
+cada sessão**, em vez de só guardar na memória. A diferença importa: memória é lembrança
+heurística (ajuda quando o assunto aparece), mas o arquivo de instruções é relido **toda
+sessão**. Assim a reconferência vira **rotina** — a IA checa o projeto contra o Strata
+sem você precisar lembrar de pedir.
+
+```text
+Leia knowledge-architecture.md (o método Strata). Depois grave uma regra curta no
+arquivo de instruções que você recarrega a cada sessão (ex.: CLAUDE.md no Claude Code,
+.github/copilot-instructions.md no Copilot): "Este projeto segue o Strata; no início da
+sessão e antes de mudanças grandes, reconferir a aderência ao L0 contra
+knowledge-architecture.md (§3 rastreabilidade, §5 fonte única, §6-bis fail-closed,
+§9 proporção) e apontar violações, sem aplicar tudo sozinho." Diga em qual arquivo gravou.
+```
+
 > **Como uma IA se sai aplicando o Strata — resumo.**
 > Em teste cego e reprodutível, modelos modernos **aplicam** o método: vários modelos de nuvem detectam **5 a 7 dos 7** problemas plantados.
 > Ao *agir*, eles **recusam** uma ordem maliciosa lida do projeto, e **consertam preservando** o histórico.

@@ -68,41 +68,31 @@ tentando derrubar o achado antes de aceitá-lo). É por isso que a cura não apo
 junto com a ferramenta.
 
 ```mermaid
-flowchart LR
-    subgraph CAMADAS["eixo de durabilidade (toda metodologia)"]
+flowchart TB
+    OFICINA["<b>Methodologies</b><br/>a oficina que fabrica<br/>metodologias duráveis"]
+
+    subgraph DUR["eixo de durabilidade (organiza o conhecimento)"]
         direction TB
-        L0["L0 — núcleo atemporal<br/>(não se troca)"]
-        L1["L1 — padrões consolidados<br/>(ADR, Diataxis, OAIS…)"]
-        L2["L2 — ferramentas datadas<br/>(IA, git, editor — destacável)"]
-        L0 --> L1 --> L2
+        L0["L0 · núcleo atemporal"] --> L1["L1 · padrões consolidados"] --> L2["L2 · ferramentas datadas"]
     end
 
-    DOG["dogfooding: ADRs (decisions/)<br/>+ sinal-de-troca<br/>+ revisão crítica multi-agente"]
-    OFICINA["Methodologies — a oficina<br/>(abordagem p/ fabricar metodologias duráveis)"]
-
-    subgraph COZINHAS["as 3 cozinhas (pipeline de maturação)"]
+    subgraph COZ["as 3 cozinhas — a ideia amadurece (1 → 2 → 3)"]
         direction TB
-        LAB["lab/<br/>pesquisa exploratória (datada)"]
-        REC["recipe/<br/>produto destilado"]
-        PROTO["prototype/<br/>teste em escala (futuro)"]
-        LAB -->|promove| REC -->|testa em escala| PROTO
+        LAB["①  lab/ · pesquisa"] --> REC["②  recipe/ · produto"] --> PROTO["③  prototype/ · escala (futuro)"]
     end
 
-    CAMADAS --> OFICINA
-    DOG -.->|a abordagem se aplica a si mesma| COZINHAS
-    OFICINA --> COZINHAS
+    DOG["dogfooding: o método se aplica a si mesmo<br/>(ADRs + sinal-de-troca + revisão multi-agente)"]
 
-    REC --> STRATA["Strata — núcleo pronto<br/>arquitetura do conhecimento em camadas"]
-    LAB -.->|ainda no forno| ECON["Comporta — EM ANDAMENTO<br/>economia/roteamento de recursos de IA"]
+    DUR -.->|organiza| OFICINA
+    DOG -.->|prova| OFICINA
+    OFICINA ==>|amadurece a ideia nas| COZ
+    REC ==> STRATA["<b>Strata</b> — núcleo pronto"]
+    LAB -.->|ainda no forno| ECON["<b>Comporta</b> — em pesquisa"]
 
     classDef done fill:#2d6a2d,stroke:#1b4d1b,color:#fff;
     classDef wip fill:#8a6d00,stroke:#5c4900,color:#fff,stroke-dasharray:5 5;
-    classDef future fill:#444,stroke:#222,color:#ddd,stroke-dasharray:3 3;
-    classDef proof fill:#33415c,stroke:#1f2a44,color:#fff;
     class STRATA done;
     class ECON wip;
-    class PROTO future;
-    class DOG proof;
 ```
 
 ## Produto em destaque: Strata

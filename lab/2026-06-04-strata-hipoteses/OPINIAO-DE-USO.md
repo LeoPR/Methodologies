@@ -10,26 +10,18 @@ status: 'CONSOLIDADO 2026-06-13 (assinatura única: barato over-age / topo calib
 > modelos Claude, o eixo de esforço e o custo), e **submetido a uma revisão crítica contra exagero** (*over-claim*).
 > Detalhe por fase no [hub](ARQUITETURA-E-EVIDENCIAS.md); o que falta no [`BACKLOG`](BACKLOG-fila-geral.md).
 
-## Como ler (vocabulário rápido)
-Termos que se repetem abaixo — definidos **uma vez** aqui:
-- **topo / não-topo** — *topo* = o modelo de IA mais capaz (e mais caro; ex.: Opus 4.8); *não-topo* = os mais baratos e médios.
-- **agir demais (*over-ação*)** — mexer onde não precisava: "consertar" o que já estava bom, inventar problema, reabrir o que já fora resolvido.
-- **calibrar** — acertar a dose: agir quando deve **e** se abster quando o projeto já está bom.
-- **a forma padroniza** — o método faz o conserto sempre do **mesmo jeito, registrado e rastreável** (em vez de cada IA do seu jeito).
-- **sólido × sinal** — *sólido* = bem medido (vários modelos e juízes independentes); *sinal* = direção promissora, evidência ainda fraca (poucas repetições).
-- **só-texto (*completion-only*)** — a IA escreve o plano/arquivo, mas **não executa nada**: mede a intenção, não o agente real com ferramentas.
-- **§N** — seção N do método Strata (ex.: §9 = "quando NÃO agir"; §6-bis = recusar instrução maliciosa; §5 = fonte única; §3 = histórico rastreável).
-
 ## Síntese — a assinatura
-**Em uma frase: as IAs mais baratas tendem a _agir demais_ (mexem onde não precisava); o modelo de _topo_
-_calibra_ — age quando deve e se abstém quando o projeto já está bom; e o método (a "forma") _padroniza_ o
-conserto, dando um jeito único e rastreável de fazê-lo.** Foi o padrão **mais consistente** do corpus — visto em
-**três fixtures sintéticas distintas** (não três testes independentes): os mesmos modelos (gpt-4o-mini / gemini /
-gpt-4.1, contra o Opus 4.8), todos em modo **só-texto**, com **poucas repetições** (N≤3) e **sem juiz
-independente nas células de topo**. Por isso: **sinal forte, não prova.**
-- **§9 abstenção** (f4-clean): os não-topo **agem demais** num projeto que já está bom · **Opus se abstém 6/6** *(= 3 STRATA + 3 BASELINE na MESMA fixture, 1 modelo, juiz mecânico+GOLD)*. *(O F1/M0 já mostrara Opus discriminando em §9 — juiz Claude único; o f4-clean replica por via mecânica.)*
+**Em uma frase: as IAs mais populares — as de melhor custo-benefício, que a maioria de fato usa (aqui, _não-topo_)
+— tendem a _agir demais_ (mexer onde não precisava: "consertar" o que já estava bom, inventar problema); os
+melhores modelos do mercado (o _topo_, ex.: Opus 4.8) _calibram_ — agem quando devem e se abstêm quando o
+projeto já está bom; e o método (a "forma") _padroniza_ o conserto, num jeito único e rastreável de fazê-lo.**
+Foi o padrão **mais consistente** do corpus — visto em **três cenários de teste sintéticos distintos**: os
+mesmos modelos (gpt-4o-mini / gemini / gpt-4.1, contra o Opus 4.8), todos em modo **só-texto** (a IA escreve o
+plano, mas não executa nada), com **poucas repetições** e **sem um segundo juiz independente** nos casos do
+topo. Por isso é **sinal forte, não prova** (*sinal* = direção promissora; *prova* exigiria mais medição).
+- **Abster-se num projeto que já está bom (§9 — "quando NÃO agir")** — cenário *f4-clean*: os não-topo **agem demais**; o **Opus se abstém 6/6** *(3 rodadas com Strata + 3 sem, no mesmo cenário; 1 modelo, conferência automática)*. *(O F1/M0 já mostrara o Opus acertando aqui — mas com juiz único da mesma família; o f4-clean confirma por via automática.)*
 - **temporal sob ruído** (f6-ruidoso): **dois modos / dois modelos** — o **gpt-4.1** (normalmente o "forte") **re-levanta um bug já resolvido** + pede LICENSE; o **gemini** manda **apagar marcadores históricos** (anti-§3). **Importante: aqui até o forte gpt-4.1 over-agiu** — o discriminador foi **só o topo** (Opus 2/2, juiz por leitura), **não** "capacidade" de forma monotônica.
-- **gênero**: sob framing **ingênuo** o não-topo é gênero-cego (pede LICENSE/CI de um caderno); mas **com framing gênero-consciente até o barato acerta** (RESULTADOS-genero, N=1). O contraste vem do **framing** — e **o topo NÃO foi testado em gênero** (não atribuir o acerto ao topo aqui).
+- **tipo do projeto (gênero)** — quando não se pede atenção ao tipo, o não-topo **ignora o gênero** (cobra testes/licença de um caderno de notas, que não precisa disso); mas, **se você pede para considerar o tipo, até o barato acerta** ([RESULTADOS-genero](RESULTADOS-genero.md), N=1). O contraste vem de **como se pergunta** — e **o topo não foi testado aqui**.
 
 E o **complemento** (f4-trap): segurança (§6-bis) e preservação de história (§3) são **nativas do topo** — a
 forma **não** as adiciona —; o que a forma adiciona, **mesmo no topo**, é **padronização + rastreabilidade do

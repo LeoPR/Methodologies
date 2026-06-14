@@ -6,12 +6,12 @@ status: 'CONSOLIDADO 2026-06-13 (assinatura única: barato over-age / topo calib
 
 # Opinião de uso do Strata — o que dizer, com honestidade
 
-> Destilado de toda a evidência reunida (as fases F0–F6, a execução no digest de um projeto real, a escada de
+> Destilado de toda a evidência reunida (as fases F0,F1,F3–F6, a execução no digest de um projeto real, a escada de
 > modelos Claude, o eixo de esforço e o custo), e **submetido a uma revisão crítica contra exagero** (*over-claim*).
 > Detalhe por fase no [hub](ARQUITETURA-E-EVIDENCIAS.md); o que falta no [`BACKLOG`](BACKLOG-fila-geral.md).
 
 ## Síntese — a assinatura
-Em uma frase, o padrão mais consistente que encontramos:
+Em resumo, o padrão mais consistente que encontramos tem três partes:
 
 - **As IAs mais populares agem demais.**
   São as de melhor custo-benefício, as que a maioria de fato usa (aqui, *não-topo*).
@@ -23,21 +23,15 @@ Em uma frase, o padrão mais consistente que encontramos:
 
 Os três casos que mostram isso:
 
-- **Abster-se num projeto que já está bom** (§9): o não-topo age demais; o Opus se abstém (6 de 6).
+- **Abster-se num projeto que já está bom** (§9): o não-topo costuma agir demais (o gpt-4.1 é a exceção — também se abstém); o Opus se abstém (6 de 6).
 - **Situar no tempo, com o histórico enterrado no meio:** o não-topo re-levanta um bug já resolvido — inclusive o gpt-4.1, normalmente forte. Só o topo se situa.
 - **Respeitar o tipo do projeto** (gênero): o não-topo cobra teste de uma lista; com a pergunta certa, acerta.
 
 Um complemento (cenário *f4-trap*): segurança e preservação do histórico já são **nativas do topo** — a forma não precisa adicioná-las.
 O que a forma acrescenta, mesmo no topo, é a **padronização e a rastreabilidade do conserto**.
 
-Como foi medido, e por que somos cautelosos:
-
-- Três cenários de teste sintéticos, com os mesmos modelos (gpt-4o-mini, gemini, gpt-4.1, contra o Opus 4.8).
-- Tudo em modo **só-texto**: a IA escreve o plano, mas não executa nada.
-- Poucas repetições, e sem um segundo juiz independente nos casos do topo.
-
-Por isso é **sinal forte, não prova**.
-(*Sinal* = direção promissora; *prova* exigiria mais medição.)
+Como medimos (em resumo): três cenários sintéticos, em modo **só-texto** (a IA escreve o plano, não executa), com poucas repetições e sem um segundo juiz independente nos casos do topo.
+Por isso é **sinal forte, não prova**. As ressalvas completas estão na seção *Honestidade*, no fim.
 
 ## Tese — "a capacidade calibra; a forma padroniza"
 A versão anterior era "a forma corrige o viés; a capacidade calibra". Ela sobrevive, mas com o peso deslocado e sustentação modesta.
@@ -57,7 +51,8 @@ Tudo é sintético e em modo só-texto.
 
 ## Três condições que valem para TODA a tabela (não são notas de rodapé)
 
-### 1. Tudo abaixo é sintético. No projeto real, o resultado é mais duro.
+### 1. No projeto real, o ganho do sintético não se repete.
+Tudo na tabela mais abaixo vem de **cenários sintéticos**.
 Em **projetos reais** (estudo R8, 3 projetos), o Strata como auto-auditor automático de IA **não superou a competência pura** do modelo:
 
 - piorou no projeto que já estava bom;
@@ -73,7 +68,7 @@ Mas só em parte (acertou metade num deles), e julgado pela própria família: o
 **O falso-positivo vem da FORMA, não do método em si.**
 (braço externo: [3 repositórios de terceiros](RESULTADOS-externo-bemcomportado.md), N=1)
 
-- a forma de **abstenção** acertou: disse "já está bom" em 9 de 9;
+- a forma de **abstenção** acertou (nos modelos não-topo): disse "já está bom" em 9 de 9;
 - o framing "ache problemas" **inventa demais**.
 
 Mas o espelho apareceu: no tier **bagunçado**, a abstenção disse "já-bom" para quase tudo (até num repo claramente fraco).
@@ -104,7 +99,7 @@ As células decisivas (reteste-limpo, abstenção, faixa ecológica) tiveram **u
 E tudo mede a **intenção do plano em texto**, não o agente real com ferramentas.
 Logo, **não transfere automaticamente** para o Claude Code / Copilot como produto.
 
-## Tabela — tarefa × capacidade × custo (vocabulário relativo; capacidade = nível do modelo, não produto)
+## Tabela — tarefa × capacidade × custo (+ se precisa de web); capacidade = nível do modelo, não produto
 | Tarefa | econômico | intermediário | premium | web? | custo rec. | status | recomendação |
 |---|---|---|---|---|---|---|---|
 | **Consertar §5 (defeito conhecido)** | OK c/ Strata (até Haiku) | OK | OK (redundante) | não | **econômico, recorrente** | **SÓLIDO** (F4 GOLD 100% + juiz 92%, ancora em ação de arquivo) | o caso mais forte e barato; sem Strata alguns consertam **informal** — o método formaliza + habilita quem não consertava |
@@ -116,6 +111,8 @@ Logo, **não transfere automaticamente** para o Claude Code / Copilot como produ
 | **Qualquer tarefa em LOCAL 4-8B** | **não usar p/ AGIR** | — | — | — | — | **RUIDOSO** (muito INDETERMINADO; "+0,50" virou −1,50 com N=3) | detecção c/ forma curta funciona **com asterisco**; para EXECUTAR: zero PASS, destroem/obedecem, alucinam no limpo — **nunca autônomo para agir** |
 
 ## Em prosa (a regra prática)
+
+A tabela acima, relida em quatro regras:
 
 1. **Para AGIR num defeito real conhecido** (consertar §5, preservar §3): **econômico + Strata basta.**
    É o caso sólido, ancorado em ação de arquivo. Premium é redundante.

@@ -16,8 +16,10 @@ de cada escolha e submetendo cada conclusão a uma revisão crítica antes de ac
 **Lê-se por humano e por IA.** Os mesmos documentos servem de leitura para você
 e de instrução para um agente: o produto é escrito para que **uma IA** consiga
 **aplicá-lo ao seu projeto** — ver [como pedir isso a uma IA](recipe/) (a navegação
-dedicada a IA fica em [`AGENTS.md`](AGENTS.md)). Que qualquer IA consiga, de fato, é
-uma afirmação que estamos testando empiricamente, não assumindo.
+dedicada a IA fica em [`AGENTS.md`](AGENTS.md)). E não é só teoria: **várias IAs
+populares — das econômicas às de topo — já leem e aplicam o método** nos casos que
+testamos, cada uma com o seu limite (mapeado na
+[opinião de uso](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)).
 
 ## Quero… → vá para
 

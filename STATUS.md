@@ -150,7 +150,7 @@ updated: 2026-06-14
   qualidade baixa). FIX METODOLOGICO (apontado pelo dono): runner descartava message.thinking
   do Ollama -> reasoners locais pareciam 'incapazes'; corrigido (think:true+fallback) ->
   deepseek-r1:8b virou a melhor opcao local. ENTREGA positiva-only: guia-tabela + fronteira
-  (recipe/strata-com-ia.md, VIZ-entrega-fronteira.svg). Pesquisa (com negativos) separada em lab/.
+  (recipe/strata-com-ia.md, recipe/strata-com-ia-fronteira.svg). Pesquisa (com negativos) separada em lab/.
 - **REORG (2026-06-07): 3 territorios** — separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO

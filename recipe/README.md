@@ -99,21 +99,32 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 ```
 
 **Bônus — para quem usa IA integrada ao editor (com memória).**
-Se você trabalha no VS Code com um agente que tem memória/instruções de projeto (Claude
-Code, Copilot), peça para ele **gravar a regra do método no arquivo que ele recarrega a
-cada sessão**, em vez de só guardar na memória. A diferença importa: memória é lembrança
-heurística (ajuda quando o assunto aparece), mas o arquivo de instruções é relido **toda
-sessão**. Assim a reconferência vira **rotina** — a IA checa o projeto contra o Strata
-sem você precisar lembrar de pedir.
+
+Se você trabalha no VS Code com um agente que tem memória, como o Claude Code ou o
+Copilot, dá para deixar a reconferência mais perto da rotina, sem precisar lembrar de
+pedir toda vez. Faça em **dois passos separados**, porque eles servem a coisas diferentes.
+
+**1. Peça para a IA lembrar.** Diga que este projeto segue o Strata, onde o método está,
+e que ela deve reconferir a aderência quando vocês forem trabalhar. Basta linguagem
+natural, do tipo "lembre disso". Você **não precisa nomear arquivo nenhum**: a ferramenta
+grava sozinha e escolhe onde guardar. Nomear um arquivo só amarraria a orientação a uma
+ferramenta de hoje, e o que importa é o comportamento, não o nome do arquivo.
 
 ```text
-Leia knowledge-architecture.md (o método Strata). Depois grave uma regra curta no
-arquivo de instruções que você recarrega a cada sessão (ex.: CLAUDE.md no Claude Code,
-.github/copilot-instructions.md no Copilot): "Este projeto segue o Strata; no início da
-sessão e antes de mudanças grandes, reconferir a aderência ao L0 contra
-knowledge-architecture.md (§3 rastreabilidade, §5 fonte única, §6-bis fail-closed,
-§9 proporção) e apontar violações, sem aplicar tudo sozinho." Diga em qual arquivo gravou.
+Lembre que este projeto segue o método Strata, que ele está em knowledge-architecture.md,
+e que, quando formos trabalhar, você deve reconferir a aderência ao núcleo (L0) antes de
+mudanças grandes. Guarde na sua memória do jeito que achar melhor; não precisa me dizer
+onde gravou.
 ```
+
+**2. Depois, num pedido à parte, peça para aplicar.** Use os pedidos dos dois modos acima
+(de-uma-vez ou orientando, conforme o modelo). Manter os dois passos separados ajuda: o
+primeiro é só memória, já o segundo é trabalho de fato.
+
+> **Um limite honesto:** memória é **lembrança por contexto**, não um agendador. A IA traz
+> o método quando o assunto fica relevante, mas não dispara a reconferência sozinha só por
+> ter memorizado. Se você quer que algo rode **sempre** num ponto fixo (por exemplo, antes
+> de todo commit), isso é tarefa de um **gancho de automação** do editor, não da memória.
 
 > **Como uma IA se sai aplicando o Strata — resumo.**
 > Em teste cego e reprodutível, modelos modernos **aplicam** o método: vários modelos de nuvem detectam **5 a 7 dos 7** problemas plantados.

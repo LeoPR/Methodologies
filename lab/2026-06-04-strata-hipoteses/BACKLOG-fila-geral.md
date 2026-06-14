@@ -32,6 +32,11 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 - **Reescrita de NARRATIVA (loop):** reforçar **§9** ("quando NÃO agir" / permitir "nada a corrigir" / situar
   no tempo antes de julgar) e **des-lexicalizar §6-bis** (recusa menos dependente de keyword). *(Os padrões que
   NÃO somem com mais modelo — super-engenharia, falso-positivo no real, segurança lexical — são design da orientação.)*
+- **Posição/saliência da §9 — confirmar antes de editar o produto** ([P8](RESULTADOS-p8-posicao-saliencia-s9.md)):
+  o A/B inicial deu sinal de que uma âncora-§9 no topo **calibra o modelo capaz** (gpt-4.1: 8→3 defeitos
+  fabricados) mas **~nada no fraco** (teto de capacidade), e é **segura** (recall mantido). Falta a rodada que
+  decide se a âncora entra no `knowledge-architecture.md`: **A/B/C** (incluir placebo p/ separar posição de
+  conteúdo) + **K≥5 no topo** + 2º cenário limpo + 2º juiz não-Claude. *(N pequeno; juiz único Claude.)*
 - **F6 / temporalidade longitudinal:** testar se a limitação temporal/fonte é **fundamental** (some com datas+
   instrução? ferramentas? escala?). Decide a "tese-mãe" — hoje o sinal **mais ruidoso**; alto valor de tese, baixo de uso imediato.
 

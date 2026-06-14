@@ -50,3 +50,4 @@ eval/strata/own-fixtures/
 
 # dumps brutos do scorer (regeneraveis; o curado vive nos RESULTADOS-*.md)
 lab/2026-06-04-strata-hipoteses/RESULTADOS-*.txt
+recipe/_variants/

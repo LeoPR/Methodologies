@@ -66,7 +66,10 @@ GOLD-gate 100% + juiz 92% — para células que ficaram fracas). **Direção for
 ## O que NÃO esperar
 Que o Strata melhore o que a IA já faz bem sozinha (a prosa às vezes **piora** o óbvio: reteste-limpo P1 8→4,
 P3 7→1); que verifique fonte sem web (nem confie com web sem revisão); que situe artefatos no tempo (dimensão
-temporal §3/§8 é a **mais fraca na média ~33% — e o sinal mais RUIDOSO** do corpus, F6 não rodou); que reconcilie
+temporal §3/§8 é a **mais fraca na média ~33% — e o sinal mais RUIDOSO** do corpus, F6 não rodou — *refino: com
+framing+marcadores explícitos (`DELETADO — recriável`, datas, estados de ticket) os modelos leem
+tombstone/supersessão **certo**, [own-projects](RESULTADOS-genero-temporal-own.md); mas isso é **circular** e
+**bar baixo** — inferir o tempo SEM marcadores segue não testado*); que reconcilie
 um projeto real inteiro num passo; que conclusões de completion-only transfiram para **agente-com-ferramentas**
 (não testado). **L1 (nomear formalização) e L2 (ferramentas) quase não foram testados** — afirmações sobre eles
 (incl. a alavanca-web) são essencialmente **não-testadas**.

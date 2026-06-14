@@ -36,7 +36,8 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 | **F5** pesquisa (§6/web) | web ajuda a verificar a fonte? | ✅ probe (exploratório) | baixa (N=1-2) | [F5](RESULTADOS-f5-pesquisa.md) |
 | **Braço externo** | o falso-positivo é circular? | ✅ bem-comportado + messy (6 repos) | baixa (N=1; messy gênero-confundido) | [externo](RESULTADOS-externo-bemcomportado.md) |
 | **Gênero** | aplica o padrão do gênero? | ✅ probe (com framing) | baixa (N=1) | [gênero](RESULTADOS-genero.md) |
-| **F6** temporalidade | reauditar corpus que mudou | ⬜ aberto | — | [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
+| **Gênero+Temporal (próprios)** | lê tombstone/supersessão como organização? | ✅ probe (framing+marcadores) | baixa (N=2; **circular**) | [gên+temp próprios](RESULTADOS-genero-temporal-own.md) · [gabarito](GABARITO-genero-temporal-own.md) |
+| **F6** temporalidade | reauditar corpus que mudou (**inferir sem marcadores**) | ⬜ aberto | — | [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
 | **Eco/gênero** | vale em +cenários e fora de código? (+ viés do dono) | ⬜ planejado | — | [plano](PLANO-evidencia-cenarios-e-narrativa.md) |
 | **Escada Claude** (contrato) | Claude Code barato aplica? | ✅ Haiku+Sonnet · ⬜ Opus | média (F3 juiz + F4 mec) | [escada-claude](RESULTADOS-escada-claude.md) |
 
@@ -147,6 +148,13 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **GÊNERO+TEMPORAL nos projetos do dono** (AulaQuantum/DeepLearning, gabarito
+  **PRÉ-REGISTRADO** antes da sonda): cega bateu **4/4 no gênero** (JÁ-BOM, ninguém exigiu CI/tests) e **não
+  acionou nenhuma das 5 armadilhas N1-N5** no temporal (tombstone/arquivamento/supersessão = organização, não
+  defeito); ainda pegou **true-positives** ([redigido] sensível, PDF duplicado, drift de status). FORTE mas
+  **circular** (projeto+analista+autor mesma família) e **bar baixo** (marcadores explícitos; inferir tempo
+  SEM marcadores = F6, segue aberto). [`RESULTADOS-genero-temporal-own`](RESULTADOS-genero-temporal-own.md) ·
+  [`GABARITO`](GABARITO-genero-temporal-own.md).
 - **2026-06-13** — **eixo GÊNERO**: com framing gênero-consciente, os modelos reconhecem o gênero e **não
   exigem tests/CI de uma lista/notas** (não são gênero-cegos quando perguntados) → **resolve em parte o
   confundidor do messy** (o "JÁ-BOM" era em parte genre-appropriate, não sub-detecção). Implica **§9

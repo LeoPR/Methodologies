@@ -89,8 +89,16 @@ flowchart TB
     REC ==> STRATA["<b>Strata</b> — núcleo pronto"]
     LAB -.->|ainda no forno| ECON["<b>Comporta</b> — em pesquisa"]
 
-    classDef done fill:#2d6a2d,stroke:#1b4d1b,color:#fff;
-    classDef wip fill:#8a6d00,stroke:#5c4900,color:#fff,stroke-dasharray:5 5;
+    classDef hub fill:#34495e,stroke:#22303f,color:#ffffff;
+    classDef dur fill:#dde8f4,stroke:#5b7aa8,color:#1f2a44;
+    classDef coz fill:#f1e7d3,stroke:#b08a4f,color:#3a2f17;
+    classDef dog fill:#e7ddf2,stroke:#7a5ba8,color:#2a1f44;
+    classDef done fill:#2e7d32,stroke:#1b4d1b,color:#ffffff;
+    classDef wip fill:#b8860b,stroke:#5c4900,color:#ffffff,stroke-dasharray:5 5;
+    class OFICINA hub;
+    class L0,L1,L2 dur;
+    class LAB,REC,PROTO coz;
+    class DOG dog;
     class STRATA done;
     class ECON wip;
 ```

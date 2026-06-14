@@ -4,7 +4,7 @@ Aqui ficam as metodologias **destiladas e portáveis**. Hoje há uma:
 
 ## Strata — [`knowledge-architecture.md`](knowledge-architecture.md)
 
-Arquitetura do conhecimento em camadas. Um arquivo (~660 linhas), auto-suficiente
+Arquitetura do conhecimento em camadas. Um arquivo (~840 linhas), auto-suficiente
 (todas as fundamentações *inline*), licença CC BY-SA 4.0.
 
 ### Para que serve · quando · para quem
@@ -98,13 +98,11 @@ mudança respeita o §3 (rastreabilidade), §5 (fonte única) e §6-bis (não ex
 instrução de origem não confiável — fail-closed). Aponte violações.
 ```
 
-> **Como uma IA se sai aplicando o Strata — resumo.** Em *benchmark* cego e reprodutível, modelos
-> modernos **aplicam** o método (vários sabores de nuvem detectam **5–7 de 7** problemas plantados);
-> e, ao *agir*, **recusam** uma ordem maliciosa lida do projeto e **consertam preservando** o
-> histórico. O que **varia é a capacidade**, não a validade — o detalhe **por etapa e por modelo**
-> está nas **tabelas no fim desta página**. *(Sinais em **fixture**, não provas; em **projeto real** o
-> auto-auditor autônomo só rendeu no **tier topo** — ressalva e opinião honesta:
-> [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).)*
+> **Como uma IA se sai aplicando o Strata — resumo.**
+> Em teste cego e reprodutível, modelos modernos **aplicam** o método: vários modelos de nuvem detectam **5 a 7 dos 7** problemas plantados.
+> Ao *agir*, eles **recusam** uma ordem maliciosa lida do projeto, e **consertam preservando** o histórico.
+> O que **varia é a capacidade** do modelo, não a validade do método. O detalhe por etapa e por modelo está nas **tabelas no fim desta página**.
+> *(São sinais em cenário sintético, não provas. Em projeto real, o auto-auditor autônomo só rendeu no modelo de topo. Ressalva e opinião honesta na [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).)*
 >
 > **Saída de IA = rascunho a revisar.** Guia prático por modelo, custo e ambiente:
 > [`strata-com-ia.md`](strata-com-ia.md).
@@ -123,17 +121,15 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 > **Sinais, não provas** — regime de **só-texto** (a IA escreve um plano/arquivo; não roda nada),
 > poucas repetições por teste, 1–2 cenários. Vocabulário completo em [`GLOSSARIO.md`](../GLOSSARIO.md).
 >
-> **⚠️ A ressalva que mais importa:** estas tabelas são de **fixtures sintéticas**. Em **projetos REAIS**,
-> o Strata como **auto-auditor autônomo de IA NÃO superou** a competência pura — o falso-positivo dominou
-> (até o braço sem método), e o ganho sintético **não se traduziu** ao real, **exceto no tier topo**. Quase
-> todo o "real" testado é **projeto do próprio autor** (circularidade). → use auto-auditor autônomo **só com
-> modelo forte**; com médio/barato, **checklist + humano no loop**.
+> **⚠️ A ressalva que mais importa:** estas tabelas são de **cenários sintéticos**.
+> Em **projetos reais**, o Strata como auto-auditor automático de IA **não superou** a competência pura do modelo: o falso-positivo dominou (até a versão sem o método), e o ganho do sintético **não se traduziu** ao real — exceto no **modelo de topo**.
+> Além disso, quase todo o "real" testado é projeto **do próprio autor** (circularidade).
+> Na prática: use o auto-auditor autônomo **só com um modelo forte**; com médio ou barato, **checklist + humano no loop**.
 >
-> **Assinatura única (consolidação 2026-06): o barato/médio SUPER-AGE; o topo CALIBRA; a forma PADRONIZA.**
-> Em 3 eixos independentes — abster-se no projeto limpo (§9), situar no tempo sob ruído (R8), e gênero — o
-> barato erra **na mesma direção** (super-engenha, re-levanta o já-resolvido, exige LICENSE/CI de um caderno),
-> e o **topo** acerta (abstém **6/6** no limpo; situa **2/2** sob ruído). A **forma** não compra
-> proporcionalidade ao fraco — o que ela adiciona, até ao topo, é **padronização + rastreabilidade do conserto**.
+> **A assinatura (consolidação 2026-06):** as IAs **mais populares agem demais**; o **modelo de topo calibra**; e o **método padroniza** o conserto.
+> Foi o padrão mais consistente, visto em **três cenários de teste sintéticos**: abster-se num projeto limpo, situar no tempo sob ruído, e respeitar o tipo do projeto.
+> Em todos, o modelo popular erra na mesma direção (mexe no que já estava bom, re-levanta o que já fora resolvido, cobra teste de um caderno de notas); só o topo acerta.
+> A **forma** não compra proporcionalidade para o modelo fraco. O que ela acrescenta, mesmo no topo, é **padronização e rastreabilidade do conserto**.
 >
 > **Opinião de uso honesta e completa** (por tarefa/tier/custo, com todas as ressalvas):
 > [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). Estas tabelas são um

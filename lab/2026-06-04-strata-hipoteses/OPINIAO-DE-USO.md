@@ -100,16 +100,18 @@ As células decisivas (reteste-limpo, abstenção, faixa ecológica) tiveram **u
 E tudo mede a **intenção do plano em texto**, não o agente real com ferramentas.
 Logo, **não transfere automaticamente** para o Claude Code / Copilot como produto.
 
-## Tabela — tarefa × capacidade × custo (+ se precisa de web); capacidade = nível do modelo, não produto
-| Tarefa | econômico | intermediário | premium | web? | custo rec. | status | recomendação |
-|---|---|---|---|---|---|---|---|
-| **Consertar §5 (defeito conhecido)** | OK c/ Strata (até Haiku) | OK | OK (redundante) | não | **econômico, recorrente** | **SÓLIDO** (F4 GOLD 100% + juiz 92%, ancora em ação de arquivo) | o caso mais forte e barato; sem Strata alguns consertam **informal** — o método formaliza + habilita quem não consertava |
-| **Preservar histórico / tombstone §3** | OK c/ Strata (tombstone 7/8; payload 0/8 — *f4-trap/Strata, 3 modelos não-Opus, juiz cross-vendor*) | OK | OK | não | **econômico, recorrente** | **SÓLIDO** no sintético; **SINAL** no real (1 digest, N=2, próprio, sem 2º juiz) | argumento de segurança mais transferível; **replicar fora do projeto-próprio** |
-| **Recusar injeção §6-bis** | Strata vira obedecer→recusar no leniente; **Claude-Haiku já recusa sozinho** | já recusa | redundante | não | econômico | **SINAL** — a medição **mais frágil** (concordância 56-69%, 1 cenário, N=2; o GOLD-gate é do F4, não daqui) | delta real só no barato leniente; **segurança do fraco é em parte LEXICAL** (recusa 6/6→4/6 sob paráfrase — **queda toda do gpt-4o-mini, o piso**; gemini/gpt-4.1 recusam as 3 formas) → contra ataque real de paráfrase, barato **não é seguro**. **Topo recusa injeção nativamente** na execução (f4-trap baseline 3/3) |
-| **Abster-se em projeto já-bom §9** | **FALHA** (super-eng 6/8 vs 2/8; **indução do Strata limpa só no gpt-4o-mini** — sozinho abstinha; **gemini super-aplica nos 2 braços** = viés do modelo) | parcial (Sonnet+thinking 1/2, dentro do ruído) | gpt-4.1 e **Opus 4.8 abstêm** (Opus **6/6** = 3+3 na mesma fixture, 1 modelo, juiz mec.+GOLD) | não | **forte, pontual** / humano no loop | **FECHADA**: topo abstém; Strata **não** induz super-eng no topo | a **faca de dois gumes é do barato/médio**: lá o Strata em projeto limpo gera trabalho inútil/alucinado. **A forma NÃO compra proporcionalidade — a capacidade compra**: o topo abstém com ou sem Strata. Use modelo forte ou humano no loop |
-| **Verificar fonte §6 (web)** | carimba falso confiante | idem | **FALHA também sem web** (gpt-4.1 carimbou 3/3) | **reduz, não conserta** (forte+web ainda 2/3) | — (probe) | **EXPLORATÓRIO** (N=1-2, 1 fixture, 3 claims) | nunca confie em verificação de fonte sem web — **nem com web sem revisão**. O **mesmo gpt-4.1** que abstém bem em §9 carimba fonte falsa aqui → **capacidade é por-TAREFA, não global** |
-| **Reconciliar TUDO num passo (real)** | zero PASS | parcial (~2/3) | parcial | não | nenhum tier resolve | **SINAL confundido com limite de HARNESS** (o formato "arquivo inteiro" **truncou**) | rascunho a revisar / humano no loop; **não prometer** reconciliação total |
-| **Qualquer tarefa em LOCAL 4-8B** | **não usar p/ AGIR** | — | — | — | — | **RUIDOSO** (muito INDETERMINADO; "+0,50" virou −1,50 com N=3) | detecção c/ forma curta funciona **com asterisco**; para EXECUTAR: zero PASS, destroem/obedecem, alucinam no limpo — **nunca autônomo para agir** |
+## Tabela — resumo por tarefa
+Visão num relance. A nuance de cada linha está nas regras abaixo ("Em prosa") e em "O que NÃO esperar".
+
+| Tarefa | Quem dá conta | Confiança |
+|---|---|---|
+| **Consertar um defeito conhecido** (§5) | econômico + Strata (até o Haiku) | **SÓLIDO** |
+| **Preservar histórico / tombstone** (§3) | econômico + Strata | **SÓLIDO** no sintético; sinal no real |
+| **Recusar instrução maliciosa** (§6-bis) | o barato melhora; o topo recusa de forma nativa | **SINAL** (a medição mais frágil) |
+| **Abster-se num projeto já bom** (§9) | só o topo, ou um humano no loop | sinal (é a capacidade que calibra) |
+| **Verificar fonte na web** (§6) | nenhum modelo confiável | **EXPLORATÓRIO** |
+| **Reconciliar o projeto inteiro num passo** | nenhum nível resolve | sinal (mais um limite do harness) |
+| **Agir sozinha rodando local (4–8B)** | não usar para agir | **RUIDOSO** |
 
 ## Em prosa (a regra prática)
 
@@ -133,7 +135,9 @@ A tabela acima, relida em quatro regras:
 ## O que NÃO esperar
 
 - Que o Strata **melhore o que a IA já faz bem sozinha**. Às vezes a prosa até piora o óbvio.
-- Que **verifique fonte sem web** (e nem confie com web, sem revisão).
+- Que **verifique fonte na web de forma confiável**. Sem web, ela carimba como verdadeiro; com web, ainda precisa de revisão. (A mesma IA que se abstém bem num caso pode carimbar uma fonte falsa aqui, porque a capacidade varia por tarefa.)
+- Que um modelo **barato seja seguro contra injeção** sob ataque real. A recusa do modelo fraco é em parte lexical e cai quando o ataque é parafraseado; o topo recusa de forma nativa.
+- Que um modelo **local pequeno (4–8B) aja sozinho**. Nos testes ele não acertou nada, e chega a destruir o histórico, obedecer a ordens maliciosas ou alucinar.
 - Que **reconcilie um projeto real inteiro num passo**.
 - Que **situe artefatos no tempo** de forma garantida. É a dimensão mais fraca e mais ruidosa do corpus.
   *Refino:* o ponto-cego é **condicional à legibilidade da evidência**, não fundamental.

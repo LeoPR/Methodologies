@@ -25,7 +25,7 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   - `knowledge-architecture.md` — **STRATA**: arquitetura do conhecimento em
     camadas L0/L1/L2. Pendente: eixo seguranca (§6-bis) e Parte IV (adocao/operacao).
   - `README.md` — guia de uso do Strata (humano + IA; o arquivo e' efemero).
-- `decisions/` — **ADRs** (ADR-001..003): por que cada decisao de design. Imutaveis.
+- `decisions/` — **ADRs** (ADR-001..005): por que cada decisao de design. Imutaveis.
 - `lab/` — pesquisa (modo exploratorio), subpastas datadas `YYYY-MM-DD-tema/`:
   - `2026-06-03-modernizacao/`: analise 5-lentes + `experimento-split/` (**FROZEN**)
   - `2026-06-03-fundamentacao-L0/`: 22 fontes primarias verificadas do L0
@@ -66,6 +66,11 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   fim**: nao gaste tempo aperfeicoando a chave de fenda; o fim e' **provar a metodologia**.
 - `Glob`/`Grep`/`Test-Path` antes de propor recriar algo — a propria
   metodologia manda (verificacao antes de afirmar).
+- **Editou o produto** (`recipe/knowledge-architecture.md`) → **bumpe o `updated:`** do
+  frontmatter (rastreabilidade §3; o carimbo ja estagnou uma vez — ver ADR-005).
+- **Numero volatil** (linhas, KB, SHA) NAO vai inline na prosa — aponte para a fonte ou
+  omita (regenera-se do artefato; §5). Estado de evidencias: aponte ao hub §22, nao copie
+  o literal (ADR-005).
 
 ## Fronteira de cobertura (o que este projeto NAO cobre)
 

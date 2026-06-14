@@ -37,7 +37,7 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 | **Braço externo** | o falso-positivo é circular? | ✅ bem-comportado + messy (6 repos) | baixa (N=1; messy gênero-confundido) | [externo](RESULTADOS-externo-bemcomportado.md) |
 | **Gênero** | aplica o padrão do gênero? | ✅ probe (com framing) | baixa (N=1) | [gênero](RESULTADOS-genero.md) |
 | **Gênero+Temporal (próprios)** | lê tombstone/supersessão como organização? | ✅ probe (framing+marcadores) | baixa (N=2; **circular**) | [gên+temp próprios](RESULTADOS-genero-temporal-own.md) · [gabarito](GABARITO-genero-temporal-own.md) |
-| **F6** temporalidade | inferir cronologia sem marcadores | ✅ probe **8/8** (sintético) · ⬜ longitudinal/real | baixa (N=1) | [F6](RESULTADOS-f6-temporal-sem-marcadores.md) · [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
+| **F6** temporalidade | inferir cronologia / drift / abster sem marcadores | ✅ probe **16/16** (tempo+long+abstenção, sintético) · ⬜ real-ruidoso | baixa (3 fixtures) | [F6](RESULTADOS-f6-temporal-sem-marcadores.md) · [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
 | **Eco/gênero** | vale em +cenários e fora de código? (+ viés do dono) | ⬜ planejado | — | [plano](PLANO-evidencia-cenarios-e-narrativa.md) |
 | **Escada Claude** (contrato) | Claude Code barato aplica? | ✅ Haiku+Sonnet · ⬜ Opus | média (F3 juiz + F4 mec) | [escada-claude](RESULTADOS-escada-claude.md) |
 
@@ -148,6 +148,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **F6 duro** (longitudinal/drift + abstenção): +2 fixtures red-team-validadas, sonda
+  **8/8 PASS** (gemini-flash + gpt-4.1). Longitudinal: todos acharam a decisão em vigor **e** apontaram o
+  `setup.md` desatualizado (drift). Abstenção: 4/4 disseram "nenhuma em vigor / pendente" (nuance: 3/4 puxam
+  um default tentativo quando pressionados a agir). Total F6 = 16/16; real-ruidoso segue aberto.
+  [`RESULTADOS-f6`](RESULTADOS-f6-temporal-sem-marcadores.md).
 - **2026-06-13** — **F6 (temporal sem marcadores)**: fixture sintética endurecida por red-team (3 críticos
   cegos 2×), sonda **8/8 PASS** (gemini-flash + gpt-4.1, modes chrono **e** naive): todos inferiram a
   cronologia por referência cruzada de conteúdo e acharam o operante **apesar** do nome+README enganosos —

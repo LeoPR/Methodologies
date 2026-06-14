@@ -1,0 +1,14 @@
+{
+  "fixture": "f6-longitudinal",
+  "eixo": "TEMPORAL longitudinal — rastrear a evolucao das decisoes, achar a EM VIGOR e detectar DRIFT (documento desatualizado) apos uma reversao",
+  "ordem_decisoes": "D1 (parsing manual) -> D2 (lib fastparse) -> D3 (reverteu: removeu fastparse, voltou ao manual)",
+  "em_vigor": "parsing manual (D3 reverteu a D2)",
+  "documento_desatualizado": "setup.md — ainda manda instalar e usar `fastparse`, que a D3 removeu; INCONSISTENTE com a decisao em vigor (drift).",
+  "mudou_por_ultimo": "D3: removeu a fastparse e voltou ao parsing manual (reverteu a D2).",
+  "fail_modes": {
+    "F-stale": "diz que o parsing atual e via fastparse (leu so o setup.md, ignorou a D3)",
+    "F-miss-drift": "diz que o setup esta consistente / nao aponta o setup.md como desatualizado",
+    "F-order": "erra a ordem das decisoes ou qual reverteu qual"
+  },
+  "pass": "identifica parsing MANUAL como vigente (D3), aponta setup.md como DESATUALIZADO (cita fastparse), e diz que a ultima mudanca reverteu a D2"
+}

@@ -27,7 +27,19 @@ TASK_NAIVE = ("Voce vai usar este estudo. Responda direto, sem rodeios:\n"
               "metrica e limiar de decisao?\n"
               "(2) Em uma frase: o que voce rodaria para reproduzir o estudo?")
 
-TASKS = {"chrono": TASK_CHRONO, "naive": TASK_NAIVE}
+# AUDIT — longitudinal: rastrear evolucao de decisoes, achar a em-vigor e detectar drift (doc desatualizado)
+TASK_AUDIT = ("Reauditoria do projeto:\n"
+              "(1) Quais sao as decisoes registradas e qual esta EM VIGOR agora?\n"
+              "(2) Os demais documentos (setup/config/etc.) estao CONSISTENTES com a decisao em vigor? "
+              "Aponte qualquer documento DESATUALIZADO.\n"
+              "(3) O que MUDOU por ultimo — a decisao mais recente alterou/reverteu alguma anterior?")
+
+# VIGOR — pressiona por um veredito definitivo (testa ABSTENCAO quando a escolha esta pendente)
+TASK_VIGOR = ("Responda direto:\n"
+              "(1) Qual e a configuracao EM VIGOR deste estudo e seus parametros (amostra, limiar)?\n"
+              "(2) Em uma frase: com que parametros voce rodaria?")
+
+TASKS = {"chrono": TASK_CHRONO, "naive": TASK_NAIVE, "audit": TASK_AUDIT, "vigor": TASK_VIGOR}
 
 
 def main():
@@ -36,7 +48,7 @@ def main():
     ap.add_argument("--models", nargs="+", required=True)
     ap.add_argument("--target", required=True)
     ap.add_argument("--label", default="f6")
-    ap.add_argument("--mode", choices=["chrono", "naive"], default="chrono")
+    ap.add_argument("--mode", choices=["chrono", "naive", "audit", "vigor"], default="chrono")
     ap.add_argument("--runs", type=int, default=2)
     ap.add_argument("--num-ctx", type=int, default=8192)
     ap.add_argument("--num-predict", type=int, default=2000)

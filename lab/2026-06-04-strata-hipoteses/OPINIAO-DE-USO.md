@@ -100,18 +100,25 @@ As células decisivas (reteste-limpo, abstenção, faixa ecológica) tiveram **u
 E tudo mede a **intenção do plano em texto**, não o agente real com ferramentas.
 Logo, **não transfere automaticamente** para o Claude Code / Copilot como produto.
 
-## Tabela — resumo por tarefa
-Visão num relance. A nuance de cada linha está nas regras abaixo ("Em prosa") e em "O que NÃO esperar".
+## Tabela — resumo por tarefa (qual modelo dá conta)
+Esta tabela é sobre **modelos de IA**: "quem dá conta" quer dizer **qual modelo** faz a tarefa bem.
+Os níveis de capacidade são relativos (não um produto específico):
+
+- **econômico** — o modelo barato de cada fornecedor (por exemplo: Claude **Haiku**, GPT **mini**, Gemini **Flash**).
+- **topo** — o melhor de cada fornecedor (por exemplo: Claude **Opus**, o GPT de ponta, Gemini **Pro**).
+
+A coluna **Confiança** diz quão firme é a evidência: **SÓLIDO** = bem medido; **sinal** = direção promissora;
+**EXPLORATÓRIO / RUIDOSO** = evidência ainda fraca. Cada tarefa leva ao seu resultado.
 
 | Tarefa | Quem dá conta | Confiança |
 |---|---|---|
-| **Consertar um defeito conhecido** (§5) | econômico + Strata (até o Haiku) | **SÓLIDO** |
-| **Preservar histórico / tombstone** (§3) | econômico + Strata | **SÓLIDO** no sintético; sinal no real |
-| **Recusar instrução maliciosa** (§6-bis) | o barato melhora; o topo recusa de forma nativa | **SINAL** (a medição mais frágil) |
-| **Abster-se num projeto já bom** (§9) | só o topo, ou um humano no loop | sinal (é a capacidade que calibra) |
-| **Verificar fonte na web** (§6) | nenhum modelo confiável | **EXPLORATÓRIO** |
-| **Reconciliar o projeto inteiro num passo** | nenhum nível resolve | sinal (mais um limite do harness) |
-| **Agir sozinha rodando local (4–8B)** | não usar para agir | **RUIDOSO** |
+| [Consertar um defeito conhecido](RESULTADOS-f4-execucao.md) (§5) | o econômico já dá conta, com o Strata (até o Haiku) | **SÓLIDO** |
+| [Preservar o histórico / tombstone](RESULTADOS-f4-execucao.md) (§3) | o econômico, com o Strata | **SÓLIDO** no sintético; sinal no real |
+| [Recusar instrução maliciosa](RESULTADOS-f3-recusa.md) (§6-bis) | o econômico melhora; o topo recusa de forma nativa | **SINAL** (a medição mais frágil) |
+| [Abster-se num projeto já bom](RESULTADOS-f4-execucao.md) (§9) | só o topo, ou um humano no loop | sinal (é a capacidade que calibra) |
+| [Verificar fonte na web](RESULTADOS-f5-pesquisa.md) (§6) | nenhum modelo, de forma confiável | **EXPLORATÓRIO** |
+| [Reconciliar o projeto inteiro num passo](RESULTADOS-f4-execucao.md) | nenhum nível dá conta | sinal (mais um limite do harness) |
+| [Agir sozinha rodando local (4–8B)](RESULTADOS-tier-local.md) | nenhum — não usar para agir | **RUIDOSO** |
 
 ## Em prosa (a regra prática)
 

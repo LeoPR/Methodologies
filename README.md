@@ -1,4 +1,4 @@
-# Methodologies — uma oficina para construir metodologias que **duram**
+# Methodologies — uma oficina para construir metodologias feitas para **durar**
 
 > Você acumula trabalho — pesquisa, código, decisões, notas. Com o tempo ele
 > apodrece: você não acha o que decidiu, não sabe o que ainda vale, e a próxima
@@ -9,29 +9,31 @@
 > está no forno.
 
 A abordagem, em uma frase: separar o que é **atemporal** do que é **datado**,
-maturar a ideia através de três cozinhas (`lab/` → `recipe/` → `prototype/`), e
-**provar cada decisão aplicando o método a si mesmo** (ADRs, sinal-de-troca,
-auto-revisão adversarial multi-agente).
+maturar a ideia em três estágios — da pesquisa exploratória ao produto pronto — e
+**provar cada decisão aplicando o método a si mesmo** (registrando por escrito o porquê
+de cada escolha e submetendo cada conclusão a uma revisão crítica antes de aceitá-la).
 
 **Lê-se por humano e por IA.** Os mesmos documentos servem de leitura para você
-e de instrução para um agente: a navegação dedicada a IA está em
-[`AGENTS.md`](AGENTS.md), e o produto é escrito para que um modelo (Claude,
-Copilot…) consiga **aplicá-lo a um projeto** — ver [como pedir isso a uma IA](recipe/).
-Que qualquer IA consiga, de fato, é uma afirmação que estamos testando empiricamente,
-não assumindo.
+e de instrução para um agente: o produto é escrito para que **uma IA** consiga
+**aplicá-lo ao seu projeto** — ver [como pedir isso a uma IA](recipe/) (a navegação
+dedicada a IA fica em [`AGENTS.md`](AGENTS.md)). Que qualquer IA consiga, de fato, é
+uma afirmação que estamos testando empiricamente, não assumindo.
 
 ## Quero… → vá para
 
 | Quero | Vá para |
 |---|---|
 | **Usar um método pronto** | [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) (Strata) |
-| **A opinião honesta de uso** do Strata (o que funciona, por tarefa/tier/custo, com ressalvas) | [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
+| **A opinião honesta de uso** do Strata (o que funciona, por tipo de tarefa, exigência e custo, com ressalvas) | [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | **Entender a abordagem** de fabricar metodologias | [A abordagem](#a-abordagem) (abaixo) |
 | Ver a **pesquisa em andamento** (Comporta, 2ª metodologia) | [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) |
 | Por que decidimos assim | [`decisions/`](decisions/) (ADRs) |
 | O mapa detalhado / o foco atual | [`MAP.md`](MAP.md) · [`STATUS.md`](STATUS.md) |
 
 ## A abordagem
+
+> *Esta seção é o "como funciona por baixo" — a engenharia da oficina. Se você só quer o produto,
+> pule para [Strata](#produto-em-destaque-strata).*
 
 Toda metodologia produzida aqui é organizada por **durabilidade** — quanto cada
 parte resiste à passagem do tempo e à troca de ferramenta:
@@ -84,7 +86,7 @@ flowchart LR
     DOG -.->|a abordagem se aplica a si mesma| COZINHAS
     OFICINA --> COZINHAS
 
-    REC --> STRATA["Strata — FINALIZADA<br/>arquitetura do conhecimento em camadas"]
+    REC --> STRATA["Strata — núcleo pronto<br/>arquitetura do conhecimento em camadas"]
     LAB -.->|ainda no forno| ECON["Comporta — EM ANDAMENTO<br/>economia/roteamento de recursos de IA"]
 
     classDef done fill:#2d6a2d,stroke:#1b4d1b,color:#fff;
@@ -103,6 +105,13 @@ flowchart LR
 do conhecimento em camadas**. Metodologia para organizar, rastrear e gerar
 conhecimento em qualquer trabalho intelectual que acumula artefatos.
 
+**O que ele entrega:**
+- Mantém o conhecimento do projeto **organizado e rastreável** à medida que ele cresce — nada importante se perde, e você sempre sabe o que ainda vale.
+- Quando há um problema claro — uma informação que virou duas, ou algo antigo a aposentar —, **até uma IA acessível faz o conserto sem perder o histórico** (em vez de apagá-lo).
+- Para o julgamento mais delicado de *quando é melhor não mexer*, o método aponta o caminho — mas a palavra final é sua (ou de um modelo mais capaz).
+
+*Já há evidência disso em testes controlados; a comprovação no uso do dia a dia está em andamento.*
+
 > **Escopo:** organiza e preserva o conhecimento que o trabalho produz — e **complementa** o seu
 > jeito de ter ideias e de desenvolver (Scrum, TDD, design…), sem substituí-los. Indicado para
 > projeto de **vida longa** que acumula artefatos. Quando/para quem, em detalhe:
@@ -114,30 +123,27 @@ versão) são **formas** que expressam esse método — moldam, mas não fundam.
 
 - **Formato:** 1 arquivo, ~660 linhas, portável (viaja sozinho). **Versão 1.1.0** ·
   licença CC BY-SA 4.0. (A versão canônica fica no frontmatter do próprio arquivo.)
-- **Maturidade:** o **L0 (núcleo) está consolidado e verificado** (22 fontes primárias +
-  varredura de atemporalidade). A **aplicação por IA** já tem evidência empírica (escada de modos
-  M0-M4: abstenção, recusa de *prompt injection*, execução) — **a opinião honesta de uso** (por
-  tarefa/tier/custo, com ressalvas) está em
+- **Maturidade:** o **núcleo da metodologia está consolidado e verificado** (22 fontes primárias, e a
+  checagem de que ele independe das ferramentas de hoje). A **aplicação por IA** já tem evidência empírica
+  (a IA sabe a hora de agir, a hora de não mexer e a hora de recusar instruções maliciosas) — **a opinião
+  honesta de uso** (por tipo de tarefa, exigência e custo, com ressalvas) está em
   [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); o **macro de como foi testado**
   no [hub de arquitetura e evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
-  *Resumo honesto: a evidência é direcional (sintética, completion-only, N pequeno); o sinal mais
-  consistente é "modelo barato over-age, topo calibra, a forma padroniza".*
-  **Ainda em desenvolvimento:** a **Parte IV — adoção e operação** (brownfield em escala).
-- **Detalhe sob demanda:** o índice das 12 seções do L0, a régua de *quando aplicar
-  cada uma* (§9), os guias de **uso / brownfield / transporte** e **como usá-lo com
-  uma IA** vivem com o produto — veja [`recipe/`](recipe/).
+  **Ainda em desenvolvimento:** a adoção em **projetos grandes que já existem**.
+- **Detalhe sob demanda:** o índice das seções do núcleo, a régua de *quando aplicar cada uma*, e os guias de
+  **uso, adoção em projeto existente, transporte e como usá-lo com uma IA** vivem com o produto — veja
+  [`recipe/`](recipe/).
 
 ## No forno: Comporta
 
 [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) —
 **Comporta**, a 2ª metodologia, **EM ANDAMENTO** (ainda nada destilado para
 `recipe/`). *Cada decisão é uma comporta* que abre o recurso certo e fecha o caro.
-Investiga economia e roteamento de recursos de IA: custo de tokens, modelos locais
-(RTX 3060) vs nuvem, integração com o editor, e roteamento por tipo de ambiente.
+Investiga economia e roteamento de recursos de IA: custo de uso, **IA rodando no próprio
+computador vs na nuvem**, integração com o editor, e qual recurso usar em cada situação.
 
-Já tem **instrumentos medidos** (baseline de tokens congelada, benchmarks de GPU) e
-um **protótipo funcional** — `prototipo/detect_env.py` classifica a máquina do dev em
-arquétipos (A1–A6) e emite *ligar agora / considerar / bloqueado* com o porquê.
+Já tem **medições reais** e uma **primeira ferramenta que já roda**: analisa o computador
+e diz se vale usar IA local — *ligar agora / considerar / bloqueado* — com o porquê.
 
 ## Mapa do repositório
 
@@ -151,9 +157,9 @@ arquétipos (A1–A6) e emite *ligar agora / considerar / bloqueado* com o porqu
 
 ## Usar e adotar
 
-Strata é projetado para viajar sozinho — copie o arquivo e leia a Parte I (L0); o
-§9 diz o que aplicar à sua escala. Os passos de **uso, adoção em projeto existente
-(brownfield) e transporte** vivem no [próprio produto](recipe/knowledge-architecture.md),
+Strata é projetado para viajar sozinho — copie o arquivo e leia o núcleo; uma régua
+interna diz o que aplicar à sua escala. Os passos de **uso, adoção em projeto existente
+e transporte** vivem no [próprio produto](recipe/knowledge-architecture.md),
 junto das fundamentações *inline* que tornam qualquer cópia auto-suficiente.
 
 ## Licença

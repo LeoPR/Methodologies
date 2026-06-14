@@ -41,9 +41,10 @@ suite multi-doc)?
 
 ## Discussao / decisao
 
-- **Produto final = 1 arquivo**: [`../../recipe/organization-methodology.md`](../../recipe/organization-methodology.md),
-  consolidando todas as tecnicas + a modernizacao IA-2026. O split fica como
-  registro de pesquisa (este experimento).
+- **Produto final = 1 arquivo**: hoje [`../../recipe/knowledge-architecture.md`](../../recipe/knowledge-architecture.md)
+  (o predecessor `organization-methodology.md` citado aqui foi **arquivado** em
+  [`../2026-06-03-predecessor/`](../2026-06-03-predecessor/)), consolidando as tecnicas + a modernizacao
+  IA-2026. O split fica como registro de pesquisa (este experimento).
 - A camada IA-2026 e' **alta cadencia** — re-verificar a cada auditoria.
 
 ## Limitacoes / notas

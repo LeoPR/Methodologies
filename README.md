@@ -25,6 +25,7 @@ não assumindo.
 | Quero | Vá para |
 |---|---|
 | **Usar um método pronto** | [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) (Strata) |
+| **A opinião honesta de uso** do Strata (o que funciona, por tarefa/tier/custo, com ressalvas) | [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | **Entender a abordagem** de fabricar metodologias | [A abordagem](#a-abordagem) (abaixo) |
 | Ver a **pesquisa em andamento** (Comporta, 2ª metodologia) | [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) |
 | Por que decidimos assim | [`decisions/`](decisions/) (ADRs) |
@@ -115,8 +116,12 @@ versão) são **formas** que expressam esse método — moldam, mas não fundam.
   licença CC BY-SA 4.0. (A versão canônica fica no frontmatter do próprio arquivo.)
 - **Maturidade:** o **L0 (núcleo) está consolidado e verificado** (22 fontes primárias +
   varredura de atemporalidade). A **aplicação por IA** já tem evidência empírica (escada de modos
-  M0-M4: abstenção, recusa de *prompt injection*, execução) — **como foi testado e o que comprova
-  (macro):** [arquitetura e evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
+  M0-M4: abstenção, recusa de *prompt injection*, execução) — **a opinião honesta de uso** (por
+  tarefa/tier/custo, com ressalvas) está em
+  [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); o **macro de como foi testado**
+  no [hub de arquitetura e evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
+  *Resumo honesto: a evidência é direcional (sintética, completion-only, N pequeno); o sinal mais
+  consistente é "modelo barato over-age, topo calibra, a forma padroniza".*
   **Ainda em desenvolvimento:** a **Parte IV — adoção e operação** (brownfield em escala).
 - **Detalhe sob demanda:** o índice das 12 seções do L0, a régua de *quando aplicar
   cada uma* (§9), os guias de **uso / brownfield / transporte** e **como usá-lo com

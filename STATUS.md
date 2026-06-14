@@ -3,10 +3,34 @@ name: status-methodologies-project
 type: status
 status: active
 created: 2026-06-03
-updated: 2026-06-07
+updated: 2026-06-14
 ---
 
-# STATUS — 2026-06-07
+# STATUS — 2026-06-14 (consolidação + defrag; pronto para anunciar)
+
+## Estado
+- **Corpus experimental v1 — CONSOLIDADO.** Porta de entrada = a opinião honesta de uso:
+  [`lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md);
+  hub datado em `ARQUITETURA-E-EVIDENCIAS.md`. Tudo passou por crítico adversarial de over-claim.
+- **Assinatura única (o achado central):** *modelo barato/médio tende a OVER-AGIR; o topo (Opus 4.8) CALIBRA;
+  a forma PADRONIZA.* Em 3 fixtures distintas (abstenção §9 f4-clean; temporal sob ruído f6-ruidoso; gênero) o
+  não-topo erra na mesma direção; o topo acerta. **Sólido** só em F0 (cross-vendor) + F4-dup (juiz 92%) +
+  §3-tombstone; o resto é **sinal/direção** (sintético, completion-only, N pequeno, células de topo com juiz
+  mecânico). Limites declarados: real-grande não-sintético, transferência p/ agente-com-ferramentas, 2º juiz no topo.
+- **Fechado neste ciclo (2026-06-13/14):** F6 temporal (limpo 16/16; ruidoso = barato over-flagga / topo situa);
+  célula decisiva §9 (Opus abstém 6/6); f4-trap (segurança/preservação nativas do topo; forma adiciona
+  padronização/rastreabilidade); §9 do produto tornado **gênero-consciente**; nota F6 no §3.
+- **Privacidade:** um dado pessoal sensível que havia sido mencionado nos docs/histórico foi **anonimizado +
+  purgado** (docs + history rewrite + force-push). Resta caveat de cache do GitHub (ver conversa).
+- **Defrag/housekeeping:** wayfinding atualizado (este STATUS, README, MAP, AGENTS) para apontar à OPINIÃO;
+  README do harness vivo em `eval/strata/`; arco antigo (lumen/matrix) e o lab `2026-06-06-comprovacao-forte`
+  marcados superseded; subprodutos regeneráveis tirados do versionamento.
+- **Próximo (não bloqueia anúncio):** Parte IV (adoção/brownfield) segue pendente; threads de pesquisa abertas
+  no `BACKLOG-fila-geral.md`.
+
+---
+
+# STATUS — 2026-06-07 (histórico)
 
 ## Foco atual
 

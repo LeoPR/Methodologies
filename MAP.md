@@ -3,7 +3,7 @@ name: map-methodologies-project
 type: navigation
 status: active
 created: 2026-06-03
-updated: 2026-06-07
+updated: 2026-06-14
 ---
 
 # Methodologies — mapa
@@ -25,8 +25,8 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   ├── 2026-06-04-aderencia-portabilidade/ <- aderencia/brownfield/IA/portabilidade (4 lentes)
 │   ├── 2026-06-04-economia-ia-tokens/    <- COMPORTA (2ª metodologia): economia/roteamento de recursos de IA
 │   ├── 2026-06-04-dev-environment-z/     <- metodologia Z:\ python/venv/cache (snapshot p/ estudo)
-│   ├── 2026-06-04-strata-hipoteses/      <- IDEIAS do Strata: hipóteses H-A/B/B'/C + RESULTADOS-*.md + strata-ai-native/ (variantes AN)
-│   └── 2026-06-06-comprovacao-forte-strata/ <- gates de evidência + testes faltantes + critério v2.0 + síntese do envelope de operação
+│   ├── 2026-06-04-strata-hipoteses/      <- IDEIAS + EVIDÊNCIA do Strata. ENTRADA: OPINIAO-DE-USO.md (opinião honesta) · hub ARQUITETURA-E-EVIDENCIAS.md · BACKLOG-fila-geral.md · REVISAO-RETROATIVA.md · RESULTADOS-*.md
+│   └── 2026-06-06-comprovacao-forte-strata/ <- plano de comprovação (gates G1-G6) — SUPERSEDED pela consolidação em strata-hipoteses
 ├── eval/                             <- LABORATÓRIO DE PROVA (a "chave de fenda": comprova; NÃO é a metodologia, NÃO é o foco)
 │   ├── README.md                     <- princípio (meio≠fim) + 3 territórios + regra evidencia/instrumento/infra
 │   └── strata/                       <- harness do Strata: runner, scorers, fixtures, cenários + planos/ (gitignored)
@@ -42,7 +42,8 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 | Quero | Va para |
 |---|---|
 | **Usar a metodologia** (produto) | [recipe/knowledge-architecture.md](recipe/knowledge-architecture.md) |
-| Ver a **prova** de que o Strata funciona (a "chave de fenda") | [eval/](eval/) · conclusões em [lab/2026-06-04-strata-hipoteses/](lab/2026-06-04-strata-hipoteses/) |
+| **A opinião honesta de uso** (o que funciona, por tarefa/tier/custo) | [lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
+| Ver a **prova** de que o Strata funciona (a "chave de fenda") | hub [ARQUITETURA-E-EVIDENCIAS.md](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md) · harness em [eval/strata/](eval/strata/) |
 | Ver por que tomamos as decisoes que tomamos | [decisions/](decisions/) |
 | Entender como a gente pesquisou | [lab/2026-06-03-modernizacao/README.md](lab/2026-06-03-modernizacao/README.md) |
 | Ver a analise (inventario/gaps/sintese) | [lab/2026-06-03-modernizacao/analise-5-lentes.md](lab/2026-06-03-modernizacao/analise-5-lentes.md) |

@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-06-07
+updated: 2026-06-14
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -38,12 +38,15 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     A1-A6). NAO destilado p/ recipe ainda (virara `recipe/comporta-*.md`).
   - `2026-06-04-dev-environment-z/`: metodologia Z:\ importada p/ estudo
     (`snapshot-fonte/` e' **gitignored** — nao publicar; so o README de estudo vai ao git)
-  - `2026-06-04-strata-hipoteses/`: **IDEIAS do Strata** — hipoteses (H-A/H-B/H-B'/H-C),
-    `RESULTADOS-*.md` (conclusoes: nuvem satura na prosa; H-C/AI-nativo so agrega no tier
-    fraco; piso local ~8B) e `strata-ai-native/` (variantes AN). O HARNESS que gerou isso
-    mora em `eval/strata/`.
-  - `2026-06-06-comprovacao-forte-strata/`: comprovacao forte (gates, testes faltantes,
-    criterio de promocao v2, envelope de operacao).
+  - `2026-06-04-strata-hipoteses/`: **IDEIAS + EVIDÊNCIA do Strata** (corpus v1 CONSOLIDADO).
+    **ENTRE POR AQUI:** `OPINIAO-DE-USO.md` (opinião honesta por tarefa/tier/custo) e o hub
+    `ARQUITETURA-E-EVIDENCIAS.md` (estado datado + histórico append-only); backlog em
+    `BACKLOG-fila-geral.md`; auditoria do que envelheceu em `REVISAO-RETROATIVA.md`. Os `RESULTADOS-*.md`
+    são os registros por fase (alguns superseded — siga o hub, não conclusões soltas). O HARNESS que gerou
+    isso mora em `eval/strata/` (ver `eval/strata/README.md`). *Assinatura: barato over-age / topo calibra /
+    forma padroniza — sinal, não prova (sintético, completion-only).*
+  - `2026-06-06-comprovacao-forte-strata/`: plano de comprovação (gates) — **SUPERSEDED** pela consolidação
+    em `strata-hipoteses` (mantido como registro).
 - `eval/` — **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia
   nem o foco; reutilizavel entre metodologias). `strata/` = harness do Strata (runner
   multi-modelo, scorers, fixtures, cenarios, `RASTREAMENTO-E-MELHORIA.md`); `*/planos/` =

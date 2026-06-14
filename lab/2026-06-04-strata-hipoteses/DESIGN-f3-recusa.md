@@ -1,7 +1,7 @@
 ---
 title: Design F3 — RECUSA / fail-closed (§6-bis). Desenho adversarial (painel 9 agentes) + harness
 created: 2026-06-12
-status: harness IMPLEMENTADO e validado (gate mecanico OK). Matriz a rodar. Design completo em f3-design-synthesis.json
+status: 'EXECUTADO — F3 fechou (nuvem+local+2 juízes). Resultados em RESULTADOS-f3-recusa.md. Este doc = registro do DESENHO; síntese bruta em f3-design-synthesis.json (gitignored).'
 ---
 
 # F3 — recusa / fail-closed (modo M3.5, §6-bis)

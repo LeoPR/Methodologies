@@ -1,22 +1,33 @@
 ---
-title: 'Opinião de uso do Strata — honesta, por tarefa × tier × custo (consolidação F0,F1,F3-F6 + eco + escada Claude + topo Opus)'
+title: 'Opinião de uso do Strata — honesta, por tarefa × capacidade do modelo × custo (consolidação F0,F1,F3-F6 + eco + escada Claude + topo Opus)'
 created: 2026-06-13
 status: 'CONSOLIDADO 2026-06-13 (assinatura única: barato over-age / topo calibra / forma padroniza). SINAIS/direção, não prova; sintético+completion-only.'
 ---
 
 # Opinião de uso do Strata — o que dizer, com honestidade
 
-> Destilado de toda a evidência (F0-F5, execução-eco no digest real, escada Claude, eixo esforço, custo),
-> passado por um **crítico adversarial de over-claim**. Detalhe por fase no [hub](ARQUITETURA-E-EVIDENCIAS.md);
-> backlog priorizado em [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md).
+> Destilado de toda a evidência reunida (as fases F0–F6, a execução no digest de um projeto real, a escada de
+> modelos Claude, o eixo de esforço e o custo), e **submetido a uma revisão crítica contra exagero** (*over-claim*).
+> Detalhe por fase no [hub](ARQUITETURA-E-EVIDENCIAS.md); o que falta no [`BACKLOG`](BACKLOG-fila-geral.md).
 
-## Síntese (a assinatura — consolidação 2026-06-13)
-**Modelos NÃO-topo tendem a OVER-AGIR; o topo (Opus 4.8) CALIBRA; a forma PADRONIZA.** O mesmo padrão apareceu
-em **três fixtures sintéticas distintas** — **não** três eixos independentes: mesmos atores
-(gpt-4o-mini/gemini/gpt-4.1 vs Opus 4.8), todas sintéticas, completion-only, N≤3, e as células de topo **sem
-juiz independente** (mecânico no f4-clean; por leitura no f6-ruidoso). É o **sinal mais consistente** do corpus
-(réplicas do mesmo construto, mesmo autor), **não** triangulação.
-- **§9 abstenção** (f4-clean): os não-topo super-engenham um projeto limpo · **Opus abstém 6/6** *(= 3 STRATA + 3 BASELINE na MESMA fixture, 1 modelo, juiz mecânico+GOLD)*. *(O F1/M0 já mostrara Opus discriminando em §9 — juiz Claude único; o f4-clean replica por via mecânica.)*
+## Como ler (vocabulário rápido)
+Termos que se repetem abaixo — definidos **uma vez** aqui:
+- **topo / não-topo** — *topo* = o modelo de IA mais capaz (e mais caro; ex.: Opus 4.8); *não-topo* = os mais baratos e médios.
+- **agir demais (*over-ação*)** — mexer onde não precisava: "consertar" o que já estava bom, inventar problema, reabrir o que já fora resolvido.
+- **calibrar** — acertar a dose: agir quando deve **e** se abster quando o projeto já está bom.
+- **a forma padroniza** — o método faz o conserto sempre do **mesmo jeito, registrado e rastreável** (em vez de cada IA do seu jeito).
+- **sólido × sinal** — *sólido* = bem medido (vários modelos e juízes independentes); *sinal* = direção promissora, evidência ainda fraca (poucas repetições).
+- **só-texto (*completion-only*)** — a IA escreve o plano/arquivo, mas **não executa nada**: mede a intenção, não o agente real com ferramentas.
+- **§N** — seção N do método Strata (ex.: §9 = "quando NÃO agir"; §6-bis = recusar instrução maliciosa; §5 = fonte única; §3 = histórico rastreável).
+
+## Síntese — a assinatura
+**Em uma frase: as IAs mais baratas tendem a _agir demais_ (mexem onde não precisava); o modelo de _topo_
+_calibra_ — age quando deve e se abstém quando o projeto já está bom; e o método (a "forma") _padroniza_ o
+conserto, dando um jeito único e rastreável de fazê-lo.** Foi o padrão **mais consistente** do corpus — visto em
+**três fixtures sintéticas distintas** (não três testes independentes): os mesmos modelos (gpt-4o-mini / gemini /
+gpt-4.1, contra o Opus 4.8), todos em modo **só-texto**, com **poucas repetições** (N≤3) e **sem juiz
+independente nas células de topo**. Por isso: **sinal forte, não prova.**
+- **§9 abstenção** (f4-clean): os não-topo **agem demais** num projeto que já está bom · **Opus se abstém 6/6** *(= 3 STRATA + 3 BASELINE na MESMA fixture, 1 modelo, juiz mecânico+GOLD)*. *(O F1/M0 já mostrara Opus discriminando em §9 — juiz Claude único; o f4-clean replica por via mecânica.)*
 - **temporal sob ruído** (f6-ruidoso): **dois modos / dois modelos** — o **gpt-4.1** (normalmente o "forte") **re-levanta um bug já resolvido** + pede LICENSE; o **gemini** manda **apagar marcadores históricos** (anti-§3). **Importante: aqui até o forte gpt-4.1 over-agiu** — o discriminador foi **só o topo** (Opus 2/2, juiz por leitura), **não** "capacidade" de forma monotônica.
 - **gênero**: sob framing **ingênuo** o não-topo é gênero-cego (pede LICENSE/CI de um caderno); mas **com framing gênero-consciente até o barato acerta** (RESULTADOS-genero, N=1). O contraste vem do **framing** — e **o topo NÃO foi testado em gênero** (não atribuir o acerto ao topo aqui).
 

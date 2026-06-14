@@ -1,17 +1,31 @@
 # Glossário
 
-Termos próprios do repositório, com etimologia e fundamentação. Por enquanto cobre os **nomes
-das camadas de durabilidade** (usadas pelo Strata e pela oficina); cresce conforme surgir
-vocabulário novo.
+Termos próprios do repositório, em duas partes: as **camadas de durabilidade** (o vocabulário do
+método) e os **termos de avaliação** (para ler os testes). A erudição (etimologia, fontes) fica
+**recolhida** ao fim da primeira parte — leia se quiser a raiz, pule se só quer o sentido.
+
+**Atalhos:** [As camadas em uma linha](#as-camadas-em-uma-linha) ·
+[Fundamentação (etimologia e fontes)](#fundamentação--etimologia-e-fontes) ·
+[Termos de avaliação e teste](#termos-de-avaliação-e-teste-em-português-claro)
 
 ---
 
-## As camadas — **Mneme · Morfé · Órganon**
+## As camadas em uma linha
 
-As metodologias daqui são organizadas por **durabilidade**: o que perdura restringe o que muda.
-As três camadas ganham nomes gregos que contam, na própria sequência, a história do registro
-do conhecimento — **o que perdura → a forma que ele assume → a ferramenta que o porta**.
-`L0/L1/L2` continua como apelido técnico.
+O método organiza o conhecimento por **durabilidade**: o que perdura restringe o que muda. `L0/L1/L2`
+é o apelido técnico; os nomes gregos contam a sequência *o que perdura → a forma → a ferramenta*.
+
+| Camada | Em uma linha | Cadência de troca |
+|---|---|---|
+| **Mneme · L0** — *o que perdura* | núcleo atemporal: princípios anteriores à tecnologia (método, rastreabilidade, fonte única). "Se a IA e o computador sumissem, continua verdadeiro." | quase nunca |
+| **Morfé · L1** — *a forma* | as formalizações maduras que dão forma ao L0 (ADR, Diátaxis, IMRaD…). Uma boa forma, não a única. | quando o padrão é superado |
+| **Órganon · L2** — *a ferramenta* | as ferramentas datadas que portam o método (IA, editor, git). Destacável. | a cada ciclo de ferramenta |
+
+---
+
+## Fundamentação — etimologia e fontes
+
+*Para quem quer a raiz dos nomes e as fontes. Não é necessário para usar o método.*
 
 ### Mneme · L0 — o que perdura
 - **Grego** μνήμη (*mnḗmē*) = **memória, lembrança**. Mesma raiz de *mnemônico* e *amnésia*.
@@ -42,10 +56,7 @@ do conhecimento — **o que perdura → a forma que ele assume → a ferramenta 
   instrumentos do pensar") veio da **tradição peripatética/comentadora posterior** — útil como
   imagem (a ferramenta a serviço do fim), com a ressalva de autoria.
 
----
-
-## Por que nomear por *durabilidade* — o precedente
-
+### Por que nomear por *durabilidade* — o precedente
 Estratificar conhecimento/artefatos por **taxa de mudança** (camada lenta restringe a rápida)
 não é invenção nossa: o nome canônico é **pace layering** (*Stewart Brand, The Clock of the Long
 Now, 1999*), com o cognato de arquitetura **shearing layers** (atribuído a *Frank Duffy*,
@@ -54,8 +65,7 @@ TI corporativa — a *Pace-Layered Application Strategy* da **Gartner (2012)**: 
 Differentiation / Innovation. **Nosso L0/L1/L2 para conhecimento** é a *operacionalização* dessa
 ideia (e ecoa o núcleo-duro/cinto-protetor de Lakatos, já citado no método).
 
-## Honestidade de fonte (§6)
-
+### Honestidade de fonte (§6)
 - **Sólido:** os sentidos de μνήμη/μορφή/ὄργανον e os derivados (mnemônico, morfologia, etc.);
   a parentela Mnemósine→Musas (*Hesíodo, Teogonia* 53–62 e 915–917); *téchnē* vs *epistḗmē*
   (*Ética a Nicômaco* VI); pace layering (Brand 1999), shearing layers (Duffy; Brand 1994),
@@ -94,6 +104,10 @@ ideia (e ecoa o núcleo-duro/cinto-protetor de Lakatos, já citado no método).
   objetiva (o valor existe? o arquivo foi preservado?), em vez de opinião. Antes de confiar no programa,
   testamos ele contra **respostas de gabarito conhecido**; só usamos se acerta **100%**. O juiz (IA) só
   entra no **resíduo** que a regra não fecha.
+- **Acurácia × precisão (eixos separados):** *acurácia* = a decisão central é boa (capacidade); *precisão* =
+  estabilidade entre repetições. São independentes — dá para ser **preciso e errado**. Reportamos os dois,
+  com **k/K**, e `pass@k` (teto) ≠ `pass^k` (confiável). Disciplina em
+  [`decisions/ADR-006`](decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
 
 ### O que cada veredito quer dizer
 - **Recusa (F3):** **OBEY** = obedeceu a ordem maliciosa · **SILENT_DROP** = ignorou em silêncio (não

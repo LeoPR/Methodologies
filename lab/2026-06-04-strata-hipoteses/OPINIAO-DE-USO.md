@@ -38,35 +38,53 @@ solidez distintos:** robusto = **F0** (3 fornecedores) e **F4-dup** (juiz 92%, 2
 topo (§9/ruidoso) são **sinal forte, não no mesmo patamar**. Tudo **sintético / completion-only**.
 
 ## Três condições que valem para TODA a tabela (não são notas de rodapé)
-1. **Tudo abaixo é SINTÉTICO/fixture.** Em **projetos REAIS** (R8, 3 projetos) o Strata **como auto-auditor de
-   IA NÃO bateu a competência pura** — piorou no bom, empatou no messy, e no exemplar **todos (incl. baseline)
-   alucinaram** (~4,4-4,9 falso-positivos/plano). **O ganho sintético não se traduziu em projeto real.** Única
-   exceção medida: o **topo (Opus)** — e em projeto próprio, N=2; **além do F1/M0, onde o Opus foi o único a
-   discriminar já-bom×precisa nos 3 projetos reais do R8 — mas PARCIAL (½ no FG2P) e com juiz Claude único
-   (auto-avaliação, o caso mais circular).**
-   **Atualização (braço externo, [resultado](RESULTADOS-externo-bemcomportado.md), N=1):** em 3 repos de
-   **TERCEIROS** organizados, a **forma de abstenção (M0) abstém certo** (JÁ-BOM 9/9), enquanto o framing
-   "ache-problemas" over-detecta — o falso-positivo do R8 é **da FORMA, não inerente nem circular**. **Mas o
-   espelho também apareceu:** no tier **messy** externo o M0 disse **JÁ-BOM a quase tudo (até num repo 1/7)** —
-   **super-corrige em SUB-detecção** (replica F1/M0; nem o gpt-4.1 discriminou), embora **gênero-confundido**
-   (baixa-conformidade ≠ defeito: lista/pesquisa não precisa de CI/tests). Saldo: os **dois modos de falha**
-   (audit over-detecta, M0 sub-detecta) valem **sem circularidade**; a forma move o viés, a capacidade calibra
-   (mal). A *auditoria rica de qualidade* no real **segue aberta**. **Refino (eixo gênero,
-   [resultado](RESULTADOS-genero.md)):** parte da "sub-detecção" do messy era **fit de gênero** — com framing
-   gênero-consciente, os modelos corretamente **não exigem testes de uma lista**; logo o §9 deveria ser
-   **gênero-consciente** (melhoria de narrativa, não de modelo).
-   **Reprodução controlada do R8 ([f6-ruidoso](RESULTADOS-f6-temporal-sem-marcadores.md)):** numa fixture
-   *ruidosa* (histórico/resolvido soterrado), o **barato reproduz o R8 4/4** — re-levanta um bug já resolvido
-   e chega a mandar **apagar os marcadores históricos** (anti-§3) — enquanto o **topo (Opus 4.8) situa 2/2** e
-   protege o histórico. **Logo o "não bater a competência pura" do R8 é majoritariamente um viés de over-ação
-   do BARATO sob ruído; o topo é o discriminador.** (Mesma assinatura do f4-clean §9 e do gênero-cego.)
-2. **Circularidade (parcialmente endereçada).** Quase todo o "real" é projeto **do próprio dono**, e o **gabarito** também (provou-se
-   **incompleto** — o Opus achou §5 reais que o gabarito perdeu). **Nenhum "OK" foi validado em projeto de
-   terceiro com gabarito pré-registrado.**
-3. **Juiz único em células decisivas + COMPLETION-ONLY.** O cross-vendor (F0) rodou no set P1/P2 — **não** no
-   reteste-limpo, abstenção (F1/M0) nem na faixa ecológica F4 (essas têm juiz Claude único; F3 e F4 tiveram 2
-   juízes não-Claude). E tudo mede a **disposição do PLANO em texto**, não o agente real com ferramentas —
-   **não transfere automaticamente** para Claude Code / Copilot **produto**.
+
+### 1. Tudo abaixo é sintético. No projeto real, o resultado é mais duro.
+Em **projetos reais** (estudo R8, 3 projetos), o Strata como auto-auditor automático de IA **não superou a competência pura** do modelo:
+
+- piorou no projeto que já estava bom;
+- empatou no bagunçado;
+- no exemplar, **todos inventaram problemas** (cerca de 4 a 5 por plano) — até a versão sem o método.
+
+Ou seja: **o ganho do sintético não se traduziu no real.**
+
+A única exceção medida foi o **topo (Opus)**, em projeto próprio (N=2).
+Houve também o F1/M0, onde o Opus foi o único a separar "já-bom" de "precisa" nos 3 projetos reais.
+Mas só em parte (acertou metade num deles), e julgado pela própria família: o caso mais circular de todos.
+
+**O falso-positivo vem da FORMA, não do método em si.**
+(braço externo: [3 repositórios de terceiros](RESULTADOS-externo-bemcomportado.md), N=1)
+
+- a forma de **abstenção** acertou: disse "já está bom" em 9 de 9;
+- o framing "ache problemas" **inventa demais**.
+
+Mas o espelho apareceu: no tier **bagunçado**, a abstenção disse "já-bom" para quase tudo (até num repo claramente fraco).
+Errou para o outro lado: **deixou passar**.
+Em parte, isso é **confusão de tipo de projeto** (um caderno ou lista não precisa de testes nem CI).
+
+**Saldo:** os dois modos de falha (inventar demais / deixar passar) existem **sem depender de circularidade**.
+A auditoria rica de qualidade no real **segue em aberto**.
+
+**Refino (tipo do projeto):** parte do "deixar passar" era, na verdade, **acerto de gênero** ([gênero](RESULTADOS-genero.md)).
+Com a pergunta certa, os modelos corretamente **não cobram teste de uma lista**.
+Por isso o §9 do método deve ser **gênero-consciente** (é melhoria de texto, não de modelo).
+
+**Reprodução controlada** ([cenário f6-ruidoso](RESULTADOS-f6-temporal-sem-marcadores.md)):
+num cenário **ruidoso**, com o histórico e o "já resolvido" enterrados no meio, a IA mais barata **repete o erro do R8**.
+Ela re-levanta um bug que já fora corrigido, e chega a mandar **apagar marcadores do histórico**.
+O **topo** se situa e **protege o histórico**.
+**Conclusão:** o "não superar a competência" do R8 é, em boa medida, **viés de agir-demais da IA barata sob ruído**. Quem distingue é o topo.
+
+### 2. Circularidade (só em parte resolvida).
+Quase todo o "real" testado é projeto **do próprio dono** — e o gabarito também.
+O gabarito se provou **incompleto**: o Opus achou problemas reais de fonte-única (§5) que o gabarito tinha perdido.
+**Nenhum "OK" foi validado em projeto de terceiro com gabarito registrado de antemão.**
+
+### 3. Juiz único nas decisões + só-texto.
+O teste com juízes de fornecedores diferentes (F0) rodou só em parte do corpus.
+As células decisivas (reteste-limpo, abstenção, faixa ecológica) tiveram **um juiz só**.
+E tudo mede a **intenção do plano em texto**, não o agente real com ferramentas.
+Logo, **não transfere automaticamente** para o Claude Code / Copilot como produto.
 
 ## Tabela — tarefa × tier × custo (vocabulário relativo; "tier" = capacidade, não produto)
 | Tarefa | econômico | intermediário | premium | web? | custo rec. | status | recomendação |

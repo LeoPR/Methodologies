@@ -18,17 +18,20 @@ Duas regras de ouro antes de qualquer modelo:
 
 | Eu quero… | Use | Custo | Como |
 |---|---|---|---|
-| **o melhor, confiável** | **Claude Opus** + checklist | ~$7/M 💳 | 1 prompt; o **único** positivo *e* consistente nos dois tipos de projeto |
-| **barato (aceitando variância)** | **deepseek-v3 + aplicação em ETAPAS** | ~$0.26/M 💳 | 4 turnos: reconheça o bom → situe no tempo → gates com evidência → priorize. Ajuda **em média**, mas varia — sempre revise |
-| **barato, 1 prompt só** | **glm-4.6** + checklist | ~$0.56/M 💳 | rápido; resultado **inconsistente** entre projetos |
-| **peneira inicial do óbvio** | gpt-4.1-mini / gpt-5 + checklist | ~$0.5–2/M 💳 | não inventa, mas acha pouco |
-| **grátis / na minha máquina** | *(sem opção confiável hoje)* | $0 🖥️ | os modelos locais ou **alucinam** ao concluir (deepseek-r1:8b) ou **acham nada** (qwen3:4b-thinking ≈ neutro). Veja "Limites" |
+| **o melhor, confiável** | **Claude Opus** + checklist | 💳 $$$ · ~$7/M | 1 prompt; o **único** positivo *e* consistente nos dois tipos de projeto |
+| **barato (aceitando variância)** | **deepseek-v3 + aplicação em ETAPAS** | 💳 $ · ~$0,26/M | 4 turnos: reconheça o bom → situe no tempo → gates com evidência → priorize. Ajuda **em média**, mas varia — sempre revise |
+| **barato, 1 prompt só** | **glm-4.6** + checklist | 💳 $ · ~$0,56/M | rápido; resultado **inconsistente** entre projetos |
+| **peneira inicial do óbvio** | gpt-4.1-mini / gpt-5 + checklist | 💳 $–$$ · ~$0,5–2/M | não inventa, mas acha pouco |
+| **grátis / na minha máquina** | *(sem opção confiável hoje)* | 🖥️ 🆓 · $0 | os modelos locais ou **alucinam** ao concluir (deepseek-r1:8b) ou **acham nada** (qwen3:4b-thinking ≈ neutro). Veja "Limites" |
+
+*Faixa de custo: **$** = barato (≤ ~$0,6/M) · **$$** = médio (~$0,6–3) · **$$$** = caro (> ~$3) · **🆓** = grátis. 💳 pago · 🖥️ local. Valores **aproximados** — preço de modelo muda com o tempo (é L2).*
 
 ![fronteira custo × qualidade × ambiente](strata-com-ia-fronteira.svg)
 
-*(Roxo = API paga, verde = local. Eixo Y = problemas reais achados − falso-positivos; só
-aparecem as configurações que **ajudam** (≥ neutro). Note: a faixa mostra a variação entre
-projetos — quase tudo, menos o Opus, oscila entre ajudar e atrapalhar.)*
+*(Cada barra é a **faixa de variação** entre projetos e execuções — o achado central é que o valor
+**não é um ponto**. **Verde = confiável** (a faixa toda fica acima do neutro: hoje só o Opus).
+**Laranja = aposta** (a faixa cruza o neutro: às vezes ajuda, às vezes atrapalha). **Cinza = neutro
+estável**. Eixo X = ganho líquido = problemas reais achados − inventados.)*
 
 ## A forma importa mais que o modelo
 

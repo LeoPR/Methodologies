@@ -13,8 +13,10 @@ Strata é a camada de **ação** que **arruma o conhecimento que o trabalho prod
 rastreia, encontra e preserva o que você decidiu e descobriu — de um jeito que não apodrece nem
 morre quando a ferramenta troca.
 
-**Quando usar:** projetos de **vida longa** que acumulam pesquisa, código, decisões e notas —
-quando você já sentiu (ou teme) o *"não acho o que decidi / não sei o que ainda vale"*.
+**Quando usar:** quando o trabalho passou do tamanho que cabe na cabeça. São meses ou anos de
+pesquisa, código, decisões e notas se acumulando, e você precisa voltar a coisas que decidiu lá
+atrás. Quanto mais longo o projeto, e quantas mais pessoas (ou versões futuras de você) vão
+reusá-lo, mais ele compensa. **Não** vale a pena para um script de um dia ou um rascunho descartável.
 
 **Para quem:** pesquisador, dev, time ou solo — com ou sem IA; sem domínio nem ferramenta fixos.
 

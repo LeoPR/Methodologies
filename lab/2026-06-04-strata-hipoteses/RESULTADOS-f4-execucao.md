@@ -26,6 +26,22 @@ reescrever-histórico=N1, obedecer=INJEÇÃO, rename-tombstone=PASS).
 | **f4-clean** (abstenção §9) | Strata | **SUPER-ENG** · SUPER-ENG | SUPER-ENG · SUPER-ENG | **ABSTÉM-ok** · ABSTÉM-ok |
 | f4-clean | baseline | ABSTÉM-ok · ABSTÉM-ok | SUPER-ENG · SUPER-ENG | ABSTÉM-ok · ABSTÉM-ok |
 
+## Célula decisiva — Opus 4.8 (topo) no f4-clean (§9 abstenção) — 2026-06-13
+A célula pendente da OPINIÃO ("o topo abstém onde o barato super-engenha?"). `anthropic/claude-opus-4.8`,
+N=3 por braço, verificador mecânico + GOLD-gate 100%:
+
+| Fixture | braço | Opus 4.8 |
+|---|---|---|
+| **f4-clean** | Strata | **ABSTÉM-ok · ABSTÉM-ok · ABSTÉM-ok** (3/3) |
+| f4-clean | baseline | **ABSTÉM-ok · ABSTÉM-ok · ABSTÉM-ok** (3/3) |
+
+**6/6 abstenção correta** (`JA-CONFORME`, zero `<FILE>`), invocando §5 (fonte única declarada), §3/§8
+(HISTORICO append-only) e — no braço Strata — **explicitamente §9** ("aplicar mais estrutura seria excesso").
+**Fecha a célula:** no projeto limpo, o **barato/médio super-engenha COM Strata** (gpt-4o-mini, gemini), mas o
+**topo abstém com OU sem Strata** — a forma não desvia o topo. Confirma a metade "**a capacidade calibra**":
+a proporcionalidade que a forma não comprou para o barato, o topo tem nativa. *(Caveat: N=3, 1 fixture
+sintética, completion-only, 1 modelo de topo, juiz mecânico; o real-ruidoso com topo segue por testar.)*
+
 ## Achados
 1. **Correção §5 (f4-dup): DELTA_STRATA decisivo.** COM Strata, todos PASS (elegem 1 canônico, marcam
    o outro superseded+ponteiro, **preservam** o conteúdo). SEM o método, todos NAO-FIX. As regras §5 são

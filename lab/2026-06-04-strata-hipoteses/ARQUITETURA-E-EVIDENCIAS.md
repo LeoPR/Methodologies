@@ -148,6 +148,10 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **célula decisiva FECHADA — Opus 4.8 no f4-clean (§9 abstenção)**: o **topo abstém 6/6**
+  (STRATA+BASELINE, mecânico + GOLD-gate 100%) onde o **barato/médio super-engenha COM Strata** (gpt-4o-mini,
+  gemini). Confirma a metade "**a capacidade calibra**"; o Strata **não desvia o topo**. N=3, 1 fixture
+  sintética, completion-only. [`RESULTADOS-f4`](RESULTADOS-f4-execucao.md) · linha §9 da [OPINIÃO](OPINIAO-DE-USO.md).
 - **2026-06-13** — **F6 duro** (longitudinal/drift + abstenção): +2 fixtures red-team-validadas, sonda
   **8/8 PASS** (gemini-flash + gpt-4.1). Longitudinal: todos acharam a decisão em vigor **e** apontaram o
   `setup.md` desatualizado (drift). Abstenção: 4/4 disseram "nenhuma em vigor / pendente" (nuance: 3/4 puxam

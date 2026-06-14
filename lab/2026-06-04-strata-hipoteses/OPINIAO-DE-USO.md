@@ -14,6 +14,9 @@ status: 'CONSOLIDADO (workflow 7 agentes, com crítico adversarial de over-claim
 **"A forma corrige o viés; a capacidade calibra."** Sobrevive como **sinal forte** — mas é preciso separar o
 **sólido** do **exploratório** (a versão anterior emprestava a robustez das peças fortes — F0 cross-vendor, F4
 GOLD-gate 100% + juiz 92% — para células que ficaram fracas). **Direção forte, status NÃO-fechado.**
+*(Atualização 2026-06-13: a metade "**a capacidade calibra**" ganhou sua célula decisiva — Opus 4.8 abstém
+**6/6** no f4-clean, onde o barato/médio super-engenha, e o Strata **não** o desvia; ver linha §9. A metade
+"a forma corrige o viés" segue como o lado mais frágil.)*
 
 ## Três condições que valem para TODA a tabela (não são notas de rodapé)
 1. **Tudo abaixo é SINTÉTICO/fixture.** Em **projetos REAIS** (R8, 3 projetos) o Strata **como auto-auditor de
@@ -45,7 +48,7 @@ GOLD-gate 100% + juiz 92% — para células que ficaram fracas). **Direção for
 | **Consertar §5 (defeito conhecido)** | OK c/ Strata (até Haiku) | OK | OK (redundante) | não | **econômico, recorrente** | **SÓLIDO** (F4 GOLD 100% + juiz 92%, ancora em ação de arquivo) | o caso mais forte e barato; sem Strata alguns consertam **informal** — o método formaliza + habilita quem não consertava |
 | **Preservar histórico / tombstone §3** | OK c/ Strata (tombstone 7/8; payload propagado 0/8) | OK | OK | não | **econômico, recorrente** | **SÓLIDO** no sintético; **SINAL** no real (1 digest, N=2, próprio, sem 2º juiz) | argumento de segurança mais transferível; **replicar fora do projeto-próprio** |
 | **Recusar injeção §6-bis** | Strata vira obedecer→recusar no leniente; **Claude-Haiku já recusa sozinho** | já recusa | redundante | não | econômico | **SINAL** — a medição **mais frágil** (concordância 56-69%, 1 cenário, N=2; o GOLD-gate é do F4, não daqui) | delta real só no barato leniente; **segurança do fraco é em parte LEXICAL** (recusa 6/6→4/6 sob paráfrase) → contra ataque real de paráfrase, barato **não é seguro** |
-| **Abster-se em projeto já-bom §9** | **FALHA** (Strata induz super-engenharia 6/8 vs 2/8) | parcial (Sonnet+thinking 1/2, dentro do ruído) | gpt-4.1 abstém; **Opus em f4-clean NÃO rodado** | não | **forte, pontual** / humano no loop | **SINAL** (célula decisiva pendente) | a **faca de dois gumes**: no barato/médio o Strata em projeto limpo gera trabalho inútil/alucinado. **A forma NÃO compra proporcionalidade** — use modelo forte ou humano no loop |
+| **Abster-se em projeto já-bom §9** | **FALHA** (Strata induz super-engenharia 6/8 vs 2/8) | parcial (Sonnet+thinking 1/2, dentro do ruído) | gpt-4.1 e **Opus 4.8 abstêm** (Opus **6/6** STRATA+BASELINE, mec.+GOLD) | não | **forte, pontual** / humano no loop | **FECHADA**: topo abstém; Strata **não** induz super-eng no topo | a **faca de dois gumes é do barato/médio**: lá o Strata em projeto limpo gera trabalho inútil/alucinado. **A forma NÃO compra proporcionalidade — a capacidade compra**: o topo abstém com ou sem Strata. Use modelo forte ou humano no loop |
 | **Verificar fonte §6 (web)** | carimba falso confiante | idem | **FALHA também sem web** (gpt-4.1 carimbou 3/3) | **reduz, não conserta** (forte+web ainda 2/3) | — (probe) | **EXPLORATÓRIO** (N=1-2, 1 fixture, 3 claims) | nunca confie em verificação de fonte sem web — **nem com web sem revisão** |
 | **Reconciliar TUDO num passo (real)** | zero PASS | parcial (~2/3) | parcial | não | nenhum tier resolve | **SINAL confundido com limite de HARNESS** (o formato "arquivo inteiro" **truncou**) | rascunho a revisar / humano no loop; **não prometer** reconciliação total |
 | **Qualquer tarefa em LOCAL 4-8B** | **não usar p/ AGIR** | — | — | — | — | **RUIDOSO** (muito INDETERMINADO; "+0,50" virou −1,50 com N=3) | detecção c/ forma curta funciona **com asterisco**; para EXECUTAR: zero PASS, destroem/obedecem, alucinam no limpo — **nunca autônomo para agir** |
@@ -80,7 +83,7 @@ um projeto real inteiro num passo; que conclusões de completion-only transfiram
 - **Completion-only:** disposição do PLANO em texto, não o agente real. Não transfere ao produto.
 - **N pequeno em toda célula (1-3); nenhuma N≥5.** Variância intra-modelo já virou o sinal (deepseek +0,50→−1,50). Deltas-grandes-vs-ruído, não significância.
 - **Juiz frequentemente único** nas células decisivas (F0 cross-vendor só no P1/P2). Viés de família medido (R6: Claude ~0,87 mais generoso com Haiku).
-- **Claude foi testado como SUJEITO** só nos tiers **Haiku/Sonnet** (escada-claude, julgado por não-Claude); **Opus-sujeito** na abstenção/reconciliação **pendente**. *(Correção a uma afirmação da síntese bruta que dizia "Claude só foi juiz".)*
+- **Claude como SUJEITO**: Haiku/Sonnet na escada-claude (julgado por não-Claude) **e agora Opus 4.8 na abstenção §9** (f4-clean, 6/6 abstenção correta, mecânico+GOLD). **Reconciliação** com Opus-sujeito segue pendente. *(Correção a uma afirmação da síntese bruta que dizia "Claude só foi juiz".)*
 - **Circularidade** (projeto+gabarito do dono, gabarito incompleto). **Disconfirmação ecológica (R8)**: no real, o auto-auditor não bate a competência pura.
 - **Temporalidade = direção, não achado** (F6 não rodou). **Recusa (F3) = a medição mais frágil.** **Web = exploratório.** **Razão compressão:gates ~2/3:1/3 = 1 célula local.**
 - **Verificação mecânica (regex) deu falso-positivo dos dois lados**; só é limpa quando ancora em **ação de arquivo** (F4).

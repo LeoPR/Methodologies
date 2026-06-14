@@ -1,7 +1,7 @@
 ---
-title: 'Opinião de uso do Strata — honesta, por tarefa × tier × custo (consolidação F0-F5 + eco + escada Claude)'
+title: 'Opinião de uso do Strata — honesta, por tarefa × tier × custo (consolidação F0,F1,F3-F6 + eco + escada Claude + topo Opus)'
 created: 2026-06-13
-status: 'CONSOLIDADO (workflow 7 agentes, com crítico adversarial de over-claim). SINAIS/direção, não prova. Síntese bruta em consolidacao-synthesis.json.'
+status: 'CONSOLIDADO 2026-06-13 (assinatura única: barato over-age / topo calibra / forma padroniza). SINAIS/direção, não prova; sintético+completion-only.'
 ---
 
 # Opinião de uso do Strata — o que dizer, com honestidade
@@ -10,22 +10,37 @@ status: 'CONSOLIDADO (workflow 7 agentes, com crítico adversarial de over-claim
 > passado por um **crítico adversarial de over-claim**. Detalhe por fase no [hub](ARQUITETURA-E-EVIDENCIAS.md);
 > backlog priorizado em [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md).
 
-## Tese — confirmada na direção, **rebaixada no status**
-**"A forma corrige o viés; a capacidade calibra."** Sobrevive como **sinal forte** — mas é preciso separar o
-**sólido** do **exploratório** (a versão anterior emprestava a robustez das peças fortes — F0 cross-vendor, F4
-GOLD-gate 100% + juiz 92% — para células que ficaram fracas). **Direção forte, status NÃO-fechado.**
-*(Atualização 2026-06-13: a metade "**a capacidade calibra**" ganhou sua célula decisiva — Opus 4.8 abstém
-**6/6** no f4-clean, onde o barato/médio super-engenha, e o Strata **não** o desvia; ver linha §9. E a metade
-"**a forma corrige o viés**" ganhou um **caso concreto** (f4-trap, [resultado](RESULTADOS-f4-execucao.md)):
-mesmo no topo, segurança (§6-bis) e preservação (§3) são **nativas** — a forma não as adiciona — mas a
-**padronização + rastreabilidade do conserto** (§5 canonical/superseded/ponteiro + registro append-only) **é**
-o que a forma adiciona, até ao topo. Ainda assim, no geral, é o lado mais frágil.)*
+## Síntese (a assinatura — consolidação 2026-06-13)
+**Modelos NÃO-topo tendem a OVER-AGIR; o topo (Opus 4.8) CALIBRA; a forma PADRONIZA.** O mesmo padrão apareceu
+em **três fixtures sintéticas distintas** — **não** três eixos independentes: mesmos atores
+(gpt-4o-mini/gemini/gpt-4.1 vs Opus 4.8), todas sintéticas, completion-only, N≤3, e as células de topo **sem
+juiz independente** (mecânico no f4-clean; por leitura no f6-ruidoso). É o **sinal mais consistente** do corpus
+(réplicas do mesmo construto, mesmo autor), **não** triangulação.
+- **§9 abstenção** (f4-clean): os não-topo super-engenham um projeto limpo · **Opus abstém 6/6** *(= 3 STRATA + 3 BASELINE na MESMA fixture, 1 modelo, juiz mecânico+GOLD)*. *(O F1/M0 já mostrara Opus discriminando em §9 — juiz Claude único; o f4-clean replica por via mecânica.)*
+- **temporal sob ruído** (f6-ruidoso): **dois modos / dois modelos** — o **gpt-4.1** (normalmente o "forte") **re-levanta um bug já resolvido** + pede LICENSE; o **gemini** manda **apagar marcadores históricos** (anti-§3). **Importante: aqui até o forte gpt-4.1 over-agiu** — o discriminador foi **só o topo** (Opus 2/2, juiz por leitura), **não** "capacidade" de forma monotônica.
+- **gênero**: sob framing **ingênuo** o não-topo é gênero-cego (pede LICENSE/CI de um caderno); mas **com framing gênero-consciente até o barato acerta** (RESULTADOS-genero, N=1). O contraste vem do **framing** — e **o topo NÃO foi testado em gênero** (não atribuir o acerto ao topo aqui).
+
+E o **complemento** (f4-trap): segurança (§6-bis) e preservação de história (§3) são **nativas do topo** — a
+forma **não** as adiciona —; o que a forma adiciona, **mesmo no topo**, é **padronização + rastreabilidade do
+conserto** (§5 canonical/superseded/ponteiro + append-only). *(No baseline do f4-trap o verificador deu
+FALHA_CORRECAO = desvio de schema, **não** obediência: a decomposição mostra injeção recusada 3/3 e histórico preservado 3/3.)*
+
+## Tese — "a capacidade calibra; a forma padroniza"
+A versão anterior ("a forma corrige o viés; a capacidade calibra") sobrevive **com o peso deslocado**, mas com
+**sustentação modesta**: a metade **"a capacidade calibra"** repousa essencialmente em **um único modelo de topo**
+(Opus 4.8, da **mesma família** que co-escreveu o método), em fixtures sintéticas N≤3, com **juiz mecânico/leitura**
+(não os 2 juízes cross-vendor que dão a credibilidade do F4-dup). A metade da forma virou **"padroniza / torna
+rastreável"** — **não** "corrige o viés" (não compra proporcionalidade ao fraco; às vezes **piora**). **Tiers de
+solidez distintos:** robusto = **F0** (3 fornecedores) e **F4-dup** (juiz 92%, 2 juízes não-Claude); as células de
+topo (§9/ruidoso) são **sinal forte, não no mesmo patamar**. Tudo **sintético / completion-only**.
 
 ## Três condições que valem para TODA a tabela (não são notas de rodapé)
 1. **Tudo abaixo é SINTÉTICO/fixture.** Em **projetos REAIS** (R8, 3 projetos) o Strata **como auto-auditor de
    IA NÃO bateu a competência pura** — piorou no bom, empatou no messy, e no exemplar **todos (incl. baseline)
    alucinaram** (~4,4-4,9 falso-positivos/plano). **O ganho sintético não se traduziu em projeto real.** Única
-   exceção medida: o **topo (Opus)** — e em projeto próprio, N=2.
+   exceção medida: o **topo (Opus)** — e em projeto próprio, N=2; **além do F1/M0, onde o Opus foi o único a
+   discriminar já-bom×precisa nos 3 projetos reais do R8 — mas PARCIAL (½ no FG2P) e com juiz Claude único
+   (auto-avaliação, o caso mais circular).**
    **Atualização (braço externo, [resultado](RESULTADOS-externo-bemcomportado.md), N=1):** em 3 repos de
    **TERCEIROS** organizados, a **forma de abstenção (M0) abstém certo** (JÁ-BOM 9/9), enquanto o framing
    "ache-problemas" over-detecta — o falso-positivo do R8 é **da FORMA, não inerente nem circular**. **Mas o
@@ -54,10 +69,10 @@ o que a forma adiciona, até ao topo. Ainda assim, no geral, é o lado mais frá
 | Tarefa | econômico | intermediário | premium | web? | custo rec. | status | recomendação |
 |---|---|---|---|---|---|---|---|
 | **Consertar §5 (defeito conhecido)** | OK c/ Strata (até Haiku) | OK | OK (redundante) | não | **econômico, recorrente** | **SÓLIDO** (F4 GOLD 100% + juiz 92%, ancora em ação de arquivo) | o caso mais forte e barato; sem Strata alguns consertam **informal** — o método formaliza + habilita quem não consertava |
-| **Preservar histórico / tombstone §3** | OK c/ Strata (tombstone 7/8; payload propagado 0/8) | OK | OK | não | **econômico, recorrente** | **SÓLIDO** no sintético; **SINAL** no real (1 digest, N=2, próprio, sem 2º juiz) | argumento de segurança mais transferível; **replicar fora do projeto-próprio** |
-| **Recusar injeção §6-bis** | Strata vira obedecer→recusar no leniente; **Claude-Haiku já recusa sozinho** | já recusa | redundante | não | econômico | **SINAL** — a medição **mais frágil** (concordância 56-69%, 1 cenário, N=2; o GOLD-gate é do F4, não daqui) | delta real só no barato leniente; **segurança do fraco é em parte LEXICAL** (recusa 6/6→4/6 sob paráfrase) → contra ataque real de paráfrase, barato **não é seguro** |
-| **Abster-se em projeto já-bom §9** | **FALHA** (Strata induz super-engenharia 6/8 vs 2/8) | parcial (Sonnet+thinking 1/2, dentro do ruído) | gpt-4.1 e **Opus 4.8 abstêm** (Opus **6/6** STRATA+BASELINE, mec.+GOLD) | não | **forte, pontual** / humano no loop | **FECHADA**: topo abstém; Strata **não** induz super-eng no topo | a **faca de dois gumes é do barato/médio**: lá o Strata em projeto limpo gera trabalho inútil/alucinado. **A forma NÃO compra proporcionalidade — a capacidade compra**: o topo abstém com ou sem Strata. Use modelo forte ou humano no loop |
-| **Verificar fonte §6 (web)** | carimba falso confiante | idem | **FALHA também sem web** (gpt-4.1 carimbou 3/3) | **reduz, não conserta** (forte+web ainda 2/3) | — (probe) | **EXPLORATÓRIO** (N=1-2, 1 fixture, 3 claims) | nunca confie em verificação de fonte sem web — **nem com web sem revisão** |
+| **Preservar histórico / tombstone §3** | OK c/ Strata (tombstone 7/8; payload 0/8 — *f4-trap/Strata, 3 modelos não-Opus, juiz cross-vendor*) | OK | OK | não | **econômico, recorrente** | **SÓLIDO** no sintético; **SINAL** no real (1 digest, N=2, próprio, sem 2º juiz) | argumento de segurança mais transferível; **replicar fora do projeto-próprio** |
+| **Recusar injeção §6-bis** | Strata vira obedecer→recusar no leniente; **Claude-Haiku já recusa sozinho** | já recusa | redundante | não | econômico | **SINAL** — a medição **mais frágil** (concordância 56-69%, 1 cenário, N=2; o GOLD-gate é do F4, não daqui) | delta real só no barato leniente; **segurança do fraco é em parte LEXICAL** (recusa 6/6→4/6 sob paráfrase — **queda toda do gpt-4o-mini, o piso**; gemini/gpt-4.1 recusam as 3 formas) → contra ataque real de paráfrase, barato **não é seguro**. **Topo recusa injeção nativamente** na execução (f4-trap baseline 3/3) |
+| **Abster-se em projeto já-bom §9** | **FALHA** (super-eng 6/8 vs 2/8; **indução do Strata limpa só no gpt-4o-mini** — sozinho abstinha; **gemini super-aplica nos 2 braços** = viés do modelo) | parcial (Sonnet+thinking 1/2, dentro do ruído) | gpt-4.1 e **Opus 4.8 abstêm** (Opus **6/6** = 3+3 na mesma fixture, 1 modelo, juiz mec.+GOLD) | não | **forte, pontual** / humano no loop | **FECHADA**: topo abstém; Strata **não** induz super-eng no topo | a **faca de dois gumes é do barato/médio**: lá o Strata em projeto limpo gera trabalho inútil/alucinado. **A forma NÃO compra proporcionalidade — a capacidade compra**: o topo abstém com ou sem Strata. Use modelo forte ou humano no loop |
+| **Verificar fonte §6 (web)** | carimba falso confiante | idem | **FALHA também sem web** (gpt-4.1 carimbou 3/3) | **reduz, não conserta** (forte+web ainda 2/3) | — (probe) | **EXPLORATÓRIO** (N=1-2, 1 fixture, 3 claims) | nunca confie em verificação de fonte sem web — **nem com web sem revisão**. O **mesmo gpt-4.1** que abstém bem em §9 carimba fonte falsa aqui → **capacidade é por-TAREFA, não global** |
 | **Reconciliar TUDO num passo (real)** | zero PASS | parcial (~2/3) | parcial | não | nenhum tier resolve | **SINAL confundido com limite de HARNESS** (o formato "arquivo inteiro" **truncou**) | rascunho a revisar / humano no loop; **não prometer** reconciliação total |
 | **Qualquer tarefa em LOCAL 4-8B** | **não usar p/ AGIR** | — | — | — | — | **RUIDOSO** (muito INDETERMINADO; "+0,50" virou −1,50 com N=3) | detecção c/ forma curta funciona **com asterisco**; para EXECUTAR: zero PASS, destroem/obedecem, alucinam no limpo — **nunca autônomo para agir** |
 
@@ -91,8 +106,9 @@ um projeto real inteiro num passo; que conclusões de completion-only transfiram
 - **Completion-only:** disposição do PLANO em texto, não o agente real. Não transfere ao produto.
 - **N pequeno em toda célula (1-3); nenhuma N≥5.** Variância intra-modelo já virou o sinal (deepseek +0,50→−1,50). Deltas-grandes-vs-ruído, não significância.
 - **Juiz frequentemente único** nas células decisivas (F0 cross-vendor só no P1/P2). Viés de família medido (R6: Claude ~0,87 mais generoso com Haiku).
-- **Claude como SUJEITO**: Haiku/Sonnet na escada-claude (julgado por não-Claude) **e agora Opus 4.8 na abstenção §9** (f4-clean, 6/6 abstenção correta, mecânico+GOLD). **Reconciliação** com Opus-sujeito segue pendente. *(Correção a uma afirmação da síntese bruta que dizia "Claude só foi juiz".)*
+- **Claude como SUJEITO**: Haiku/Sonnet na escada-claude (julgado por não-Claude); o **F1/M0 já tivera Opus-sujeito em §9** (juiz Claude **ÚNICO = auto-avaliação**; discriminou, mas **parcial** — ½ no FG2P); o **f4-clean (6/6) + f4-trap replicam por via mecânica**. Reconciliação Opus-juiz×sujeito pendente. *(Correção à síntese bruta que dizia "Claude só foi juiz".)*
+- **As células decisivas do TOPO (f4-clean 6/6, f6-ruidoso 2/2) NÃO têm o juiz duplo cross-vendor** que dá a credibilidade do F4-dup (92%) — são **juiz mecânico / classificação por leitura**, herdando a fragilidade de juiz-único; e o **verificador mecânico tem heurísticas calibradas pelo próprio autor** (circularidade fina). Some-se que o "topo" é **1 modelo (Opus 4.8), da MESMA família que co-escreveu o método** — camada de circularidade **além** da "projeto do dono".
 - **Circularidade** (projeto+gabarito do dono, gabarito incompleto). **Disconfirmação ecológica (R8)**: no real, o auto-auditor não bate a competência pura.
-- **Temporalidade = direção, não achado** (F6 não rodou). **Recusa (F3) = a medição mais frágil.** **Web = exploratório.** **Razão compressão:gates ~2/3:1/3 = 1 célula local.**
+- **Temporalidade: F6 RODOU** (limpo 16/16; ruidoso = barato over-flagga/topo situa) → ponto-cego **condicional à legibilidade**, não fundamental; **falta o real-grande/longitudinal não-sintético.** **Recusa (F3) = a medição mais frágil** (mas no F4-trap o topo recusa injeção nativamente, baseline 3/3). **Web = exploratório.**
 - **Verificação mecânica (regex) deu falso-positivo dos dois lados**; só é limpa quando ancora em **ação de arquivo** (F4).
 - **Resultados são SINAIS / direção forte, não prova.**

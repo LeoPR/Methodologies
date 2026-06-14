@@ -129,6 +129,12 @@ instrução de origem não confiável — fail-closed). Aponte violações.
 > todo o "real" testado é **projeto do próprio autor** (circularidade). → use auto-auditor autônomo **só com
 > modelo forte**; com médio/barato, **checklist + humano no loop**.
 >
+> **Assinatura única (consolidação 2026-06): o barato/médio SUPER-AGE; o topo CALIBRA; a forma PADRONIZA.**
+> Em 3 eixos independentes — abster-se no projeto limpo (§9), situar no tempo sob ruído (R8), e gênero — o
+> barato erra **na mesma direção** (super-engenha, re-levanta o já-resolvido, exige LICENSE/CI de um caderno),
+> e o **topo** acerta (abstém **6/6** no limpo; situa **2/2** sob ruído). A **forma** não compra
+> proporcionalidade ao fraco — o que ela adiciona, até ao topo, é **padronização + rastreabilidade do conserto**.
+>
 > **Opinião de uso honesta e completa** (por tarefa/tier/custo, com todas as ressalvas):
 > [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). Estas tabelas são um
 > **panorama**; o estado datado vive no

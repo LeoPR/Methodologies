@@ -39,7 +39,7 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 | **Gênero+Temporal (próprios)** | lê tombstone/supersessão como organização? | ✅ probe (framing+marcadores) | baixa (N=2; **circular**) | [gên+temp próprios](RESULTADOS-genero-temporal-own.md) · [gabarito](GABARITO-genero-temporal-own.md) |
 | **F6** temporalidade | inferir cronologia / drift / abster / **ruído (R8)** | ✅ limpo 16/16 · **ruidoso: barato 4/4 over-flagga, topo 2/2 situa** | baixa (4 fixtures) | [F6](RESULTADOS-f6-temporal-sem-marcadores.md) · [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
 | **Eco/gênero** | vale em +cenários e fora de código? (+ viés do dono) | ⬜ planejado | — | [plano](PLANO-evidencia-cenarios-e-narrativa.md) |
-| **Escada Claude** (contrato) | Claude Code barato aplica? | ✅ Haiku+Sonnet · ⬜ Opus | média (F3 juiz + F4 mec) | [escada-claude](RESULTADOS-escada-claude.md) |
+| **Escada Claude** (contrato) | Claude Code barato aplica? | ✅ Haiku+Sonnet · ✅ **Opus** (f4-clean 6/6, f4-trap 3/3 Strata) | média (F3 juiz + F4 mec) | [escada-claude](RESULTADOS-escada-claude.md) |
 
 ## Duas perguntas
 1. O **núcleo (L0)** é fundamentado? — questão de *fundamentação*.

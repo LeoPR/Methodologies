@@ -177,7 +177,7 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 - **2026-06-13** — **GÊNERO+TEMPORAL nos projetos do dono** (AulaQuantum/DeepLearning, gabarito
   **PRÉ-REGISTRADO** antes da sonda): cega bateu **4/4 no gênero** (JÁ-BOM, ninguém exigiu CI/tests) e **não
   acionou nenhuma das 5 armadilhas N1-N5** no temporal (tombstone/arquivamento/supersessão = organização, não
-  defeito); ainda pegou **true-positives** ([redigido] sensível, PDF duplicado, drift de status). FORTE mas
+  defeito); ainda pegou **true-positives** (um dado pessoal sensível, PDF duplicado, drift de status). FORTE mas
   **circular** (projeto+analista+autor mesma família) e **bar baixo** (marcadores explícitos; inferir tempo
   SEM marcadores = F6, segue aberto). [`RESULTADOS-genero-temporal-own`](RESULTADOS-genero-temporal-own.md) ·
   [`GABARITO`](GABARITO-genero-temporal-own.md).

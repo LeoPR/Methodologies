@@ -40,9 +40,9 @@ quando o framing pede situar-no-tempo **e** o projeto tem marcadores explícitos
 
 ## True positives (não são falso-positivo gênero-cego)
 Os modelos **não ficaram cegos nem paranoicos** — pegaram coisas reais:
-- **`[arquivo-redigido]` em `[redigido]/`** (dado pessoal sensível) — gemini achou nos dois eixos. **E**
-  notou que o ticket `T010_apagar_[redigido]_e_duplicatas` está **fechado** → provavelmente **já resolvido na
-  árvore viva** (o digest está velho). ⚠️ **Vale você conferir** (ver nota de ação abaixo).
+- **um arquivo de dado pessoal sensível indevidamente versionado** *(detalhes omitidos por privacidade)* — a
+  sonda o pegou nos dois eixos e, pelo ticket correspondente já **fechado**, inferiu que **provavelmente já fora
+  tratado** na árvore viva (o digest estava velho). *(Já resolvido à parte; é um true-positive de higiene, não FP de gênero.)*
 - **PDF duplicado na raiz** (`Semana1_1st_Overview_Part1a.pdf`) — ticket `T213` aberto.
 - **Drift de status na Semana 1** (gemini): ticket `T201` fechado, mas `VERIFICACAO_SEMANA1.md` (posterior)
   diz "incompleta" → "completude pode ter sido só administrativa". Achado temporal **fino e legítimo**.
@@ -68,8 +68,3 @@ não houve juiz cross-projeto comparando-os de frente.)*
   3. **N pequeno** (2 projetos, 2 modelos, 1-2 runs); sem juiz independente; completion-only.
 - **Saldo:** sinal **forte mas restrito** — "modelos fazem leitura gênero/tempo-consciente de projetos
   bem-marcados quando perguntados". Útil como *capability check*, não como prova de método nem de generalização.
-
-## Nota de ação (mundo real, fora da metodologia)
-⚠️ Há indício de **[redigido] (dado pessoal) versionado** em `[redigido]/` no digest.
-O ticket `T010` aparece **fechado** (provável remoção já feita), mas **confirme** que `[arquivo-redigido]`
-não está mais rastreado no git (inclusive no **histórico** — se já foi commitado, precisa de purge, não só rm).

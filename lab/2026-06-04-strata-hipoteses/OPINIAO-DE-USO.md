@@ -37,6 +37,11 @@ o que a forma adiciona, até ao topo. Ainda assim, no geral, é o lado mais frá
    [resultado](RESULTADOS-genero.md)):** parte da "sub-detecção" do messy era **fit de gênero** — com framing
    gênero-consciente, os modelos corretamente **não exigem testes de uma lista**; logo o §9 deveria ser
    **gênero-consciente** (melhoria de narrativa, não de modelo).
+   **Reprodução controlada do R8 ([f6-ruidoso](RESULTADOS-f6-temporal-sem-marcadores.md)):** numa fixture
+   *ruidosa* (histórico/resolvido soterrado), o **barato reproduz o R8 4/4** — re-levanta um bug já resolvido
+   e chega a mandar **apagar os marcadores históricos** (anti-§3) — enquanto o **topo (Opus 4.8) situa 2/2** e
+   protege o histórico. **Logo o "não bater a competência pura" do R8 é majoritariamente um viés de over-ação
+   do BARATO sob ruído; o topo é o discriminador.** (Mesma assinatura do f4-clean §9 e do gênero-cego.)
 2. **Circularidade (parcialmente endereçada).** Quase todo o "real" é projeto **do próprio dono**, e o **gabarito** também (provou-se
    **incompleto** — o Opus achou §5 reais que o gabarito perdeu). **Nenhum "OK" foi validado em projeto de
    terceiro com gabarito pré-registrado.**

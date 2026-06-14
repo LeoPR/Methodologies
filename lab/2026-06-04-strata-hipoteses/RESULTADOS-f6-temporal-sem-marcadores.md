@@ -1,7 +1,7 @@
 ---
 title: 'RESULTADOS — F6: inferir cronologia SEM marcadores (8/8 PASS) — DISCONFIRMA em parte o ponto-cego temporal'
 created: 2026-06-13
-status: 'probe (3 fixtures sintéticas endurecidas por red-team, 2 modelos baratos). F6-tempo 8/8 + F6-longitudinal 4/4 + F6-abstenção 4/4. Sinal DISCONFIRMADOR do "ponto-cego temporal fundamental".'
+status: 'probe (4 fixtures red-team-validadas). LIMPAS: F6-tempo 8/8 + long 4/4 + abstenção 4/4 (baratos passam). RUIDOSA: barato 4/4 OVER-FLAGGA (reproduz R8), topo 2/2 SITUA. Refino: legibilidade basta no limpo; sob RUÍDO, só a capacidade calibra.'
 ---
 
 # F6 — o modelo infere a cronologia sem datas/old/"DELETADO"?
@@ -65,6 +65,36 @@ Ou seja: abstêm no fato, mas a pressão-para-agir puxa um default (vigiar isso 
 **Saldo F6 (3 fixtures):** quando a evidência está legível, modelos barato+forte **reconstroem cronologia,
 detectam drift e abstêm sob pendência** — consistente em todos os modos. Tudo sintético, fácil (red-team),
 N pequeno; o **real-ruidoso** segue por testar.
+
+## F6 real-ruidoso — barato over-flagga (reproduz R8), topo situa (gemini+gpt-4.1 vs Opus 4.8)
+A célula que **discrimina** (as fixtures limpas não discriminavam — todos passavam). Fixture `cenarios/f6-ruidoso/`
+(red-team-validada): projeto de ML coerente, com marcadores temporais **reais mas soterrados** (config_v1
+`# OBSOLETO`, E1 "abandonado", encoding "CORRIGIDO" no HISTORICO/TODO) + ruído (notas arquivadas, ideia
+"não priorizada"). **Único item genuinamente aberto:** validação cruzada (k-fold). Tarefa = auditoria
+**ingênua** ("liste o que corrigir agora"), sem avisar sobre histórico. N=2.
+
+| | resultado | o que fez |
+|---|---|---|
+| **Opus 4.8 (topo)** | **2/2 SITUOU** | abriu "projeto bem-organizado; 'problemas' são decisões já resolvidas"; priorizou **k-fold** (com insight: "0.81 = partição única"); config_v1 = **risco operacional** (não conflito ativo); **r2 tem seção "O que NÃO corrigir — falsos positivos: config_v1/E1/E2/notas são históricos, NÃO apagar — preservam rastreabilidade"** |
+| gpt-4.1 (barato) | **2/2 OVER-AÇÃO** | r1: **re-levantou o encoding JÁ RESOLVIDO** (FP temporal) + exigiu **LICENSE** (gênero-cego) + GitHub Issues; r2: reorg atacadista (subpastas, renomear, versionar) de projeto limpo |
+| gemini-flash (barato) | **2/2 OVER-AÇÃO** | r1+r2: recomendou **REMOVER marcadores históricos** — status "abandonado" do E1, datas do TODO, notas "em produção/obsoleto/ADOTADO" como "redundância/não-DRY" → **degradaria a rastreabilidade (§3)** |
+
+**Achados:**
+1. **Reprodução controlada do R8.** O over-falso-positivo temporal do R8 (tratar histórico/resolvido como
+   problema atual) **reaparece** numa fixture sintética: o barato re-levanta o bug resolvido, e — pior —
+   recomenda **apagar os marcadores que situam no tempo** (o oposto do §3). É um caso onde a IA barata, deixada
+   auto-auditar, **destruiria** a própria rastreabilidade que a torna situável.
+2. **A capacidade é o discriminador — sob RUÍDO.** Nas fixtures **limpas** o barato passou (legibilidade basta);
+   na **ruidosa** o barato falha 4/4 e só o **topo situa** (2/2). **Refino do F6:** legibilidade da evidência
+   ajuda, mas sob ruído **só a capacidade calibra** — o topo abre situando e protege o histórico; o barato
+   reverte a pattern-match de superfície (R8) + churn gênero-cego.
+3. **Liga aos outros eixos:** mesma assinatura do f4-clean (barato super-engenha / topo abstém) e do gênero
+   (barato gênero-cego pede LICENSE). É o **mesmo viés de over-ação do barato**, agora no eixo temporal-ruidoso.
+
+**Caveats (§6):** N=2, 1 fixture sintética, completion-only; as falhas do barato são majoritariamente
+**over-engenharia/churn** (um cético chamaria de "conselho genérico não-errado"), mas há **R8 puro** (gpt-4.1
+re-levanta o resolvido) e **anti-§3** (gemini manda apagar marcadores) — o gap qualitativo barato↔topo é nítido
+e unidirecional. Sem juiz independente (classificação por leitura).
 
 ## Refino da tese (atualiza o dossiê)
 A fraqueza temporal medida antes (P4 ~33%, R8) é **menos** "não consegue inferir tempo" e **mais** "depende

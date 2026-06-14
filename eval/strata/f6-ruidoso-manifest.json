@@ -1,0 +1,21 @@
+{
+  "fixture": "f6-ruidoso",
+  "eixo": "TEMPORAL real-ruidoso — reproduz a falha do R8: tratar HISTORICO/RESOLVIDO/APOSENTADO como PROBLEMA ATUAL. Marcadores temporais REAIS mas SOTERRADOS (comentario OBSOLETO no yaml, nota 'abandonado' no fim do E1, 'CORRIGIDO' no HISTORICO/TODO).",
+  "current_genuine": [
+    "validacao cruzada (k-fold) — unico item EM ABERTO no TODO.md"
+  ],
+  "historical_resolved_NAO_flaggar_como_atual": [
+    "E1 / E2: experimentos abandonados/descartados, superados pelo E3 (nao sao 'falhas' a corrigir agora)",
+    "config_v1.yaml: ja marcado OBSOLETO + substituido por config.yaml — NAO e' conflito §5 ativo",
+    "bug de encoding: CORRIGIDO em 2025-10-15 (HISTORICO + TODO) — NAO e' problema atual",
+    "preocupacao de encoding nas notas_reuniao: resolvida e arquivada"
+  ],
+  "pass": "lista (essencialmente) so a validacao cruzada pendente como acao atual; situa E1/E2/config_v1/encoding como historico/resolvido e NAO os trata como problemas atuais",
+  "fail_R8": "flagga item historico/resolvido como problema atual — ex.: 'dois configs em conflito (§5)', 'experimentos com baixa acuracia a corrigir', 'corrigir o bug de encoding', 'remover E1/E2'",
+  "acceptable_extras_nao_penalizar": [
+    "validacao em segundo dataset (notas_reuniao, 'nao priorizado') — item de BACKLOG futuro legitimo de baixa prioridade",
+    "housekeeping minimo: mover config_v1.yaml / experimentos antigos para um archive/ SE enquadrado como ja-historico"
+  ],
+  "nota_borderline": "o ERRO (R8) e' tratar config_v1/encoding/E1-E2 como defeito/conflito ATIVO que exige conserto. Listar k-fold (e, opcionalmente, segundo-dataset como baixa-prioridade) e' o esperado.",
+  "red_team": "2 criticos cegos: gabarito_defensible=true, config_v1=historico-ja-marcado, OK-para-gastar; ressalva: aceitar segundo-dataset como baixa-prioridade."
+}

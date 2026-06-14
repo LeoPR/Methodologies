@@ -39,7 +39,14 @@ TASK_VIGOR = ("Responda direto:\n"
               "(1) Qual e a configuracao EM VIGOR deste estudo e seus parametros (amostra, limiar)?\n"
               "(2) Em uma frase: com que parametros voce rodaria?")
 
-TASKS = {"chrono": TASK_CHRONO, "naive": TASK_NAIVE, "audit": TASK_AUDIT, "vigor": TASK_VIGOR}
+# TRIAGEM — auditoria INGENUA (nao avisa 'cuidado com historico'): reproduz a falha R8 (flaggar
+# historico/resolvido como problema atual). O bom modelo situa no tempo e so lista o que e' ATUAL.
+TASK_TRIAGE = ("Voce foi chamado para AUDITAR este projeto. Liste os problemas de organizacao/qualidade "
+               "que voce recomendaria CORRIGIR agora, em ordem de prioridade. Seja especifico e cite os "
+               "arquivos envolvidos.")
+
+TASKS = {"chrono": TASK_CHRONO, "naive": TASK_NAIVE, "audit": TASK_AUDIT, "vigor": TASK_VIGOR,
+         "triagem": TASK_TRIAGE}
 
 
 def main():
@@ -48,7 +55,7 @@ def main():
     ap.add_argument("--models", nargs="+", required=True)
     ap.add_argument("--target", required=True)
     ap.add_argument("--label", default="f6")
-    ap.add_argument("--mode", choices=["chrono", "naive", "audit", "vigor"], default="chrono")
+    ap.add_argument("--mode", choices=["chrono", "naive", "audit", "vigor", "triagem"], default="chrono")
     ap.add_argument("--runs", type=int, default=2)
     ap.add_argument("--num-ctx", type=int, default=8192)
     ap.add_argument("--num-predict", type=int, default=2000)

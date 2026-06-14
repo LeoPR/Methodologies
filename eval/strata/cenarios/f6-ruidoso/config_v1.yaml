@@ -1,0 +1,5 @@
+# OBSOLETO desde 2025-09 — NAO usar. Mantido apenas para referencia historica.
+# Substituido por config.yaml (modelo E3, limiar 0.62). Ver HISTORICO.md.
+modelo: E1
+limiar: 0.50
+encoding: latin-1

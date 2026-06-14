@@ -1,0 +1,4 @@
+# Config vigente (produção). Ver HISTORICO.md.
+modelo: E3
+limiar: 0.62
+encoding: utf-8

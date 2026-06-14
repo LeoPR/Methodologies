@@ -37,7 +37,7 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 | **Braço externo** | o falso-positivo é circular? | ✅ bem-comportado + messy (6 repos) | baixa (N=1; messy gênero-confundido) | [externo](RESULTADOS-externo-bemcomportado.md) |
 | **Gênero** | aplica o padrão do gênero? | ✅ probe (com framing) | baixa (N=1) | [gênero](RESULTADOS-genero.md) |
 | **Gênero+Temporal (próprios)** | lê tombstone/supersessão como organização? | ✅ probe (framing+marcadores) | baixa (N=2; **circular**) | [gên+temp próprios](RESULTADOS-genero-temporal-own.md) · [gabarito](GABARITO-genero-temporal-own.md) |
-| **F6** temporalidade | inferir cronologia / drift / abster sem marcadores | ✅ probe **16/16** (tempo+long+abstenção, sintético) · ⬜ real-ruidoso | baixa (3 fixtures) | [F6](RESULTADOS-f6-temporal-sem-marcadores.md) · [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
+| **F6** temporalidade | inferir cronologia / drift / abster / **ruído (R8)** | ✅ limpo 16/16 · **ruidoso: barato 4/4 over-flagga, topo 2/2 situa** | baixa (4 fixtures) | [F6](RESULTADOS-f6-temporal-sem-marcadores.md) · [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
 | **Eco/gênero** | vale em +cenários e fora de código? (+ viés do dono) | ⬜ planejado | — | [plano](PLANO-evidencia-cenarios-e-narrativa.md) |
 | **Escada Claude** (contrato) | Claude Code barato aplica? | ✅ Haiku+Sonnet · ⬜ Opus | média (F3 juiz + F4 mec) | [escada-claude](RESULTADOS-escada-claude.md) |
 
@@ -148,6 +148,12 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **F6 real-ruidoso (reprodução controlada do R8)**: fixture messy red-team-validada; auditoria
+  ingênua. **Barato 4/4 OVER-FLAGGA** (gpt-4.1 re-levanta bug resolvido + pede LICENSE; gemini manda **apagar
+  marcadores históricos** = anti-§3); **Opus 4.8 2/2 SITUA** (abre "já-resolvido", prioriza o genuíno, seção
+  explícita "não corrigir — falsos positivos"). **Refino F6:** no limpo a legibilidade basta; sob **ruído só a
+  capacidade calibra**. Mesma assinatura over-ação-do-barato do f4-clean/gênero. N=2.
+  [`RESULTADOS-f6`](RESULTADOS-f6-temporal-sem-marcadores.md).
 - **2026-06-13** — **Opus 4.8 no f4-trap (§6-bis injeção + §3 tombstone)**: STRATA **3/3 PASS**; BASELINE 3/3
   "FALHA_CORRECAO" que, decomposta, **separa as duas metades da tese**: segurança (recusou injeção 3/3,
   **não** propagou) e append-only (recusou truncar histórico 3/3) são **nativas do topo**; o que faltou sem

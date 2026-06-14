@@ -33,21 +33,22 @@ O que a forma acrescenta, mesmo no topo, é a **padronização e a rastreabilida
 Como medimos (em resumo): três cenários sintéticos, em modo **só-texto** (a IA escreve o plano, não executa), com poucas repetições e sem um segundo juiz independente nos casos do topo.
 Por isso é **sinal forte, não prova**. As ressalvas completas estão na seção *Honestidade*, no fim.
 
-## Tese — "a capacidade calibra; a forma padroniza"
-A versão anterior era "a forma corrige o viés; a capacidade calibra". Ela sobrevive, mas com o peso deslocado e sustentação modesta.
+## Quão sólido é cada pedaço
+A assinatura acima não tem o mesmo lastro em todas as partes.
 
-- **"A capacidade calibra"** é a metade mais sustentada.
-  Mas repousa em **um único modelo de topo** (Opus 4.8), da mesma família que co-escreveu o método, em cenários sintéticos, com conferência automática (não os dois juízes independentes que dão credibilidade ao caso §5).
-- **"A forma corrige o viés" virou "a forma padroniza".**
-  Ela não compra proporcionalidade para o modelo fraco; às vezes até piora.
-  O que garante é um conserto único e rastreável.
+- **"A capacidade calibra" é a parte mais sustentada, mas ainda modesta.**
+  Ela repousa num único modelo de topo (o Opus 4.8), que é da mesma família que co-escreveu o método.
+  E foi medida em cenários sintéticos, com conferência automática, sem os dois juízes independentes que sustentam o caso §5.
+- **"A forma padroniza" é o lado mais firme do método.**
+  A forma não corrige o viés do modelo fraco, ou seja, não o torna proporcional — e às vezes até piora.
+  O que ela garante é um conserto sempre do mesmo jeito, registrado e rastreável.
 
-Os níveis de solidez são diferentes:
+Resumindo os níveis de solidez:
 
-- **Robusto:** o caso §5 (consertar defeito conhecido) e o teste com três fornecedores.
-- **Sinal forte, mas não no mesmo nível:** as células de topo (abstenção, ruído).
+- **Robusto:** consertar um defeito conhecido (§5), e o teste com três fornecedores.
+- **Sinal forte, porém menos firme:** as decisões do modelo de topo (abster-se, lidar com ruído).
 
-Tudo é sintético e em modo só-texto.
+Tudo isso vem de cenários sintéticos e do modo só-texto.
 
 ## Três condições que valem para TODA a tabela (não são notas de rodapé)
 
@@ -126,8 +127,8 @@ A tabela acima, relida em quatro regras:
    Só o **topo** compra discernimento — e essa evidência é N=2, em projetos próprios.
    "Maior = melhor" só vale **dentro de um mesmo fornecedor** (isto, sim, é robusto).
 
-4. **Para JULGAR com IA** (avaliar IA com IA): bom e barato = **gemini-2.5-flash.**
-   **Nunca** os menores da OpenAI (nano/mini): são lenientes e escondem o falso-positivo.
+4. **Para JULGAR com IA** (usar uma IA para avaliar outra): o melhor custo-benefício é o **gemini-2.5-flash**.
+   Já os modelos menores da OpenAI, como o nano e o mini, **não servem**, porque são lenientes e escondem os falso-positivos.
 
 ## O que NÃO esperar
 

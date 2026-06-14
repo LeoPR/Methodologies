@@ -2,7 +2,7 @@
 title: 'P8 — posição/saliência da §9: âncora no topo do doc muda o comportamento? (A/B)'
 created: 2026-06-14
 setup: 'A/B no harness hb_runner (injeta o doc inteiro). A = knowledge-architecture.md canônico (§9 na linha 505 de 834). B = cópia byte-a-byte + 1 âncora no topo com critério de abstenção. Cenários: s04-bem-formatado (abstenção; over-ação = erro) e s01-comum-brownfield (recall; guarda). Modelos: gemini-2.5-flash + gpt-4o-mini (K=5) e gpt-4.1 (K=2). Juiz: 1 agente Claude por célula contra gabarito. Completion-only, OpenRouter, temp 0.3. Custo US$0,39.'
-status: 'SINAL (N pequeno, 1 cenário, juiz único Claude): capacidade é o PORTÃO da saliência — a âncora ajuda quem CONSEGUE aplicá-la (topo), ~nada no fraco (teto de capacidade). ATUALIZADO (P8b, K=10 + varredura de temp 0.3/0.7/1.0): confirma capacidade=portão; CORRIGE o catch de segurança do fraco (K=5 dava 0,4-0,6 → K=10 dá 0,1-0,2, pass^k=0 = NÃO-detecção confiável, não ganho); o "0 flips" a 0,3 era em parte mode-lock (veredito quebra a 0,7/1,0). Acurácia × precisão reportadas separadas (ver ADR-006).'
+status: 'SINAL (N pequeno, 1 cenário, juiz único Claude): capacidade é o PORTÃO da saliência — a âncora ajuda quem CONSEGUE aplicá-la (topo), ~nada no fraco (teto de capacidade). ATUALIZADO (P8b, K=10 + varredura de temp 0.3/0.7/1.0): confirma capacidade=portão; CORRIGE o catch de segurança do fraco (K=5 dava 0,4-0,6 → K=10 dá 0,1-0,2, pass^k=0 = NÃO-detecção confiável, não ganho); o "0 flips" a 0,3 era em parte mode-lock (veredito quebra a 0,7/1,0). Acurácia × precisão reportadas separadas (ver ADR-006). P8c (placebo A/B/C + K=5): POSIÇÃO REFUTADA (placebo C neutro = canônico A); só o CONTEÚDO (critério de abstenção, B) moveu o gpt-4.1, mas FRACO e INSTÁVEL (calibra 1/5; o "8→3" do K=2 era sorte). DECISÃO: NÃO adicionar a âncora ao canônico.'
 ---
 
 # P8 — a régua §9 no topo influencia o modelo? (sobretudo o fraco?)
@@ -69,6 +69,11 @@ mas **torna o modelo capaz mais confiável**, a custo baixo e sem efeito colater
 portão**: decide se a saliência vira comportamento. Conecta-se ao P7 (entender ≠ aplicar; o gargalo é
 julgamento/capacidade) e à tese-mãe ("capacidade calibra; forma padroniza").
 
+> **⚠️ REVISADO por P8c (placebo + K=5):** a parte *"a âncora calibra o topo (8→3), a custo baixo e sem
+> efeito colateral"* era **K=2 (sorte de N pequeno)**. Com K=5 o efeito de B é **fraco e instável**
+> (calibra 1/5), e o **placebo C refuta a posição** (banner neutro = canônico). Sobrevive só a direção
+> "só o modelo capaz reage ao conteúdo". O resto, ver P8c.
+
 ## Caveats (sinal, não prova)
 
 - **N pequeno**, sobretudo o topo (gpt-4.1 K=2). Δ limpo (A=3,3 / B=1,1) mas 2 amostras.
@@ -122,11 +127,37 @@ fronteira; real ~0,1–0,2, `pass^k=0`) — **o fraco NÃO detecta segurança de
 *reforça* o teto de capacidade. O "veredito grosso estável a 0,3" era em parte mode-lock. A tese central
 **sobrevive** (capacidade é o portão — é sobre acurácia, independe da estabilidade).
 
-## Próximo passo (antes de editar o canônico)
+## P8c — placebo (posição × conteúdo) + gpt-4.1 K=5 (2026-06-14)
 
-Feito: varredura de temperatura no fraco (P8b). **Falta** para decidir se a âncora entra no produto:
-**placebo C** (isolar posição × conteúdo), **gpt-4.1 com K≥5** (hoje K=2 = não-atestável), e um **2º juiz
-não-Claude**. Reportar sempre **acurácia E precisão** (ADR-006). Só então mexer no `knowledge-architecture.md`.
+Para isolar se o que calibrou o gpt-4.1 foi a **posição** (saliência no topo) ou o **conteúdo** (o critério
+de abstenção), rodei gpt-4.1 × **A/B/C** em s04, **K=5**, temp 0,3. **C = placebo:** banner neutro do mesmo
+tamanho/posição que a âncora B, mas **sem** a instrução de abstenção. Custo US$0,34.
+
+| variante | over-ação (méd±sd) | defeitos fabricados (méd±sd · vals) | vereditos |
+|---|---|---|---|
+| A — canônico | 3,0 ± 0 | 8,4 ± 1,0 · [8,8,9,10,7] | PRECISA-MUITO (5/5) |
+| B — âncora c/ critério | 2,4 ± 1,2 | 3,6 ± 2,0 · [4,4,**0**,6,4] | MUITO / EM-PONTOS / **JÁ-BOM** (1/5) |
+| C — placebo neutro | 3,0 ± 0 | 7,8 ± 0,8 · [8,7,8,9,7] | PRECISA-MUITO (5/5) |
+
+**Veredito — corrige a manchete do P8:**
+
+1. **Posição/saliência: REFUTADA.** O placebo **C ≈ A** (over-ação 3,0; ~8 fabricados; todos PRECISA-MUITO).
+   Banner neutro no topo **não muda nada**. A hipótese original — mover/sinalizar a §9 ao topo
+   ("lost-in-the-middle") — **não se sustenta** para este caso.
+2. **Só o CONTEÚDO moveu** (o critério de abstenção explícito de B) — mas **fraco e instável**: over-ação
+   3,0→2,4, fabricados 8,4→3,6, e calibrou de fato (JÁ-BOM, 0 fabricados) **só 1 de 5 vezes** (SD alto).
+3. **O "8→3 limpo" do P8 era sorte de K=2.** Com K=5, B é um nudge médio, não uma calibração confiável —
+   exatamente o que a preocupação de variância previa.
+4. **Sobrevive:** a direção "só o modelo **capaz** reage ao conteúdo" (gpt-4.1 moveu; gemini/4o-mini não).
+   Mas o efeito é pequeno e não-confiável.
+
+## Decisão: NÃO adicionar a âncora ao canônico
+
+A evidência diz: (a) não é fix de **posição** (placebo = canônico); (b) o nudge de **conteúdo** é **fraco e
+instável** mesmo no modelo forte (1/5); (c) **nada** nos fracos (teto de capacidade). O custo de editar o
+produto — que é input de teste — **não se justifica**. Único item ainda aberto, se quisermos blindar mais:
+um **2º juiz não-Claude** (remove a circularidade) — mas a decisão de **não mexer** já está tomada pela
+própria magnitude e instabilidade do efeito.
 
 ## Reprodução
 

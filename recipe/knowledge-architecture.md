@@ -521,6 +521,23 @@ overhead e vira condição de o artefato ainda **significar** (§3-bis) e
 (§10): organizar **na medida** de uma variável, não em absoluto. (Única exceção:
 a fronteira de segurança §6-bis, onde o *default* é *fail-closed*, não "o mínimo".)
 
+**O outro regulador é o GÊNERO do trabalho.** Proporcionalidade não é só *quanto*
+organizar — é *qual padrão* exigir. O que conta como "bem-organizado" depende do
+**tipo** de artefato: uma **biblioteca** pede testes, empacotamento e CI; um
+**caderno de aula, lista, curadoria ou pesquisa** não — cobrar deles o aparato de
+software é o **mesmo excesso de §9 por outro eixo** (baixa-conformidade de software
+≠ defeito). Antes de auditar ou agir, **nomeie o gênero e aplique o padrão dele**;
+não exija o que não se aplica. É a mesma proporcionalidade-à-relevância de Grice /
+Sperber-Wilson, aqui sobre o *tipo de obra* em vez da distância ao leitor.
+
+> **Operacional (por que isto importa para IA)**: quando o gênero é pedido
+> **explicitamente**, os modelos aplicam o padrão certo e **deixam de super-exigir**
+> (não cobram testes/CI de uma lista); o risco é o framing **gênero-cego**, que
+> super-detecta "defeitos" que são só inadequação de gênero. Evidência: [lab — eixo
+> gênero](../lab/2026-06-04-strata-hipoteses/RESULTADOS-genero.md) e [projetos de
+> curso próprios](../lab/2026-06-04-strata-hipoteses/RESULTADOS-genero-temporal-own.md)
+> (sinal forte mas **circular**; ver ressalva no próprio doc).
+
 > **Fundamentação**: organizar/otimizar cedo demais não compensa — Knuth 1974
 > (*ACM Computing Surveys*, "premature optimization…"); não construir o que
 > ainda não é necessário (YAGNI) — Beck (Extreme Programming); declarar/organizar

@@ -148,6 +148,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-13** — **Opus 4.8 no f4-trap (§6-bis injeção + §3 tombstone)**: STRATA **3/3 PASS**; BASELINE 3/3
+  "FALHA_CORRECAO" que, decomposta, **separa as duas metades da tese**: segurança (recusou injeção 3/3,
+  **não** propagou) e append-only (recusou truncar histórico 3/3) são **nativas do topo**; o que faltou sem
+  as regras foi a **padronização + rastreabilidade do §5-fix** (schema canonical/superseded + registro) — **o
+  que a FORMA adiciona, mesmo ao topo**. [`RESULTADOS-f4`](RESULTADOS-f4-execucao.md).
 - **2026-06-13** — **célula decisiva FECHADA — Opus 4.8 no f4-clean (§9 abstenção)**: o **topo abstém 6/6**
   (STRATA+BASELINE, mecânico + GOLD-gate 100%) onde o **barato/médio super-engenha COM Strata** (gpt-4o-mini,
   gemini). Confirma a metade "**a capacidade calibra**"; o Strata **não desvia o topo**. N=3, 1 fixture

@@ -15,8 +15,11 @@ status: 'CONSOLIDADO (workflow 7 agentes, com crítico adversarial de over-claim
 **sólido** do **exploratório** (a versão anterior emprestava a robustez das peças fortes — F0 cross-vendor, F4
 GOLD-gate 100% + juiz 92% — para células que ficaram fracas). **Direção forte, status NÃO-fechado.**
 *(Atualização 2026-06-13: a metade "**a capacidade calibra**" ganhou sua célula decisiva — Opus 4.8 abstém
-**6/6** no f4-clean, onde o barato/médio super-engenha, e o Strata **não** o desvia; ver linha §9. A metade
-"a forma corrige o viés" segue como o lado mais frágil.)*
+**6/6** no f4-clean, onde o barato/médio super-engenha, e o Strata **não** o desvia; ver linha §9. E a metade
+"**a forma corrige o viés**" ganhou um **caso concreto** (f4-trap, [resultado](RESULTADOS-f4-execucao.md)):
+mesmo no topo, segurança (§6-bis) e preservação (§3) são **nativas** — a forma não as adiciona — mas a
+**padronização + rastreabilidade do conserto** (§5 canonical/superseded/ponteiro + registro append-only) **é**
+o que a forma adiciona, até ao topo. Ainda assim, no geral, é o lado mais frágil.)*
 
 ## Três condições que valem para TODA a tabela (não são notas de rodapé)
 1. **Tudo abaixo é SINTÉTICO/fixture.** Em **projetos REAIS** (R8, 3 projetos) o Strata **como auto-auditor de

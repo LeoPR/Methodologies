@@ -46,3 +46,4 @@ eval/strata/cenarios/f4-trap/
 # Digests de projetos EXTERNOS (open-source de terceiros) p/ o braco externo (quebra circularidade).
 # Local/privado: publicar so agregado, nunca expor/criticar repo alheio nominalmente.
 eval/strata/external-fixtures/
+eval/strata/own-fixtures/

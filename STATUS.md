@@ -20,6 +20,13 @@ updated: 2026-06-14
 - **Fechado neste ciclo (2026-06-13/14):** F6 temporal (limpo 16/16; ruidoso = barato over-flagga / topo situa);
   célula decisiva §9 (Opus abstém 6/6); f4-trap (segurança/preservação nativas do topo; forma adiciona
   padronização/rastreabilidade); §9 do produto tornado **gênero-consciente**; nota F6 no §3.
+- **Decisões e achados desta sessão (2026-06-14):** [`ADR-005`](decisions/ADR-005-duplicacao-fonte-unica-proporcional.md)
+  (duplicação = fonte única proporcional, "apontar não propagar") e [`ADR-006`](decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md)
+  (medir **acurácia × precisão** separadas; `hb_runner` ganhou `--temp`). **P8 (posição/saliência da §9) FECHADO:**
+  pôr a §9 no topo **não muda** o comportamento (placebo = canônico); só o conteúdo move, e fraco/instável —
+  **decisão: NÃO editar o produto canônico**. A variância confirmou que K pequeno superestima (segurança do fraco
+  ~10%, `pass^k=0`). Ver [`RESULTADOS-p8`](lab/2026-06-04-strata-hipoteses/RESULTADOS-p8-posicao-saliencia-s9.md).
+  Aplicado o ADR-005 aos docs (contagens voláteis viraram ponteiro; `updated:` do produto bumpado).
 - **Privacidade:** um dado pessoal sensível que havia sido mencionado nos docs/histórico foi **anonimizado +
   purgado** (docs + history rewrite + force-push). Resta caveat de cache do GitHub (ver conversa).
 - **Defrag/housekeeping:** wayfinding atualizado (este STATUS, README, MAP, AGENTS) para apontar à OPINIÃO;
@@ -233,10 +240,11 @@ updated: 2026-06-14
 
 - Projeto batizado: **Strata**. Nome registrado em frontmatter do produto
   (`project: Strata`, `version: 1.0.0`) e no README.
-- **3 ADRs criados** em `decisions/` (dogfood de §3/L1 — MADR):
+- **3 ADRs criados neste batismo** em `decisions/` (dogfood de §3/L1 — MADR):
   - ADR-001: formato 1 arquivo vs suíte
   - ADR-002: estrutura L0/L1/L2
   - ADR-003: aposentadoria predecessor (opção 0b)
+  - *(depois vieram ADR-004 eval≠metodologia, ADR-005 apontar-não-propagar, ADR-006 acurácia×precisão — índice vivo em `decisions/` e `MAP.md`.)*
 - **Fronteira de cobertura** declarada em AGENTS.md (dogfood de §6 vazio-tipado):
   o que Strata NAO cobre (financas, RH, qualidade de codigo, conteudo de dominio).
 - MAP.md atualizado com `decisions/`.

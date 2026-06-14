@@ -69,8 +69,11 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
 - **Editou o produto** (`recipe/knowledge-architecture.md`) → **bumpe o `updated:`** do
   frontmatter (rastreabilidade §3; o carimbo ja estagnou uma vez — ver ADR-005).
 - **Numero volatil** (linhas, KB, SHA) NAO vai inline na prosa — aponte para a fonte ou
-  omita (regenera-se do artefato; §5). Estado de evidencias: aponte ao hub §22, nao copie
-  o literal (ADR-005).
+  omita (regenera-se do artefato; §5). Estado de evidencias: aponte ao hub (secao 'Estado das
+  fases — fonte unica'), nao copie o literal (ADR-005).
+- **Mediu/reportou um modelo** aplicando a metodologia → reporte **acuracia × precisao em colunas
+  separadas** (nao colapse num numero), publique **k e K**, e mapeie a distribuicao no regime de uso —
+  NAO varra hiperparametros pra achar "a temp certa" (ADR-006). O `hb_runner` tem `--temp` (default 0.3).
 
 ## Fronteira de cobertura (o que este projeto NAO cobre)
 

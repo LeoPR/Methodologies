@@ -1,6 +1,7 @@
 ---
 title: Arquitetura de testes e evidências do Strata — o que comprova, em que condições (macro)
 created: 2026-06-13
+updated: 2026-06-14
 status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fronteira.
 ---
 
@@ -19,7 +20,7 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 > backlog priorizado: [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md) ·
 > **o que envelheceu (revisão retroativa):** [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md).
 
-## Estado das fases — fonte única (atualizado em 2026-06-13)
+## Estado das fases — fonte única (atualizado em 2026-06-14)
 
 > Esta tabela é a **fonte canônica** (§5) do estado das evidências. README e demais docs **apontam
 > para cá** em vez de repetir números que envelhecem. **Mudou algo num lab? Atualize só aqui** e
@@ -77,6 +78,10 @@ IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degr
   **efeito-método** isolado por **braço baseline**; **fixtures com hash congelado** (anti-drift).
 - **§6 (honestidade):** onde o regex confunde *citar* com *propagar*, dizemos e mandamos ao juiz; onde o
   N é pequeno, dizemos. Resultados são reportados como **direção**, não cravo.
+- **Acurácia × precisão (eixos separados):** capacidade (acerto vs gabarito) e estabilidade (dispersão /
+  *flip-rate*) são reportadas **separadas**, sempre com **k/K**; `pass@k` (teto) ≠ `pass^k` (confiável).
+  Temperatura = precisão, não inteligência; **K pequeno = teto de amostra**. Disciplina em
+  [`ADR-006`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
 
 ## Regime e limites (ler antes de citar números)
 - **Completion-only:** o modelo **produz/recusa em TEXTO**; não roda ferramentas. Mede-se a *disposição
@@ -148,6 +153,13 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-14** — **P8 (posição/saliência da §9): POSIÇÃO REFUTADA.** A/B/C placebo (K=5) + varredura de
+  temperatura (K=10): o banner neutro (C) = canônico (A) ⇒ pôr a §9 no topo **não muda** o comportamento (cai o
+  "lost-in-the-middle"); só o **conteúdo** (critério de abstenção, B) move, e **fraco/instável** (calibra 1/5; o
+  "8→3" era sorte de K=2). Fracos: teto de capacidade (~nada). **Variância:** K=5 superestimava (segurança do
+  fraco ~10%, `pass^k=0`; mode-lock a temp 0,3). Sobrevive *"capacidade é o portão"*. **Decisão: NÃO editar o
+  `knowledge-architecture.md` canônico.** Metodologia em [`ADR-006`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
+  [`RESULTADOS-p8`](RESULTADOS-p8-posicao-saliencia-s9.md).
 - **2026-06-14** — **defrag/housekeeping + privacidade** (não-experimental): wayfinding aponta à OPINIÃO;
   README do harness vivo; arco antigo → `eval/strata/_superseded/` (tombstone); dado pessoal sensível
   anonimizado+purgado (history rewrite). **REGISTRO de ideia** (a pesquisar): *registro/declaração de uso de IA*

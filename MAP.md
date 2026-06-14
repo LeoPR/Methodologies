@@ -16,7 +16,10 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 ├── decisions/                        <- ADRs (registros de decisão imutáveis)
 │   ├── ADR-001-formato-produto.md    <- 1 arquivo vs suíte de docs
 │   ├── ADR-002-estrutura-L0-L1-L2.md <- camadas de durabilidade
-│   └── ADR-003-aposentadoria-predecessor.md <- opção 0b
+│   ├── ADR-003-aposentadoria-predecessor.md <- opção 0b
+│   ├── ADR-004-eval-separado-da-metodologia.md <- a ferramenta de prova não é a metodologia
+│   ├── ADR-005-duplicacao-fonte-unica-proporcional.md <- apontar, não propagar (fonte única proporcional)
+│   └── ADR-006-acuracia-precisao-mapear-distribuicao.md <- 2 eixos: acurácia × precisão (mapear a distribuição)
 ├── lab/                              <- cozinha experimental (pesquisa; FROZEN)
 │   ├── 2026-06-03-modernizacao/      <- análise 5-lentes + experimento-split (FROZEN)
 │   ├── 2026-06-03-fundamentacao-L0/  <- 22 fontes primárias do L0 verificadas

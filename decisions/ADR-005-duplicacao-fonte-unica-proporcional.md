@@ -53,7 +53,7 @@ quando a dor pedir. Em níveis (escada proporcional do §9):
 
 - **Nível 1 — cirurgia de superfície:** apagar/corrigir os literais defasados. **Aplicado.**
 - **Nível 2 — ponteiro em vez de cópia:** estender o padrão que já existe vivo no hub
-  `ARQUITETURA-E-EVIDENCIAS.md §22` (que se declara fonte canônica e pede que os demais
+  `ARQUITETURA-E-EVIDENCIAS.md` (seção *Estado das fases — fonte única*) (que se declara fonte canônica e pede que os demais
   apontem). Adotado como hábito, sem ferramenta.
 - **Nível 4 — build/transclusão/CI: RECUSADO.** Para ~12 docs pequenos é o "excesso de §9 por
   outro eixo" que o próprio §9 do produto nomeia. Reabrir só se o corpus crescer e a dor de
@@ -64,7 +64,7 @@ quando a dor pedir. Em níveis (escada proporcional do §9):
 - Nível 1 aplicado (commit `89f16da`): contagem de linhas e `53KB` removidos; `updated:`
   corrigido para 2026-06-14; o absoluto `"só o topo"` suavizado (SVG → "ex. Opus"; recipe/README
   registra a exceção gpt-4.1); lista L1 marcada como não-exaustiva.
-- O hub `ARQUITETURA-E-EVIDENCIAS.md §22` é a **fonte canônica** do estado de evidências; os
+- O hub `ARQUITETURA-E-EVIDENCIAS.md` (seção *Estado das fases — fonte única*) é a **fonte canônica** do estado de evidências; os
   demais docs apontam, não repetem o literal.
 - **Convenção nova:** ao editar o produto, bumpe o `updated:` do frontmatter (entrou no
   checklist do `AGENTS.md`). É a proteção barata contra o único drift que reincidiu.

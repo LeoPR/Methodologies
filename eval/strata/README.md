@@ -37,12 +37,16 @@ hb_<fase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out>/plano-*
 | `hb_genre.py` | gênero-consciência (§9) | `external-fixtures/`, `own-fixtures/` | leitura |
 | `hb_temporal.py` | temporal em projeto do dono | `own-fixtures/` | leitura |
 | `hb_m0.py` | abstenção M0 | cenários | leitura |
-| `hb_runner.py` | **base** (não roda sozinho): `call_ex`, `call_openrouter_ex` (`reasoning`/`:online`), `call_ollama_ex` (thinking+fallback), `read_target` | — | — |
+| `hb_runner.py` | **base** (não roda sozinho): `call_ex`, `call_openrouter_ex` (`reasoning`/`:online`), `call_ollama_ex` (thinking+fallback), `read_target`; flag `--temp` (aditivo, default 0.3) **só no caminho F1/prime** (`call`/`run_one`; os runners de fase usam `call_ex`, ainda fixo em 0.3) | — | — |
 
 **Verificação / juízes:** `verify_f4.py` (mecânico + **GOLD-gate**; `--selftest`) · `score_f3.py` (regex +
 `--selftest`) · `judge_f3.py`/`judge_f4.py`/`judge_openrouter.py` (juízes cross-vendor) · `aggregate_*.py`
 (consolidam por experimento). **Digests** de projeto: `build_ext_digest.py` (terceiros) / `build_local_digest.py`
 (do dono) → escrevem em fixtures **gitignored**.
+
+**Como reportar (norma — ADR-006):** acurácia × precisão em **colunas separadas**, sempre com **k/K**, e
+**mapear a distribuição** (multi-seed/temp) em vez de caçar "a temperatura certa"; `pass@k` (teto) ≠ `pass^k`
+(confiável). Ver [`../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
 
 ## Reproduzir um resultado (ex.: §5-fix, o caso sólido)
 ```bash
@@ -55,6 +59,9 @@ python verify_f4.py --indir planos/f4-dup-strata --fixture cenarios/f4-dup --man
 ```
 Os `run_*.sh` empacotam matrizes prontas (cloud/local/eco). **Custo:** checar saldo antes
 (`curl .../api/v1/credits`); ordem de centavos a ~US$1 por matriz pequena.
+
+> **K=2 aqui é demo de fumaça.** Medições oficiais reportam **K maior + *flip-rate*** (ADR-006); K pequeno é
+> teto de amostra, não medida estável — foi o caso "gpt-4.1 K=2 não-atestável" do P8.
 
 ## Convenções
 - **Chave OpenRouter:** só em `eval/strata/.openrouter-key` (**gitignored**) — nunca commitar/ecoar.

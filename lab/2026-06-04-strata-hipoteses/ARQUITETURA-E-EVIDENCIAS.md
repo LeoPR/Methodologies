@@ -148,6 +148,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-14** — **defrag/housekeeping + privacidade** (não-experimental): wayfinding aponta à OPINIÃO;
+  README do harness vivo; arco antigo → `eval/strata/_superseded/` (tombstone); dado pessoal sensível
+  anonimizado+purgado (history rewrite). **REGISTRO de ideia** (a pesquisar): *registro/declaração de uso de IA*
+  (normas científicas + lei UE/BR + C2PA/SPDX) como proveniência §3-bis →
+  [`IDEIA-registro-uso-ia.md`](IDEIA-registro-uso-ia.md). Não executado.
 - **2026-06-13** — **F6 real-ruidoso (reprodução controlada do R8)**: fixture messy red-team-validada; auditoria
   ingênua. **Barato 4/4 OVER-FLAGGA** (gpt-4.1 re-levanta bug resolvido + pede LICENSE; gemini manda **apagar
   marcadores históricos** = anti-§3); **Opus 4.8 2/2 SITUA** (abre "já-resolvido", prioriza o genuíno, seção

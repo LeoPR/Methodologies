@@ -38,6 +38,10 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 ## P3 — cobertura e expansão
 - **Decompor L1/L2:** pontuar "nomear formalização" (L1) e "ferramentas datadas" (L2); testar **com-pesquisa**
   num modelo pequeno **bem-calibrado** (onde P7 prevê maior ganho da web). *(Toda a detecção medida é L0.)*
+- **Registro/declaração de uso de IA (proveniência §3-bis) — REGISTRO, a pesquisar:** normas de publicação
+  científica + lei (UE/BR/EUA/propostas) + padrões técnicos (C2PA/SPDX/trailers); camadas por etapa/granularidade/
+  artefato; propor 1 padrão **L1** + ADR de encaixe; dogfood no próprio repo. Desenho em
+  [`IDEIA-registro-uso-ia.md`](IDEIA-registro-uso-ia.md). *(Pedido do dono 2026-06-14 — não executar agora.)*
 - **Cenários/gêneros:** PatchCraft (2º de código); **AulaQuantum/DeepLearning** (gênero "acompanhamento de aula"
   + temporalidade). Combina com o braço externo.
 - **Decisões de design abertas:** exportação/tradução = **corolário L0 curto** (não uma "L3"); arquivo-extra

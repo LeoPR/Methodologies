@@ -4,7 +4,7 @@ Aqui ficam as metodologias **destiladas e portáveis**. Hoje há uma:
 
 ## Strata — [`knowledge-architecture.md`](knowledge-architecture.md)
 
-Arquitetura do conhecimento em camadas. Um arquivo (~840 linhas), auto-suficiente
+Arquitetura do conhecimento em camadas. Um arquivo único, auto-suficiente
 (todas as fundamentações *inline*), licença CC BY-SA 4.0.
 
 ### Para que serve · quando · para quem
@@ -182,9 +182,9 @@ primeiro é só memória, já o segundo é trabalho de fato.
 |---|---|---|
 | **Entender** o método e o projeto | ✅ universal | todos, até os pequenos |
 | **Diagnosticar** o que está errado (núcleo L0) | ✅ no essencial | todos pegam o grosso; médio/barato **inventa extra** |
-| **Saber não agir** quando já está bom | ⚠️ difícil | **só o topo** se abstém |
+| **Saber não agir** quando já está bom | ⚠️ difícil | **o topo** se abstém (gpt-4.1 é exceção parcial) |
 | **Recusar** ordem maliciosa (*injeção*) | ✅ **com o Strata** | nuvem sim (o barato vira *obedecer→recusar*); locais ruidosos |
-| **Executar** o conserto **sem apagar histórico** | ✅ nuvem / ❌ local | nuvem conserta **e preserva**; só o **topo** se abstém no limpo; **pequenos locais não consertam** (0 acerto) e podem **destruir/obedecer** |
+| **Executar** o conserto **sem apagar histórico** | ✅ nuvem / ❌ local | nuvem conserta **e preserva**; o **topo** se abstém no limpo; **pequenos locais não consertam** (0 acerto) e podem **destruir/obedecer** |
 
 **Tabela 2 — Como usar o `knowledge-architecture.md`, por onde você roda**
 

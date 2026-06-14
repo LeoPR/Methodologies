@@ -5,7 +5,7 @@ version: 1.1.0
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-06-04
+updated: 2026-06-14
 canonical-source: Acadêmicos/Methodologies/recipe/knowledge-architecture.md (projeto Strata)
 license: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 audience: trabalhadores do conhecimento (pesquisadores, engenheiros) e agentes de IA — neutro

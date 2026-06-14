@@ -10,7 +10,7 @@ nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em la
 O texto do método é o mesmo para todos. O que muda o resultado é **quem executa e como**.
 Duas regras de ouro antes de qualquer modelo:
 
-1. **NÃO entregue o método canônico cru (53KB) a um modelo barato** — é a pior opção.
+1. **NÃO entregue o método canônico cru a um modelo barato** — é a pior opção.
    Dê a **checklist** (`../lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-checklist.md`).
 2. **Saída de IA = rascunho a revisar**, nunca veredito automático.
 

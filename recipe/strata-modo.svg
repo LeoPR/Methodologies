@@ -28,7 +28,7 @@
 <text x="64" y="366" font-size="11" font-weight="bold" fill="#92400e">aplicar por IA — do mais fácil ao mais difícil:</text>
 <rect x="64" y="376" width="124" height="40" rx="4" fill="#16a34a" opacity="0.85"/><text x="126" y="392" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">manual (humano)</text><text x="126" y="407" font-size="9.5" fill="#fff" text-anchor="middle">funciona ✓</text>
 <rect x="196" y="376" width="124" height="40" rx="4" fill="#eab308"/><text x="258" y="392" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">IA orientada (etapas)</text><text x="258" y="407" font-size="9.5" fill="#fff" text-anchor="middle">ajuda — revise</text>
-<rect x="328" y="376" width="140" height="40" rx="4" fill="#ea580c"/><text x="398" y="392" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">IA automática, de 1 vez</text><text x="398" y="407" font-size="9.5" fill="#fff" text-anchor="middle">só o topo (Opus)</text>
+<rect x="328" y="376" width="140" height="40" rx="4" fill="#ea580c"/><text x="398" y="392" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">IA automática, de 1 vez</text><text x="398" y="407" font-size="9.5" fill="#fff" text-anchor="middle">só o topo (ex. Opus)</text>
 
 <!-- painel direito: como aplicar -->
 <line x1="510" y1="78" x2="510" y2="426" stroke="#e5e7eb"/>

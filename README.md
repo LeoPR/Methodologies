@@ -47,7 +47,7 @@ parte resiste à passagem do tempo e à troca de ferramenta:
 | Camada | O que é | Cadência de troca |
 |---|---|---|
 | **Mneme** · L0 | núcleo atemporal (princípios que precedem o computador) | quase nunca |
-| **Morfé** · L1 | padrões consolidados (ADR, Diataxis, OAIS, Conventional Commits…) | quando o padrão é superado |
+| **Morfé** · L1 | padrões consolidados (ex.: ADR, Diátaxis, OAIS, Conventional Commits) | quando o padrão é superado |
 | **Órganon** · L2 | ferramentas datadas (IA, git, editores) | a cada ciclo de ferramenta — **destacável** |
 
 As camadas têm nomes gregos — **Mneme** (memória), **Morfé** (forma), **Órganon** (instrumento)
@@ -125,7 +125,7 @@ O problema é **anterior ao computador**: bibliotecários, cientistas e engenhei
 enfrentam há séculos. As ferramentas de cada era (hoje: IA, editores, controle de
 versão) são **formas** que expressam esse método — moldam, mas não fundam.
 
-- **Formato:** 1 arquivo, ~840 linhas, portável (viaja sozinho). **Versão 1.1.0** ·
+- **Formato:** 1 arquivo único, portável (viaja sozinho). **Versão 1.1.0** ·
   licença CC BY-SA 4.0. (A versão canônica fica no frontmatter do próprio arquivo.)
 - **Maturidade:** o **núcleo da metodologia está consolidado e verificado** (22 fontes primárias, e a
   checagem de que ele independe das ferramentas de hoje). A **aplicação por IA** já tem evidência empírica

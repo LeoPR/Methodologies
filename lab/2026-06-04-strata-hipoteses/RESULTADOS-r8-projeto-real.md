@@ -7,6 +7,11 @@ status: DISCONFIRMAÇÃO importante — o ganho do sintético NÃO generaliza p/
 
 # R8 — o teste ecológico que tempera tudo
 
+> **↪ SUPERSEDED-BY (escopo):** este é o R8 de **um** projeto (pdf2md). A leitura ecológica consolidada
+> cobre os **3 reais** (pdf2md + NNN + FG2P) em
+> [`RESULTADOS-r8-sintese-3-projetos.md`](RESULTADOS-r8-sintese-3-projetos.md) — é o que o hub/OPINIÃO citam.
+> Mantido como registro (append-only); para a conclusão, ver a síntese.
+
 Primeiro teste num **projeto real** (pdf2md), não no fixture sintético. Base-de-verdade
 real: RI1 = duplicatas `-DESKTOP-SG30VJF` conflitantes (§5 fonte-única + §3 superfície);
 RI2 = versão inconsistente (pyproject `0.1.0-dev` vs `0.7.0`). Controles positivos: o

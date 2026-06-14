@@ -1,7 +1,7 @@
 ---
 title: Design F4 — execução simulada (M4). Painel adversarial (9 agentes) + harness a construir
 created: 2026-06-13
-status: 'EXECUTADO — F4 fechou (nuvem+local+eco+topo Opus). Resultados em RESULTADOS-f4-execucao.md. Este doc = registro do DESENHO; síntese bruta em f4-design-synthesis.json (gitignored).'
+status: 'EXECUTADO — F4 fechou (nuvem+local+eco+topo Opus). Resultados em RESULTADOS-f4-execucao.md. Este doc = registro do DESENHO; síntese integral do painel versionada em f4-design-synthesis.json.'
 ---
 
 # F4 — a IA produz o FIX sem destruir rastreabilidade?

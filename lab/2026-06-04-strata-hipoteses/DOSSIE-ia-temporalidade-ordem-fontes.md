@@ -77,9 +77,17 @@ para o Strata; por isso vale estudar a fundo.
 
 > **⚠️ Revisão retroativa (2026-06-13):** rebaixei "a tese **mais forte**" → "**promissora**". Na evidência
 > atual, a temporalidade é o **sinal MAIS RUIDOSO** do corpus (datas ~33% é média com variância enorme, juiz
-> único, pior concordância 0,56) e **F6 não rodou** — é **hipótese a testar**, não o argumento de valor mais
-> forte. Ver [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md). *(A §6 source-verification, essa sim, tem sinal:
-> ver [`RESULTADOS-f5`](RESULTADOS-f5-pesquisa.md).)*
+> único, pior concordância 0,56). Ver [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md). *(A §6 source-verification,
+> essa sim, tem sinal: ver [`RESULTADOS-f5`](RESULTADOS-f5-pesquisa.md).)*
+>
+> **⚠️ Atualização (2026-06-13, F6 rodou — [`RESULTADOS-f6`](RESULTADOS-f6-temporal-sem-marcadores.md)):**
+> rebaixo de novo: de "ponto-cego **fundamental**" para "ponto-cego **condicional à legibilidade da
+> evidência**". Numa fixture sem marcadores (sem datas/`old/`/"DELETADO"), com a cronologia recuperável do
+> **conteúdo**, modelos barato+forte inferiram a ordem **8/8** — até no modo *naive* e contra nome+README
+> enganosos. Ou seja: **conseguem** inferir tempo quando a evidência está legível. A H-r1..r5 (compressão
+> temporal) **não** se sustentou nesse caso. **Reposiciona o valor do Strata**: §3/§8 não suprem uma
+> incapacidade — **tornam o tempo inferível** (removem a ambiguidade que trava). Falta o caso **sem
+> desambiguador** (ambíguo até p/ humano) e o **longitudinal/real ruidoso**.
 
 ## Estado
 Hipótese/dossiê registrado. **Não estudar agora** — retomar com experimentos próprios.

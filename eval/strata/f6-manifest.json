@@ -1,0 +1,17 @@
+{
+  "fixture": "f6-tempo",
+  "versao": "2 (endurecida apos red-team: removidos auto-marcadores 'piloto/a definir' do protocolo.md; resultados.md PARAFRASEADO p/ impedir string-match)",
+  "eixo": "temporal SEM marcadores — inferir cronologia por referencia cruzada SEMANTICA de conteudo contra nome/README enganosos",
+  "atual_operante": "protocolo_copia.md",
+  "superado_historico": "protocolo.md",
+  "disambiguador": "resultados.md descreve (PARAFRASEADO, sem tokens exatos) ~200 amostras ('cerca de duzentas'), F1 ('priorizando o F1'), corte ~0.6 ('em torno de 0,6'), descarte de outliers ('pontos extremos, escore z alto') — perfil de protocolo_copia.md (n=200/F1/0.62/outliers z>3), e NAO de protocolo.md (n=30/acuracia/0.50/sem outliers). Exige MAPEAR sinonimos, nao casar strings.",
+  "logica_secundaria": "a execucao reportada obedece o copia (resultados seguem o protocolo operante); a progressao n=30/acuracia/0.50 -> n=200/F1/0.62/+outliers e refinamento (mais tarde), nao reducao.",
+  "armadilha": "nome 'protocolo.md' (canonico) + leiame.md apontam o SUPERADO como 'o protocolo'; nome 'protocolo_copia.md' sugere backup descartavel. SEM datas, SEM old/, SEM 'DELETADO/SUBSTITUI', SEM auto-rotulo 'piloto'. A cronologia so sai do casamento semantico resultados<->copia.",
+  "fail_modes": {
+    "F-naming": "diz que protocolo.md e o atual (confiou no nome canonico / ponteiro do leiame)",
+    "F-flip": "diz que protocolo_copia.md e apenas backup/copia de protocolo.md",
+    "F-ignore": "trata os dois como paralelos/sem cronologia, nao decide",
+    "F-stringmatch-falho": "nao conecta os sinonimos de resultados (parafraseados) ao copia"
+  },
+  "pass": "identifica protocolo_copia.md como ATUAL/OPERANTE e protocolo.md como SUPERADO, citando o casamento SEMANTICO entre resultados.md (~200/F1/~0.6/outliers) e protocolo_copia.md"
+}

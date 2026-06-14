@@ -25,6 +25,8 @@ o mesmo princípio. *(A navegação dedicada a IA fica em [`AGENTS.md`](AGENTS.m
 
 ## Quero… → vá para
 
+Atalhos por intenção:
+
 | Quero | Vá para |
 |---|---|
 | **Usar um método pronto** | [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) (Strata) |
@@ -125,7 +127,7 @@ O problema é **anterior ao computador**: bibliotecários, cientistas e engenhei
 enfrentam há séculos. As ferramentas de cada era (hoje: IA, editores, controle de
 versão) são **formas** que expressam esse método — moldam, mas não fundam.
 
-- **Formato:** 1 arquivo, ~660 linhas, portável (viaja sozinho). **Versão 1.1.0** ·
+- **Formato:** 1 arquivo, ~840 linhas, portável (viaja sozinho). **Versão 1.1.0** ·
   licença CC BY-SA 4.0. (A versão canônica fica no frontmatter do próprio arquivo.)
 - **Maturidade:** o **núcleo da metodologia está consolidado e verificado** (22 fontes primárias, e a
   checagem de que ele independe das ferramentas de hoje). A **aplicação por IA** já tem evidência empírica
@@ -135,9 +137,9 @@ versão) são **formas** que expressam esse método — moldam, mas não fundam.
   [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); o **macro de como foi testado**
   no [hub de arquitetura e evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
   **Ainda em desenvolvimento:** a adoção em **projetos grandes que já existem**.
-- **Detalhe sob demanda:** o índice das seções do núcleo, a régua de *quando aplicar cada uma*, e os guias de
-  **uso, adoção em projeto existente, transporte e como usá-lo com uma IA** vivem com o produto — veja
-  [`recipe/`](recipe/).
+- **Detalhe sob demanda:** o índice das seções do núcleo, a régua de *quando aplicar cada uma* e o guia de
+  **como usá-lo com uma IA** vivem com o produto — veja [`recipe/`](recipe/).
+  (Uso, adoção em projeto existente e transporte: na seção **"Usar e adotar"**, abaixo.)
 
 ## No forno: Comporta
 

@@ -19,6 +19,13 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   local+privado, publicar só agregado). Rodar o auto-auditor (R8) contra ele. *Sem isso, nenhum "vale em geral" é legítimo.*
 
 ## P1 — alto valor
+- **Cobertura ampla de modelos, com heurística proporcional** (ideia do dono, 2026-06-14): em vez de poucos
+  modelos por célula, testar **mais modelos** com uma heurística coerente — amostrar **representantes por
+  tier × fornecedor × geração** (não perseguir cada release — §9), **incluir reasoners** (depende do *caminho
+  reasoning-aware*, em P2), e **reportar por tier** (o que dura), com acurácia × precisão (ADR-006). Motivação:
+  P9 mostrou que a assinatura por tier **persiste**, mas a lista de modelos **churna** (L2); cobertura maior e
+  **datada** blindaria a generalização sem virar corrida atrás de release. Custo cresce com nº de modelos →
+  orçar antes (curva OpenRouter) e priorizar as células decisivas (abstenção §9, segurança §6-bis).
 - **Claude como SUJEITO — fechar o topo:** **Opus** em **f4-clean** (abstenção por execução, célula decisiva
   **não rodada**) + **f4-trap** (reconciliação), julgado por não-Claude. *(Haiku/Sonnet já rodaram — escada-claude.)*
   Decisão de gasto: testar Opus **só** como sujeito-Claude, **não** como teste isolado de §9 (o mapa-de-bordas já

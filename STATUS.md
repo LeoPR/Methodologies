@@ -27,8 +27,12 @@ updated: 2026-06-14
   **decisão: NÃO editar o produto canônico**. A variância confirmou que K pequeno superestima (segurança do fraco
   ~10%, `pass^k=0`). Ver [`RESULTADOS-p8`](lab/2026-06-04-strata-hipoteses/RESULTADOS-p8-posicao-saliencia-s9.md).
   Aplicado o ADR-005 aos docs (contagens voláteis viraram ponteiro; `updated:` do produto bumpado).
-  **Autoauditoria** do repo contra o próprio Strata: aderência **forte**, violações já consertadas pelas
-  regras do método ([`AUTOAUDITORIA`](lab/2026-06-04-strata-hipoteses/AUTOAUDITORIA-repo-vs-strata.md)).
+  **Autoauditoria** do repo contra o próprio Strata (cross-check de 5 auditores): aderência **forte**, violações
+  já consertadas pelas regras do método ([`AUTOAUDITORIA`](lab/2026-06-04-strata-hipoteses/AUTOAUDITORIA-repo-vs-strata.md)).
+  **P9 (modelos novos, jun/2026):** a assinatura por tier **persiste**; nomes de modelo churnam (L2) → gráfico/guia
+  agora lideram pelo **tier** e datam os exemplos ([`RESULTADOS-p9`](lab/2026-06-04-strata-hipoteses/RESULTADOS-p9-modelos-novos-jun.md)).
+  **Registrado p/ depois (BACKLOG):** cobertura ampla de modelos com heurística proporcional; caminho
+  reasoning-aware no harness; fixity `--verify`.
 - **Privacidade:** um dado pessoal sensível que havia sido mencionado nos docs/histórico foi **anonimizado +
   purgado** (docs + history rewrite + force-push). Resta caveat de cache do GitHub (ver conversa).
 - **Defrag/housekeeping:** wayfinding atualizado (este STATUS, README, MAP, AGENTS) para apontar à OPINIÃO;

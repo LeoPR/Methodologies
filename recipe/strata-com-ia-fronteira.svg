@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="606" font-family="sans-serif">
 <rect width="960" height="606" fill="white"/>
 <text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — por vendor (barato × caro), jun/2026</text>
-<text x="30" y="44" font-size="11" fill="#666">Cada vendor com o BARATO e o CARO. Dois testes: LIMPO (barra = quanto age demais, menos=melhor) e BAGUNÇADO (pontos = quantos dos 4 problemas pega, mais=melhor) + segurança.</text>
+<text x="30" y="44" font-size="11" fill="#666">Cada vendor com o barato e o caro. LIMPO = projeto já bem-organizado · BAGUNÇADO = projeto com problemas reais (inclui um de segurança).</text>
 <line x1="30" y1="58" x2="930" y2="58" stroke="#ccc"/>
 <text x="30" y="72" font-size="10.5" font-weight="bold" fill="#444">vendor / modelo · custo</text>
 <text x="430" y="72" font-size="10.5" font-weight="bold" fill="#b45309">LIMPO — age demais? (barra: menos = melhor)</text>
@@ -69,7 +69,7 @@
 <!-- leitura -->
 <line x1="30" y1="436" x2="930" y2="436" stroke="#ccc"/>
 <text x="30" y="454" font-size="11" font-weight="bold">Como ler (e o que dura)</text>
-<text x="30" y="470" font-size="9.5" fill="#333"><tspan font-weight="bold">Barra = INTENSIDADE</tspan> (quanto o modelo age demais num projeto já-bom; 0 = se abstém, o ideal). <tspan font-weight="bold">Pontos = QUANTIDADE</tspan> (quantos dos 4 problemas reais ele pega no projeto bagunçado) + segurança.</text>
+<text x="30" y="470" font-size="9.5" fill="#333"><tspan font-weight="bold">Barra (nota 0–3)</tspan> = quanto o modelo age demais no LIMPO: 0 = se abstém (ideal), 3 = age o máximo. Menos = melhor. · <tspan font-weight="bold">Pontos</tspan> = quantos dos 4 problemas reais ele pega no BAGUNÇADO (+ seg). Mais = melhor.</text>
 <text x="30" y="487" font-size="9.5" fill="#333"><tspan font-weight="bold">O melhor (provar que funciona):</tspan> o Opus calibra (over-ação 1,2; recall 4/4; segurança 5/5). <tspan font-weight="bold">O mínimo que atende:</tspan> entre os baratos, a gemini-3.1-flash-lite (pega 4/4 + segurança).</text>
 <text x="30" y="504" font-size="9.5" fill="#333"><tspan font-weight="bold">Caro ≠ melhor automático:</tspan> o gemini-2.5-pro (caro) nem rodou (reasoner); o Haiku (barato Anthropic) age MAIS que todos (9,6 fabr.). No limpo, quase todos agem demais — nem o topo zera.</text>
 <text x="30" y="521" font-size="9.5" fill="#333"><tspan font-weight="bold">Segurança:</tspan> os caros/mid pegam 5/5; os + baratos falham (glm-4.5-air 0/5, gpt-4o-mini ~1/10, deepseek 3/5). É onde o barato mais arrisca.</text>

@@ -157,7 +157,10 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   gerações (gemini-3.1-flash-lite: over-age no limpo / recall 4/4 + segurança 5/5 no bagunçado); a detecção do
   óbvio **melhorou**, a abstenção §9 segue teto. Limites expostos: nomes de modelo churnam (L2), e os reasoners
   novos da OpenAI (gpt-5-mini/nano) devolvem `content=None` no completion-only básico — não medidos com justiça.
-  [`RESULTADOS-p9`](RESULTADOS-p9-modelos-novos-jun.md).
+  **P9b — baseline por vendor × pago/grátis** (base do gráfico): no s04 **ninguém se abstém 100% — nem o topo**;
+  o Opus é o **mais calibrado** (over-ação 2,0; 1,4 fabr.), o glm 2º (2,4); o barato da OpenAI falha na segurança
+  (~1/10) e o grátis é instável (rate-limit). Revisa o "só o Opus confiável" → "o + calibrado, não um abstêm-tudo".
+  [`RESULTADOS-p9`](RESULTADOS-p9-modelos-novos-jun.md) (§P9b).
 - **2026-06-14** — **Autoauditoria: o repo contra o próprio Strata (dogfood).** Aderência **forte** nas 12
   seções do L0; as violações que havia (drift de duplicação, `updated:` morto, âncora-fantasma `§22`) já
   foram corrigidas nesta sessão pelas regras do método (append-only, apontar-não-copiar, §9). **Confirmado

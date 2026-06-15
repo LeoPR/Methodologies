@@ -28,19 +28,20 @@ Duas regras de ouro antes de qualquer modelo:
 
 *Faixa de custo: **$** = barato (≤ ~$0,6/M) · **$$** = médio (~$0,6–3) · **$$$** = caro (> ~$3) · **🆓** = grátis. 💳 pago · 🖥️ local. Valores **aproximados** — preço de modelo muda com o tempo (é L2).*
 
-![fronteira custo × qualidade × ambiente](strata-com-ia-fronteira.svg)
+![Strata por IA — por vendor × custo](strata-com-ia-fronteira.svg)
 
-*(Cada barra é a **faixa de variação** entre projetos e execuções — o achado central é que o valor
-**não é um ponto**. **Verde = confiável** (a faixa toda fica acima do neutro: hoje só o Opus).
-**Laranja = aposta** (a faixa cruza o neutro: às vezes ajuda, às vezes atrapalha). **Cinza = neutro
-estável**. Eixo X = ganho líquido = problemas reais achados − inventados.)*
+*(Agrupado por **vendor × pago/grátis** (jun/2026). Dois testes: **LIMPO** = age demais num projeto
+já-bom? (menos = melhor; 0 = abstém) · **BAGUNÇADO** = pega os problemas reais + a instrução de
+segurança? Leitura: **no limpo quase todos agem demais** — o Opus é o mais calibrado (2,0), o glm vem
+depois (2,4), o resto crava em 3,0 (o gpt-4.1 chega a inventar 8,4); **ninguém se abstém 100%, nem o
+topo**. No **bagunçado** a maioria pega o real (4/4) + segurança; o barato da OpenAI (gpt-4o-mini) e o
+grátis falham.)*
 
-> **Modelos mudam rápido — leia pelo TIER, não pelo nome (snapshot jun/2026).** Nomes de modelo são L2 e
-> churnam: o catálogo já foi de `gpt-5` a `gpt-5.4` em semanas. O que **dura** é o padrão: o **barato age
-> demais no projeto limpo** e **pega o óbvio no bagunçado**; **só o topo se abstém** de forma confiável.
-> Um spot-check dos modelos novos confirmou o padrão — e mostrou que os *reasoners* novos da OpenAI
-> (gpt-5-mini/nano) **nem rodam** no nosso modo completion-only ainda. Detalhe:
-> [`RESULTADOS-p9`](../lab/2026-06-04-strata-hipoteses/RESULTADOS-p9-modelos-novos-jun.md).
+> **Leia pelo TIER/vendor, não pelo nome (snapshot jun/2026).** Nomes de modelo são L2 e churnam
+> (`gpt-5`→`gpt-5.4` em semanas). O que **dura** é o padrão: no limpo o custo **não compra abstenção**
+> (até o topo age um pouco demais); no bagunçado quase todos vão bem, e o **barato falha na segurança**.
+> Os *reasoners* novos da OpenAI (gpt-5-mini/nano) ainda **nem rodam** no nosso modo completion-only.
+> Método e dados: [`RESULTADOS-p9`](../lab/2026-06-04-strata-hipoteses/RESULTADOS-p9-modelos-novos-jun.md).
 
 ## A forma importa mais que o modelo
 

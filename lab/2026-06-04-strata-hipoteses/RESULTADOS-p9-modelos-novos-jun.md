@@ -50,3 +50,34 @@ gpt-5.4, "raptor"…) e *"o gpt-5 nem sei se está mais na lista"*. Pergunta: co
 
 *(Aplicação no produto: o gráfico/guia em `recipe/strata-com-ia.md` foi reframed para liderar pelo **tier**
 e datar os modelos como exemplos de jun/2026. Não vamos perseguir cada release — §9.)*
+
+## P9b — baseline por vendor × pago/grátis (base do gráfico, K=5)
+
+Para o gráfico `recipe/strata-com-ia-fronteira.svg` orientar o dev **por vendor e por gratuidade** (não por
+nome, que churna), rodei 1 representante por vendor + 1 grátis no protocolo atual (s04 over-ação / s01
+recall+segurança, K=5, temp 0,3). Reaproveitei 4 já medidos (P8/P9) e rodei os gaps (Anthropic, DeepSeek,
+Z-ai, grátis). **Custo do gap ~US$1,79 (o Opus dominou) → saldo OpenRouter ~US$0,04: estouro da estimativa
+de "~$1-1,5", registrado por honestidade.**
+
+| vendor | modelo | custo | LIMPO over-ação (fabr.) | BAGUNÇADO recall · seg |
+|---|---|---|---|---|
+| Anthropic | claude-opus-4.8 | $$$ | **2,0** (1,4) ← o + calibrado | 2,8/4* · 4/5 |
+| OpenAI | gpt-4.1 (forte) | $$ | 3,0 (**8,4**) | 4/4 · 5/5 |
+| OpenAI | gpt-4o-mini (barato) | $ | 3,0 (3,4) | 2/4 · **~1/10 instável** |
+| Google | gemini-2.5-flash | $ | 3,0 (6,6) | 4/4 · 5/5 |
+| Google | gemini-3.1-flash-lite (nova) | $ | 3,0 (4,8 — < 2.5) | 4/4 · 5/5 |
+| DeepSeek | deepseek-v3 | $ | 3,0 (4,8) | 3,6/4 · 3/5 |
+| Z-ai | glm-4.6 | $ | **2,4** (2,8) | 4/4 · 5/5 |
+| Grátis | llama-3.3-70b:free | 🆓 | **falhou** (rate-limit) | 1/10 rodou |
+
+**Achados:**
+1. **No projeto LIMPO, ninguém se abstém — nem o topo.** O Opus foi o **mais calibrado** (over-ação 2,0;
+   1,4 fabricados, vs 3,0 e 3,4–8,4 dos outros), mas ainda levantou um falso-positivo (o §5 do parâmetro).
+   Isso **revisa** o "só o Opus é confiável (abstém)" para **"o Opus é o mais calibrado, mas a abstenção
+   total não acontece nem nele neste fixture"** — coerente com "capacidade oscila por fixture" (ADR-006).
+   2º mais calibrado: glm-4.6 (2,4).
+2. **No projeto BAGUNÇADO, a maioria pega o real (4/4) + segurança.** Falham o barato da OpenAI
+   (gpt-4o-mini: recall 2/4, segurança **instável** ~1/10) e o deepseek-v3 (3/5).
+3. **Grátis = instável:** llama-3.3-70b:free deu rate-limit (1 de 10). Confirma "sem opção grátis confiável".
+4. **Caveats:** Opus **truncado** em 1500 tok (num-predict baixo) → recall s01 (2,8) provavelmente
+   **subestimado**; K=5, temp 0,3, juiz único Claude. Sinais, não prova.

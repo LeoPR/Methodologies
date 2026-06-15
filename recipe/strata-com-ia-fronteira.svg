@@ -1,91 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="940" height="430" font-family="sans-serif">
-<rect width="940" height="430" fill="white"/>
-<text x="32" y="26" font-size="16" font-weight="bold">Strata por IA — vale a pena? ganho × custo × ambiente</text>
-<text x="32" y="45" font-size="11" fill="#666">Cada barra é a FAIXA de variação (entre projetos / execuções). O que decide não é o ponto — é se a faixa fica acima do neutro.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="512" font-family="sans-serif">
+<rect width="960" height="512" fill="white"/>
+<text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — por vendor × custo (snapshot jun/2026)</text>
+<text x="30" y="44" font-size="11" fill="#666">Leia o COMPORTAMENTO por tier/vendor, não o nome (modelos churnam). Dois testes: projeto LIMPO (age demais?) e BAGUNÇADO (pega o real? + segurança).</text>
 
-<!-- zonas -->
-<rect x="320" y="72" width="223" height="240" fill="#fef2f2"/>
-<rect x="543" y="72" width="372" height="240" fill="#f0fdf4"/>
-<line x1="394" y1="72" x2="394" y2="312" stroke="#e5e7eb"/>
-<line x1="692" y1="72" x2="692" y2="312" stroke="#e5e7eb"/>
-<line x1="841" y1="72" x2="841" y2="312" stroke="#e5e7eb"/>
-<line x1="543" y1="68" x2="543" y2="316" stroke="#374151" stroke-width="1.5"/>
-<text x="430" y="66" font-size="9.5" fill="#b91c1c" text-anchor="middle">← atrapalha (inventa mais do que acha)</text>
-<text x="730" y="66" font-size="9.5" fill="#15803d" text-anchor="middle">ajuda (acha mais do que inventa) →</text>
+<!-- cabecalho de colunas -->
+<line x1="30" y1="62" x2="930" y2="62" stroke="#ccc"/>
+<text x="30" y="76" font-size="10.5" font-weight="bold" fill="#444">vendor / modelo · custo</text>
+<text x="430" y="76" font-size="10.5" font-weight="bold" fill="#b45309">LIMPO — age demais? (menos = melhor; 0 = abstém)</text>
+<text x="700" y="76" font-size="10.5" font-weight="bold" fill="#15803d">BAGUNÇADO — pega o real? + segurança</text>
+<line x1="30" y1="82" x2="930" y2="82" stroke="#ccc"/>
 
-<!-- linhas (forest plot): faixa = variância -->
-<!-- 1 Opus -->
-<text x="10" y="92" font-size="11" font-weight="bold" fill="#6b7280">1</text>
-<text x="26" y="92" font-size="11" font-weight="bold" fill="#111">claude-opus-4.8</text>
-<text x="312" y="92" font-size="9" fill="#555" text-anchor="end">pago · $$$ · ~$7/M</text>
-<rect x="692" y="84.5" width="149" height="7" rx="3" fill="#86efac"/>
-<circle cx="811" cy="88" r="5" fill="#15803d"/>
-<text x="847" y="91" font-size="8.5" fill="#15803d" font-weight="bold">[+1…+2] confiável</text>
-<!-- 2 deepseek+etapas -->
-<text x="10" y="121" font-size="11" font-weight="bold" fill="#6b7280">2</text>
-<text x="26" y="121" font-size="11" font-weight="bold" fill="#111">deepseek-v3 +etapas</text>
-<text x="312" y="121" font-size="9" fill="#555" text-anchor="end">pago · $ · ~$0,26/M</text>
-<rect x="543" y="113.5" width="149" height="7" rx="3" fill="#fcd34d"/>
-<circle cx="618" cy="117" r="5" fill="#b45309"/>
-<text x="698" y="120" font-size="8.5" fill="#92400e">[0…+1]</text>
-<!-- 3 glm -->
-<text x="10" y="150" font-size="11" font-weight="bold" fill="#6b7280">3</text>
-<text x="26" y="150" font-size="11" font-weight="bold" fill="#111">glm-4.6</text>
-<text x="312" y="150" font-size="9" fill="#555" text-anchor="end">pago · $ · ~$0,56/M</text>
-<rect x="394" y="142.5" width="447" height="7" rx="3" fill="#fcd34d"/>
-<circle cx="618" cy="146" r="5" fill="#b45309"/>
-<text x="847" y="149" font-size="8.5" fill="#92400e">[−1…+2] muito instável</text>
-<!-- 4 o4-mini -->
-<text x="10" y="179" font-size="11" font-weight="bold" fill="#6b7280">4</text>
-<text x="26" y="179" font-size="11" font-weight="bold" fill="#111">o4-mini</text>
-<text x="312" y="179" font-size="9" fill="#555" text-anchor="end">pago · $$ · ~$1,4/M</text>
-<rect x="394" y="171.5" width="298" height="7" rx="3" fill="#fcd34d"/>
-<circle cx="573" cy="175" r="5" fill="#b45309"/>
-<text x="698" y="178" font-size="8.5" fill="#92400e">[−1…+1]</text>
-<!-- 5 gpt-5 -->
-<text x="10" y="208" font-size="11" font-weight="bold" fill="#6b7280">5</text>
-<text x="26" y="208" font-size="11" font-weight="bold" fill="#111">gpt-5</text>
-<text x="312" y="208" font-size="9" fill="#555" text-anchor="end">pago · $$ · ~$2,1/M</text>
-<rect x="543" y="200.5" width="149" height="7" rx="3" fill="#fcd34d"/>
-<circle cx="573" cy="204" r="5" fill="#b45309"/>
-<text x="698" y="207" font-size="8.5" fill="#92400e">[0…+1]</text>
-<!-- 6 qwen3 local -->
-<text x="10" y="237" font-size="11" font-weight="bold" fill="#6b7280">6</text>
-<text x="26" y="237" font-size="11" font-weight="bold" fill="#111">qwen3-4b-thinking</text>
-<text x="312" y="237" font-size="9" fill="#555" text-anchor="end">local · grátis</text>
-<circle cx="543" cy="233" r="5" fill="#9ca3af"/>
-<text x="555" y="236" font-size="8.5" fill="#6b7280">neutro estável (~0)</text>
-<!-- 7 gpt-4.1-mini -->
-<text x="10" y="266" font-size="11" font-weight="bold" fill="#6b7280">7</text>
-<text x="26" y="266" font-size="11" font-weight="bold" fill="#111">gpt-4.1-mini</text>
-<text x="312" y="266" font-size="9" fill="#555" text-anchor="end">pago · $ · ~$0,52/M</text>
-<circle cx="543" cy="262" r="5" fill="#9ca3af"/>
-<text x="555" y="265" font-size="8.5" fill="#6b7280">neutro estável (~0)</text>
-<!-- 8 gemini+etapas -->
-<text x="10" y="295" font-size="11" font-weight="bold" fill="#6b7280">8</text>
-<text x="26" y="295" font-size="11" font-weight="bold" fill="#111">gemini-2.5-flash +etapas</text>
-<text x="312" y="295" font-size="9" fill="#555" text-anchor="end">pago · $ · ~$0,52/M</text>
-<rect x="394" y="287.5" width="298" height="7" rx="3" fill="#fcd34d"/>
-<circle cx="543" cy="291" r="5" fill="#b45309"/>
-<text x="698" y="294" font-size="8.5" fill="#92400e">[−1…+1]</text>
+<!-- ====== ANTHROPIC ====== -->
+<text x="24" y="100" font-size="11" font-weight="bold" fill="#7a5ba8">Anthropic</text>
+<text x="40" y="118" font-size="11" font-weight="bold" fill="#111">claude-opus-4.8</text>
+<text x="250" y="118" font-size="9.5" fill="#555">pago · $$$ · ~$5/M</text>
+<rect x="430" y="110" width="60" height="11" rx="2" fill="#ca8a04"/><text x="496" y="119" font-size="10" fill="#333">2,0/3 (1,4 fabr.) — o + calibrado</text>
+<circle cx="704" cy="115" r="4.5" fill="#16a34a"/><circle cx="717" cy="115" r="4.5" fill="#16a34a"/><circle cx="730" cy="115" r="4.5" fill="#16a34a"/><circle cx="743" cy="115" r="4.5" fill="#d1d5db"/>
+<text x="755" y="119" font-size="10" fill="#333">recall 2,8/4*  ·  seg 4/5</text>
 
-<!-- eixo X -->
-<line x1="320" y1="312" x2="915" y2="312" stroke="#333"/>
-<text x="394" y="326" font-size="9.5" fill="#666" text-anchor="middle">−1</text>
-<text x="543" y="326" font-size="9.5" fill="#374151" text-anchor="middle" font-weight="bold">0 · neutro</text>
-<text x="692" y="326" font-size="9.5" fill="#666" text-anchor="middle">+1</text>
-<text x="841" y="326" font-size="9.5" fill="#666" text-anchor="middle">+2</text>
-<text x="617" y="344" font-size="11" fill="#444" text-anchor="middle">ganho líquido = problemas reais achados − inventados (por execução)</text>
+<!-- ====== OPENAI ====== -->
+<text x="24" y="144" font-size="11" font-weight="bold" fill="#0a7d6b">OpenAI</text>
+<text x="40" y="162" font-size="11" font-weight="bold" fill="#111">gpt-4.1 <tspan font-weight="normal" fill="#666">(forte)</tspan></text>
+<text x="250" y="162" font-size="9.5" fill="#555">pago · $$ · ~$2/M</text>
+<rect x="430" y="154" width="90" height="11" rx="2" fill="#dc2626"/><text x="526" y="163" font-size="10" fill="#333">3,0/3 (8,4 fabr.! — inventa muito)</text>
+<circle cx="704" cy="159" r="4.5" fill="#16a34a"/><circle cx="717" cy="159" r="4.5" fill="#16a34a"/><circle cx="730" cy="159" r="4.5" fill="#16a34a"/><circle cx="743" cy="159" r="4.5" fill="#16a34a"/>
+<text x="755" y="163" font-size="10" fill="#333">recall 4/4  ·  seg 5/5</text>
+<text x="40" y="184" font-size="11" font-weight="bold" fill="#111">gpt-4o-mini <tspan font-weight="normal" fill="#666">(barato)</tspan></text>
+<text x="250" y="184" font-size="9.5" fill="#555">pago · $ · ~$0,5/M</text>
+<rect x="430" y="176" width="90" height="11" rx="2" fill="#dc2626"/><text x="526" y="185" font-size="10" fill="#333">3,0/3 (3,4 fabr.)</text>
+<circle cx="704" cy="181" r="4.5" fill="#16a34a"/><circle cx="717" cy="181" r="4.5" fill="#16a34a"/><circle cx="730" cy="181" r="4.5" fill="#d1d5db"/><circle cx="743" cy="181" r="4.5" fill="#d1d5db"/>
+<text x="755" y="185" font-size="10" fill="#b91c1c">recall 2/4 · seg ~1/10 INSTÁVEL</text>
 
-<!-- legenda -->
-<text x="32" y="372" font-size="11" font-weight="bold">Como ler</text>
-<rect x="32" y="380" width="16" height="8" rx="2" fill="#86efac"/><circle cx="40" cy="384" r="3.5" fill="#15803d"/>
-<text x="54" y="387" font-size="9.5" fill="#333"><tspan font-weight="bold">Confiável</tspan> — a faixa toda fica acima do neutro (ajuda até no pior caso). Hoje: só o Opus.</text>
-<rect x="32" y="394" width="16" height="8" rx="2" fill="#fcd34d"/><circle cx="40" cy="398" r="3.5" fill="#b45309"/>
-<text x="54" y="401" font-size="9.5" fill="#333"><tspan font-weight="bold">Aposta</tspan> — a faixa cruza o neutro: às vezes ajuda, às vezes atrapalha. Use como rascunho.</text>
-<circle cx="40" cy="412" r="3.5" fill="#9ca3af"/>
-<text x="54" y="415" font-size="9.5" fill="#333"><tspan font-weight="bold">Neutro estável</tspan> — não ajuda nem atrapalha, de forma consistente.</text>
-<text x="595" y="387" font-size="8.5" fill="#888">Faixa = variação entre projetos/execuções. Sinais, não prova (N pequeno).</text>
-<text x="595" y="400" font-size="8.5" fill="#888">Custo $/$$/$$$ + NOMES de modelo = L2 (mudam rápido). Snapshot jun/2026; o que dura é o padrão por TIER.</text>
-<text x="595" y="413" font-size="8.5" fill="#888">Fonte dos dados: RESULTADOS-p6 · modelos novos: p9 · opinião: OPINIAO-DE-USO.md</text>
+<!-- ====== GOOGLE ====== -->
+<text x="24" y="210" font-size="11" font-weight="bold" fill="#3367d6">Google</text>
+<text x="40" y="228" font-size="11" font-weight="bold" fill="#111">gemini-2.5-flash <tspan font-weight="normal" fill="#666">(ger. anterior)</tspan></text>
+<text x="250" y="228" font-size="9.5" fill="#555">pago · $ · ~$0,5/M</text>
+<rect x="430" y="220" width="90" height="11" rx="2" fill="#dc2626"/><text x="526" y="229" font-size="10" fill="#333">3,0/3 (6,6 fabr.)</text>
+<circle cx="704" cy="225" r="4.5" fill="#16a34a"/><circle cx="717" cy="225" r="4.5" fill="#16a34a"/><circle cx="730" cy="225" r="4.5" fill="#16a34a"/><circle cx="743" cy="225" r="4.5" fill="#16a34a"/>
+<text x="755" y="229" font-size="10" fill="#333">recall 4/4  ·  seg 5/5</text>
+<text x="40" y="250" font-size="11" font-weight="bold" fill="#111">gemini-3.1-flash-lite <tspan font-weight="normal" fill="#1a7f37">(NOVA jun)</tspan></text>
+<text x="250" y="250" font-size="9.5" fill="#555">pago · $ · ~$0,25/M</text>
+<rect x="430" y="242" width="90" height="11" rx="2" fill="#dc2626"/><text x="526" y="251" font-size="10" fill="#333">3,0/3 (4,8 fabr. — &lt; que a 2.5)</text>
+<circle cx="704" cy="247" r="4.5" fill="#16a34a"/><circle cx="717" cy="247" r="4.5" fill="#16a34a"/><circle cx="730" cy="247" r="4.5" fill="#16a34a"/><circle cx="743" cy="247" r="4.5" fill="#16a34a"/>
+<text x="755" y="251" font-size="10" fill="#333">recall 4/4  ·  seg 5/5</text>
+
+<!-- ====== DEEPSEEK ====== -->
+<text x="24" y="276" font-size="11" font-weight="bold" fill="#4b5fc7">DeepSeek</text>
+<text x="40" y="294" font-size="11" font-weight="bold" fill="#111">deepseek-v3</text>
+<text x="250" y="294" font-size="9.5" fill="#555">pago · $ · ~$0,26/M</text>
+<rect x="430" y="286" width="90" height="11" rx="2" fill="#dc2626"/><text x="526" y="295" font-size="10" fill="#333">3,0/3 (4,8 fabr.)</text>
+<circle cx="704" cy="291" r="4.5" fill="#16a34a"/><circle cx="717" cy="291" r="4.5" fill="#16a34a"/><circle cx="730" cy="291" r="4.5" fill="#16a34a"/><circle cx="743" cy="291" r="4.5" fill="#d1d5db"/>
+<text x="755" y="295" font-size="10" fill="#333">recall 3,6/4 · seg 3/5</text>
+
+<!-- ====== Z-AI ====== -->
+<text x="24" y="320" font-size="11" font-weight="bold" fill="#8a5cf6">Z-ai</text>
+<text x="40" y="338" font-size="11" font-weight="bold" fill="#111">glm-4.6</text>
+<text x="250" y="338" font-size="9.5" fill="#555">pago · $ · ~$0,56/M</text>
+<rect x="430" y="330" width="72" height="11" rx="2" fill="#ea580c"/><text x="508" y="339" font-size="10" fill="#333">2,4/3 (2,8 fabr.) — 2º + calibrado</text>
+<circle cx="704" cy="335" r="4.5" fill="#16a34a"/><circle cx="717" cy="335" r="4.5" fill="#16a34a"/><circle cx="730" cy="335" r="4.5" fill="#16a34a"/><circle cx="743" cy="335" r="4.5" fill="#16a34a"/>
+<text x="755" y="339" font-size="10" fill="#333">recall 4/4  ·  seg 5/5</text>
+
+<!-- ====== GRATIS ====== -->
+<text x="24" y="364" font-size="11" font-weight="bold" fill="#6b7280">Grátis / local</text>
+<text x="40" y="382" font-size="11" font-weight="bold" fill="#111">llama-3.3-70b:free</text>
+<text x="250" y="382" font-size="9.5" fill="#555">grátis · 🆓</text>
+<rect x="430" y="374" width="300" height="11" rx="2" fill="#9ca3af" opacity="0.4"/>
+<text x="436" y="383" font-size="10" fill="#6b7280">INSTÁVEL — rate-limit; só 1 de 10 chamadas rodou. Sem opção grátis confiável hoje.</text>
+
+<!-- leitura -->
+<line x1="30" y1="398" x2="930" y2="398" stroke="#ccc"/>
+<text x="30" y="416" font-size="11" font-weight="bold">Como ler (o que dura)</text>
+<text x="30" y="432" font-size="9.5" fill="#333"><tspan font-weight="bold">No projeto LIMPO quase todos AGEM DEMAIS</tspan> — ninguém se abstém 100%, nem o topo. O Opus é o + calibrado (2,0; 1,4 fabr.), o glm vem depois (2,4); o resto crava em 3,0 (o gpt-4.1 inventa 8,4!).</text>
+<text x="30" y="447" font-size="9.5" fill="#333"><tspan font-weight="bold">No projeto BAGUNÇADO a maioria PEGA o real (4/4) + segurança.</tspan> Falham: o barato da OpenAI (gpt-4o-mini: recall 2/4, segurança instável ~1/10) e o deepseek (3/5). O grátis nem rodou.</text>
+<text x="30" y="462" font-size="9.5" fill="#333"><tspan font-weight="bold">Geração nova (Google):</tspan> a gemini-3.1 fabrica menos que a 2.5 (4,8 vs 6,6) mas ainda age demais no limpo; segurança segue sólida. Capacidade sobe; a abstenção (§9) segue sendo o teto.</text>
+<text x="30" y="481" font-size="8.5" fill="#888">Cada número = K=5 a temp 0,3 (Opus truncado em 1500 tok → recall subestimado*). Sinais, não prova. Custo $/$$/$$$ + nomes = L2 (mudam). Fonte: RESULTADOS-p9 · opinião: OPINIAO-DE-USO.md</text>
 </svg>

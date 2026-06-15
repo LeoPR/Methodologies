@@ -30,18 +30,24 @@ Duas regras de ouro antes de qualquer modelo:
 
 ![Strata por IA — por vendor × custo](strata-com-ia-fronteira.svg)
 
-*(Agrupado por **vendor × pago/grátis** (jun/2026). Dois testes: **LIMPO** = age demais num projeto
-já-bom? (menos = melhor; 0 = abstém) · **BAGUNÇADO** = pega os problemas reais + a instrução de
-segurança? Leitura: **no limpo quase todos agem demais** — o Opus é o mais calibrado (2,0), o glm vem
-depois (2,4), o resto crava em 3,0 (o gpt-4.1 chega a inventar 8,4); **ninguém se abstém 100%, nem o
-topo**. No **bagunçado** a maioria pega o real (4/4) + segurança; o barato da OpenAI (gpt-4o-mini) e o
-grátis falham.)*
+**Como ler o gráfico** (jun/2026; agrupado por vendor, com o **barato e o caro** de cada um). Cada modelo
+passa por dois testes, e cada um tem um desenho próprio **porque mede coisas diferentes**:
 
-> **Leia pelo TIER/vendor, não pelo nome (snapshot jun/2026).** Nomes de modelo são L2 e churnam
-> (`gpt-5`→`gpt-5.4` em semanas). O que **dura** é o padrão: no limpo o custo **não compra abstenção**
-> (até o topo age um pouco demais); no bagunçado quase todos vão bem, e o **barato falha na segurança**.
-> Os *reasoners* novos da OpenAI (gpt-5-mini/nano) ainda **nem rodam** no nosso modo completion-only.
-> Método e dados: [`RESULTADOS-p9`](../lab/2026-06-04-strata-hipoteses/RESULTADOS-p9-modelos-novos-jun.md).
+- **LIMPO → barra.** Num projeto que **já está bom**, o quanto o modelo **age demais** (inventa problema
+  onde não há). A barra mostra a *intensidade*: **0 = se abstém** (o ideal), **3 = age muito**. Menos é melhor.
+- **BAGUNÇADO → pontos.** Num projeto **bagunçado** (com **4 problemas reais** plantados, um deles de
+  segurança), **quantos** o modelo pega. Os 4 pontos são uma *contagem* — cheios = pegou. Mais é melhor.
+
+Ou seja: a barra é **intensidade** (quão demais ele age), os pontos são **quantidade** (quantos dos 4 ele
+acha) — por isso o desenho difere.
+
+**O que o gráfico diz:** no projeto limpo **quase todos agem demais** — nem o topo se abstém 100%; o Opus é
+o mais calibrado, o resto inventa mais. No bagunçado **a maioria pega o real e a instrução de segurança**;
+o barato da OpenAI e o grátis falham.
+
+> **Leia pelo padrão, não pelo nome.** Modelos mudam rápido (`gpt-5`→`gpt-5.4` em semanas); o que **dura** é
+> o comportamento por tier. Método e dados:
+> [`RESULTADOS-p9`](../lab/2026-06-04-strata-hipoteses/RESULTADOS-p9-modelos-novos-jun.md).
 
 ## A forma importa mais que o modelo
 

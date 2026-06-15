@@ -27,13 +27,11 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   P9 mostrou que a assinatura por tier **persiste**, mas a lista de modelos **churna** (L2); cobertura maior e
   **datada** blindaria a generalização sem virar corrida atrás de release. Custo cresce com nº de modelos →
   orçar antes (curva OpenRouter) e priorizar as células decisivas (abstenção §9, segurança §6-bis).
-- **Completar o gráfico: barato E caro POR VENDOR** (amanhã; precisa **top-up OpenRouter**, saldo ~US$0,04).
-  Regra do dono: o gráfico tem que mostrar **o barato e o caro de cada vendor**. Hoje incompleto:
-  - **Anthropic** só com o caro (Opus) → **adicionar o Haiku** (barato).
-  - **Google** só com baratos → adicionar um **caro** (gemini-2.5-pro / 3.x-pro).
-  - **DeepSeek / Z-ai** com 1 modelo só → adicionar o par barato/caro.
-  - **Refazer o Opus SEM truncamento** (foi cortado em 1500 tok → recall do s01 subestimado; usar `--num-predict ≥2500`).
-  Mesmo protocolo (s04/s01, K=5, temp 0,3); reaproveitar o que já existe.
+- **Gráfico barato × caro por vendor — FEITO** ([P9 §P9b](RESULTADOS-p9-modelos-novos-jun.md)): Haiku (barato
+  Anthropic), **Opus refeito sem truncamento** (= o melhor: over-ação 1,2 / recall 4/4 / seg 5/5), glm-4.5-air
+  (barato Z-ai) medidos; gráfico reconstruído por vendor. Achado: **caro ≠ melhor** (gemini-2.5-pro caro nem
+  rodou; Haiku barato age + que todos). **Resta:** os **reasoners** (os "caros" novos — gemini-2.5-pro,
+  deepseek-R1, gpt-5-mini/nano) só medíveis com o **caminho reasoning-aware** (item acima).
 - **Claude como SUJEITO — fechar o topo:** **Opus** em **f4-clean** (abstenção por execução, célula decisiva
   **não rodada**) + **f4-trap** (reconciliação), julgado por não-Claude. *(Haiku/Sonnet já rodaram — escada-claude.)*
   Decisão de gasto: testar Opus **só** como sujeito-Claude, **não** como teste isolado de §9 (o mapa-de-bordas já

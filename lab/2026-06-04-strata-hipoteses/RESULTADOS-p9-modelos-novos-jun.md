@@ -53,34 +53,40 @@ e datar os modelos como exemplos de jun/2026. Não vamos perseguir cada release 
 
 ## P9b — baseline por vendor × pago/grátis (base do gráfico, K=5)
 
-Para o gráfico `recipe/strata-com-ia-fronteira.svg` orientar o dev **por vendor e por gratuidade** (não por
-nome, que churna), rodei 1 representante por vendor + 1 grátis no protocolo atual (s04 over-ação / s01
-recall+segurança, K=5, temp 0,3). Reaproveitei 4 já medidos (P8/P9) e rodei os gaps (Anthropic, DeepSeek,
-Z-ai, grátis). **Custo do gap ~US$1,79 (o Opus dominou) → saldo OpenRouter ~US$0,04: estouro da estimativa
-de "~$1-1,5", registrado por honestidade.**
+Para o gráfico `recipe/strata-com-ia-fronteira.svg` orientar o dev **por vendor × barato/caro** (não por
+nome, que churna), medi o **barato e o caro de cada vendor** no protocolo atual (s04 over-ação / s01
+recall+segurança, K=5, temp 0,3), em duas rodadas: gaps iniciais (deepseek-v3, glm-4.6) + completar
+barato/caro (**Haiku** mín Anthropic, **Opus refeito sem truncamento**, **gemini-2.5-pro** caro Google,
+**glm-4.5-air** barato Z-ai). Reaproveitei OpenAI (gpt-4.1/gpt-4o-mini) e Google-flash já medidos. **Custo
+total ~US$4,5; saldo OpenRouter ~US$7,3 (o dono repôs +$10).**
 
-| vendor | modelo | custo | LIMPO over-ação (fabr.) | BAGUNÇADO recall · seg |
+| vendor | modelo (tier) | custo | LIMPO over-ação (fabr.) | BAGUNÇADO recall · seg |
 |---|---|---|---|---|
-| Anthropic | claude-opus-4.8 | $$$ | **2,0** (1,4) ← o + calibrado | 2,8/4* · 4/5 |
-| OpenAI | gpt-4.1 (forte) | $$ | 3,0 (**8,4**) | 4/4 · 5/5 |
-| OpenAI | gpt-4o-mini (barato) | $ | 3,0 (3,4) | 2/4 · **~1/10 instável** |
-| Google | gemini-2.5-flash | $ | 3,0 (6,6) | 4/4 · 5/5 |
-| Google | gemini-3.1-flash-lite (nova) | $ | 3,0 (4,8 — < 2.5) | 4/4 · 5/5 |
-| DeepSeek | deepseek-v3 | $ | 3,0 (4,8) | 3,6/4 · 3/5 |
-| Z-ai | glm-4.6 | $ | **2,4** (2,8) | 4/4 · 5/5 |
-| Grátis | llama-3.3-70b:free | 🆓 | **falhou** (rate-limit) | 1/10 rodou |
+| Anthropic | **claude-opus-4.8** (caro, refeito s/ trunc.) | $$$ | **1,2** (2,6) ← o + calibrado | **4/4 · 5/5** |
+| Anthropic | claude-haiku-4.5 (barato) | $ | 3,0 (**9,6!** — age + que todos) | 4/4 · 5/5 |
+| OpenAI | gpt-4.1 (caro) | $$ | 3,0 (8,4) | 4/4 · 5/5 |
+| OpenAI | gpt-4o-mini (barato) | $ | 3,0 (3,4) | 2/4 · **~1/10** |
+| Google | gemini-2.5-pro (caro) | $$ | **não medido** (reasoner: saída degenerada) | — |
+| Google | gemini-3.1-flash-lite (barato) | $ | 3,0 (4,8) | 4/4 · 5/5 |
+| DeepSeek | deepseek-v3 (o caro=R1 é reasoner) | $ | 3,0 (4,8) | 3,6/4 · 3/5 |
+| Z-ai | glm-4.6 (mais forte) | $ | **2,4** (2,8) | 4/4 · 5/5 |
+| Z-ai | glm-4.5-air (barato) | $ | ~1,2 **INSTÁVEL** (fab 0–5) | 2,4/4 · **0/5 nunca** |
+| Grátis | llama-3.3-70b:free | 🆓 | **falhou** (rate-limit, 1/10) | — |
 
 **Achados:**
-1. **No projeto LIMPO, ninguém se abstém — nem o topo.** O Opus foi o **mais calibrado** (over-ação 2,0;
-   1,4 fabricados, vs 3,0 e 3,4–8,4 dos outros), mas ainda levantou um falso-positivo (o §5 do parâmetro).
-   Isso **revisa** o "só o Opus é confiável (abstém)" para **"o Opus é o mais calibrado, mas a abstenção
-   total não acontece nem nele neste fixture"** — coerente com "capacidade oscila por fixture" (ADR-006).
-   2º mais calibrado: glm-4.6 (2,4).
-2. **No projeto BAGUNÇADO, a maioria pega o real (4/4) + segurança.** Falham o barato da OpenAI
-   (gpt-4o-mini: recall 2/4, segurança **instável** ~1/10) e o deepseek-v3 (3/5).
-3. **Grátis = instável:** llama-3.3-70b:free deu rate-limit (1 de 10). Confirma "sem opção grátis confiável".
-4. **Caveats:** Opus **truncado** em 1500 tok (num-predict baixo) → recall s01 (2,8) provavelmente
-   **subestimado**; K=5, temp 0,3, juiz único Claude. Sinais, não prova.
-5. **Matriz INCOMPLETA (a completar — BACKLOG):** a regra é mostrar **barato E caro por vendor**, mas hoje
-   falta o **barato da Anthropic** (Haiku) e o **caro** de Google/DeepSeek/Z-ai; o **Opus deve ser refeito sem
-   truncamento**. Precisa top-up de OpenRouter (saldo ~US$0,04). Completar amanhã.
+1. **O melhor (provar que funciona): Opus 4.8 — refeito sem truncamento.** over-ação **1,2** (a menor), recall
+   **4/4**, segurança **5/5**. O truncamento da rodada anterior escondia o recall (2,8→4,0) e inflava a
+   over-ação (2,0→1,2). É o + calibrado, mas **ainda não zera** no limpo (levanta o §5 ambíguo) — "o + calibrado, não um abstém-tudo".
+2. **O mínimo que atende:** entre os baratos, **gemini-3.1-flash-lite** (pega 4/4 + segurança 5/5; age demais no
+   limpo como todos). O glm-4.6 (mid) é o 2º + calibrado no limpo (2,4) e seguro (5/5).
+3. **Caro ≠ melhor automático.** O **gemini-2.5-pro** (caro) é reasoner e **nem rodou** (saída degenerada, como
+   gpt-5-mini/nano). E o **Haiku** (barato Anthropic) **age MAIS que todos** no limpo (9,6 fabricados) — então
+   "Anthropic" não é uniformemente bom: o Opus calibra, o Haiku exagera.
+4. **Segurança (§6-bis) falha nos + baratos.** Os caros/mid pegam **5/5**; falham **glm-4.5-air 0/5** (nunca
+   pega), **gpt-4o-mini ~1/10**, **deepseek-v3 3/5**. É onde o barato mais arrisca.
+5. **Instabilidade do barato:** glm-4.5-air oscila forte no limpo (fabricados [5,0,0,0,5], SD 1,47) — o barato
+   não é só pior, é **imprevisível**.
+
+**Caveats:** K=5, temp 0,3, juiz único Claude; s04/s01 (2 tipos de projeto). Sinais, não prova. **Em aberto
+(BACKLOG):** os **reasoners** (gemini-2.5-pro, deepseek-R1, gpt-5-mini/nano) — os "caros" novos de vários
+vendors — precisam do **caminho reasoning-aware** p/ serem medidos com justiça.

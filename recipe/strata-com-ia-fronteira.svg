@@ -1,78 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="512" font-family="sans-serif">
-<rect width="960" height="512" fill="white"/>
-<text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — por vendor × custo (snapshot jun/2026)</text>
-<text x="30" y="44" font-size="11" fill="#666">Leia o COMPORTAMENTO por tier/vendor, não o nome (modelos churnam). Dois testes: projeto LIMPO (age demais?) e BAGUNÇADO (pega o real? + segurança).</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="606" font-family="sans-serif">
+<rect width="960" height="606" fill="white"/>
+<text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — por vendor (barato × caro), jun/2026</text>
+<text x="30" y="44" font-size="11" fill="#666">Cada vendor com o BARATO e o CARO. Dois testes: LIMPO (barra = quanto age demais, menos=melhor) e BAGUNÇADO (pontos = quantos dos 4 problemas pega, mais=melhor) + segurança.</text>
+<line x1="30" y1="58" x2="930" y2="58" stroke="#ccc"/>
+<text x="30" y="72" font-size="10.5" font-weight="bold" fill="#444">vendor / modelo · custo</text>
+<text x="430" y="72" font-size="10.5" font-weight="bold" fill="#b45309">LIMPO — age demais? (barra: menos = melhor)</text>
+<text x="700" y="72" font-size="10.5" font-weight="bold" fill="#15803d">BAGUNÇADO — pega o real? (pontos) + seg</text>
+<line x1="30" y1="78" x2="930" y2="78" stroke="#ccc"/>
 
-<!-- cabecalho de colunas -->
-<line x1="30" y1="62" x2="930" y2="62" stroke="#ccc"/>
-<text x="30" y="76" font-size="10.5" font-weight="bold" fill="#444">vendor / modelo · custo</text>
-<text x="430" y="76" font-size="10.5" font-weight="bold" fill="#b45309">LIMPO — age demais? (menos = melhor; 0 = abstém)</text>
-<text x="700" y="76" font-size="10.5" font-weight="bold" fill="#15803d">BAGUNÇADO — pega o real? + segurança</text>
-<line x1="30" y1="82" x2="930" y2="82" stroke="#ccc"/>
+<!-- ANTHROPIC -->
+<text x="24" y="98" font-size="11" font-weight="bold" fill="#7a5ba8">Anthropic</text>
+<text x="40" y="117" font-size="10.5" font-weight="bold" fill="#111">claude-opus-4.8 <tspan font-weight="normal" fill="#15803d">(caro)</tspan></text>
+<text x="250" y="117" font-size="9" fill="#555">pago · $$$</text>
+<rect x="430" y="109" width="38" height="11" rx="2" fill="#16a34a"/><text x="474" y="117" font-size="9.5" fill="#333">1,2/3 · fab 2,6 — o + calibrado</text>
+<circle cx="700" cy="114" r="4.5" fill="#16a34a"/><circle cx="714" cy="114" r="4.5" fill="#16a34a"/><circle cx="728" cy="114" r="4.5" fill="#16a34a"/><circle cx="742" cy="114" r="4.5" fill="#16a34a"/><text x="756" y="117" font-size="9.5" fill="#333">4/4 · seg 5/5</text>
+<text x="40" y="140" font-size="10.5" font-weight="bold" fill="#111">claude-haiku-4.5 <tspan font-weight="normal" fill="#b45309">(barato)</tspan></text>
+<text x="250" y="140" font-size="9" fill="#555">pago · $</text>
+<rect x="430" y="132" width="96" height="11" rx="2" fill="#dc2626"/><text x="532" y="140" font-size="9.5" fill="#333">3,0/3 · fab 9,6 — age MAIS que todos</text>
+<circle cx="700" cy="137" r="4.5" fill="#16a34a"/><circle cx="714" cy="137" r="4.5" fill="#16a34a"/><circle cx="728" cy="137" r="4.5" fill="#16a34a"/><circle cx="742" cy="137" r="4.5" fill="#16a34a"/><text x="756" y="140" font-size="9.5" fill="#333">4/4 · seg 5/5</text>
 
-<!-- ====== ANTHROPIC ====== -->
-<text x="24" y="100" font-size="11" font-weight="bold" fill="#7a5ba8">Anthropic</text>
-<text x="40" y="118" font-size="11" font-weight="bold" fill="#111">claude-opus-4.8</text>
-<text x="250" y="118" font-size="9.5" fill="#555">pago · $$$ · ~$5/M</text>
-<rect x="430" y="110" width="60" height="11" rx="2" fill="#ca8a04"/><text x="496" y="119" font-size="10" fill="#333">2,0/3 (1,4 fabr.) — o + calibrado</text>
-<circle cx="704" cy="115" r="4.5" fill="#16a34a"/><circle cx="717" cy="115" r="4.5" fill="#16a34a"/><circle cx="730" cy="115" r="4.5" fill="#16a34a"/><circle cx="743" cy="115" r="4.5" fill="#d1d5db"/>
-<text x="755" y="119" font-size="10" fill="#333">recall 2,8/4*  ·  seg 4/5</text>
+<!-- OPENAI -->
+<text x="24" y="163" font-size="11" font-weight="bold" fill="#0a7d6b">OpenAI</text>
+<text x="40" y="182" font-size="10.5" font-weight="bold" fill="#111">gpt-4.1 <tspan font-weight="normal" fill="#15803d">(caro)</tspan></text>
+<text x="250" y="182" font-size="9" fill="#555">pago · $$</text>
+<rect x="430" y="174" width="96" height="11" rx="2" fill="#dc2626"/><text x="532" y="182" font-size="9.5" fill="#333">3,0/3 · fab 8,4 — inventa muito</text>
+<circle cx="700" cy="179" r="4.5" fill="#16a34a"/><circle cx="714" cy="179" r="4.5" fill="#16a34a"/><circle cx="728" cy="179" r="4.5" fill="#16a34a"/><circle cx="742" cy="179" r="4.5" fill="#16a34a"/><text x="756" y="182" font-size="9.5" fill="#333">4/4 · seg 5/5</text>
+<text x="40" y="205" font-size="10.5" font-weight="bold" fill="#111">gpt-4o-mini <tspan font-weight="normal" fill="#b45309">(barato)</tspan></text>
+<text x="250" y="205" font-size="9" fill="#555">pago · $</text>
+<rect x="430" y="197" width="96" height="11" rx="2" fill="#dc2626"/><text x="532" y="205" font-size="9.5" fill="#333">3,0/3 · fab 3,4</text>
+<circle cx="700" cy="202" r="4.5" fill="#16a34a"/><circle cx="714" cy="202" r="4.5" fill="#16a34a"/><circle cx="728" cy="202" r="4.5" fill="#d1d5db"/><circle cx="742" cy="202" r="4.5" fill="#d1d5db"/><text x="756" y="205" font-size="9.5" fill="#b91c1c">2/4 · seg ~1/10 INSTÁVEL</text>
 
-<!-- ====== OPENAI ====== -->
-<text x="24" y="144" font-size="11" font-weight="bold" fill="#0a7d6b">OpenAI</text>
-<text x="40" y="162" font-size="11" font-weight="bold" fill="#111">gpt-4.1 <tspan font-weight="normal" fill="#666">(forte)</tspan></text>
-<text x="250" y="162" font-size="9.5" fill="#555">pago · $$ · ~$2/M</text>
-<rect x="430" y="154" width="90" height="11" rx="2" fill="#dc2626"/><text x="526" y="163" font-size="10" fill="#333">3,0/3 (8,4 fabr.! — inventa muito)</text>
-<circle cx="704" cy="159" r="4.5" fill="#16a34a"/><circle cx="717" cy="159" r="4.5" fill="#16a34a"/><circle cx="730" cy="159" r="4.5" fill="#16a34a"/><circle cx="743" cy="159" r="4.5" fill="#16a34a"/>
-<text x="755" y="163" font-size="10" fill="#333">recall 4/4  ·  seg 5/5</text>
-<text x="40" y="184" font-size="11" font-weight="bold" fill="#111">gpt-4o-mini <tspan font-weight="normal" fill="#666">(barato)</tspan></text>
-<text x="250" y="184" font-size="9.5" fill="#555">pago · $ · ~$0,5/M</text>
-<rect x="430" y="176" width="90" height="11" rx="2" fill="#dc2626"/><text x="526" y="185" font-size="10" fill="#333">3,0/3 (3,4 fabr.)</text>
-<circle cx="704" cy="181" r="4.5" fill="#16a34a"/><circle cx="717" cy="181" r="4.5" fill="#16a34a"/><circle cx="730" cy="181" r="4.5" fill="#d1d5db"/><circle cx="743" cy="181" r="4.5" fill="#d1d5db"/>
-<text x="755" y="185" font-size="10" fill="#b91c1c">recall 2/4 · seg ~1/10 INSTÁVEL</text>
+<!-- GOOGLE -->
+<text x="24" y="228" font-size="11" font-weight="bold" fill="#3367d6">Google</text>
+<text x="40" y="247" font-size="10.5" font-weight="bold" fill="#111">gemini-2.5-pro <tspan font-weight="normal" fill="#15803d">(caro)</tspan></text>
+<text x="250" y="247" font-size="9" fill="#555">pago · $$</text>
+<rect x="430" y="239" width="500" height="11" rx="2" fill="#9ca3af" opacity="0.35"/>
+<text x="436" y="247" font-size="9.5" fill="#6b7280">NÃO MEDIDO — reasoner: saída degenerada/truncada no modo completion-only (como gpt-5-mini)</text>
+<text x="40" y="270" font-size="10.5" font-weight="bold" fill="#111">gemini-3.1-flash-lite <tspan font-weight="normal" fill="#b45309">(barato, nova)</tspan></text>
+<text x="250" y="270" font-size="9" fill="#555">pago · $</text>
+<rect x="430" y="262" width="96" height="11" rx="2" fill="#dc2626"/><text x="532" y="270" font-size="9.5" fill="#333">3,0/3 · fab 4,8</text>
+<circle cx="700" cy="267" r="4.5" fill="#16a34a"/><circle cx="714" cy="267" r="4.5" fill="#16a34a"/><circle cx="728" cy="267" r="4.5" fill="#16a34a"/><circle cx="742" cy="267" r="4.5" fill="#16a34a"/><text x="756" y="270" font-size="9.5" fill="#333">4/4 · seg 5/5</text>
 
-<!-- ====== GOOGLE ====== -->
-<text x="24" y="210" font-size="11" font-weight="bold" fill="#3367d6">Google</text>
-<text x="40" y="228" font-size="11" font-weight="bold" fill="#111">gemini-2.5-flash <tspan font-weight="normal" fill="#666">(ger. anterior)</tspan></text>
-<text x="250" y="228" font-size="9.5" fill="#555">pago · $ · ~$0,5/M</text>
-<rect x="430" y="220" width="90" height="11" rx="2" fill="#dc2626"/><text x="526" y="229" font-size="10" fill="#333">3,0/3 (6,6 fabr.)</text>
-<circle cx="704" cy="225" r="4.5" fill="#16a34a"/><circle cx="717" cy="225" r="4.5" fill="#16a34a"/><circle cx="730" cy="225" r="4.5" fill="#16a34a"/><circle cx="743" cy="225" r="4.5" fill="#16a34a"/>
-<text x="755" y="229" font-size="10" fill="#333">recall 4/4  ·  seg 5/5</text>
-<text x="40" y="250" font-size="11" font-weight="bold" fill="#111">gemini-3.1-flash-lite <tspan font-weight="normal" fill="#1a7f37">(NOVA jun)</tspan></text>
-<text x="250" y="250" font-size="9.5" fill="#555">pago · $ · ~$0,25/M</text>
-<rect x="430" y="242" width="90" height="11" rx="2" fill="#dc2626"/><text x="526" y="251" font-size="10" fill="#333">3,0/3 (4,8 fabr. — &lt; que a 2.5)</text>
-<circle cx="704" cy="247" r="4.5" fill="#16a34a"/><circle cx="717" cy="247" r="4.5" fill="#16a34a"/><circle cx="730" cy="247" r="4.5" fill="#16a34a"/><circle cx="743" cy="247" r="4.5" fill="#16a34a"/>
-<text x="755" y="251" font-size="10" fill="#333">recall 4/4  ·  seg 5/5</text>
+<!-- DEEPSEEK -->
+<text x="24" y="293" font-size="11" font-weight="bold" fill="#4b5fc7">DeepSeek <tspan font-size="9" font-weight="normal" fill="#999">(o caro = R1 é reasoner, não testável aqui)</tspan></text>
+<text x="40" y="312" font-size="10.5" font-weight="bold" fill="#111">deepseek-v3</text>
+<text x="250" y="312" font-size="9" fill="#555">pago · $</text>
+<rect x="430" y="304" width="96" height="11" rx="2" fill="#dc2626"/><text x="532" y="312" font-size="9.5" fill="#333">3,0/3 · fab 4,8</text>
+<circle cx="700" cy="309" r="4.5" fill="#16a34a"/><circle cx="714" cy="309" r="4.5" fill="#16a34a"/><circle cx="728" cy="309" r="4.5" fill="#16a34a"/><circle cx="742" cy="309" r="4.5" fill="#84cc16"/><text x="756" y="312" font-size="9.5" fill="#333">3,6/4 · seg 3/5</text>
 
-<!-- ====== DEEPSEEK ====== -->
-<text x="24" y="276" font-size="11" font-weight="bold" fill="#4b5fc7">DeepSeek</text>
-<text x="40" y="294" font-size="11" font-weight="bold" fill="#111">deepseek-v3</text>
-<text x="250" y="294" font-size="9.5" fill="#555">pago · $ · ~$0,26/M</text>
-<rect x="430" y="286" width="90" height="11" rx="2" fill="#dc2626"/><text x="526" y="295" font-size="10" fill="#333">3,0/3 (4,8 fabr.)</text>
-<circle cx="704" cy="291" r="4.5" fill="#16a34a"/><circle cx="717" cy="291" r="4.5" fill="#16a34a"/><circle cx="730" cy="291" r="4.5" fill="#16a34a"/><circle cx="743" cy="291" r="4.5" fill="#d1d5db"/>
-<text x="755" y="295" font-size="10" fill="#333">recall 3,6/4 · seg 3/5</text>
+<!-- Z-AI -->
+<text x="24" y="335" font-size="11" font-weight="bold" fill="#8a5cf6">Z-ai</text>
+<text x="40" y="354" font-size="10.5" font-weight="bold" fill="#111">glm-4.6 <tspan font-weight="normal" fill="#15803d">(mais forte)</tspan></text>
+<text x="250" y="354" font-size="9" fill="#555">pago · $</text>
+<rect x="430" y="346" width="77" height="11" rx="2" fill="#ea580c"/><text x="513" y="354" font-size="9.5" fill="#333">2,4/3 · fab 2,8 — 2º + calibrado</text>
+<circle cx="700" cy="351" r="4.5" fill="#16a34a"/><circle cx="714" cy="351" r="4.5" fill="#16a34a"/><circle cx="728" cy="351" r="4.5" fill="#16a34a"/><circle cx="742" cy="351" r="4.5" fill="#16a34a"/><text x="756" y="354" font-size="9.5" fill="#333">4/4 · seg 5/5</text>
+<text x="40" y="377" font-size="10.5" font-weight="bold" fill="#111">glm-4.5-air <tspan font-weight="normal" fill="#b45309">(barato)</tspan></text>
+<text x="250" y="377" font-size="9" fill="#555">pago · $</text>
+<rect x="430" y="369" width="38" height="11" rx="2" fill="#eab308"/><text x="474" y="377" font-size="9.5" fill="#92400e">~1,2/3 INSTÁVEL (fab oscila 0–5)</text>
+<circle cx="700" cy="374" r="4.5" fill="#16a34a"/><circle cx="714" cy="374" r="4.5" fill="#16a34a"/><circle cx="728" cy="374" r="4.5" fill="#d1d5db"/><circle cx="742" cy="374" r="4.5" fill="#d1d5db"/><text x="756" y="377" font-size="9.5" fill="#b91c1c">2,4/4 · seg 0/5 (nunca!)</text>
 
-<!-- ====== Z-AI ====== -->
-<text x="24" y="320" font-size="11" font-weight="bold" fill="#8a5cf6">Z-ai</text>
-<text x="40" y="338" font-size="11" font-weight="bold" fill="#111">glm-4.6</text>
-<text x="250" y="338" font-size="9.5" fill="#555">pago · $ · ~$0,56/M</text>
-<rect x="430" y="330" width="72" height="11" rx="2" fill="#ea580c"/><text x="508" y="339" font-size="10" fill="#333">2,4/3 (2,8 fabr.) — 2º + calibrado</text>
-<circle cx="704" cy="335" r="4.5" fill="#16a34a"/><circle cx="717" cy="335" r="4.5" fill="#16a34a"/><circle cx="730" cy="335" r="4.5" fill="#16a34a"/><circle cx="743" cy="335" r="4.5" fill="#16a34a"/>
-<text x="755" y="339" font-size="10" fill="#333">recall 4/4  ·  seg 5/5</text>
-
-<!-- ====== GRATIS ====== -->
-<text x="24" y="364" font-size="11" font-weight="bold" fill="#6b7280">Grátis / local</text>
-<text x="40" y="382" font-size="11" font-weight="bold" fill="#111">llama-3.3-70b:free</text>
-<text x="250" y="382" font-size="9.5" fill="#555">grátis · 🆓</text>
-<rect x="430" y="374" width="300" height="11" rx="2" fill="#9ca3af" opacity="0.4"/>
-<text x="436" y="383" font-size="10" fill="#6b7280">INSTÁVEL — rate-limit; só 1 de 10 chamadas rodou. Sem opção grátis confiável hoje.</text>
+<!-- GRATIS -->
+<text x="24" y="400" font-size="11" font-weight="bold" fill="#6b7280">Grátis / local</text>
+<text x="40" y="419" font-size="10.5" font-weight="bold" fill="#111">llama-3.3-70b:free</text>
+<text x="250" y="419" font-size="9" fill="#555">grátis · 🆓</text>
+<rect x="430" y="411" width="500" height="11" rx="2" fill="#9ca3af" opacity="0.35"/>
+<text x="436" y="419" font-size="9.5" fill="#6b7280">FALHOU — rate-limit (só 1 de 10 rodou). Sem opção grátis confiável hoje.</text>
 
 <!-- leitura -->
-<line x1="30" y1="398" x2="930" y2="398" stroke="#ccc"/>
-<text x="30" y="416" font-size="11" font-weight="bold">Como ler (o que dura)</text>
-<text x="30" y="432" font-size="9.5" fill="#333"><tspan font-weight="bold">No projeto LIMPO quase todos AGEM DEMAIS</tspan> — ninguém se abstém 100%, nem o topo. O Opus é o + calibrado (2,0; 1,4 fabr.), o glm vem depois (2,4); o resto crava em 3,0 (o gpt-4.1 inventa 8,4!).</text>
-<text x="30" y="447" font-size="9.5" fill="#333"><tspan font-weight="bold">No projeto BAGUNÇADO a maioria PEGA o real (4/4) + segurança.</tspan> Falham: o barato da OpenAI (gpt-4o-mini: recall 2/4, segurança instável ~1/10) e o deepseek (3/5). O grátis nem rodou.</text>
-<text x="30" y="462" font-size="9.5" fill="#333"><tspan font-weight="bold">Geração nova (Google):</tspan> a gemini-3.1 fabrica menos que a 2.5 (4,8 vs 6,6) mas ainda age demais no limpo; segurança segue sólida. Capacidade sobe; a abstenção (§9) segue sendo o teto.</text>
-<text x="30" y="481" font-size="8.5" fill="#888">Cada número = K=5 a temp 0,3 (Opus truncado em 1500 tok → recall subestimado*). Sinais, não prova. Custo $/$$/$$$ + nomes = L2 (mudam). Fonte: RESULTADOS-p9 · opinião: OPINIAO-DE-USO.md</text>
-<text x="30" y="496" font-size="8.5" fill="#b45309">Em progresso: faltam o BARATO e o CARO de cada vendor (ex.: Anthropic só com o caro; Opus a refazer sem truncamento). Completar — ver RESULTADOS-p9 §P9b / BACKLOG.</text>
+<line x1="30" y1="436" x2="930" y2="436" stroke="#ccc"/>
+<text x="30" y="454" font-size="11" font-weight="bold">Como ler (e o que dura)</text>
+<text x="30" y="470" font-size="9.5" fill="#333"><tspan font-weight="bold">Barra = INTENSIDADE</tspan> (quanto o modelo age demais num projeto já-bom; 0 = se abstém, o ideal). <tspan font-weight="bold">Pontos = QUANTIDADE</tspan> (quantos dos 4 problemas reais ele pega no projeto bagunçado) + segurança.</text>
+<text x="30" y="487" font-size="9.5" fill="#333"><tspan font-weight="bold">O melhor (provar que funciona):</tspan> o Opus calibra (over-ação 1,2; recall 4/4; segurança 5/5). <tspan font-weight="bold">O mínimo que atende:</tspan> entre os baratos, a gemini-3.1-flash-lite (pega 4/4 + segurança).</text>
+<text x="30" y="504" font-size="9.5" fill="#333"><tspan font-weight="bold">Caro ≠ melhor automático:</tspan> o gemini-2.5-pro (caro) nem rodou (reasoner); o Haiku (barato Anthropic) age MAIS que todos (9,6 fabr.). No limpo, quase todos agem demais — nem o topo zera.</text>
+<text x="30" y="521" font-size="9.5" fill="#333"><tspan font-weight="bold">Segurança:</tspan> os caros/mid pegam 5/5; os + baratos falham (glm-4.5-air 0/5, gpt-4o-mini ~1/10, deepseek 3/5). É onde o barato mais arrisca.</text>
+<text x="30" y="540" font-size="8.5" fill="#888">K=5 a temp 0,3; juiz Claude. Sinais, não prova. Nomes/custos = L2 (mudam rápido) — leia pelo padrão por tier. Fonte: RESULTADOS-p9 §P9b · opinião: OPINIAO-DE-USO.md</text>
 </svg>

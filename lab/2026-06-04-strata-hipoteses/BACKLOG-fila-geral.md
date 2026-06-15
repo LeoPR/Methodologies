@@ -45,10 +45,17 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   (a) §10 **fixity `--verify`** — `hash_fixture.py` grava `.fixture-hash` mas nada recomputa/compara; adicionar
   modo `--verify` chamado no início de `hb_f3/f4`; (b) §1/§9 mover `recipe/_variants/` e os `aggregate_<exp>.py`
   one-off para `eval/strata/` quando tocar (risco de quebrar run scripts; não agora).
-- **Caminho reasoning-aware no harness** ([P9](RESULTADOS-p9-modelos-novos-jun.md)): os modelos novos da OpenAI
-  (gpt-5-mini/nano e a família codex) são **reasoners** e devolvem `content=None` no fluxo F1 completion-only
-  (`call`). Usar `call_ex(think=True)` + orçamento de tokens maior no `hb_runner` p/ medi-los com justiça. Sem
-  isso, "como os reasoners se saem" fica **em aberto** (o gpt-5-mini deu sinal promissor mas truncado).
+- **Reasoners — PARSE corrigido** (2026-06-15, `hb_runner`): o `content=None` era **bug de parse, não
+  incapacidade** do modelo. Agora `call_openrouter`/`_ex` caem p/ `message.reasoning` quando `content` vem vazio
+  (espelha o fallback do Ollama) + `--num-predict` folgado (5000). Smoke OK: gpt-5-mini produz plano; gemini-2.5-pro
+  devolve o canal de raciocínio. **Resta refinar:** marcar `finish_reason==length` como INDETERMINADO (não
+  falso-zero) e o eixo-esforço (`reasoning_effort` low/med/high).
+- **Acesso aos modelos do Copilot — decidido (2026-06-15):** testar via **OpenRouter** (tem a lista do Copilot:
+  Opus 4.8 / Sonnet 4.6 / Haiku 4.5 / família GPT-5 / Gemini 3.x), limpo e reproduzível. A bridge `copilot-api`
+  (usa a licença direto, grátis) é **zona cinza de ToS** — uso automatizado em lote dispara abuse-detection →
+  risco de **ban** (casos documentados); só p/ volume mínimo manual. O **GitHub Models API** é sancionado p/ eval
+  mas **não cabe** (cap ~4k tok; nosso prompt tem ~17k) e é catálogo diferente. Fatos: **gpt-4.1 aposentou (01/06)
+  → GPT-5.5**; **Fable 5 suspenso (12/06) → Opus 4.8 é o teto Anthropic real**; Opus no Copilot costuma exigir Pro+.
 - **Fechar a medição:** 2º juiz cross-vendor nas células **decisivas** (abstenção, compressão, datas, eco) +
   **reteste-limpo da NUVEM** contra fixture congelado (remove o asterisco "juiz único" de várias linhas).
 - **Reescrita de NARRATIVA (loop):** reforçar **§9** ("quando NÃO agir" / permitir "nada a corrigir" / situar

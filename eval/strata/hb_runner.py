@@ -138,8 +138,11 @@ def call_openrouter(model, prompt, num_predict, seed, temp=0.3):
             t0 = time.time()
             with urllib.request.urlopen(urllib.request.Request(OPENROUTER, data=data, headers=hdr), timeout=300) as r:
                 d = json.loads(r.read().decode("utf-8"))
-            msg = d["choices"][0]["message"]["content"]
-            return msg, time.time() - t0, d.get("usage", {}).get("completion_tokens", 0)
+            ch = d["choices"][0]
+            content = (ch["message"].get("content") or "").strip()
+            if not content:  # reasoner: a resposta foi p/ o canal de raciocinio (nao p/ content)
+                content = (ch["message"].get("reasoning") or ch["message"].get("reasoning_content") or "").strip()
+            return content, time.time() - t0, d.get("usage", {}).get("completion_tokens", 0)
         except urllib.error.HTTPError as e:
             last = e
             if e.code in (429, 500, 502, 503, 529) and attempt < 3:
@@ -217,8 +220,12 @@ def call_openrouter_ex(model, prompt, num_predict, seed, think=False):
             with urllib.request.urlopen(urllib.request.Request(OPENROUTER, data=data, headers=hdr), timeout=300) as r:
                 d = json.loads(r.read().decode("utf-8"))
             ch = d["choices"][0]
-            msg = ch["message"]["content"]
-            return msg, time.time() - t0, d.get("usage", {}).get("completion_tokens", 0), ch.get("finish_reason"), False
+            content = (ch["message"].get("content") or "").strip()
+            from_thinking = False
+            if not content:  # reasoner: a resposta foi p/ o canal de raciocinio
+                content = (ch["message"].get("reasoning") or ch["message"].get("reasoning_content") or "").strip()
+                from_thinking = bool(content)
+            return content, time.time() - t0, d.get("usage", {}).get("completion_tokens", 0), ch.get("finish_reason"), from_thinking
         except urllib.error.HTTPError as e:
             last = e
             if e.code in (429, 500, 502, 503, 529) and attempt < 3:

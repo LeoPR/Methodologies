@@ -1,0 +1,7 @@
+#!/bin/sh
+# Guarda de carimbo §3/§8 (ver tools/check_stamps.py).
+# ATENCAO: este repo ja usa um core.hooksPath GLOBAL (~/.githooks). NAO rode
+#   git config core.hooksPath tools/githooks  -> desligaria o hook global.
+# Para ativar: adicione  `python tools/check_stamps.py || exit 1`  ao seu pre-commit global,
+# ou rode  python tools/check_stamps.py  manualmente antes de commitar docs.
+exec python tools/check_stamps.py

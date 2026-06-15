@@ -69,8 +69,11 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   fim**: nao gaste tempo aperfeicoando a chave de fenda; o fim e' **provar a metodologia**.
 - `Glob`/`Grep`/`Test-Path` antes de propor recriar algo — a propria
   metodologia manda (verificacao antes de afirmar).
-- **Editou o produto** (`recipe/knowledge-architecture.md`) → **bumpe o `updated:`** do
-  frontmatter (rastreabilidade §3; o carimbo ja estagnou uma vez — ver ADR-005).
+- **Editou QUALQUER `.md` com frontmatter** → **bumpe o `updated:`** p/ hoje (rastreabilidade
+  §3/§8; o carimbo ja estagnou varias vezes — propagacao por memoria apodrece). Guarda mecanica:
+  `python tools/check_stamps.py` (rode antes de commitar docs). P/ automatizar, chame-o do seu
+  pre-commit — este repo ja usa um `core.hooksPath` global (`~/.githooks`), entao NAO sete um local
+  (desligaria o hook global); adicione `python tools/check_stamps.py || exit 1` ao pre-commit de la.
 - **Numero volatil** (linhas, KB, SHA) NAO vai inline na prosa — aponte para a fonte ou
   omita (regenera-se do artefato; §5). Estado de evidencias: aponte ao hub (secao 'Estado das
   fases — fonte unica'), nao copie o literal (ADR-005).

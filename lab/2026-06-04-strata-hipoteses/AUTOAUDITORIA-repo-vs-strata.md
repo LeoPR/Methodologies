@@ -2,8 +2,8 @@
 title: Autoauditoria — o repo Methodologies contra o próprio Strata (dogfood)
 created: 2026-06-14
 updated: 2026-06-14
-method: auditoria seção a seção do L0 (§1-§10) aplicada ao próprio repositório. Feita no loop principal (1 auditor), NÃO pelo fan-out de 5 subagentes planejado — estes bateram no limite mensal de gasto da conta. Logo: 1 olhar, sem o cruzamento independente; menos robusta que o desenhado.
-status: 'SINAL/dogfood honesto. Aderência FORTE no geral; as violações que existiam foram corrigidas nesta sessão pelas próprias regras do método.'
+method: auditoria seção a seção do L0 (§1-§10) aplicada ao próprio repositório, em DUAS passadas — (1) loop principal (1 auditor, com o fan-out bloqueado pelo limite de gasto); (2) fan-out de 5 auditores independentes (cross-check) após o limite reabrir. A 2ª achou mais e é a referência; ver "Atualização".
+status: 'SINAL/dogfood. Aderência FORTE nas 12 seções (cross-check de 5 auditores). As violações eram de baixa/média severidade; as baratas foram corrigidas, o resto está aceito (§9) ou no BACKLOG.'
 ---
 
 # Aplicamos o Strata ao repositório que o produz
@@ -71,8 +71,39 @@ que o produto nomeia. Mitigamos: encerramos o fio da âncora-§9 quando o efeito
 super-investigar), recusamos infraestrutura desproporcional, e esta autoauditoria é **um** passo datado,
 não uma rotina pesada. Se ela mesma começar a custar mais do que rende, é para abster.
 
+## Atualização — fan-out de 5 auditores (cross-check, 2026-06-14)
+
+Refeita com os **5 auditores independentes** (o desenho original; o limite de gasto reabriu). Confirmou
+**aderência forte nas 12 seções** e achou o que o auditor solo perdeu. Tudo de baixa/média severidade.
+
+**Consertado nesta passada (barato):**
+- §2 — **`divulgacao/` invisível** na navegação: adicionado a MAP, README (Mapa do repositório) e AGENTS,
+  marcado como **apoio** (fora dos 3 territórios de artefato).
+- §2 — **satélites do recipe** (`strata-com-ia.md`, SVGs) fora da árvore do MAP: adicionados.
+- §6 — **contradição "Strata FINALIZADO"** (AGENTS) vs pendências (produto/README): trocado por
+  "núcleo consolidado; eixo segurança §6-bis e Parte IV pendentes".
+- §6-bis — **payload fail-open em `_superseded/fixtures/`** fora do banner: banner do harness
+  generalizado ("nunca execute `cenarios/` nem `_superseded/fixtures/`").
+
+**Resíduo aceito (decisão §9 / regra própria):**
+- §1 — `recipe/_variants/` (cópias de teste) em território de produto: gitignored/efêmero; mover para
+  `eval/` é baixa prioridade (no BACKLOG).
+- §3/§8 — frontmatter `status: active` em arquivos **FROZEN** (predecessor, experimento-split):
+  **não editamos** (respeita a regra *NUNCA editar frozen* do AGENTS); o estado superado é marcado
+  **externamente** (AGENTS / ADR-003). Tensão §3-superfície × §8-imutabilidade, resolvida a favor da
+  imutabilidade.
+- §5 — listas de exemplo L1 ainda variam entre docs (são **ilustrativas**, não fatos); `22 fontes` /
+  `92%` repetidos mas consistentes: duplicação aceita (ADR-005).
+
+**Para o BACKLOG (não-trivial):**
+- §10 — **fixity registrada mas não verificada**: `hash_fixture.py` grava `.fixture-hash`, mas nada
+  recomputa/compara → adicionar modo `--verify` chamado no início de `hb_f3/f4`.
+- §9 — leve proliferação de `aggregate_<exp>.py` one-off → mover para `tools/probes/` quando tocar
+  (risco de quebrar run scripts; não agora).
+
 ## Conclusão
 
 O repo é **fortemente aderente** ao método que produz, e — mais importante — quando **não** estava
 (duplicação, datas mortas, ponteiro quebrado), o conserto veio **pelas regras do próprio Strata**
-(append-only, apontar-não-copiar, proporção). Caveat de robustez: 1 auditor, não o cruzamento de 5.
+(append-only, apontar-não-copiar, proporção). Robustez: confirmado por **cross-check de 5 auditores
+independentes** (acima), que achou só resíduo de baixa/média severidade — os baratos já consertados.

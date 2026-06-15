@@ -12,7 +12,9 @@ updated: 2026-06-14
 Methodologies/                        <- Oficina de metodologias (Strata pronto; Comporta no forno)
 ├── recipe/
 │   ├── knowledge-architecture.md     <- PRODUTO Strata (L0/L1/L2; núcleo atemporal verificado)
-│   └── README.md                     <- guia de uso do Strata (humano + IA; efêmero; pendências)
+│   ├── README.md                     <- guia de uso do Strata (humano + IA; efêmero; pendências)
+│   ├── strata-com-ia.md              <- guia prático "funciona no meu ambiente? sai caro?"
+│   └── *.svg                         <- diagramas (strata-modo; custo×qualidade×ambiente)
 ├── decisions/                        <- ADRs (registros de decisão imutáveis)
 │   ├── ADR-001-formato-produto.md    <- 1 arquivo vs suíte de docs
 │   ├── ADR-002-estrutura-L0-L1-L2.md <- camadas de durabilidade
@@ -34,6 +36,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   ├── README.md                     <- princípio (meio≠fim) + 3 territórios + regra evidencia/instrumento/infra
 │   └── strata/                       <- harness do Strata: runner, scorers, fixtures, cenários + planos/ (gitignored)
 ├── prototype/                        <- cozinha prototipo (escala; futuro)
+├── divulgacao/                       <- APOIO: comunicação/divulgação (posts, imagens) — fora dos 3 territórios de artefato
 ├── README.md                         <- entry humano (as 3 cozinhas)
 ├── AGENTS.md                         <- entry IA
 ├── MAP.md                            <- este arquivo

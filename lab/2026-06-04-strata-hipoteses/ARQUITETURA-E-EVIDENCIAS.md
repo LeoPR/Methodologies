@@ -155,9 +155,10 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 
 - **2026-06-14** — **Autoauditoria: o repo contra o próprio Strata (dogfood).** Aderência **forte** nas 12
   seções do L0; as violações que havia (drift de duplicação, `updated:` morto, âncora-fantasma `§22`) já
-  foram corrigidas nesta sessão pelas regras do método (append-only, apontar-não-copiar, §9). Caveat: feita
-  por **1** auditor — o fan-out de 5 (cruzamento independente) bateu no limite mensal de gasto da conta;
-  menos robusta, refazer. [`AUTOAUDITORIA-repo-vs-strata`](AUTOAUDITORIA-repo-vs-strata.md).
+  foram corrigidas nesta sessão pelas regras do método (append-only, apontar-não-copiar, §9). **Confirmado
+  por cross-check de 5 auditores** (o fan-out, após o limite de gasto reabrir): só resíduo de baixa/média
+  severidade, e os baratos já consertados (`divulgacao/` na navegação, banner §6-bis em `_superseded/fixtures/`,
+  "Strata FINALIZADO"→honesto). [`AUTOAUDITORIA-repo-vs-strata`](AUTOAUDITORIA-repo-vs-strata.md).
 - **2026-06-14** — **P8 (posição/saliência da §9): POSIÇÃO REFUTADA.** A/B/C placebo (K=5) + varredura de
   temperatura (K=10): o banner neutro (C) = canônico (A) ⇒ pôr a §9 no topo **não muda** o comportamento (cai o
   "lost-in-the-middle"); só o **conteúdo** (critério de abstenção, B) move, e **fraco/instável** (calibra 1/5; o

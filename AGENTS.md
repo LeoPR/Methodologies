@@ -17,7 +17,8 @@ Projeto de P&D de metodologia de organizacao. **3 cozinhas**: `lab/`
 ## Inventario — onde esta o que
 
 Esta e' uma **oficina de metodologias** (ver `README.md`). 2 produtos: **Strata**
-(FINALIZADO) e **Comporta** (economia de IA, EM ANDAMENTO no `lab/`). **Tres territorios
+(nucleo consolidado; eixo seguranca §6-bis e Parte IV pendentes) e **Comporta** (economia de IA,
+EM ANDAMENTO no `lab/`). **Tres territorios
 por tipo de artefato**: `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses/
 conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a metodologia).
 
@@ -53,6 +54,8 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   saidas brutas **gitignored** (projetos reais sao PRIVADOS). Regra: toda execucao e'
   `evidencia|instrumento|infra`. Ver `eval/README.md`.
 - `prototype/` — placeholder (testar a receita em escala; futuro).
+- `divulgacao/` — **APOIO** (comunicacao/divulgacao: posts, imagens). Fora dos 3 territorios de
+  artefato (e do `decisions/`); nao e produto, pesquisa nem ferramenta. Nao publica metrica nova.
 - `README.md` (oficina) / `MAP.md` (mapa) / `STATUS.md` (foco atual) — wayfinding.
 
 ## Antes de agir (checklist)

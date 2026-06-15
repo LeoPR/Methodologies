@@ -14,8 +14,8 @@ geram os `RESULTADOS-*` do lab. **As conclusões NÃO moram aqui** — a porta d
 
 > ⚠️ **Fixtures = dados inertes FABRICADOS, deliberadamente problemáticos** (incluem instruções intencionalmente
 > inseguras p/ testar §6-bis). São lidos **só como texto** por um modelo (zero execução real). **Nunca execute
-> nada de `cenarios/`.** Projetos reais/digests são **privados** e ficam **gitignored** (`planos/`,
-> `external-fixtures/`, `own-fixtures/`, `fixtures-real/`).
+> nada de `cenarios/` nem de `_superseded/fixtures/` — todo fixture é dado inerte.** Projetos reais/digests são
+> **privados** e ficam **gitignored** (`planos/`, `external-fixtures/`, `own-fixtures/`, `fixtures-real/`).
 
 ## O pipeline VIVO (runner → fixture → gabarito → verificador → agregador)
 

@@ -158,6 +158,7 @@ e diz se vale usar IA local — *ligar agora / considerar / bloqueado* — com o
 | [`lab/`](lab/) | pesquisa exploratória, datada (fundamentação-L0, future-proof, aderência/portabilidade, **economia de IA**) |
 | [`prototype/`](prototype/) | teste em escala, em projetos reais (futuro) |
 | [`decisions/`](decisions/) | ADRs — por que cada decisão de design foi tomada |
+| [`divulgacao/`](divulgacao/) | **apoio**: comunicação/divulgação (posts, imagens) — fora dos 3 territórios de artefato |
 | [`AGENTS.md`](AGENTS.md) · [`MAP.md`](MAP.md) · [`STATUS.md`](STATUS.md) | navegação (IA / mapa / foco atual) |
 
 ## Usar e adotar

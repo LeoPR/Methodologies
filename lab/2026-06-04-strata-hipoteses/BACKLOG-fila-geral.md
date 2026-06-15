@@ -1,6 +1,7 @@
 ---
 title: 'Fila geral — backlog PRIORIZADO (pós-consolidação)'
 created: 2026-06-13
+updated: 2026-06-14
 status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava — feito.'
 ---
 

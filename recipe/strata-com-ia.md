@@ -1,8 +1,10 @@
 ---
 title: Strata com IA — guia prático de uso
+status: active
 created: 2026-06-08
+updated: 2026-06-14
 purpose: responder ao desenvolvedor "funciona no meu ambiente? vai sair caro?" — só o que funciona
-nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6-*
+nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9 (p8 = posição/variância; p9 = modelos novos / churn de L2)
 ---
 
 # Strata com IA — guia prático

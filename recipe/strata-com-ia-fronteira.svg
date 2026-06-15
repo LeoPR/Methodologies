@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="606" font-family="sans-serif">
-<rect width="960" height="606" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="616" font-family="sans-serif">
+<rect width="960" height="616" fill="white"/>
 <text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — por vendor (barato × caro), jun/2026</text>
 <text x="30" y="44" font-size="11" fill="#666">Cada vendor com o barato e o caro. LIMPO = projeto já bem-organizado · BAGUNÇADO = projeto com problemas reais (inclui um de segurança).</text>
 <line x1="30" y1="58" x2="930" y2="58" stroke="#ccc"/>
@@ -68,10 +68,14 @@
 
 <!-- leitura -->
 <line x1="30" y1="436" x2="930" y2="436" stroke="#ccc"/>
-<text x="30" y="454" font-size="11" font-weight="bold">Como ler (e o que dura)</text>
-<text x="30" y="470" font-size="9.5" fill="#333"><tspan font-weight="bold">Barra (nota 0–3)</tspan> = quanto o modelo age demais no LIMPO: 0 = se abstém (ideal), 3 = age o máximo. Menos = melhor. · <tspan font-weight="bold">Pontos</tspan> = quantos dos 4 problemas reais ele pega no BAGUNÇADO (+ seg). Mais = melhor.</text>
-<text x="30" y="487" font-size="9.5" fill="#333"><tspan font-weight="bold">O melhor (provar que funciona):</tspan> o Opus calibra (over-ação 1,2; recall 4/4; segurança 5/5). <tspan font-weight="bold">O mínimo que atende:</tspan> entre os baratos, a gemini-3.1-flash-lite (pega 4/4 + segurança).</text>
-<text x="30" y="504" font-size="9.5" fill="#333"><tspan font-weight="bold">Caro ≠ melhor automático:</tspan> o gemini-2.5-pro (caro) nem rodou (reasoner); o Haiku (barato Anthropic) age MAIS que todos (9,6 fabr.). No limpo, quase todos agem demais — nem o topo zera.</text>
-<text x="30" y="521" font-size="9.5" fill="#333"><tspan font-weight="bold">Segurança:</tspan> os caros/mid pegam 5/5; os + baratos falham (glm-4.5-air 0/5, gpt-4o-mini ~1/10, deepseek 3/5). É onde o barato mais arrisca.</text>
-<text x="30" y="540" font-size="8.5" fill="#888">K=5 a temp 0,3; juiz Claude. Sinais, não prova. Nomes/custos = L2 (mudam rápido) — leia pelo padrão por tier. Fonte: RESULTADOS-p9 §P9b · opinião: OPINIAO-DE-USO.md</text>
+<text x="30" y="453" font-size="11" font-weight="bold">Como ler</text>
+<text x="30" y="470" font-size="9.5" fill="#333"><tspan font-weight="bold">Barra (0–3) — projeto LIMPO:</tspan> quanto o modelo age demais num projeto já bem-organizado.</text>
+<text x="42" y="484" font-size="9.5" fill="#555">0 = se abstém (o ideal) · 3 = age o máximo (trata o bom como quebrado). Quanto menos, melhor.</text>
+<text x="30" y="503" font-size="9.5" fill="#333"><tspan font-weight="bold">Pontos (0–4) — projeto BAGUNÇADO:</tspan> quantos dos 4 problemas reais ele pega.</text>
+<text x="42" y="517" font-size="9.5" fill="#555">cheios = pegou · "seg" = pegou a instrução de segurança perigosa. Quanto mais, melhor.</text>
+<text x="30" y="537" font-size="9.5" fill="#333"><tspan font-weight="bold">O que o gráfico mostra</tspan></text>
+<text x="42" y="551" font-size="9.5" fill="#333">• Melhor: o Opus calibra (over-ação 1,2 · recall 4/4 · seg 5/5). Mínimo que atende: gemini-3.1-flash-lite.</text>
+<text x="42" y="565" font-size="9.5" fill="#333">• Caro ≠ melhor: o gemini-2.5-pro (caro) nem rodou (reasoner); o Haiku (barato) age MAIS que todos (9,6 fabr.).</text>
+<text x="42" y="579" font-size="9.5" fill="#333">• Segurança: os caros/mid pegam 5/5; os + baratos falham (glm-4.5-air 0/5, gpt-4o-mini ~1/10, deepseek 3/5).</text>
+<text x="30" y="599" font-size="8.5" fill="#888">K=5 a temp 0,3; juiz Claude. Sinais, não prova. Nomes/custos mudam (L2) — leia pelo padrão por tier. Fonte: RESULTADOS-p9 §P9b · OPINIAO-DE-USO.md</text>
 </svg>

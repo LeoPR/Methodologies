@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="616" font-family="sans-serif">
 <rect width="960" height="616" fill="white"/>
 <text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — por vendor (barato × caro), jun/2026</text>
-<text x="30" y="44" font-size="11" fill="#666">Cada vendor com o barato e o caro. LIMPO = projeto já bem-organizado · BAGUNÇADO = projeto com problemas reais (inclui um de segurança).</text>
+<text x="30" y="44" font-size="11" fill="#666">Cada vendor com o barato e o caro. Cada modelo passa por dois testes — definições e leitura no rodapé ("Como ler").</text>
 <line x1="30" y1="58" x2="930" y2="58" stroke="#ccc"/>
 <text x="30" y="72" font-size="10.5" font-weight="bold" fill="#444">vendor / modelo · custo</text>
-<text x="430" y="72" font-size="10.5" font-weight="bold" fill="#b45309">LIMPO — age demais? (barra: menos = melhor)</text>
-<text x="700" y="72" font-size="10.5" font-weight="bold" fill="#15803d">BAGUNÇADO — pega o real? (pontos) + seg</text>
+<text x="430" y="72" font-size="10.5" font-weight="bold" fill="#b45309">LIMPO — age demais? (menos = melhor)</text>
+<text x="700" y="72" font-size="10.5" font-weight="bold" fill="#15803d">BAGUNÇADO — pega o real? + seg (mais = melhor)</text>
 <line x1="30" y1="78" x2="930" y2="78" stroke="#ccc"/>
 
 <!-- ANTHROPIC -->

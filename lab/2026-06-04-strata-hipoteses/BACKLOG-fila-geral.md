@@ -27,6 +27,9 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 - **Strata CURTO AI-nativo (design) + replicar R4** (razão compressão:gates ~2/3:1/3) na nuvem com 2º juiz.
 
 ## P2 — blindar e melhorar
+- **Autoauditoria com fan-out** ([AUTOAUDITORIA-repo-vs-strata](AUTOAUDITORIA-repo-vs-strata.md)): refazer com
+  os **5 auditores independentes** (cruzamento) quando o **limite mensal de gasto da conta** reabrir — a versão
+  atual foi feita por 1 auditor (menos robusta). Aderência hoje = forte; é blindagem, não bloqueio.
 - **Fechar a medição:** 2º juiz cross-vendor nas células **decisivas** (abstenção, compressão, datas, eco) +
   **reteste-limpo da NUVEM** contra fixture congelado (remove o asterisco "juiz único" de várias linhas).
 - **Reescrita de NARRATIVA (loop):** reforçar **§9** ("quando NÃO agir" / permitir "nada a corrigir" / situar

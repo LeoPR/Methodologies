@@ -74,4 +74,5 @@
 <text x="30" y="447" font-size="9.5" fill="#333"><tspan font-weight="bold">No projeto BAGUNÇADO a maioria PEGA o real (4/4) + segurança.</tspan> Falham: o barato da OpenAI (gpt-4o-mini: recall 2/4, segurança instável ~1/10) e o deepseek (3/5). O grátis nem rodou.</text>
 <text x="30" y="462" font-size="9.5" fill="#333"><tspan font-weight="bold">Geração nova (Google):</tspan> a gemini-3.1 fabrica menos que a 2.5 (4,8 vs 6,6) mas ainda age demais no limpo; segurança segue sólida. Capacidade sobe; a abstenção (§9) segue sendo o teto.</text>
 <text x="30" y="481" font-size="8.5" fill="#888">Cada número = K=5 a temp 0,3 (Opus truncado em 1500 tok → recall subestimado*). Sinais, não prova. Custo $/$$/$$$ + nomes = L2 (mudam). Fonte: RESULTADOS-p9 · opinião: OPINIAO-DE-USO.md</text>
+<text x="30" y="496" font-size="8.5" fill="#b45309">Em progresso: faltam o BARATO e o CARO de cada vendor (ex.: Anthropic só com o caro; Opus a refazer sem truncamento). Completar — ver RESULTADOS-p9 §P9b / BACKLOG.</text>
 </svg>

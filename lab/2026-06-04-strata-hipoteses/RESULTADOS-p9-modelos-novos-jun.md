@@ -81,3 +81,6 @@ de "~$1-1,5", registrado por honestidade.**
 3. **Grátis = instável:** llama-3.3-70b:free deu rate-limit (1 de 10). Confirma "sem opção grátis confiável".
 4. **Caveats:** Opus **truncado** em 1500 tok (num-predict baixo) → recall s01 (2,8) provavelmente
    **subestimado**; K=5, temp 0,3, juiz único Claude. Sinais, não prova.
+5. **Matriz INCOMPLETA (a completar — BACKLOG):** a regra é mostrar **barato E caro por vendor**, mas hoje
+   falta o **barato da Anthropic** (Haiku) e o **caro** de Google/DeepSeek/Z-ai; o **Opus deve ser refeito sem
+   truncamento**. Precisa top-up de OpenRouter (saldo ~US$0,04). Completar amanhã.

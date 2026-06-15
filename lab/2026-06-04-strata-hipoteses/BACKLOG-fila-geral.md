@@ -32,6 +32,10 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   (a) §10 **fixity `--verify`** — `hash_fixture.py` grava `.fixture-hash` mas nada recomputa/compara; adicionar
   modo `--verify` chamado no início de `hb_f3/f4`; (b) §1/§9 mover `recipe/_variants/` e os `aggregate_<exp>.py`
   one-off para `eval/strata/` quando tocar (risco de quebrar run scripts; não agora).
+- **Caminho reasoning-aware no harness** ([P9](RESULTADOS-p9-modelos-novos-jun.md)): os modelos novos da OpenAI
+  (gpt-5-mini/nano e a família codex) são **reasoners** e devolvem `content=None` no fluxo F1 completion-only
+  (`call`). Usar `call_ex(think=True)` + orçamento de tokens maior no `hb_runner` p/ medi-los com justiça. Sem
+  isso, "como os reasoners se saem" fica **em aberto** (o gpt-5-mini deu sinal promissor mas truncado).
 - **Fechar a medição:** 2º juiz cross-vendor nas células **decisivas** (abstenção, compressão, datas, eco) +
   **reteste-limpo da NUVEM** contra fixture congelado (remove o asterisco "juiz único" de várias linhas).
 - **Reescrita de NARRATIVA (loop):** reforçar **§9** ("quando NÃO agir" / permitir "nada a corrigir" / situar

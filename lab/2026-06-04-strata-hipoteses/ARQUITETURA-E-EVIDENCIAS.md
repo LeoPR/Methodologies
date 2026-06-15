@@ -153,6 +153,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-14** — **P9: spot-check dos modelos novos (jun/2026).** A assinatura por tier **persiste** entre
+  gerações (gemini-3.1-flash-lite: over-age no limpo / recall 4/4 + segurança 5/5 no bagunçado); a detecção do
+  óbvio **melhorou**, a abstenção §9 segue teto. Limites expostos: nomes de modelo churnam (L2), e os reasoners
+  novos da OpenAI (gpt-5-mini/nano) devolvem `content=None` no completion-only básico — não medidos com justiça.
+  [`RESULTADOS-p9`](RESULTADOS-p9-modelos-novos-jun.md).
 - **2026-06-14** — **Autoauditoria: o repo contra o próprio Strata (dogfood).** Aderência **forte** nas 12
   seções do L0; as violações que havia (drift de duplicação, `updated:` morto, âncora-fantasma `§22`) já
   foram corrigidas nesta sessão pelas regras do método (append-only, apontar-não-copiar, §9). **Confirmado

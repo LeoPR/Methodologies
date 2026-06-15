@@ -33,6 +33,13 @@ Duas regras de ouro antes de qualquer modelo:
 **Laranja = aposta** (a faixa cruza o neutro: às vezes ajuda, às vezes atrapalha). **Cinza = neutro
 estável**. Eixo X = ganho líquido = problemas reais achados − inventados.)*
 
+> **Modelos mudam rápido — leia pelo TIER, não pelo nome (snapshot jun/2026).** Nomes de modelo são L2 e
+> churnam: o catálogo já foi de `gpt-5` a `gpt-5.4` em semanas. O que **dura** é o padrão: o **barato age
+> demais no projeto limpo** e **pega o óbvio no bagunçado**; **só o topo se abstém** de forma confiável.
+> Um spot-check dos modelos novos confirmou o padrão — e mostrou que os *reasoners* novos da OpenAI
+> (gpt-5-mini/nano) **nem rodam** no nosso modo completion-only ainda. Detalhe:
+> [`RESULTADOS-p9`](../lab/2026-06-04-strata-hipoteses/RESULTADOS-p9-modelos-novos-jun.md).
+
 ## A forma importa mais que o modelo
 
 A maior diferença de qualidade vem de **como** você pede, não de qual modelo:

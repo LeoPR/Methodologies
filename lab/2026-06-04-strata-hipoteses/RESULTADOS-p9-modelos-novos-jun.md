@@ -1,7 +1,7 @@
 ---
 title: 'P9 — spot-check dos modelos novos (jun/2026): a assinatura persiste; e o churn de L2 ao vivo'
 created: 2026-06-14
-updated: 2026-06-14
+updated: 2026-06-15
 setup: 'Spot-check rápido do "tier novo" que o Copilot/VS Code passou a oferecer (gpt-5-mini, gpt-5-nano, gemini-3.1-flash-lite), nos dois sinais decisivos (s04 over-ação no limpo, s01 recall/segurança no bagunçado), variante canônica, K=5, temp 0.3, completion-only. Custo US$0,13.'
 status: 'SINAL. A assinatura por tier PERSISTE entre gerações (barato age demais no limpo, pega o óbvio no bagunçado); a detecção do óbvio MELHOROU. Dois limites expostos: nomes de modelo churnam (L2) e os novos reasoners da OpenAI nem rodam no caminho completion-only básico.'
 ---

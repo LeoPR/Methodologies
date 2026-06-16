@@ -36,8 +36,8 @@ de software (CI/LICENSE/tests) não se aplica. Gabarito pré-registrado: `GABARI
 
 1. **A assinatura "topo abstém / barato over-age" replica EM PARTE.** Topo (Opus, Sonnet) e os fortes
    (DeepSeek-Pro, Gemini-Pro/Flash) **abstêm** (JÁ-BOM). O único que **inverte o veredito nos dois cadernos** é o
-   **GPT-5 mini** (0/5 e 0/5) — a pior calibração. O **GPT-5.5** inverte só no aulaquantum (o caderno com `old/`
-   + zips + dado pessoal dispara a over-limpeza).
+   **GPT-5 mini** (0/5 e 0/5) — a pior calibração. O **GPT-5.5** inverte só num dos cadernos (o que tem
+   mais história/anexos acumulados dispara a over-limpeza).
 2. **Achado NOVO — veredito ≠ ação.** A separação por tier aparece no **veredito**, não na taxa de armadilha. Até
    **Opus e Gemini 3.1 Pro acertam JÁ-BOM mas caem em N5 5/5** no aulaquantum (mandam **apagar `old/`** = destruir
    tombstone). "Acerta o diagnóstico, mas a primeira ação over-limpa a história." A abstenção do **veredito** não

@@ -28,33 +28,34 @@ Duas regras de ouro antes de qualquer modelo:
 
 *Faixa de custo: **$** = barato (≤ ~$0,6/M) · **$$** = médio (~$0,6–3) · **$$$** = caro (> ~$3) · **🆓** = grátis. 💳 pago · 🖥️ local. Valores **aproximados** — preço de modelo muda com o tempo (é L2).*
 
-![Strata por IA — por vendor × custo](strata-com-ia-fronteira.svg)
+![Strata por IA — escada por vendor (modelos do Copilot)](strata-com-ia-fronteira.svg)
 
-**Como ler o gráfico** (jun/2026; por vendor, com o **barato e o caro** de cada um). Testamos cada modelo em
-**dois tipos de projeto**:
+**Como ler o gráfico** (jun/2026; os modelos do **Copilot**, por vendor, do melhor ao mínimo que serve).
+Testamos cada modelo em **dois tipos de projeto**:
 
 - **Projeto limpo** — já bem-organizado, com pouco ou nada a corrigir (o "já-bom").
 - **Projeto bagunçado** — desorganizado, com problemas reais (o *brownfield* típico), incluindo uma
   instrução de segurança perigosa.
 
-**No projeto limpo, a barra mede o quanto o modelo _age demais_.** Como o projeto já está bom, o certo é
-quase não mexer. A barra é uma nota de **0 a 3**: **0 = o modelo se abstém** (não inventa nada — o ideal);
-**3 = age o máximo** (trata o projeto bom como se estivesse quebrado e lista vários problemas inventados).
-**Quanto menor a barra, melhor.**
+A descoberta que organiza o gráfico: **todos esses modelos capazes pegam o projeto bagunçado** — acham os
+4 problemas reais e a instrução de segurança (✓ 4/4 · seg 5/5). **O que os separa é o projeto limpo.**
 
-**No projeto bagunçado, os pontos contam quantos problemas reais o modelo _pega_.** Plantamos **4 problemas**
-(um deles de segurança). Os 4 pontinhos são uma contagem: cheios = pegou, vazios = passou batido. O "seg" ao
-lado diz se ele pegou a instrução perigosa. **Quanto mais pontos, melhor.**
+**No projeto limpo, a barra mede o quanto o modelo _age demais_** (inventa problema onde não há). É uma nota
+de **0 a 3**: **0 = se abstém** (o ideal, num projeto que já está bom); **3 = age o máximo**. **Quanto menor,
+melhor — e ninguém zera, nem o topo.**
 
-Os dois desenhos diferem de propósito: a barra é uma **intensidade** (quão demais o modelo age), os pontos
-são uma **quantidade** (quantos dos 4 ele acha).
+O **◀ "mínimo que serve"** marca, em cada vendor, o modelo mais barato que ainda **não floda** o projeto
+limpo. Abaixo dele, o modelo ainda pega o bagunçado, mas no limpo inventa demais — trate como rascunho.
 
-**O que o gráfico diz:** no projeto limpo **quase todos agem demais** — nem o topo zera; o Opus é o mais
-calibrado, o resto inventa mais. No bagunçado **a maioria pega o real e a instrução de segurança**; o barato
-da OpenAI e o grátis falham.
+**O que o gráfico diz:**
+- Mais calibrados no limpo: **Opus 4.8** (1,2) e **Gemini 3.1 Pro** (1,67). Também servem: **Sonnet 4.6** e
+  **GPT-5.5** (~2,6).
+- Os "base" (Haiku, GPT-5 mini, Gemini 3 Flash) pegam o bagunçado, mas **agem demais no limpo** (3,0).
+- Ficam **fora do gráfico** (só no caderno científico): os que **falham na segurança** (gpt-4o-mini,
+  glm-4.5-air) e o **grátis** (instável). O gráfico mostra só os **usáveis**.
 
-> **Leia pelo padrão, não pelo nome.** Modelos mudam rápido (`gpt-5`→`gpt-5.4` em semanas); o que **dura** é
-> o comportamento por tier. Método e dados:
+> **Leia pelo padrão, não pelo nome.** Modelos mudam rápido (o **gpt-4.1 já se aposentou → GPT-5.5**); o que
+> **dura** é o comportamento por tier. Método e dados:
 > [`RESULTADOS-p9`](../lab/2026-06-04-strata-hipoteses/RESULTADOS-p9-modelos-novos-jun.md).
 
 ## A forma importa mais que o modelo

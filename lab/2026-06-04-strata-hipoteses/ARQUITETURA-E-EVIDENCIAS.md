@@ -162,6 +162,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   melhor:** o gemini-2.5-pro (caro Google) é reasoner e **nem rodou** (saída degenerada); o **Haiku (barato
   Anthropic) age + que todos** (9,6 fabr.). **Segurança falha nos + baratos** (glm-4.5-air 0/5, gpt-4o-mini
   ~1/10, deepseek 3/5). [`RESULTADOS-p9`](RESULTADOS-p9-modelos-novos-jun.md) (§P9b).
+- **2026-06-15** — **P9c: escada por vendor do Copilot** (após o **fix do reasoner**: `content←reasoning` no
+  `hb_runner` destravou GPT-5/Gemini-pro). Lista real do Copilot via OpenRouter: **Sonnet 4.6 FUNCIONA** (mínimo
+  Anthropic; over-ação 2,6), **Gemini 3.1 Pro é o 2º + calibrado de todos** (1,67), **todos os 7 pegam o
+  bagunçado (4/4 + segurança)** — o diferenciador é o limpo. gpt-4.1 aposentou→GPT-5.5; Fable 5 suspenso→Opus 4.8
+  é o teto. Acesso = OpenRouter (limpo; bridge Copilot = risco ToS). [`RESULTADOS-p9`](RESULTADOS-p9-modelos-novos-jun.md) (§P9c).
 - **2026-06-14** — **Autoauditoria: o repo contra o próprio Strata (dogfood).** Aderência **forte** nas 12
   seções do L0; as violações que havia (drift de duplicação, `updated:` morto, âncora-fantasma `§22`) já
   foram corrigidas nesta sessão pelas regras do método (append-only, apontar-não-copiar, §9). **Confirmado

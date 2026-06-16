@@ -87,6 +87,36 @@ total ~US$4,5; saldo OpenRouter ~US$7,3 (o dono repôs +$10).**
 5. **Instabilidade do barato:** glm-4.5-air oscila forte no limpo (fabricados [5,0,0,0,5], SD 1,47) — o barato
    não é só pior, é **imprevisível**.
 
-**Caveats:** K=5, temp 0,3, juiz único Claude; s04/s01 (2 tipos de projeto). Sinais, não prova. **Em aberto
-(BACKLOG):** os **reasoners** (gemini-2.5-pro, deepseek-R1, gpt-5-mini/nano) — os "caros" novos de vários
-vendors — precisam do **caminho reasoning-aware** p/ serem medidos com justiça.
+**Caveats:** K=5, temp 0,3, juiz único Claude; s04/s01 (2 tipos de projeto). Sinais, não prova.
+
+## P9c — escada por vendor do COPILOT (2026-06-15)
+
+Com o **fix do reasoner** (`content←reasoning`) destravando GPT-5/Gemini-pro, rodei a **lista real do Copilot**
+(via OpenRouter, que tem os mesmos modelos — caminho limpo, sem risco de ToS) como **escada por vendor**
+(melhor → mínimo), no protocolo s04/s01. gpt-4.1 saiu (01/06)→GPT-5.5; Fable 5 suspenso→Opus 4.8 é o teto.
+
+| vendor | modelo (tier) | LIMPO over-ação (inventa) | BAGUNÇADO |
+|---|---|---|---|
+| **Anthropic** | Opus 4.8 (caro) | **1,2** (2,6) ← o + calibrado | 4/4 · 5/5 |
+| | **Sonnet 4.6** (médio) | 2,6 (3,8) ← **mínimo que serve** | 4/4 · 5/5 |
+| | Haiku 4.5 (barato) | 3,0 (9,6) age demais | 4/4 · 5/5 |
+| **OpenAI** | GPT-5.5 (topo) | 2,67 (4,0) ← o usável | 4/4 · 5/5 |
+| | GPT-5 mini (base) | 3,0 (7,4) age demais | 4/4 · 5/5 |
+| **Google** | **Gemini 3.1 Pro** (topo) | **1,67** (1,67) ← 2º + calibrado de todos | 4/4 · 5/5 |
+| | Gemini 3 Flash (base) | 3,0 (4,2) age demais | 4/4 · 5/5 |
+
+**Achados:**
+1. **Sonnet 4.6 FUNCIONA** (responde "qual o próximo menor que o Opus"): over-ação 2,6 — entre Opus (1,2) e
+   Haiku (3,0); pega o bagunçado 4/4 + segurança. É o **mínimo que serve** da Anthropic. Não iguala o Opus no
+   limpo, mas é usável (rascunho a revisar).
+2. **Gemini 3.1 Pro é o 2º + calibrado de TODOS** (1,67; inventa só 1,67) — atrás só do Opus. O "caro" do
+   Google **vale** (e o reasoner antes só "quebrava" por bug de parse nosso).
+3. **No bagunçado, TODOS os 7 pegam tudo** (4/4 + segurança 5/5). O diferenciador é o **limpo**. (Por isso o
+   gráfico destaca a over-ação no limpo e marca o bagunçado como ✓ uniforme.)
+4. **Ladder monotônico por vendor:** mais barato → age mais no limpo. Ninguém zera (nem o topo).
+5. **Apresentação:** o gráfico mostra só estes (usáveis). Os que **falham segurança** (gpt-4o-mini ~1/10,
+   glm-4.5-air 0/5, deepseek 3/5) e o **grátis** (instável) ficam no caderno (P9/P9b), fora do gráfico — nunca
+   plotados como zero.
+
+**Caveats:** topo (GPT-5.5, Gemini 3.1 Pro) com K=3; reasoners capturados via fallback `reasoning` (o gemini-pro
+às vezes devolve o "pensar", não um plano limpo — tratado como usável quando há diagnóstico). Sinais, não prova.

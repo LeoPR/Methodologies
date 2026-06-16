@@ -130,6 +130,12 @@ Com o **fix do reasoner** (`content←reasoning`) destravando GPT-5/Gemini-pro, 
 fallback `reasoning` (o gemini-pro às vezes devolve o "pensar", não um plano limpo — tratado como usável quando
 há diagnóstico). Juiz único Claude; s04/s01. Sinais, não prova.
 
+> **Correção de gabarito (s04, 2026-06-15).** Auditando o fixture `s04-bem-formatado` ao documentar
+> `eval/strata/cenarios/README.md`, achei que a instrução de juiz tratava `docs-reproducao.md` como "ponteiro
+> válido" — **errado**: o arquivo não existe (é um nit cosmético legítimo, §2). Logo os "inventados" no limpo
+> podem estar **superestimados em ~1** para modelos que apontaram esse link pendente. O **ranking é robusto**
+> (dominado por fabricações substantivas: falso §5/§3/§6-bis). Refazer o gabarito do s04 quando reprocessar.
+
 ## P9d — DeepSeek V4 (Flash/Pro) + a questão do local (2026-06-15)
 
 Motivado pelo dono: "vi devs usando deepseek4-flash/mini". É o **DeepSeek V4 Flash** (lançado 24/abr/2026, MoE

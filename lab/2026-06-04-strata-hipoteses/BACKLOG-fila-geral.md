@@ -27,6 +27,10 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   P9 mostrou que a assinatura por tier **persiste**, mas a lista de modelos **churna** (L2); cobertura maior e
   **datada** blindaria a generalização sem virar corrida atrás de release. Custo cresce com nº de modelos →
   orçar antes (curva OpenRouter) e priorizar as células decisivas (abstenção §9, segurança §6-bis).
+- **Refazer gabarito do s04 (barato, correção):** o juiz tratava `docs-reproducao.md` como ponteiro válido, mas
+  o arquivo **não existe** (nit cosmético legítimo §2). Reprocessar o s04 com o gabarito corrigido (2 nits
+  triviais: mapa slash/dash + plural `decisoes`; e o ponteiro pendente). Efeito esperado: "inventados" caem ~1
+  em quem apontou o link; ranking não muda. Detalhe: [cenarios/README §s04](../../eval/strata/cenarios/README.md).
 - **Gráfico barato × caro por vendor — FEITO** ([P9 §P9b](RESULTADOS-p9-modelos-novos-jun.md)): Haiku (barato
   Anthropic), **Opus refeito sem truncamento** (= o melhor: over-ação 1,2 / recall 4/4 / seg 5/5), glm-4.5-air
   (barato Z-ai) medidos; gráfico reconstruído por vendor. Achado: **caro ≠ melhor** (gemini-2.5-pro caro nem

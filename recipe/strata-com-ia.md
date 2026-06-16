@@ -16,17 +16,17 @@ Duas regras de ouro antes de qualquer modelo:
    Dê a **checklist** (`../lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-checklist.md`).
 2. **Saída de IA = rascunho a revisar**, nunca veredito automático.
 
-## Decisão rápida — o que usar
+## Decisão rápida — o que usar (modelos do Copilot, jun/2026)
 
-| Eu quero… | Use | Custo | Como |
-|---|---|---|---|
-| **o melhor, confiável** | **Claude Opus** + checklist | 💳 $$$ · ~$7/M | 1 prompt; o **único** positivo *e* consistente nos dois tipos de projeto |
-| **barato (aceitando variância)** | **deepseek-v3 + aplicação em ETAPAS** | 💳 $ · ~$0,26/M | 4 turnos: reconheça o bom → situe no tempo → gates com evidência → priorize. Ajuda **em média**, mas varia — sempre revise |
-| **barato, 1 prompt só** | **glm-4.6** + checklist | 💳 $ · ~$0,56/M | rápido; resultado **inconsistente** entre projetos |
-| **peneira inicial do óbvio** | gpt-4.1-mini / gpt-5 + checklist | 💳 $–$$ · ~$0,5–2/M | não inventa, mas acha pouco |
-| **grátis / na minha máquina** | *(sem opção confiável hoje)* | 🖥️ 🆓 · $0 | os modelos locais ou **alucinam** ao concluir (deepseek-r1:8b) ou **acham nada** (qwen3:4b-thinking ≈ neutro). Veja "Limites" |
+| Eu quero… | Use (+ checklist) | Por quê |
+|---|---|---|
+| **o mais confiável** | **Opus 4.8** ou **Gemini 3.1 Pro** | inventam menos no **limpo** (~3, o mínimo) e pegam tudo no bagunçado |
+| **bom, mais barato** | **Sonnet 4.6** ou **Gemini 3 Flash** | o "mínimo que serve": pegam tudo no bagunçado; inventam ~4 no limpo → revise |
+| **se você usa GPT** | **GPT-5.5** (a melhor da OpenAI) | pega tudo no bagunçado, mas **inventa bastante no limpo** (~6) → trate como rascunho |
+| **o mais barato que ainda acha o real** | **Haiku 4.5** · **GPT-5 mini** | pegam o bagunçado (4/4 + segurança), mas **inventam muito no limpo** (7–10) → só rascunho |
+| **NÃO usar sozinho** | gpt-4o-mini, glm-4.5-air, locais/grátis | **falham na segurança** (não pegam a instrução perigosa) ou são instáveis |
 
-*Faixa de custo: **$** = barato (≤ ~$0,6/M) · **$$** = médio (~$0,6–3) · **$$$** = caro (> ~$3) · **🆓** = grátis. 💳 pago · 🖥️ local. Valores **aproximados** — preço de modelo muda com o tempo (é L2).*
+*Regra: no projeto **bagunçado** quase todos servem; a diferença está no **limpo** (quanto inventam) — sempre **revise** a saída. Detalhe no gráfico abaixo. (Nomes/preços de modelo mudam rápido — é L2; confira a lista atual do Copilot.)*
 
 ![Strata por IA — escada por vendor (modelos do Copilot)](strata-com-ia-fronteira.svg)
 
@@ -38,19 +38,19 @@ Testamos cada modelo em **dois tipos de projeto**:
   instrução de segurança perigosa.
 
 A descoberta que organiza o gráfico: **todos esses modelos capazes pegam o projeto bagunçado** — acham os
-4 problemas reais e a instrução de segurança (✓ 4/4 · seg 5/5). **O que os separa é o projeto limpo.**
+4 problemas reais e a instrução de segurança (4/4 · seg 5/5). **O que os separa é o projeto limpo.**
 
-**No projeto limpo, a barra mede o quanto o modelo _age demais_** (inventa problema onde não há). É uma nota
-de **0 a 3**: **0 = se abstém** (o ideal, num projeto que já está bom); **3 = age o máximo**. **Quanto menor,
-melhor — e ninguém zera, nem o topo.**
+**No projeto limpo, a barra mede quantos problemas o modelo _inventa_** onde não há nada a corrigir. **0 =
+nenhum** (o ideal, num projeto que já está bom); **quanto menos, melhor**. Ninguém zera — nem o topo: o melhor
+já inventa ~3. (Antes a nota era 0–3, mas com mais amostras quase todos saturam o topo da escala; o número de
+**invenções** é o que de fato diferencia.)
 
 O **◀ "mínimo que serve"** marca, em cada vendor, o modelo mais barato que ainda **não floda** o projeto
 limpo. Abaixo dele, o modelo ainda pega o bagunçado, mas no limpo inventa demais — trate como rascunho.
 
 **O que o gráfico diz:**
-- Mais calibrados no limpo: **Opus 4.8** (1,2) e **Gemini 3.1 Pro** (1,67). Também servem: **Sonnet 4.6** e
-  **GPT-5.5** (~2,6).
-- Os "base" (Haiku, GPT-5 mini, Gemini 3 Flash) pegam o bagunçado, mas **agem demais no limpo** (3,0).
+- Inventam menos no limpo (os melhores): **Opus 4.8** (~2,6) e **Gemini 3.1 Pro** (~2,8) — quase empatados.
+- A **OpenAI inventa mais** (GPT-5.5 ~5,8); o **Haiku floda** o limpo (~9,6 — o que mais inventa de todos).
 - Ficam **fora do gráfico** (só no caderno científico): os que **falham na segurança** (gpt-4o-mini,
   glm-4.5-air) e o **grátis** (instável). O gráfico mostra só os **usáveis**.
 

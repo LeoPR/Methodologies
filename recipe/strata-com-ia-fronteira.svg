@@ -1,60 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="476" font-family="sans-serif">
-<rect width="960" height="476" fill="white"/>
-<text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — escada por vendor (modelos do Copilot), jun/2026</text>
-<text x="30" y="44" font-size="11" fill="#666">Por vendor, do melhor ao mínimo que serve. TODOS esses pegam o projeto bagunçado (4/4 problemas + segurança); o que os separa é o projeto LIMPO.</text>
-<line x1="30" y1="58" x2="930" y2="58" stroke="#ccc"/>
-<text x="30" y="72" font-size="10.5" font-weight="bold" fill="#444">vendor / modelo · tier</text>
-<text x="340" y="72" font-size="10.5" font-weight="bold" fill="#b45309">LIMPO — age demais? (barra: menos = melhor)</text>
-<text x="720" y="72" font-size="10.5" font-weight="bold" fill="#15803d">BAGUNÇADO</text>
-<line x1="30" y1="78" x2="930" y2="78" stroke="#ccc"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="492" font-family="sans-serif">
+<rect width="960" height="492" fill="white"/>
+<text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — modelos do Copilot, por vendor (jun/2026)</text>
+<text x="30" y="46" font-size="11" fill="#666">Por vendor, do melhor ao mínimo que serve. Todos pegam o projeto bagunçado — a diferença está no projeto limpo.</text>
+<line x1="30" y1="60" x2="930" y2="60" stroke="#ccc"/>
+
+<!-- cabecalho que abraca LIMPO e BAGUNCADO -->
+<text x="630" y="76" font-size="11" font-style="italic" fill="#555" text-anchor="middle">Quando seu projeto está…</text>
+<text x="30" y="92" font-size="10.5" font-weight="bold" fill="#444">vendor / modelo · tier</text>
+<text x="350" y="92" font-size="11" font-weight="bold" fill="#b45309">LIMPO <tspan font-weight="normal" font-size="9.5" fill="#777">(inventou menos = melhor)</tspan></text>
+<text x="720" y="92" font-size="11" font-weight="bold" fill="#15803d">BAGUNÇADO</text>
+<line x1="30" y1="98" x2="930" y2="98" stroke="#ccc"/>
 
 <!-- ANTHROPIC -->
-<text x="24" y="96" font-size="11" font-weight="bold" fill="#7a5ba8">Anthropic</text>
-<text x="40" y="114" font-size="10.5" font-weight="bold" fill="#111">Opus 4.8 <tspan font-weight="normal" fill="#666">(caro)</tspan></text>
-<text x="250" y="114" font-size="9" fill="#555">premium</text>
-<rect x="340" y="106" width="40" height="11" rx="2" fill="#16a34a"/><text x="386" y="114" font-size="9.5" fill="#15803d">1,2 · inventa 2,6 — o + calibrado</text>
-<text x="720" y="114" font-size="9.5" fill="#15803d">✓ 4/4 · seg 5/5</text>
-<text x="40" y="136" font-size="10.5" font-weight="bold" fill="#111">Sonnet 4.6 <tspan font-weight="normal" fill="#666">(médio)</tspan></text>
-<text x="250" y="136" font-size="9" fill="#555">9x</text>
-<rect x="340" y="128" width="87" height="11" rx="2" fill="#ea580c"/><text x="433" y="136" font-size="9.5" fill="#333">2,6 · inventa 3,8 · <tspan font-weight="bold" fill="#1a7f37">◀ mínimo que serve</tspan></text>
-<text x="720" y="136" font-size="9.5" fill="#15803d">✓ 4/4 · seg 5/5</text>
-<text x="40" y="158" font-size="10.5" font-weight="bold" fill="#111">Haiku 4.5 <tspan font-weight="normal" fill="#666">(barato)</tspan></text>
-<text x="250" y="158" font-size="9" fill="#555">0.33x</text>
-<rect x="340" y="150" width="100" height="11" rx="2" fill="#dc2626"/><text x="446" y="158" font-size="9.5" fill="#b91c1c">3,0 · inventa 9,6 — age demais no limpo</text>
-<text x="720" y="158" font-size="9.5" fill="#15803d">✓ 4/4 · seg 5/5</text>
+<text x="24" y="116" font-size="11" font-weight="bold" fill="#7a5ba8">Anthropic</text>
+<text x="40" y="134" font-size="10.5" font-weight="bold" fill="#111">Opus 4.8 <tspan font-weight="normal" fill="#666">(caro)</tspan></text>
+<text x="250" y="134" font-size="9" fill="#555">premium</text>
+<rect x="350" y="125" width="31" height="11" rx="2" fill="#16a34a"/><text x="480" y="134" font-size="9.5" fill="#15803d">inventou 2,6 — o melhor</text>
+<text x="720" y="134" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
+<text x="40" y="156" font-size="10.5" font-weight="bold" fill="#111">Sonnet 4.6 <tspan font-weight="normal" fill="#666">(médio)</tspan></text>
+<text x="250" y="156" font-size="9" fill="#555">9x</text>
+<rect x="350" y="147" width="46" height="11" rx="2" fill="#ea580c"/><text x="480" y="156" font-size="9.5" fill="#333">inventou 3,8 · <tspan font-weight="bold" fill="#1a7f37">◀ mínimo que serve</tspan></text>
+<text x="720" y="156" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
+<text x="40" y="178" font-size="10.5" font-weight="bold" fill="#111">Haiku 4.5 <tspan font-weight="normal" fill="#666">(barato)</tspan></text>
+<text x="250" y="178" font-size="9" fill="#555">0.33x</text>
+<rect x="350" y="169" width="115" height="11" rx="2" fill="#dc2626"/><text x="480" y="178" font-size="9.5" fill="#b91c1c">inventou 9,6 — floda o limpo</text>
+<text x="720" y="178" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
 
 <!-- OPENAI -->
-<text x="24" y="182" font-size="11" font-weight="bold" fill="#0a7d6b">OpenAI <tspan font-size="9" font-weight="normal" fill="#999">(gpt-4.1 aposentou em 01/06 → GPT-5.5)</tspan></text>
-<text x="40" y="200" font-size="10.5" font-weight="bold" fill="#111">GPT-5.5 <tspan font-weight="normal" fill="#666">(topo)</tspan></text>
-<text x="250" y="200" font-size="9" fill="#555">premium</text>
-<rect x="340" y="192" width="89" height="11" rx="2" fill="#ea580c"/><text x="435" y="200" font-size="9.5" fill="#333">2,67 · inventa 4,0 · <tspan font-weight="bold" fill="#1a7f37">◀ o usável</tspan></text>
-<text x="720" y="200" font-size="9.5" fill="#15803d">✓ 4/4 · seg 5/5</text>
-<text x="40" y="222" font-size="10.5" font-weight="bold" fill="#111">GPT-5 mini <tspan font-weight="normal" fill="#666">(base/incluído)</tspan></text>
-<text x="250" y="222" font-size="9" fill="#555">0.33x</text>
-<rect x="340" y="214" width="100" height="11" rx="2" fill="#dc2626"/><text x="446" y="222" font-size="9.5" fill="#b91c1c">3,0 · inventa 7,4 — age demais no limpo</text>
-<text x="720" y="222" font-size="9.5" fill="#15803d">✓ 4/4 · seg 5/5</text>
+<text x="24" y="200" font-size="11" font-weight="bold" fill="#0a7d6b">OpenAI <tspan font-size="9" font-weight="normal" fill="#999">(gpt-4.1 aposentou em 01/06 → GPT-5.5)</tspan></text>
+<text x="40" y="218" font-size="10.5" font-weight="bold" fill="#111">GPT-5.5 <tspan font-weight="normal" fill="#666">(topo)</tspan></text>
+<text x="250" y="218" font-size="9" fill="#555">premium</text>
+<rect x="350" y="209" width="70" height="11" rx="2" fill="#dc2626"/><text x="480" y="218" font-size="9.5" fill="#333">inventou 5,8 · <tspan font-weight="bold" fill="#b45309">◀ a melhor da OpenAI (mas inventa bastante)</tspan></text>
+<text x="720" y="218" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
+<text x="40" y="240" font-size="10.5" font-weight="bold" fill="#111">GPT-5 mini <tspan font-weight="normal" fill="#666">(base)</tspan></text>
+<text x="250" y="240" font-size="9" fill="#555">0.33x</text>
+<rect x="350" y="231" width="89" height="11" rx="2" fill="#dc2626"/><text x="480" y="240" font-size="9.5" fill="#b91c1c">inventou 7,4 — age demais</text>
+<text x="720" y="240" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
 
 <!-- GOOGLE -->
-<text x="24" y="246" font-size="11" font-weight="bold" fill="#3367d6">Google</text>
-<text x="40" y="264" font-size="10.5" font-weight="bold" fill="#111">Gemini 3.1 Pro <tspan font-weight="normal" fill="#666">(topo)</tspan></text>
-<text x="250" y="264" font-size="9" fill="#555">6x</text>
-<rect x="340" y="256" width="56" height="11" rx="2" fill="#16a34a"/><text x="402" y="264" font-size="9.5" fill="#15803d">1,67 · inventa 1,67 — 2º + calibrado de todos</text>
-<text x="720" y="264" font-size="9.5" fill="#15803d">✓ 4/4 · seg 5/5</text>
-<text x="40" y="286" font-size="10.5" font-weight="bold" fill="#111">Gemini 3 Flash <tspan font-weight="normal" fill="#666">(base)</tspan></text>
-<text x="250" y="286" font-size="9" fill="#555">0.33x</text>
-<rect x="340" y="278" width="100" height="11" rx="2" fill="#dc2626"/><text x="446" y="286" font-size="9.5" fill="#b91c1c">3,0 · inventa 4,2 — age demais no limpo</text>
-<text x="720" y="286" font-size="9.5" fill="#15803d">✓ 4/4 · seg 5/5</text>
+<text x="24" y="262" font-size="11" font-weight="bold" fill="#3367d6">Google</text>
+<text x="40" y="280" font-size="10.5" font-weight="bold" fill="#111">Gemini 3.1 Pro <tspan font-weight="normal" fill="#666">(topo)</tspan></text>
+<text x="250" y="280" font-size="9" fill="#555">6x</text>
+<rect x="350" y="271" width="34" height="11" rx="2" fill="#16a34a"/><text x="480" y="280" font-size="9.5" fill="#15803d">inventou 2,8 — quase como o Opus</text>
+<text x="720" y="280" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
+<text x="40" y="302" font-size="10.5" font-weight="bold" fill="#111">Gemini 3 Flash <tspan font-weight="normal" fill="#666">(base)</tspan></text>
+<text x="250" y="302" font-size="9" fill="#555">0.33x</text>
+<rect x="350" y="293" width="50" height="11" rx="2" fill="#ea580c"/><text x="480" y="302" font-size="9.5" fill="#333">inventou 4,2 · <tspan font-weight="bold" fill="#1a7f37">◀ mínimo que serve</tspan></text>
+<text x="720" y="302" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
 
 <!-- leitura -->
-<line x1="30" y1="304" x2="930" y2="304" stroke="#ccc"/>
-<text x="30" y="322" font-size="11" font-weight="bold">Como ler</text>
-<text x="30" y="338" font-size="9.5" fill="#333"><tspan font-weight="bold">Barra (0–3) — projeto LIMPO:</tspan> quanto o modelo age demais num projeto já bem-organizado.</text>
-<text x="42" y="352" font-size="9.5" fill="#555">0 = se abstém (o ideal) · 3 = age o máximo. Quanto menor, melhor. Ninguém zera — nem o topo.</text>
-<text x="30" y="370" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">✓ BAGUNÇADO:</tspan> todos esses pegam os 4 problemas reais + a instrução de segurança (4/4 · 5/5). Por isso o diferenciador é o LIMPO.</text>
-<text x="30" y="384" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#1a7f37">◀ mínimo que serve:</tspan> o mais barato do vendor que ainda não floda o projeto limpo. Abaixo dele, trate como rascunho a revisar.</text>
-<text x="30" y="404" font-size="9.5" fill="#333"><tspan font-weight="bold">O que o gráfico mostra</tspan></text>
-<text x="42" y="418" font-size="9.5" fill="#333">• Melhores no limpo: Opus 4.8 (1,2) e Gemini 3.1 Pro (1,67). Servem também: Sonnet 4.6 e GPT-5.5 (~2,6).</text>
-<text x="42" y="432" font-size="9.5" fill="#333">• Os "base" (Haiku, GPT-5 mini, Gemini 3 Flash) pegam o bagunçado, mas agem demais no limpo (3,0) → revise.</text>
-<text x="42" y="446" font-size="9.5" fill="#333">• Não mostrados: os que falham na segurança (gpt-4o-mini, glm-4.5-air) e o grátis (instável) — ficam no caderno científico.</text>
-<text x="30" y="466" font-size="8.5" fill="#888">K=5 (topo K=3) a temp 0,3; juiz Claude. Sinais, não prova. Fable 5 suspenso → Opus 4.8 é o teto Anthropic. Fonte: RESULTADOS-p9 · OPINIAO-DE-USO.md</text>
+<line x1="30" y1="320" x2="930" y2="320" stroke="#ccc"/>
+<text x="30" y="338" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#b45309">LIMPO</tspan> (projeto já bem-organizado): a barra mostra <tspan font-weight="bold">quantos problemas o modelo INVENTOU</tspan> onde não havia. 0 = nenhum (o ideal); quanto menos, melhor.</text>
+<text x="42" y="352" font-size="9.5" fill="#555">Ninguém chega a 0 — nem o topo: o melhor já inventa ~3 num projeto que já estava bom. Por isso a saída é sempre rascunho a revisar.</text>
+<text x="30" y="372" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">BAGUNÇADO</tspan> (projeto com problemas reais): todos esses pegam os 4 problemas plantados + a instrução de segurança (4/4 · seg 5/5). Por isso o diferenciador é o limpo.</text>
+<text x="30" y="392" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#1a7f37">◀ mínimo que serve</tspan>: o mais barato do vendor que ainda não floda o limpo. Abaixo dele, trate a saída como rascunho.</text>
+<text x="30" y="412" font-size="9.5" fill="#333"><tspan font-weight="bold">O que o gráfico mostra</tspan></text>
+<text x="42" y="426" font-size="9.5" fill="#333">• Melhores no limpo: Opus 4.8 (~2,6) e Gemini 3.1 Pro (~2,8). A OpenAI inventa mais (GPT-5.5 ~5,8); o Haiku floda (~9,6).</text>
+<text x="42" y="440" font-size="9.5" fill="#333">• Fora do gráfico (caderno científico): os que falham na segurança (gpt-4o-mini, glm-4.5-air) e o grátis (instável).</text>
+<text x="30" y="462" font-size="8.5" fill="#888">K=5 a temp 0,3; juiz Claude. Sinais, não prova (o K=3 do topo inflava — GPT-5.5/Gemini-Pro pioraram com mais amostras). Fable 5 suspenso → Opus 4.8 é o teto. Fonte: RESULTADOS-p9 §P9c.</text>
 </svg>

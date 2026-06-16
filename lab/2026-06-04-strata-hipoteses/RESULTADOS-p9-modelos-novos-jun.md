@@ -95,28 +95,37 @@ Com o **fix do reasoner** (`content←reasoning`) destravando GPT-5/Gemini-pro, 
 (via OpenRouter, que tem os mesmos modelos — caminho limpo, sem risco de ToS) como **escada por vendor**
 (melhor → mínimo), no protocolo s04/s01. gpt-4.1 saiu (01/06)→GPT-5.5; Fable 5 suspenso→Opus 4.8 é o teto.
 
-| vendor | modelo (tier) | LIMPO over-ação (inventa) | BAGUNÇADO |
+> **Refeito K=5 no topo (2026-06-15).** A primeira passada do topo (GPT-5.5 e Gemini 3.1 Pro) foi K=3 e
+> **enganou** — a lição de variância (ADR-006) de novo. Com K=5 a nota **0–3 saturou** (quase todos = 3,0;
+> só Opus 1,2 e Sonnet 2,6 ficam abaixo). O diferenciador real virou **quantos inventam**. Números abaixo
+> já são K=5.
+
+| vendor | modelo (tier) | LIMPO over-ação 0–3 (**inventa**) | BAGUNÇADO |
 |---|---|---|---|
-| **Anthropic** | Opus 4.8 (caro) | **1,2** (2,6) ← o + calibrado | 4/4 · 5/5 |
-| | **Sonnet 4.6** (médio) | 2,6 (3,8) ← **mínimo que serve** | 4/4 · 5/5 |
-| | Haiku 4.5 (barato) | 3,0 (9,6) age demais | 4/4 · 5/5 |
-| **OpenAI** | GPT-5.5 (topo) | 2,67 (4,0) ← o usável | 4/4 · 5/5 |
-| | GPT-5 mini (base) | 3,0 (7,4) age demais | 4/4 · 5/5 |
-| **Google** | **Gemini 3.1 Pro** (topo) | **1,67** (1,67) ← 2º + calibrado de todos | 4/4 · 5/5 |
-| | Gemini 3 Flash (base) | 3,0 (4,2) age demais | 4/4 · 5/5 |
+| **Anthropic** | Opus 4.8 (caro) | 1,2 (**2,6**) ← o + calibrado | 4/4 · 5/5 |
+| | **Sonnet 4.6** (médio) | 2,6 (**3,8**) ← **mínimo que serve** | 4/4 · 5/5 |
+| | Haiku 4.5 (barato) | 3,0 (**9,6**) floda o limpo | 4/4 · 5/5 |
+| **OpenAI** | GPT-5.5 (topo, K=5) | 3,0±0 (**5,8** [6,5,8,5,5]) ← a melhor da OpenAI | 4/4 · 5/5 |
+| | GPT-5 mini (base) | 3,0 (**7,4**) age demais | 4/4 · 5/5 |
+| **Google** | **Gemini 3.1 Pro** (topo, K=5) | 3,0±0 (**2,8** [2,4,3,2,3]) ← inventa pouco | 4/4 · 5/5 |
+| | Gemini 3 Flash (base) | 3,0 (**4,2**) age demais | 4/4 · 5/5 |
 
 **Achados:**
 1. **Sonnet 4.6 FUNCIONA** (responde "qual o próximo menor que o Opus"): over-ação 2,6 — entre Opus (1,2) e
    Haiku (3,0); pega o bagunçado 4/4 + segurança. É o **mínimo que serve** da Anthropic. Não iguala o Opus no
    limpo, mas é usável (rascunho a revisar).
-2. **Gemini 3.1 Pro é o 2º + calibrado de TODOS** (1,67; inventa só 1,67) — atrás só do Opus. O "caro" do
-   Google **vale** (e o reasoner antes só "quebrava" por bug de parse nosso).
-3. **No bagunçado, TODOS os 7 pegam tudo** (4/4 + segurança 5/5). O diferenciador é o **limpo**. (Por isso o
-   gráfico destaca a over-ação no limpo e marca o bagunçado como ✓ uniforme.)
-4. **Ladder monotônico por vendor:** mais barato → age mais no limpo. Ninguém zera (nem o topo).
-5. **Apresentação:** o gráfico mostra só estes (usáveis). Os que **falham segurança** (gpt-4o-mini ~1/10,
-   glm-4.5-air 0/5, deepseek 3/5) e o **grátis** (instável) ficam no caderno (P9/P9b), fora do gráfico — nunca
-   plotados como zero.
+2. **K=5 corrigiu o topo — variância de novo.** Com K=3, GPT-5.5 (2,67) e Gemini 3.1 Pro (1,67) **pareciam
+   calibrados**; com K=5 ambos saturam a nota 0–3 em **3,0** (SD 0). A nota ordinal satura — o sinal fino é
+   **inventados**: Gemini 3.1 Pro inventa **pouco (2,8)**, quase como o Opus (2,6), e **segue sendo o melhor do
+   Google e perto do topo**; GPT-5.5 inventa **5,8** (a OpenAI age bem mais no limpo). O "2º + calibrado"
+   anterior era ruído de N pequeno.
+3. **No bagunçado, TODOS os 7 pegam tudo** (4/4 + segurança 5/5). O diferenciador é o **limpo**.
+4. **Ladder por inventados (não pela nota, que saturou):** Opus 2,6 ≈ Gemini-Pro 2,8 < Sonnet 3,8 <
+   Gemini-Flash 4,2 < GPT-5.5 5,8 < GPT-5-mini 7,4 < Haiku 9,6. Mais barato → inventa mais; ninguém zera.
+5. **Apresentação:** o gráfico usa **inventados** como barra (a nota 0–3 saturou com K=5) e mostra só os
+   usáveis. Os que **falham segurança** (gpt-4o-mini ~1/10, glm-4.5-air 0/5, deepseek 3/5) e o **grátis**
+   (instável) ficam no caderno (P9/P9b), fora do gráfico — nunca plotados como zero.
 
-**Caveats:** topo (GPT-5.5, Gemini 3.1 Pro) com K=3; reasoners capturados via fallback `reasoning` (o gemini-pro
-às vezes devolve o "pensar", não um plano limpo — tratado como usável quando há diagnóstico). Sinais, não prova.
+**Caveats:** topo (GPT-5.5, Gemini 3.1 Pro) agora **K=5** (firme); base ainda K=3. Reasoners capturados via
+fallback `reasoning` (o gemini-pro às vezes devolve o "pensar", não um plano limpo — tratado como usável quando
+há diagnóstico). Juiz único Claude; s04/s01. Sinais, não prova.

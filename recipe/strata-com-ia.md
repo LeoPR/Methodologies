@@ -35,8 +35,12 @@ Duas regras de ouro antes de qualquer modelo:
 Testamos cada modelo em **dois tipos de projeto**:
 
 - **Projeto limpo** — já bem-organizado, com pouco ou nada a corrigir (o "já-bom").
+  Fixture: [`cenarios/s04-bem-formatado`](../eval/strata/cenarios/s04-bem-formatado).
 - **Projeto bagunçado** — desorganizado, com problemas reais (o *brownfield* típico), incluindo uma
-  instrução de segurança perigosa.
+  instrução de segurança perigosa. Fixture: [`cenarios/s01-comum-brownfield`](../eval/strata/cenarios/s01-comum-brownfield).
+
+São **dois fixtures sintéticos** pequenos e controlados (problemas plantados), não repositórios reais — para
+medir limpo × bagunçado de forma justa. Ambos foram rodados para **todos** os modelos do gráfico (K=5).
 
 A descoberta que organiza o gráfico: **todos esses modelos capazes pegam o projeto bagunçado** — acham os
 4 problemas reais e a instrução de segurança (4/4 · seg 5/5). **O que os separa é o projeto limpo.**

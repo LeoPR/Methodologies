@@ -1,61 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="492" font-family="sans-serif">
-<rect width="960" height="492" fill="white"/>
-<text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — modelos do Copilot, por vendor (jun/2026)</text>
-<text x="30" y="46" font-size="11" fill="#666">Por vendor, do melhor ao mínimo que serve. Todos pegam o projeto bagunçado — a diferença está no projeto limpo.</text>
-<line x1="30" y1="60" x2="930" y2="60" stroke="#ccc"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="516" font-family="sans-serif">
+<rect width="960" height="516" fill="white"/>
+<text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — qual modelo usar (jun/2026)</text>
+<text x="30" y="45" font-size="11" fill="#666">Por vendor, do melhor ao mínimo que serve. Todos os usáveis pegam o projeto bagunçado — a diferença está no limpo.</text>
+<line x1="30" y1="58" x2="930" y2="58" stroke="#ccc"/>
 
-<!-- cabecalho que abraca LIMPO e BAGUNCADO -->
-<text x="630" y="76" font-size="11" font-style="italic" fill="#555" text-anchor="middle">Quando seu projeto está…</text>
-<text x="30" y="92" font-size="10.5" font-weight="bold" fill="#444">vendor / modelo · tier</text>
-<text x="350" y="92" font-size="11" font-weight="bold" fill="#b45309">LIMPO <tspan font-weight="normal" font-size="9.5" fill="#777">(inventou menos = melhor)</tspan></text>
-<text x="720" y="92" font-size="11" font-weight="bold" fill="#15803d">BAGUNÇADO</text>
-<line x1="30" y1="98" x2="930" y2="98" stroke="#ccc"/>
+<!-- cabecalho que abraca os dois tipos de projeto -->
+<text x="620" y="74" font-size="11" font-style="italic" fill="#555" text-anchor="middle">Quando seu projeto está…</text>
+<text x="30" y="90" font-size="10.5" font-weight="bold" fill="#444">vendor / modelo · tier · custo</text>
+<text x="340" y="90" font-size="11" font-weight="bold" fill="#15803d">BAGUNÇADO</text>
+<text x="420" y="90" font-size="11" font-weight="bold" fill="#b45309">LIMPO <tspan font-weight="normal" font-size="9.5" fill="#777">(inventou menos = melhor)</tspan></text>
+<line x1="30" y1="96" x2="930" y2="96" stroke="#ccc"/>
 
 <!-- ANTHROPIC -->
-<text x="24" y="116" font-size="11" font-weight="bold" fill="#7a5ba8">Anthropic</text>
-<text x="40" y="134" font-size="10.5" font-weight="bold" fill="#111">Opus 4.8 <tspan font-weight="normal" fill="#666">(caro)</tspan></text>
-<text x="250" y="134" font-size="9" fill="#555">premium</text>
-<rect x="350" y="125" width="31" height="11" rx="2" fill="#16a34a"/><text x="480" y="134" font-size="9.5" fill="#15803d">inventou 2,6 — o melhor</text>
-<text x="720" y="134" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
-<text x="40" y="156" font-size="10.5" font-weight="bold" fill="#111">Sonnet 4.6 <tspan font-weight="normal" fill="#666">(médio)</tspan></text>
-<text x="250" y="156" font-size="9" fill="#555">9x</text>
-<rect x="350" y="147" width="46" height="11" rx="2" fill="#ea580c"/><text x="480" y="156" font-size="9.5" fill="#333">inventou 3,8 · <tspan font-weight="bold" fill="#1a7f37">◀ mínimo que serve</tspan></text>
-<text x="720" y="156" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
-<text x="40" y="178" font-size="10.5" font-weight="bold" fill="#111">Haiku 4.5 <tspan font-weight="normal" fill="#666">(barato)</tspan></text>
-<text x="250" y="178" font-size="9" fill="#555">0.33x</text>
-<rect x="350" y="169" width="115" height="11" rx="2" fill="#dc2626"/><text x="480" y="178" font-size="9.5" fill="#b91c1c">inventou 9,6 — floda o limpo</text>
-<text x="720" y="178" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
-
-<!-- OPENAI -->
-<text x="24" y="200" font-size="11" font-weight="bold" fill="#0a7d6b">OpenAI <tspan font-size="9" font-weight="normal" fill="#999">(gpt-4.1 aposentou em 01/06 → GPT-5.5)</tspan></text>
-<text x="40" y="218" font-size="10.5" font-weight="bold" fill="#111">GPT-5.5 <tspan font-weight="normal" fill="#666">(topo)</tspan></text>
-<text x="250" y="218" font-size="9" fill="#555">premium</text>
-<rect x="350" y="209" width="70" height="11" rx="2" fill="#dc2626"/><text x="480" y="218" font-size="9.5" fill="#333">inventou 5,8 · <tspan font-weight="bold" fill="#b45309">◀ a melhor da OpenAI (mas inventa bastante)</tspan></text>
-<text x="720" y="218" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
-<text x="40" y="240" font-size="10.5" font-weight="bold" fill="#111">GPT-5 mini <tspan font-weight="normal" fill="#666">(base)</tspan></text>
-<text x="250" y="240" font-size="9" fill="#555">0.33x</text>
-<rect x="350" y="231" width="89" height="11" rx="2" fill="#dc2626"/><text x="480" y="240" font-size="9.5" fill="#b91c1c">inventou 7,4 — age demais</text>
-<text x="720" y="240" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
+<text x="24" y="114" font-size="11" font-weight="bold" fill="#7a5ba8">Anthropic</text>
+<text x="40" y="132" font-size="10.5" font-weight="bold" fill="#111">Opus 4.8 <tspan font-weight="normal" fill="#666">(topo · $$$)</tspan></text>
+<text x="340" y="132" font-size="9.5" fill="#15803d">ok</text>
+<rect x="420" y="123" width="31" height="11" rx="2" fill="#16a34a"/><text x="457" y="132" font-size="9.5" fill="#333">2,6</text>
+<text x="40" y="152" font-size="10.5" font-weight="bold" fill="#111">Sonnet 4.6 <tspan font-weight="normal" fill="#666">(médio · $$)</tspan></text>
+<text x="340" y="152" font-size="9.5" fill="#15803d">ok</text>
+<rect x="420" y="143" width="46" height="11" rx="2" fill="#5a9e22"/><text x="472" y="152" font-size="9.5" fill="#333">3,8 <tspan fill="#1a7f37" font-weight="bold">◀ mín. que serve</tspan></text>
+<text x="40" y="172" font-size="10.5" font-weight="bold" fill="#111">Haiku 4.5 <tspan font-weight="normal" fill="#666">(base · $)</tspan></text>
+<text x="340" y="172" font-size="9.5" fill="#15803d">ok</text>
+<rect x="420" y="163" width="115" height="11" rx="2" fill="#dc2626"/><text x="541" y="172" font-size="9.5" fill="#333">9,6</text>
 
 <!-- GOOGLE -->
-<text x="24" y="262" font-size="11" font-weight="bold" fill="#3367d6">Google</text>
-<text x="40" y="280" font-size="10.5" font-weight="bold" fill="#111">Gemini 3.1 Pro <tspan font-weight="normal" fill="#666">(topo)</tspan></text>
-<text x="250" y="280" font-size="9" fill="#555">6x</text>
-<rect x="350" y="271" width="34" height="11" rx="2" fill="#16a34a"/><text x="480" y="280" font-size="9.5" fill="#15803d">inventou 2,8 — quase como o Opus</text>
-<text x="720" y="280" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
-<text x="40" y="302" font-size="10.5" font-weight="bold" fill="#111">Gemini 3 Flash <tspan font-weight="normal" fill="#666">(base)</tspan></text>
-<text x="250" y="302" font-size="9" fill="#555">0.33x</text>
-<rect x="350" y="293" width="50" height="11" rx="2" fill="#ea580c"/><text x="480" y="302" font-size="9.5" fill="#333">inventou 4,2 · <tspan font-weight="bold" fill="#1a7f37">◀ mínimo que serve</tspan></text>
-<text x="720" y="302" font-size="9.5" fill="#15803d">4/4 · seg 5/5</text>
+<text x="24" y="192" font-size="11" font-weight="bold" fill="#3367d6">Google</text>
+<text x="40" y="210" font-size="10.5" font-weight="bold" fill="#111">Gemini 3.1 Pro <tspan font-weight="normal" fill="#666">(topo · $$)</tspan></text>
+<text x="340" y="210" font-size="9.5" fill="#15803d">ok</text>
+<rect x="420" y="201" width="34" height="11" rx="2" fill="#16a34a"/><text x="460" y="210" font-size="9.5" fill="#333">2,8</text>
+<text x="40" y="230" font-size="10.5" font-weight="bold" fill="#111">Gemini 3 Flash <tspan font-weight="normal" fill="#666">(base · $)</tspan></text>
+<text x="340" y="230" font-size="9.5" fill="#15803d">ok</text>
+<rect x="420" y="221" width="50" height="11" rx="2" fill="#84a015"/><text x="476" y="230" font-size="9.5" fill="#333">4,2 <tspan fill="#1a7f37" font-weight="bold">◀ mín. que serve</tspan></text>
+
+<!-- DEEPSEEK -->
+<text x="24" y="250" font-size="11" font-weight="bold" fill="#0b7285">DeepSeek <tspan font-size="9" font-weight="normal" fill="#999">(fora do Copilot; muito barato; V4 é "cloud" = roda remoto)</tspan></text>
+<text x="40" y="268" font-size="10.5" font-weight="bold" fill="#111">V4 Pro <tspan font-weight="normal" fill="#666">(topo · $$)</tspan></text>
+<text x="340" y="268" font-size="9.5" fill="#15803d">ok</text>
+<rect x="420" y="259" width="65" height="11" rx="2" fill="#ca8a04"/><text x="491" y="268" font-size="9.5" fill="#333">5,4</text>
+<text x="40" y="288" font-size="10.5" font-weight="bold" fill="#111">V4 Flash <tspan font-weight="normal" fill="#666">(base · ¢)</tspan></text>
+<text x="340" y="288" font-size="9.5" fill="#15803d">ok</text>
+<rect x="420" y="279" width="70" height="11" rx="2" fill="#d18908"/><text x="496" y="288" font-size="9.5" fill="#333">5,8 <tspan fill="#1a7f37" font-weight="bold">◀ mín. que serve</tspan></text>
+
+<!-- OPENAI -->
+<text x="24" y="308" font-size="11" font-weight="bold" fill="#0a7d6b">OpenAI <tspan font-size="9" font-weight="normal" fill="#999">(gpt-4.1 aposentou em 01/06 → GPT-5.5)</tspan></text>
+<text x="40" y="326" font-size="10.5" font-weight="bold" fill="#111">GPT-5.5 <tspan font-weight="normal" fill="#666">(topo · $$$)</tspan></text>
+<text x="340" y="326" font-size="9.5" fill="#15803d">ok</text>
+<rect x="420" y="317" width="70" height="11" rx="2" fill="#d18908"/><text x="496" y="326" font-size="9.5" fill="#333">5,8</text>
+<text x="40" y="346" font-size="10.5" font-weight="bold" fill="#111">GPT-5 mini <tspan font-weight="normal" fill="#666">(base · $)</tspan></text>
+<text x="340" y="346" font-size="9.5" fill="#15803d">ok</text>
+<rect x="420" y="337" width="89" height="11" rx="2" fill="#e0620d"/><text x="515" y="346" font-size="9.5" fill="#333">7,4</text>
+
+<!-- LOCAL -->
+<text x="24" y="366" font-size="11" font-weight="bold" fill="#888">Local (na sua GPU)</text>
+<text x="40" y="384" font-size="10.5" font-weight="bold" fill="#555">deepseek-r1:8b <tspan font-weight="normal" fill="#888">(q4, ~5GB · 🆓)</tspan></text>
+<text x="340" y="384" font-size="9.5" fill="#999">instável</text>
+<rect x="420" y="375" width="110" height="11" rx="2" fill="#e5e7eb"/><text x="424" y="384" font-size="9" fill="#777">não confiável — alucina no limpo</text>
 
 <!-- leitura -->
-<line x1="30" y1="320" x2="930" y2="320" stroke="#ccc"/>
-<text x="30" y="338" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#b45309">LIMPO</tspan> (projeto já bem-organizado): a barra mostra <tspan font-weight="bold">quantos problemas o modelo INVENTOU</tspan> onde não havia. 0 = nenhum (o ideal); quanto menos, melhor.</text>
-<text x="42" y="352" font-size="9.5" fill="#555">Ninguém chega a 0 — nem o topo: o melhor já inventa ~3 num projeto que já estava bom. Por isso a saída é sempre rascunho a revisar.</text>
-<text x="30" y="372" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">BAGUNÇADO</tspan> (projeto com problemas reais): todos esses pegam os 4 problemas plantados + a instrução de segurança (4/4 · seg 5/5). Por isso o diferenciador é o limpo.</text>
-<text x="30" y="392" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#1a7f37">◀ mínimo que serve</tspan>: o mais barato do vendor que ainda não floda o limpo. Abaixo dele, trate a saída como rascunho.</text>
-<text x="30" y="412" font-size="9.5" fill="#333"><tspan font-weight="bold">O que o gráfico mostra</tspan></text>
-<text x="42" y="426" font-size="9.5" fill="#333">• Melhores no limpo: Opus 4.8 (~2,6) e Gemini 3.1 Pro (~2,8). A OpenAI inventa mais (GPT-5.5 ~5,8); o Haiku floda (~9,6).</text>
-<text x="42" y="440" font-size="9.5" fill="#333">• Fora do gráfico (caderno científico): os que falham na segurança (gpt-4o-mini, glm-4.5-air) e o grátis (instável).</text>
-<text x="30" y="462" font-size="8.5" fill="#888">K=5 a temp 0,3; juiz Claude. Sinais, não prova (o K=3 do topo inflava — GPT-5.5/Gemini-Pro pioraram com mais amostras). Fable 5 suspenso → Opus 4.8 é o teto. Fonte: RESULTADOS-p9 §P9c.</text>
+<line x1="30" y1="402" x2="930" y2="402" stroke="#ccc"/>
+<text x="30" y="420" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#b45309">LIMPO</tspan> (projeto já bem-organizado): a barra = <tspan font-weight="bold">quantos problemas o modelo inventa</tspan> onde não há nada. Menos = melhor; a cor acompanha (verde→vermelho).</text>
+<text x="42" y="434" font-size="9.5" fill="#555">Ninguém zera — nem o topo: o melhor já inventa ~3 num projeto que já estava bom. A saída é sempre rascunho a revisar.</text>
+<text x="30" y="454" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">BAGUNÇADO</tspan> (projeto com problemas reais): <tspan font-weight="bold">ok</tspan> = pegou os 4 problemas plantados + a instrução de segurança (nas 5 rodadas). Por isso o diferenciador é o limpo.</text>
+<text x="30" y="474" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#1a7f37">◀ mín. que serve</tspan>: o mais barato do vendor que ainda vale usar. Abaixo dele (e no Local), trate como rascunho.</text>
+<text x="30" y="494" font-size="9.5" fill="#555"><tspan font-weight="bold">Fora do gráfico</tspan> (só no caderno): falham na segurança (gpt-4o-mini, glm-4.5-air, deepseek-v3) ou são grátis instáveis.</text>
+<text x="30" y="510" font-size="8.5" fill="#888">K=5 a temp 0,3; juiz Claude; 2 tipos de projeto. Sinais, não prova. Fable 5 suspenso → Opus 4.8 é o teto. Fonte: RESULTADOS-p9 §P9c–d.</text>
 </svg>

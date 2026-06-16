@@ -16,21 +16,22 @@ Duas regras de ouro antes de qualquer modelo:
    Dê a **checklist** (`../lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-checklist.md`).
 2. **Saída de IA = rascunho a revisar**, nunca veredito automático.
 
-## Decisão rápida — o que usar (modelos do Copilot, jun/2026)
+## Decisão rápida — o que usar (jun/2026)
 
 | Eu quero… | Use (+ checklist) | Por quê |
 |---|---|---|
 | **o mais confiável** | **Opus 4.8** ou **Gemini 3.1 Pro** | inventam menos no **limpo** (~3, o mínimo) e pegam tudo no bagunçado |
 | **bom, mais barato** | **Sonnet 4.6** ou **Gemini 3 Flash** | o "mínimo que serve": pegam tudo no bagunçado; inventam ~4 no limpo → revise |
-| **se você usa GPT** | **GPT-5.5** (a melhor da OpenAI) | pega tudo no bagunçado, mas **inventa bastante no limpo** (~6) → trate como rascunho |
-| **o mais barato que ainda acha o real** | **Haiku 4.5** · **GPT-5 mini** | pegam o bagunçado (4/4 + segurança), mas **inventam muito no limpo** (7–10) → só rascunho |
-| **NÃO usar sozinho** | gpt-4o-mini, glm-4.5-air, locais/grátis | **falham na segurança** (não pegam a instrução perigosa) ou são instáveis |
+| **barato fora do Copilot** | **DeepSeek V4 Flash** (¢) | passa na segurança e pega tudo no bagunçado; inventa ~6 no limpo → rascunho |
+| **se você usa GPT** | **GPT-5.5** (a melhor da OpenAI) | pega tudo no bagunçado; inventa ~6 no limpo → rascunho |
+| **o mais barato que ainda acha o real** | **Haiku 4.5** · **GPT-5 mini** | pegam o bagunçado (4/4 + segurança), mas inventam muito no limpo (7–10) → só rascunho |
+| **NÃO usar sozinho** | gpt-4o-mini, glm-4.5-air, deepseek-v3, locais/grátis | **falham na segurança** (não pegam a instrução perigosa) ou são instáveis |
 
-*Regra: no projeto **bagunçado** quase todos servem; a diferença está no **limpo** (quanto inventam) — sempre **revise** a saída. Detalhe no gráfico abaixo. (Nomes/preços de modelo mudam rápido — é L2; confira a lista atual do Copilot.)*
+*Regra: no projeto **bagunçado** quase todos servem; a diferença está no **limpo** (quanto inventam) — sempre **revise** a saída. Detalhe no gráfico abaixo. (Nomes/preços mudam rápido — é L2; confira a lista atual.)*
 
-![Strata por IA — escada por vendor (modelos do Copilot)](strata-com-ia-fronteira.svg)
+![Strata por IA — qual modelo usar, por vendor](strata-com-ia-fronteira.svg)
 
-**Como ler o gráfico** (jun/2026; os modelos do **Copilot**, por vendor, do melhor ao mínimo que serve).
+**Como ler o gráfico** (jun/2026; por vendor, do melhor ao mínimo que serve).
 Testamos cada modelo em **dois tipos de projeto**:
 
 - **Projeto limpo** — já bem-organizado, com pouco ou nada a corrigir (o "já-bom").
@@ -50,9 +51,13 @@ limpo. Abaixo dele, o modelo ainda pega o bagunçado, mas no limpo inventa demai
 
 **O que o gráfico diz:**
 - Inventam menos no limpo (os melhores): **Opus 4.8** (~2,6) e **Gemini 3.1 Pro** (~2,8) — quase empatados.
-- A **OpenAI inventa mais** (GPT-5.5 ~5,8); o **Haiku floda** o limpo (~9,6 — o que mais inventa de todos).
+- Meio: **Sonnet 4.6** (~3,8) e **Gemini 3 Flash** (~4,2).
+- Inventam bastante (rascunho): **DeepSeek V4** (~5,5) e **GPT-5.5** (~5,8) — passam na segurança, mas agem
+  demais no limpo; **GPT-5 mini** (~7,4) e **Haiku 4.5** (~9,6) inventam muito.
+- **DeepSeek V4** não está no Copilot, mas devs usam (muito barato; é "cloud" = roda remoto). **Local**
+  (deepseek-r1:8b) **alucina no limpo** — não confiável.
 - Ficam **fora do gráfico** (só no caderno científico): os que **falham na segurança** (gpt-4o-mini,
-  glm-4.5-air) e o **grátis** (instável). O gráfico mostra só os **usáveis**.
+  glm-4.5-air, deepseek-v3) e o **grátis** (instável). O gráfico mostra só os **usáveis**.
 
 > **Leia pelo padrão, não pelo nome.** Modelos mudam rápido (o **gpt-4.1 já se aposentou → GPT-5.5**); o que
 > **dura** é o comportamento por tier. Método e dados:

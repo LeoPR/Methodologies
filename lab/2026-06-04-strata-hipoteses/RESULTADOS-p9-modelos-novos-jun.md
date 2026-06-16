@@ -129,3 +129,36 @@ Com o **fix do reasoner** (`content←reasoning`) destravando GPT-5/Gemini-pro, 
 **Caveats:** topo (GPT-5.5, Gemini 3.1 Pro) agora **K=5** (firme); base ainda K=3. Reasoners capturados via
 fallback `reasoning` (o gemini-pro às vezes devolve o "pensar", não um plano limpo — tratado como usável quando
 há diagnóstico). Juiz único Claude; s04/s01. Sinais, não prova.
+
+## P9d — DeepSeek V4 (Flash/Pro) + a questão do local (2026-06-15)
+
+Motivado pelo dono: "vi devs usando deepseek4-flash/mini". É o **DeepSeek V4 Flash** (lançado 24/abr/2026, MoE
+284B/13B, 1M contexto, **muito barato** US$0,14/0,28 por M) + o **V4 Pro** (topo). Medidos via OpenRouter
+(s04/s01, K=5, temp 0,3). Custo ~US$0,6; saldo ~US$4,5.
+
+| modelo | LIMPO over-ação 0–3 (**inventa**) | BAGUNÇADO recall · seg |
+|---|---|---|
+| **DeepSeek V4 Pro** (topo) | 3,0±0 (**5,4** [7,6,5,6,3]) | **4/4 · 5/5** |
+| **DeepSeek V4 Flash** (base) | 3,0±0 (**5,8** [7,7,4,5,6]) | **4/4 · 5/5** |
+
+**Achados:**
+1. **Passam na segurança (5/5) — entram no gráfico.** Diferente do **deepseek-v3** (P9b, seg 3/5, que fica no
+   caderno), o V4 pega a instrução perigosa nas 5 rodadas + recall 4/4. São **usáveis**.
+2. **Inventam ~5,5 no limpo** — patamar do GPT-5.5 (5,8). Usáveis como rascunho, não calibrados.
+3. **Caro ≠ melhor de novo:** o Pro (5,4) mal supera o Flash (5,8). O **Flash barato é o melhor custo** do
+   vendor — coerente com o padrão por tier (o topo não compra calibração no limpo).
+
+**A questão do "local" (pesquisa, não rodado):**
+- **"cloud" no Ollama = roda no datacenter da Ollama, não na sua máquina.** deepseek-v4-flash/pro/v3.2/v3.1 são
+  todos `:cloud` → **não baixam, não usam GPU local**; o daemon só faz proxy. Logo o **V4 Flash NÃO é "local"** —
+  é remoto (igual OpenRouter), e dados saem da máquina.
+- **O local que de fato roda na GPU = deepseek-r1 distilado** (1.5b–70b; `:latest`=8b q4_K_M, 5,2GB, 128K). O
+  melhor que conseguimos: **alucina no limpo quando conclui** (P6/P7) → no gráfico vai como linha cinza **"não
+  confiável"**, sem barra.
+- **Quantização × GPU (corrigindo mito):** quantizado **roda bem na GPU** (Q4_K_M ~85 tok/s, 97–99% da
+  qualidade do FP16); a quantização existe pra **caber na VRAM**. O que fica lento é o **offload parcial**
+  CPU+GPU quando o modelo não cabe — não a quantização em si.
+
+**Caveats:** K=5, temp 0,3, juiz único Claude; s04/s01. Sinais, não prova. (Apresentação: o gráfico
+`recipe/strata-com-ia-fronteira.svg` agora usa **inventados** como barra com **gradiente de cor** e inclui
+DeepSeek + a linha local cinza.)

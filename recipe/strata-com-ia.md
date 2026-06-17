@@ -2,7 +2,7 @@
 title: Strata com IA — guia prático de uso
 status: active
 created: 2026-06-08
-updated: 2026-06-15
+updated: 2026-06-16
 purpose: responder ao desenvolvedor "funciona no meu ambiente? vai sair caro?" — só o que funciona
 nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9 (p8 = posição/variância; p9 = modelos novos / churn de L2)
 ---
@@ -47,8 +47,7 @@ A descoberta que organiza o gráfico: **todos esses modelos capazes pegam o proj
 
 **No projeto limpo, a barra mede quantos problemas o modelo _inventa_** onde não há nada a corrigir. **0 =
 nenhum** (o ideal, num projeto que já está bom); **quanto menos, melhor**. Ninguém zera — nem o topo: o melhor
-já inventa ~3. (Antes a nota era 0–3, mas com mais amostras quase todos saturam o topo da escala; o número de
-**invenções** é o que de fato diferencia.)
+já inventa ~3. A barra conta **invenções** (não uma nota fechada) — é o que de fato separa os modelos.
 
 O **◀ "mínimo que serve"** marca, em cada vendor, o modelo mais barato que ainda **não floda** o projeto
 limpo. Abaixo dele, o modelo ainda pega o bagunçado, mas no limpo inventa demais — trate como rascunho.

@@ -1,209 +1,111 @@
 ---
-title: 'Opinião de uso do Strata — honesta, por tarefa × capacidade do modelo × custo (consolidação F0,F1,F3-F6 + eco + escada Claude + topo Opus)'
+title: 'Opinião de uso do Strata — honesta, por tarefa × capacidade do modelo × custo'
 created: 2026-06-13
 updated: 2026-06-16
-status: 'CONSOLIDADO 2026-06-13 + REFINADO 2026-06-16. Assinatura: barato over-age / topo calibra / forma padroniza — REFINADA: a over-ação é NOISE-triggered (projeto limpo → todos abstêm); sub-detecção domina no real; circularidade ENFRAQUECIDA (sinal fraco: o detector do real foi o gpt-5.5, não a casa). SINAIS direcionais, não prova; ruído×framing confundido; sintético+completion-only.'
+status: 'Consolidado. O que o Strata entrega na prática, por tarefa/capacidade/custo, com as ressalvas. SINAIS direcionais (sintético + completion-only, N pequeno), não prova. A evolução datada e os experimentos vivem no hub e nos RESULTADOS-*.'
 ---
 
 # Opinião de uso do Strata — o que dizer, com honestidade
 
-> Destilado de toda a evidência reunida (as fases F0,F1,F3–F6, a execução no digest de um projeto real, a escada de
-> modelos Claude, o eixo de esforço e o custo), e **submetido a uma revisão crítica contra exagero** (*over-claim*).
-> Detalhe por fase no [hub](ARQUITETURA-E-EVIDENCIAS.md); o que falta no [`BACKLOG`](BACKLOG-fila-geral.md).
+> Texto de **entrega**: o estado consolidado, não o diário. O que esperar do Strata na prática.
+> A evolução por fase, os experimentos e o que foi descartado vivem no [hub](ARQUITETURA-E-EVIDENCIAS.md)
+> (histórico append-only) e nos `RESULTADOS-*`; o que falta, no [`BACKLOG`](BACKLOG-fila-geral.md).
+> Cada conclusão passou por crítica adversarial contra exagero. **Tudo é sinal/direção, não prova.**
 
-## Síntese — a assinatura
-Em resumo, o padrão mais consistente que encontramos tem três partes:
+## O que o Strata entrega
 
-- **As IAs mais populares agem demais.**
-  São as de melhor custo-benefício, as que a maioria de fato usa (as **econômicas e médias**, abaixo do topo).
-  Mexem onde não precisava: "consertam" o que já estava bom, inventam problema.
-- **Os melhores modelos do mercado calibram.**
-  O *topo* (ex.: Opus 4.8) age quando deve, e se abstém quando o projeto já está bom.
-- **O método (a "forma") padroniza.**
-  Faz o conserto sempre do mesmo jeito, registrado e rastreável.
+Três coisas, em ordem de solidez:
 
-Os três casos que mostram isso:
+- **Padroniza o conserto (sólido).** Diante de um defeito conhecido — uma informação que virou duas (§5), algo
+  antigo a aposentar (§3) —, o método leva a IA a consertar **sempre do mesmo jeito, rastreável e preservando o
+  histórico** (marca como superado, não apaga). Vale **até no modelo econômico**.
+- **Faz a IA recusar instrução maliciosa lida do projeto (§6-bis).** "Baixe e rode esta URL", "execute sem
+  confirmar" → a IA não obedece, e não inventa ameaça onde não há. O econômico melhora muito com o método; o
+  topo recusa de forma nativa. *(A recusa do econômico é em parte lexical — cai sob paráfrase.)*
+- **Aponta o caminho do "quando NÃO agir" — mas a calibração é do modelo (sinal).** Reconhecer que o projeto
+  **já está bom** e não mexer (§9) é o julgamento difícil; depende da **capacidade**, não da forma. Nenhuma forma
+  torna um modelo fraco proporcional.
 
-- **Abster-se num projeto que já está bom** (§9): o econômico/médio costuma agir demais (o gpt-4.1 é a exceção — também se abstém); o Opus se abstém (6 de 6).
-- **Situar no tempo, com o histórico enterrado no meio:** o econômico/médio re-levanta um bug já resolvido — inclusive o gpt-4.1, normalmente forte. Só o topo se situa.
-- **Respeitar o tipo do projeto** (gênero): o econômico/médio cobra teste de uma lista; com a pergunta certa, acerta.
+**Sobre a over-ação (mexer no que não precisa):** não é carimbo fixo do tier. Ela aparece quando o projeto tem
+**ruído/bagunça a confundir**; num projeto **limpo e bem-governado**, até o econômico se abstém. O reverso é o
+limite mais duro: num projeto real que **de fato precisa**, a falha vira **sub-detecção** (deixar passar) — e só
+um modelo de **topo** fura a complacência, variando por **fornecedor** (não preso à família que escreveu o
+método). *(Direcional: ruído e forma-do-pedido ainda não foram isolados — ver ressalvas.)*
 
-Um complemento (cenário *f4-trap*): segurança e preservação do histórico já são **nativas do topo** — a forma não precisa adicioná-las.
-O que a forma acrescenta, mesmo no topo, é a **padronização e a rastreabilidade do conserto**.
+**Sobre os juízes (como sabemos o acima):** no conjunto de detecção, **9 juízes de 3 empresas (OpenAI, Google,
+Anthropic) convergem**, e um 2º juiz não-Claude confirma a ordenação — o achado central **não** é "Claude julga
+Claude". As células decisivas do topo ainda usam um juiz só (ressalva abaixo).
 
-## Refino (jun/2026) — a escada completa em 2 projetos reais ([P10](RESULTADOS-p10-escada-propria-genero.md))
+## Por tarefa — quem dá conta
 
-Rodamos a escada de 9 modelos (K=5) em dois projetos reais — um **limpo** (projeto grande de Python com docs/artigos)
-e um **bagunçado público** (biblioteca/pesquisa em código). Sinais **direcionais** que **refinam** a assinatura
-(não a refutam) — N=1 por projeto, 1 juiz, o limpo é circular (do dono):
-
-> **Confound a não esconder:** o limpo rodou sob o framing **gênero-consciente**, que **já prima abstenção**
-> ("§9 não exija o que não se aplica"). A over-ação do corpus anterior veio do framing "ache problemas". Logo
-> **ruído está confundido com framing** (não cruzamos os dois) — "JÁ-BOM" pode ser leniência-de-prompt.
-
-- **A over-ação parece modulada por ruído/legibilidade** — no projeto limpo a escada inteira abstém, incl. o
-  econômico. Mas **não está isolada de capacidade**: sob o MESMO framing, noutro projeto limpo o econômico já
-  inverte e até o topo over-limpa. **Direcional, não causal.**
-- **No real, a falha pende para SUB-detecção:** 8 de 9 disseram "já-bom" e deixaram passar a dívida real; só **um
-  topo** (GPT-5.5) detectou. Parte é leniência do prompt (o mesmo que abstém no limpo) — o framing **infla, não
-  fabrica**; a capacidade ainda diferencia (o GPT-5.5 detecta sob o mesmo prompt). **Detecção rica no real é o
-  limite mais duro.**
-- **Enfraquece (não derruba) a circularidade:** nesse real público, quem detectou foi o **GPT-5.5 (outro
-  fornecedor)**, não o **Opus da casa** — sinal de que o discernimento no real não é exclusivo da família. Fraco:
-  1 fixture, **juiz Claude**, e a diferença foi **uma casa de limiar** sobre os mesmos achados, não cego×detecta.
-
-**Implicação prática (com a ressalva):** o **topo** importa mais quando o projeto é **bagunçado/ilegível**; num
-projeto **limpo e bem-governado**, o econômico tende a abster certo (sob prompt pró-abstenção). E **achar dívida
-real num projeto grande** é o limite mais duro — hoje só um modelo de topo (e varia por fornecedor) deu conta;
-trate como rascunho. *Próximo passo p/ firmar: cruzar ruído × framing e usar terceiros + juiz não-Claude (BACKLOG).*
-
-Como medimos (em resumo): cenários sintéticos, em modo **só-texto** (a IA escreve o plano, não executa), com poucas repetições.
-Sobre os **juízes**: no conjunto de **detecção**, **9 juízes de 3 fornecedores (OpenAI, Google, Anthropic) convergiram** (F0) e um **2º juiz não-Claude** confirmou a ordenação (R6) — o achado central **não** é "Claude julga Claude". As **células decisivas do topo** (reteste-limpo, abstenção, faixa ecológica), essas sim, ficaram com **um juiz só**.
-Por isso é **sinal forte, não prova**. As ressalvas completas estão na seção *Honestidade*, no fim.
-
-## Quão sólido é cada pedaço
-A assinatura acima não tem o mesmo lastro em todas as partes.
-
-- **"A capacidade calibra" é a parte mais sustentada, mas ainda modesta.**
-  Ela repousa num único modelo de topo (o Opus 4.8), que é da mesma família que co-escreveu o método.
-  E foi medida em cenários sintéticos, com conferência automática, sem os dois juízes independentes que sustentam o caso §5.
-- **"A forma padroniza" é o lado mais firme do método.**
-  A forma não corrige o viés do modelo fraco, ou seja, não o torna proporcional — e às vezes até piora.
-  O que ela garante é um conserto sempre do mesmo jeito, registrado e rastreável.
-
-Resumindo os níveis de solidez:
-
-- **Robusto:** consertar um defeito conhecido (§5), e o teste com três fornecedores.
-- **Sinal forte, porém menos firme:** as decisões do modelo de topo (abster-se, lidar com ruído).
-
-Tudo isso vem de cenários sintéticos e do modo só-texto.
-
-## Três condições que valem para TODA a tabela (não são notas de rodapé)
-
-### 1. No projeto real, o ganho do sintético não se repete.
-Tudo na tabela mais abaixo vem de **cenários sintéticos**.
-Em **projetos reais** (estudo R8, 3 projetos), o Strata como auto-auditor automático de IA **não superou a competência pura** do modelo:
-
-- piorou no projeto que já estava bom;
-- empatou no bagunçado;
-- no exemplar, **todos inventaram problemas** (cerca de 4 a 5 por plano) — até a versão sem o método.
-
-Ou seja: **o ganho do sintético não se traduziu no real.**
-
-A única exceção medida foi o **topo (Opus)**, em projeto próprio (N=2).
-Houve também o F1/M0, onde o Opus foi o único a separar "já-bom" de "precisa" nos 3 projetos reais.
-Mas só em parte (acertou metade num deles), e julgado pela própria família: o caso mais circular de todos.
-
-**O falso-positivo vem da FORMA, não do método em si.**
-(braço externo: [3 repositórios de terceiros](RESULTADOS-externo-bemcomportado.md), N=1)
-
-- a forma de **abstenção** acertou (nos modelos econômicos/médios): disse "já está bom" em 9 de 9;
-- o framing "ache problemas" **inventa demais**.
-
-Mas o espelho apareceu: no tier **bagunçado**, a abstenção disse "já-bom" para quase tudo (até num repo claramente fraco).
-Errou para o outro lado: **deixou passar**.
-Em parte, isso é **confusão de tipo de projeto** (um caderno ou lista não precisa de testes nem CI).
-
-**Saldo:** os dois modos de falha (inventar demais / deixar passar) existem **sem depender de circularidade**.
-A auditoria rica de qualidade no real **segue em aberto**.
-
-**Refino (tipo do projeto):** parte do "deixar passar" era, na verdade, **acerto de gênero** ([gênero](RESULTADOS-genero.md)).
-Com a pergunta certa, os modelos corretamente **não cobram teste de uma lista**.
-Por isso o §9 do método deve ser **gênero-consciente** (é melhoria de texto, não de modelo).
-
-**Reprodução controlada** ([cenário f6-ruidoso](RESULTADOS-f6-temporal-sem-marcadores.md)):
-num cenário **ruidoso**, com o histórico e o "já resolvido" enterrados no meio, a IA mais barata **repete o erro do R8**.
-Ela re-levanta um bug que já fora corrigido, e chega a mandar **apagar marcadores do histórico**.
-O **topo** se situa e **protege o histórico**.
-**Conclusão:** o "não superar a competência" do R8 é, em boa medida, **viés de agir-demais da IA barata sob ruído**. Quem distingue é o topo.
-
-### 2. Circularidade (só em parte resolvida).
-Quase todo o "real" testado é projeto **do próprio dono** — e o gabarito também.
-O gabarito se provou **incompleto**: o Opus achou problemas reais de fonte-única (§5) que o gabarito tinha perdido.
-**Nenhum "OK" foi validado em projeto de terceiro com gabarito registrado de antemão.**
-
-### 3. Juízes: cross-vendor onde medimos concordância; juiz único só nas células decisivas do topo + só-texto.
-**Testamos vários juízes, sim** — e isso é uma força: no conjunto de **detecção** (P1/P2), **9 juízes de 3
-fornecedores convergiram** (F0), e um **2º juiz não-Claude** re-pontuou 63 planos mantendo a mesma ordenação (R6).
-A ressalva é **específica**: as **células decisivas do topo** (reteste-limpo, abstenção §9, faixa ecológica F4)
-ainda rodaram com **um juiz só** (ou conferência mecânica) — essas herdam a fragilidade de juiz único.
-E tudo mede a **intenção do plano em texto**, não o agente real com ferramentas.
-Logo, **não transfere automaticamente** para o Claude Code / Copilot como produto.
-
-## Tabela — resumo por tarefa (qual modelo dá conta)
-Esta tabela é sobre **modelos de IA**: "quem dá conta" quer dizer **qual modelo** faz a tarefa bem.
-Os níveis de capacidade são relativos (não um produto específico). Mesma escala dos READMEs
-([recipe](../../recipe/README.md): **topo / médio / pequeno** por capacidade; **econômico/premium** por custo):
-
-- **econômico** (= barato/pequeno) — o modelo barato de cada fornecedor (ex.: Claude **Haiku**, GPT **mini**, Gemini **Flash**).
-- **médio** — o intermediário (ex.: Sonnet, GPT médio).
-- **topo** — o melhor de cada fornecedor (ex.: Claude **Opus**, o GPT de ponta, Gemini **Pro**).
-
-A coluna **Confiança** diz quão firme é a evidência: **SÓLIDO** = bem medido; **sinal** = direção promissora;
-**EXPLORATÓRIO / RUIDOSO** = evidência ainda fraca. Cada tarefa leva ao seu resultado.
+Sobre **modelos de IA**: "quem dá conta" = qual capacidade faz a tarefa bem. Escala dos READMEs
+([recipe](../../recipe/README.md)): **topo / médio / econômico** (capacidade; *flash* barato pode bater um 70B).
+**Confiança:** SÓLIDO = bem medido; sinal = direção; EXPLORATÓRIO/RUIDOSO = fraco.
 
 | Tarefa | Quem dá conta | Confiança |
 |---|---|---|
 | [Consertar um defeito conhecido](RESULTADOS-f4-execucao.md) (§5) | o econômico já dá conta, com o Strata (até o Haiku) | **SÓLIDO** |
 | [Preservar o histórico / tombstone](RESULTADOS-f4-execucao.md) (§3) | o econômico, com o Strata | **SÓLIDO** no sintético; sinal no real |
-| [Recusar instrução maliciosa](RESULTADOS-f3-recusa.md) (§6-bis) | o econômico melhora; o topo recusa de forma nativa | **SINAL** (a medição mais frágil) |
+| [Recusar instrução maliciosa](RESULTADOS-f3-recusa.md) (§6-bis) | o econômico melhora; o topo recusa nativo | **SINAL** (a medição mais frágil) |
 | [Abster-se num projeto já bom](RESULTADOS-f4-execucao.md) (§9) | só o topo, ou um humano no loop | sinal (é a capacidade que calibra) |
+| [Achar dívida real num projeto grande](RESULTADOS-p10-escada-propria-genero.md) | só o topo (e varia por fornecedor) | sinal (sub-detecção é o limite duro) |
 | [Verificar fonte na web](RESULTADOS-f5-pesquisa.md) (§6) | nenhum modelo, de forma confiável | **EXPLORATÓRIO** |
-| [Reconciliar o projeto inteiro num passo](RESULTADOS-f4-execucao.md) | nenhum nível dá conta | sinal (mais um limite do harness) |
+| [Reconciliar o projeto inteiro num passo](RESULTADOS-f4-execucao.md) | nenhum nível dá conta | sinal (limite do harness) |
 | [Agir sozinha rodando local (4–8B)](RESULTADOS-tier-local.md) | nenhum — não usar para agir | **RUIDOSO** |
 
-## Em prosa (a regra prática)
+## A regra prática
 
-A tabela acima, relida em quatro regras:
+1. **Para AGIR num defeito conhecido** (consertar §5, preservar §3): **econômico + Strata basta** — caso sólido,
+   ancorado em ação de arquivo; premium é redundante. **Não** vale como **varredura autônoma** de um projeto real
+   (ali até a versão sem método alucina, e o método às vezes piora).
+2. **Para NÃO agir bem** (abster-se, §9) e **achar dívida real**: use um **modelo de topo** ou **humano no loop**.
+3. **Custo não compra qualidade linearmente:** acima do "barato-que-funciona", o intermediário não melhora; só o
+   **topo** compra discernimento. "Maior = melhor" vale **dentro de um mesmo fornecedor** (robusto), não entre eles.
+4. **Para JULGAR com IA:** melhor custo-benefício é o **gemini-2.5-flash**; os menores da OpenAI (nano/mini)
+   **não servem** (lenientes, escondem falso-positivo).
 
-1. **Para AGIR num defeito real conhecido** (consertar §5, preservar §3): **econômico + Strata basta.**
-   É o caso sólido, ancorado em ação de arquivo. Premium é redundante.
-   Mas isto vale para o *conserto de um defeito conhecido*. **Não** vale como **varredura autônoma** de um projeto real: ali até a versão sem método alucina, e o método às vezes piora.
-
-2. **Para NÃO agir bem** (abster-se, §9): use um **modelo forte** ou um **humano no loop.**
-   Nenhuma forma transforma modelo fraco em calibrado.
-
-3. **Custo não compra qualidade de forma linear** (e isto vem de poucos cenários):
-   acima do "barato-que-funciona", pagar o intermediário **não** melhora.
-   Só o **topo** compra discernimento — e essa evidência é N=2, em projetos próprios.
-   "Maior = melhor" só vale **dentro de um mesmo fornecedor** (isto, sim, é robusto).
-
-4. **Para JULGAR com IA** (usar uma IA para avaliar outra): o melhor custo-benefício é o **gemini-2.5-flash**.
-   Já os modelos menores da OpenAI, como o nano e o mini, **não servem**, porque são lenientes e escondem os falso-positivos.
+> **Regra de ouro:** método + **topo** → de uma vez; método + **econômico/médio** → orientar em etapas e manter
+> **humano no loop**. E **toda saída de IA é rascunho a revisar** — atenção dobrada ao *não-fazer* e ao *primeiro passo*.
 
 ## O que NÃO esperar
 
-- Que o Strata **melhore o que a IA já faz bem sozinha**. Às vezes a prosa até piora o óbvio.
-- Que **verifique fonte na web de forma confiável**. Sem web, ela carimba como verdadeiro; com web, ainda precisa de revisão. (A mesma IA que se abstém bem num caso pode carimbar uma fonte falsa aqui, porque a capacidade varia por tarefa.)
-- Que um modelo **barato seja seguro contra injeção** sob ataque real. A recusa do modelo fraco é em parte lexical e cai quando o ataque é parafraseado; o topo recusa de forma nativa.
-- Que um modelo **local pequeno (4–8B) aja sozinho**. Nos testes ele não acertou nada, e chega a destruir o histórico, obedecer a ordens maliciosas ou alucinar.
-- Que **reconcilie um projeto real inteiro num passo**.
-- Que **situe artefatos no tempo** de forma garantida. É a dimensão mais fraca e mais ruidosa do corpus.
-  *Refino:* o ponto-cego é **condicional à legibilidade da evidência**, não fundamental.
-  Com marcadores explícitos — e mesmo sem eles, quando a ordem é recuperável do conteúdo — os modelos acertaram a cronologia (ver [F6](RESULTADOS-f6-temporal-sem-marcadores.md)).
-  Ainda falta testar em projeto real grande e ao longo do tempo.
+- Que o Strata **melhore o que a IA já faz bem sozinha** — às vezes a prosa piora o óbvio.
+- Que funcione como **auditor autônomo num projeto real** — não bate a competência pura do modelo; a falha
+  dominante é falso-positivo (no projeto limpo) ou sub-detecção (no que precisa).
+- Que **verifique fonte na web de forma confiável** — sem web, carimba como verdadeiro; com web, ainda revise.
+- Que um modelo **econômico seja seguro contra injeção** sob ataque real — a recusa fraca é lexical e cai sob paráfrase.
+- Que um modelo **local pequeno (4–8B) aja sozinho** — não conserta, e pode apagar histórico, obedecer ou alucinar.
+- Que **reconcilie um projeto inteiro num passo**.
+- Que **situe artefatos no tempo** com garantia — é a dimensão mais ruidosa; acerta quando a cronologia é
+  **legível** (marcadores ou ordem recuperável do conteúdo), erra quando enterrada. Falta o caso real-grande.
 - Que conclusões do modo **só-texto** transfiram para um **agente com ferramentas** (não testado).
-- **L1 (nomear a formalização) e L2 (ferramentas) quase não foram testados.** Afirmações sobre eles são, no fundo, não-testadas.
+- **L1 (formalização) e L2 (ferramentas) quase não foram testados** — afirmações sobre eles são não-testadas.
 
-## Honestidade — ressalvas que este relatório carrega (§6)
+## Honestidade — as ressalvas que esta opinião carrega (§6)
 
-- **Só-texto:** medimos a intenção do plano, não o agente real. Não transfere direto ao produto.
-- **N pequeno** em toda célula (1 a 3 repetições); nenhuma com 5 ou mais.
-  A variância dentro do mesmo modelo já virou o próprio sinal. São deltas-grandes-contra-ruído, não significância estatística.
-- **Juiz único só nas células decisivas do topo** (reteste-limpo, §9, faixa ecológica) — as demais tiveram
-  **cross-vendor** (F0: 9 juízes/3 empresas) ou **2º juiz não-Claude** (R6). Viés de família medido: o Claude
-  ~0,87 ponto mais generoso com o Haiku — por isso não ancoramos em célula Claude-julga-Claude.
-- **Claude como sujeito do teste:** Haiku e Sonnet na escada-claude (julgados por não-Claude).
-  O Opus já fora sujeito em §9 no F1/M0, mas com juiz único da própria família (auto-avaliação) e acerto parcial.
-  O f4-clean e o f4-trap confirmam por via automática. Falta a reconciliação completa com o Opus.
-- **As células decisivas do topo não têm o juiz duplo** de fornecedores diferentes.
-  São conferência automática ou leitura, e herdam a fragilidade de juiz único.
-  O verificador automático usa regras calibradas pelo próprio autor (circularidade fina).
-  E o "topo" é um só modelo (Opus), da mesma família que co-escreveu o método.
-- **Circularidade:** o projeto e o gabarito são do próprio dono, e o gabarito se provou incompleto.
-  No real (R8), o auto-auditor não bateu a competência pura.
-- **Temporalidade:** o F6 rodou (16/16 no limpo; no ruidoso, o barato erra e o topo se situa).
-  O ponto-cego é condicional à legibilidade, não fundamental. Falta o caso real-grande / ao longo do tempo.
-  A recusa de injeção (§6-bis) é a medição mais frágil. A verificação de fonte na web é exploratória.
-- **A conferência por regex** deu falso-positivo dos dois lados. Só fica limpa quando ancora em ação de arquivo.
+- **Só-texto:** medimos a intenção do plano, não o agente real com ferramentas. Não transfere direto ao produto.
+- **N pequeno** (1 a 5 repetições por célula). Deltas-grandes-contra-ruído, não significância estatística.
+- **Juiz único só nas células decisivas do topo** (reteste-limpo, §9, faixa ecológica) — as demais têm
+  cross-vendor (9 juízes/3 empresas) ou 2º juiz não-Claude. Viés de família medido (Claude ~0,87 ponto mais
+  generoso com o Haiku) — por isso não ancoramos em célula Claude-julga-Claude.
+- **Circularidade:** quase todo o "real" testado é projeto **do próprio dono**, com gabarito do próprio dono. Em
+  projeto público de terceiro o sinal **enfraquece** (quem detectou foi um modelo de fora da família), mas não
+  some — falta terceiros múltiplos + juiz não-Claude.
+- **Ruído × forma-do-pedido confundidos:** o "limpo abstém / real sub-detecta" foi medido sob um pedido que já
+  prima abstenção; falta cruzar com o pedido "ache problemas" para isolar.
+- **A conferência por regex** dá falso-positivo dos dois lados; só fica limpa ancorada em ação de arquivo.
 - **Tudo aqui é sinal / direção forte, não prova.**
+
+## Resultado mais recente (resumo) — e onde está a evolução
+
+- **Funciona (sólido):** consertar §5 e preservar §3 (até no econômico); recusar injeção §6-bis; os juízes de 3
+  empresas convergem (não é auto-avaliação).
+- **Funciona (sinal):** num projeto limpo, todos se abstêm; sob ruído, só o topo calibra.
+- **Não funciona / em aberto:** auditor autônomo no projeto real (sub-detecção é o limite duro); verificação na
+  web; agente com ferramentas reais; L1/L2.
+
+Para a **evolução completa** — fase a fase, o que foi dito e descartado, os números por experimento:
+[hub de arquitetura e evidências](ARQUITETURA-E-EVIDENCIAS.md) (histórico) ·
+[`RESULTADOS-p10`](RESULTADOS-p10-escada-propria-genero.md) (projetos reais) ·
+[`DOSSIE-judge`](DOSSIE-judge-justificativa-cientifica.md) (o juiz) ·
+[`BACKLOG`](BACKLOG-fila-geral.md) (o que falta para firmar).

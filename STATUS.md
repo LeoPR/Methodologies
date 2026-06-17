@@ -3,8 +3,22 @@ name: status-methodologies-project
 type: status
 status: active
 created: 2026-06-03
-updated: 2026-06-14
+updated: 2026-06-16
 ---
+
+# STATUS — 2026-06-16
+
+## Atualização 2026-06-16 (delta sobre a consolidação de 06-14)
+- **Gráfico/guia (P9b/c/d):** `recipe/strata-com-ia-fronteira.svg` agora mede **inventados** (gradiente de cor),
+  inclui **DeepSeek V4** + linha **Local**; o **K=5 derrubou o K=3** do topo (GPT-5.5/Gemini-Pro saturam).
+- **Projetos reais do dono (P10):** escada K=5 gênero-consciente em 2 cadernos + **TCF** (research-software) +
+  **fg2p**. **Revisão adversarial** rebaixou os achados a **direcionais** (confound de framing). Úteis: no projeto
+  limpo todos abstêm; no real domina a **sub-detecção**; circularidade **enfraquecida** (no real público quem
+  detecta é o **GPT-5.5**, não o Opus da casa). Registro: `lab/2026-06-04-strata-hipoteses/RESULTADOS-p10-escada-propria-genero.md`.
+- **Judge justificado:** `DOSSIE-judge-justificativa-cientifica.md` (ideal-regulativo + literatura + evidência
+  interna; plano de gráficos/testes no BACKLOG).
+- **Vocabulário alinhado:** tiers = **topo / médio / econômico** (mesma escala dos READMEs); "não-topo" removido.
+- **OpenRouter:** ~US$4,7 (top-up do dono). **Comporta** ainda não iniciado.
 
 # STATUS — 2026-06-14 (consolidação + defrag; pronto para anunciar)
 
@@ -14,7 +28,7 @@ updated: 2026-06-14
   hub datado em `ARQUITETURA-E-EVIDENCIAS.md`. Tudo passou por crítico adversarial de over-claim.
 - **Assinatura única (o achado central):** *modelo barato/médio tende a OVER-AGIR; o topo (Opus 4.8) CALIBRA;
   a forma PADRONIZA.* Em 3 fixtures distintas (abstenção §9 f4-clean; temporal sob ruído f6-ruidoso; gênero) o
-  não-topo erra na mesma direção; o topo acerta. **Sólido** só em F0 (cross-vendor) + F4-dup (juiz 92%) +
+  econômico/médio erra na mesma direção; o topo acerta. **Sólido** só em F0 (cross-vendor) + F4-dup (juiz 92%) +
   §3-tombstone; o resto é **sinal/direção** (sintético, completion-only, N pequeno, células de topo com juiz
   mecânico). Limites declarados: real-grande não-sintético, transferência p/ agente-com-ferramentas, 2º juiz no topo.
 - **Fechado neste ciclo (2026-06-13/14):** F6 temporal (limpo 16/16; ruidoso = barato over-flagga / topo situa);

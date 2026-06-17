@@ -15,7 +15,7 @@ status: 'CONSOLIDADO 2026-06-13 + REFINADO 2026-06-16. Assinatura: barato over-a
 Em resumo, o padrão mais consistente que encontramos tem três partes:
 
 - **As IAs mais populares agem demais.**
-  São as de melhor custo-benefício, as que a maioria de fato usa (aqui, *não-topo*).
+  São as de melhor custo-benefício, as que a maioria de fato usa (as **econômicas e médias**, abaixo do topo).
   Mexem onde não precisava: "consertam" o que já estava bom, inventam problema.
 - **Os melhores modelos do mercado calibram.**
   O *topo* (ex.: Opus 4.8) age quando deve, e se abstém quando o projeto já está bom.
@@ -24,9 +24,9 @@ Em resumo, o padrão mais consistente que encontramos tem três partes:
 
 Os três casos que mostram isso:
 
-- **Abster-se num projeto que já está bom** (§9): o não-topo costuma agir demais (o gpt-4.1 é a exceção — também se abstém); o Opus se abstém (6 de 6).
-- **Situar no tempo, com o histórico enterrado no meio:** o não-topo re-levanta um bug já resolvido — inclusive o gpt-4.1, normalmente forte. Só o topo se situa.
-- **Respeitar o tipo do projeto** (gênero): o não-topo cobra teste de uma lista; com a pergunta certa, acerta.
+- **Abster-se num projeto que já está bom** (§9): o econômico/médio costuma agir demais (o gpt-4.1 é a exceção — também se abstém); o Opus se abstém (6 de 6).
+- **Situar no tempo, com o histórico enterrado no meio:** o econômico/médio re-levanta um bug já resolvido — inclusive o gpt-4.1, normalmente forte. Só o topo se situa.
+- **Respeitar o tipo do projeto** (gênero): o econômico/médio cobra teste de uma lista; com a pergunta certa, acerta.
 
 Um complemento (cenário *f4-trap*): segurança e preservação do histórico já são **nativas do topo** — a forma não precisa adicioná-las.
 O que a forma acrescenta, mesmo no topo, é a **padronização e a rastreabilidade do conserto**.
@@ -57,7 +57,8 @@ projeto **limpo e bem-governado**, o econômico tende a abster certo (sob prompt
 real num projeto grande** é o limite mais duro — hoje só um modelo de topo (e varia por fornecedor) deu conta;
 trate como rascunho. *Próximo passo p/ firmar: cruzar ruído × framing e usar terceiros + juiz não-Claude (BACKLOG).*
 
-Como medimos (em resumo): três cenários sintéticos, em modo **só-texto** (a IA escreve o plano, não executa), com poucas repetições e sem um segundo juiz independente nos casos do topo.
+Como medimos (em resumo): cenários sintéticos, em modo **só-texto** (a IA escreve o plano, não executa), com poucas repetições.
+Sobre os **juízes**: no conjunto de **detecção**, **9 juízes de 3 fornecedores (OpenAI, Google, Anthropic) convergiram** (F0) e um **2º juiz não-Claude** confirmou a ordenação (R6) — o achado central **não** é "Claude julga Claude". As **células decisivas do topo** (reteste-limpo, abstenção, faixa ecológica), essas sim, ficaram com **um juiz só**.
 Por isso é **sinal forte, não prova**. As ressalvas completas estão na seção *Honestidade*, no fim.
 
 ## Quão sólido é cada pedaço
@@ -96,7 +97,7 @@ Mas só em parte (acertou metade num deles), e julgado pela própria família: o
 **O falso-positivo vem da FORMA, não do método em si.**
 (braço externo: [3 repositórios de terceiros](RESULTADOS-externo-bemcomportado.md), N=1)
 
-- a forma de **abstenção** acertou (nos modelos não-topo): disse "já está bom" em 9 de 9;
+- a forma de **abstenção** acertou (nos modelos econômicos/médios): disse "já está bom" em 9 de 9;
 - o framing "ache problemas" **inventa demais**.
 
 Mas o espelho apareceu: no tier **bagunçado**, a abstenção disse "já-bom" para quase tudo (até num repo claramente fraco).
@@ -121,18 +122,22 @@ Quase todo o "real" testado é projeto **do próprio dono** — e o gabarito tam
 O gabarito se provou **incompleto**: o Opus achou problemas reais de fonte-única (§5) que o gabarito tinha perdido.
 **Nenhum "OK" foi validado em projeto de terceiro com gabarito registrado de antemão.**
 
-### 3. Juiz único nas decisões + só-texto.
-O teste com juízes de fornecedores diferentes (F0) rodou só em parte do corpus.
-As células decisivas (reteste-limpo, abstenção, faixa ecológica) tiveram **um juiz só**.
+### 3. Juízes: cross-vendor onde medimos concordância; juiz único só nas células decisivas do topo + só-texto.
+**Testamos vários juízes, sim** — e isso é uma força: no conjunto de **detecção** (P1/P2), **9 juízes de 3
+fornecedores convergiram** (F0), e um **2º juiz não-Claude** re-pontuou 63 planos mantendo a mesma ordenação (R6).
+A ressalva é **específica**: as **células decisivas do topo** (reteste-limpo, abstenção §9, faixa ecológica F4)
+ainda rodaram com **um juiz só** (ou conferência mecânica) — essas herdam a fragilidade de juiz único.
 E tudo mede a **intenção do plano em texto**, não o agente real com ferramentas.
 Logo, **não transfere automaticamente** para o Claude Code / Copilot como produto.
 
 ## Tabela — resumo por tarefa (qual modelo dá conta)
 Esta tabela é sobre **modelos de IA**: "quem dá conta" quer dizer **qual modelo** faz a tarefa bem.
-Os níveis de capacidade são relativos (não um produto específico):
+Os níveis de capacidade são relativos (não um produto específico). Mesma escala dos READMEs
+([recipe](../../recipe/README.md): **topo / médio / pequeno** por capacidade; **econômico/premium** por custo):
 
-- **econômico** — o modelo barato de cada fornecedor (por exemplo: Claude **Haiku**, GPT **mini**, Gemini **Flash**).
-- **topo** — o melhor de cada fornecedor (por exemplo: Claude **Opus**, o GPT de ponta, Gemini **Pro**).
+- **econômico** (= barato/pequeno) — o modelo barato de cada fornecedor (ex.: Claude **Haiku**, GPT **mini**, Gemini **Flash**).
+- **médio** — o intermediário (ex.: Sonnet, GPT médio).
+- **topo** — o melhor de cada fornecedor (ex.: Claude **Opus**, o GPT de ponta, Gemini **Pro**).
 
 A coluna **Confiança** diz quão firme é a evidência: **SÓLIDO** = bem medido; **sinal** = direção promissora;
 **EXPLORATÓRIO / RUIDOSO** = evidência ainda fraca. Cada tarefa leva ao seu resultado.
@@ -185,8 +190,9 @@ A tabela acima, relida em quatro regras:
 - **Só-texto:** medimos a intenção do plano, não o agente real. Não transfere direto ao produto.
 - **N pequeno** em toda célula (1 a 3 repetições); nenhuma com 5 ou mais.
   A variância dentro do mesmo modelo já virou o próprio sinal. São deltas-grandes-contra-ruído, não significância estatística.
-- **Juiz muitas vezes único** nas células decisivas.
-  Há viés de família medido: o Claude foi cerca de 0,87 ponto mais generoso com o Haiku.
+- **Juiz único só nas células decisivas do topo** (reteste-limpo, §9, faixa ecológica) — as demais tiveram
+  **cross-vendor** (F0: 9 juízes/3 empresas) ou **2º juiz não-Claude** (R6). Viés de família medido: o Claude
+  ~0,87 ponto mais generoso com o Haiku — por isso não ancoramos em célula Claude-julga-Claude.
 - **Claude como sujeito do teste:** Haiku e Sonnet na escada-claude (julgados por não-Claude).
   O Opus já fora sujeito em §9 no F1/M0, mas com juiz único da própria família (auto-avaliação) e acerto parcial.
   O f4-clean e o f4-trap confirmam por via automática. Falta a reconciliação completa com o Opus.

@@ -1,7 +1,8 @@
 ---
 title: 'Opinião de uso do Strata — honesta, por tarefa × capacidade do modelo × custo (consolidação F0,F1,F3-F6 + eco + escada Claude + topo Opus)'
 created: 2026-06-13
-status: 'CONSOLIDADO 2026-06-13 (assinatura única: barato over-age / topo calibra / forma padroniza). SINAIS/direção, não prova; sintético+completion-only.'
+updated: 2026-06-16
+status: 'CONSOLIDADO 2026-06-13 + REFINADO 2026-06-16. Assinatura: barato over-age / topo calibra / forma padroniza — REFINADA: a over-ação é NOISE-triggered (projeto limpo → todos abstêm); sub-detecção domina no real; circularidade ENFRAQUECIDA (sinal fraco: o detector do real foi o gpt-5.5, não a casa). SINAIS direcionais, não prova; ruído×framing confundido; sintético+completion-only.'
 ---
 
 # Opinião de uso do Strata — o que dizer, com honestidade
@@ -29,6 +30,32 @@ Os três casos que mostram isso:
 
 Um complemento (cenário *f4-trap*): segurança e preservação do histórico já são **nativas do topo** — a forma não precisa adicioná-las.
 O que a forma acrescenta, mesmo no topo, é a **padronização e a rastreabilidade do conserto**.
+
+## Refino (jun/2026) — a escada completa em 2 projetos reais ([P10](RESULTADOS-p10-escada-propria-genero.md))
+
+Rodamos a escada de 9 modelos (K=5) em dois projetos reais — um **limpo** (projeto grande de Python com docs/artigos)
+e um **bagunçado público** (biblioteca/pesquisa em código). Sinais **direcionais** que **refinam** a assinatura
+(não a refutam) — N=1 por projeto, 1 juiz, o limpo é circular (do dono):
+
+> **Confound a não esconder:** o limpo rodou sob o framing **gênero-consciente**, que **já prima abstenção**
+> ("§9 não exija o que não se aplica"). A over-ação do corpus anterior veio do framing "ache problemas". Logo
+> **ruído está confundido com framing** (não cruzamos os dois) — "JÁ-BOM" pode ser leniência-de-prompt.
+
+- **A over-ação parece modulada por ruído/legibilidade** — no projeto limpo a escada inteira abstém, incl. o
+  econômico. Mas **não está isolada de capacidade**: sob o MESMO framing, noutro projeto limpo o econômico já
+  inverte e até o topo over-limpa. **Direcional, não causal.**
+- **No real, a falha pende para SUB-detecção:** 8 de 9 disseram "já-bom" e deixaram passar a dívida real; só **um
+  topo** (GPT-5.5) detectou. Parte é leniência do prompt (o mesmo que abstém no limpo) — o framing **infla, não
+  fabrica**; a capacidade ainda diferencia (o GPT-5.5 detecta sob o mesmo prompt). **Detecção rica no real é o
+  limite mais duro.**
+- **Enfraquece (não derruba) a circularidade:** nesse real público, quem detectou foi o **GPT-5.5 (outro
+  fornecedor)**, não o **Opus da casa** — sinal de que o discernimento no real não é exclusivo da família. Fraco:
+  1 fixture, **juiz Claude**, e a diferença foi **uma casa de limiar** sobre os mesmos achados, não cego×detecta.
+
+**Implicação prática (com a ressalva):** o **topo** importa mais quando o projeto é **bagunçado/ilegível**; num
+projeto **limpo e bem-governado**, o econômico tende a abster certo (sob prompt pró-abstenção). E **achar dívida
+real num projeto grande** é o limite mais duro — hoje só um modelo de topo (e varia por fornecedor) deu conta;
+trate como rascunho. *Próximo passo p/ firmar: cruzar ruído × framing e usar terceiros + juiz não-Claude (BACKLOG).*
 
 Como medimos (em resumo): três cenários sintéticos, em modo **só-texto** (a IA escreve o plano, não executa), com poucas repetições e sem um segundo juiz independente nos casos do topo.
 Por isso é **sinal forte, não prova**. As ressalvas completas estão na seção *Honestidade*, no fim.

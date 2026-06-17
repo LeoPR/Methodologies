@@ -18,7 +18,7 @@ endurecendo o resultado contra o tempo, a troca de ferramenta **e o uso hostil**
 instrução para um agente, e os produtos são escritos para que **uma IA** consiga
 **aplicá-los ao seu projeto** — ver [como pedir isso a uma IA](recipe/). E não é só
 teoria: **várias IAs populares — de diferentes fornecedores (OpenAI, Google, Anthropic),
-das econômicas às de topo — já leem e aplicam o primeiro produto (o Strata) nos casos que
+do econômico ao topo — já leem e aplicam o primeiro produto (o Strata) nos casos que
 medimos**, cada uma até o seu limite (mapeado na
 [opinião de uso](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)); **Comporta** seguirá
 o mesmo princípio. *(A navegação dedicada a IA fica em [`AGENTS.md`](AGENTS.md).)*

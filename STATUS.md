@@ -8,17 +8,18 @@ updated: 2026-06-16
 
 # STATUS — 2026-06-16
 
-## Atualização 2026-06-16 (delta sobre a consolidação de 06-14)
-- **Gráfico/guia (P9b/c/d):** `recipe/strata-com-ia-fronteira.svg` agora mede **inventados** (gradiente de cor),
-  inclui **DeepSeek V4** + linha **Local**; o **K=5 derrubou o K=3** do topo (GPT-5.5/Gemini-Pro saturam).
+## Estado atual (2026-06-16)
+- **Gráfico/guia:** `recipe/strata-com-ia-fronteira.svg` mede **inventados** (gradiente de cor), inclui
+  **DeepSeek V4** + linha **Local**; o topo firma em **K=5** (GPT-5.5/Gemini-Pro saturam a nota 0–3).
 - **Projetos reais do dono (P10):** escada K=5 gênero-consciente em 2 cadernos + **TCF** (research-software) +
-  **fg2p**. **Revisão adversarial** rebaixou os achados a **direcionais** (confound de framing). Úteis: no projeto
-  limpo todos abstêm; no real domina a **sub-detecção**; circularidade **enfraquecida** (no real público quem
-  detecta é o **GPT-5.5**, não o Opus da casa). Registro: `lab/2026-06-04-strata-hipoteses/RESULTADOS-p10-escada-propria-genero.md`.
-- **Judge justificado:** `DOSSIE-judge-justificativa-cientifica.md` (ideal-regulativo + literatura + evidência
-  interna; plano de gráficos/testes no BACKLOG).
-- **Vocabulário alinhado:** tiers = **topo / médio / econômico** (mesma escala dos READMEs); "não-topo" removido.
-- **OpenRouter:** ~US$4,7 (top-up do dono). **Comporta** ainda não iniciado.
+  **fg2p**. Achados **direcionais** (confound de framing): no projeto limpo todos abstêm; no real domina a
+  **sub-detecção**; circularidade **fraca** (no real público quem detecta é um topo de outro fornecedor, ex.
+  GPT-5.5, não o da casa). Registro: `lab/2026-06-04-strata-hipoteses/RESULTADOS-p10-escada-propria-genero.md`.
+- **Judge:** justificativa científica em `DOSSIE-judge-justificativa-cientifica.md` (ideal-regulativo +
+  literatura + evidência interna; plano de gráficos/testes no BACKLOG).
+- **Vocabulário:** capacidade = **topo / médio / econômico**; custo = econômico/premium (eixo à parte).
+  Registrado em [ADR-007](decisions/ADR-007-narrativa-entrega-estado-consolidado.md).
+- **OpenRouter:** ~US$4,7. **Comporta** ainda não iniciado.
 
 # STATUS — 2026-06-14 (consolidação + defrag; pronto para anunciar)
 
@@ -26,12 +27,12 @@ updated: 2026-06-16
 - **Corpus experimental v1 — CONSOLIDADO.** Porta de entrada = a opinião honesta de uso:
   [`lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md);
   hub datado em `ARQUITETURA-E-EVIDENCIAS.md`. Tudo passou por crítico adversarial de over-claim.
-- **Assinatura única (o achado central):** *modelo barato/médio tende a OVER-AGIR; o topo (Opus 4.8) CALIBRA;
+- **Assinatura única (o achado central):** *modelo econômico/médio tende a OVER-AGIR; o topo (Opus 4.8) CALIBRA;
   a forma PADRONIZA.* Em 3 fixtures distintas (abstenção §9 f4-clean; temporal sob ruído f6-ruidoso; gênero) o
   econômico/médio erra na mesma direção; o topo acerta. **Sólido** só em F0 (cross-vendor) + F4-dup (juiz 92%) +
   §3-tombstone; o resto é **sinal/direção** (sintético, completion-only, N pequeno, células de topo com juiz
   mecânico). Limites declarados: real-grande não-sintético, transferência p/ agente-com-ferramentas, 2º juiz no topo.
-- **Fechado neste ciclo (2026-06-13/14):** F6 temporal (limpo 16/16; ruidoso = barato over-flagga / topo situa);
+- **Fechado neste ciclo (2026-06-13/14):** F6 temporal (limpo 16/16; ruidoso = econômico over-flagga / topo situa);
   célula decisiva §9 (Opus abstém 6/6); f4-trap (segurança/preservação nativas do topo; forma adiciona
   padronização/rastreabilidade); §9 do produto tornado **gênero-consciente**; nota F6 no §3.
 - **Decisões e achados desta sessão (2026-06-14):** [`ADR-005`](decisions/ADR-005-duplicacao-fonte-unica-proporcional.md)

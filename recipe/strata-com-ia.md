@@ -62,31 +62,31 @@ limpo. Abaixo dele, o modelo ainda pega o bagunçado, mas no limpo inventa demai
 - Ficam **fora do gráfico** (só no caderno científico): os que **falham na segurança** (gpt-4o-mini,
   glm-4.5-air, deepseek-v3) e o **grátis** (instável). O gráfico mostra só os **usáveis**.
 
-> **Leia pelo padrão, não pelo nome.** Modelos mudam rápido (o **gpt-4.1 já se aposentou → GPT-5.5**); o que
-> **dura** é o comportamento por tier. Método e dados:
+> **Leia pelo padrão, não pelo nome.** Modelos mudam rápido; o que **dura** é o comportamento por tier
+> (nomes de modelo são exemplos datados). Método e dados:
 > [`RESULTADOS-p9`](../lab/2026-06-04-strata-hipoteses/RESULTADOS-p9-modelos-novos-jun.md).
 
 ## A forma importa mais que o modelo
 
 A maior diferença de qualidade vem de **como** você pede, não de qual modelo:
 - **Checklist** (sim/não por gate, com as 3 regras anti-falso-positivo) >> texto cru.
-- **Etapas** (aplicar em turnos separados) é o que mais ajuda os modelos médios/baratos —
+- **Etapas** (aplicar em turnos separados) é o que mais ajuda os modelos médios/econômicos —
   obriga o modelo a reconhecer o que está bom e situar no tempo **antes** de apontar defeito.
 - **Reasoners** (deepseek-r1, qwen3-thinking) precisam de `think:true` e bastante orçamento de
   tokens, senão "pensam" e não respondem.
 
 ## Limites (o que esperar — não é defeito, é como calibrar)
 
-- **Modelos baratos são bimodais:** bons em achar o problema **óbvio** num projeto bagunçado,
+- **Modelos econômicos são bimodais:** bons em achar o problema **óbvio** num projeto bagunçado,
   fracos em **restrição** (tendem a super-criticar um projeto limpo). Trate o resultado como
   rascunho e confirme cada achado com o trecho citado.
 - **Ponto cego universal:** a dimensão **temporal** (datas/história, §3/§8) — o modelo marca o
   histórico/datado como problema atual. Revise esses achados com atenção.
 - **Padrão-ouro:** só o Opus é positivo **e** consistente nos dois tipos de projeto (limpo e
   bagunçado). Todos os outros **oscilam** entre ajudar e atrapalhar — trate como rascunho.
-- **Reasoner local engana:** um modelo de raciocínio pequeno (deepseek-r1:8b) pode parecer
+- **Reasoner local engana:** um reasoner local (deepseek-r1:8b) pode parecer
   "limpo" só porque **truncou antes de concluir**; quando ele de fato termina, **alucina** no
-  projeto limpo igual aos baratos. Não confie no resultado parcial.
+  projeto limpo igual aos econômicos. Não confie no resultado parcial.
 
 ## Notas finais
 

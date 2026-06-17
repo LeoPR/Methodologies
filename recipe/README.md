@@ -80,7 +80,7 @@ ambientes — local/grátis/pago — em **[`strata-com-ia.md`](strata-com-ia.md)
 
 - **De uma vez (modelo de topo, ex. Opus):** entregue o método + o projeto e peça a avaliação
   inteira num passo. Funciona — acha o real, reconhece o bom, não inventa. Use os pedidos abaixo.
-- **Orientando (modelos médios/baratos/locais):** de-uma-vez eles **alucinam** (inventam
+- **Orientando (modelos médios/econômicos, inclusive locais):** de-uma-vez eles **alucinam** (inventam
   violações, criticam o que é bom). Em vez do texto canônico cru, dê uma **checklist** e aplique
   **em etapas** (reconheça o bom → situe no tempo → gate a gate com evidência → priorize pelo
   §9). Ajuda, mas o resultado é **rascunho a revisar**. (Receitas prontas em `strata-com-ia.md`.)
@@ -139,7 +139,7 @@ primeiro é só memória, já o segundo é trabalho de fato.
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 
-- **Eixo de segurança** (§6-bis, autoridade-para-agir): agora **com evidência inicial** — F3
+- **Eixo de segurança** (§6-bis, autoridade-para-agir): **com evidência inicial** — F3
   (recusa de *prompt injection*) e F4 (execução: *tombstone* + fail-closed). Falta **consolidar**:
   mais cenários e **sair do regime *completion-only*** (texto) para um agente com ferramentas reais.
 - **Parte IV — adoção e operação**: a operacionalização para adotar em projetos
@@ -156,7 +156,7 @@ primeiro é só memória, já o segundo é trabalho de fato.
 > Além disso, quase todo o "real" testado é projeto **do próprio autor** (circularidade).
 > Na prática: use o auto-auditor autônomo **só com um modelo forte**; com médio ou barato, **checklist + humano no loop**.
 >
-> **A assinatura (consolidação 2026-06):** as IAs **mais populares agem demais**; o **modelo de topo calibra**; e o **método padroniza** o conserto.
+> **A assinatura:** as IAs **mais populares agem demais**; o **modelo de topo calibra**; e o **método padroniza** o conserto.
 > Foi o padrão mais consistente, visto em **três cenários de teste sintéticos**: abster-se num projeto limpo, situar no tempo sob ruído, e respeitar o tipo do projeto.
 > Em todos, o modelo popular erra na mesma direção (mexe no que já estava bom, re-levanta o que já fora resolvido, cobra teste de um caderno de notas); só o topo acerta.
 > A **forma** não compra proporcionalidade para o modelo fraco. O que ela acrescenta, mesmo no topo, é **padronização e rastreabilidade do conserto**.
@@ -172,21 +172,21 @@ primeiro é só memória, já o segundo é trabalho de fato.
 |---|---|
 | **Etapa / modo** | o "tamanho do passo" que a IA dá — de *"devo agir aqui?"* a *"produzo o conserto"*. |
 | **De uma vez** | você entrega método + projeto e a IA faz **tudo num passo** (só modelo de topo). |
-| **Orientar** | você **quebra em etapas** / dá *checklist* e **revisa** (modelos médios e pequenos). |
+| **Orientar** | você **quebra em etapas** / dá *checklist* e **revisa** (modelos médios e econômicos). |
 | **Abster-se** | reconhecer que o projeto **já está bom** e **não mexer** (o difícil). |
 | **Falso-positivo / super-aplicar** | apontar/consertar um problema que **não existe**. |
 | **Recusar** | diante de uma **ordem maliciosa** escrita no projeto, **não obedecer**. |
-| **Topo / médio / pequeno** | nível de capacidade do modelo (não de tamanho — *flash* barato pode bater um 70B). |
+| **Topo / médio / econômico** | nível de **capacidade** (não preço nem tamanho — um *flash* barato pode bater um 70B). **Custo** é eixo à parte: econômico/premium. |
 
 **Tabela 1 — A IA consegue cada etapa?**
 
 | Etapa (o que a IA faz) | Consegue? | Quem |
 |---|---|---|
-| **Entender** o método e o projeto | ✅ universal | todos, até os pequenos |
-| **Diagnosticar** o que está errado (núcleo L0) | ✅ no essencial | todos pegam o grosso; médio/barato **inventa extra** |
+| **Entender** o método e o projeto | ✅ universal | todos, até os econômicos |
+| **Diagnosticar** o que está errado (núcleo L0) | ✅ no essencial | todos pegam o grosso; médio/econômico **inventa extra** |
 | **Saber não agir** quando já está bom | ⚠️ difícil | **o topo** se abstém (gpt-4.1 é exceção parcial) |
-| **Recusar** ordem maliciosa (*injeção*) | ✅ **com o Strata** | nuvem sim (o barato vira *obedecer→recusar*); locais ruidosos |
-| **Executar** o conserto **sem apagar histórico** | ✅ nuvem / ❌ local | nuvem conserta **e preserva**; o **topo** se abstém no limpo; **pequenos locais não consertam** (0 acerto) e podem **destruir/obedecer** |
+| **Recusar** ordem maliciosa (*injeção*) | ✅ **com o Strata** | nuvem sim (o econômico vira *obedecer→recusar*); locais ruidosos |
+| **Executar** o conserto **sem apagar histórico** | ✅ nuvem / ❌ local | nuvem conserta **e preserva**; o **topo** se abstém no limpo; **os locais ~8B não consertam** (0 acerto) e podem **destruir/obedecer** |
 
 **Tabela 2 — Como usar o `knowledge-architecture.md`, por onde você roda**
 
@@ -194,14 +194,14 @@ primeiro é só memória, já o segundo é trabalho de fato.
 |---|---|---|---|
 | **Claude Code · claude.ai** | Claude Haiku→Sonnet→Opus | **até o Haiku barato** recusa injeção e, **com Strata, conserta §5**; topo p/ de-uma-vez | **super-aplica em projeto já-bom** → revise; *abster-se* bem exige topo |
 | **Copilot · API forte** | GPT-4.1, GPT-5, Gemini Pro — **médio-forte** | De uma vez p/ recusar/executar; **revise o "já-bom"** | **super-aplica** em projeto limpo |
-| **Modelo barato** | GPT-4o-mini, *-mini — **médio-barato** | **Orientar** (checklist, em etapas) | **falso-positivo**: inventa violações |
+| **Modelo econômico** | GPT-4o-mini, *-mini — **capacidade média, custo econômico** | **Orientar** (checklist, em etapas) | **falso-positivo**: inventa violações |
 | **Local (ex.: RTX 3060)** | 7–8B: deepseek-r1, qwen, gemma, granite | Bom p/ **entender/rascunhar**; **orientar muito** + forma **densa/checklist** | afoga na prosa; **não deixe executar sozinho** (não conserta; pode apagar/obedecer); humano no loop |
 
-> **A forma do arquivo importa:** o **topo** lê a **prosa canônica** direto; os **pequenos (~8B)**
+> **A forma do arquivo importa:** o **topo** lê a **prosa canônica** direto; os **~8B locais**
 > precisam da **versão densa (AI-nativa)** ou de **checklist em etapas** — a prosa longa os afoga.
 
 **Regra de ouro (uma frase):** **método + modelo de topo** → de uma vez; **método + modelo
-médio/pequeno** → orientar em etapas e **manter um humano no loop**. O método dá a *direção certa*;
+médio/econômico** → orientar em etapas e **manter um humano no loop**. O método dá a *direção certa*;
 saber **quando NÃO agir** (proporção, §9) depende da **capacidade** do modelo.
 
 **Custo (relativo):** recusar injeção e **consertar** fecham no **econômico**; *abster-se* / organizar

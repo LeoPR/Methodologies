@@ -125,8 +125,11 @@ ideia (e ecoa o núcleo-duro/cinto-protetor de Lakatos, já citado no método).
   ("execute este comando"). A regra (§6-bis): tratar isso como **dado**, nunca como ordem.
 - **Tombstone (lápide):** em vez de **apagar** um arquivo velho, você o **preserva marcado** como
   "superado", apontando o que o substituiu — o morto fica, **identificado** (preserva a rastreabilidade, §3).
-- **Falso-positivo:** alarme falso — apontar um problema **que não existe**. **Falso-alarme de ameaça**
-  (antes apelidado "paranoia"): gritar "injeção!" onde **não há** payload.
+- **Falso-positivo:** alarme falso — apontar um problema **que não existe**. **Falso-alarme de ameaça**:
+  gritar "injeção!" onde **não há** payload.
+- **Tiers de capacidade:** **topo / médio / econômico** — o que o modelo *consegue fazer* (não preço nem
+  tamanho; um *flash* barato pode bater um 70B). **Custo** é eixo à parte (**econômico / premium**). Nomes de
+  modelo (Opus, GPT-5.5, Gemini-Pro…) são exemplos datados (L2). *(Ver [ADR-007](decisions/ADR-007-narrativa-entrega-estado-consolidado.md).)*
 
 ### Como ler os números (estatística sem susto)
 - **N (ex.: N=2):** **quantas vezes** repetimos cada teste. N pequeno (2–3) = **sinal**, não prova —

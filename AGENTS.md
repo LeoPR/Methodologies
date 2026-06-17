@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-06-14
+updated: 2026-06-16
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -44,7 +44,7 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     `ARQUITETURA-E-EVIDENCIAS.md` (estado datado + histórico append-only); backlog em
     `BACKLOG-fila-geral.md`; auditoria do que envelheceu em `REVISAO-RETROATIVA.md`. Os `RESULTADOS-*.md`
     são os registros por fase (alguns superseded — siga o hub, não conclusões soltas). O HARNESS que gerou
-    isso mora em `eval/strata/` (ver `eval/strata/README.md`). *Assinatura: barato over-age / topo calibra /
+    isso mora em `eval/strata/` (ver `eval/strata/README.md`). *Assinatura: econômico over-age / topo calibra /
     forma padroniza — sinal, não prova (sintético, completion-only).*
   - `2026-06-06-comprovacao-forte-strata/`: plano de comprovação (gates) — **SUPERSEDED** pela consolidação
     em `strata-hipoteses` (mantido como registro).

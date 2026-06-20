@@ -29,7 +29,7 @@ Atalhos por intenção:
 
 | Quero | Vá para |
 |---|---|
-| **Saber o que eu ganho** (1 página) | [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) |
+| **O que eu ganho com o Strata** | [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) |
 | **Usar um método pronto** | [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) (Strata) |
 | **A opinião honesta de uso** do Strata (o que funciona, por tipo de tarefa, exigência e custo, com ressalvas) | [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | **Entender a abordagem** de fabricar metodologias | [A abordagem](#a-abordagem) (abaixo) |

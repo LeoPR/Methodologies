@@ -7,8 +7,8 @@ Aqui ficam as metodologias **destiladas e portáveis**. Hoje há uma:
 Arquitetura do conhecimento em camadas. Um arquivo único, auto-suficiente
 (todas as fundamentações *inline*), licença CC BY-SA 4.0.
 
-> **Novo por aqui?** Comece por **[o-que-voce-ganha.md](o-que-voce-ganha.md)** — 1 página: o que o Strata
-> entrega, quando vale e o que esperar (honesto).
+> **Novo por aqui?** Comece pela página [o-que-voce-ganha.md](o-que-voce-ganha.md).
+> Ela diz, em linguagem simples, o que o Strata entrega, quando vale a pena, e o que não esperar.
 
 ### Para que serve · quando · para quem
 

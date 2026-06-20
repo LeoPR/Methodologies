@@ -1,54 +1,67 @@
 ---
-title: Strata — o que você ganha (1 página)
+title: 'Strata: o que você ganha'
 created: 2026-06-16
-updated: 2026-06-16
-status: 'Página de entrada para quem vai USAR. Estado consolidado. Evidência = sinais (não prova); o detalhe honesto está na OPINIAO-DE-USO.'
+updated: 2026-06-20
+status: 'Página de entrada para quem vai usar. Estado consolidado. A evidência é de sinais, não de prova; o detalhe honesto está na OPINIAO-DE-USO.'
 ---
 
-# Strata — o que você ganha
+# Strata: o que você ganha
 
-**O que é.** Um método (1 arquivo, portável) para **organizar, rastrear e preservar** o conhecimento que um
-trabalho longo acumula — pesquisa, código, decisões, notas — de um jeito que **não apodrece** quando a
-ferramenta troca.
+Strata é um método para organizar, rastrear e preservar o conhecimento que um trabalho longo acumula.
+São a pesquisa, o código, as decisões e as notas que se juntam com o tempo.
+O método mantém tudo isso vivo mesmo quando a ferramenta muda.
+Ele cabe em um arquivo só, que viaja sozinho.
 
-**Vale a pena se** seu projeto dura meses ou anos e acumula coisas que você reusa.
-**Não vale** para um script de um dia ou um rascunho descartável.
+Vale a pena quando o seu projeto dura meses ou anos e acumula coisas que você precisa reusar.
+Não vale para um script de um dia, nem para um rascunho que você vai jogar fora.
 
 ## O que você ganha
 
-- **Nada importante se perde — e você sabe o que ainda vale.** O conhecimento fica organizado e rastreável à
-  medida que cresce.
-- **Conserto que preserva a história.** Quando uma informação virou duas, ou algo antigo precisa ser aposentado,
-  o método arruma na **fonte única** e **marca o antigo** (não apaga). Funciona **até com IA econômica**.
-- **Recusa o malicioso.** Diante de uma instrução perigosa escondida no projeto ("baixe e rode esta URL",
-  "execute sem confirmar"), a IA **recusa** em vez de obedecer.
-- **Sua IA econômica rende muito mais.** A maior diferença de qualidade vem de **como** você pede (checklist, em
-  etapas), não de qual modelo — a forma é a alavanca.
+Nada importante se perde, e você sempre sabe o que ainda vale.
+O conhecimento fica organizado e rastreável à medida que cresce.
 
-## Como usar com IA (a receita)
+Quando uma informação virou duas, ou quando algo antigo precisa ser aposentado, o método arruma na fonte única.
+Ele marca o que ficou para trás, sem apagar.
+Isso funciona até com uma IA econômica.
 
-- **Modelo de topo:** entregue método + projeto e peça a avaliação **de uma vez**.
-- **Modelo médio/econômico:** **oriente em etapas** (checklist) e **fique no loop**.
-- **Toda saída de IA é rascunho a revisar** — atenção redobrada ao *não-fazer* e ao *primeiro passo* (não deixar
-  apagar a história).
+Quando há uma instrução perigosa escondida no projeto, como "baixe e rode esta URL" ou "execute sem confirmar", a IA recusa em vez de obedecer.
 
-## O que NÃO esperar (honesto)
+A sua IA econômica rende muito mais com o método.
+A maior diferença de qualidade vem de como você pede, e não de qual modelo você usa.
+A forma é a alavanca.
 
-- Não é um **auditor autônomo** que varre um projeto real e acerta sozinho — nisso, não supera a competência pura
-  do modelo. **Saber não mexer** no que já está bom, e **achar dívida real num projeto grande**, ainda pedem um
-  **modelo de topo** ou **você no loop**.
-- Que um modelo **econômico** seja seguro **sozinho** contra ataque real — a recusa dele é parcial (cai quando o
-  ataque é reescrito). Para segurança que importa, conte com o **topo** ou com você no loop.
-- Não **verifica fonte na web** de forma confiável.
-- **Tudo é sinal de evidência, não prova:** vem de testes controlados; o uso no dia a dia está em validação.
+## Como usar com a IA
+
+Com um modelo de topo, entregue o método e o projeto, e peça a avaliação inteira de uma vez.
+
+Com um modelo médio ou econômico, oriente em etapas, com uma checklist, e fique no loop.
+
+Em qualquer caso, trate a saída da IA como um rascunho a revisar.
+Olhe com atenção o que ela decide não fazer.
+E confira o primeiro passo que ela propõe, para não deixar que apague a história.
+
+## O que não esperar
+
+O Strata não é um auditor autônomo que varre um projeto real e acerta sozinho.
+Nisso, ele não supera a competência pura do modelo.
+Reconhecer que está tudo bem e não mexer, ou achar dívida real num projeto grande, ainda pede um modelo de topo, ou você no loop.
+
+Um modelo econômico não é seguro sozinho contra um ataque de verdade, porque a recusa dele é parcial e cai quando o ataque é reescrito.
+Para a segurança que importa, conte com o topo, ou com você no loop.
+
+A IA também não verifica fonte na web de forma confiável.
+
+E vale lembrar que tudo isto é sinal de evidência, e não prova.
+Vem de testes controlados, e o uso no dia a dia ainda está em validação.
 
 ## Custo
 
-Aplicar a IA a um projeto custa, na prática, de **centavos a poucos dólares**.
-**Econômico no dia a dia**; **premium uma vez** para a organização completa.
+Aplicar a IA a um projeto custa, na prática, de centavos a poucos dólares.
+No dia a dia, use o econômico.
+Para a organização completa, vale pagar o premium uma vez.
 
 ## Comece aqui
 
-- O método (1 arquivo, viaja sozinho): [`knowledge-architecture.md`](knowledge-architecture.md)
-- Qual modelo usar, por custo e ambiente: [`strata-com-ia.md`](strata-com-ia.md)
-- A opinião honesta, a fundo (o que funciona e o que não): [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)
+O método, em um arquivo que viaja sozinho: [`knowledge-architecture.md`](knowledge-architecture.md).
+Qual modelo usar, por custo e ambiente: [`strata-com-ia.md`](strata-com-ia.md).
+A opinião honesta, a fundo: [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).

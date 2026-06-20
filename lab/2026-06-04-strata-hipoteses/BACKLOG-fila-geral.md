@@ -10,6 +10,10 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 > Pós-**[consolidação](OPINIAO-DE-USO.md)** (que foi o "defrag" pedido). Estado do que já foi FEITO:
 > [hub](ARQUITETURA-E-EVIDENCIAS.md). Opinião de uso: [OPINIAO-DE-USO.md](OPINIAO-DE-USO.md).
 
+> **Fechamento da avaliação (2026-06-20):** o roadmap priorizado do que falta para a tese sair de "direção
+> forte" para "prova" está em [FECHAMENTO-avaliacao-strata.md](FECHAMENTO-avaliacao-strata.md). Os passos
+> baratos primeiro (re-pontuar com 2º juiz, Krippendorff/ECE sobre dado existente, juiz sem o gabarito no prompt).
+
 ## P0 — antes de mais testes
 - **Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
   **circularidade** no **topo** de todo relatório/recipe de uso (não em "abertos"). **Recalibrar

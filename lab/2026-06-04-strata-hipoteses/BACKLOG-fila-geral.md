@@ -1,7 +1,7 @@
 ---
 title: 'Fila geral — backlog PRIORIZADO (pós-consolidação)'
 created: 2026-06-13
-updated: 2026-06-16
+updated: 2026-06-20
 status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava — feito.'
 ---
 
@@ -36,6 +36,11 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   framing "ache problemas"** (cruzar ruído × framing); (2) **fixture par-a-par** que varie só a legibilidade do
   tombstone (sem "Lista de Lixo" embutida, sem PII); (3) **múltiplos projetos de terceiros** + gabarito
   gênero-consciente pré-registrado por independente + **juiz não-Claude**. Detalhe em [P10](RESULTADOS-p10-escada-propria-genero.md).
+- **Redação clara para IA pode ter estilo próprio (hipótese registrada, a pensar depois):** a clareza para a
+  IA talvez peça um texto mais comprimido que a Linguagem Simples humana; o Strata quer ficar pequeno e servir a
+  máquina ao mesmo tempo. Inclui: a clareza de redação como complemento do Strata; "tokens completos" como
+  possível métrica; uma ou duas superfícies (humana × densa); liga-se ao Comporta (menos tokens = menos custo).
+  Detalhe em [IDEIA-redacao-clara-para-ia.md](IDEIA-redacao-clara-para-ia.md).
 - **Argumentar o JUDGE (registrado, a executar):** o dossiê [DOSSIE-judge-justificativa-cientifica.md](DOSSIE-judge-justificativa-cientifica.md)
   já reúne o argumento (ideal-regulativo; eixos alinhamento/adequação/herança; modelo centro-ideal-perdido-drift) + literatura
   (Zheng/MT-Bench, G-Eval, Messick, Krippendorff, GUM, PoLL) + evidência interna (F0 cross-vendor, R6 2º juiz, F4 92%×F3 56%).

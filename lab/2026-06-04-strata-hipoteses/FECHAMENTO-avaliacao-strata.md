@@ -21,7 +21,7 @@ A tese tem evidência consistente que aponta para um lado, mas ainda não tem o 
 
 A avaliação foi parcialmente honesta, e isso é um elogio qualificado.
 A honestidade da confissão é quase exemplar, porque o corpus carrega no topo o que não sabe.
-A honestidade do desenho ainda é direcional, porque sobraram over-claims residuais e três confounds foram declarados sem serem reduzidos.
+A honestidade do desenho ainda é direcional, porque sobrou um over-claim de número (já corrigido) e dois confounds principais seguem declarados sem serem reduzidos: a circularidade e o completion-only.
 
 ## O que está sólido
 
@@ -45,7 +45,7 @@ A revisão retroativa rebaixou a tese-mãe a direção, transformou a temporalid
 Quase tudo que fala do mundo real é sinal, não prova, e a OPINIAO já diz isso.
 
 A conclusão ecológica repousa sobre uma base fina.
-São N=1 em cada célula que importa, juiz Claude único, um framing único que já prima abstenção, digest curado pelo dono e família circular.
+São N=1 em cada célula que importa, com framing único que já prima abstenção, digest curado pelo dono e família circular.
 Não existe uma única célula ecológica que combine, de uma vez, projeto externo, N maior ou igual a 5, juiz não-Claude, gabarito independente e dois framings.
 
 A convergência dos juízes é mais frágil do que parece.
@@ -54,19 +54,21 @@ E os números-headline saem de poucas observações.
 
 ## Os gaps que carregam quase tudo
 
-Três confounds estão declarados, mas não foram reduzidos, e o ideal exige reduzir, não só confessar.
+Dois confounds principais estão declarados, mas não foram reduzidos, e o ideal exige reduzir, não só confessar.
 
 A circularidade não foi quebrada de verdade.
 O projeto, o gabarito e o método são da mesma família.
-O ataque externo é fraco, porque tem um fixture só, juiz ainda Claude, e os dois modelos pegaram a mesma inconsistência.
+O ataque externo ainda é fraco, porque tem um fixture só, o juiz dessa rodada recente foi Claude, e os dois modelos pegaram a mesma inconsistência.
 
 O completion-only não foi superado em nenhuma célula.
 Como o produto-alvo é um agente com ferramentas, a transferência das conclusões para o uso real é não-testada.
 Esse é o maior gap de validade externa.
 
-O juiz único está nas células decisivas.
-A abstenção §9, o reteste-limpo e a faixa ecológica rodaram com um juiz só.
-A robustez cross-vendor do F0 cobre apenas o conjunto P1/P2, e foi emprestada a células que ela não mediu.
+Os juízes foram cross-vendor, e não Claude sozinho.
+O F0 usou 9 juízes de 3 fabricantes, dos quais 7 convergiram.
+O R6 trouxe um 2º juiz não-Claude (gpt-4.1-mini), que fechou o caveat de juiz único nas conclusões da nuvem, incluindo o reteste-limpo.
+O F4 teve 92% de concordância entre 2 juízes não-Claude, além da conferência mecânica objetiva da abstenção §9.
+O resíduo é estreito: as rodadas ecológicas mais recentes deste ciclo (projetos próprios, fg2p, deepseek) foram pontuadas por juiz Claude, e ainda não foram re-pontuadas cross-vendor.
 
 Somam-se a esses os gaps de medida.
 Não há correção por acaso (Krippendorff) nem calibração (ECE) em nenhum número.
@@ -81,7 +83,7 @@ E o N fica abaixo de 5 em toda célula.
 | Juízes | DIRECIONAL | O argumento e o auto-ceticismo são fortes. Mas o juiz tem o gabarito no prompt, a verdade-base é família única, e Krippendorff/ECE/PoLL estão planejados, não medidos. |
 | Fixtures e circularidade | DIRECIONAL | As disciplinas do ideal operam (pré-registro por hash, hash congelado, scoring cego, R8 de primeira classe). Mas a conclusão ecológica é N=1, circular, framing único. |
 | Métricas | DIRECIONAL | Separa acurácia de precisão, publica N e K, e autocorrige. Mas não re-mediu o bug do s04, não aplica a régua de precisão ao próprio juiz, e não tem correção por acaso. |
-| Afirmações e tese | DIRECIONAL | A revisão retroativa fez autocorreção genuína. Restavam dois over-claims (o número dos juízes e o escopo do F0); o número já foi corrigido (7 de 9), o escopo foi reaproximado da afirmação. |
+| Afirmações e tese | DIRECIONAL | A revisão retroativa fez autocorreção genuína. Restava um over-claim de número (dizia 9 juízes; o real é 7 de 9), já corrigido. O caveat de "juiz único nas células decisivas" estava latente e desatualizado, porque o R6 já o fechara na nuvem; foi corrigido aqui. |
 
 Nenhuma dimensão está EM-DERIVA, porque o arco que derivou foi tombstoneado.
 Nenhuma está CONVERGIDA por inteiro, exceto o núcleo §5-fix e §3-tombstone por execução no sintético.
@@ -93,7 +95,7 @@ Os passos baratos, que convertem sinal em evidência sobre o dado que já existe
 1. **Feito hoje:** corrigir o número dos juízes na OPINIAO (de 9 para 7 de 9) e reaproximar o escopo do F0 da afirmação.
 2. Re-pontuar o s04 corrigindo o bug do `docs-reproducao.md`, e re-publicar a contagem de inventados, em vez de afirmar que o ranking não muda.
 3. Calcular Krippendorff (com IC) e ECE sobre os vereditos já coletados. Os JSON já existem.
-4. Re-pontuar as células decisivas (f4-clean, R8, P10) com um 2º juiz cross-vendor não-Claude. É re-análise barata sobre dado existente.
+4. Re-pontuar as rodadas ecológicas recentes (R8, P10, próprios, fg2p) com um 2º juiz não-Claude. O reteste e a abstenção §9 já têm cross-vendor (R6, F4); falta só o braço ecológico recente. É re-análise barata sobre dado existente.
 5. Rodar um subconjunto de juiz sem o resumo do gabarito no prompt. Se a concordância cair, o 92% vinha da dica.
 6. Aplicar o ADR-006 ao próprio juiz: K maior ou igual a 5, temperatura acima de 0, e reportar o flip-rate.
 

@@ -29,6 +29,7 @@ Atalhos por intenção:
 
 | Quero | Vá para |
 |---|---|
+| **Saber o que eu ganho** (1 página) | [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) |
 | **Usar um método pronto** | [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) (Strata) |
 | **A opinião honesta de uso** do Strata (o que funciona, por tipo de tarefa, exigência e custo, com ressalvas) | [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | **Entender a abordagem** de fabricar metodologias | [A abordagem](#a-abordagem) (abaixo) |
@@ -119,7 +120,7 @@ conhecimento em qualquer trabalho intelectual que acumula artefatos.
 > **Escopo:** organiza e preserva o conhecimento que o trabalho produz — e **complementa** o seu
 > jeito de ter ideias e de desenvolver (Scrum, TDD, design…), sem substituí-los. Indicado para
 > projeto de **vida longa** que acumula artefatos. Quando/para quem, em detalhe:
-> [`recipe/README.md`](recipe/README.md).
+> [recipe/README.md](recipe/README.md).
 
 O problema é **anterior ao computador**: bibliotecários, cientistas e engenheiros o
 enfrentam há séculos. As ferramentas de cada era (hoje: IA, editores, controle de

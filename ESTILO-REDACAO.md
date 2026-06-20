@@ -65,6 +65,12 @@ As fontes que ancoram cada peça:
    Por exemplo: uma fonte, um número, um exemplo curto.
    Não repita entre parênteses o que a frase já disse.
 
+9. Escreva pelo que a coisa é, não pelo que ela não é.
+   Nomeie o que foi usado: "usamos o juiz Gemini e o GPT", e não "um juiz não-Claude".
+   Só negue quando o texto já desenvolveu o contraste.
+   Negar algo que o texto não introduziu é anti-informação, e o leitor não tem como verificar.
+   É o mesmo da §3 do Strata: a superfície de leitura tem que se bastar sozinha.
+
 ## Antes e depois
 
 - "Como usar com IA (a receita)"
@@ -75,6 +81,9 @@ As fontes que ancoram cada peça:
 
 - "só o topo, ou um humano no loop — nisso não supera"
   vira "Sozinho, ele não supera a competência pura. Para isso, use o topo, ou fique no loop."
+
+- "um 2º juiz não-Claude (gpt-4.1-mini)"
+  vira "um 2º juiz, o gpt-4.1-mini".
 
 ## Onde isto não se aplica
 

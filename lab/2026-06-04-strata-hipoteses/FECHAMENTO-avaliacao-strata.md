@@ -46,7 +46,7 @@ Quase tudo que fala do mundo real é sinal, não prova, e a OPINIAO já diz isso
 
 A conclusão ecológica repousa sobre uma base fina.
 São N=1 em cada célula que importa, com framing único que já prima abstenção, digest curado pelo dono e família circular.
-Não existe uma única célula ecológica que combine, de uma vez, projeto externo, N maior ou igual a 5, juiz não-Claude, gabarito independente e dois framings.
+Não existe uma única célula ecológica que combine, de uma vez, projeto externo, N maior ou igual a 5, um juiz de outro fabricante, gabarito independente e dois framings.
 
 A convergência dos juízes é mais frágil do que parece.
 Os prompts dos juízes entregam o resumo do gabarito, então a concordância de 92% e 56% mede dois juízes que já sabem a resposta concordando, e não julgamento cego.
@@ -66,8 +66,8 @@ Esse é o maior gap de validade externa.
 
 Os juízes foram cross-vendor, e não Claude sozinho.
 O F0 usou 9 juízes de 3 fabricantes, dos quais 7 convergiram.
-O R6 trouxe um 2º juiz não-Claude (gpt-4.1-mini), que fechou o caveat de juiz único nas conclusões da nuvem, incluindo o reteste-limpo.
-O F4 teve 92% de concordância entre 2 juízes não-Claude, além da conferência mecânica objetiva da abstenção §9.
+O R6 trouxe um 2º juiz, o gpt-4.1-mini, que fechou o caveat de juiz único nas conclusões da nuvem, incluindo o reteste-limpo.
+O F4 teve 92% de concordância entre o Gemini 2.5 Flash e o GPT-4.1, além da conferência mecânica objetiva da abstenção §9.
 O resíduo é estreito: as rodadas ecológicas mais recentes deste ciclo (projetos próprios, fg2p, deepseek) foram pontuadas por juiz Claude, e ainda não foram re-pontuadas cross-vendor.
 
 Somam-se a esses os gaps de medida.
@@ -95,14 +95,14 @@ Os passos baratos, que convertem sinal em evidência sobre o dado que já existe
 1. **Feito hoje:** corrigir o número dos juízes na OPINIAO (de 9 para 7 de 9) e reaproximar o escopo do F0 da afirmação.
 2. Re-pontuar o s04 corrigindo o bug do `docs-reproducao.md`, e re-publicar a contagem de inventados, em vez de afirmar que o ranking não muda.
 3. Calcular Krippendorff (com IC) e ECE sobre os vereditos já coletados. Os JSON já existem.
-4. Re-pontuar as rodadas ecológicas recentes (R8, P10, próprios, fg2p) com um 2º juiz não-Claude. O reteste e a abstenção §9 já têm cross-vendor (R6, F4); falta só o braço ecológico recente. É re-análise barata sobre dado existente.
+4. Re-pontuar as rodadas ecológicas recentes (R8, P10, próprios, fg2p) com um 2º juiz de outro fabricante (Gemini ou GPT). O reteste e a abstenção §9 já têm cross-vendor (R6, F4); falta só o braço ecológico recente. É re-análise barata sobre dado existente.
 5. Rodar um subconjunto de juiz sem o resumo do gabarito no prompt. Se a concordância cair, o 92% vinha da dica.
 6. Aplicar o ADR-006 ao próprio juiz: K maior ou igual a 5, temperatura acima de 0, e reportar o flip-rate.
 
 Os passos caros, que pedem dado novo:
 
 7. Cruzar o framing: rodar o mesmo fixture sob "ache problemas" e sob "abstenção-primeiro". É o único corte que desconfunde ruído de framing.
-8. Quebrar a circularidade: pelo menos 2 repositórios de terceiros, gabarito pré-registrado por quem não escreveu o método, e juiz não-Claude.
+8. Quebrar a circularidade: pelo menos 2 repositórios de terceiros, gabarito pré-registrado por quem não escreveu o método, e um juiz de outro fabricante.
 9. Construir a ponte texto para agente: rodar uma célula-âncora com o modelo chamando de fato uma ferramenta de escrita de arquivo.
 10. Validar o digest: rodar digest-cru contra digest-capado na mesma célula. Se o veredito virar, a sub-detecção era artefato de filtro.
 11. Acrescentar uma segunda família de fixture em pelo menos um eixo, para mover "sólido num ponto" para "sólido".

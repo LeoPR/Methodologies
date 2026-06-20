@@ -33,7 +33,7 @@ um modelo de **topo** fura a complacência, variando por **fornecedor** (não pr
 método). *(Direcional: ruído e forma-do-pedido ainda não foram isolados — ver ressalvas.)*
 
 **Sobre os juízes (como sabemos o acima):** no conjunto de detecção, **7 de 9 juízes de 3 empresas (OpenAI, Google,
-Anthropic) convergem**. Os 3 menores da OpenAI ficaram de fora, por serem lenientes. Um 2º juiz não-Claude (R6) confirma a ordenação, então o achado central **não** é "Claude julga
+Anthropic) convergem**. Os 3 menores da OpenAI ficaram de fora, por serem lenientes. Um 2º juiz, o gpt-4.1-mini (R6), confirma a ordenação, então o achado central **não** é "Claude julga
 Claude". O R6 já fechou o caveat de juiz único nas conclusões da nuvem. O resíduo é estreito: só as rodadas ecológicas mais recentes deste ciclo ainda não foram re-pontuadas cross-vendor (ver ressalvas).
 
 ## Por tarefa — quem dá conta
@@ -86,14 +86,14 @@ Sobre **modelos de IA**: "quem dá conta" = qual capacidade faz a tarefa bem. Es
 - **Só-texto:** medimos a intenção do plano, não o agente real com ferramentas. Não transfere direto ao produto.
 - **N pequeno** (1 a 5 repetições por célula). Deltas-grandes-contra-ruído, não significância estatística.
 - **Os juízes foram cross-vendor, não Claude sozinho.** O F0 usou 9 juízes de 3 empresas (7 convergiram). O R6
-  trouxe um 2º juiz não-Claude, que fechou o caveat de juiz único na nuvem, incluindo o reteste-limpo. O F4 teve
-  92% entre 2 juízes não-Claude, mais a conferência mecânica da abstenção §9. O resíduo é estreito: as rodadas
+  trouxe um 2º juiz, o gpt-4.1-mini, que fechou o caveat de juiz único na nuvem, incluindo o reteste-limpo. O F4
+  teve 92% entre o Gemini 2.5 Flash e o GPT-4.1, mais a conferência mecânica da abstenção §9. O resíduo é estreito: as rodadas
   ecológicas mais recentes deste ciclo (projetos próprios, fg2p) foram pontuadas por Claude e ainda não
   re-pontuadas cross-vendor. Viés de família medido (Claude ~0,87 ponto mais generoso com o Haiku), por isso não
   ancoramos em célula Claude-julga-Claude.
 - **Circularidade:** quase todo o "real" testado é projeto **do próprio dono**, com gabarito do próprio dono. Em
   projeto público de terceiro o sinal **enfraquece** (quem detectou foi um modelo de fora da família), mas não
-  some — falta terceiros múltiplos + juiz não-Claude.
+  some. Falta projetos de terceiros e um juiz de outro fabricante.
 - **Ruído × forma-do-pedido confundidos:** o "limpo abstém / real sub-detecta" foi medido sob um pedido que já
   prima abstenção; falta cruzar com o pedido "ache problemas" para isolar.
 - **A conferência por regex** dá falso-positivo dos dois lados; só fica limpa ancorada em ação de arquivo.

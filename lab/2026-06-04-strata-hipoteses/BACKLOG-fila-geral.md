@@ -61,8 +61,11 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   (Zheng/MT-Bench, G-Eval, Messick, Krippendorff, GUM, PoLL) + evidência interna (F0 cross-vendor, R6 2º juiz, F4 92%×F3 56%).
   **Falta produzir** os gráficos (§6: scatter objetividade×concordância, escada de juízes, centro/drift, Bland-Altman, calibração/ECE)
   e rodar os testes. **Krippendorff α com IC — FEITO (2026-06-20):** F4 α=0,918, F3 α=0,467, via `eval/strata/calc_stats.py`
-  ([RESULTADOS-concordancia-juizes.md](RESULTADOS-concordancia-juizes.md)). **Falta:** PoLL nas células de juiz único, ECE
-  (bloqueado: juiz não emite confiança), kappa juiz×humano. Reconferir citações antes de uso externo.
+  ([RESULTADOS-concordancia-juizes.md](RESULTADOS-concordancia-juizes.md)). **Juiz sem gabarito — FEITO (2026-06-20):** a dica
+  sustenta o acerto; cegos, juízes atuais caem abaixo do baseline e concordam nas respostas erradas
+  ([RESULTADOS-juiz-sem-gabarito.md](RESULTADOS-juiz-sem-gabarito.md), `eval/strata/judge_f4_ablation.py`). **Falta:** PoLL nas
+  células de juiz único, ECE (bloqueado: juiz não emite confiança), kappa juiz×humano, e a ablação justa (dar fixture sem o veredito).
+  Reconferir citações antes de uso externo.
 - **Gráfico barato × caro por vendor — FEITO** ([P9 §P9b](RESULTADOS-p9-modelos-novos-jun.md)): Haiku (barato
   Anthropic), **Opus refeito sem truncamento** (= o melhor: over-ação 1,2 / recall 4/4 / seg 5/5), glm-4.5-air
   (barato Z-ai) medidos; gráfico reconstruído por vendor. Achado: **caro ≠ melhor** (gemini-2.5-pro caro nem

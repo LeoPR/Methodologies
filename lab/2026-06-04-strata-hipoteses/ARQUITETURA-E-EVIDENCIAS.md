@@ -153,6 +153,17 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 > nada antigo é apagado — o que foi superado fica registrado como tal. *(Datas aproximadas pelos
 > `created` dos docs e pelo histórico de commits.)*
 
+- **2026-06-20** — **Bloco barato do juiz (corrige sinal em medida) + revisão de honestidade.**
+  **Krippendorff/κ corrigidos por acaso** sobre os vereditos já coletados (`calc_stats.py`, stdlib + self-test):
+  F4 (núcleo §5/§3) **α=0,918**, confiável mesmo descontado o acaso; F3 (segurança) **α=0,467**, só moderado —
+  confirma a fragilidade já confessada. **Ablação do gabarito no prompt** (`judge_f4_ablation.py`, juízes
+  ATUAIS gemini-3-flash + gpt-5-mini, contra o gold mecânico): tirar o resumo derruba o κ-vs-gold (gpt-5-mini
+  0,625→0,226) e cega os dois caem **abaixo** do baseline burro (0,556 < 0,611); ainda concordam entre si nas
+  respostas erradas ⇒ **convergência inter-juiz não prova acerto**; o sólido ancora no gold mecânico, não no juiz.
+  **Honestidade:** corrigido o gap "falta braço externo" (existe: 6 repos de terceiros + FG2P com artigo);
+  **tombstones §3** em frases superadas (consolidacao-synthesis.json, tier-nuvem-limpo, AUDITORIA-2026-06-07).
+  **ECE bloqueado** (juiz não emite confiança). [`RESULTADOS-concordancia-juizes`](RESULTADOS-concordancia-juizes.md) ·
+  [`RESULTADOS-juiz-sem-gabarito`](RESULTADOS-juiz-sem-gabarito.md) · roadmap em [`FECHAMENTO`](FECHAMENTO-avaliacao-strata.md).
 - **2026-06-14** — **P9: spot-check dos modelos novos (jun/2026).** A assinatura por tier **persiste** entre
   gerações (gemini-3.1-flash-lite: over-age no limpo / recall 4/4 + segurança 5/5 no bagunçado); a detecção do
   óbvio **melhorou**, a abstenção §9 segue teto. Limites expostos: nomes de modelo churnam (L2), e os reasoners

@@ -173,9 +173,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   fechada:** citadas-mas-ausentes + novas obras adicionadas à canônica. **Fundamento** novo (resposta à falácia
   "não-perfeito = não-serve"): teto epistêmico por informação (irredutível) vs lacuna de capacidade (redutível),
   com lastro em aleatória/epistêmica, erro de Bayes, Shannon, Quine-Duhem, Gödel/Turing/Rice, Condorcet sob
-  dependência, Popper, GUM. **Honestidade:** a 2ª rodada teve a verificação cortada por limite de gasto — claims
-  filosóficos marcados [sourced], não todos passaram pelo voto 2/3. **Eixo 6 (ECE) rebaixado** para "plausível,
-  não reconfirmado"; thresholds de Krippendorff marcados como heurística clássica, não consenso verificado.
+  dependência, Popper, GUM. **Verificação concluída (resume):** eixos A/D/E/H VERIFICADOS por voto 3-0 (24/25
+  claims; 1 refutado — o piso de Bayes permanece irredutível, só o rótulo "irredutível" é relativo ao modelo);
+  eixos B/C/F (Quine-Duhem, Peirce, Popper/Lakatos/Kant) e instrumentos nomeados de E/G seguem [a-verificar].
+  **Eixo 6 (ECE) rebaixado** para "plausível, não reconfirmado"; thresholds de Krippendorff marcados como
+  heurística clássica, não consenso verificado.
   [`RESULTADOS-confronto-literatura`](RESULTADOS-confronto-literatura.md) ·
   [`FUNDAMENTO-juiz-escala-mensuravel`](FUNDAMENTO-juiz-escala-mensuravel.md).
 - **2026-06-14** — **P9: spot-check dos modelos novos (jun/2026).** A assinatura por tier **persiste** entre

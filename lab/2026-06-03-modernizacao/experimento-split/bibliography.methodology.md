@@ -293,18 +293,31 @@ Teoria de medida / validade (fundamento do argumento ideal-regulativo):
 
 > Base de filosofia/matematica/computacao do argumento "nao-perfeito nao e'
 > nao-serve". Usada por [FUNDAMENTO-juiz-escala-mensuravel](../../2026-06-04-strata-hipoteses/FUNDAMENTO-juiz-escala-mensuravel.md).
-> Verificacao adversarial da rodada 2026-06-21 interrompida por limite de gasto;
-> reconferir as fontes [sourced] antes de uso externo.
+> Verificacao adversarial 2026-06-21: eixos A/D/E/H VERIFICADOS (voto 3-0);
+> B/C/F (Quine-Duhem, Peirce, Popper/Lakatos/Kant) e instrumentos nomeados de
+> E/G (Condorcet, Aumann, Simon, Brier, Tetlock) seguem [a-verificar].
 
-Teto irredutivel / informacao:
+Teto irredutivel / informacao (eixos A/H — verificados 3-0):
 - Eyke Hüllermeier & Willem Waegeman — "Aleatoric and Epistemic Uncertainty in
   Machine Learning" (*Machine Learning* 110:457-506, 2021; arXiv:1910.09457).
 - Thomas M. Cover & Joy A. Thomas — *Elements of Information Theory* (2ª ed.,
-  Wiley, 2006). Desigualdade de processamento de dados.
-- "Re-examining the aleatoric/epistemic dichotomy" (ICLR 2025 blogpost). A
-  divisao e' relativa ao modelo/informacao, nao absoluta.
-- arXiv:2505.23506 (2025) — metodos de segunda ordem que separam aleatoria de
-  epistemica sao "fundamentalmente incompletos".
+  Wiley, 2006). Desigualdade de processamento de dados: I(X;Y) >= I(X;Z).
+- Luc Devroye, László Györfi & Gábor Lugosi — *A Probabilistic Theory of Pattern
+  Recognition* (Springer, 1996); Richard O. Duda, Peter E. Hart & David G. Stork
+  — *Pattern Classification* (2ª ed., Wiley, 2001). Erro de Bayes como piso
+  irredutivel (resumo recente em arXiv:2506.03159).
+- Raghu N. Kacker — "True value and uncertainty in the GUM" (*Metrologia*, 2018;
+  PMC9074737). Valor verdadeiro inacessivel em principio.
+- JCGM 200 (VIM3), def. 2.27 — incerteza definicional: piso minimo que tecnica
+  nenhuma cruza.
+- Armen Der Kiureghian & Ove Ditlevsen — "Aleatory or epistemic? Does it matter?"
+  (*Structural Safety* 31(2):105-112, 2009). A divisao e' escolha do modelador.
+- M. Jimenez, D. Jurgens & W. Waegeman — position paper, ICML 2025
+  (arXiv:2505.23506). Metodos de 2ª ordem que separam aleatoria de epistemica sao
+  "fundamentalmente incompletos"; vies nao-contabilizado rotula deficiencia
+  redutivel como teto irredutivel.
+- "Re-examining the aleatoric/epistemic dichotomy" (ICLR 2025 blogpost). A divisao
+  e' relativa ao modelo/informacao (confianca media — ancora em blogpost).
 
 Subdeterminacao / verdade por convergencia + criticas:
 - W. V. O. Quine & Pierre Duhem — tese Duhem-Quine (SEP, "Underdetermination
@@ -317,8 +330,10 @@ Limites formais de decidibilidade:
 - Kurt Gödel — teoremas de incompletude (SEP): [plato.stanford.edu/entries/goedel-incompleteness](https://plato.stanford.edu/entries/goedel-incompleteness/).
 - Alan Turing / Alonzo Church — indecidibilidade, halting problem.
 - H. G. Rice — Rice's theorem (1953). Alfred Tarski — indefinibilidade da verdade.
-- ACM 10.1145/3603371 — impossibilidades dedutivas negam certeza 100%, mas
-  enfraquecem sob incerteza; a pergunta vira "quanto basta" (binario → escala).
+- Mario Brčić & Roman V. Yampolskiy — "Impossibility Results in AI: A Survey"
+  (*ACM Computing Surveys*, 2023; doi:10.1145/3603371). 5 familias; a Deducao
+  nega certeza 100%, mas garantias probabilisticas sao atingiveis — "quanto
+  basta?" (binario → escala). [verificado 3-0]
 
 Convergencia de juri sob dependencia:
 - Marquis de Condorcet — Jury Theorem (SEP, "Jury Theorems"):
@@ -328,6 +343,9 @@ Convergencia de juri sob dependencia:
   Priores comuns → convergencia (consenso pode vir do prior, nao do acerto).
 - arXiv:2307.04709 — teoremas de inteligencia coletiva pressupoem competencia;
   sem ela, podem operar ao contrario.
+- Jon Kleinberg & Manish Raghavan — "Algorithmic monoculture and social welfare"
+  (*PNAS* 118(22):e2018340118, 2021). Correlacao de erros entre modelos que
+  partilham origem; fundamenta o erro correlacionado cross-vendor.
 
 Falibilismo / aproximacao:
 - Karl Popper — falibilismo, verisimilitude (SEP, "Popper" e "Truthlikeness"):

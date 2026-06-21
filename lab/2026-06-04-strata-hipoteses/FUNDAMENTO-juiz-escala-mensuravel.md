@@ -2,7 +2,7 @@
 title: 'Fundamento epistêmico do juiz: escala mensurável, não binário perfeito/impossível'
 created: 2026-06-21
 updated: 2026-06-21
-status: 'REGISTRO conceitual. Fundamenta a §1-2 do DOSSIE-judge com filosofia da ciência + matemática + computação. Fontes autorais (SEP, arXiv, GUM); verificação adversarial da rodada de 2026-06-21 foi interrompida por limite de gasto, então claims marcados [sourced] não passaram pelo voto 2/3 — reconferir antes de uso externo.'
+status: 'REGISTRO conceitual. Fundamenta a §1-2 do DOSSIE-judge com filosofia da ciência + matemática + computação. Verificação adversarial concluída (2026-06-21, resume): eixos A/D/E/H VERIFICADOS por voto 3-0; eixos B/C/F (Quine-Duhem, Peirce, Popper/Lakatos/Kant) e instrumentos nomeados de E/G (Condorcet, Aumann, Simon, Brier, Tetlock) seguem [a-verificar] — fontes buscadas, mas sem claim aprovado no voto.'
 nota: 'Responde à falácia "se não é perfeito, não serve". O alvo é distância mensurável ao melhor-possível-dado-o-input, não toque no absoluto.'
 ---
 
@@ -29,11 +29,18 @@ Se o universo dado a todos é "1+1=3", sem contexto nem verificação possível,
 melhor verdade disponível. Ninguém a falsifica dali. Isso não é defeito do juiz; é o limite que a informação
 impõe. A literatura nomeia esse piso:
 - **Incerteza aleatória vs epistêmica** (Hüllermeier & Waegeman, 2021): a aleatória é o ruído irredutível dado
-  o que se sabe; a epistêmica é a parte que mais informação/capacidade reduz. [sourced]
-- **Erro de Bayes** (Bayes error rate): piso inferior de erro que **nenhum** classificador supera, fixado pela
-  sobreposição das densidades, isto é, uma propriedade dos **dados**, não da capacidade do agente. [sourced]
-- **Desigualdade de processamento de dados** (Shannon; Cover & Thomas, 2006): nenhum pós-processamento cria
-  informação que não estava na entrada. O juiz não pode extrair o que o input não contém. [sourced]
+  o que se sabe; a epistêmica é a parte que mais informação/capacidade reduz. [verificado 3-0]
+- **Erro de Bayes** (Devroye, Györfi & Lugosi, 1996; Duda, Hart & Stork, 2001; resumo em arXiv:2506.03159):
+  piso inferior de erro que **nenhum** classificador supera, fixado pela sobreposição das densidades de classe,
+  isto é, uma propriedade dos **dados**, não da capacidade do agente. [verificado 3-0]
+  *Ressalva verificada:* o erro de Bayes é difícil de **estimar** na prática (precisa de muitas amostras) e o
+  piso é relativo a uma **representação de features fixa** — features melhores reduzem a sobreposição. Mas a
+  tentativa de dizer que "o piso de Bayes só existe relativo a uma classe de modelos" foi **refutada (0-3)**:
+  no limite de uma classe irrestrita com features fixas, o piso **permanece irredutível**; só o *rótulo*
+  "irredutível" é relativo ao modelo, não a existência do piso.
+- **Desigualdade de processamento de dados** (Shannon; Cover & Thomas, 2006): para a cadeia de Markov
+  X→Y→Z, I(X;Y) ≥ I(X;Z) — nenhum pós-processamento, determinístico ou estocástico, cria informação sobre a
+  fonte que não estava na entrada. O juiz não extrai o que o input não contém. [verificado 3-0]
 
 **Deficiência de capacidade (redutível, em escala).**
 Outra coisa é quando um par competente, **com a mesma informação**, julga melhor. Aí há deficiência real do
@@ -41,19 +48,23 @@ juiz, mas medida numa escala (quão perto do par ele chega), não num binário "
 
 **Complicação honesta (não ignorar).**
 A divisão limpa entre os dois não é gratuita. A classificação de uma incerteza como aleatória ou epistêmica é
-**relativa ao modelo e à informação considerados**, não uma propriedade absoluta do mundo (ICLR 2025 blogpost).
-O que parece irredutível a um modelo fraco pode ser reduzido por um mais forte. E os métodos que tentam
-**separar** as duas são "fundamentalmente incompletos" e difíceis de interpretar (arXiv:2505.23506, confirmado
-3-0). Logo: a distinção é uma **lente útil**, não uma régua que se lê sem ruído.
+**relativa ao modelo e à informação considerados**, não uma propriedade absoluta do mundo (Der Kiureghian &
+Ditlevsen, 2009; ICLR 2025 blogpost). O que parece irredutível a um modelo fraco pode ser reduzido por um mais
+forte. E os métodos que tentam **separar** as duas são "fundamentalmente incompletos" (Jimenez, Jurgens &
+Waegeman, ICML 2025, arXiv:2505.23506, verificado 3-0): o viés não-contabilizado **superestima a aleatória e
+subestima a epistêmica**, ou seja, pode **rotular como teto irredutível o que é lacuna de capacidade redutível**.
+Logo: a distinção é uma **lente útil**, não uma régua que se lê sem ruído — e o erro de atribuição cai sempre
+para o lado de absolver o juiz. Por isso medimos o teto por um piso empírico (ruído entre avaliadores
+competentes), não por estimadores de desemaranhamento.
 
 ## Por que evidência finita não fixa verdade única
 
-**Subdeterminação (Quine-Duhem; SEP, "Underdetermination of Scientific Theory").**
+**Subdeterminação (Quine-Duhem; SEP, "Underdetermination of Scientific Theory"). [a-verificar]**
 Evidência finita é compatível com mais de uma teoria. Nenhum conjunto de dados força uma leitura única.
 Aplicado ao juiz: pedir que ele "ache a verdade" a partir de input finito pede o que a própria ciência não tem.
 O alvo viável é a melhor leitura **sustentável** pelo input, com a incerteza declarada.
 
-## Verdade como convergência — e suas críticas
+## Verdade como convergência — e suas críticas [a-verificar]
 
 **Peirce (via Philosophy Compass, Misak): verdade = "a opinião fadada a ser, no fim, aceita por todos que
 investigam".** Convergência é **esperança regulativa**, um norte teleológico, não uma linha de chegada onde
@@ -72,13 +83,19 @@ Por isso o corpus ancora o núcleo sólido no **gold mecânico**, não no consen
 
 **Limites formais.** Gödel (incompletude: há verdades não deriváveis dos axiomas dados), Turing/Church
 (indecidibilidade, halting problem), Rice (propriedades semânticas não-triviais são indecidíveis), Tarski
-(indefinibilidade da verdade). [sourced via SEP/Wikipedia]
+(indefinibilidade da verdade: nenhuma linguagem rica o bastante representa a própria semântica). [verificado 3-0]
+**Nuance verificada:** a incompletude é **relativa ao sistema**, não absoluta. A sentença de Gödel é improvável
+em F, mas provável em F+Con(F), e é genuinamente **verdadeira** no modelo padrão. A verdade pode **ultrapassar**
+um sistema fixo. Isto afina a tese: o teto é fixado pelo universo de axiomas/informação dado, não é um
+"inconhecível" absoluto.
 
-O ponto que **fundamenta a tese da escala** (arXiv/ACM:10.1145/3603371): a impossibilidade de garantia
-**dedutiva 100%** não torna a tarefa sem esperança. As impossibilidades negam **certeza**; abordagens
-probabilísticas/indutivas conseguem muito, e as impossibilidades "enfraquecem substancialmente assim que se
-admite incerteza". A pergunta aberta deixa de ser "é possível ou impossível?" e passa a ser "**quanto basta?**".
-Isto **é** a passagem do binário para a escala mensurável que você defende.
+O ponto que **fundamenta a tese da escala** (Brčić & Yampolskiy, "Impossibility Results in AI: A Survey",
+ACM Computing Surveys, 2023, doi:10.1145/3603371): as impossibilidades de IA se organizam em cinco famílias
+(Dedução, Indução, Indistinguibilidade, Tradeoffs, Intratabilidade). A família da **Dedução** (Gödel/Turing/
+Chaitin/Rice) nega garantia **100%**. Mas — e isto é o eixo do seu argumento — **garantias probabilísticas são
+atingíveis**: "as impossibilidades são bem menos estritas sob inferência incerta; mas, quanto basta?".
+[verificado 3-0]. A pergunta deixa de ser "possível ou impossível?" e passa a ser "**quanto basta?**".
+Isto **é** a passagem do binário para a escala mensurável.
 
 ## Convergência de júri: a garantia depende de independência
 
@@ -89,9 +106,11 @@ convergem à resposta correta com mais votantes. Duas condições, não uma.
 - Teoremas de inteligência coletiva (Hong-Page, Condorcet, milagre da agregação) pressupõem nível de
   competência; sem controlar capacidade, podem **operar ao contrário** e levar o grupo ao erro quase certo
   (arXiv:2307.04709). [sourced]
-- Empírico em LLM (Kim et al., ICML 2025, arXiv:2506.07962): pares de modelos concordam na **mesma resposta
-  errada ~60% das vezes**, contra ~33% esperado se os erros fossem independentes. A correlação **cresce com a
-  acurácia**, mesmo entre fornecedores distintos. Juiz correlacionado **infla** o acerto medido. [sourced]
+- Empírico em LLM (Kim, Garg, Peng & Garg, "Correlated Errors in LLMs", ICML 2025, arXiv:2506.07962; 350+
+  modelos): pares concordam na **mesma resposta errada ~60% das vezes**, contra ~33% esperado se os erros fossem
+  independentes. A correlação **cresce com a acurácia**, mesmo entre arquiteturas e fornecedores distintos. Juiz
+  correlacionado **infla** o acerto medido. Efeito ligado à **monocultura algorítmica** (Kleinberg & Raghavan,
+  PNAS, 2021). [verificado 3-0]
 - Viés compartilhado de familiaridade/perplexidade: juízes super-recompensam texto de baixa perplexidade,
   um viés **não-aleatório e comum**, que fere a independência (arXiv:2410.21819). [sourced]
 - **Teorema do Acordo de Aumann:** agentes racionais com priores comuns convergem — convergência pode vir de
@@ -101,7 +120,7 @@ Consequência direta para o Eixo 1 do DOSSIE: convergência cross-vendor é **pr
 medida em escala** (ex.: votos efetivos independentes, neff), **não prova de correção**. É exatamente a nossa
 Fase B: dois juízes seguem concordando nas respostas erradas sem o gabarito.
 
-## Falibilismo: ciência é aproximação, não posse
+## Falibilismo: ciência é aproximação, não posse [a-verificar]
 
 Popper (SEP): falibilismo + **verisimilitude/truthlikeness** — teorias são mais ou menos próximas da verdade,
 numa **escala**, sem nunca a possuírem. Lakatos (já na bibliografia): programas de pesquisa progridem ou
@@ -110,20 +129,29 @@ Tudo aponta para o mesmo: o sucesso é **afastamento mensurável do erro reconhe
 
 ## Medir julgamento numa escala contínua
 
-A prática já sabe avaliar julgamento sem oráculo binário:
+A prática já sabe avaliar julgamento sem oráculo binário. *(Instrumentos nomeados [a-verificar]; o enquadramento
+"confiabilidade do juiz como problema mensurável" está verificado 3-0 via survey de LLM-as-judge,
+arXiv:2411.15594.)*
 - **Racionalidade limitada** (Simon; SEP): o agente real **satisfaz** dentro de recursos finitos; o padrão é o
-  bom-o-suficiente medido, não o ótimo inalcançável.
+  bom-o-suficiente medido, não o ótimo inalcançável. [a-verificar]
 - **Regras de pontuação próprias** (Brier score): pontuam a **probabilidade** declarada, premiando calibração,
-  numa escala contínua, não em certo/errado.
+  numa escala contínua, não em certo/errado. [a-verificar]
 - **Good Judgment Project** (Tetlock): previsores são rankeados por acurácia probabilística ao longo do tempo —
-  julgamento avaliado como **escala**, não como acerto único.
+  julgamento avaliado como **escala**, não como acerto único. [a-verificar]
+- **Confiabilidade do juiz como problema mensurável** (Survey on LLM-as-a-Judge, arXiv:2411.15594): consistência,
+  robustez e alinhamento com humano são **dimensões a medir e melhorar**, não correção binária a afirmar.
+  [verificado 3-0]
 
 ## Teoria de medida: a régua justa não é o oráculo
 
-**GUM (JCGM 100:2008), confirmado 2-0 nesta rodada.** A incerteza é "a dispersão dos valores que podem
-razoavelmente ser atribuídos ao mensurando", **deliberadamente desacoplada** do "valor verdadeiro" inacessível
-e do "erro". Ou seja: o resultado científico é o melhor valor **mais** sua dispersão, não a distância a uma
-verdade que ninguém vê.
+**GUM (JCGM 100:2008) + Kacker, 2018 (PMC9074737), verificado 3-0.** O "valor verdadeiro" é teórico e
+**inacessível em princípio**; o erro relativo a ele é conceitual e desconhecível. A incerteza é "a dispersão dos
+valores que podem razoavelmente ser atribuídos ao mensurando", **deliberadamente desacoplada** do valor
+verdadeiro. O resultado científico é o melhor valor **mais** sua dispersão, não a distância a uma verdade que
+ninguém vê. E há piso irredutível: a **incerteza definicional** (VIM3 2.27) fixa um mínimo que técnica nenhuma
+cruza — análogo metrológico do teto de informação.
+*Ressalva verificada:* essa é a leitura **operacional/anti-realista oficial** do GUM; o próprio Kacker argumenta
+que o GUM retém uma leitura realista latente, então não é tão limpo quanto soa.
 Somado a confiabilidade vs validade (Bhattacherjee, já no DOSSIE): a **régua justa** de um juiz é o **piso de
 ruído entre avaliadores competentes com a mesma informação** (a concordância humano-humano), não um avaliador
 perfeito.
@@ -144,9 +172,15 @@ perfeito.
 
 ## Itens abertos que este fundamento deixa
 
-- A verificação adversarial desta rodada foi cortada por limite de gasto: os claims [sourced] precisam passar
-  pelo voto 2/3 antes de citação externa.
-- Falta fechar a desigualdade de processamento de dados e o erro de Bayes com a fonte primária (Cover & Thomas;
-  Hüllermeier & Waegeman) lida na íntegra, não só pelo resumo.
+- **Eixos A/D/E/H verificados (3-0).** Faltam verificar com fonte primária os eixos **B (Quine-Duhem),
+  C (Peirce + críticas realistas), F (Popper/Lakatos/Kant)** e os instrumentos nomeados de E/G (enunciado do
+  Teorema de Condorcet e sua degradação sob dependência, Aumann, Simon, Brier, Tetlock): as fontes foram
+  buscadas, mas nenhum claim sobreviveu ao voto — entram aqui como [a-verificar]. Pede uma passada de fetch
+  dedicada antes de uso EXTERNO.
+- **Protocolo prático do teto.** Como os estimadores de desemaranhamento aleatória/epistêmica são contaminados,
+  falta definir o protocolo operacional para estimar o **piso de ruído entre avaliadores competentes** sem
+  depender deles. (É o que o gold mecânico já faz onde existe.)
+- **neff real do nosso painel.** Dado o erro correlacionado cross-vendor, quantos juízes independentes efetivos
+  um painel típico nosso tem, e quanto descontar a garantia de Condorcet para fixar a "régua justa".
 - A crítica realista à verdade-por-convergência (Rorty/Quine/Russell/fatos-perdidos) merece um parágrafo no
   DOSSIE se o argumento for a público, para não soar ingênuo quanto a "consenso = verdade".

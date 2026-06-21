@@ -164,6 +164,20 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   **tombstones §3** em frases superadas (consolidacao-synthesis.json, tier-nuvem-limpo, AUDITORIA-2026-06-07).
   **ECE bloqueado** (juiz não emite confiança). [`RESULTADOS-concordancia-juizes`](RESULTADOS-concordancia-juizes.md) ·
   [`RESULTADOS-juiz-sem-gabarito`](RESULTADOS-juiz-sem-gabarito.md) · roadmap em [`FECHAMENTO`](FECHAMENTO-avaliacao-strata.md).
+- **2026-06-21** — **Confronto com a literatura atual + fundamento epistêmico (escala mensurável).**
+  Duas rodadas de pesquisa multi-fonte com verificação adversarial. **Achado:** a literatura 2024-2026
+  **corrobora** o núcleo (convergência ≠ correção; gabarito melhora o juiz; correção por acaso > % cru) e
+  **recalibra de binário para escala** a defesa do júri cross-vendor: erro correlacionado é cross-família, e
+  independência vira **quantidade** (votos efetivos, neff~2,18 em 9 juízes — Kohli/Apple 2026; Kim et al. ICML
+  2025). O Eixo A do DOSSIE foi reescrito (proxy fraco de independência, não correção). **Bibliografia §5
+  fechada:** citadas-mas-ausentes + novas obras adicionadas à canônica. **Fundamento** novo (resposta à falácia
+  "não-perfeito = não-serve"): teto epistêmico por informação (irredutível) vs lacuna de capacidade (redutível),
+  com lastro em aleatória/epistêmica, erro de Bayes, Shannon, Quine-Duhem, Gödel/Turing/Rice, Condorcet sob
+  dependência, Popper, GUM. **Honestidade:** a 2ª rodada teve a verificação cortada por limite de gasto — claims
+  filosóficos marcados [sourced], não todos passaram pelo voto 2/3. **Eixo 6 (ECE) rebaixado** para "plausível,
+  não reconfirmado"; thresholds de Krippendorff marcados como heurística clássica, não consenso verificado.
+  [`RESULTADOS-confronto-literatura`](RESULTADOS-confronto-literatura.md) ·
+  [`FUNDAMENTO-juiz-escala-mensuravel`](FUNDAMENTO-juiz-escala-mensuravel.md).
 - **2026-06-14** — **P9: spot-check dos modelos novos (jun/2026).** A assinatura por tier **persiste** entre
   gerações (gemini-3.1-flash-lite: over-age no limpo / recall 4/4 + segurança 5/5 no bagunçado); a detecção do
   óbvio **melhorou**, a abstenção §9 segue teto. Limites expostos: nomes de modelo churnam (L2), e os reasoners

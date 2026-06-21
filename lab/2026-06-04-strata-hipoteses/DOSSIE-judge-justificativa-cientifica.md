@@ -37,6 +37,16 @@ Sim. Com lógica + testes, mede-se:
 E mede-se a estrutura do erro: se o juiz **tende a um centro** rumo ao ideal, fica **perdido**, ou **sai do centro (drift)**.
 Saber que erra, e como erra, é **informação científica válida** — não fracasso.
 
+As duas distâncias que se medem (e nunca se confundem).
+O alvo não é "acertar a verdade" (binário), e sim a distância, **em escala**, ao melhor-possível-dado-o-input.
+Há **teto epistêmico por informação** (irredutível: se o universo é "1+1=3" e não há como verificar, convergir
+nele é o melhor disponível, não defeito do juiz) e há **lacuna de capacidade** (redutível: um par competente,
+com a mesma informação, julgaria melhor).
+A falácia "não é perfeito, logo não serve" funde as duas e exige furar o teto — o que nem humano faz.
+O fundamento formal disso (incerteza aleatória vs epistêmica, erro de Bayes, desigualdade de processamento de
+dados, subdeterminação, limites de decidibilidade, júri sob dependência, falibilismo, GUM) está em
+[FUNDAMENTO-juiz-escala-mensuravel.md](FUNDAMENTO-juiz-escala-mensuravel.md).
+
 ## 2. O argumento do ideal-regulativo (com a literatura de medida)
 
 ### 2.1 O ideal é guia, não meta atingível
@@ -78,11 +88,22 @@ Calibração é eixo **ortogonal** à concordância: mede se a confiança declar
 
 ### Eixo A — alinhamento inter-juiz (os juízes concordam?)
 Lógica.
-Fornecedores diferentes erram de modos mais independentes.
-Se juízes de empresas distintas **convergem**, o resultado provavelmente é correto; se divergem, é chamada dependente-de-julgamento.
-Isso ataca diretamente o **self-preference bias** — o juiz favorecer a própria saída (Zheng et al., 2023; causa identificada em Panickssery et al., 2024) — e segue a mitigação canônica de **júri cross-vendor** (Verga et al., PoLL, 2024).
+Fornecedores diferentes erram de modos **menos** dependentes — mas não independentes.
+Se juízes de empresas distintas **divergem**, é uma chamada dependente-de-julgamento, sinal de baixar a confiança.
+Se **convergem**, fica descartada a auto-avaliação pura, e o self-preference bias é mitigado — mas **convergência não é correção** (ver caveat de erro correlacionado abaixo).
+A convergência cross-vendor é, portanto, **proxy fraco de independência**, não garantia de acerto.
+Isso ataca o **self-preference bias** — o juiz favorecer a própria saída (Zheng et al., 2023; Panickssery et al., 2024) — e segue a mitigação canônica de **júri cross-vendor** (Verga et al., PoLL, 2024). Essas citações valem para a *mitigação de viés*, não para "consenso = qualidade".
+
+Caveat — erro correlacionado cross-família (literatura 2025-2026, [RESULTADOS-confronto-literatura.md](RESULTADOS-confronto-literatura.md)).
+A diversidade de fornecedor **reduz, mas não elimina**, o erro compartilhado.
+Em painel de 9 juízes / 7 famílias, a independência efetiva é só **~2,18 votos** e os pares mais correlacionados são **cross-família** (Kohli/Apple, 2026, arXiv:2605.29800).
+O erro correlacionado **cresce com a acurácia**, mesmo entre fornecedores distintos (Kim et al., ICML 2025, arXiv:2506.07962).
+Isto é coerente com a nossa própria Fase B: dois juízes seguem concordando (κ = 0,600) **nas respostas erradas** sem o gabarito ([RESULTADOS-juiz-sem-gabarito.md](RESULTADOS-juiz-sem-gabarito.md)). Quem revela o acerto é o **gold mecânico**, não o consenso.
 
 Evidência interna (F0, `RESULTADOS-f0-confronto-juizes.md`; script `eval/strata/compare_judges_ladder.py`).
+> **Snapshot de juízes 2026-06-04 (L2 datado).** A escada abaixo nomeia modelos da época do F0
+> (gpt-5, gpt-5.5, o3, gemini-2.5-*). É registro histórico, não a lista de juízes atuais — ver
+> [BACKLOG](BACKLOG-fila-geral.md) para os modelos vigentes.
 9 juízes de 3 empresas (OpenAI, Google, Anthropic) re-pontuam **cego** o mesmo conjunto P1+P2.
 Discriminador objetivo: no fixture NNN, os planos AN-v2 cometem falso-positivo **comprovável** (flagam arquivos-IA como duplicata, criticam navegação boa = fatos textuais). FP ~4 = correto; ~0 = leniência.
 7 juízes capazes convergem em NNN-v2 FP **~3.9-4.4**: claude-opus 4.25, gemini-2.5-pro 3.88, gemini-2.5-flash 4.12, gpt-5 3.29, gpt-5-codex 4.38, o3 4.00, gpt-5.5 4.38.

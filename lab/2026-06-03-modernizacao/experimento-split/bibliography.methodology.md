@@ -210,6 +210,138 @@ see-also: [00-core.methodology.md]
 - Cursor rules: [docs.cursor.com/context/rules](https://docs.cursor.com/context/rules)
 - Cline memory bank: [docs.cline.bot/features/memory-bank](https://docs.cline.bot/features/memory-bank)
 
+## LLM-as-judge / meta-avaliacao (alta cadencia — re-verificar a cada auditoria)
+
+> **Aviso de cadencia**: campo que muda em meses. As obras de 2026 sao
+> **preprints** (Apple, RAND) — tratar numero especifico como melhor-atual,
+> nao assentado. Usada pelo [DOSSIE-judge](../../2026-06-04-strata-hipoteses/DOSSIE-judge-justificativa-cientifica.md)
+> e pelo [RESULTADOS-confronto-literatura](../../2026-06-04-strata-hipoteses/RESULTADOS-confronto-literatura.md).
+
+Fundacionais (juiz e concordancia):
+- Lianmin Zheng et al. — "Judging LLM-as-a-Judge with MT-Bench and Chatbot
+  Arena" (NeurIPS 2023; arXiv:2306.05685). Juiz forte ~80%+ vs preferencia
+  humana; catalogo de position/verbosity/self-enhancement bias.
+- Yang Liu et al. — "G-Eval: NLG Evaluation using GPT-4 with Better Human
+  Alignment" (EMNLP 2023; arXiv:2303.16634). Juiz com chain-of-thought
+  correlaciona melhor que BLEU/ROUGE.
+- Arjun Panickssery, Samuel R. Bowman, Shi Feng — "LLM Evaluators Recognize
+  and Favor Their Own Generations" (NeurIPS 2024; arXiv:2404.13076).
+  Self-preference; GPT-4 reconhece a propria saida ~73,5%.
+- Pat Verga et al. — "Replacing Judges with Juries: Evaluating LLM
+  Generations with a Panel of LLMs" (PoLL; arXiv:2404.18796). Juri
+  cross-vendor como mitigacao de self-preference.
+- Jiawei Gu et al. — "A Survey on LLM-as-a-Judge" (arXiv:2411.15594, 2024).
+- Lin Shi et al. — "Judging the Judges: position bias em LLM-as-a-Judge"
+  (arXiv:2406.07791 / 2024). Position bias e' dirigido pelo gap de qualidade.
+
+Erro correlacionado / limite do consenso (2025-2026 — confrontam o cross-vendor):
+- Kohli et al. (Apple) — "Nine Judges, Two Effective Votes: correlated errors
+  em paineis de LLM" (arXiv:2605.29800, 2026, preprint). neff~2,18 em 9 juizes /
+  7 familias; pares mais correlacionados sao cross-familia.
+- Kim et al. — correlated errors em 350+ LLMs (arXiv:2506.07962, ICML 2025).
+  Erro correlacionado cresce com acuracia, mesmo entre fornecedores distintos.
+
+Reference-guided vs reference-free:
+- "No Free Labels: ground-truth dependence em LLM-as-judge"
+  (arXiv:2503.05061, 2025). Juiz so concorda com especialista onde ele mesmo
+  saberia responder; referencia mitiga.
+- "RevisEval: response-adapted references" (ICLR 2025; arXiv:2410.05193).
+- "Judge's Verdict: de correlacao para Cohen's kappa" (arXiv:2510.09738, 2025).
+  Correlacao/% cru e' insuficiente; usar concordancia corrigida por acaso.
+
+Vieses (atualizacao 2025):
+- "Breaking the Mirror: self-preference justificado vs injustificado"
+  (NeurIPS 2025; arXiv:2509.03647). Favorecer a propria saida nem sempre e' vies.
+
+Confiabilidade dependente de tarefa:
+- RAND — "Judge Reliability Harness" (arXiv:2603.05399, 2026, preprint).
+  Nenhum juiz e' uniformemente confiavel entre benchmarks.
+
+Metrica de concordancia (correcao por acaso):
+- Klaus Krippendorff — *Content Analysis: An Introduction to Its Methodology*
+  (Sage, 2004). alfa de Krippendorff; heuristica >=0,800 confiavel /
+  0,667-0,800 preliminar (heuristica classica, nao consenso atual verificado).
+- Mary L. McHugh — "Interrater reliability: the kappa statistic"
+  (*Biochem Med* 22(3):276-282, 2012).
+- A. Zapf et al. — "Measuring inter-rater reliability for nominal data —
+  which coefficients and confidence intervals are appropriate?"
+  (*BMC Med Res Methodol* 16:93, 2016). Paradoxo do kappa sob desbalanceamento.
+
+Calibracao (eixo ortogonal — plausivel, nao reconfirmado no confronto 2026-06-21):
+- Chuan Guo et al. — "On Calibration of Modern Neural Networks" (ICML 2017;
+  arXiv:1706.04599). ECE; redes modernas mal calibradas.
+- Katherine Tian et al. — "Just Ask for Calibration" (EMNLP 2023;
+  arXiv:2305.14975). Confianca verbalizada bate logits sob RLHF.
+
+Teoria de medida / validade (fundamento do argumento ideal-regulativo):
+- Lee J. Cronbach & Paul E. Meehl — "Construct Validity in Psychological
+  Tests" (*Psychological Bulletin* 52(4):281-302, 1955).
+- Samuel Messick — "Validity of Psychological Assessment" (*American
+  Psychologist* 50(9):741-749, 1995). Validade de construto unificada.
+- Anol Bhattacherjee — *Social Science Research: Principles, Methods, and
+  Practices* (2ª ed., 2012). Erro aleatorio (confiabilidade) vs
+  sistematico (validade).
+- JCGM 100:2008 — *Guide to the Expression of Uncertainty in Measurement*
+  (GUM). Resultado so esta completo com incerteza declarada.
+- Lora Aroyo & Chris Welty — "Truth Is a Lie: Crowd Truth and the Seven
+  Myths of Human Annotation" (*AI Magazine* 36(1):15-24, 2015). Discordancia
+  humana como sinal; ground-truth distribucional.
+- Immanuel Kant — principios regulativos (via SEP, "Kant's Account of
+  Reason", Williams, ed. 2023): [plato.stanford.edu/entries/kant-reason](https://plato.stanford.edu/entries/kant-reason/).
+
+## Fundamento epistemico do juiz (escala mensuravel, nao binario)
+
+> Base de filosofia/matematica/computacao do argumento "nao-perfeito nao e'
+> nao-serve". Usada por [FUNDAMENTO-juiz-escala-mensuravel](../../2026-06-04-strata-hipoteses/FUNDAMENTO-juiz-escala-mensuravel.md).
+> Verificacao adversarial da rodada 2026-06-21 interrompida por limite de gasto;
+> reconferir as fontes [sourced] antes de uso externo.
+
+Teto irredutivel / informacao:
+- Eyke Hüllermeier & Willem Waegeman — "Aleatoric and Epistemic Uncertainty in
+  Machine Learning" (*Machine Learning* 110:457-506, 2021; arXiv:1910.09457).
+- Thomas M. Cover & Joy A. Thomas — *Elements of Information Theory* (2ª ed.,
+  Wiley, 2006). Desigualdade de processamento de dados.
+- "Re-examining the aleatoric/epistemic dichotomy" (ICLR 2025 blogpost). A
+  divisao e' relativa ao modelo/informacao, nao absoluta.
+- arXiv:2505.23506 (2025) — metodos de segunda ordem que separam aleatoria de
+  epistemica sao "fundamentalmente incompletos".
+
+Subdeterminacao / verdade por convergencia + criticas:
+- W. V. O. Quine & Pierre Duhem — tese Duhem-Quine (SEP, "Underdetermination
+  of Scientific Theory"): [plato.stanford.edu/entries/scientific-underdetermination](https://plato.stanford.edu/entries/scientific-underdetermination/).
+- Charles S. Peirce — verdade como limite da investigacao (sintese em Cheryl
+  Misak, *Philosophy Compass*, 10.1111/phc3.12114). Criticas: Rorty, Quine,
+  Russell, "fatos perdidos" (Smart, Field).
+
+Limites formais de decidibilidade:
+- Kurt Gödel — teoremas de incompletude (SEP): [plato.stanford.edu/entries/goedel-incompleteness](https://plato.stanford.edu/entries/goedel-incompleteness/).
+- Alan Turing / Alonzo Church — indecidibilidade, halting problem.
+- H. G. Rice — Rice's theorem (1953). Alfred Tarski — indefinibilidade da verdade.
+- ACM 10.1145/3603371 — impossibilidades dedutivas negam certeza 100%, mas
+  enfraquecem sob incerteza; a pergunta vira "quanto basta" (binario → escala).
+
+Convergencia de juri sob dependencia:
+- Marquis de Condorcet — Jury Theorem (SEP, "Jury Theorems"):
+  [plato.stanford.edu/entries/jury-theorems](https://plato.stanford.edu/entries/jury-theorems/).
+  Competencia >0,5 **e** independencia.
+- Robert J. Aumann — "Agreeing to Disagree" (*Annals of Statistics* 4(6), 1976).
+  Priores comuns → convergencia (consenso pode vir do prior, nao do acerto).
+- arXiv:2307.04709 — teoremas de inteligencia coletiva pressupoem competencia;
+  sem ela, podem operar ao contrario.
+
+Falibilismo / aproximacao:
+- Karl Popper — falibilismo, verisimilitude (SEP, "Popper" e "Truthlikeness"):
+  [plato.stanford.edu/entries/truthlikeness](https://plato.stanford.edu/entries/truthlikeness/).
+  (Lakatos e Kant ja' citados em "Ciencia aberta" e no DOSSIE §2.1.)
+
+Racionalidade limitada / medir julgamento em escala:
+- Herbert A. Simon — bounded rationality / satisficing (SEP, "Bounded
+  Rationality"): [plato.stanford.edu/entries/bounded-rationality](https://plato.stanford.edu/entries/bounded-rationality/).
+- Glenn W. Brier — "Verification of forecasts expressed in terms of
+  probability" (*Monthly Weather Review* 78(1):1-3, 1950). Proper scoring rule.
+- Philip E. Tetlock & Dan Gardner — *Superforecasting* (Crown, 2015) / Good
+  Judgment Project. Julgamento avaliado em escala probabilistica.
+
 ## Proveniencia / autenticidade de conteudo
 
 - C2PA (Coalition for Content Provenance and Authenticity) —

@@ -90,7 +90,10 @@ Sobre **modelos de IA**: "quem dá conta" = qual capacidade faz a tarefa bem. Es
   teve 92% entre o Gemini 2.5 Flash e o GPT-4.1, mais a conferência mecânica da abstenção §9. O resíduo é estreito: as rodadas
   ecológicas mais recentes deste ciclo (projetos próprios, fg2p) foram pontuadas por Claude e ainda não
   re-pontuadas cross-vendor. Viés de família medido (Claude ~0,87 ponto mais generoso com o Haiku), por isso não
-  ancoramos em célula Claude-julga-Claude.
+  ancoramos em célula Claude-julga-Claude. **Mas convergência cross-vendor não é prova de acerto:** a literatura
+  2024-2026 mostra erro correlacionado entre fabricantes, e a nossa Fase B mostra juízes concordando nas
+  respostas erradas sem o gabarito. Quem ancora o sólido é o **gold mecânico**, não o consenso
+  ([confronto](RESULTADOS-confronto-literatura.md), [fundamento](FUNDAMENTO-juiz-escala-mensuravel.md)).
 - **Circularidade:** já há um braço externo de verdade. A forma de abstenção foi testada em **6 repositórios
   open-source de terceiros** (tomli, slugify, humanize, mlscratch, pytorchgan, ml3months) e em projetos
   **publicados**, como o **FG2P**, que tem artigo. Ali a forma de abstenção reconhece o projeto de terceiro como

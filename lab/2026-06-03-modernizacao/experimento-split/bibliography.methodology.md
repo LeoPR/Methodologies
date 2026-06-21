@@ -293,9 +293,10 @@ Teoria de medida / validade (fundamento do argumento ideal-regulativo):
 
 > Base de filosofia/matematica/computacao do argumento "nao-perfeito nao e'
 > nao-serve". Usada por [FUNDAMENTO-juiz-escala-mensuravel](../../2026-06-04-strata-hipoteses/FUNDAMENTO-juiz-escala-mensuravel.md).
-> Verificacao adversarial 2026-06-21: eixos A/D/E/H VERIFICADOS (voto 3-0);
-> B/C/F (Quine-Duhem, Peirce, Popper/Lakatos/Kant) e instrumentos nomeados de
-> E/G (Condorcet, Aumann, Simon, Brier, Tetlock) seguem [a-verificar].
+> Verificacao adversarial completa 2026-06-21 (dois runs): TODOS os eixos verificados.
+> A/D/E/H: 3-0, 1 refutado informativo. B/C/F + instrumentos E/G (Condorcet, Aumann,
+> Simon, Brier, Tetlock): 3-0 NUANCED em todos — verificados com ressalva de
+> formulacao/atribuicao/escopo; nenhum refutado.
 
 Teto irredutivel / informacao (eixos A/H — verificados 3-0):
 - Eyke Hüllermeier & Willem Waegeman — "Aleatoric and Epistemic Uncertainty in
@@ -319,12 +320,25 @@ Teto irredutivel / informacao (eixos A/H — verificados 3-0):
 - "Re-examining the aleatoric/epistemic dichotomy" (ICLR 2025 blogpost). A divisao
   e' relativa ao modelo/informacao (confianca media — ancora em blogpost).
 
-Subdeterminacao / verdade por convergencia + criticas:
-- W. V. O. Quine & Pierre Duhem — tese Duhem-Quine (SEP, "Underdetermination
-  of Scientific Theory"): [plato.stanford.edu/entries/scientific-underdetermination](https://plato.stanford.edu/entries/scientific-underdetermination/).
-- Charles S. Peirce — verdade como limite da investigacao (sintese em Cheryl
-  Misak, *Philosophy Compass*, 10.1111/phc3.12114). Criticas: Rorty, Quine,
-  Russell, "fatos perdidos" (Smart, Field).
+Subdeterminacao / verdade por convergencia + criticas: [verificado com ressalva B/C]
+- Pierre Duhem — *La Theorie Physique* (1906/Wiener trans. Princeton, 1954, p.187).
+  Holismo da confirmacao: hipoteses so enfrentam teste empirico em conjunto.
+- W. V. O. Quine — "Two Dogmas of Empiricism" (*Phil. Review* 60:20-43, 1951);
+  "On Empirically Equivalent Systems of the World" (*Erkenntnis* 9(3):313-328, 1975).
+  SEP "Underdetermination": [plato.stanford.edu/entries/scientific-underdetermination](https://plato.stanford.edu/entries/scientific-underdetermination/).
+  Ressalva: tese forte tratada por Quine como conjectura, nao resultado estabelecido.
+- Charles S. Peirce — CP 5.407 (1878, *Popular Science Monthly* 12:286-302) —
+  verbatim: "The opinion which is fated to be ultimately agreed to by all who
+  investigate, is what we mean by the truth". CP 5.565 (1901): reformulacao como
+  "limite ideal". Misak, Cheryl — *Truth and the End of Inquiry* (Oxford, 2004,
+  ISBN 9780199270590): defesa neo-pragmatista.
+  Criticos: Rorty (*Consequences of Pragmatism*, 1982; "Science as Solidarity", 1987)
+  — posicao documentada; analogia do "maior inteiro" e' parafrrase, nao citacao direta.
+  Russell — "William James's Conception of Truth" (*Phil. Essays*, 1910/Routledge):
+  critica semantica (indicador vs. significado de "verdadeiro"), nao singular-vs-plural.
+  Field, H. — "Realism and Relativism" (*J. Philosophy* 79(10):553-567, 1982):
+  "fatos perdidos" (dinossauros). Smart, J.J.C. — *Ethics, Persuasion and Truth*
+  (Routledge, 1984).
 
 Limites formais de decidibilidade:
 - Kurt Gödel — teoremas de incompletude (SEP): [plato.stanford.edu/entries/goedel-incompleteness](https://plato.stanford.edu/entries/goedel-incompleteness/).
@@ -335,30 +349,82 @@ Limites formais de decidibilidade:
   nega certeza 100%, mas garantias probabilisticas sao atingiveis — "quanto
   basta?" (binario → escala). [verificado 3-0]
 
-Convergencia de juri sob dependencia:
-- Marquis de Condorcet — Jury Theorem (SEP, "Jury Theorems"):
+Convergencia de juri sob dependencia: [verificado com ressalva E/G-Condorcet/Aumann]
+- Marquis de Condorcet — *Essai sur l'application de l'analyse* (Paris, 1785).
+  Formalizado em Dietrich & Spiekermann (SEP, "Jury Theorems", Fall 2025 ed.):
   [plato.stanford.edu/entries/jury-theorems](https://plato.stanford.edu/entries/jury-theorems/).
-  Competencia >0,5 **e** independencia.
-- Robert J. Aumann — "Agreeing to Disagree" (*Annals of Statistics* 4(6), 1976).
-  Priores comuns → convergencia (consenso pode vir do prior, nao do acerto).
-- arXiv:2307.04709 — teoremas de inteligencia coletiva pressupoem competencia;
-  sem ela, podem operar ao contrario.
+  Competencia p>0,5 **e** independencia — duas condicoes, nao uma.
+- Ladha, K.K. — "The Condorcet Jury Theorem, Free Speech, and Correlated Votes"
+  (*Am. J. Political Science* 36(3):617-634, 1992). Degradacao sob correlacao
+  positiva; garantia preservada apenas com correlacao suficientemente baixa.
+- Dietrich, F. & List, C. — "A Model of Jury Decisions Where All Jurors Have the
+  Same Evidence" (*Synthese* 142:175-202, 2004). Causa comum → limite assintótico
+  travado abaixo de 1.
+- Robert J. Aumann — "Agreeing to Disagree" (*Annals of Statistics* 4(6):1236-1239,
+  1976; DOI 10.1214/aos/1176343654). Prior comum + conhecimento comum das posterioris
+  → concordancia forcada. Nao prova que concordancia implica prior como causa;
+  implicacao para LLMs e' analogia com lastro empirico. Ressalva: Lederman, H. —
+  "People with Common Priors Can Agree to Disagree" (*Review of Symbolic Logic*
+  8(1):11-45, 2015; DOI 10.1017/S1755020314000380): sub-condicoes do prior comum
+  sao load-bearing e podem ser relaxadas individualmente.
 - Jon Kleinberg & Manish Raghavan — "Algorithmic monoculture and social welfare"
   (*PNAS* 118(22):e2018340118, 2021). Correlacao de erros entre modelos que
-  partilham origem; fundamenta o erro correlacionado cross-vendor.
+  partilham origem; fundamenta o erro correlacionado cross-vendor. [verificado 3-0]
+- Balasubramanian, R., Podkopaev, A. & Kasiviswanathan, S.P. — "Dependence-Aware
+  Label Aggregation for LLM-as-a-Judge via Ising Models" (arXiv:2601.22336, 2026).
+  Correlacao de juizes LLM por dados de treinamento sobrepostos; votacao majoritaria
+  padrao descalibrada.
+- Zhao et al. — "CARE: Confounder-Aware Aggregation for Reliable LLM Evaluation"
+  (arXiv:2603.00039, 2026). Dados de treinamento como confundidor oculto que torna
+  concordancia entre juizes enganosa como evidencia de validade ground-truth.
 
-Falibilismo / aproximacao:
-- Karl Popper — falibilismo, verisimilitude (SEP, "Popper" e "Truthlikeness"):
+Falibilismo / aproximacao: [verificado com ressalva F]
+- Karl Popper — *Conjecturas e Refutacoes* (Routledge, 1963, cap. 10);
+  *Objective Knowledge* (Clarendon, 1972, cap. 9). Verossimilhanca: escala de
+  proximidade a verdade; SEP "Truthlikeness":
   [plato.stanford.edu/entries/truthlikeness](https://plato.stanford.edu/entries/truthlikeness/).
-  (Lakatos e Kant ja' citados em "Ciencia aberta" e no DOSSIE §2.1.)
+  Tichý, P. & Miller, D. — refutacao da definicao formal (*BJPS* 25(2):155-177,
+  1974). Oddie, G. (SEP 2019); Niiniluoto, I. (*Truthlikeness*, Reidel, 1987):
+  abordagens successoras que rehabilitaram o conceito.
+- Imre Lakatos — *The Methodology of Scientific Research Programmes*
+  (Cambridge, 1978; ensaio principal orig. 1970). Criterio de progresso:
+  **excedente de conteudo empirico + previsao de fatos novos**, nao recuo do erro.
+  Lakatos reteve a verdade como alvo mas substituiu aproximacao da verdade por
+  fertilidade preditiva como criterio operacional.
+- Immanuel Kant — *Critica da Razao Pura* (A/B 1781/1787). Ideias regulativas:
+  **Apendice a Dialectica Transcendental, A642-668/B670-696** — focus imaginarius
+  (A644/B672): investigacao orientada assintoticamente sem posse do objeto
+  transcendente. (A569/B597 define o conceito formal de ideal, nao a funcao
+  regulativa na investigacao empirica.)
 
-Racionalidade limitada / medir julgamento em escala:
-- Herbert A. Simon — bounded rationality / satisficing (SEP, "Bounded
-  Rationality"): [plato.stanford.edu/entries/bounded-rationality](https://plato.stanford.edu/entries/bounded-rationality/).
-- Glenn W. Brier — "Verification of forecasts expressed in terms of
-  probability" (*Monthly Weather Review* 78(1):1-3, 1950). Proper scoring rule.
-- Philip E. Tetlock & Dan Gardner — *Superforecasting* (Crown, 2015) / Good
-  Judgment Project. Julgamento avaliado em escala probabilistica.
+Racionalidade limitada / medir julgamento em escala: [verificado com ressalva E/G]
+- Herbert A. Simon — "A Behavioral Model of Rational Choice" (*QJE* 69(1):99-118,
+  1955; DOI 10.2307/1884852); "Rational Choice and the Structure of the Environment"
+  (*Psych. Review* 63(2):129-138, 1956; PubMed 13310708 — **aqui e' cunhado
+  "satisficing"**); Nobel 1978 (*AER* 69(4):493-512). SEP "Bounded Rationality":
+  [plato.stanford.edu/entries/bounded-rationality](https://plato.stanford.edu/entries/bounded-rationality/).
+  Satisficing = atingir nivel de aspiracao (nao otimizacao restrita).
+- John McCarthy — "Measures of the Value of Information" (*PNAS* 42:654-655, 1956).
+  Prioridade formal para prova de propriedade de regras de pontuacao.
+- Glenn W. Brier — "Verification of forecasts expressed in terms of probability"
+  (*Monthly Weather Review* 78(1):1-3, 1950; DOI 10.1175/1520-0493(1950)078
+  <0001:vofeit>2.0.co;2). Escore de Brier: [0,2] na formulacao multicategoria
+  original; forma binaria moderna dominante: [0,1].
+- L.J. Savage — "Elicitation of Personal Probabilities and Expectations" (*JASA*
+  66(336):783-801, 1971). Regras de pontuacao proprias como mecanismo de elicitacao.
+- Gneiting, T. & Raftery, A.E. — "Strictly Proper Scoring Rules, Prediction, and
+  Estimation" (*JASA* 102(477):359-378, 2007). Tratamento moderno rigoroso de
+  propriedade estrita; Brier score = caso da regra quadratica (equacao 28).
+- Philip E. Tetlock — *Expert Political Judgment* (Princeton UP, 2005); Tetlock &
+  Gardner — *Superforecasting* (Crown, 2015). Good Judgment Project:
+  Mellers et al. 2014 (*Psych. Science* 25(5):1106-1115); Mellers et al. 2015
+  (*Perspectives on Psych. Sci.* 10(3):267-281; DOI 10.1177/1745691615577794);
+  Chang et al. 2016 (*Judgment and Decision Making*; DOI 10.1017/S1930297500004599).
+  Superprevisores (~2% superior) superaram analistas de IC ~25-30% (relatorio
+  proprio GJP, nao ECR controlado independente). Melhora de habilidade (+6-12%)
+  documentada para horizontes curtos a medios; degrada para acaso alem de ~5 anos.
+- Katsagounos et al. — "Superforecasting reality check" (*EJOR*, 2020; PMC7333631).
+  Replicacao com N=195 confirma o fenomeno em escala menor.
 
 ## Proveniencia / autenticidade de conteudo
 

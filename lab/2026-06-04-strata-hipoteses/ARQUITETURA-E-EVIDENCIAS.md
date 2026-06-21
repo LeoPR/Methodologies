@@ -175,7 +175,14 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   com lastro em aleatória/epistêmica, erro de Bayes, Shannon, Quine-Duhem, Gödel/Turing/Rice, Condorcet sob
   dependência, Popper, GUM. **Verificação concluída (resume):** eixos A/D/E/H VERIFICADOS por voto 3-0 (24/25
   claims; 1 refutado — o piso de Bayes permanece irredutível, só o rótulo "irredutível" é relativo ao modelo);
-  eixos B/C/F (Quine-Duhem, Peirce, Popper/Lakatos/Kant) e instrumentos nomeados de E/G seguem [a-verificar].
+  eixos B/C/F (Quine-Duhem, Peirce, Popper/Lakatos/Kant) e instrumentos nomeados de E/G marcados [a-verificar].
+  **Segunda rodada de verificação (2026-06-21, later):** B/C/F + todos os instrumentos E/G (Condorcet, Aumann,
+  Simon, Brier, Tetlock) verificados por voto 3-0 NUANCED — nenhum refutado; ressalvas de formulação/atribuição/
+  escopo integradas. Todos os `[a-verificar]` removidos. Novas fontes: Duhem (1906), Quine (1951/1975), Misak
+  (2004), Field (1982), Popper C&R (1963)+OK (1972), Tichý & Miller (1974), Oddie/Niiniluoto, Lakatos (1978),
+  Kant A642-668/B670-696, Condorcet (1785), Ladha (1992), Dietrich & List (2004), Aumann (1976), Lederman (2015),
+  Simon (1955/1956/1978), McCarthy (1956), Savage (1971), Gneiting & Raftery (2007), Tetlock (2005/2015),
+  Mellers et al. (2014/2015), Chang et al. (2016), arXiv:2601.22336, arXiv:2603.00039.
   **Eixo 6 (ECE) rebaixado** para "plausível, não reconfirmado"; thresholds de Krippendorff marcados como
   heurística clássica, não consenso verificado.
   [`RESULTADOS-confronto-literatura`](RESULTADOS-confronto-literatura.md) ·

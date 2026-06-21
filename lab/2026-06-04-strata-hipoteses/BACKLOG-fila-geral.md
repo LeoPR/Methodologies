@@ -14,14 +14,21 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 > forte" para "prova" está em [FECHAMENTO-avaliacao-strata.md](FECHAMENTO-avaliacao-strata.md). Os passos
 > baratos primeiro (re-pontuar com 2º juiz, Krippendorff/ECE sobre dado existente, juiz sem o gabarito no prompt).
 
+> **Alavancas de alto impacto (2026-06-20):** [NOTAS-alavancas-o-que-resolvo-e-o-que-so-a-massa.md](NOTAS-alavancas-o-que-resolvo-e-o-que-so-a-massa.md)
+> separa o que dá para resolver com esforço focado (Grupo 1) do que só a experiência em massa resolve (Grupo 2).
+
 ## P0 — antes de mais testes
 - **Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
   **circularidade** no **topo** de todo relatório/recipe de uso (não em "abertos"). **Recalibrar
   `recipe/strata-com-ia.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.
   *(O R8 era "o achado mais importante do reteste" e quase não aparecia na opinião de uso — o over-claim mais sério após a tese-mãe.)*
-- **Braço EXTERNO (decisivo para generalizar; intermediário):** ≥1 projeto open-source **não-próprio** +
-  **pré-registro de gabarito** + declaração de viés, espectro organizado→caótico (ética: repo de terceiro
-  local+privado, publicar só agregado). Rodar o auto-auditor (R8) contra ele. *Sem isso, nenhum "vale em geral" é legítimo.*
+- **Braço EXTERNO — abstenção FEITA, auditoria rica ABERTA:** a abstenção já rodou em **6 repos open-source de
+  terceiros** (tomli/slugify/humanize/mlscratch/pytorchgan/ml3months) + projetos publicados (FG2P, com artigo) —
+  ver [RESULTADOS-externo-bemcomportado.md](RESULTADOS-externo-bemcomportado.md) e
+  [RESULTADOS-r8-sintese-3-projetos.md](RESULTADOS-r8-sintese-3-projetos.md). Quebra a circularidade do achado de
+  abstenção. **Resta:** levar a **auditoria rica de qualidade** (domínio R8) ao terceiro com **gabarito
+  pré-registrado por independente**, **juiz de outro fabricante**, **mais de um gênero** (hoje N=1, só pacote
+  Python), e o **gabarito gênero-consciente** que separa sub-detecção de "já-bom-para-o-gênero".
 
 ## P1 — alto valor
 - **Cobertura ampla de modelos, com heurística proporcional** (ideia do dono, 2026-06-14): em vez de poucos
@@ -45,11 +52,17 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   máquina ao mesmo tempo. Inclui: a clareza de redação como complemento do Strata; "tokens completos" como
   possível métrica; uma ou duas superfícies (humana × densa); liga-se ao Comporta (menos tokens = menos custo).
   Detalhe em [IDEIA-redacao-clara-para-ia.md](IDEIA-redacao-clara-para-ia.md).
+- **Disciplina de redação como camada de ensino (hipótese registrada, a desenvolver):** o conhecimento de
+  como escrever claro (nomear não negar, frase inteira, quebra de linha) talvez possa ensinar — como comentário
+  das normas, no "como usar" com exemplos, ou como uma camada L3/L4 de pedagogia acima do L2. Eixo oposto ao da
+  compressão para a máquina. Detalhe em [IDEIA-camada-ensino-redacao.md](IDEIA-camada-ensino-redacao.md).
 - **Argumentar o JUDGE (registrado, a executar):** o dossiê [DOSSIE-judge-justificativa-cientifica.md](DOSSIE-judge-justificativa-cientifica.md)
   já reúne o argumento (ideal-regulativo; eixos alinhamento/adequação/herança; modelo centro-ideal-perdido-drift) + literatura
   (Zheng/MT-Bench, G-Eval, Messick, Krippendorff, GUM, PoLL) + evidência interna (F0 cross-vendor, R6 2º juiz, F4 92%×F3 56%).
   **Falta produzir** os gráficos (§6: scatter objetividade×concordância, escada de juízes, centro/drift, Bland-Altman, calibração/ECE)
-  e rodar os testes (Krippendorff α com IC, PoLL nas células de juiz único, ECE, kappa juiz×humano). Reconferir citações antes de uso externo.
+  e rodar os testes. **Krippendorff α com IC — FEITO (2026-06-20):** F4 α=0,918, F3 α=0,467, via `eval/strata/calc_stats.py`
+  ([RESULTADOS-concordancia-juizes.md](RESULTADOS-concordancia-juizes.md)). **Falta:** PoLL nas células de juiz único, ECE
+  (bloqueado: juiz não emite confiança), kappa juiz×humano. Reconferir citações antes de uso externo.
 - **Gráfico barato × caro por vendor — FEITO** ([P9 §P9b](RESULTADOS-p9-modelos-novos-jun.md)): Haiku (barato
   Anthropic), **Opus refeito sem truncamento** (= o melhor: over-ação 1,2 / recall 4/4 / seg 5/5), glm-4.5-air
   (barato Z-ai) medidos; gráfico reconstruído por vendor. Achado: **caro ≠ melhor** (gemini-2.5-pro caro nem

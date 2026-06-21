@@ -45,20 +45,25 @@ A revisão retroativa rebaixou a tese-mãe a direção, transformou a temporalid
 Quase tudo que fala do mundo real é sinal, não prova, e a OPINIAO já diz isso.
 
 A conclusão ecológica repousa sobre uma base fina.
-São N=1 em cada célula que importa, com framing único que já prima abstenção, digest curado pelo dono e família circular.
-Não existe uma única célula ecológica que combine, de uma vez, projeto externo, N maior ou igual a 5, um juiz de outro fabricante, gabarito independente e dois framings.
+São N=1 em cada célula que importa, com framing único que já prima abstenção, e digest curado pelo dono.
+Há um braço externo de verdade: 6 repositórios open-source de terceiros (tomli, slugify, humanize, mlscratch, pytorchgan, ml3months), mais projetos publicados como o FG2P, que tem artigo.
+O que falta não é "ter projeto externo", e sim uma única célula que combine, de uma vez, projeto externo, N maior ou igual a 5, um juiz de outro fabricante, gabarito independente e dois framings.
 
-A convergência dos juízes é mais frágil do que parece.
-Os prompts dos juízes entregam o resumo do gabarito, então a concordância de 92% e 56% mede dois juízes que já sabem a resposta concordando, e não julgamento cego.
-E os números-headline saem de poucas observações.
+A convergência dos juízes agora tem um número corrigido por acaso, e ele é desigual.
+No F4, que sustenta o núcleo sólido, o α de Krippendorff é 0,918, então a concordância de 94% não é artefato de acaso.
+No F3, que sustenta a segurança, o α é só 0,467, o que confirma a fragilidade já confessada.
+Duas ressalvas seguem de pé.
+Os prompts dos juízes entregam o resumo do gabarito, então parte da concordância pode vir de dois juízes que já sabem a resposta (medir sem o gabarito é a Fase B, pendente).
+E os números saem de poucas observações, com o IC inferior do F4 encostando em 0,8 por causa do N=36.
+Detalhe em [RESULTADOS-concordancia-juizes.md](RESULTADOS-concordancia-juizes.md).
 
 ## Os gaps que carregam quase tudo
 
 Dois confounds principais estão declarados, mas não foram reduzidos, e o ideal exige reduzir, não só confessar.
 
-A circularidade não foi quebrada de verdade.
-O projeto, o gabarito e o método são da mesma família.
-O ataque externo ainda é fraco, porque tem um fixture só, o juiz dessa rodada recente foi Claude, e os dois modelos pegaram a mesma inconsistência.
+A circularidade foi atacada, mas só em parte.
+O braço externo já quebrou a circularidade do achado central de abstenção: a forma de abstenção (M0) reconhece o projeto de terceiro como "já bom" em 9 de 9 células (3 repos × 3 modelos), e o framing "ache problemas" over-detecta nos mesmos repos limpos. Isso vale fora da família que escreveu o método.
+O que continua circular é mais estreito: a auditoria rica de qualidade (o domínio do R8) em projeto de terceiro ainda não foi medida com gabarito independente, o braço externo é N=1 num só gênero (pacote Python), e o gabarito gênero-consciente que separaria "sub-detecção" de "já-bom-para-o-gênero" ainda falta.
 
 O completion-only não foi superado em nenhuma célula.
 Como o produto-alvo é um agente com ferramentas, a transferência das conclusões para o uso real é não-testada.
@@ -80,8 +85,8 @@ E o N fica abaixo de 5 em toda célula.
 | Dimensão | Nível | Onde está em relação ao ideal |
 |---|---|---|
 | Harness e regime | DIRECIONAL | O limite text-only é declarado e honrado. Mas mede a temperatura única 0,3, sobre digests não validados, com o fix do reasoner só no F3. Sólido onde ancora em ação de arquivo. |
-| Juízes | DIRECIONAL | O argumento e o auto-ceticismo são fortes. Mas o juiz tem o gabarito no prompt, a verdade-base é família única, e Krippendorff/ECE/PoLL estão planejados, não medidos. |
-| Fixtures e circularidade | DIRECIONAL | As disciplinas do ideal operam (pré-registro por hash, hash congelado, scoring cego, R8 de primeira classe). Mas a conclusão ecológica é N=1, circular, framing único. |
+| Juízes | DIRECIONAL | O argumento e o auto-ceticismo são fortes, e o Krippendorff agora está medido: α = 0,918 no F4 (sólido), α = 0,467 no F3 (frágil, como já se dizia). Mas o juiz ainda tem o gabarito no prompt, a verdade-base é família única, e ECE/PoLL seguem não medidos. |
+| Fixtures e circularidade | DIRECIONAL | As disciplinas do ideal operam (pré-registro por hash, hash congelado, scoring cego, R8 de primeira classe). O braço externo (6 repos de terceiros + projetos publicados, FG2P com artigo) já quebra a circularidade do achado de abstenção. Resta estreito: N=1, um só gênero, e a auditoria rica em terceiro sem gabarito independente. |
 | Métricas | DIRECIONAL | Separa acurácia de precisão, publica N e K, e autocorrige. Mas não re-mediu o bug do s04, não aplica a régua de precisão ao próprio juiz, e não tem correção por acaso. |
 | Afirmações e tese | DIRECIONAL | A revisão retroativa fez autocorreção genuína. Restava um over-claim de número (dizia 9 juízes; o real é 7 de 9), já corrigido. O caveat de "juiz único nas células decisivas" estava latente e desatualizado, porque o R6 já o fechara na nuvem; foi corrigido aqui. |
 
@@ -94,7 +99,7 @@ Os passos baratos, que convertem sinal em evidência sobre o dado que já existe
 
 1. **Feito hoje:** corrigir o número dos juízes na OPINIAO (de 9 para 7 de 9) e reaproximar o escopo do F0 da afirmação.
 2. Re-pontuar o s04 corrigindo o bug do `docs-reproducao.md`, e re-publicar a contagem de inventados, em vez de afirmar que o ranking não muda.
-3. Calcular Krippendorff (com IC) e ECE sobre os vereditos já coletados. Os JSON já existem.
+3. **Krippendorff FEITO (2026-06-20):** medido com IC por bootstrap sobre os vereditos já coletados. O F4 (núcleo sólido) tem α = 0,918 (κ = 0,917), confiável mesmo corrigido por acaso; o F3 (segurança) tem α = 0,467, só moderado, o que confirma a ressalva de que o F3 é a medição mais frágil. Detalhe em [RESULTADOS-concordancia-juizes.md](RESULTADOS-concordancia-juizes.md). O **ECE continua pendente e bloqueado**, porque os juízes só emitem rótulo, não probabilidade; exige uma rodada nova de juiz com confiança por item.
 4. Re-pontuar as rodadas ecológicas recentes (R8, P10, próprios, fg2p) com um 2º juiz de outro fabricante (Gemini ou GPT). O reteste e a abstenção §9 já têm cross-vendor (R6, F4); falta só o braço ecológico recente. É re-análise barata sobre dado existente.
 5. Rodar um subconjunto de juiz sem o resumo do gabarito no prompt. Se a concordância cair, o 92% vinha da dica.
 6. Aplicar o ADR-006 ao próprio juiz: K maior ou igual a 5, temperatura acima de 0, e reportar o flip-rate.
@@ -102,7 +107,7 @@ Os passos baratos, que convertem sinal em evidência sobre o dado que já existe
 Os passos caros, que pedem dado novo:
 
 7. Cruzar o framing: rodar o mesmo fixture sob "ache problemas" e sob "abstenção-primeiro". É o único corte que desconfunde ruído de framing.
-8. Quebrar a circularidade: pelo menos 2 repositórios de terceiros, gabarito pré-registrado por quem não escreveu o método, e um juiz de outro fabricante.
+8. Fechar a circularidade que sobrou: o braço externo já cobre a abstenção em 6 repos de terceiros; falta levar a auditoria rica de qualidade ao terceiro, com gabarito pré-registrado por quem não escreveu o método, juiz de outro fabricante, e mais de um gênero.
 9. Construir a ponte texto para agente: rodar uma célula-âncora com o modelo chamando de fato uma ferramenta de escrita de arquivo.
 10. Validar o digest: rodar digest-cru contra digest-capado na mesma célula. Se o veredito virar, a sub-detecção era artefato de filtro.
 11. Acrescentar uma segunda família de fixture em pelo menos um eixo, para mover "sólido num ponto" para "sólido".

@@ -91,9 +91,13 @@ Sobre **modelos de IA**: "quem dá conta" = qual capacidade faz a tarefa bem. Es
   ecológicas mais recentes deste ciclo (projetos próprios, fg2p) foram pontuadas por Claude e ainda não
   re-pontuadas cross-vendor. Viés de família medido (Claude ~0,87 ponto mais generoso com o Haiku), por isso não
   ancoramos em célula Claude-julga-Claude.
-- **Circularidade:** quase todo o "real" testado é projeto **do próprio dono**, com gabarito do próprio dono. Em
-  projeto público de terceiro o sinal **enfraquece** (quem detectou foi um modelo de fora da família), mas não
-  some. Falta projetos de terceiros e um juiz de outro fabricante.
+- **Circularidade:** já há um braço externo de verdade. A forma de abstenção foi testada em **6 repositórios
+  open-source de terceiros** (tomli, slugify, humanize, mlscratch, pytorchgan, ml3months) e em projetos
+  **publicados**, como o **FG2P**, que tem artigo. Ali a forma de abstenção reconhece o projeto de terceiro como
+  "já bom", e o pedido "ache problemas" over-detecta nos mesmos repos limpos. Isso quebra a circularidade do
+  achado central, fora da família que escreveu o método. O que **continua** circular é mais estreito: a auditoria
+  rica de qualidade em projeto de terceiro ainda não tem gabarito independente, o braço externo é N=1 num só
+  gênero (pacote Python), e falta o gabarito gênero-consciente que separaria sub-detecção de "já-bom-para-o-gênero".
 - **Ruído × forma-do-pedido confundidos:** o "limpo abstém / real sub-detecta" foi medido sob um pedido que já
   prima abstenção; falta cruzar com o pedido "ache problemas" para isolar.
 - **A conferência por regex** dá falso-positivo dos dois lados; só fica limpa ancorada em ação de arquivo.

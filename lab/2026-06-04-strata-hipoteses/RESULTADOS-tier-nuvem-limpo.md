@@ -68,3 +68,8 @@ haiku, gpt-4.1-mini, deepseek-v3) detectam **5-7/7**; a **forma AI-nativa ajuda 
 tiers** (local 4.58, nuvem 5.67) e é **necessária** para modelos pequenos (8B). A nuvem
 **não satura** na prosa densa. **Ressalvas:** 1 documento, 1 projeto-alvo (validade
 ecológica R8 pendente); N=3; juiz único Claude cego (R6 2º juiz pendente).
+
+> **Tombstone (Strata §3) — superado:** o "R6 2º juiz pendente" acima já foi **fechado**. O R6
+> (`RESULTADOS-r6-2o-juiz.md`) re-pontuou cego estes mesmos 63 planos da nuvem com o gpt-4.1-mini:
+> AN > prosa > baseline vale com os dois juízes (deltas quase idênticos). A frase fica registrada como
+> traço; o estado atual é "2º juiz cross-vendor FEITO na nuvem".

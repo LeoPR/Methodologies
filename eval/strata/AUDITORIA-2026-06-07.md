@@ -7,6 +7,14 @@ veredito: a maioria das conclusões "fechadas" NÃO está sustentada; reset nece
 
 # Auditoria — o que está sólido, o que está furado, e como refazer
 
+> **Tombstone (Strata §3) — snapshot de 2026-06-07, em grande parte ENDEREÇADO depois.** Esta é a auditoria
+> que disparou o reset. Não a leia como estado atual. Os furos foram tratados em trabalho posterior:
+> fixtures congeladas por hash e scoring cego de verdade (ver `cenarios/`); **baseline/controle negativo**
+> adicionados; **2º juiz cross-vendor** rodado — o "juiz único Claude" do item abaixo foi fechado pelo
+> **R6** (gpt-4.1-mini sobre a nuvem) e pelo **F0** (9 juízes de 3 fabricantes, 7 convergem). O resíduo
+> estreito está no [FECHAMENTO](../../lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md). O texto
+> abaixo fica como traço do que se sabia naquela data.
+
 Auditoria adversarial (pedida pelo dono: *"ver se os testes foram feitos corretamente,
 falhas e fraquezas"*). Vereditos por dimensão: hipóteses↔testes **parcial**; rigor
 **frágil**; instrumentos **frágil**; fixtures **frágil**; acoplamento **parcial**;

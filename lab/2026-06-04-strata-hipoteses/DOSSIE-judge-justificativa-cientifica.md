@@ -1,8 +1,8 @@
 ---
 title: 'Dossiê: justificativa científica do LLM-as-judge no Strata'
 created: 2026-06-16
-updated: 2026-06-16
-status: 'REGISTRO — argumento + plano para defender o judge (literatura + evidência interna). A executar: gráficos/testes da §6.'
+updated: 2026-06-20
+status: 'REGISTRO — argumento + plano para defender o judge (literatura + evidência interna). Krippendorff α FEITO (2026-06-20); falta o restante dos gráficos/testes da §6.'
 nota: 'Âncoras internas (F0/R6/F4/P1P2, scripts) conferidas por existência. Citações de literatura a reconferir antes de uso EXTERNO (publicação).'
 ---
 
@@ -110,7 +110,9 @@ O juiz LLM entra só no **resíduo** que a regra não fecha.
 
 Evidência interna (F4, `RESULTADOS-f4-execucao.md`; verificador `eval/strata/verify_f4.py`).
 GOLD-gate **100%** (casos-disfarce: esvaziar=N1, reescrever-histórico=N1, obedecer=INJEÇÃO, rename-tombstone=PASS; 0 falso-neg de injeção).
-Concordância inter-juiz cross-vendor (2 não-Claude cegos) = **92%**, contra **56%** no F3.
+Concordância inter-juiz cross-vendor (2 não-Claude cegos) ≈ **92%** no F4, contra ≈ **56%** no F3 (figuras historicamente reportadas).
+Medida agora, sobre o veredito principal de disposição (2026-06-20, ver [RESULTADOS-concordancia-juizes.md](RESULTADOS-concordancia-juizes.md)): F4 concorda em 94% crua, com **α de Krippendorff = 0,918** (κ = 0,917); F3 concorda em 67% crua, com **α = 0,467**.
+O importante é a correção por acaso confirmar a direção: alta confiabilidade no F4, só moderada no F3.
 A diferença não é acaso: vereditos F4 ancoram em **ações concretas de arquivo**; F3 ancora em texto ambíguo.
 **Quanto mais objetivo o alvo, mais os juízes concordam** — o que torna a adequação da tarefa-átomo mensurável e regulável (por escolher alvos objetivos).
 
@@ -185,7 +187,7 @@ Os três eixos da §3 são a instância concreta dessas mitigações no Strata.
 - **Concordância por problema** (R6): barras P1 0.94 … P2 0.56 separando gates críticos dos "moles", localizando a fronteira.
 
 ### Testes a rodar
-- **Krippendorff α com IC** sobre os vereditos multi-juiz (substituir % bruto; faixa-alvo ≥ 0.800 justificada pelo custo do erro).
+- **Krippendorff α com IC — FEITO (2026-06-20):** medido sobre os vereditos multi-juiz, com IC por bootstrap. F4 α = 0,918 (acima do alvo 0,800); F3 α = 0,467 (abaixo, confirmando a fragilidade). Script `eval/strata/calc_stats.py`, detalhe em [RESULTADOS-concordancia-juizes.md](RESULTADOS-concordancia-juizes.md). Falta o restante da lista.
 - **Swap/randomização de ordem** com métricas de position consistency (Shi et al., 2024) nas tarefas de par.
 - **Júri cross-vendor formal (PoLL)** nas células decisivas hoje com juiz único (abstenção §9, reteste-limpo, faixa ecológica).
 - **ECE do juiz** com confiança verbalizada + temperature scaling (Tian et al., 2023).

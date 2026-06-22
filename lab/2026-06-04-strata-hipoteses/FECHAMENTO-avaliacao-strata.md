@@ -70,8 +70,8 @@ Como o produto-alvo é um agente com ferramentas, a transferência das conclusõ
 Esse é o maior gap de validade externa.
 
 Os juízes foram cross-vendor, e não Claude sozinho.
-O F0 usou 9 juízes de 3 fabricantes, dos quais 7 convergiram.
-O R6 trouxe um 2º juiz, o gpt-4.1-mini, que fechou o caveat de juiz único nas conclusões da nuvem, incluindo o reteste-limpo.
+O F0 usou 9 juízes de 3 fabricantes, dos quais 7 convergiram — e é esse painel afiado que fecha o caveat de artefato.
+O R6 trouxe um 2º juiz não-Claude (gpt-4.1-mini): confirma a ordenação/deltas e mediu o viés de família, mas o próprio F0 depois o classificou como leniente ("corrige o 2º-juiz fraco que usávamos"), então o R6 fecha a direção, não a magnitude anti-falso-positivo (ver [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3).
 O F4 teve 92% de concordância entre o Gemini 2.5 Flash e o GPT-4.1, além da conferência mecânica objetiva da abstenção §9.
 O resíduo é estreito: as rodadas ecológicas mais recentes deste ciclo (projetos próprios, fg2p, deepseek) foram pontuadas por juiz Claude, e ainda não foram re-pontuadas cross-vendor.
 

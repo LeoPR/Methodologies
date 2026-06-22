@@ -33,8 +33,12 @@ um modelo de **topo** fura a complacência, variando por **fornecedor** (não pr
 método). *(Direcional: ruído e forma-do-pedido ainda não foram isolados — ver ressalvas.)*
 
 **Sobre os juízes (como sabemos o acima):** no conjunto de detecção, **7 de 9 juízes de 3 empresas (OpenAI, Google,
-Anthropic) convergem**. Os 3 menores da OpenAI ficaram de fora, por serem lenientes. Um 2º juiz, o gpt-4.1-mini (R6), confirma a ordenação, então o achado central **não** é "Claude julga
-Claude". O R6 já fechou o caveat de juiz único nas conclusões da nuvem. O resíduo é estreito: só as rodadas ecológicas mais recentes deste ciclo ainda não foram re-pontuadas cross-vendor (ver ressalvas).
+Anthropic) convergem** no falso-positivo, e a forma anti-FP reduz o erro para todos eles. **É esse painel afiado do
+F0 que fecha o caveat "Claude julga Claude"** — cross-vendor de verdade, não auto-avaliação. O R6 (2º juiz não-Claude,
+gpt-4.1-mini) confirma que a **ordenação e os deltas** sobrevivem a outra família e mediu o viés de família (~0,87);
+mas como o F0 depois mostrou que o gpt-4.1-mini é **leniente** (cego ao falso-positivo), o R6 fecha a **direção**, não
+a **magnitude** anti-FP. O resíduo é estreito: só as rodadas ecológicas mais recentes deste ciclo ainda não foram
+re-pontuadas com um juiz afiado não-Claude (ver ressalvas e [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3).
 
 ## Por tarefa — quem dá conta
 
@@ -85,8 +89,11 @@ Sobre **modelos de IA**: "quem dá conta" = qual capacidade faz a tarefa bem. Es
 
 - **Só-texto:** medimos a intenção do plano, não o agente real com ferramentas. Não transfere direto ao produto.
 - **N pequeno** (1 a 5 repetições por célula). Deltas-grandes-contra-ruído, não significância estatística.
-- **Os juízes foram cross-vendor, não Claude sozinho.** O F0 usou 9 juízes de 3 empresas (7 convergiram). O R6
-  trouxe um 2º juiz, o gpt-4.1-mini, que fechou o caveat de juiz único na nuvem, incluindo o reteste-limpo. O F4
+- **Os juízes foram cross-vendor, não Claude sozinho.** O F0 usou 9 juízes de 3 empresas (7 convergiram) — **é o
+  painel afiado do F0 que fecha o caveat de artefato**, não a mini. O R6 trouxe um 2º juiz não-Claude (gpt-4.1-mini)
+  que confirma a **ordenação/deltas** e mediu o viés de família; mas o próprio F0 depois achou esse juiz **leniente**
+  ("corrige o 2º-juiz fraco que usávamos"), então o R6 fecha a **direção**, não a **magnitude** anti-FP — over-claim
+  corrigido em [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3. O F4
   teve 92% entre o Gemini 2.5 Flash e o GPT-4.1, mais a conferência mecânica da abstenção §9. O resíduo é estreito: as rodadas
   ecológicas mais recentes deste ciclo (projetos próprios, fg2p) foram pontuadas por Claude e ainda não
   re-pontuadas cross-vendor. Viés de família medido (Claude ~0,87 ponto mais generoso com o Haiku), por isso não

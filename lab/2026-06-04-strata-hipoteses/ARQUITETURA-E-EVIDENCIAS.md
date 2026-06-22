@@ -164,6 +164,23 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   **tombstones §3** em frases superadas (consolidacao-synthesis.json, tier-nuvem-limpo, AUDITORIA-2026-06-07).
   **ECE bloqueado** (juiz não emite confiança). [`RESULTADOS-concordancia-juizes`](RESULTADOS-concordancia-juizes.md) ·
   [`RESULTADOS-juiz-sem-gabarito`](RESULTADOS-juiz-sem-gabarito.md) · roadmap em [`FECHAMENTO`](FECHAMENTO-avaliacao-strata.md).
+- **2026-06-21** (later) — **Auto-auditoria: confronto narrativa consolidada × evidência granular.**
+  Workflow adversarial (8 clusters confrontando claim×granular + verificação de honestidade + crítico de completude).
+  **Achado:** o núcleo sólido (§5-fix/§3-tombstone por execução) **sobrevive** ao confronto granular, não está inflado.
+  Sobram **derivas pontuais** nos docs de entrega — a mais séria é uma **falha de tombstone §3 no próprio corpus:**
+  o R6 (06-07) usou o gpt-4.1-mini como 2º juiz; o F0 (06-09) descobriu esse juiz **leniente** e o aposentou
+  ("corrige o 2º-juiz fraco que usávamos"), mas a entrega seguiu citando "R6 fechou o caveat de juiz único".
+  **Corrigido** na OPINIAO + FECHAMENTO: o caveat de artefato é fechado pelo **painel afiado do F0** (7/9, 3 empresas);
+  o R6 fecha a **direção/ordenação**, não a **magnitude** anti-FP. Não reabre "juiz único Claude" (F0+F4 fecham).
+  Mapeadas **lacunas fora-da-lista** (a estratificação em camadas — a tese-nome — nunca foi testada como variável;
+  manutenção de projeto já-Strata; usabilidade humana da notação; falso-negativo de segurança operacional;
+  invariância linguística; auto-sabotagem do andaime) e um **viés de atribuição** (rotular falha-do-método como
+  teto-de-capacidade — o FUNDAMENTO foi aplicado ao juiz, falta ao método). Novidade prática: **envelope de uso**
+  (tarefa × capacidade × contexto → aditivo/neutro/nocivo).
+  [`RESULTADOS-confronto-narrativa-granular`](RESULTADOS-confronto-narrativa-granular.md).
+- **2026-06-21** — **Verificação dos eixos B/C/F + instrumentos E/G do fundamento (3-0 NUANCED).** Todos os
+  `[a-verificar]` do [FUNDAMENTO](FUNDAMENTO-juiz-escala-mensuravel.md) fechados por voto adversarial; nenhum
+  refutado; ressalvas de formulação/atribuição/escopo integradas. 26 fontes novas na bibliografia.
 - **2026-06-21** — **Confronto com a literatura atual + fundamento epistêmico (escala mensurável).**
   Duas rodadas de pesquisa multi-fonte com verificação adversarial. **Achado:** a literatura 2024-2026
   **corrobora** o núcleo (convergência ≠ correção; gabarito melhora o juiz; correção por acaso > % cru) e

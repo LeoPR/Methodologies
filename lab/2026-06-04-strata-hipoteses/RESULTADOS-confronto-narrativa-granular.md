@@ -58,11 +58,14 @@ Cada uma é deriva entre o granular e o doc de entrega. Marcadas como aplicadas 
 
 1. **R6 / juiz único — APLICADA (ver §3).** "R6 fechou o caveat de juiz único" usa um juiz (gpt-4.1-mini)
    que o F0 posterior achou leniente. O caveat é fechado pelo painel afiado do F0, não pela mini.
-2. **§3 acima da §5 na OPINIAO — PENDENTE.** A §3-preservação tem evidência ecológica; a §5-completa não.
-3. **"robusto" → "tendência com exceção" (maior=melhor por vendor) — PENDENTE.** Falha no DeepSeek; métrica saturada.
-4. **α=0,467 é "fraco", não "moderado" — PENDENTE.** Pela régua do próprio corpus (corte 0,67).
+2. **§3 acima da §5 na OPINIAO — APLICADA (2026-06-21).** A §3-preservação tem evidência ecológica (replicou no
+   real, eco-pdf2md); a §5-completa não. Marcada como o pedaço mais robusto na entrega + na tabela por tarefa.
+3. **"robusto" → "tendência com exceção" (maior=melhor por vendor) — APLICADA (2026-06-21).** Falha no DeepSeek
+   (Pro ≈ Flash); métrica 0-3 satura. Corrigido na regra prática da OPINIAO.
+4. **α=0,467 é "fraco", não "moderado" — APLICADA (2026-06-21).** Pela régua do próprio doc (corte 0,67).
+   Corrigido em `RESULTADOS-concordancia-juizes.md` (L44/47/74), com o IC inferior 0,252 anotado.
 5. **"habilita o fix" → "habilita nos que não consertam + padroniza nos que consertam informalmente" — JÁ
-   no granular (F4 L100-102); a OPINIAO usa "padroniza", que é defensável.** Baixa prioridade.
+   no granular (F4 L100-102); a OPINIAO usa "padroniza", que é defensável.** Baixa prioridade, não aplicada.
 
 ## 3. A correção do R6 (falha de tombstone §3 no próprio corpus)
 

@@ -41,10 +41,11 @@ Isso dá lastro corrigido por acaso ao "92%" que antes era só concordância cru
 As duas únicas discordâncias em 36 foram FIX_CORRETO contra SUPER_ENGENHARIA, ou seja, divergência de **grau de proporcionalidade**, não erro grosso de leitura.
 O limite inferior do intervalo, 0,783, encosta no patamar de 0,8 por causa do N pequeno (36), e não por desacordo real.
 
-**A confiabilidade é só moderada onde o corpus já marcava fragilidade.**
+**A confiabilidade é FRACA onde o corpus já marcava fragilidade.**
 No F3, a recusa de injeção, o α é 0,467, e o κ é 0,497.
+Pela régua deste próprio doc (0,467 < 0,67), isso é **fraco**, não "moderado" — e o limite inferior do IC, 0,252, encosta no chão de acaso.
 Isso bate com a ressalva que a OPINIAO já carrega: o F3 é a medição mais frágil do corpus.
-Corrigido por acaso, o veredito de segurança é confiabilidade moderada, não alta.
+Corrigido por acaso, o veredito de segurança é confiabilidade **fraca**, não alta.
 Logo, a recomendação de tratar a segurança §6-bis como sinal, e não como caso fechado, fica reforçada pelo número.
 
 **Alguns sub-campos não são confiáveis, e isto precisa ficar dito.**
@@ -71,7 +72,7 @@ Mas é um fator de justiça que fica registrado, coerente com o viés de famíli
 ## O que isto fecha e o que não fecha
 
 Isto fecha o passo barato de Krippendorff do roadmap, sobre o dado que já existia.
-O resultado é uma boa notícia onde importa: o juiz é confiável, corrigido por acaso, justamente nas afirmações sólidas (F4), e é só moderado onde o corpus já confessava fragilidade (F3).
+O resultado é uma boa notícia onde importa: o juiz é confiável, corrigido por acaso, justamente nas afirmações sólidas (F4), e é **fraco** (pela régua do próprio doc, 0,467 < 0,67) onde o corpus já confessava fragilidade (F3).
 
 Isto **não** fecha o **ECE** (erro de calibração esperado).
 Os juízes só emitem rótulo, não probabilidade, então não há dado de confiança para calibrar.

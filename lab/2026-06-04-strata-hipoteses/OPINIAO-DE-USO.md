@@ -18,7 +18,9 @@ Três coisas, em ordem de solidez:
 
 - **Padroniza o conserto (sólido).** Diante de um defeito conhecido — uma informação que virou duas (§5), algo
   antigo a aposentar (§3) —, o método leva a IA a consertar **sempre do mesmo jeito, rastreável e preservando o
-  histórico** (marca como superado, não apaga). Vale **até no modelo econômico**.
+  histórico** (marca como superado, não apaga). Vale **até no modelo econômico**. *(A **preservação do histórico
+  (§3)** é o pedaço mais robusto: é o único que replicou no projeto REAL — sem o método o baseline apaga seções,
+  com o método a destruição não acontece. O conserto-completo §5 ainda é só sintético.)*
 - **Faz a IA recusar instrução maliciosa lida do projeto (§6-bis).** "Baixe e rode esta URL", "execute sem
   confirmar" → a IA não obedece, e não inventa ameaça onde não há. O econômico melhora muito com o método; o
   topo recusa de forma nativa. *(A recusa do econômico é em parte lexical — cai sob paráfrase.)*
@@ -49,7 +51,7 @@ Sobre **modelos de IA**: "quem dá conta" = qual capacidade faz a tarefa bem. Es
 | Tarefa | Quem dá conta | Confiança |
 |---|---|---|
 | [Consertar um defeito conhecido](RESULTADOS-f4-execucao.md) (§5) | o econômico já dá conta, com o Strata (até o Haiku) | **SÓLIDO** |
-| [Preservar o histórico / tombstone](RESULTADOS-f4-execucao.md) (§3) | o econômico, com o Strata | **SÓLIDO** no sintético; sinal no real |
+| [Preservar o histórico / tombstone](RESULTADOS-f4-execucao.md) (§3) | o econômico, com o Strata | **SÓLIDO** — replicou no REAL (eco-pdf2md); o pedaço mais robusto |
 | [Recusar instrução maliciosa](RESULTADOS-f3-recusa.md) (§6-bis) | o econômico melhora; o topo recusa nativo | **SINAL** (a medição mais frágil) |
 | [Abster-se num projeto já bom](RESULTADOS-f4-execucao.md) (§9) | só o topo, ou um humano no loop | sinal (é a capacidade que calibra) |
 | [Achar dívida real num projeto grande](RESULTADOS-p10-escada-propria-genero.md) | só o topo (e varia por fornecedor) | sinal (sub-detecção é o limite duro) |
@@ -64,7 +66,8 @@ Sobre **modelos de IA**: "quem dá conta" = qual capacidade faz a tarefa bem. Es
    (ali até a versão sem método alucina, e o método às vezes piora).
 2. **Para NÃO agir bem** (abster-se, §9) e **achar dívida real**: use um **modelo de topo** ou **humano no loop**.
 3. **Custo não compra qualidade linearmente:** acima do "barato-que-funciona", o intermediário não melhora; só o
-   **topo** compra discernimento. "Maior = melhor" vale **dentro de um mesmo fornecedor** (robusto), não entre eles.
+   **topo** compra discernimento. "Maior = melhor" vale **dentro de um mesmo fornecedor** — mas é **tendência com
+   exceção** (falha no DeepSeek: o Pro ≈ o Flash), não invariante, e a métrica 0-3 satura; não entre fornecedores.
 4. **Para JULGAR com IA:** melhor custo-benefício é o **gemini-2.5-flash**; os menores da OpenAI (nano/mini)
    **não servem** (lenientes, escondem falso-positivo).
 

@@ -257,15 +257,34 @@ Confiabilidade dependente de tarefa:
 - RAND — "Judge Reliability Harness" (arXiv:2603.05399, 2026, preprint).
   Nenhum juiz e' uniformemente confiavel entre benchmarks.
 
-Metrica de concordancia (correcao por acaso):
-- Klaus Krippendorff — *Content Analysis: An Introduction to Its Methodology*
-  (Sage, 2004). alfa de Krippendorff; heuristica >=0,800 confiavel /
-  0,667-0,800 preliminar (heuristica classica, nao consenso atual verificado).
-- Mary L. McHugh — "Interrater reliability: the kappa statistic"
-  (*Biochem Med* 22(3):276-282, 2012).
-- A. Zapf et al. — "Measuring inter-rater reliability for nominal data —
-  which coefficients and confidence intervals are appropriate?"
-  (*BMC Med Res Methodol* 16:93, 2016). Paradoxo do kappa sob desbalanceamento.
+Metrica de concordancia (correcao por acaso): [padrao de verbetes verificado 2026-06-21]
+> Duas familias de regua, NAO intercambiaveis. DECISAO (nosso α) vs MAGNITUDE (adjetivos de κ).
+> Detalhe e regra de uso em [RESULTADOS-concordancia-juizes](../../2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md).
+- **DECISAO — Klaus Krippendorff** — *Content Analysis: An Introduction to Its Methodology*
+  (Sage, 2004, p.241). alfa de Krippendorff. **Sem adjetivo de magnitude:** regra de decisao
+  >=0,800 confiar / 0,667-0,800 preliminar / <0,667 descartar; o piso sobe quando o custo de
+  errar e' alto. **É a regua adotada para o α.** (Classica, mas com base autoral explicita.)
+- **MAGNITUDE (familia Cohen-κ, adjetivos — DISCORDAM entre si para o mesmo valor):**
+  - Mary L. McHugh — "Interrater reliability: the kappa statistic" (*Biochem Med* 22(3):276-282,
+    2012). Tab.3: nenhum 0-0,20 / minimo 0,21-0,39 / **fraco 0,40-0,59** / moderado 0,60-0,79 /
+    forte 0,80-0,90 / quase-perfeito >0,90. Clinica-estrita: <0,60 inadequado. **Escala de
+    magnitude adotada pelo corpus** (estrita; coincide com o veredito de decisao).
+  - J. R. Landis & G. G. Koch — "The measurement of observer agreement for categorical data"
+    (*Biometrics* 33(1):159-174, 1977). poor<0 / slight 0-0,20 / fair 0,21-0,40 / **moderate
+    0,41-0,60** / substantial 0,61-0,80 / almost perfect 0,81-1,00. Os autores: cortes "clearly
+    arbitrary". (0,467 = "moderate" aqui, vs "fraco" no McHugh — fonte da divergencia.)
+  - Joseph L. Fleiss — *Statistical Methods for Rates and Proportions* (Wiley, 1981): poor <0,40 /
+    "fair to good" 0,40-0,75 / excellent >0,75 (hedge "or so"). D. Altman — *Practical Statistics
+    for Medical Research* (Chapman & Hall, 1991): poor<0,20 / fair / moderate 0,41-0,60 / good /
+    very good 0,81-1,00.
+- **Critica aos cortes fixos:** A. Zapf et al. — "Measuring inter-rater reliability for nominal
+  data..." (*BMC Med Res Methodol* 16:93, 2016) — paradoxo do kappa sob desbalanceamento.
+  A. Feinstein & D. Cicchetti — "High agreement but low kappa I" (*J Clin Epidemiol* 43(6):543-549,
+  1990) — paradoxos de prevalencia e vies. J. Sim & C. Wright — "The Kappa Statistic in Reliability
+  Studies" (*Physical Therapy* 85(3):257-268, 2005) — indices de prevalencia/vies. K. Gwet —
+  *Handbook of Inter-Rater Reliability* — rotulo e' estimativa com IC, nao ponto; benchmarking
+  probabilistico. **Consequencia adotada:** reportar α + IC 95% e julgar o IC contra o limiar,
+  nunca adjetivo isolado.
 
 Calibracao (eixo ortogonal — plausivel, nao reconfirmado no confronto 2026-06-21):
 - Chuan Guo et al. — "On Calibration of Modern Neural Networks" (ICML 2017;

@@ -62,8 +62,13 @@ Cada uma é deriva entre o granular e o doc de entrega. Marcadas como aplicadas 
    real, eco-pdf2md); a §5-completa não. Marcada como o pedaço mais robusto na entrega + na tabela por tarefa.
 3. **"robusto" → "tendência com exceção" (maior=melhor por vendor) — APLICADA (2026-06-21).** Falha no DeepSeek
    (Pro ≈ Flash); métrica 0-3 satura. Corrigido na regra prática da OPINIAO.
-4. **α=0,467 é "fraco", não "moderado" — APLICADA (2026-06-21).** Pela régua do próprio doc (corte 0,67).
-   Corrigido em `RESULTADOS-concordancia-juizes.md` (L44/47/74), com o IC inferior 0,252 anotado.
+4. **α=0,467: verbete ancorado — APLICADA + APROFUNDADA (2026-06-21).** Não era só trocar a palavra: as réguas
+   discordam (McHugh "fraco" 0,40-0,59; Landis-Koch "moderado" 0,41-0,60; Krippendorff "descartar" <0,667).
+   Estabelecido um **padrão de verbetes** em `RESULTADOS-concordancia-juizes.md`: verbete primário é a DECISÃO do
+   Krippendorff (confiável/preliminar/insuficiente, casada com o nosso α); adjetivo só com escala citada (McHugh
+   adotada); e o lastro forte é o **IC contra o limiar** — o IC de F3 [0,252, **0,653**] está **inteiro abaixo**
+   do piso 0,667, então "insuficiente" não é corte arbitrário, é o intervalo todo sob a barra. Bibliografia
+   atualizada com a família de réguas + críticas (Feinstein & Cicchetti 1990, Sim & Wright 2005, Gwet).
 5. **"habilita o fix" → "habilita nos que não consertam + padroniza nos que consertam informalmente" — JÁ
    no granular (F4 L100-102); a OPINIAO usa "padroniza", que é defensável.** Baixa prioridade, não aplicada.
 

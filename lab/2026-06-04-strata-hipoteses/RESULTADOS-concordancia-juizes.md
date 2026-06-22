@@ -21,7 +21,28 @@ Os dois juízes do dado histórico são o **gemini-2.5-flash** e o **gpt-4.1**.
 Eles são datados (camada L2) e estão superados para rodadas futuras.
 Aqui só re-analisamos o que eles já produziram, então a escolha de juiz não muda: o α mede aquele dado.
 
-A leitura de referência: α e κ acima de 0,8 indicam boa confiabilidade; de 0,67 a 0,8, aceitável com ressalva; abaixo disso, fraco.
+### Padrão de verbetes (de onde vêm "fraco / preliminar / confiável" — e por que NÃO usamos "moderado")
+
+Antes de rotular, é preciso saber de onde o rótulo vem. Há duas famílias de régua, e elas **não** são a mesma coisa.
+
+**Régua de DECISÃO — Krippendorff (2004), `Content Analysis`, p. 241.** É a régua do **nosso** coeficiente (α).
+Krippendorff **não** dá adjetivo de magnitude. Ele dá uma regra de decisão sobre a validade das conclusões:
+- **α ≥ 0,800** → confiar (tirar conclusões).
+- **0,667 ≤ α < 0,800** → preliminar (só conclusões tentativas).
+- **α < 0,667** → descartar (não sustenta conclusão).
+Ele acrescenta que o piso deve subir quando o custo de errar é alto. Esta é a régua que adotamos para o α.
+
+**Réguas de MAGNITUDE — família Cohen-κ (adjetivos).** São de outros coeficientes (κ) e **discordam entre si**.
+Para o mesmo valor **α/κ = 0,467**:
+- McHugh (2012, *Biochem Med* 22(3), Tab. 3): **fraco** (0,40–0,59). *(Clínica-estrita: <0,60 = inadequado.)*
+- Landis & Koch (1977, *Biometrics* 33): **moderado** (0,41–0,60) — os próprios autores chamam os cortes de "clearly arbitrary".
+- Fleiss (1981): razoável-a-bom (0,40–0,75, com hedge "or so"); Altman (1991): moderado (0,41–0,60).
+
+**Por isso a regra do corpus:**
+1. Reportar sempre **α + IC 95%**, e julgar o **IC contra o limiar**, não o ponto isolado (Gwet: o rótulo é estimativa, não ponto; paradoxo de prevalência em Feinstein & Cicchetti 1990, Sim & Wright 2005).
+2. O **verbete primário é o de DECISÃO do Krippendorff** (confiável / preliminar / insuficiente) — casado com o nosso coeficiente.
+3. Se um adjetivo de magnitude for usado, **citar a escala**. Adotamos **McHugh (2012)** como a escala de magnitude do corpus: já está na bibliografia, é estrita (coerente com "custo de errar alto"), e seu rótulo para 0,467 ("fraco") coincide com o veredito de decisão. Registramos que a régua mais citada (Landis & Koch) diria "moderado" — e é justamente essa divergência que nos faz ancorar no limiar+IC, não na palavra.
+4. **Nunca** usar adjetivo sem fonte, nem misturar a palavra de uma escala com o corte de outra (foi o erro que esta auto-auditoria corrigiu: "moderado" colado ao corte 0,67 do Krippendorff).
 
 ## O resultado, por veredito principal (disposição)
 
@@ -35,17 +56,19 @@ A leitura de referência: α e κ acima de 0,8 indicam boa confiabilidade; de 0,
 
 O dado conta uma história clara, e ela confirma o que o corpus já dizia, em vez de derrubar.
 
-**A confiabilidade é alta exatamente onde mora o núcleo sólido.**
-No F4, que mede o conserto §5, o tombstone §3 e a proporcionalidade §9, o α é 0,918.
+**No F4 a confiabilidade é CONFIÁVEL (faixa "confiar" do Krippendorff), exatamente onde mora o núcleo sólido.**
+No F4, que mede o conserto §5, o tombstone §3 e a proporcionalidade §9, o α é 0,918 — acima do limiar 0,800.
 Isso dá lastro corrigido por acaso ao "92%" que antes era só concordância crua.
 As duas únicas discordâncias em 36 foram FIX_CORRETO contra SUPER_ENGENHARIA, ou seja, divergência de **grau de proporcionalidade**, não erro grosso de leitura.
 O limite inferior do intervalo, 0,783, encosta no patamar de 0,8 por causa do N pequeno (36), e não por desacordo real.
 
-**A confiabilidade é FRACA onde o corpus já marcava fragilidade.**
-No F3, a recusa de injeção, o α é 0,467, e o κ é 0,497.
-Pela régua deste próprio doc (0,467 < 0,67), isso é **fraco**, não "moderado" — e o limite inferior do IC, 0,252, encosta no chão de acaso.
-Isso bate com a ressalva que a OPINIAO já carrega: o F3 é a medição mais frágil do corpus.
-Corrigido por acaso, o veredito de segurança é confiabilidade **fraca**, não alta.
+**No F3 a confiabilidade é INSUFICIENTE — e isto é o nosso próprio número, não um adjetivo emprestado.**
+No F3, a recusa de injeção, o α é 0,467 (κ 0,497), IC 95% [0,252, **0,653**].
+Pela régua de decisão do Krippendorff (piso 0,667), o ponto está na faixa de **descartar**.
+E o lastro forte é o IC: o **teto** do intervalo (0,653) fica **abaixo** do piso 0,667.
+Ou seja, com 95% de confiança o F3 não alcança nem a faixa preliminar — não é leitura de um corte arbitrário, é o intervalo inteiro abaixo da barra.
+Em verbete de magnitude (McHugh 2012), 0,467 é **fraco**; a escala mais citada (Landis & Koch) diria "moderado" — divergência que é exatamente por que ancoramos no limiar+IC.
+Isso bate com a ressalva que a OPINIAO já carrega: o F3 é a medição mais frágil do corpus, e a segurança §6-bis segue como sinal, não caso fechado.
 Logo, a recomendação de tratar a segurança §6-bis como sinal, e não como caso fechado, fica reforçada pelo número.
 
 **Alguns sub-campos não são confiáveis, e isto precisa ficar dito.**
@@ -72,7 +95,7 @@ Mas é um fator de justiça que fica registrado, coerente com o viés de famíli
 ## O que isto fecha e o que não fecha
 
 Isto fecha o passo barato de Krippendorff do roadmap, sobre o dado que já existia.
-O resultado é uma boa notícia onde importa: o juiz é confiável, corrigido por acaso, justamente nas afirmações sólidas (F4), e é **fraco** (pela régua do próprio doc, 0,467 < 0,67) onde o corpus já confessava fragilidade (F3).
+O resultado é uma boa notícia onde importa: o juiz é **confiável** (faixa Krippendorff ≥0,800), corrigido por acaso, justamente nas afirmações sólidas (F4), e é **insuficiente** (IC 95% inteiro abaixo do piso 0,667) onde o corpus já confessava fragilidade (F3).
 
 Isto **não** fecha o **ECE** (erro de calibração esperado).
 Os juízes só emitem rótulo, não probabilidade, então não há dado de confiança para calibrar.

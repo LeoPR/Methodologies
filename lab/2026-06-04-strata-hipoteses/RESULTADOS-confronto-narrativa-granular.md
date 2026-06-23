@@ -13,6 +13,7 @@ status: 'AUTO-AUDITORIA. Confronta a narrativa consolidada (OPINIAO/hub/FECHAMEN
 > Método: 8 leitores céticos em paralelo (um por cluster), cada um confrontando claim × granular,
 > seguidos de verificação adversarial da honestidade e de um crítico de completude.
 > É o mesmo gesto do [confronto com a literatura](RESULTADOS-confronto-literatura.md), agora interno.
+> Segue a norma de redação do repositório: [`ESTILO-REDACAO`](../../ESTILO-REDACAO.md).
 
 ## 1. Reafirmação honesta — o que sobrevive ao granular
 
@@ -161,17 +162,23 @@ modelo-sujeito é rotulada "capacidade" (teto), nunca "forma mal-desenhada" (lac
 O que se esperava: um método que faz a IA auditar e manter projetos melhor.
 
 O que o Strata É hoje:
-- **É um formalizador de conserto de defeito conhecido.** Defeito já identificado + consumidor mecânico
-  downstream que precisa parsear a fonte canônica → entrega o conserto rastreável e impede a destruição de
-  histórico, até no econômico, replicado no real para a preservação. Real, e perto do teto. Também estreito.
-- **NÃO é um auditor de qualidade.** No projeto real, como auto-auditor, não bate a competência pura do
-  modelo. A descoberta de dívida nova é capacidade, não forma; o método ora não adiciona, ora CEVA alucinação
-  no fraco (defeito_alucinado 6/8 com Strata vs 2/8 sem). É o produto imaginado e o menos validado fora da família.
-- **É um deslocador de viés, não um corretor.** A forma troca over-ação por over-abstenção. Não compra
-  discernimento; redistribui o erro. Só o topo escolhe o lado certo, e instável.
-- **A distância ao melhor-possível é assimétrica.** No §5/§3-por-execução: PERTO do teto. Na auditoria-rica em
-  terceiro: distância DESCONHECIDA (nunca medida com gabarito independente). No agente real: NÃO-MEDIDA. Na
-  própria tese de camadas: NÃO-TESTADA.
+- **É um formalizador de conserto de defeito conhecido.**
+  Quando o defeito já está identificado e há um consumidor mecânico downstream que precisa parsear a fonte canônica, ele entrega o conserto rastreável e impede a destruição de histórico.
+  Isso vale até no econômico, e a preservação se replicou no real.
+  É real e perto do teto. Também é estreito.
+- **NÃO é um auditor de qualidade.**
+  No projeto real, como auto-auditor, não bate a competência pura do modelo.
+  A descoberta de dívida nova é capacidade, não forma.
+  O método ora não adiciona, ora CEVA alucinação no fraco (defeito_alucinado 6/8 com Strata vs 2/8 sem).
+  É o produto imaginado, e o menos validado fora da família.
+- **É um deslocador de viés, não um corretor.**
+  A forma troca over-ação por over-abstenção.
+  Não compra discernimento; redistribui o erro.
+  Só o topo escolhe o lado certo, e de forma instável.
+- **A distância ao melhor-possível é assimétrica.**
+  No §5/§3-por-execução, ela é perto do teto.
+  Na auditoria rica em terceiro, é desconhecida, porque nunca foi medida com gabarito independente.
+  No agente real, é não-medida; e na própria tese de camadas, é não-testada.
 
 Veredito justo: um método com **núcleo pequeno e firme, corretamente restrito na entrega**, cercado de sinais
 direcionais honestos e de uma tese-mãe (camadas) que ainda é fundamento, não achado. Não é over-claim chamar

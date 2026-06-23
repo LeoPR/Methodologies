@@ -7,6 +7,8 @@ updated: 2026-06-20
 
 # Fechamento da avaliação do Strata
 
+> Este documento segue a norma de redação do repositório: [`ESTILO-REDACAO`](../../ESTILO-REDACAO.md).
+
 ## O que este documento é
 
 Este é o fechamento honesto da avaliação do Strata.

@@ -16,7 +16,9 @@ endurecendo o resultado contra o tempo, a troca de ferramenta **e o uso hostil**
 
 **Lê-se por humano e por IA.** Os mesmos documentos servem de leitura para você e de
 instrução para um agente, e os produtos são escritos para que **uma IA** consiga
-**aplicá-los ao seu projeto** — ver [como pedir isso a uma IA](recipe/). E não é só
+**aplicá-los ao seu projeto** — ver [como pedir isso a uma IA](recipe/).
+Os documentos que uma pessoa lê seguem uma **norma de redação clara** (Linguagem Simples):
+[`ESTILO-REDACAO.md`](ESTILO-REDACAO.md). E não é só
 teoria: **várias IAs populares — de diferentes fornecedores (OpenAI, Google, Anthropic),
 do econômico ao topo — já leem e aplicam o primeiro produto (o Strata) nos casos que
 medimos**, cada uma até o seu limite (mapeado na
@@ -161,6 +163,7 @@ e diz se vale usar IA local — *ligar agora / considerar / bloqueado* — com o
 | [`decisions/`](decisions/) | ADRs — por que cada decisão de design foi tomada |
 | [`divulgacao/`](divulgacao/) | **apoio**: comunicação/divulgação (posts, imagens) — fora dos 3 territórios de artefato |
 | [`AGENTS.md`](AGENTS.md) · [`MAP.md`](MAP.md) · [`STATUS.md`](STATUS.md) | navegação (IA / mapa / foco atual) |
+| [`ESTILO-REDACAO.md`](ESTILO-REDACAO.md) | a norma de redação dos documentos (Linguagem Simples) |
 
 ## Usar e adotar
 

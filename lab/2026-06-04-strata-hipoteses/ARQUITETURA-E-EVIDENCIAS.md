@@ -19,6 +19,9 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 > **➡️ Opinião de uso final (honesta, consolidada):** [`OPINIAO-DE-USO.md`](OPINIAO-DE-USO.md) ·
 > backlog priorizado: [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md) ·
 > **o que envelheceu (revisão retroativa):** [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md).
+>
+> **Norma de redação** dos documentos de leitura humana (Linguagem Simples):
+> [`ESTILO-REDACAO.md`](../../ESTILO-REDACAO.md). Os docs de entrega deste lab a seguem.
 
 ## Estado das fases — fonte única (atualizado em 2026-06-14)
 

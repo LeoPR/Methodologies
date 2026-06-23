@@ -56,6 +56,12 @@ As fontes que ancoram cada peça:
 6. Para separar ideias do mesmo assunto, quebre a linha.
    Mantenha uma ideia por linha, mesmo dentro do parágrafo.
    A quebra de linha é mais econômica e mais consistente, e deixa a página fácil de varrer.
+   Mas a quebra é para ideias **separadas**, não para cada cláusula de um mesmo argumento.
+   Uma cadeia de raciocínio (A, logo B, logo C) lê-se melhor amarrada por conectivos do que picada em frases soltas, ainda mais quando o raciocínio é difícil.
+   Avalie se a quebra ajuda; não a aplique de forma mecânica. Na dúvida, vale a orientação clássica de clareza.
+
+   O mesmo vale para o travessão. A pergunta não é "tem travessão?", e sim "ele é mesmo necessário?".
+   Muitas vezes a ordem narrativa (passo 7) dispensa o travessão; mas, para um aparte curto e genuíno, ele ainda é a ferramenta certa.
 
 7. Comece pelo mais importante.
    Diga primeiro a conclusão, depois os detalhes.
@@ -85,7 +91,18 @@ As fontes que ancoram cada peça:
 - "um 2º juiz não-Claude (gpt-4.1-mini)"
   vira "um 2º juiz, o gpt-4.1-mini".
 
+## Por que isto importa
+
+A língua existe para comunicar.
+Quanto mais claro o leitor capta, mais correta foi a comunicação.
+Por isso a régua final não é a forma em si, mas se o leitor entendeu.
+
 ## Onde isto não se aplica
 
 O traço, ou seja, o histórico, pode ser cronológico por natureza.
 Tabelas e o frontmatter podem ser mais densos, porque ali a forma é de dado, não de prosa.
+
+O produto [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) é um caso à parte.
+A redação dele é híbrida: uma pessoa precisa conseguir ler e entender, e ao mesmo tempo ele tem que ser eficiente para uma IA entender e aplicar.
+Ali o leitor-alvo é a IA, então a densidade serve à aplicação, não ao conforto de leitura humana.
+As orientações acima valem para os documentos que uma pessoa lê (README, guias, opinião de uso, status), não para o arquivo do produto.

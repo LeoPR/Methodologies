@@ -46,15 +46,12 @@ E só um modelo de topo fura a complacência, variando por fornecedor, não pres
 Isto ainda é direcional, porque ruído e forma-do-pedido não foram isolados (ver ressalvas).
 
 **Sobre os juízes (como sabemos o acima).**
-No conjunto de detecção, 7 de 9 juízes de 3 empresas (OpenAI, Google, Anthropic) convergem no falso-positivo.
-A forma anti-falso-positivo reduz o erro para todos eles.
-É esse painel afiado do F0 que fecha o caveat "Claude julga Claude": é cross-vendor de verdade, não auto-avaliação.
-O R6 trouxe um 2º juiz, o gpt-4.1-mini.
-Ele confirma que a ordenação e os deltas sobrevivem a outra família, e mediu o viés de família (~0,87).
-Mas o F0 depois mostrou que o gpt-4.1-mini é leniente, ou seja, cego ao falso-positivo.
-Então o R6 fecha a direção, não a magnitude anti-falso-positivo.
-O resíduo é estreito: só as rodadas ecológicas mais recentes deste ciclo ainda não foram re-pontuadas por um juiz afiado de outro fabricante (Gemini ou GPT).
-Detalhe em [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3.
+No conjunto de detecção, 7 de 9 juízes de 3 empresas (OpenAI, Google, Anthropic) convergem no falso-positivo, e a forma anti-falso-positivo reduz o erro para todos eles.
+É esse painel afiado do F0 que fecha o caveat "Claude julga Claude": cross-vendor de verdade, não auto-avaliação.
+
+O R6 traz um 2º juiz, o gpt-4.1-mini, que confirma a ordenação e os deltas e mede o viés de família (~0,87). Mas o próprio F0 mostrou que esse juiz é leniente — cego ao falso-positivo —, então o R6 fecha a direção, não a magnitude anti-falso-positivo.
+
+O resíduo é estreito: só as rodadas ecológicas mais recentes ainda não foram re-pontuadas por um juiz afiado de outro fabricante (Gemini ou GPT). Detalhe em [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3.
 
 ## Por tarefa — quem dá conta
 
@@ -120,16 +117,9 @@ Confiança: SÓLIDO é bem medido, sinal é direção, EXPLORATÓRIO/RUIDOSO é 
   São deltas grandes contra ruído, não significância estatística.
 
 - **Os juízes foram cross-vendor, não Claude sozinho.**
-  O F0 usou 9 juízes de 3 empresas, e 7 convergiram.
-  É o painel afiado do F0 que fecha o caveat de artefato, não a mini.
-  O R6 trouxe um 2º juiz, o gpt-4.1-mini: ele confirma a ordenação e os deltas, e mediu o viés de família.
-  Mas o próprio F0 depois achou esse juiz leniente ("corrige o 2º-juiz fraco que usávamos").
-  Então o R6 fecha a direção, não a magnitude anti-falso-positivo — over-claim corrigido em [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3.
-  O F4 teve 92% entre o Gemini 2.5 Flash e o GPT-4.1, mais a conferência mecânica da abstenção §9.
-  O resíduo é estreito: as rodadas ecológicas mais recentes deste ciclo (projetos próprios, fg2p) foram pontuadas por Claude e ainda não re-pontuadas cross-vendor.
-  O viés de família foi medido (Claude ~0,87 ponto mais generoso com o Haiku), por isso não ancoramos em célula Claude-julga-Claude.
-  E convergência cross-vendor não é prova de acerto: a literatura 2024-2026 mostra erro correlacionado entre fabricantes, e a nossa Fase B mostra juízes concordando nas respostas erradas sem o gabarito.
-  Quem ancora o sólido é o **gold mecânico**, não o consenso ([confronto](RESULTADOS-confronto-literatura.md), [fundamento](FUNDAMENTO-juiz-escala-mensuravel.md)).
+  O F0 usou 9 juízes de 3 empresas, e 7 convergiram — é esse painel afiado que fecha o caveat de artefato, não a mini. O R6 trouxe um 2º juiz, o gpt-4.1-mini, que confirma a ordenação e os deltas e mede o viés de família; mas o próprio F0 depois o achou leniente ("corrige o 2º-juiz fraco que usávamos"), então ele fecha a direção, não a magnitude anti-falso-positivo (over-claim corrigido em [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3).
+  O F4 teve 92% entre o Gemini 2.5 Flash e o GPT-4.1, mais a conferência mecânica da abstenção §9. O resíduo é estreito: as rodadas ecológicas mais recentes deste ciclo (projetos próprios, fg2p) foram pontuadas por Claude e ainda não re-pontuadas cross-vendor.
+  O viés de família foi medido (Claude ~0,87 ponto mais generoso com o Haiku), por isso não ancoramos em célula Claude-julga-Claude. E convergência cross-vendor não é prova de acerto: a literatura 2024-2026 mostra erro correlacionado entre fabricantes, e a nossa Fase B mostra juízes concordando nas respostas erradas sem o gabarito. Quem ancora o sólido é o **gold mecânico**, não o consenso ([confronto](RESULTADOS-confronto-literatura.md), [fundamento](FUNDAMENTO-juiz-escala-mensuravel.md)).
 
 - **Circularidade.**
   Já há um braço externo de verdade.

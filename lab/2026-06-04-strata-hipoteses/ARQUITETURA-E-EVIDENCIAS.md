@@ -1,7 +1,7 @@
 ---
 title: Arquitetura de testes e evidências do Strata — o que comprova, em que condições (macro)
 created: 2026-06-13
-updated: 2026-06-15
+updated: 2026-06-24
 status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fronteira.
 ---
 
@@ -69,10 +69,23 @@ IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degr
 | **M4** — execução (F4) | "produz o fix sem destruir rastreabilidade?" | nuvem fechado; local em curso | [RESULTADOS-f4](RESULTADOS-f4-execucao.md) |
 
 ## Como medimos — a disciplina (por que dá pra confiar nos sinais)
-- **Cego:** planos anonimizados; pontua-se sem saber o modelo (evita viés de marca).
-- **Juízes cross-vendor:** ≥2 de **empresas diferentes** (Google + OpenAI), **não-Claude**. Empresas
-  distintas ⇒ vieses independentes; **convergência = robustez** (não é artefato de um avaliador). O F0
-  estabeleceu isso; o F4 teve **92%** de concordância inter-juiz.
+
+Quando o acerto não é mecânico, quem dá a nota a um plano é outro modelo de IA, que chamamos de **juiz**.
+Um juiz herda os vieses da sua própria família de modelos, então pedimos a nota a modelos de **empresas
+diferentes**: OpenAI, Google e Anthropic.
+Como cada empresa treina com dados e ajustes próprios, seus vieses são mais independentes — quando juízes de
+fornecedores diferentes **convergem**, isso é robustez, não o artefato de um avaliador só.
+Daqui em diante, esse arranjo é o **juiz cross-vendor**.
+O F0 estabeleceu a convergência (7 de 9 juízes, das 3 empresas), e o F4 teve 92% de concordância entre dois juízes.
+Mas convergir não é acertar: juízes podem errar juntos, então o que ancora o caso sólido é a conferência
+**mecânica**, não o consenso.
+Como o juiz funciona, e como medimos a confiabilidade dele (concordância corrigida por acaso, independência
+efetiva, calibração), está na nossa pesquisa sobre o juiz: [DOSSIE-judge](DOSSIE-judge-justificativa-cientifica.md),
+[fundamento](FUNDAMENTO-juiz-escala-mensuravel.md), [concordância](RESULTADOS-concordancia-juizes.md) e
+[confronto com a literatura](RESULTADOS-confronto-literatura.md).
+
+As disciplinas que tornam os sinais confiáveis:
+- **Cego:** os planos são anonimizados, e o juiz pontua sem saber qual modelo os escreveu, para evitar o viés de marca.
 - **Mecânico onde dá > juiz:** preferimos teste **objetivo** (regex de sinais com *gold-gate*, parse de
   config, **sobrevivência-de-conteúdo**, `git`, asserções) ao julgamento. O juiz só refina o **resíduo**
   que a mecânica não fecha. Todo verificador tem um **GOLD self-test** (casos-disfarce) como portão.
@@ -87,12 +100,22 @@ IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degr
   [`ADR-006`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
 
 ## Regime e limites (ler antes de citar números)
-- **Completion-only:** o modelo **produz/recusa em TEXTO**; não roda ferramentas. Mede-se a *disposição
-  do plano/fix* — **não** o agente real agindo. Um modelo pode escrever fail-closed e, com ferramentas,
-  agir diferente (ou vice-versa).
-- **N pequeno** por célula (2-3 runs); **1-2 cenários-mãe** (sintéticos + 1 digest real); ladder de
-  modelos enxuto (nuvem barata→forte + locais, estes **ruidosos** — pequenos não emitem o formato).
-- ⇒ As conclusões valem como **direção forte**, não prova; **generalizar pede mais cenários**.
+
+Um limite atravessa tudo, e é preciso dizê-lo antes de citar qualquer número.
+Nos testes, o modelo só **escreve**: ele redige o plano de auditoria, ou o conteúdo de um arquivo, e aceita ou
+recusa por escrito.
+Ele **não executa nada** — não roda comandos, não altera arquivos de verdade, não chama uma API.
+Esse regime, em que a IA só redige e não age, é o **completion-only**, e é assim que o nomeamos adiante.
+O contrário seria um **agente com ferramentas**: um modelo que de fato roda comandos e modifica arquivos.
+Como medimos a *disposição* do plano, e não o agente agindo, um modelo pode escrever "recuso e travo" e, com
+ferramentas na mão, agir diferente (ou o contrário).
+Sair do completion-only para o agente real é o maior limite de validade externa, e segue aberto.
+
+- **N pequeno** por célula (2-3 repetições), com 1-2 cenários-mãe: fixtures sintéticas mais um projeto real resumido.
+- **O leque de modelos** cobre dois ambientes. Os de **nuvem** são acessados por API, do barato ao forte. Os
+  **locais** rodam na própria máquina do usuário, e são modelos pequenos (de 4 a 8 bilhões de parâmetros). Os
+  locais são **ruidosos**, porque os pequenos muitas vezes nem emitem o formato pedido.
+- Por isso as conclusões valem como **direção forte**, não prova; **generalizar pede mais cenários**.
 
 ## Custo — duplo propósito (nosso gasto = referência do custo do dev)
 O custo dos experimentos tem **dois usos que viram um**: (1) o que **nós** gastamos testando; (2) o que um

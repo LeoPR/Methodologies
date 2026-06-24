@@ -168,6 +168,10 @@ primeiro é só memória, já o segundo é trabalho de fato.
 > [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). Estas tabelas são um
 > **panorama**; o estado datado vive no
 > [doc de arquitetura e evidências](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
+>
+> **Os números e os dados.**
+> As estatísticas corrigidas por acaso (α de Krippendorff, κ de Cohen, IC 95%) estão na [concordância dos juízes](../lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md), e o fechamento honesto (sólido vs sinal, gaps) no [FECHAMENTO](../lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
+> Como a evidência é produzida (runners, fixtures, verificadores) está em [`../eval/strata/`](../eval/strata/): os scripts são públicos, e as saídas brutas e os projetos reais são privados (gitignored).
 
 **Vocabulário (o mínimo para ler as tabelas):**
 

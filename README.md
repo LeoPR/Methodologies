@@ -142,6 +142,12 @@ versão) são **formas** que expressam esse método — moldam, mas não fundam.
   **como usá-lo com uma IA** vivem com o produto — veja [`recipe/`](recipe/).
   (Uso, adoção em projeto existente e transporte: na seção **"Usar e adotar"**, abaixo.)
 
+> **Como foi testado — números e dados.**
+> O macro de como foi testado está no [hub de evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md), e o fechamento honesto (o que é sólido, o que é só sinal, e os gaps nomeados) no [FECHAMENTO](lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
+> As estatísticas corrigidas por acaso (Krippendorff α, Cohen κ, IC 95%) estão na [concordância dos juízes](lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md), e os números por experimento nos `RESULTADOS-*` do mesmo lab.
+> Como a evidência é produzida (runners, fixtures, gabaritos, verificadores) está em [`eval/strata/`](eval/strata/).
+> Os números agregados e os scripts são públicos; as saídas brutas dos modelos e os projetos reais são privados (gitignored), então não há um dado-bruto para baixar.
+
 ## No forno: Comporta
 
 [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) —

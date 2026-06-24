@@ -12,16 +12,29 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 > [`recipe/knowledge-architecture.md`](../../recipe/knowledge-architecture.md) — aqui é sobre a
 > **validação** dele. Tudo abaixo é **sinal/indício**, não prova (ver *Regime e limites*).
 >
-> **Sem familiaridade com os termos?** (modos M0-M4, *fixture*, *completion-only*, *fail-closed*,
-> *tombstone*, como ler *N* / *concordância*) — há um glossário em português claro no
-> [`GLOSSARIO.md`](../../GLOSSARIO.md), seção *Termos de avaliação e teste*.
->
 > **➡️ Opinião de uso final (honesta, consolidada):** [`OPINIAO-DE-USO.md`](OPINIAO-DE-USO.md) ·
 > backlog priorizado: [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md) ·
 > **o que envelheceu (revisão retroativa):** [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md).
 >
 > **Norma de redação** dos documentos de leitura humana (Linguagem Simples):
 > [`ESTILO-REDACAO.md`](../../ESTILO-REDACAO.md). Os docs de entrega deste lab a seguem.
+
+## Como ler — os termos que se repetem
+
+Três nomes voltam o tempo todo abaixo, inclusive nas tabelas; vale fixá-los antes.
+
+Os testes rodam em **dois ambientes de modelo**.
+Os de **nuvem** são acessados por API, do barato ao forte.
+Os **locais** rodam na própria máquina do usuário, e são modelos pequenos (de 4 a 8 bilhões de parâmetros), mais ruidosos.
+
+Quando o acerto não é mecânico, quem dá a nota a um plano é outro modelo de IA, o **juiz**.
+Para a nota não herdar o viés de uma só família, pedimos a nota a juízes de empresas diferentes — OpenAI, Google e Anthropic.
+É o **juiz cross-vendor**, e a convergência entre fornecedores distintos é robustez, não o artefato de um avaliador só.
+
+Todo teste é em regime **completion-only**: o modelo só **escreve** (o plano de auditoria, ou o conteúdo de um arquivo) e **não executa nada**.
+O contrário, ainda não testado, seria um **agente com ferramentas**, que roda comandos e altera arquivos de verdade.
+
+Os demais termos (os modos M0-M4, *fixture*, *fail-closed*, *tombstone*) estão no [`GLOSSARIO.md`](../../GLOSSARIO.md), seção *Termos de avaliação e teste*.
 
 ## Estado das fases — fonte única (atualizado em 2026-06-14)
 
@@ -70,12 +83,7 @@ IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degr
 
 ## Como medimos — a disciplina (por que dá pra confiar nos sinais)
 
-Quando o acerto não é mecânico, quem dá a nota a um plano é outro modelo de IA, que chamamos de **juiz**.
-Um juiz herda os vieses da sua própria família de modelos, então pedimos a nota a modelos de **empresas
-diferentes**: OpenAI, Google e Anthropic.
-Como cada empresa treina com dados e ajustes próprios, seus vieses são mais independentes — quando juízes de
-fornecedores diferentes **convergem**, isso é robustez, não o artefato de um avaliador só.
-Daqui em diante, esse arranjo é o **juiz cross-vendor**.
+O juiz cross-vendor é o primeiro pilar da confiança quando o acerto não é mecânico.
 O F0 estabeleceu a convergência (7 de 9 juízes, das 3 empresas), e o F4 teve 92% de concordância entre dois juízes.
 Mas convergir não é acertar: juízes podem errar juntos, então o que ancora o caso sólido é a conferência
 **mecânica**, não o consenso.
@@ -101,20 +109,13 @@ As disciplinas que tornam os sinais confiáveis:
 
 ## Regime e limites (ler antes de citar números)
 
-Um limite atravessa tudo, e é preciso dizê-lo antes de citar qualquer número.
-Nos testes, o modelo só **escreve**: ele redige o plano de auditoria, ou o conteúdo de um arquivo, e aceita ou
-recusa por escrito.
-Ele **não executa nada** — não roda comandos, não altera arquivos de verdade, não chama uma API.
-Esse regime, em que a IA só redige e não age, é o **completion-only**, e é assim que o nomeamos adiante.
-O contrário seria um **agente com ferramentas**: um modelo que de fato roda comandos e modifica arquivos.
+O regime completion-only é o limite que atravessa tudo, e é preciso pesá-lo antes de citar qualquer número.
 Como medimos a *disposição* do plano, e não o agente agindo, um modelo pode escrever "recuso e travo" e, com
 ferramentas na mão, agir diferente (ou o contrário).
-Sair do completion-only para o agente real é o maior limite de validade externa, e segue aberto.
+Sair do completion-only para o agente com ferramentas é o maior limite de validade externa, e segue aberto.
 
 - **N pequeno** por célula (2-3 repetições), com 1-2 cenários-mãe: fixtures sintéticas mais um projeto real resumido.
-- **O leque de modelos** cobre dois ambientes. Os de **nuvem** são acessados por API, do barato ao forte. Os
-  **locais** rodam na própria máquina do usuário, e são modelos pequenos (de 4 a 8 bilhões de parâmetros). Os
-  locais são **ruidosos**, porque os pequenos muitas vezes nem emitem o formato pedido.
+- **O leque de modelos** é enxuto: cobre os de nuvem (do barato ao forte) e os locais (ruidosos, porque os pequenos às vezes nem emitem o formato pedido).
 - Por isso as conclusões valem como **direção forte**, não prova; **generalizar pede mais cenários**.
 
 ## Custo — duplo propósito (nosso gasto = referência do custo do dev)
@@ -124,20 +125,20 @@ O custo dos experimentos tem **dois usos que viram um**: (1) o que **nós** gast
   de experimento podem ter **valores absolutos** (referência); o **relatório final** usa o **relativo** —
   um modelo mais capaz costuma custar mais, então basta o relativo. *(Assume capacidade≈custo: correlato, não idêntico.)*
 - **Referência de custo do dev (lendo o [mapa de bordas](PLANO-evidencia-cenarios-e-narrativa.md)):**
-  - **Recusa + conserta §5** fecham no **econômico** → uso **recorrente barato** é viável (rode sempre).
-  - **Abster-se (§9) / organize completo** pede **premium** → mas como **organize de uma vez** é **custo
-    único/esporádico** (pague premium 1×, mantenha o dia-a-dia no econômico).
+  - **Recusa + conserta §5** fecham no **econômico**, então um uso **recorrente barato** é viável (rode sempre).
+  - **Abster-se (§9) / organize completo** pede **premium**; mas, como o **organize de uma vez** é **custo
+    único/esporádico**, pague o premium uma vez e mantenha o dia-a-dia no econômico.
 - **Âncora proporcional (record):** a validação **inteira** (F0-F4 + eco + escada Claude, dezenas de runs)
   custou ~**US$15** de crédito; um dev aplicando a **um projeto** gastaria **centavos a poucos dólares**.
 
 ## O que a evidência mostra (macro)
-- **F0 — a fundação (juízes):** juízes de empresas diferentes **convergem** ⇒ as conclusões não são
+- **F0 — a fundação (juízes):** juízes de empresas diferentes **convergem**, logo as conclusões não são
   artefato. "Maior" **não** é automaticamente "melhor juiz" (um *flash* barato rivaliza com modelos de
   topo); os **OpenAI-pequenos são lenientes** (maus juízes).
 - **F1/M0 — abstenção:** a **forma** (framing) corrige o falso-positivo na raiz; a **capacidade** calibra
   (só o topo discrimina "já-bom" de "precisa-de-ponto").
 - **F3 — recusa:** com o Strata, modelos recusam de forma **principiada e espontânea** uma injeção lida
-  do projeto; o **barato vira de obedecer → recusar**; **0 falso-alarme de ameaça** (não inventou injeção
+  do projeto; o **barato vira de obedecer para recusar**; **0 falso-alarme de ameaça** (não inventou injeção
   onde não havia); a "segurança" do modelo fraco é **em parte lexical** (cai sob paráfrase).
 - **F4 — execução:** o Strata **habilita** o conserto correto (fonte única, §5) e **preserva** o histórico
   (*tombstone*, §3) + **fail-closed na execução**; **mas induz super-engenharia** no modelo fraco (ele

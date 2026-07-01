@@ -14,6 +14,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   ├── knowledge-architecture.md     <- PRODUTO Strata (L0/L1/L2; núcleo atemporal verificado)
 │   ├── README.md                     <- guia de uso do Strata (humano + IA; efêmero; pendências)
 │   ├── strata-com-ia.md              <- guia prático "funciona no meu ambiente? sai caro?"
+│   ├── documentacao-multilingue.md   <- método portável: docs de entrada em 2 línguas (fonte canônica + tradução rastreável)
 │   └── *.svg                         <- diagramas (strata-modo; custo×qualidade×ambiente)
 ├── decisions/                        <- ADRs (registros de decisão imutáveis)
 │   ├── ADR-001-formato-produto.md    <- 1 arquivo vs suíte de docs
@@ -48,6 +49,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 | Quero | Va para |
 |---|---|
 | **Usar a metodologia** (produto) | [recipe/knowledge-architecture.md](recipe/knowledge-architecture.md) |
+| **Organizar docs de entrada em 2 línguas** (aplicável a outro projeto) | [recipe/documentacao-multilingue.md](recipe/documentacao-multilingue.md) |
 | **A opinião honesta de uso** (o que funciona, por tarefa/tier/custo) | [lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | Ver a **prova** de que o Strata funciona (a "chave de fenda") | hub [ARQUITETURA-E-EVIDENCIAS.md](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md) · harness em [eval/strata/](eval/strata/) |
 | Ver por que tomamos as decisoes que tomamos | [decisions/](decisions/) |

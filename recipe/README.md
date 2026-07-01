@@ -1,6 +1,6 @@
 # `recipe/` — produtos prontos
 
-Aqui ficam as metodologias **destiladas e portáveis**. Hoje há uma:
+Aqui ficam as metodologias **destiladas e portáveis**.
 
 ## Strata — [`knowledge-architecture.md`](knowledge-architecture.md)
 
@@ -215,6 +215,12 @@ saber **quando NÃO agir** (proporção, §9) depende da **capacidade** do model
 por completo pede **premium** — mas como **uso único/esporádico**. Ou seja: **econômico no dia-a-dia,
 premium uma vez para o *organize* proporcional**. (Aplicar a IA a um projeto custa, na prática, de
 centavos a poucos dólares.)
+
+## Método companheiro: documentação multilíngue — [`documentacao-multilingue.md`](documentacao-multilingue.md)
+
+Como organizar o README e os documentos de entrada em duas línguas, com uma fonte canônica e
+traduções rastreáveis que não apodrecem em silêncio. Portável: leve-o a outro projeto e uma IA o aplica.
+O porquê e as fontes primárias estão no [ADR-008](../decisions/ADR-008-documentacao-multilingue-fonte-canonica.md).
 
 ---
 

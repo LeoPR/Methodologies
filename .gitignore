@@ -28,9 +28,10 @@ lab/2026-06-04-dev-environment-z/snapshot-fonte/
 # PRIVADAS. Não publicar os dumps — publicar apenas um RESUMO curado. Visualização é local.
 eval/strata/planos/
 
-# Segredos locais (NUNCA versionar) — chave da OpenRouter para o tier nuvem
+# Segredos locais (NUNCA versionar) — chaves de API dos provedores (OpenRouter, Cerebras, Groq, NVIDIA...)
 .openrouter-key
 *.key
+*-key
 
 # Digests de PROJETOS REAIS (privados) p/ o R8 (validade ecologica)
 eval/strata/fixtures-real/

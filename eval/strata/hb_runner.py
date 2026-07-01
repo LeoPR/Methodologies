@@ -16,6 +16,7 @@ Uso:
 """
 from __future__ import annotations
 import argparse, datetime, glob, json, os, sys, time, urllib.error, urllib.request
+import providers  # camada de provedores nuvem diretos (cerebras/groq/nvidia) — ADITIVO
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 STRATA = os.path.normpath(os.path.join(HERE, "..", "..", "recipe", "knowledge-architecture.md"))
@@ -159,6 +160,11 @@ def call_openrouter(model, prompt, num_predict, seed, temp=0.3):
 def call(model, prompt, num_ctx, num_predict, seed, temp=0.3):
     if PROVIDER == "openrouter":
         return call_openrouter(model, prompt, num_predict, seed, temp=temp)
+    if PROVIDER in ("cerebras", "groq", "nvidia"):
+        t0 = time.time()
+        d = providers.chat(PROVIDER, model, prompt, max_tokens=num_predict, temperature=temp, seed=seed)
+        content, _, _, ntok = providers.content_of(d)
+        return content, time.time() - t0, ntok
     return call_ollama(model, prompt, num_ctx, num_predict, seed, temp=temp)
 
 
@@ -244,6 +250,14 @@ def call_ex(model, prompt, num_ctx, num_predict, seed, think=False):
     eixo ESFORCO (extended thinking) na nuvem; no ollama o think ja e tentado por padrao."""
     if PROVIDER == "openrouter":
         return call_openrouter_ex(model, prompt, num_predict, seed, think=think)
+    if PROVIDER in ("cerebras", "groq", "nvidia"):
+        t0 = time.time()
+        reasoning = {"max_tokens": 3000} if think else None
+        d = providers.chat(PROVIDER, model, prompt,
+                           max_tokens=num_predict + (3000 if think else 0),
+                           temperature=(1.0 if think else 0.3), seed=seed, reasoning=reasoning)
+        content, fr, ft, ntok = providers.content_of(d)
+        return content, time.time() - t0, ntok, fr, ft
     return call_ollama_ex(model, prompt, num_ctx, num_predict, seed)
 
 
@@ -285,13 +299,18 @@ def main():
     ap.add_argument("--models", nargs="*", default=LOCAL_MODELS)
     ap.add_argument("--strata", default=STRATA, help="caminho do doc de metodologia (prose ou AN)")
     ap.add_argument("--baseline", action="store_true", help="braço sem-Strata (controle R3): omite a metodologia")
-    ap.add_argument("--provider", choices=["ollama", "openrouter"], default="ollama",
-                    help="ollama=local; openrouter=nuvem multi-sabor (precisa OPENROUTER_API_KEY)")
+    ap.add_argument("--provider", choices=["ollama", "openrouter", "cerebras", "groq", "nvidia"], default="ollama",
+                    help="ollama=local; openrouter/cerebras/groq/nvidia=nuvem (chave em env ou eval/strata/.<prov>-key)")
     a = ap.parse_args()
     global PROVIDER
     PROVIDER = a.provider
     if PROVIDER == "openrouter" and not os.environ.get("OPENROUTER_API_KEY"):
         print("RECUSADO: --provider openrouter precisa da env OPENROUTER_API_KEY.", file=sys.stderr)
+        return 2
+    if PROVIDER in ("cerebras", "groq", "nvidia") and not providers.have_key(PROVIDER):
+        print(f"RECUSADO: --provider {PROVIDER} precisa da chave "
+              f"(env {providers.PROVIDERS[PROVIDER][1]} ou eval/strata/{providers.PROVIDERS[PROVIDER][2]}).",
+              file=sys.stderr)
         return 2
 
     # GUARD read-only: so escreve dentro do eval/strata

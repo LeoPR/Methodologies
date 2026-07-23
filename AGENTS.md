@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-06-16
+updated: 2026-07-23
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -54,7 +54,7 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   saidas brutas **gitignored** (projetos reais sao PRIVADOS). Regra: toda execucao e'
   `evidencia|instrumento|infra`. Ver `eval/README.md`.
 - `prototype/` — placeholder (testar a receita em escala; futuro).
-- `divulgacao/` — **APOIO** (comunicacao/divulgacao: posts, imagens). Fora dos 3 territorios de
+- `divulgacao-pt-BR/` — **APOIO** (comunicacao/divulgacao: posts, imagens). Fora dos 3 territorios de
   artefato (e do `decisions/`); nao e produto, pesquisa nem ferramenta. Nao publica metrica nova.
 - `README.md` (oficina) / `MAP.md` (mapa) / `STATUS.md` (foco atual) — wayfinding.
 

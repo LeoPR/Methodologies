@@ -1,7 +1,7 @@
 ---
 title: Arquitetura de testes e evidências do Strata — o que comprova, em que condições (macro)
 created: 2026-06-13
-updated: 2026-06-24
+updated: 2026-07-23
 status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fronteira.
 ---
 
@@ -19,16 +19,14 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 > **Norma de redação** dos documentos de leitura humana (Linguagem Simples):
 > [`ESTILO-REDACAO.md`](../../ESTILO-REDACAO.md). Os docs de entrega deste lab a seguem.
 
-## Como ler — os termos que se repetem
+## Ambiente e testes
 
-Três nomes voltam o tempo todo abaixo, inclusive nas tabelas; vale fixá-los antes.
-
-Os testes rodam em **dois ambientes de modelo**.
-Os de **nuvem** são acessados por API, do barato ao forte.
-Os **locais** rodam na própria máquina do usuário, e são modelos pequenos (de 4 a 8 bilhões de parâmetros), mais ruidosos.
+Os testes rodam em **dois ambientes des modelos de linguagem**.
+Os de **nuvem** são acessados por API, do barato ao forte, via openrouter.com, com modelos da empresas (vendors) Anthropic, OpenAI e Google (como o Haiku, GPT-5 e Gemini).
+Os **locais** rodam na própria máquina do usuário, e são modelos pequenos (de 4 a 8 bilhões de parâmetros), mais ruidosos, como o Deepseek-R1.
 
 Quando o acerto não é mecânico, quem dá a nota a um plano é outro modelo de IA, o **juiz**.
-Para a nota não herdar o viés de uma só família, pedimos a nota a juízes de empresas diferentes — OpenAI, Google e Anthropic.
+Para a nota não herdar o viés de uma só família, pedimos a nota a juízes de vendors diferentes.
 É o **juiz cross-vendor**, e a convergência entre fornecedores distintos é robustez, não o artefato de um avaliador só.
 
 Todo teste é em regime **completion-only**: o modelo só **escreve** (o plano de auditoria, ou o conteúdo de um arquivo) e **não executa nada**.
@@ -249,7 +247,7 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   seções do L0; as violações que havia (drift de duplicação, `updated:` morto, âncora-fantasma `§22`) já
   foram corrigidas nesta sessão pelas regras do método (append-only, apontar-não-copiar, §9). **Confirmado
   por cross-check de 5 auditores** (o fan-out, após o limite de gasto reabrir): só resíduo de baixa/média
-  severidade, e os baratos já consertados (`divulgacao/` na navegação, banner §6-bis em `_superseded/fixtures/`,
+  severidade, e os baratos já consertados (`divulgacao-pt-BR/` na navegação, banner §6-bis em `_superseded/fixtures/`,
   "Strata FINALIZADO"→honesto). [`AUTOAUDITORIA-repo-vs-strata`](AUTOAUDITORIA-repo-vs-strata.md).
 - **2026-06-14** — **P8 (posição/saliência da §9): POSIÇÃO REFUTADA.** A/B/C placebo (K=5) + varredura de
   temperatura (K=10): o banner neutro (C) = canônico (A) ⇒ pôr a §9 no topo **não muda** o comportamento (cai o

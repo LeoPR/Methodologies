@@ -34,6 +34,22 @@ follow the same principle. *(Navigation dedicated to AI lives in [`AGENTS.md`](A
 > Portuguese, with translation in progress. Some links below lead to Portuguese
 > documents.
 
+## First-read path (surface only)
+
+For a new reader who wants to understand what is ready now (without reading theory
+history or evolution logs), use this sequence:
+
+1. [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) — quick value, scope, and limits.
+2. [`recipe/README.md`](recipe/README.md) — practical usage guide.
+3. [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) — the full Strata product.
+4. [`MAP.md`](MAP.md) — where each artifact lives.
+5. [`STATUS.md`](STATUS.md) — current focus and open fronts.
+
+Optional only if you want evidence detail right now:
+
+- [`lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)
+- [`lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md`](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md)
+
 ## I want to… → go to
 
 Shortcuts by intent:
@@ -176,7 +192,7 @@ and says whether local AI is worth it — *turn on now / consider / blocked* —
 | [`lab/`](lab/) | exploratory, dated research (L0-grounding, future-proof, adherence/portability, **AI economy**) |
 | [`prototype/`](prototype/) | testing at scale, on real projects (future) |
 | [`decisions/`](decisions/) | ADRs — why each design decision was made |
-| [`divulgacao/`](divulgacao/) | **support**: communication/outreach (posts, images) — outside the 3 artifact territories |
+| [`divulgacao-pt-BR/`](divulgacao-pt-BR/) | **support**: communication/outreach (posts, images) — outside the 3 artifact territories |
 | [`AGENTS.md`](AGENTS.md) · [`MAP.md`](MAP.md) · [`STATUS.md`](STATUS.md) | navigation (AI / map / current focus) |
 | [`ESTILO-REDACAO.md`](ESTILO-REDACAO.md) | the writing standard for the documents (Plain Language) |
 

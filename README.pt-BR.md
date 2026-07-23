@@ -31,6 +31,22 @@ medimos**, cada uma até o seu limite (mapeado na
 [opinião de uso](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)); **Comporta** seguirá
 o mesmo princípio. *(A navegação dedicada a IA fica em [`AGENTS.md`](AGENTS.md).)*
 
+## Trilha de primeira leitura (só superfície)
+
+Para uma pessoa nova entender o que já está pronto (sem mergulhar no histórico de
+teorias e evolução), use esta sequência:
+
+1. [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) — valor, escopo e limites, em linguagem simples.
+2. [`recipe/README.md`](recipe/README.md) — guia prático de uso.
+3. [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) — produto Strata completo.
+4. [`MAP.md`](MAP.md) — onde fica cada artefato.
+5. [`STATUS.md`](STATUS.md) — foco atual e frentes abertas.
+
+Opcional, só se quiser abrir evidência detalhada agora:
+
+- [`lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)
+- [`lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md`](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md)
+
 ## Quero… → vá para
 
 Atalhos por intenção:
@@ -173,7 +189,7 @@ e diz se vale usar IA local — *ligar agora / considerar / bloqueado* — com o
 | [`lab/`](lab/) | pesquisa exploratória, datada (fundamentação-L0, future-proof, aderência/portabilidade, **economia de IA**) |
 | [`prototype/`](prototype/) | teste em escala, em projetos reais (futuro) |
 | [`decisions/`](decisions/) | ADRs — por que cada decisão de design foi tomada |
-| [`divulgacao/`](divulgacao/) | **apoio**: comunicação/divulgação (posts, imagens) — fora dos 3 territórios de artefato |
+| [`divulgacao-pt-BR/`](divulgacao-pt-BR/) | **apoio**: comunicação/divulgação (posts, imagens) — fora dos 3 territórios de artefato |
 | [`AGENTS.md`](AGENTS.md) · [`MAP.md`](MAP.md) · [`STATUS.md`](STATUS.md) | navegação (IA / mapa / foco atual) |
 | [`ESTILO-REDACAO.md`](ESTILO-REDACAO.md) | a norma de redação dos documentos (Linguagem Simples) |
 

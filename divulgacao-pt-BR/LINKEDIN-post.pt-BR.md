@@ -1,6 +1,9 @@
+<!-- l10n: doc_id=strata-linkedin-post · lang=pt-BR · source_lang=en · translation_of=LINKEDIN-post.md -->
+[English](LINKEDIN-post.md) · **Português**
+
 # Post para o LinkedIn — Strata
 
-**Imagem:** anexe **`strata-linkedin.png`** (nesta mesma pasta, `divulgacao/`).
+**Imagem:** anexe **`strata-linkedin.png`** (nesta mesma pasta, `divulgacao-pt-BR/`).
 **Texto:** copie tudo dentro do bloco abaixo (é texto puro — sem formatação que o LinkedIn quebra). A primeira linha é o gancho (o LinkedIn corta em "ver mais" depois de ~3 linhas).
 
 ---

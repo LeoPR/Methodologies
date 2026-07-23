@@ -3,7 +3,7 @@ name: map-methodologies-project
 type: navigation
 status: active
 created: 2026-06-03
-updated: 2026-06-14
+updated: 2026-07-23
 ---
 
 # Methodologies — mapa
@@ -37,7 +37,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   ├── README.md                     <- princípio (meio≠fim) + 3 territórios + regra evidencia/instrumento/infra
 │   └── strata/                       <- harness do Strata: runner, scorers, fixtures, cenários + planos/ (gitignored)
 ├── prototype/                        <- cozinha prototipo (escala; futuro)
-├── divulgacao/                       <- APOIO: comunicação/divulgação (posts, imagens) — fora dos 3 territórios de artefato
+├── divulgacao-pt-BR/                 <- APOIO: comunicação/divulgação (posts, imagens) — fora dos 3 territórios de artefato
 ├── README.md                         <- entry humano (as 3 cozinhas)
 ├── AGENTS.md                         <- entry IA
 ├── MAP.md                            <- este arquivo
@@ -48,12 +48,21 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 
 | Quero | Va para |
 |---|---|
+| **Começar do zero (onboarding de superfície)** | [`README.md`](README.md) → [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) → [`recipe/README.md`](recipe/README.md) → [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) |
 | **Usar a metodologia** (produto) | [recipe/knowledge-architecture.md](recipe/knowledge-architecture.md) |
 | **Organizar docs de entrada em 2 línguas** (aplicável a outro projeto) | [recipe/documentacao-multilingue.md](recipe/documentacao-multilingue.md) |
 | **A opinião honesta de uso** (o que funciona, por tarefa/tier/custo) | [lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | Ver a **prova** de que o Strata funciona (a "chave de fenda") | hub [ARQUITETURA-E-EVIDENCIAS.md](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md) · harness em [eval/strata/](eval/strata/) |
 | Ver por que tomamos as decisoes que tomamos | [decisions/](decisions/) |
+| Ver o estado do momento | [STATUS.md](STATUS.md) |
+
+## Pesquisa histórica (não é trilha de entrada)
+
+Os links abaixo são importantes como evidência e memória de projeto, mas não fazem
+parte da leitura inicial de superfície:
+
+| Quero | Va para |
+|---|---|
 | Entender como a gente pesquisou | [lab/2026-06-03-modernizacao/README.md](lab/2026-06-03-modernizacao/README.md) |
 | Ver a analise (inventario/gaps/sintese) | [lab/2026-06-03-modernizacao/analise-5-lentes.md](lab/2026-06-03-modernizacao/analise-5-lentes.md) |
 | Ver o experimento de split (10 docs) | [lab/2026-06-03-modernizacao/experimento-split/](lab/2026-06-03-modernizacao/experimento-split/) |
-| Saber o foco atual | [STATUS.md](STATUS.md) |

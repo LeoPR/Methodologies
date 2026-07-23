@@ -2,6 +2,7 @@
 title: Documentação multilíngue — fonte canônica + tradução rastreável
 status: portável (piloto aplicado neste repo; pronto para reuso)
 created: 2026-06-30
+updated: 2026-07-23
 ---
 
 # Documentação multilíngue — fonte canônica + tradução rastreável
@@ -102,3 +103,49 @@ e deixe os de pesquisa numa língua só, com uma nota.
 
 Este arquivo viaja sozinho: copie-o para outro projeto e aplique. Se um dia ele mesmo precisar de tradução,
 aplica-se a si próprio.
+
+## Aplicação neste repositório (plano EN/PT-BR)
+
+Objetivo editorial deste repo:
+
+- `README.md` (raiz) em **inglês** como canônico.
+- Versão em português no par `README.pt-BR.md`.
+- Demais documentos de entrada/produto em pares `*.en.md` e `*.pt-BR.md`, sem renomear o canônico.
+
+Estado atual e fila recomendada (superfície primeiro):
+
+| Documento de superfície | Estado bilíngue | Próxima ação |
+|---|---|---|
+| `README.md` | ✅ par pronto (`README.pt-BR.md`) | manter sincronizado por commit |
+| `recipe/knowledge-architecture.md` | ✅ par pronto (`knowledge-architecture.en.md`) | manter sincronizado por commit |
+| `recipe/README.md` | ❌ sem par | criar `recipe/README.en.md` ou migrar canônico para inglês e criar `recipe/README.pt-BR.md` |
+| `MAP.md` | ❌ sem par | criar `MAP.en.md` |
+| `STATUS.md` | ❌ sem par | criar `STATUS.en.md` (resumo operacional; histórico pode ficar em PT-BR) |
+| `recipe/o-que-voce-ganha.md` | ❌ sem par | criar `recipe/o-que-voce-ganha.en.md` |
+
+Critério de priorização:
+
+1. Entrada de navegação (`README`, `MAP`, `STATUS`).
+2. Produto e adoção (`recipe/README`, `recipe/o-que-voce-ganha`, `knowledge-architecture`).
+3. Pesquisa (`lab/`) fica monolíngue com nota, salvo necessidade específica.
+
+## Técnica escolhida para manter sincronizado
+
+Padrão adotado: **fonte canônica + espelho rastreável em commit único**.
+
+Como operar em cada alteração de conteúdo:
+
+1. Editar primeiro o arquivo canônico (sem sufixo).
+2. Atualizar a tradução no mesmo ciclo de trabalho.
+3. Commitar os dois juntos.
+4. Se a tradução não ficar pronta, adicionar aviso explícito no topo da tradução e abrir item de pendência.
+
+Checklist de sincronização por par:
+
+- `doc_id` igual nas duas línguas.
+- `translation_of` apontando para o canônico correto.
+- seletor de idioma recíproco no topo dos dois arquivos.
+- links internos revisados após rename de pasta/arquivo.
+
+Esta técnica foi escolhida por ser independente de fornecedor/modelo de IA e por manter
+o histórico do git como fonte objetiva de frescor.

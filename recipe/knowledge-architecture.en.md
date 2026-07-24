@@ -5,7 +5,7 @@ version: 1.1.0
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-06-14
+updated: 2026-07-23
 lang: en
 source_lang: pt-BR
 translation_of: knowledge-architecture.md
@@ -20,7 +20,11 @@ how-to-use: on-demand reference; Part I is self-contained and independent of any
 decisions: decisions/
 ---
 
-<!-- l10n: translation of knowledge-architecture.md (pt-BR canonical) @ 89f16da · freshness ruler = git history · translate prose only, never the § refs, code, paths, or citations -->
+<!-- l10n: doc_id=strata-knowledge-architecture · lang=en · source_lang=pt-BR · translation_of=knowledge-architecture.md -->
+<!-- Freshness ruler = git history (see recipe/documentacao-multilingue.md), not a hand-written stamp.
+     Translate prose only, never the § refs, code, paths, the Greek layer names (Mneme/Morfé/Órganon),
+     or the grounding citations. -->
+[Português](knowledge-architecture.md) · **English**
 
 # Knowledge architecture — organize, track, and generate
 

@@ -119,27 +119,63 @@ def _extract_json(raw):
     return json.loads(raw[i:j + 1])
 
 
-def _call_rf(provider, model, prompt, max_tokens, timeout):
-    """Tenta com response_format json_object; se o modelo rejeita (400/415/422), tenta sem."""
-    try:
-        return chat(provider, model, prompt, max_tokens=max_tokens, temperature=0.0,
-                    response_format={"type": "json_object"}, timeout=timeout)
-    except urllib.error.HTTPError as e:
-        if e.code in (400, 415, 422):
-            return chat(provider, model, prompt, max_tokens=max_tokens, temperature=0.0, timeout=timeout)
-        raise
+def harden_schema(schema):
+    """Deixa um JSON Schema conforme os modos ESTRITOS dos provedores. Aplica, recursivamente:
+      - `additionalProperties: false` em TODO objeto (exigencia do Cerebras desde 2026-07-21;
+        schema nao-conforme -> HTTP 422);
+      - TODAS as propriedades em `required` (exigencia do Groq no strict mode).
+    Aplicar as duas e' o denominador comum portavel — inofensivo em quem nao exige.
+    Nao muta a entrada."""
+    if not isinstance(schema, dict):
+        return schema
+    out = dict(schema)
+    props = out.get("properties")
+    if isinstance(props, dict):
+        out["properties"] = {k: harden_schema(v) for k, v in props.items()}
+        out["additionalProperties"] = False
+        out["required"] = list(props.keys())
+    if isinstance(out.get("items"), dict):
+        out["items"] = harden_schema(out["items"])
+    for key in ("anyOf", "oneOf", "allOf"):
+        if isinstance(out.get(key), list):
+            out[key] = [harden_schema(s) for s in out[key]]
+    return out
 
 
-def judge_json(spec, prompt, *, max_tokens=700, timeout=120):
-    """Roda um JUIZ (spec 'provider:model') pedindo JSON; valida e retenta 1x se nao parsear.
-    Embute o User-Agent (Cloudflare) e o retry de 429/5xx via chat(). Retorna o dict do veredito."""
+def judge_json(spec, prompt, *, schema=None, max_tokens=700, timeout=120):
+    """Roda um JUIZ (spec 'provider:model') e devolve o dict do veredito.
+
+    Com `schema`, tenta primeiro o modo json_schema ESTRITO: a decodificacao restrita torna
+    IMPOSSIVEL o modelo emitir fora do schema — mata de raiz as falhas observadas no smoke-test
+    (copiar o placeholder do enum, campo faltando, prosa em volta do JSON). Escada de fallback:
+    estrito -> json_object -> texto puro, porque nem todo provedor/modelo aceita cada modo.
+    Embute o User-Agent (Cloudflare) e o retry de 429/5xx via chat()."""
     provider, model = parse_spec(spec)
-    d = _call_rf(provider, model, prompt, max_tokens, timeout)
-    content, _, _, _ = content_of(d)
-    try:
-        return _extract_json(content)
-    except Exception:  # noqa — retenta 1x forcando "so JSON", sem response_format
-        prompt2 = prompt + "\n\nResponda ESTRITAMENTE apenas com o objeto JSON, sem nenhum texto fora dele."
-        d = chat(provider, model, prompt2, max_tokens=max_tokens, temperature=0.0, timeout=timeout)
+
+    formats = []
+    if schema is not None:
+        formats.append({"type": "json_schema",
+                        "json_schema": {"name": "verdict", "strict": True,
+                                        "schema": harden_schema(schema)}})
+    formats.append({"type": "json_object"})
+    formats.append(None)  # sem response_format
+
+    for rf in formats:
+        try:
+            d = chat(provider, model, prompt, max_tokens=max_tokens, temperature=0.0,
+                     response_format=rf, timeout=timeout)
+        except urllib.error.HTTPError as e:
+            if e.code in (400, 415, 422):
+                continue  # provedor/modelo recusa este response_format -> proximo da escada
+            raise
         content, _, _, _ = content_of(d)
-        return _extract_json(content)
+        try:
+            return _extract_json(content)
+        except Exception:  # noqa — resposta nao parseou; tenta o proximo modo
+            continue
+
+    # ultimo recurso: pedir explicitamente "so o objeto JSON", sem response_format
+    prompt2 = prompt + "\n\nResponda ESTRITAMENTE apenas com o objeto JSON, sem nenhum texto fora dele."
+    d = chat(provider, model, prompt2, max_tokens=max_tokens, temperature=0.0, timeout=timeout)
+    content, _, _, _ = content_of(d)
+    return _extract_json(content)

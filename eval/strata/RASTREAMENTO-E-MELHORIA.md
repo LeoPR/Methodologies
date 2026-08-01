@@ -1,7 +1,9 @@
 ---
 title: H-B/H-C — rastreamento consolidado e plano de melhoria
 created: 2026-06-06
-status: canônico para retomada antes de novos testes
+status: 'SUPERSEDED (2026-08-01) — referia instrumentos da 1ª geração do harness (hb_limit_search/
+  hb_matrix_score/hb_section_score/hb_cloud_score), tombados em `_superseded/`. Referência atual de
+  retomada: o `README.md` desta pasta (`eval/strata/README.md`). Mantido como registro histórico.'
 scope: consolidar legado + execuções recentes + próximo ciclo com visibilidade de borda
 ---
 

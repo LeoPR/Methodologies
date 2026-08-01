@@ -2,7 +2,7 @@
 title: Documentação multilíngue — fonte canônica + tradução rastreável
 status: portável (piloto aplicado neste repo; pronto para reuso)
 created: 2026-06-30
-updated: 2026-07-23
+updated: 2026-08-01
 ---
 
 # Documentação multilíngue — fonte canônica + tradução rastreável
@@ -110,18 +110,20 @@ Objetivo editorial deste repo:
 
 - `README.md` (raiz) em **inglês** como canônico.
 - Versão em português no par `README.pt-BR.md`.
-- Demais documentos de entrada/produto em pares `*.en.md` e `*.pt-BR.md`, sem renomear o canônico.
+- Nos novos pares, o arquivo canônico fica sem sufixo; a tradução recebe o sufixo BCP 47.
+- Um par legado com outra língua canônica não muda de autoridade silenciosamente: a migração precisa ser explícita.
 
 Estado atual e fila recomendada (superfície primeiro):
 
 | Documento de superfície | Estado bilíngue | Próxima ação |
 |---|---|---|
-| `README.md` | ✅ par pronto (`README.pt-BR.md`) | manter sincronizado por commit |
-| `recipe/knowledge-architecture.md` | ✅ par pronto (`knowledge-architecture.en.md`) | manter sincronizado por commit |
-| `recipe/README.md` | ❌ sem par | criar `recipe/README.en.md` ou migrar canônico para inglês e criar `recipe/README.pt-BR.md` |
-| `MAP.md` | ❌ sem par | criar `MAP.en.md` |
-| `STATUS.md` | ❌ sem par | criar `STATUS.en.md` (resumo operacional; histórico pode ficar em PT-BR) |
-| `recipe/o-que-voce-ganha.md` | ❌ sem par | criar `recipe/o-que-voce-ganha.en.md` |
+| `README.md` | ✅ par pronto (`README.pt-BR.md`) | manter sincronizado por commit; guarda l10n disponível |
+| `outreach/` | ✅ pares prontos (README, post e imagem) | manter cada par sincronizado; revisar/renderizar ativos ao alterar |
+| `recipe/knowledge-architecture.en.md` | ✅ par pronto: **EN canônico** + `.md` (PT-BR derivado) — autoridade migrada 2026-08-01 por decisão explícita (adendo ADR-008) | manter sincronizado por commit; guarda l10n disponível |
+| `recipe/README.md` | ❌ sem par | mover a fonte PT-BR para `README.pt-BR.md` e criar `README.md` em inglês |
+| `MAP.md` | ❌ sem par | mover a fonte PT-BR para `MAP.pt-BR.md` e criar `MAP.md` em inglês |
+| `STATUS.md` | ❌ sem par | manter histórico em PT-BR; criar superfície canônica curta em inglês + tradução pt-BR |
+| `recipe/o-que-voce-ganha.md` | ❌ sem par | mover a fonte PT-BR para `.pt-BR.md` e criar o canônico sem sufixo em inglês |
 
 Critério de priorização:
 
@@ -146,6 +148,23 @@ Checklist de sincronização por par:
 - `translation_of` apontando para o canônico correto.
 - seletor de idioma recíproco no topo dos dois arquivos.
 - links internos revisados após rename de pasta/arquivo.
+- ativos com texto seguem a mesma autoridade: arquivo sem sufixo canônico, tradução com BCP 47;
+  fonte editável e derivado renderizado entram juntos no commit.
+
+Guarda mecânica deste repositório:
+
+```text
+python tools/check_l10n.py            # pares no índice (pre-commit)
+python tools/check_l10n.py --working  # pares alterados no working tree
+```
+
+A guarda valida metadados e links recíprocos. Se o canônico mudou, exige que todas as
+traduções do `doc_id` entrem no mesmo commit; uma correção isolada de tradução continua permitida.
+Seu escopo mecânico é Markdown: ela não compara a semântica da prosa, o texto de SVGs nem os pixels
+de imagens. Ativos visuais traduzidos exigem revisão e renderização nas duas línguas.
+Para automatizar, incorpore as chamadas de `tools/githooks/pre-commit` ao hook já configurado no
+ambiente. Antes de mudar `core.hooksPath`, verifique o valor existente para não desligar hooks
+globais. Sem integração, as duas guardas devem ser executadas manualmente antes do commit.
 
 Esta técnica foi escolhida por ser independente de fornecedor/modelo de IA e por manter
 o histórico do git como fonte objetiva de frescor.

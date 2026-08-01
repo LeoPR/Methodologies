@@ -1,8 +1,8 @@
 ---
 title: Arquitetura de testes e evidências do Strata — o que comprova, em que condições (macro)
 created: 2026-06-13
-updated: 2026-07-23
-status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fronteira.
+updated: 2026-08-01
+status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5/F6 fronteira.
 ---
 
 # Como o Strata foi testado — e o que a evidência mostra
@@ -21,8 +21,8 @@ status: vivo. F0-F4 (nuvem) + F3 (local) fechados; F4 (local) em curso; F5/F6 fr
 
 ## Ambiente e testes
 
-Os testes rodam em **dois ambientes des modelos de linguagem**.
-Os de **nuvem** são acessados por API, do barato ao forte, via openrouter.com, com modelos da empresas (vendors) Anthropic, OpenAI e Google (como o Haiku, GPT-5 e Gemini).
+Os testes rodam em **dois ambientes de modelos de linguagem**.
+Os de **nuvem** são acessados por API, do barato ao forte, via openrouter.com, com modelos das empresas (vendors) Anthropic, OpenAI e Google (como o Haiku, GPT-5 e Gemini).
 Os **locais** rodam na própria máquina do usuário, e são modelos pequenos (de 4 a 8 bilhões de parâmetros), mais ruidosos, como o Deepseek-R1.
 
 Quando o acerto não é mecânico, quem dá a nota a um plano é outro modelo de IA, o **juiz**.
@@ -47,7 +47,7 @@ Os demais termos (os modos M0-M4, *fixture*, *fail-closed*, *tombstone*) estão 
 | **F1/M0** abstenção | sabe *não agir*? | ✅ fechado | média (N pequeno) | [F1/M0](RESULTADOS-f1-m0-abstencao.md) |
 | **P7** camadas | entende L0/L1/L2? | ✅ parcial | média | [P7](RESULTADOS-p7-camadas-entender-aplicar.md) |
 | **F3** recusa | recusa injeção? | ✅ nuvem + local | média-alta (juízes) | [F3](RESULTADOS-f3-recusa.md) |
-| **F4** execução | conserta sem destruir? | ✅ nuvem + local + eco (real) | média (N=2) | [F4](RESULTADOS-f4-execucao.md) |
+| **F4** execução | conserta sem destruir? | ✅ nuvem + eco (real) fecham; local (4-8B) fechado com conclusão **negativa** (zero PASS, pode destruir) | média (N=2) | [F4](RESULTADOS-f4-execucao.md) |
 | **F5** pesquisa (§6/web) | web ajuda a verificar a fonte? | ✅ probe (exploratório) | baixa (N=1-2) | [F5](RESULTADOS-f5-pesquisa.md) |
 | **Braço externo** | o falso-positivo é circular? | ✅ bem-comportado + messy (6 repos) | baixa (N=1; messy gênero-confundido) | [externo](RESULTADOS-externo-bemcomportado.md) |
 | **Gênero** | aplica o padrão do gênero? | ✅ probe (com framing) | baixa (N=1) | [gênero](RESULTADOS-genero.md) |
@@ -61,7 +61,7 @@ Os demais termos (os modos M0-M4, *fixture*, *fail-closed*, *tombstone*) estão 
 2. Uma **IA consegue aplicar** o Strata, e o método **ajuda**? — questão *empírica*.
 
 ## Camada 1 — o núcleo é fundamentado (não é experimento)
-O L0 (12 princípios) foi consolidado contra **22 fontes primárias** + varredura de atemporalidade,
+O L0 (13 princípios — §11 classificação entrou em 2026-08-01, após esta consolidação) foi consolidado contra **22 fontes primárias** + varredura de atemporalidade,
 e a estratificação por **durabilidade** tem precedente canônico (*pace layering*, Brand 1999;
 *shearing layers*; Gartner 2012). Etimologia e fontes no [`GLOSSARIO.md`](../../GLOSSARIO.md). Isto é
 **estabelecido**, não medição. O L0/L1 **independe de tecnologia** — um humano com tempo aplica tudo,
@@ -77,7 +77,7 @@ IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degr
 | **M1/M2** — compreensão | "entende o método e o projeto?" | parcial | [P7](RESULTADOS-p7-camadas-entender-aplicar.md) |
 | **M3** — diagnóstico | "o que está errado / o que faria?" | exaustivo (L0) | série R/P |
 | **M3.5** — recusa (F3) | "recusa obedecer uma ordem maliciosa lida do projeto?" | fechado (nuvem+local) | [RESULTADOS-f3](RESULTADOS-f3-recusa.md) |
-| **M4** — execução (F4) | "produz o fix sem destruir rastreabilidade?" | nuvem fechado; local em curso | [RESULTADOS-f4](RESULTADOS-f4-execucao.md) |
+| **M4** — execução (F4) | "produz o fix sem destruir rastreabilidade?" | nuvem + local fechados (local = conclusão negativa) | [RESULTADOS-f4](RESULTADOS-f4-execucao.md) |
 
 ## Como medimos — a disciplina (por que dá pra confiar nos sinais)
 
@@ -247,7 +247,7 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   seções do L0; as violações que havia (drift de duplicação, `updated:` morto, âncora-fantasma `§22`) já
   foram corrigidas nesta sessão pelas regras do método (append-only, apontar-não-copiar, §9). **Confirmado
   por cross-check de 5 auditores** (o fan-out, após o limite de gasto reabrir): só resíduo de baixa/média
-  severidade, e os baratos já consertados (`divulgacao-pt-BR/` na navegação, banner §6-bis em `_superseded/fixtures/`,
+  severidade, e os baratos já consertados (`divulgacao/` na navegação; pasta hoje em `outreach/`, banner §6-bis em `_superseded/fixtures/`,
   "Strata FINALIZADO"→honesto). [`AUTOAUDITORIA-repo-vs-strata`](AUTOAUDITORIA-repo-vs-strata.md).
 - **2026-06-14** — **P8 (posição/saliência da §9): POSIÇÃO REFUTADA.** A/B/C placebo (K=5) + varredura de
   temperatura (K=10): o banner neutro (C) = canônico (A) ⇒ pôr a §9 no topo **não muda** o comportamento (cai o
@@ -369,3 +369,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
 - **2026-06-08** — **P6/P7** (fronteira de uso; entender ≠ barreira). *Nota: o "+0.50" do deepseek-r1:8b
   local foi depois **superado** — era artefato de truncagem; validado −1.50 (ver P6).*
 - **2026-06-04** — núcleo **L0 consolidado** (22 fontes); dossiê de temporalidade registrado (a estudar).
+- **2026-08-01** — **faxina documental de superfície** (ADR-005, Nível 1): o status do hub dizia
+  "F4 (local) em curso" — **stale**; o local fechou em 06-13 com conclusão **negativa** (4-8B,
+  zero PASS, gemma3 destruiu). Linhas F4/M4 da tabela agora dizem isso explicitamente (✅ =
+  fase fechada, não "local funciona"). Erratas nos ADRs: **ADR-003** (a referência "ADR-004 p/
+  Parte IV" era o próximo número livre à época; hoje seria ADR-009) e **ADR-005** (a escada
+  1-2-4 ganha o **Nível 3 = guarda mecânica leve**, adotado de fato: `check_stamps`/`check_l10n`).
+  `eval/strata/RASTREAMENTO-E-MELHORIA.md` marcado **superseded** (referia instrumentos da 1ª
+  geração, tombados em `_superseded/`; referência atual de retomada = `eval/strata/README.md`).

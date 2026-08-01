@@ -1,0 +1,74 @@
+---
+title: Fechamento das camadas L0/L1/L2 — revisão fundamentada em partes
+created: 2026-08-01
+updated: 2026-08-01
+status: **CICLO P1–P5 FECHADO (2026-08-01)** — L0 editorialmente fechado: §11
+  enxuto no canônico (P1), P2 refutada, §6-bis expandido com autoridade-para-ver
+  (P3), notas datadas resolvidas com persona declarada no lead (P4), âncoras do
+  L1 mapeadas (P5). Flip EN-canônico formalizado (adendo ADR-008).
+  Próximo passo declarado pelo dono: como TESTAR o L0 fechado.
+origem: avaliação do repo (2026-08-01) — o usuário exigiu que cada achado fosse
+  sustentado por lógica + literatura + evidência, uma parte por vez, antes de
+  decidir qualquer mudança no canônico (recipe/)
+---
+
+# Fechamento das camadas — revisão fundamentada, em partes
+
+Regra desta pasta (dogfood de §4/§7):
+
+- **Uma parte por vez.** Cada parte declara hipótese antes, traz literatura
+  web-verificada `[WEB ✓ 2026-08-01]`, evidência interna (o próprio repo) e
+  ameaças à validade. **Só se fecha** quando a posição está sustentada.
+- **Nada vai ao `recipe/`** enquanto a parte não fechar. O canônico é o produto;
+  isto aqui é exploração (§1/§7).
+- Se a conclusão for "**não mudar nada**", ela também é registrada — preservar
+  o negativo (§4).
+
+## Fila de partes
+
+| Parte | Questão | Status |
+|---|---|---|
+| **P1 — Classificação** | o L0 tem princípio de *como agrupar/rotular* (eixo, divisão, facetas)? candidato a §11 | **FECHADA (2 ciclos):** §11 no canônico; 2º ciclo sob a régua axiomática **enxugou** o §11 (regras "eixo declarado" e "hipótese de domínio" eram teoremas deriváveis de §3/§4/§6 → viraram derivações declaradas) → [`P1-classificacao.md`](P1-classificacao.md) + [`P1-revisao.md`](P1-revisao.md) |
+| **P2 — Identidade/granularidade** | o L0 diz o que é "*um* artefato" (atomicidade, fronteira de chunk, identidade estável)? | **FECHADA — REFUTADA (2026-08-01):** era pedido de apresentação, não axioma faltante; sem mudança no canônico → [`P2-identidade-grao.md`](P2-identidade-grao.md) §8 |
+| **P3 — Sigilo / autoridade-para-ver** | o invariante simétrico ao §6-bis (agir) — compartimentalização, need-to-know — está no escopo do Eixo 5? | **FECHADA — APROVADA E APLICADA (2026-08-01):** §6-bis expandido no canônico EN-first (+ tradução PT derivada; linha L1 RBAC/ABAC ancorada nos dois atos); flip formal EN-canônico no mesmo ciclo (adendo ADR-008) → [`P3-sigilo-autoridade-ver.md`](P3-sigilo-autoridade-ver.md) §7 |
+| **P4 — Notas datadas no L0** | as notas "Operacional (por que importa para IA)" em §3/§9 violam a regra da própria Parte I? extração ou reformulação | **FECHADA — APROVADA E APLICADA (2026-08-01):** notas saíram; persona declarada 1× no lead (formulação literal do dono); links datados viraram "Era instance" nos Groundings de §3/§9 → [`P4-notas-datadas-personas.md`](P4-notas-datadas-personas.md) §7 |
+| **P5 — Âncoras do L1** | §1 e §9 sem mapeamento na Parte II; Cookiecutter sob §8 expressa §1; "gerar e priorizar" não ancorado | **FECHADA — APLICADA (2026-08-01):** Cookiecutter movido p/ nova âncora §1; "gerar e priorizar" re-ancorado como §7 (cont.); nova âncora §11 (3 formalizações); §9 fica sem tabela **por decisão declarada** (é regulador — sua expressão L1 são as notas de Adherence distribuídas) → [`P5-ancoras-L1.md`](P5-ancoras-L1.md) |
+
+Ordem justificada: P1-P3 são **conceituais** (mudam o L0 se confirmadas —
+precisam de literatura); P4 é **coerência interna** (a própria regra do
+documento decide); P5 é **editorial**.
+
+## A régua de revisão (surge da P2, 2026-08-01)
+
+Critério discriminante para toda candidatura ao L0, fixado após a objeção do
+dono (abstração não precisa de densidade/apresentação):
+
+> **"Instanciado o método num corpus novo, sem computador, a operação existe no
+> repertório do L0?"** Sim → candidatura válida (P1-§11: "formar o esquema" não
+> existia). A "falta" só aparece como pedido de exemplo/definição do primitivo
+> → **não é lacuna** (P2: "artefato" é primitivo de Hilbert — definido
+> implicitamente pelas operações; exemplos ficam fora, mostrando que o fluxo
+> funciona).
+
+Fundamentação da régua: Hilbert 1899 (primitivos definidos implicitamente pelos
+axiomas; "mesas, cadeiras, canecas"); Benacerraf 1965 (números não são objetos;
+vale a estrutura); ADTs — Liskov & Zilles 1974 / Guttag & Horning 1978 (o tipo
+é definido pelas operações, não pela representação). Completo em
+[`P2-identidade-grao.md`](P2-identidade-grao.md) §8.
+
+Corolário: a régua **reforça a P4** — notas "Operacional (por que importa para
+IA)" na Parte I são apresentação dentro da abstração; o lugar delas é fora.
+
+## Fluxo de idiomas (decisão do dono, 2026-08-01)
+
+A partir da P3, trabalho é **EN-first**: o inglês (`knowledge-architecture.en.md`)
+é o documento de trabalho; o PT é **tradução derivada** — não precisa ser lido
+nem debatido, apenas traduzido com fidelidade para manter o mesmo conteúdo.
+
+**Pendente (passo próprio, fora desta pasta):** ~~o flip *formal* de autoridade no
+produto~~ — **FEITO 2026-08-01**: o par `strata-knowledge-architecture` inverteu
+(EN canônico, PT derivado) por decisão explícita do dono; adendo datado no
+ADR-008, cólofons trocados, `tools/check_l10n.py` inalterado (orientada a
+marcadores). Resta da fila editorial da doc multilíngue: `recipe/README.md`,
+`MAP.md`, `STATUS.md`, `o-que-voce-ganha.md` (sem par — ver tabela em
+`recipe/documentacao-multilingue.md`).

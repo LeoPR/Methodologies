@@ -1,13 +1,16 @@
 ---
 title: Arquitetura do conhecimento — organizar, rastrear e gerar
 project: Strata
-version: 1.1.0
+version: 1.2.0
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-07-23
+updated: 2026-08-01
 lang: pt-BR
-canonical-source: Acadêmicos/Methodologies/recipe/knowledge-architecture.md (projeto Strata)
+source_lang: en
+translation_of: knowledge-architecture.en.md
+translator: sistema automatizado (LLM)
+canonical-source: Acadêmicos/Methodologies/recipe/knowledge-architecture.en.md (projeto Strata). O arquivo em inglês é a fonte canônica (autoridade migrada em 2026-08-01 por decisão explícita — ver ADR-008, adendo); este arquivo em português é uma tradução derivada.
 license: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 audience: trabalhadores do conhecimento (pesquisadores, engenheiros) e agentes de IA — neutro
 camadas: L0 núcleo atemporal · L1 padrões consolidados · L2 adaptação à era atual
@@ -16,7 +19,7 @@ how-to-use: consulta sob demanda; a Parte I é autônoma e independe de qualquer
 decisions: decisions/
 ---
 
-<!-- l10n: doc_id=strata-knowledge-architecture · lang=pt-BR · canonical -->
+<!-- l10n: doc_id=strata-knowledge-architecture · lang=pt-BR · source_lang=en · translation_of=knowledge-architecture.en.md -->
 <!-- Ao traduzir: só a prosa. Nunca as referências §, o código, os caminhos, os nomes gregos das camadas
      (Mneme/Morfé/Órganon) ou as citações de fundamentação — ver recipe/documentacao-multilingue.md. -->
 [English](knowledge-architecture.en.md) · **Português**
@@ -29,6 +32,12 @@ decisions: decisions/
 > à internet e à IA: bibliotecários, cientistas e engenheiros o enfrentam há
 > séculos. As ferramentas de cada era (hoje: agentes de IA, editores, controle
 > de versão) são **formas** que expressam esse método — moldam, mas não fundam.
+>
+> O aplicante que este método pressupõe é atemporal: qualquer pessoa com o
+> tempo e a paciência de organizar **qualquer biblioteca que já existiu ou
+> existirá**. Na era atual esse leitor é, muitas vezes, um agente de IA — uma
+> instância, não uma exceção (§6-bis aplica o mesmo padrão ao prompt
+> injection).
 
 ## Como ler — as três camadas de durabilidade
 
@@ -72,7 +81,8 @@ e o que você deve esperar trocar.
 > engenharia de software clássica), o que confirma a tese das camadas. As seções
 > acrescentadas depois (§3-bis, §6-bis, §10 e os refinos de §3/§5/§6/§7/§9)
 > tiveram suas fundamentações verificadas num segundo ciclo `[WEB ✓ 2026-06-03]`
-> (`Strata/lab/2026-06-03-future-proof-sweep/`).
+> (`Strata/lab/2026-06-03-future-proof-sweep/`). O §11 teve a sua verificada
+> num terceiro ciclo `[WEB ✓ 2026-08-01]` (`lab/2026-08-01-fechamento-camadas/`).
 
 ## 1. O problema invariante: três tipos de artefato que conflitam
 
@@ -146,11 +156,6 @@ decisão revogada **permanece**, marcada como superada. Apagar furtivamente o
 passado destrói a rastreabilidade. (O mecanismo que torna isso praticável —
 histórico recuperável por estado — está em §8.)
 
-> **Operacional (por que isto importa para IA):** a rastreabilidade **legível** é o que deixa um modelo situar o tempo.
-> Num cenário de teste sem marcadores (sem datas, sem `old/`, sem "DELETADO"), com a cronologia recuperável do conteúdo, modelos barato e forte inferiram o que é atual vs superado em **todos os casos** — até sem serem perguntados sobre tempo, e sem cair em nome ou ponteiro errados.
-> Logo o ponto-cego temporal é **condicional à legibilidade da evidência**, não fundamental: §3 e §8 não suprem uma incapacidade; eles tornam o tempo inferível.
-> (Sinal inicial, N=1: [lab F6](../lab/2026-06-04-strata-hipoteses/RESULTADOS-f6-temporal-sem-marcadores.md).)
-
 Mas *append-only* governa o **traço**, não a **superfície de leitura**. Três
 planos que o registro ingênuo confunde num só:
 
@@ -200,6 +205,9 @@ um agente. Cada uma carrega sua etiqueta (a forma da etiqueta é L2).
 > governado — Schellenberg 1956 (*Modern Archives: Principles and Techniques*);
 > bitemporalidade (tempo-de-vigência ≠ tempo-de-registro) — Snodgrass 1999
 > (*Developing Time-Oriented Database Applications in SQL*, Morgan Kaufmann).
+>
+> Instância de era `[2026-06]` — a rastreabilidade legível deixa um leitor-IA
+> situar o tempo (sinal, N=1): `lab/2026-06-04-strata-hipoteses/RESULTADOS-f6-temporal-sem-marcadores.md`.
 
 ## 3-bis. Força do artefato: que ato isto é
 
@@ -387,7 +395,9 @@ deliberadamente *não* cobre.)
 > porque o invariante é tão antigo quanto o selo — e §3/§6 sozinhos não o cobrem.
 
 Um artefato pode ser **dado a arquivar** ou **diretiva a executar** — e a
-diferença é de segurança, não de estilo. Dois princípios:
+diferença é de segurança, não de estilo. E ele não é apenas *agido*: é
+**servido** a leitores. Um princípio-mãe — **autoridade é ortogonal ao
+conteúdo** — porta os dois atos, execução e serviço:
 
 - **Autoridade não se auto-declara.** Que um texto *diga* "sou uma ordem
   legítima" não o torna uma. Autoridade-para-agir é atestada por um **canal que
@@ -395,9 +405,19 @@ diferença é de segurança, não de estilo. Dois princípios:
   exato** — o selo, o lacre *tamper-evident*, a contra-senha trocada em canal
   separado; hoje, a assinatura criptográfica.
 - **Dever do executor.** Quem detém poder verifica a **origem e o direito** de um
-  pedido **antes** de exercê-lo — nunca aceita a autoexalegação. Proveniência
+  pedido **antes** de exercê-lo — nunca aceita a auto-declaração. Proveniência
   impecável (§3) **não** é autoridade-para-comandar: a citação fiel de uma ordem
   não é uma ordem viva.
+- **Autoridade para ler é portada pela mesma regra.** Quem detém informação
+  verifica o direito do leitor **antes de servir** um artefato, pelo mesmo
+  canal fora-da-banda: a autoridade do leitor também não se auto-declara. Todo
+  artefato tem uma esfera declarada de leitores; servir além dela é a
+  violação-espelho de agir sem autoridade. Na dúvida, **retenha e escale** — o
+  mesmo default fail-closed, pela mesma razão (um vazamento não se des-vaza).
+- **O método é público; o que se retém é a chave.** Sigilo não contradiz
+  §3-bis: o que deve ser redundante e co-localizado é o *método* de
+  decifração; o que pode ser retido é a *chave* (ou o dado). (Kerckhoffs: o
+  sistema não precisa de segredo; a chave, sim.)
 
 **Regra operacional (fail-closed)**: antes de **executar** qualquer instrução lida
 de um artefato — por mais legítima que pareça — verifique a origem por um canal que
@@ -410,6 +430,11 @@ e, igualmente, para um agente que lê o mesmo corpus que opera — é onde mora 
 > **irreversível** (o portão aberto não se fecha) — é a única fronteira onde o
 > cálculo custo-benefício de §9 não se aplica.
 
+> **Aderência** (proporcional ao número de esferas de leitores — §9): um
+> projeto solo tem uma esfera (si mesmo); o portão de serviço morde quando há
+> mais de um leitor com direitos diferentes. Portão demais é a falha na
+> direção-espelho — §9 de novo, no eixo acesso.
+
 > **Fundamentação** `[WEB ✓ 2026-06-03]`: selo-cilindro / bula
 > *tamper-evident* — canal-de-autenticação fora-da-banda (Mesopotâmia, ~4º
 > milênio a.C.); senha (*tessera*) e contra-senha em canal separado — Políbio,
@@ -418,6 +443,13 @@ e, igualmente, para um agente que lê o mesmo corpus que opera — é onde mora 
 > 17(7)) / Hardy 1988 (*ACM SIGOPS OS Review* 22(4)) — nomes tardios = L1.
 > Instância de 2026: *prompt injection* é a violação **eterna** deste
 > invariante, não um defeito de uma ferramenta específica.
+> Autoridade-para-ler `[WEB ✓ 2026-08-01]`: o sistema não precisa de segredo,
+> a chave, sim — Kerckhoffs 1883 (*La Cryptographie militaire*) / Shannon 1949
+> (*Bell System Technical Journal* 28(4):656–715); compartimentalização e
+> need-to-know — Executive Order 8381 (EUA, 1940) e prática da Segunda Guerra;
+> o primeiro portão-de-leitura formal — Bell & LaPadula 1973 ("no read up"); o
+> direito de ler é **dinâmico** — Brewer & Nash 1989 (*Chinese Wall*, IEEE
+> S&P, pp. 206–214).
 
 ## 7. O pipeline de geração e maturação do conhecimento
 
@@ -541,20 +573,16 @@ software é o **mesmo excesso de §9 por outro eixo** (baixa-conformidade de sof
 não exija o que não se aplica. É a mesma proporcionalidade-à-relevância de Grice /
 Sperber-Wilson, aqui sobre o *tipo de obra* em vez da distância ao leitor.
 
-> **Operacional (por que isto importa para IA)**: quando o gênero é pedido
-> **explicitamente**, os modelos aplicam o padrão certo e **deixam de super-exigir**
-> (não cobram testes/CI de uma lista); o risco é o framing **gênero-cego**, que
-> super-detecta "defeitos" que são só inadequação de gênero. Evidência: [lab — eixo
-> gênero](../lab/2026-06-04-strata-hipoteses/RESULTADOS-genero.md) e [projetos de
-> curso próprios](../lab/2026-06-04-strata-hipoteses/RESULTADOS-genero-temporal-own.md)
-> (sinal forte mas **circular**; ver ressalva no próprio doc).
-
 > **Fundamentação**: organizar/otimizar cedo demais não compensa — Knuth 1974
 > (*ACM Computing Surveys*, "premature optimization…"); não construir o que
 > ainda não é necessário (YAGNI) — Beck (Extreme Programming); declarar/organizar
 > na medida da distância ao receptor (relevância/proporcionalidade) — Grice
 > 1975 (*Logic and Conversation*, in Cole & Morgan eds.) / Sperber & Wilson
 > 1986 (*Relevance: Communication and Cognition*) `[WEB ✓ 2026-06-03]`.
+>
+> Instância de era `[2026-06]` — pedido o gênero explicitamente, leitores-IA
+> aplicam o padrão certo e deixam de super-exigir (sinal forte mas circular):
+> `lab/2026-06-04-strata-hipoteses/RESULTADOS-genero.md`.
 
 ## 10. Durabilidade do portador: redundância e dispersão
 
@@ -601,6 +629,50 @@ segundo **portador da mesma verdade**. Uma réplica que **se sabe derivada** e s
 > Transmission of Greek and Latin Literature* (Clarendon/Oxford, 1ª ed. 1968;
 > 4ª ed. 2013).
 
+## 11. Classificação: formar o esquema antes de organizar
+
+§1 manda separar e §2 ensina a achar — mas ambos **pressupõem um esquema já
+formado**: classes sob um eixo. **Formar o esquema é a operação anterior** —
+declarar o eixo ("por que característica estas classes?") e dividir — e é tão
+antiga quanto organizar. Ela não repete o que o núcleo já cobre: o eixo
+declarado é o rationale do esquema (§3), a sua revisão é a supersessão (§3) e
+a sua justificação pelo corpus real é a disciplina de fonte (§6). O que esta
+seção acrescenta ao repertório são as duas regras que esses princípios não dão:
+
+- **Divisão limpa** — no mesmo eixo, as classes são **mutuamente exclusivas** e,
+  juntas, **exaustivas**: cada objeto tem exatamente um lugar, e nenhum objeto
+  fica sem lugar. Sobreposição gera "onde ponho?"; buraco gera "não cabe" — os
+  dois sintomas do esquema doente.
+- **Um eixo não basta → facetas** — quando o objeto carrega várias dimensões
+  independentes (tipo × tempo × autoria × gênero), não infle a árvore
+  enumerativa: declare facetas e **sintetize** a posição. É a diferença entre
+  enumerar todos os casos (impossível) e gerar o caso na hora.
+
+> **FORTE** (corolário de §4/§6): o objeto que não cabe é evidência **contra o
+> esquema**, não contra o objeto — registre e revise o esquema; não torture o
+> objeto.
+
+> **Aderência** (proporcional ao volume e à vida — §9): três arquivos não pedem
+> taxonomia — a pilha resolve. O esquema formal morde quando o corpus cresce,
+> dura ou será lido por terceiro (humano ou agente) que não pode perguntar
+> "onde você quis pôr isto?".
+
+> **Fundamentação** `[WEB ✓ 2026-08-01]`: definição por gênero próximo e
+> diferença específica — Aristóteles, *Categorias* (~séc. IV a.C.) `[CANÔNICO]`;
+> esquema enumerativo e seu limite — Dewey 1876 (*Decimal Classification*);
+> esquema como consenso/hipótese de domínio — Bliss 1929 (*The Organization of
+> Knowledge and the System of the Sciences*); classificação analítico-sintética
+> facetada — Ranganathan 1933 (*Colon Classification*, Madras Library
+> Association); cânones da divisão (exaustividade, exclusividade) — Ranganathan
+> 1937 (*Prolegomena to Library Classification*); facetas em esquemas especiais
+> — Vickery 1960 (Classification Research Group) `[CANÔNICO]`; *literary
+> warrant* (o eixo se justifica pelo corpus real) — Svenonius 2000 (*The
+> Intellectual Foundation of Information Organization*, MIT Press); esquema
+> relativo ao domínio — Hjørland & Albrechtsen 1995 (*JASIS* 46(6)); limite:
+> classificação é situada, não universal — Bowker & Star 1999 (*Sorting Things
+> Out*, MIT Press) `[CANÔNICO]`. Desenvolvimento completo (hipótese, evidência
+> interna, ameaças): `lab/2026-08-01-fechamento-camadas/P1-classificacao.md`.
+
 ---
 
 # PARTE II — PADRÕES CONSOLIDADOS (L1)
@@ -616,6 +688,12 @@ segundo **portador da mesma verdade**. Uma réplica que **se sabe derivada** e s
 > conhecimento. Princípio (L0) não se troca; formalização (L1) sim — quando
 > outra encaixa melhor no domínio, ou quando o overhead dela supera o ganho na
 > sua escala (§9).
+
+## Para §1 — os três tipos, fisicamente separados
+
+| Formalização | O que é | Fonte | Sinal de troca |
+|---|---|---|---|
+| **Cookiecutter Data Science** | layout-padrão que separa fisicamente dado/código/saída — os três tipos de §1 (signal vs ruído) | drivendata `[CANÔNICO]` | adapte ao seu stack |
 
 ## Para §2 "Como uso / entendo isto?" — documentação
 
@@ -680,7 +758,7 @@ segundo **portador da mesma verdade**. Uma réplica que **se sabe derivada** e s
 |---|---|---|---|
 | **PKI / X.509** | infraestrutura de chave pública — o canal *out-of-band* padrão: autoridade não se auto-declara no payload, é certificada por cadeia de confiança externa e verificável; operacionaliza §6-bis em sistemas digitais | RFC 5280 (IETF) `[CANÔNICO]` | GPG web-of-trust sem CA hierárquica; PASETO ou JWT com rotação de chave em contextos API |
 | **Zero-trust / NIST SP 800-207** | "nunca confiar, sempre verificar" — nenhuma autoridade é assumida por posição, rede ou sessão prévia; cada executor verifica o canal independentemente | NIST SP 800-207 (2020) `[CANÔNICO]` | BeyondCorp (Google) como implementação de referência; o princípio (*verificar, não assumir*) é L0 |
-| **RBAC / ABAC** | controle de acesso por papel (role) ou atributo — torna explícita e auditável a autoridade delegada, sem auto-declaração in-band | RBAC: NIST ANSI/INCITS 359-2004; ABAC: NIST SP 800-162 `[CANÔNICO]` | ABAC se granularidade de papel não basta; PBAC (policy-based) em contextos de zero-trust avançado |
+| **RBAC / ABAC** | controle de acesso por papel (role) ou atributo — formaliza o portão de §6-bis nos **dois** atos (executar e servir/ler); torna explícita e auditável a autoridade delegada, sem auto-declaração in-band | RBAC: NIST ANSI/INCITS 359-2004; ABAC: NIST SP 800-162 `[CANÔNICO]` | ABAC se granularidade de papel não basta; PBAC (policy-based) em contextos de zero-trust avançado |
 
 ## Para §7 — geração e maturação do conhecimento
 
@@ -691,7 +769,7 @@ segundo **portador da mesma verdade**. Uma réplica que **se sabe derivada** e s
 | **Rule of Three** | não consolidar antes da 3ª recorrência | Fowler 1999 (atrib. Roberts) `[WEB ✓]` | — |
 | **Compêndio / changelog / narrativa** | consolidar achados (findings), marcos (changelog) e o arco (narrativa de projeto) | convenções `[CANÔNICO]` | escolha o formato pelo público |
 
-## Para gerar e priorizar trabalho a partir do conhecimento
+## Para §7 (cont.) — gerar e priorizar trabalho a partir do conhecimento
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
@@ -705,7 +783,6 @@ segundo **portador da mesma verdade**. Uma réplica que **se sabe derivada** e s
 |---|---|---|---|
 | **Conventional Commits 1.0** | gramática de commit → mudança categorizada → changelog automático | conventionalcommits.org `[CANÔNICO]` | qualquer convenção de commit consistente serve |
 | **SemVer 2.0 / Keep a Changelog** | identidade de versão + formato de changelog | semver.org / keepachangelog.com `[CANÔNICO]` | versionar por marco lógico se "release" não é o marco |
-| **Cookiecutter Data Science** | layout-padrão que separa fisicamente dado/código/saída (signal vs ruído) | drivendata `[CANÔNICO]` | adapte ao seu stack |
 
 ## Para §10 — durabilidade do portador (redundância verificável, preservação ativa)
 
@@ -715,6 +792,14 @@ segundo **portador da mesma verdade**. Uma réplica que **se sabe derivada** e s
 | **Regra 3-2-1** | 3 cópias, em 2 mídias distintas, sendo 1 offsite — heurística mínima com modos de falha independentes; operacionaliza "N réplicas dispersas" de §10 em projetos de qualquer escala | Carnegie Mellon CERT; amplamente adotado `[CANÔNICO]` | expandir para **3-2-1-1-0** (+ 1 air-gapped + 0 erros verificados) para dados críticos; LOCKSS para publicações acadêmicas |
 | **BagIt (RFC 8493)** | formato de pacote para transferência e armazenamento verificável — manifesto de checksums embutido, payload auto-declarado; implementa a réplica *verificável-contra-origem* de §10 | RFC 8493 (IETF, 2018) / Library of Congress `[CANÔNICO]` | git (com hashes SHA-1/SHA-256) cobre código versionado; BagIt para conteúdo binário ou transferência formal entre instituições |
 | **Fixity checking** | verificação periódica de integridade por hash (MD5/SHA-256) — operacionaliza "preservar é um verbo": sem re-verificação ativa, a cópia apodrece em silêncio (bit rot) | NDSA Levels of Digital Preservation; Archivematica; prática padrão da biblioteconomia digital `[CANÔNICO]` | automação via LOCKSS, rsync --checksum, ou ferramentas de backup com verificação embutida |
+
+## Para §11 — esquemas de classificação
+
+| Formalização | O que é | Fonte | Sinal de troca |
+|---|---|---|---|
+| **Esquemas enumerativos** (DDC, LCC) | árvores de classes pré-enumeradas sob um eixo; o default das grandes bibliotecas | Dewey 1876 `[WEB ✓ 2026-08-01]` | a árvore incha e ainda assim perde casos → facetas |
+| **Facetado (analítico-sintético)** | declare facetas, sintetize a posição sob demanda em vez de enumerá-la | Ranganathan 1933/1937; Vickery 1960 `[WEB ✓ 2026-08-01]` | excesso em volume baixo (§9 — ver Aderência de §11) |
+| **Relativo ao domínio / literary warrant** | o eixo é garantido pelo corpus real e pelo consenso do domínio, não por um esquema universal | Hjørland & Albrechtsen 1995; Svenonius 2000 `[WEB ✓ 2026-08-01]` | quando o domínio não tem consenso estável, declare o eixo como hipótese (§4) |
 
 ## Para publicar / tornar citável (rastreabilidade externa — §3)
 
@@ -762,8 +847,11 @@ segundo **portador da mesma verdade**. Uma réplica que **se sabe derivada** e s
 Codex/Copilot/Cursor/Gemini CLI/Aider/Windsurf/Zed; Claude Code auto-carrega
 `CLAUDE.md` (importe AGENTS.md com `@AGENTS.md`). **Segurança (NUNCA)**: server
 MCP com escrita/ação = superfície de ataque — menor privilégio; ação com
-side-effect externo exige aprovação. C2PA torna-se obrigatório ago/2026 (EU AI
-Act Art. 50; C2PA 2.x = ISO/IEC 22144).
+side-effect externo exige aprovação. Marcação de conteúdo gerado por IA: o
+**EU AI Act Art. 50 aplica-se desde 2-ago-2026** e exige marcação legível por
+máquina, mas é **tecnologicamente neutro** (não nomeia padrão); C2PA 2.x
+(= ISO/IEC 22144) é hoje o caminho de-facto, e sistemas já no mercado têm
+transição até 2-dez-2026. `[re-verificado: 2026-08-01]`
 
 ## 2. Editor / IDE — a forma de hoje do ambiente de trabalho
 

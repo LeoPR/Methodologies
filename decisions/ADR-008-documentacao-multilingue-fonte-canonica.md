@@ -77,3 +77,18 @@ Cada arquivo abre com um seletor de idioma recíproco, com o nome de cada língu
 - Escopo deliberado: bilíngue só na **entrada e no produto**; os docs de pesquisa ficam numa língua, com nota. Traduzir tudo, com um mantenedor só, é a divergência que este ADR existe para evitar.
 - A tradução por IA é um caso de **registro de uso de IA** (o `Translator` do DataCite = "sistema automatizado").
 - **Sinal de troca:** com 2 línguas, o seletor recíproco e o frescor pelo git bastam. A partir de **3 línguas**, a ligação todos-com-todos e o frescor pedem ferramenta (um checador, ou um gerador de site com i18n). Se surgir um padrão oficial de frescor de tradução, migrar para ele — o princípio (fonte única + traço honesto) sobrevive à troca.
+
+## Adendo 2026-08-01 — migração explícita de autoridade do par `strata-knowledge-architecture`
+
+A cláusula de reavaliação acima ("se, na prática, a edição acontecer sempre na
+outra língua, reavaliar os papéis") foi exercida. **Decisão do dono
+(2026-08-01):** o par legado do produto — `recipe/knowledge-architecture.md`
+(PT-BR canônico) + `recipe/knowledge-architecture.en.md` (tradução) — **inverte
+a autoridade**: o **inglês passa a ser a fonte canônica** e o português, a
+tradução derivada. Motivo: a edição passou a acontecer em inglês (fluxo de
+trabalho EN-first), e a autoridade declarada devia seguir a prática real, não
+mentir sobre ela (§3). Aplicado: frontmatter e cólofon l10n dos dois arquivos
+trocados de papel; a guarda `tools/check_l10n.py` não precisou de mudança de
+código (é orientada pelos marcadores). O padrão geral deste ADR (arquivo sem
+sufixo canônico, em inglês) fica assim **uniforme** — não há mais par legado
+com autoridade invertida.

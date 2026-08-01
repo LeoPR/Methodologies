@@ -40,3 +40,11 @@ Duas opções antes de aposentar:
   (tombstone no arquivo de README do predecessor).
 - **Sinal de troca**: ao aplicar Strata a 2+ subprojetos reais e o processo de
   adoção emergir como fricção comum, abrir ADR-004 para Parte IV.
+
+## Errata (2026-08-01)
+
+- A referência "abrir ADR-004 para Parte IV" (Sinal de troca) apontava para o
+  **próximo número livre da sequência** à época da escrita. O ADR-004 real veio a
+  tratar de outro tema (`eval/` separado da metodologia). Se a Parte IV recorrer,
+  abre-se o **ADR seguinte livre** (hoje: ADR-009) — número é ID estável, não
+  reserva (§8). A decisão em si está inalterada.

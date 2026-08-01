@@ -59,6 +59,14 @@ quando a dor pedir. Em níveis (escada proporcional do §9):
   outro eixo" que o próprio §9 do produto nomeia. Reabrir só se o corpus crescer e a dor de
   sincronizar virar contínua.
 
+## Adendo (2026-08-01)
+
+- A escada acima pulava do Nível 2 ao 4 por **lacuna de redação**. O **Nível 3 — guarda
+  mecânica leve** existe e foi de fato adotado depois: `tools/check_stamps.py` (carimbos
+  `updated:`) e `tools/check_l10n.py` (frescor de tradução) — verificação barata rodada à mão
+  ou em hook, sem geração/transclusão. Fica entre o Nível 2 (hábito sem ferramenta) e o
+  Nível 4 (build/CI — segue RECUSADO).
+
 ## Consequências
 
 - Nível 1 aplicado (commit `89f16da`): contagem de linhas e `53KB` removidos; `updated:`

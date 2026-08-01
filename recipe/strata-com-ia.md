@@ -2,7 +2,7 @@
 title: Strata com IA — guia prático de uso
 status: active
 created: 2026-06-08
-updated: 2026-06-16
+updated: 2026-08-01
 purpose: responder ao desenvolvedor "funciona no meu ambiente? vai sair caro?" — só o que funciona
 nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9 (p8 = posição/variância; p9 = modelos novos / churn de L2)
 ---
@@ -28,6 +28,13 @@ Duas regras de ouro antes de qualquer modelo:
 | **NÃO usar sozinho** | gpt-4o-mini, glm-4.5-air, deepseek-v3, locais/grátis | **falham na segurança** (não pegam a instrução perigosa) ou são instáveis |
 
 *Regra: no projeto **bagunçado** quase todos servem; a diferença está no **limpo** (quanto inventam) — sempre **revise** a saída. Detalhe no gráfico abaixo. (Nomes/preços mudam rápido — é L2; confira a lista atual.)*
+
+> **Atualização de elenco (2026-08-01, L2 — sem re-medição):** desde os dados de jun/2026,
+> o **Sonnet 5** sucedeu o Sonnet 4.6 (lançado 30-jun; o 4.6 virou legado) e passou a existir
+> o **Fable 5** (tier acima do Opus; suspenso de 12 a 30-jun por controle de exportação,
+> restabelecido 1-jul, hoje cobrado por créditos, fora da assinatura). **Nenhum dos dois foi
+> medido aqui.** Pela lição do P9, o que dura é o padrão por tier, não o nome — leia
+> "Sonnet 4.6" como "o Sonnet vigente" até re-medição.
 
 ![Strata por IA — qual modelo usar, por vendor](strata-com-ia-fronteira.svg)
 

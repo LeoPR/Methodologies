@@ -3,10 +3,55 @@ name: status-methodologies-project
 type: status
 status: active
 created: 2026-06-03
-updated: 2026-06-16
+updated: 2026-08-01
 ---
 
-# STATUS — 2026-06-16
+# STATUS — 2026-08-01
+
+## Estado atual
+
+- **Strata — L0 editorialmente FECHADO.** Ciclo de revisão fundamentada P1–P5
+  concluído em [`lab/2026-08-01-fechamento-camadas/`](lab/2026-08-01-fechamento-camadas/):
+  §11 (classificação) entrou no núcleo enxuto; §6-bis expandido com
+  **autoridade-para-ver** (agir *e* servir; Kerckhoffs → Bell & LaPadula →
+  Brewer & Nash, tudo `[WEB ✓]`); notas datadas saíram da Parte I e a **persona
+  foi declarada uma vez no lead** (atemporal; IA = instância da era); Parte II
+  ficou totalmente ancorada (§1–§11). Produto em **v1.2.0**.
+- **Autoridade do par bilíngue invertida:** o inglês
+  (`recipe/knowledge-architecture.en.md`) é agora a **fonte canônica** do
+  produto; o português é tradução derivada. Fluxo de trabalho EN-first;
+  adendo datado no [ADR-008](decisions/ADR-008-documentacao-multilingue-fonte-canonica.md).
+- **Próximo passo declarado:** como **testar o L0 fechado** — a pergunta vira
+  empírica (instanciado em N projetos reais, o repertório das 13 seções basta?
+  cada operação extra necessária = candidato datado, §4 + regra de três).
+- **Comporta:** segue em pesquisa no
+  [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/);
+  ainda não há produto destilado em `recipe/`.
+
+---
+
+# STATUS — 2026-07-23 (histórico)
+
+## Estado atual
+
+- **Superfície de leitura:** a trilha para novos leitores está explícita no
+  [`README.md`](README.md) e separa produto, estado vivo e evidência histórica.
+- **Documentação multilíngue:** o README de capa e `outreach/` têm pares inglês/pt-BR.
+  A fonte canônica, a proveniência e a fila dos próximos documentos vivem em
+  [`recipe/documentacao-multilingue.md`](recipe/documentacao-multilingue.md). A guarda
+  `tools/check_l10n.py` valida os pares Markdown e o pre-commit pode incorporá-la ao hook
+  já configurado no ambiente; ativos visuais exigem revisão/renderização própria.
+- **Strata:** produto consolidado em [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md);
+  opinião de uso e estado da evidência em
+  [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) e
+  [`ARQUITETURA-E-EVIDENCIAS.md`](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
+- **Comporta:** permanece em pesquisa no
+  [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/);
+  ainda não há produto destilado em `recipe/`.
+
+---
+
+# STATUS — 2026-06-16 (histórico)
 
 ## Estado atual (2026-06-16)
 - **Gráfico/guia:** `recipe/strata-com-ia-fronteira.svg` mede **inventados** (gradiente de cor), inclui

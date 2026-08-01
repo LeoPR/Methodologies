@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-07-23
+updated: 2026-08-01
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -17,16 +17,21 @@ Projeto de P&D de metodologia de organizacao. **3 cozinhas**: `lab/`
 ## Inventario — onde esta o que
 
 Esta e' uma **oficina de metodologias** (ver `README.md`). 2 produtos: **Strata**
-(nucleo consolidado; eixo seguranca §6-bis e Parte IV pendentes) e **Comporta** (economia de IA,
+(**L0 editorialmente FECHADO 2026-08-01** — 13 secoes, ciclo P1-P5 em
+`lab/2026-08-01-fechamento-camadas/`; §6-bis cobre agir E ver; pendente: Parte IV
+adocao/operacao; proximo passo: TESTE empirico do L0 fechado) e **Comporta** (economia de IA,
 EM ANDAMENTO no `lab/`). **Tres territorios
 por tipo de artefato**: `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses/
 conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a metodologia).
 
 - `recipe/` — **produtos prontos** (single-source das tecnicas):
-  - `knowledge-architecture.md` — **STRATA**: arquitetura do conhecimento em
-    camadas L0/L1/L2. Pendente: eixo seguranca (§6-bis) e Parte IV (adocao/operacao).
+  - `knowledge-architecture.en.md` — **STRATA, FONTE CANONICA** (v1.2.0):
+    arquitetura do conhecimento em camadas L0/L1/L2. **Fluxo EN-first** (decisao
+    do dono 2026-08-01): edita-se o EN, o PT (`knowledge-architecture.md`) e'
+    traducao derivada no mesmo commit (adendo ADR-008). Pendente: Parte IV
+    (adocao/operacao).
   - `README.md` — guia de uso do Strata (humano + IA; o arquivo e' efemero).
-- `decisions/` — **ADRs** (ADR-001..006): por que cada decisao de design. Imutaveis.
+- `decisions/` — **ADRs** (ADR-001..008): por que cada decisao de design. Imutaveis.
 - `lab/` — pesquisa (modo exploratorio), subpastas datadas `YYYY-MM-DD-tema/`:
   - `2026-06-03-modernizacao/`: analise 5-lentes + `experimento-split/` (**FROZEN**)
   - `2026-06-03-fundamentacao-L0/`: 22 fontes primarias verificadas do L0
@@ -48,20 +53,24 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     forma padroniza — sinal, não prova (sintético, completion-only).*
   - `2026-06-06-comprovacao-forte-strata/`: plano de comprovação (gates) — **SUPERSEDED** pela consolidação
     em `strata-hipoteses` (mantido como registro).
+  - `2026-08-01-fechamento-camadas/`: **ciclo P1-P5 que FECHOU o L0** — revisão fundamentada em partes
+    sob a "régua axiomática" (instanciado sem computador, a operação existe no repertório?). §11 entrou
+    enxuto; §6-bis ganhou autoridade-para-VER; persona declarada 1× no lead; âncoras L1 completas.
+    Decisões datadas por parte (P1..P5). **É aqui que vive o porquê do estado atual do L0.**
 - `eval/` — **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia
   nem o foco; reutilizavel entre metodologias). `strata/` = harness do Strata (runner
   multi-modelo, scorers, fixtures, cenarios, `RASTREAMENTO-E-MELHORIA.md`); `*/planos/` =
   saidas brutas **gitignored** (projetos reais sao PRIVADOS). Regra: toda execucao e'
   `evidencia|instrumento|infra`. Ver `eval/README.md`.
 - `prototype/` — placeholder (testar a receita em escala; futuro).
-- `divulgacao-pt-BR/` — **APOIO** (comunicacao/divulgacao: posts, imagens). Fora dos 3 territorios de
+- `outreach/` — **APOIO** (comunicacao/divulgacao: posts, imagens). Fora dos 3 territorios de
   artefato (e do `decisions/`); nao e produto, pesquisa nem ferramenta. Nao publica metrica nova.
 - `README.md` (oficina) / `MAP.md` (mapa) / `STATUS.md` (foco atual) — wayfinding.
 
 ## Antes de agir (checklist)
 
 - Tecnica de organizacao **nova ou alterada** → vai pro PRODUTO
-  (`recipe/knowledge-architecture.md`), nao espalhe em varios lugares.
+  (`recipe/knowledge-architecture.en.md`, o canônico EN), nao espalhe em varios lugares.
 - **Pesquisa / exploracao / descarte** de tecnica → `lab/` (pasta datada
   `YYYY-MM-DD-tema/`, modo exploratorio).
 - **Ferramenta/harness de prova** (runner, scorer, fixture, cenario) → `eval/`, NUNCA em
@@ -71,9 +80,11 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   metodologia manda (verificacao antes de afirmar).
 - **Editou QUALQUER `.md` com frontmatter** → **bumpe o `updated:`** p/ hoje (rastreabilidade
   §3/§8; o carimbo ja estagnou varias vezes — propagacao por memoria apodrece). Guarda mecanica:
-  `python tools/check_stamps.py` (rode antes de commitar docs). P/ automatizar, chame-o do seu
-  pre-commit — este repo ja usa um `core.hooksPath` global (`~/.githooks`), entao NAO sete um local
-  (desligaria o hook global); adicione `python tools/check_stamps.py || exit 1` ao pre-commit de la.
+  `python tools/check_stamps.py` (rode antes de commitar docs).
+- **Editou fonte canônica multilíngue** → atualize as traduções no mesmo commit. Guarda mecânica:
+  `python tools/check_l10n.py`. Para automatizar, incorpore `tools/githooks/pre-commit` ao hook já
+  configurado no ambiente. Antes de alterar `core.hooksPath`, verifique o valor existente: apontá-lo
+  para este repo pode desligar hooks globais. Sem integração, rode as duas guardas manualmente.
 - **Numero volatil** (linhas, KB, SHA) NAO vai inline na prosa — aponte para a fonte ou
   omita (regenera-se do artefato; §5). Estado de evidencias: aponte ao hub (secao 'Estado das
   fases — fonte unica'), nao copie o literal (ADR-005).

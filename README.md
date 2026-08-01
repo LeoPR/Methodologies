@@ -41,7 +41,7 @@ history or evolution logs), use this sequence:
 
 1. [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) — quick value, scope, and limits.
 2. [`recipe/README.md`](recipe/README.md) — practical usage guide.
-3. [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) — the full Strata product.
+3. [`recipe/knowledge-architecture.en.md`](recipe/knowledge-architecture.en.md) — the full Strata product in English.
 4. [`MAP.md`](MAP.md) — where each artifact lives.
 5. [`STATUS.md`](STATUS.md) — current focus and open fronts.
 
@@ -57,7 +57,7 @@ Shortcuts by intent:
 | I want | Go to |
 |---|---|
 | **What I gain from Strata** | [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) |
-| **Use a ready-made method** | [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) (Strata) |
+| **Use a ready-made method** | [`recipe/knowledge-architecture.en.md`](recipe/knowledge-architecture.en.md) (Strata) |
 | **The honest usage opinion** of Strata (what works, by task type, requirement and cost, with caveats) | [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | **Understand the approach** to manufacturing methodologies | [The approach](#the-approach) (below) |
 | See the **research in progress** (Comporta, 2nd methodology) | [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) |
@@ -133,7 +133,7 @@ flowchart TB
 
 ## Featured product: Strata
 
-[`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) — **layered
+[`recipe/knowledge-architecture.en.md`](recipe/knowledge-architecture.en.md) — **layered
 knowledge architecture**. A methodology for organizing, tracking and generating
 knowledge in any intellectual work that accumulates artifacts.
 
@@ -153,7 +153,7 @@ The problem is **older than the computer**: librarians, scientists and engineers
 faced it for centuries. The tools of each era (today: AI, editors, version
 control) are **forms** that express this method — they shape it, but do not found it.
 
-- **Format:** 1 single, portable file (it travels alone). **Version 1.1.0** ·
+- **Format:** 1 single, portable file (it travels alone). **Version 1.2.0** ·
   CC BY-SA 4.0 license. (The canonical version lives in the file's own frontmatter.)
 - **Maturity:** the **core of the methodology is consolidated and verified** (22 primary sources, plus the
   check that it is independent of today's tools). The **application by AI** already has empirical evidence
@@ -188,11 +188,11 @@ and says whether local AI is worth it — *turn on now / consider / blocked* —
 
 | Folder | What it is |
 |---|---|
-| [`recipe/`](recipe/) | **ready products** — today: Strata (`knowledge-architecture.md`) |
+| [`recipe/`](recipe/) | **ready products** — today: Strata (`knowledge-architecture.en.md`, canonical; `.md` = pt-BR translation) |
 | [`lab/`](lab/) | exploratory, dated research (L0-grounding, future-proof, adherence/portability, **AI economy**) |
 | [`prototype/`](prototype/) | testing at scale, on real projects (future) |
 | [`decisions/`](decisions/) | ADRs — why each design decision was made |
-| [`divulgacao-pt-BR/`](divulgacao-pt-BR/) | **support**: communication/outreach (posts, images) — outside the 3 artifact territories |
+| [`outreach/`](outreach/) | **support**: communication/outreach (posts, images) — outside the 3 artifact territories |
 | [`AGENTS.md`](AGENTS.md) · [`MAP.md`](MAP.md) · [`STATUS.md`](STATUS.md) | navigation (AI / map / current focus) |
 | [`ESTILO-REDACAO.md`](ESTILO-REDACAO.md) | the writing standard for the documents (Plain Language) |
 
@@ -200,7 +200,7 @@ and says whether local AI is worth it — *turn on now / consider / blocked* —
 
 Strata is designed to travel alone — copy the file and read the core; an internal
 ruler tells you what to apply at your scale. The steps for **use, adoption in an
-existing project, and transport** live in the [product itself](recipe/knowledge-architecture.md),
+existing project, and transport** live in the [product itself](recipe/knowledge-architecture.en.md),
 alongside the *inline* groundings that make any copy self-sufficient.
 
 ## License

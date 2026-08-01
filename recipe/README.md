@@ -38,7 +38,7 @@ A licença cobre o *texto*, não a *ideia*: aplicar o Strata não exige guardá-
 
 **Mas vale manter uma cópia** se você quiser: (a) **revisar** o projeto contra ele
 periodicamente, (b) acompanhar **atualizações** (compare sua cópia com a
-[fonte canônica](knowledge-architecture.md) e veja o que mudou), (c) registrar uma
+[fonte canônica](knowledge-architecture.en.md) e veja o que mudou), (c) registrar uma
 **versão adaptada** sua (atualize o campo `canonical-source` no frontmatter).
 
 ### As três camadas — e o que cada uma exige
@@ -47,7 +47,7 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
 
 | Camada | O que é | Como aplicar |
 |---|---|---|
-| **Mneme** · L0 — núcleo atemporal | os 12 princípios (método científico, rastreabilidade, fonte única, fail-closed…). "Se a IA e o computador sumissem, continua verdadeiro." | **sempre**, por julgamento. Independe de tecnologia. É o que você confere de fato. |
+| **Mneme** · L0 — núcleo atemporal | os 13 princípios (método científico, rastreabilidade, fonte única, fail-closed, classificação…). "Se a IA e o computador sumissem, continua verdadeiro." | **sempre**, por julgamento. Independe de tecnologia. É o que você confere de fato. |
 | **Morfé** · L1 — padrões consolidados | formas maduras de cumprir o L0 (Diátaxis, ADR, FAIR, IMRaD, Conventional Commits). | **escolha** a formalização que cabe na sua necessidade L0 — é *uma* boa forma, não a única; troca-se sem mexer no L0. |
 | **Órganon** · L2 — adaptação à era atual | como as ferramentas de hoje (agentes de IA, IDE, git) expressam L0/L1. | **datado**, com prazo de revalidação. É aqui que mora a **automação por IA**. |
 
@@ -66,7 +66,7 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
 
 ### Como usar — por um humano
 
-1. Leia a **Parte I (L0)**: 12 princípios, nenhuma ferramenta. É o núcleo — e o que mais
+1. Leia a **Parte I (L0)**: 13 princípios, nenhuma ferramenta. É o núcleo — e o que mais
    importa conferir (é tech-independente; vale com ou sem IA).
 2. Use o **§9** como régua: ele diz *quais seções se aplicam ao seu caso* (nem todas
    valem para todo projeto — há universais e condicionais).
@@ -142,9 +142,11 @@ primeiro é só memória, já o segundo é trabalho de fato.
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 
-- **Eixo de segurança** (§6-bis, autoridade-para-agir): **com evidência inicial** — F3
-  (recusa de *prompt injection*) e F4 (execução: *tombstone* + fail-closed). Falta **consolidar**:
-  mais cenários e **sair do regime *completion-only*** (texto) para um agente com ferramentas reais.
+- **Eixo de segurança** (§6-bis): o princípio foi **expandido** (2026-08-01) — cobre
+  autoridade-para-**agir** e autoridade-para-**ver** (servir artefatos). A **evidência**
+  segue inicial — F3 (recusa de *prompt injection*) e F4 (execução: *tombstone* +
+  fail-closed). Falta **consolidar**: mais cenários (incl. o ato de servir) e **sair do
+  regime *completion-only*** (texto) para um agente com ferramentas reais.
 - **Parte IV — adoção e operação**: a operacionalização para adotar em projetos
   legados *em escala* (fases de adoção, auditoria periódica) ainda não foi escrita.
   O caminho está esboçado nos labs, aguardando dor empírica que justifique destilá-lo.

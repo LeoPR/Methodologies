@@ -1,4 +1,4 @@
-<!-- l10n: doc_id=strata-root-readme · lang=pt-BR · source_lang=en · translation_of=README.md · synced=2026-06-30 -->
+<!-- l10n: doc_id=strata-root-readme · lang=pt-BR · source_lang=en · translation_of=README.md -->
 [English](README.md) · **Português**
 
 > Tradução de [`README.md`](README.md). Se houver divergência, o original em inglês prevalece.
@@ -150,7 +150,7 @@ O problema é **anterior ao computador**: bibliotecários, cientistas e engenhei
 enfrentam há séculos. As ferramentas de cada era (hoje: IA, editores, controle de
 versão) são **formas** que expressam esse método — moldam, mas não fundam.
 
-- **Formato:** 1 arquivo único, portável (viaja sozinho). **Versão 1.1.0** ·
+- **Formato:** 1 arquivo único, portável (viaja sozinho). **Versão 1.2.0** ·
   licença CC BY-SA 4.0. (A versão canônica fica no frontmatter do próprio arquivo.)
 - **Maturidade:** o **núcleo da metodologia está consolidado e verificado** (22 fontes primárias, e a
   checagem de que ele independe das ferramentas de hoje). A **aplicação por IA** já tem evidência empírica
@@ -189,7 +189,7 @@ e diz se vale usar IA local — *ligar agora / considerar / bloqueado* — com o
 | [`lab/`](lab/) | pesquisa exploratória, datada (fundamentação-L0, future-proof, aderência/portabilidade, **economia de IA**) |
 | [`prototype/`](prototype/) | teste em escala, em projetos reais (futuro) |
 | [`decisions/`](decisions/) | ADRs — por que cada decisão de design foi tomada |
-| [`divulgacao-pt-BR/`](divulgacao-pt-BR/) | **apoio**: comunicação/divulgação (posts, imagens) — fora dos 3 territórios de artefato |
+| [`outreach/`](outreach/) | **apoio**: comunicação/divulgação (posts, imagens) — fora dos 3 territórios de artefato |
 | [`AGENTS.md`](AGENTS.md) · [`MAP.md`](MAP.md) · [`STATUS.md`](STATUS.md) | navegação (IA / mapa / foco atual) |
 | [`ESTILO-REDACAO.md`](ESTILO-REDACAO.md) | a norma de redação dos documentos (Linguagem Simples) |
 

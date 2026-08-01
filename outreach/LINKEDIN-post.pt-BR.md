@@ -3,7 +3,7 @@
 
 # Post para o LinkedIn — Strata
 
-**Imagem:** anexe **`strata-linkedin.png`** (nesta mesma pasta, `divulgacao-pt-BR/`).
+**Imagem:** anexe **`strata-linkedin.pt-BR.png`** (nesta mesma pasta, `outreach/`).
 **Texto:** copie tudo dentro do bloco abaixo (é texto puro — sem formatação que o LinkedIn quebra). A primeira linha é o gancho (o LinkedIn corta em "ver mais" depois de ~3 linhas).
 
 ---

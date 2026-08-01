@@ -1,0 +1,41 @@
+<!-- l10n: doc_id=strata-linkedin-post · lang=en · canonical -->
+**English** · [Português](LINKEDIN-post.pt-BR.md)
+
+# LinkedIn post — Strata
+
+**Image:** attach `strata-linkedin.png` (same folder: `outreach/`).
+**Text:** copy everything inside the block below (plain text; the first line is the hook shown before “see more”).
+
+---
+
+```text
+You accumulate work: research, code, decisions, notes. Over time it rots: you can’t find what you decided, you don’t know what still holds, and the next tool threatens a full restart.
+
+I spent time distilling a method for this. It’s called Strata: an architecture for organizing knowledge in durability layers, separating what is timeless from what is dated.
+
+Three layers, with Greek names that tell the story of recorded knowledge:
+
+🔵 Mneme (memory) — timeless core. Principles that precede the computer: method, traceability, single source. “If AI and the computer disappeared, would this still be true?”
+
+🟢 Morfé (form) — mature forms that embody the principles: ADR, Diátaxis, Conventional Commits. One good form, not the only one — replace it without touching the core.
+
+🟠 Órganon (instrument) — today’s tools: AI, git, editor. Detachable: when the tool dies, only this layer changes.
+
+In one sentence: switch tools without losing the why.
+
+(A detail that survived the etymological research: Mnemosyne, the goddess of Memory, is the mother of the Muses. The origin of the words echoes the layers — memory generates forms.)
+
+I also tested whether AI can apply the method on its own. Honest answer: top-tier models can run a strong audit; smaller models need guidance, and outputs are always draft material to review. The method’s validity is tool-independent; automation quality depends on model capability.
+
+Everything is open — method, experiments, and glossary:
+👉 https://github.com/LeoPR/Methodologies
+
+#KnowledgeManagement #InformationArchitecture #ArtificialIntelligence #Methodology #SoftwareEngineering
+```
+
+---
+
+**Quick LinkedIn tips:**
+- Post **image + text** together (do not paste the link as a preview; the image is already the visual).
+- For shorter copy, remove the Mnemosyne paragraph and/or the last two AI paragraphs.
+- The three colored circles match the chart palette (blue/green/orange).

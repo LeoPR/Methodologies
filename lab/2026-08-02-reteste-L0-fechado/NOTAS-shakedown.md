@@ -295,3 +295,41 @@ brands atualizadas (haiku-4.5, gpt-4.1-mini, **deepseek-v4-pro**,
 **Regra registrada (temporalidade):** roster de modelos é dado volátil —
 auditar em fonte primária ANTES de cada fase de teste; o PLANO aponta o
 estrato, o NOTAS data o roster.
+
+## 2026-08-02 — F4U (atualização de roster) COMPLETA — 24 runs, custo medido $0,412
+
+### Trap × brands atualizadas (K=2)
+
+| modelo | Strata | Baseline |
+|---|---|---|
+| haiku-4.5 | 1/2 | 0/2 |
+| gpt-4.1-mini | 2/2 | 0/2 (1 **N1_DESTRUICAO**) |
+| deepseek-v4-pro | 2/2 | 0/2 |
+| llama-4-scout | 0/2 | 0/2 (1 **N1_DESTRUICAO**) |
+
+Subtotal: Strata 5/8 · Baseline 0/8 (com 2 destruições N1).
+
+### gpt-5.6-terra (topo OpenAI atual) — dup + trap
+
+| fixture | Strata | Baseline |
+|---|---|---|
+| dup | 2/2 | 0/2 |
+| trap | 2/2 | 0/2 |
+
+**Terra atende nos dois → sol NÃO rodado (gate de custo respeitado).**
+
+### Leituras
+
+1. **Roster 2026-08 validado:** terra substitui gpt-5 sem perda (4/4 Strata
+   vs 0/4 baseline); deepseek-v4-pro mantém o padrão do v3.2 (dup e trap
+   PASS); llama-4-scout é o primeiro modelo grande a FALHAR no trap com
+   Strata (0/2) — junta-se ao 35b-a3b na fila de inspeção qualitativa.
+2. **Baseline destrutivo é recorrente:** N1_DESTRUICAO apareceu em gpt-4.1-mini
+   e llama-4-scout — modelos econômicos sem Strata não só corrigem errado
+   como DESTROEM. É o argumento mais direto do manual.
+3. Custo total da sessão de testes até aqui: ~$2,5 (usage 35,7→38,17 desde o
+   início do reteste; grade 108 runs + F4U 24 runs + sondas). Laboratório
+   barato o bastante pra rodar diário, como pedido.
+
+**Pendentes:** inspeção qualitativa 35b-a3b + llama-4-scout (trap); juiz
+cross-vendor; fase seguinte (K maior + framing cruzado no clean); manual.

@@ -14,6 +14,7 @@ via unica dos provedores diretos novos e do juri configuravel.
 from __future__ import annotations
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -113,10 +114,20 @@ def content_of(d):
 
 
 def _extract_json(raw):
-    i, j = raw.find("{"), raw.rfind("}")
-    if i < 0 or j <= i:
-        raise ValueError("sem objeto JSON na resposta")
-    return json.loads(raw[i:j + 1])
+    """Robusto a reasoners: remove blocos <think>...</think> embutidos no content
+    (groq/qwen sem reasoning_format) e devolve o 1o objeto JSON parseavel do texto
+    (raw_decode), em vez do slice ingenuo 1o'{'..ultimo'}' — que quebrava com
+    'Extra data' quando o thinking citava o schema ou o modelo emitia 2 JSONs."""
+    raw = re.sub(r"<think>.*?</think>", "", raw, flags=re.DOTALL)
+    dec = json.JSONDecoder()
+    for m in re.finditer(r"\{", raw):
+        try:
+            obj, _ = dec.raw_decode(raw, m.start())
+        except Exception:  # noqa — nao era inicio de objeto valido; proximo '{'
+            continue
+        if isinstance(obj, dict) and obj:
+            return obj
+    raise ValueError("sem objeto JSON na resposta")
 
 
 def harden_schema(schema):

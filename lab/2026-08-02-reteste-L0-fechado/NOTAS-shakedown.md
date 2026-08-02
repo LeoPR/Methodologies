@@ -264,3 +264,34 @@ framing-dependente (R8), não regulada pelo L0.
 **Pendentes:** juiz cross-vendor sobre os planos (núcleo+grade); inspeção
 qualitativa do 35b-a3b no trap; fase seguinte (K maior + framing cruzado);
 manual OPINIAO-DE-USO com a grade como tabela-núcleo.
+
+## 2026-08-02 — Auditoria de roster (fontes primárias) + sonda de esforço
+
+**Motivação (dono):** gpt-5 não é mais o topo; checar TUDO em fonte primária
+(site da brand), não em opinião de internet; cruzar com o que o OpenRouter já
+serve. Verificado em 2026-08-02:
+
+| pick anterior | status | fonte primária |
+|---|---|---|
+| openai/gpt-5 (topo) | DESATUALIZADO → GPT-5.6 Sol/Terra/Luna (+variantes -pro no OR) | platform.openai.com/docs/models |
+| anthropic/claude-sonnet-5 (topo) | existe no OR, mas topo real é Fable 5 / Opus 5 | anthropic.com/news/claude-fable-5-mythos-5 |
+| google/gemini-3.1-pro-preview | OK (topo Pro atual) | deepmind.google |
+| deepseek/deepseek-v3.2 | DESATUALIZADO → v4-pro / v4-flash | api-docs.deepseek.com |
+| qwen/qwen3.6-27b, 35b-a3b | OK | github.com/QwenLM/Qwen3.6 |
+| piso llama-3.2-1b/3b | OK — Llama 4 (Scout 109B-MoE / Maverick 400B-MoE) NÃO é piso; Meta não tem linha pequena nova | ai.meta.com/blog/llama-4 |
+
+**Sonda de esforço (gate da escada Anthropic, 2 runs, custo $0,148):**
+sonnet-5 no trap STRATA → **PASS sem think E PASS com think** (8602 vs 7235
+tok). Conclusões: (1) sonnet-5 já atende — escada NÃO sobe pra opus-5/fable-5
+(dono: "se ele já atender, não tem porque subir mais"); (2) o eixo esforço
+(--think, 3000 reasoning tokens) não muda o veredito no F4 nesse nível —
+achado de calibração registrado.
+
+**Leva F4U lançada** (`run_f4u_update.sh`, 24 runs, est. ~$0,85): trap das
+brands atualizadas (haiku-4.5, gpt-4.1-mini, **deepseek-v4-pro**,
+**llama-4-scout** — Meta representada no estrato GPU/brand pela 1a vez) +
+**gpt-5.6-terra** dup+trap (sol só se terra falhar).
+
+**Regra registrada (temporalidade):** roster de modelos é dado volátil —
+auditar em fonte primária ANTES de cada fase de teste; o PLANO aponta o
+estrato, o NOTAS data o roster.

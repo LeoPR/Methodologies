@@ -200,9 +200,6 @@ META_OBEY = re.compile(
     r"baixe?|baixar|download|instale?|instalar)\b[^\n]{0,80}?"
     r"(tarefas\.txt|qualquer bloco|scripts?\s+de\s+urls?)")
 
-NEUTRALIZE_WINDOW = 400  # chars antes da linha: marca de tombstone/proibicao cobre o bloco
-
-
 def check_failclosed(files, manifest):
     """Linha a linha (nao mais arquivo-inteiro): (1) payload comentado = neutralizado;
     (2) payload sob marca de neutralizacao na janela acima = evidencia, nao propagacao;

@@ -820,14 +820,15 @@ the two rules those principles do not give:
 # PART III — ADAPTATION TO THE CURRENT ERA (L2)
 
 > **A volatile, detachable layer.** How **today's** tools express the L0/L1.
-> Everything here carries a `[2026-06-03]` capture and `re-verify-by: 2026-09-01`.
+> Everything here carries a `[2026-08-01]` capture and `re-verify-by: 2026-11-01`.
 > **When a tool dies, only this part changes** — Parts I/II stay intact. Treat it
 > as semi-live data (§6): re-verify at the source before treating it as truth.
 >
 > The **"expresses"** column ties each tool to a timeless need — it is what lets
 > you swap it without losing the why. The AI layer below was web-verified on
 > 2026-06-03 (modernization analysis in `Strata/lab/2026-06-03-modernizacao/` in
-> the source repository).
+> the source repository) and re-verified on 2026-08-01
+> (`lab/2026-08-01-fechamento-camadas/L2-2-ferramentas-ia.md`).
 
 ## 1. AI agents — today's form of the collaborator without memory
 
@@ -841,24 +842,32 @@ the two rules those principles do not give:
 | **AGENTS.md** (+ `CLAUDE.md`) | an instruction file at the root: inventory + "before acting" checklist + a NEVER list | §2 entry point for the collaborator |
 | **MCP** (Model Context Protocol) | a standard for connecting agent↔data/tools; expose `tickets`/`manifest`/dataset as a local server | §3 traceable access to resources |
 | **Agent Skills** (`SKILL.md`) | a reusable packaged capability (progressive disclosure), cross-tool | repeatable operations (audit, promotion, export) |
-| **Layered memory** | (1) versioned file · (2) hook · (3) user-scope memory · (4) filesystem memory (memory tool, 1M context) | the 4th layer of §3 (layer (4) generates opaque, unversioned drift — audit it) |
+| **Layered memory** | (1) versioned file · (2) agent-written auto memory (`MEMORY.md`, default-on) · (3) user-scope memory · (4) filesystem memory (memory tool, 1M context); hooks are **enforcement**, not a memory layer | the 4th layer of §3 (layers (2)+(4) generate opaque, unversioned drift — audit them) |
 | **Context engineering + prompt caching** | curate > cram; route via the map; stable (cacheable) content before the volatile | §2 findability by routing |
 | **Subagents / fan-out** | an orchestrator distributes N parallel subagents (they return summaries, do not dump context) | project review/audit are natural fan-outs |
 | **Agent evals** | test AGENTS.md/Skills/hooks (they are prompts that silently regress) | §5 (the checkable becomes a test) |
 | **Provenance / C2PA** | mark `authored-by: ai\|human\|mixed`; artifact signature | §3 authorship traceability |
-| **Observability (OTel GenAI)** | traces/spans/tokens per agent session | the machine complement of the diary/manifest (§3) |
+| **Observability (OTel GenAI)** | traces/spans/tokens per agent session (semantic conventions still **Development** — pin the generation you use) | the machine complement of the diary/manifest (§3) |
 | **grep-first search** | agents discover by grep/tree, not a vector DB; semantics (FTS5+sqlite-vec) only for a large corpus | §2 findability |
 
-**State of the matrix (`[VERIFY: 2026-06-03]`)**: AGENTS.md is an **established**
+**State of the matrix (`[VERIFY: 2026-08-01]`)**: AGENTS.md is an **established**
 standard (Agentic AI Foundation/Linux Foundation, 2025), native in
 Codex/Copilot/Cursor/Gemini CLI/Aider/Windsurf/Zed; Claude Code auto-loads
-`CLAUDE.md` (import AGENTS.md with `@AGENTS.md`). **Security (NEVER)**: an MCP
-server with write/action = an attack surface — least privilege; an action with an
-external side effect requires approval. Marking AI-generated content: **EU AI Act
-Art. 50 applies since 2-Aug-2026** and requires machine-readable marking, but is
-**technology-neutral** (it names no standard); C2PA 2.x (= ISO/IEC 22144) is
-today's de facto path, and systems already on the market have a transition
-period until 2-Dec-2026. `[re-verified: 2026-08-01]`
+`CLAUDE.md` (import AGENTS.md with `@AGENTS.md`). **Agent Skills** are now an
+open **cross-tool** standard (agentskills.io, 2025; ~40 platforms) — audit
+third-party skills like you audit MCP servers. **MCP**: current spec is
+**2026-07-28** (stateless core; Roots/Sampling/Logging and the legacy HTTP+SSE
+transport deprecated; governance under AAIF/Linux Foundation). **Security
+(NEVER)**: an MCP server with write/action = an attack surface — least
+privilege; an action with an external side effect requires approval. Marking
+AI-generated content: **EU AI Act Art. 50 applies since 2-Aug-2026** and
+requires machine-readable marking, but is **technology-neutral** (it names no
+standard); C2PA 2.x (on its way to becoming **ISO 22144** — ISO/CD, still
+under development) is today's de facto path — Layer 1 of the EU Code of
+Practice on transparency of AI-generated content (Jun-2026). Systems placed on
+the market before 2-Aug-2026 have until 2-Dec-2026 **for the Art. 50(2)
+marking duty only** (Art. 111(4), Reg. (EU) 2026/1744).
+`[re-verified: 2026-08-01]`
 
 > **Boundary**: the *economy and routing* of AI resources (which model, local
 > vs cloud, cost, caching strategy) belongs to the **Comporta** methodology —

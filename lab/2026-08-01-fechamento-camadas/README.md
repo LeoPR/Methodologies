@@ -86,6 +86,7 @@ marcadores). Resta da fila editorial da doc multilíngue: `recipe/README.md`,
 | Parte | Questão | Status |
 |---|---|---|
 | **L2-1 — Alinhamento estrutural** | com o L0 fechado, o que a Parte III deve ao núcleo novo? (§6-bis-ver sem forma L2; §11 sem necessidade — negativo; fronteira Comporta) | **FECHADA — APLICADA EN-first (2026-08-01); PT derivado pendente (fim do ciclo)** → [`L2-1-alinhamento.md`](L2-1-alinhamento.md) §7 |
+| **L2-2 — Ferramentas de IA** | a matriz AI agents (capturada 2026-06-03, semi-viva) ainda está fresca em 2026-08? pedido do dono: "as ferramentas de IA pedidas parecem precisar de revisão" | **FECHADA — APLICADA EN-first (2026-08-01):** 1 erro factual (C2PA≠ISO/IEC 22144 — é ISO/CD em desenvolvimento), 1 desenho mudado (auto memory nativa; hooks→enforcement), nota de estado atualizada (MCP 2026-07-28, Skills cross-tool, base legal da transição, Code of Practice), nuance OTel, carimbo `[2026-08-01]`/re-verify-by 2026-11-01; PT pendente (fim do ciclo) → [`L2-2-ferramentas-ia.md`](L2-2-ferramentas-ia.md) |
 
 ## Fluxo de trabalho desta fase (decisão do dono, 2026-08-01)
 

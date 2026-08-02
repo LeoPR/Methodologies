@@ -77,3 +77,31 @@ registrava zero PASS no F4-local 4-8B de junho.
 
 **Pendentes:** âncora local (fumaça 2, 27b q4_K_M na 3060) para fechar a ponte
 nuvem×local; K maior para firmeza; juiz cross-vendor sobre os planos.
+
+## 2026-08-02 — Âncora local PASS: ponte nuvem×local CONVERGE (K=1)
+
+**Run local completou** (fix do timeout validado): `f4-dup × qwen3.6:27b`
+(q4_K_M, RTX 3060 12GB, offload parcial) — **1334s (22 min), 4134 tok,
+stop=stop**, veredito mecânico **PASS**.
+
+| f4-dup, braço Strata, K=1 | Veredito | Tempo | Tokens |
+|---|---|---|---|
+| Nuvem (`qwen/qwen3.6-27b`, fp8) | PASS | 81s | 3615 |
+| Local (`qwen3.6:27b` q4_K_M, 3060) | PASS | 1334s | 4134 |
+
+Três leituras (K=1, direção):
+
+1. **Ponte calibrada**: mesmo veredito nos dois lados — o efeito-quantização
+   (fp8 nuvem × q4 local), se existe, não moveu o veredito nesta célula. A
+   nuvem pode carregar o volume da classe 27b; a ponte se fortalece com mais
+   células-âncora (K>1, outros cenários).
+2. **Viabilidade medida para o manual**: na 3060 12GB, o 27b **funciona** mas
+   custa ~22 min/run com offload — serve para poucas ações-chave por dia, não
+   para volume. É a coluna "o que esperar" da classe 12GB.
+3. **Hipótese temporal confirmada na condição original**: o 27b **local** PASSA
+   onde os 4-8B locais de junho zeravam — mesma condição (local, 12GB) que
+   produziu o negativo do corpus. "Local não age" (2026-06) → "local-2026-08
+   age, devagar" (K=1).
+
+**Opcional em aberto:** baseline local (mais ~22 min de GPU) fecharia o desenho
+também no lado local; a prioridade segue para o núcleo nuvem.

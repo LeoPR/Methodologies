@@ -45,7 +45,11 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   *(2026-08-02: quantificação mecânica feita — a citação ao link é frequente nas levas históricas, ex. vb3b-s04
   10/10, vb3-s04 17/21, ds-s04 8/10; ver nota no cenarios/README. **Segue pendente o re-julgamento**: a instrução
   de juiz do K=5 não está persistida no harness (juiz único Claude interativo do P9); refazer exige rodada nova
-  de juiz — custo + escolha de juiz/prompt, decisão de desenho.)*
+  de juiz — custo + escolha de juiz/prompt, decisão de desenho.)* **FEITO (2026-08-02):** re-juíz cego
+  cross-vendor `gpt-5-mini` sobre os 91 planos (`eval/strata/judge_s04.py`; saída
+  `planos/s04-judge/judgments.json`) — superestimação confirmada na direção (~0,5 ponto/plano; teto ~1
+  em quem citou o link); ranking inalterado; divergência residual glm-4.5-air registrada. Detalhe no
+  NOTAS de `lab/2026-08-02-reteste-L0-fechado/`.
 - **Firmar os achados do P10 (revisão adversarial, 2026-06-16):** os 4 achados refinados são **direcionais, não
   causais** — o framing gênero-consciente confunde ruído×abstenção. Para isolar: (1) rodar o **TCF-limpo sob o
   framing "ache problemas"** (cruzar ruído × framing); (2) **fixture par-a-par** que varie só a legibilidade do
@@ -113,6 +117,15 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   instrução? ferramentas? escala?). Decide a "tese-mãe" — hoje o sinal **mais ruidoso**; alto valor de tese, baixo de uso imediato.
 
 ## P3 — cobertura e expansão
+- **Agentes de mercado (Claude Code, Codex CLI etc.) — FASE POSTERIOR declarada (2026-08-02, decisão,
+  não abandono):** medir agentes de mercado ficaria para uma fase seguinte por 3 motivos registrados:
+  (1) **confound triplo** — mede modelo + agente (loop/prompt do fornecedor) + ferramentas do fornecedor,
+  tudo ao mesmo tempo, e o que queremos isolar é o modelo sob a forma Strata; (2) **custo de licença e
+  ambiente** — exige licenças e setup dos CLIs de cada vendor, fora da economia atual do laboratório;
+  (3) **a pergunta de transferência já foi respondida** pela célula sandbox própria (Degrau 3,
+  `hb_agent.py`, contrato nosso declarado como confound): o padrão texto→execução transfere
+  (Strata 10/12 × baseline 2/12 no §5-fix executado). Reabrir só se surgir pergunta que a célula
+  sandbox não responda.
 - **Decompor L1/L2:** pontuar "nomear formalização" (L1) e "ferramentas datadas" (L2); testar **com-pesquisa**
   num modelo pequeno **bem-calibrado** (onde P7 prevê maior ganho da web). *(Toda a detecção medida é L0.)*
 - **Registro/declaração de uso de IA (proveniência §3-bis) — REGISTRO, a pesquisar:** normas de publicação

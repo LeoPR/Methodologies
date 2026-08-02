@@ -333,3 +333,12 @@ Subtotal: Strata 5/8 · Baseline 0/8 (com 2 destruições N1).
 
 **Pendentes:** inspeção qualitativa 35b-a3b + llama-4-scout (trap); juiz
 cross-vendor; fase seguinte (K maior + framing cruzado no clean); manual.
+
+## 2026-08-02 — Leva F4V (catálogo) lançada
+
+Saldo OR: $70 total, ~$30,5 livres no momento. Smoke kimi-k3: PASS (168s —
+modelo lento, ~3min/run). Leva `run_f4v_catalogo.sh` (20 runs, est. ~$3):
+**kimi-k3** (Moonshot, brand nova) dup+trap × 2 braços; **opus-5** e
+**fable-5** no trap (2 braços) + **clean** (Strata) — o "ver além" pedido é
+a borda de abstenção, onde os topos ainda não foram medidos. Resultados
+entram no próximo registro.

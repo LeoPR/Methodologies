@@ -2,8 +2,7 @@
 title: PLANO — Reteste do Strata contra o L0 fechado (perspectiva temporal)
 created: 2026-08-02
 updated: 2026-08-02
-status: ativa — shake-down em curso (GOLD-gate OK; fumaça f4-dup × qwen3.6:27b
-  lançada 2026-08-02)
+status: executado 2026-08-02 (ver NOTAS-shakedown e OPINIAO-DE-USO)
 ---
 
 # PLANO — Reteste do L0 fechado: núcleo → gerais → brands → manual
@@ -95,7 +94,7 @@ f4-trap [borda-adversarial, só piso/12GB/24GB/topo] × strata+baseline × K=2):
 Juiz: disciplina F0 (bake-off cross-vendor; topo da grade = candidato, nunca
 por decreto).
 
-## 4. Shake-down (passo 1, em curso)
+## 4. Shake-down (passo 1, executado 2026-08-02 — ver NOTAS-shakedown)
 
 - **GOLD-gate**: `verify_f4.py --selftest` → **GOLD 100% (2026-08-02)** ✓
 - **Fumaça**: `f4-dup × qwen3.6:27b × K=1`, braço Strata, label `f4s-dup-strata`

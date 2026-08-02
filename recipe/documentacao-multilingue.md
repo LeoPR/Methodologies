@@ -2,7 +2,7 @@
 title: Documentação multilíngue — fonte canônica + tradução rastreável
 status: portável (piloto aplicado neste repo; pronto para reuso)
 created: 2026-06-30
-updated: 2026-08-01
+updated: 2026-08-02
 ---
 
 # Documentação multilíngue — fonte canônica + tradução rastreável
@@ -120,10 +120,11 @@ Estado atual e fila recomendada (superfície primeiro):
 | `README.md` | ✅ par pronto (`README.pt-BR.md`) | manter sincronizado por commit; guarda l10n disponível |
 | `outreach/` | ✅ pares prontos (README, post e imagem) | manter cada par sincronizado; revisar/renderizar ativos ao alterar |
 | `recipe/knowledge-architecture.en.md` | ✅ par pronto: **EN canônico** + `.md` (PT-BR derivado) — autoridade migrada 2026-08-01 por decisão explícita (adendo ADR-008) | manter sincronizado por commit; guarda l10n disponível |
-| `recipe/README.md` | ❌ sem par | mover a fonte PT-BR para `README.pt-BR.md` e criar `README.md` em inglês |
+| `recipe/README.en.md` | ✅ par pronto: **EN canônico** (`README.en.md`) + `README.md` (PT-BR derivado) — fluxo EN-first, como o produto | manter sincronizado por commit; guarda l10n disponível |
 | `MAP.md` | ❌ sem par | mover a fonte PT-BR para `MAP.pt-BR.md` e criar `MAP.md` em inglês |
 | `STATUS.md` | ❌ sem par | manter histórico em PT-BR; criar superfície canônica curta em inglês + tradução pt-BR |
-| `recipe/o-que-voce-ganha.md` | ❌ sem par | mover a fonte PT-BR para `.pt-BR.md` e criar o canônico sem sufixo em inglês |
+| `recipe/o-que-voce-ganha.en.md` | ✅ par pronto: **EN canônico** (`o-que-voce-ganha.en.md`) + `o-que-voce-ganha.md` (PT-BR derivado) | manter sincronizado por commit; guarda l10n disponível |
+| `recipe/strata-com-ia.md` | ❌ sem par (só PT-BR) | criar o canônico EN (tradução pendente, registrada no STATUS.md) |
 
 Critério de priorização:
 

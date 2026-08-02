@@ -1,9 +1,11 @@
 ---
 title: Fechamento da avaliação do Strata — honestidade, gaps e convergência ao ideal
-status: 'aberto — auditoria adversarial de 5 dimensões; a tese é direção forte, não prova'
+status: 'parcialmente fechado — passos 2 e 9 avançaram em 2026-08-02 (ver bloco datado); a tese segue direção forte, não prova'
 created: 2026-06-20
-updated: 2026-06-20
+updated: 2026-08-02
 ---
+
+> **2026-08-02 — atualização de estado:** passo 2 (s04) FEITO; passo 9 (texto→agente) PARCIALMENTE FECHADO (primeira célula sandbox transferiu — ver [OPINIAO-DE-USO](OPINIAO-DE-USO.md) e [lab/2026-08-02-reteste-L0-fechado](../2026-08-02-reteste-L0-fechado/)); o restante segue.
 
 # Fechamento da avaliação do Strata
 

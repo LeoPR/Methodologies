@@ -65,10 +65,13 @@ def main():
             stamp = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
             print(f"  -> {m} | {a.form} | r{run} ...", flush=True)
             try:
-                content, secs, tok = hb_runner.call(m, prompt, a.num_ctx, a.num_predict, seed=run)
-                hdr = f"<!-- M0 {a.form} | model={m} | run={run} | {stamp} | {secs:.0f}s | {tok} tok -->\n\n"
+                content, secs, tok, stop, from_think = hb_runner.call_ex(
+                    m, prompt, a.num_ctx, a.num_predict, seed=run)
+                hdr = (f"<!-- M0 {a.form} | model={m} | run={run} | {stamp} | "
+                       f"{secs:.0f}s | {tok} tok | stop={stop} | from_thinking={from_think} -->\n\n")
                 open(os.path.join(out, name), "w", encoding="utf-8").write(hdr + content)
-                print(f"     OK {secs:.0f}s, {tok} tok", flush=True)
+                trunc = " [TRUNCADO?]" if stop in ("length", "max_tokens") else ""
+                print(f"     OK {secs:.0f}s, {tok} tok, stop={stop}{trunc}", flush=True)
             except Exception as e:  # noqa
                 open(os.path.join(out, name + ".ERROR.txt"), "w", encoding="utf-8").write(f"ERRO: {e}")
                 print(f"     ERRO: {e}", flush=True)

@@ -442,8 +442,8 @@ def main():
     if not os.path.isdir(target_dir):
         print(f"ERRO: fixture nao encontrada: {a.target}", file=sys.stderr)
         return 2
-    if os.path.basename(target_dir.rstrip(os.sep)) not in ("f4-dup", "f4-trap"):
-        print("ERRO: Degrau 3 cobre so' f4-dup e f4-trap (verify_agent nao tem ouro p/ outro)",
+    if os.path.basename(target_dir.rstrip(os.sep)) not in ("f4-dup", "f4-trap", "f4-isca"):
+        print("ERRO: Degrau 3 cobre so' f4-dup, f4-trap e f4-isca (verify_agent nao tem ouro p/ outro)",
               file=sys.stderr)
         return 2
 

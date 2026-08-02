@@ -854,6 +854,12 @@ Art. 50 applies since 2-Aug-2026** and requires machine-readable marking, but is
 today's de facto path, and systems already on the market have a transition
 period until 2-Dec-2026. `[re-verified: 2026-08-01]`
 
+> **Boundary**: the *economy and routing* of AI resources (which model, local
+> vs cloud, cost, caching strategy) belongs to the **Comporta** methodology —
+> in research (`lab/2026-06-04-economia-ia-tokens/`). When distilled, this
+> section **points** to it (ADR-005); the rows above stay about *expressing*
+> timeless needs, not *pricing* them.
+
 ## 2. Editor / IDE — today's form of the working environment
 
 > **Expresses**: the environment where knowledge is written, read, and navigated.
@@ -873,6 +879,7 @@ editor** (knowledge is portable text/markdown, readable in any of them).
 |---|---|---|
 | **git** | §8 recoverable who/when/why history (successor to SCCS, 1975) | tool-agnostic; the syntax changes, the discipline stays |
 | **`.gitignore`** | §8 signal vs noise (what is NOT versioned) | official github/gitignore templates |
+| **Private / ignored paths** (`.gitignore`, private repos, ACLs) | §6-bis **authority-to-read** — retention by construction: what never enters the versioned surface cannot be served | not §8-noise: deliberate withholding; the sphere of readers is declared (frontmatter `audience:`), not implied |
 | **Git LFS / DVC / lakeFS / Quilt** | §8 large irrecoverable files | only the irrecoverable enters; the recreation script enters |
 | **Conventional Commits / SemVer / Keep a Changelog** | (L1, §8) the grammar of history | see Part II |
 | **Signed commits / branch protection / CODEOWNERS** | §3 authorship + traceable collaboration | in a publishable/regulated project |
@@ -925,8 +932,9 @@ the living proof of the layers thesis: the foundation (Parts I/II, from Pacioli
 > etymology and the source caveats.
 >
 > **Open items**:
-> - **Axis 5 (security/adversariality)**: §6-bis touched the axis; it deserves its
->   own sweep with the parent principle *authority ⊥ content*.
+> - **Axis 5 (security/adversariality)**: §6-bis now gates **both** acts
+>   (executing and serving); the axis still deserves its own sweep on the
+>   **evidence** side (today: completion-only signal).
 > - **Part IV — Adoption and operation**: the brownfield path (how to adapt an
 >   existing project) is a known gap; it awaits empirical recurrence (N≥3) to
 >   formalize.

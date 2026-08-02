@@ -72,3 +72,18 @@ ADR-008, cólofons trocados, `tools/check_l10n.py` inalterado (orientada a
 marcadores). Resta da fila editorial da doc multilíngue: `recipe/README.md`,
 `MAP.md`, `STATUS.md`, `o-que-voce-ganha.md` (sem par — ver tabela em
 `recipe/documentacao-multilingue.md`).
+
+## Série L2 (revisão da Parte III, pós-fechamento do L0)
+
+| Parte | Questão | Status |
+|---|---|---|
+| **L2-1 — Alinhamento estrutural** | com o L0 fechado, o que a Parte III deve ao núcleo novo? (§6-bis-ver sem forma L2; §11 sem necessidade — negativo; fronteira Comporta) | **FECHADA — APLICADA EN-first (2026-08-01); PT derivado pendente (fim do ciclo)** → [`L2-1-alinhamento.md`](L2-1-alinhamento.md) §7 |
+
+## Fluxo de trabalho desta fase (decisão do dono, 2026-08-01)
+
+- **Traduções e reorganizações editoriais ficam PARA O FIM.** O que não pode
+  esperar é o **traço do raciocínio**: cada parte registra hipótese, evidência,
+  literatura e texto candidato **completos no doc da parte** — porque a tradução
+  precisa seguir o contexto; ao traduzir, verifica-se a fidelidade contra este
+  registro (§3: fonte + rationale rastreáveis).
+- EN-first continua valendo para texto candidato ao canônico.

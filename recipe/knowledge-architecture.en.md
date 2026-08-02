@@ -721,7 +721,7 @@ the two rules those principles do not give:
 
 | Formalization | What it is | Source | Change-signal |
 |---|---|---|---|
-| **ISAD(G)** (General International Standard Archival Description) | archival-description template that distinguishes the constitutive act (the record *is* the act — dispositive) from the evidential document (the record *reports* the act — probative); operates §3-bis's distinction at institutional scale | ICA, 2nd ed. 2000 `[CANONICAL]` | EAD (Encoded Archival Description) if you need electronic exchange; RiC-CM (Records in Contexts) as the emerging successor |
+| **ISAD(G)** (General International Standard Archival Description) | archival-description template that distinguishes the constitutive act (the record *is* the act — dispositive) from the evidential document (the record *reports* the act — probative); operates §3-bis's distinction at institutional scale, and its *conditions governing access* area formalizes the **serving gate** (§6-bis) at the same scale | ICA, 2nd ed. 2000 `[CANONICAL]` | EAD (Encoded Archival Description) if you need electronic exchange; RiC-CM (Records in Contexts) as the emerging successor |
 | **SI / ISO 80000** | international system of units and quantities — the formal *datum* of reference for science and engineering; operationalizes "declare the reference frame before measuring" | BIPM / ISO 80000 `[CANONICAL]` | EPSG/WGS84 for geodetic data; TAI/UTC for time; IEEE 754 for floating point |
 | **PRONOM / DROID** | file-format registry (The National Archives UK) — identifies and documents codecs and formats for long-term self-decodability; the "dictionary" §3-bis requires be co-located | The National Archives UK — pronom.nationalarchives.gov.uk `[CANONICAL]` | relevant for long-term archiving; MIME-type (RFC 2045) suffices for the short term |
 
@@ -754,7 +754,7 @@ the two rules those principles do not give:
 | **SIFT** (Four Moves) | stop / investigate the source / find better coverage / trace to the origin | Caulfield 2017/2019 `[WEB ✓]` | — |
 | **Triangulation** | validate via N independent sources | Denzin 1978 `[CANONICAL]` | — |
 
-## For §6-bis — authority to act (out-of-band channel, fail-closed)
+## For §6-bis — authority to act **and to serve** (out-of-band channel, fail-closed)
 
 | Formalization | What it is | Source | Change-signal |
 |---|---|---|---|

@@ -73,6 +73,12 @@ marcadores). Resta da fila editorial da doc multilíngue: `recipe/README.md`,
 `MAP.md`, `STATUS.md`, `o-que-voce-ganha.md` (sem par — ver tabela em
 `recipe/documentacao-multilingue.md`).
 
+## Série L1 (revisão de conteúdo da Parte II — a que havia ficado para trás)
+
+| Parte | Questão | Status |
+|---|---|---|
+| **L1-1 — Conteúdo do L1** | camadas certas? mapeamentos pós-fechamento? `[CANONICAL]` basta? | **FECHADA — (a) aplicada EN-first (2026-08-01); (b) nada se move e (c) `[CANONICAL]`+verificar-ao-tocar decididos; PT pendente (fim do ciclo)** → [`L1-1-revisao-conteudo.md`](L1-1-revisao-conteudo.md) §7 |
+
 ## Série L2 (revisão da Parte III, pós-fechamento do L0)
 
 | Parte | Questão | Status |

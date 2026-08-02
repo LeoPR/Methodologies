@@ -1,7 +1,7 @@
 ---
 title: 'Fila geral — backlog PRIORIZADO (pós-consolidação)'
 created: 2026-06-13
-updated: 2026-06-20
+updated: 2026-08-02
 status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava — feito.'
 ---
 
@@ -42,6 +42,10 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   o arquivo **não existe** (nit cosmético legítimo §2). Reprocessar o s04 com o gabarito corrigido (2 nits
   triviais: mapa slash/dash + plural `decisoes`; e o ponteiro pendente). Efeito esperado: "inventados" caem ~1
   em quem apontou o link; ranking não muda. Detalhe: [cenarios/README §s04](../../eval/strata/cenarios/README.md).
+  *(2026-08-02: quantificação mecânica feita — a citação ao link é frequente nas levas históricas, ex. vb3b-s04
+  10/10, vb3-s04 17/21, ds-s04 8/10; ver nota no cenarios/README. **Segue pendente o re-julgamento**: a instrução
+  de juiz do K=5 não está persistida no harness (juiz único Claude interativo do P9); refazer exige rodada nova
+  de juiz — custo + escolha de juiz/prompt, decisão de desenho.)*
 - **Firmar os achados do P10 (revisão adversarial, 2026-06-16):** os 4 achados refinados são **direcionais, não
   causais** — o framing gênero-consciente confunde ruído×abstenção. Para isolar: (1) rodar o **TCF-limpo sob o
   framing "ache problemas"** (cruzar ruído × framing); (2) **fixture par-a-par** que varie só a legibilidade do

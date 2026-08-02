@@ -103,6 +103,8 @@ def main():
     import argparse
     ap = argparse.ArgumentParser()
     ap.add_argument("--dirs", default="", help="pastas extras sob planos/ (virgula), ex.: f4g-trap-strata-gpu")
+    ap.add_argument("--skip-builtin", action="store_true",
+                    help="pula as pastas embutidas f4-{dup,clean,trap}-* (roster antigo); julga so --dirs")
     args = ap.parse_args()
     missing = sorted({providers.parse_spec(j)[0] for j in JUDGES if not providers.have_key(providers.parse_spec(j)[0])})
     if missing:
@@ -118,12 +120,14 @@ def main():
         return re.sub(r"_", "/", re.match(r"plano-(.+)-F4-r(\d+)", os.path.basename(f)).group(1), count=1)
     for fix in ["f4-dup", "f4-clean", "f4-trap"]:
         for arm in ["strata", "base"]:
+            if args.skip_builtin:
+                continue
             for f in sorted(glob.glob(os.path.join(HERE, "planos", f"f4-{fix}-{arm}", "plano-*.md"))):
                 run = int(re.match(r"plano-(.+)-F4-r(\d+)", os.path.basename(f)).group(2))
                 jobs.append((fix, arm, model_of(f), run, f))
-    # ADITIVO: pastas extras (grade incremental f4g/f4u/f4v) — fixture vem do 2o token do nome.
+    # ADITIVO: pastas extras (grade f4g/f4u/f4v, nucleo f4s) — fixture vem do 2o token do nome.
     for d in [s.strip() for s in args.dirs.split(",") if s.strip()]:
-        mfix = re.match(r"f4[guv]?-(dup|clean|trap)-", d)
+        mfix = re.match(r"f4[a-z]?-(dup|clean|trap)-", d)
         if not mfix:
             print(f"[aviso] pasta {d} fora do padrao f4*-<fix>-*, ignorada", file=sys.stderr)
             continue

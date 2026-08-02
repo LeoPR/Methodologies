@@ -53,3 +53,27 @@ medido (fp8/bf16 nuvem × q4_K_M local), que o manual declara.
 **Consequência operacional:** GPU local livre na maior parte do tempo; a matriz
 de núcleo sai por ~$1-3 na nuvem em minutos. Local só para âncoras e para o
 que a nuvem não mede (viabilidade real na 3060).
+
+## 2026-08-02 — Primeira célula nuvem: Strata PASS × baseline FALHA (K=1)
+
+**Física reasoner-budget (registrada para a matriz):** `num_predict 5000` →
+`INDETERMINADO-TRUNCADO` no 27b nuvem (o thinking consumiu o orçamento; scorer
+aplicou a regra herdada corretamente). Com `num_predict 12000`: stop limpo.
+**Reasoner-sujeito exige budget maior** — mesma nota que o corpus já tinha para
+juízes (700→1500). A matriz nuvem usa 12000 daqui em diante.
+
+**Resultado (f4-dup, §5 fonte-única, `qwen/qwen3.6-27b`, K=1 por braço):**
+
+| Braço | Veredito mecânico | Tempo | Tokens |
+|---|---|---|---|
+| STRATA | **PASS** | 81s | 3615 |
+| BASELINE (sem Strata) | **FALHA_CORRECAO** | 35s | 2698 |
+
+Leitura (direção, não prova — K=1): no **mesmo modelo, mesma célula**, o método
+decide — capacidade (27b) põe o modelo na zona de competência; a forma (Strata)
+corrige o conserto. Coerente com a tese-mãe do corpus ("a forma corrige o viés;
+a capacidade calibra") e **primeiro dado da hipótese temporal**: o corpus
+registrava zero PASS no F4-local 4-8B de junho.
+
+**Pendentes:** âncora local (fumaça 2, 27b q4_K_M na 3060) para fechar a ponte
+nuvem×local; K maior para firmeza; juiz cross-vendor sobre os planos.

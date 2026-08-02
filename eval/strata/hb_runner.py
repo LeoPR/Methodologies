@@ -101,6 +101,12 @@ def read_target(target_dir, cap_total=180_000):
     return "".join(parts)
 
 
+# timeout da chamada ollama: default 900s (matriz local 2026-06, modelos 4-8B em GPU).
+# STRATA_OLLAMA_TIMEOUT sobe p/ modelos grandes com offload CPU (qwen3.6:27b mede
+# ~4,3 tok/s geracao na RTX 3060 12GB; run F4 ≈ 20-40 min — shake-down 2026-08-02).
+OLLAMA_TIMEOUT = int(os.environ.get("STRATA_OLLAMA_TIMEOUT", "900"))
+
+
 def call_ollama(model, prompt, num_ctx, num_predict, seed, temp=0.3):
     # think=True explicito: modelos de raciocinio (deepseek-r1, qwen3) retornam o raciocinio
     # em message.thinking e a RESPOSTA em message.content (campos SEPARADOS no Ollama).
@@ -111,7 +117,7 @@ def call_ollama(model, prompt, num_ctx, num_predict, seed, temp=0.3):
     req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode("utf-8"),
                                  headers={"Content-Type": "application/json"})
     t0 = time.time()
-    with urllib.request.urlopen(req, timeout=900) as r:
+    with urllib.request.urlopen(req, timeout=OLLAMA_TIMEOUT) as r:
         d = json.loads(r.read().decode("utf-8"))
     msg = d.get("message", {})
     content = (msg.get("content") or "").strip()
@@ -184,7 +190,7 @@ def call_ollama_ex(model, prompt, num_ctx, num_predict, seed):
         try:
             req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode("utf-8"),
                                          headers={"Content-Type": "application/json"})
-            with urllib.request.urlopen(req, timeout=900) as r:
+            with urllib.request.urlopen(req, timeout=OLLAMA_TIMEOUT) as r:
                 d = json.loads(r.read().decode("utf-8"))
             break
         except urllib.error.HTTPError as e:

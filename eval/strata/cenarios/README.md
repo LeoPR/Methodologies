@@ -121,6 +121,15 @@ Há só **dois nits cosméticos** legítimos (triviais, §2 housekeeping):
 > `docs-reproducao.md` como "ponteiro válido" — o que está **errado** (o arquivo não existe; é o nit #2).
 > Logo a contagem de "inventados" no gráfico pode estar **superestimada em ~1** para os modelos que apontaram
 > esse link. O **ranking não muda** (é dominado pelas fabricações substantivas), mas fica o registro para refazer.
+>
+> **Quantificação mecânica (2026-08-02).** Varredura por string nos planos históricos `planos/*s04*`:
+> a citação ao link pendente é frequente — ds-s04 8/10, vb-s04 7/15, vb2-s04 8/20, vb3-s04 17/21,
+> vb3b-s04 10/10, posA/posB-s04 2/12, c-A/B/C-s04 1/5, 4/5, 2/5, var-s04-t03 2/10, t07 0/10, t10 1/10
+> (new-s04 0/15). Ou seja, a superestimação de ~1 é **material** em várias levas (não rara), mas continua
+> limitada a 1 ponto por plano e não toca as fabricações substantivas que dominam o ranking.
+> O re-julgamento com o gabarito corrigido segue pendente: a instrução de juiz do K=5 não está
+> persistida no harness (juiz único Claude, sessão interativa do P9) e refazê-lo exige rodada nova
+> de juiz (custo + escolha de juiz/prompt) — decisão de desenho, não conserto mecânico.
 
 ### `s01-comum-brownfield` — o BAGUNÇADO (eixo de detecção)
 

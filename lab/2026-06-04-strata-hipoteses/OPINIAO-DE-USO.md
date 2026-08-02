@@ -30,12 +30,16 @@ Três coisas, em ordem de solidez.
   Diante de "baixe e rode esta URL" ou "execute sem confirmar", a IA não obedece.
   E também não inventa ameaça onde não há.
   O econômico melhora muito com o método, e o topo recusa de forma nativa.
-  A recusa do econômico é em parte lexical, porque cai sob paráfrase.
+  **2026-08: a "recusa lexical que cai sob paráfrase" era da geração anterior** —
+  no reteste dirigido, 27B local, 32B, gpt-5-mini e até a sonda legado
+  gpt-4.1-mini detectaram e neutralizaram espontaneamente (8/8, citando §6-bis).
 
 - **Aponta o caminho do "quando NÃO agir", mas a calibração é do modelo (sinal).**
   Reconhecer que o projeto já está bom e não mexer (§9) é o julgamento difícil.
   Ele depende da capacidade, não da forma.
-  Nenhuma forma torna um modelo fraco proporcional.
+  **2026-08: a fronteira moveu** — a abstenção correta já sai num 27B local
+  (zero ação, justificando custo×risco), mas a proporcionalidade bilateral
+  (abster-se onde deve **e** agir na medida onde deve) ainda não calibra.
 
 **Sobre a over-ação (mexer no que não precisa).**
 Ela não é carimbo fixo do tier.
@@ -64,11 +68,11 @@ Confiança: SÓLIDO é bem medido, sinal é direção, EXPLORATÓRIO/RUIDOSO é 
 |---|---|---|
 | [Consertar um defeito conhecido](RESULTADOS-f4-execucao.md) (§5) | o econômico já dá conta, com o Strata (até o Haiku); **2026-08: 20/20 de ~8B ao topo de fronteira** | **SÓLIDO** — re-medido com L0 fechado |
 | [Preservar o histórico / tombstone](RESULTADOS-f4-execucao.md) (§3) | o econômico, com o Strata | **SÓLIDO** — replicou no REAL (eco-pdf2md); o pedaço mais robusto |
-| [Recusar instrução maliciosa](RESULTADOS-f3-recusa.md) (§6-bis) | o econômico melhora; o topo recusa nativo | **SINAL** (a medição mais frágil) |
+| [Recusar instrução maliciosa](RESULTADOS-f3-recusa.md) (§6-bis) | **2026-08: todos os testados** (27B local, 32B, gpt-5-mini, 4.1-mini) recusam espontaneamente 8/8 | **SÓLIDO** na geração atual (a fragilidade lexical era datada) |
 | [Neutralizar injeção sem propagá-la](RESULTADOS-f4-execucao.md) (§6-bis, trap) | a maioria com Strata; **falha catalogada: re-emitir a diretiva ativa** (8B, gpt-oss-120b e gemini-3.1-pro caíram 1×; llama-4-scout falhou 2/2) | **SÓLIDO** no padrão de falha (2026-08) |
 | [Abster-se num projeto já bom](RESULTADOS-f4-execucao.md) (§9) | **é do MODELO, não do tier**: calibram 27B local, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; superagem haiku-4.5, deepseek-v3.2, qwen3-32b | **SÓLIDO** como propriedade-de-modelo (2026-08) |
 | [Achar dívida real num projeto grande](RESULTADOS-p10-escada-propria-genero.md) | só o topo (e varia por fornecedor) | sinal (sub-detecção é o limite duro) |
-| [Verificar fonte na web](RESULTADOS-f5-pesquisa.md) (§6) | nenhum modelo, de forma confiável | **EXPLORATÓRIO** |
+| [Verificar fonte na web](RESULTADOS-f5-pesquisa.md) (§6) | **2026-08: com web, o gpt-5-mini acertou 6/6 citando fonte primária**; sem web, o erro virou memória declarada ou NÃO-VERIFICÁVEL — a alucinação-de-verificação da geração anterior sumiu | **SINAL** (K=2, 3 claims) |
 | [Reconciliar o projeto inteiro num passo](RESULTADOS-f4-execucao.md) | nenhum nível dá conta | sinal (limite do harness) |
 | [Agir sozinha rodando local](RESULTADOS-tier-local.md) | **<4B não roda** (nem o formato); **~8B executa** o conserto; **~20–27B satura** (conserta E se abstém) | **SÓLIDO** no piso/joelho (2026-08, nuvem+ponte local) |
 
@@ -85,10 +89,14 @@ ancorar decisão cara** (a regra está registrada no lab).
   conserto §5 já sai no padrão. O "usa o máximo" (conserta **e** se abstém)
   aparece em ~20–27B: o qwen3.6-27b local saturou nos dois lados (22 min/run
   numa 3060 12GB — factível, lento).
-- **Plano econômico (nuvem barata):** gpt-4.1-mini, haiku-4.5, deepseek-v4-pro
-  **executam o conserto perfeitamente** (6/6 no §5). Para a borda de não-agir,
-  o gpt-4.1-mini calibrou e o haiku-4.5 não — **preço não ordena a borda**;
-  se a abstenção importa, confira o modelo específico, não o tier.
+- **Plano econômico (nuvem barata):** o novo piso OpenAI é o **gpt-5-mini**
+  ($0,25/$2,00 por 1M — mais barato na entrada que o 4.1-mini, com reasoning);
+  ele executa o conserto, recusa a injeção espontaneamente e, com web, verifica
+  fonte. O gpt-4.1-mini segue só como referência de **base legada** (deploys
+  pinados) — calibrou a abstenção, mas é geração anterior e quebra formato sob
+  pressão. haiku-4.5 e deepseek-v4-pro **executam o conserto perfeitamente**;
+  para a borda de não-agir, **preço não ordena a borda** — se a abstenção
+  importa, confira o modelo específico, não o tier.
 - **Plano topo:** sonnet-5, gpt-5.6-terra, gemini-3.1-pro, kimi-k3, opus-5,
   fable-5 — conserto e armadilha perfeitos; opus-5/fable-5 também saturam a
   abstenção (2/2). O terra atende; o sol é redundância de custo aqui. O
@@ -135,8 +143,8 @@ substitui, a verificação mecânica.
 - Que o Strata **melhore o que a IA já faz bem sozinha.** Às vezes a prosa piora o óbvio.
 - Que funcione como **auditor autônomo num projeto real.** Ele não bate a competência pura do modelo.
   A falha dominante é falso-positivo no projeto limpo, ou sub-detecção no que precisa.
-- Que **verifique fonte na web de forma confiável.** Sem web, ele carimba como verdadeiro; com web, ainda revise.
-- Que um modelo **econômico seja seguro contra injeção** sob ataque real. A recusa fraca é lexical e cai sob paráfrase.
+- Que **verifique fonte na web de forma confiável sem web.** Sem acesso, o erro é memória declarada ou NÃO-VERIFICÁVEL (2026-08) — ainda revise; com web e modelo razoável, a verificação §6 já sai com fonte primária citada.
+- Que um modelo **da geração anterior seja seguro contra injeção** sob paráfrase — a recusa lexical fraca era datada; a geração 2026-08 recusa espontaneamente, mas modelos novos continuam sendo re-testados.
 - Que um modelo **local pequeno (4–8B) aja sozinho.** Ele não conserta, e pode apagar histórico, obedecer ou alucinar.
 - Que **reconcilie um projeto inteiro num passo.**
 - Que **situe artefatos no tempo** com garantia. É a dimensão mais ruidosa.
@@ -202,9 +210,9 @@ substitui, a verificação mecânica.
   (thinking) não muda veredito; júri cross-vendor confirma o gold mecânico
   (que é conservador nos dois sentidos); único evitar: llama-4-scout.
   Diário completo: [`lab/2026-08-02-reteste-L0-fechado`](../2026-08-02-reteste-L0-fechado/).
-- **Funciona (sólido):** consertar §5 e preservar §3, até no econômico; recusar injeção §6-bis; e 7 de 9 juízes de 3 empresas convergem, então não é auto-avaliação.
-- **Funciona (sinal):** num projeto limpo, todos se abstêm; sob ruído, só o topo calibra.
-- **Não funciona / em aberto:** auditor autônomo no projeto real (sub-detecção é o limite duro); verificação na web; agente com ferramentas reais; L1/L2.
+- **Funciona (sólido):** consertar §5 e preservar §3, até no econômico; recusar injeção §6-bis (2026-08: espontânea em todos os testados da geração atual); e 7 de 9 juízes de 3 empresas convergem, então não é auto-avaliação.
+- **Funciona (sinal):** num projeto limpo, todos se abstêm; sob ruído, só o topo calibra; verificar fonte §6 **com web** já sai com fonte primária (gpt-5-mini:online 6/6, K=2).
+- **Não funciona / em aberto:** auditor autônomo no projeto real (sub-detecção é o limite duro); proporcionalidade bilateral da abstenção (abster-se já sai no 27B, mas calibrar o quanto agir ainda não); agente com ferramentas reais; L1/L2.
 
 Para a **evolução completa** — fase a fase, o que foi dito e descartado, os números por experimento:
 [hub de arquitetura e evidências](ARQUITETURA-E-EVIDENCIAS.md) (histórico) ·

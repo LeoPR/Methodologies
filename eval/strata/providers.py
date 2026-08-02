@@ -101,6 +101,83 @@ def chat(provider, model, prompt, *, max_tokens=800, temperature=0.0, seed=None,
     raise last
 
 
+def chat_tools(provider, model, messages, tools, *, max_tokens=6000, temperature=None,
+               seed=None, timeout=300, retries=4):
+    """Chamada OpenAI-compativel COM tool-calling nativo (DEGRAU 3 — hb_agent). ADITIVO.
+
+    `messages` e' a conversa INTEIRA (system + user + assistant c/ tool_calls + tool results);
+    `tools` e' a lista de function-schemas. Retorna o dict cru da API. Pede `usage.include`
+    (OpenRouter devolve `usage.cost` em dolares — base do rastro de custo por run).
+
+    Prompt caching: p/ modelos anthropic/* marca breakpoints `cache_control` ephemeral no
+    system e na ultima tool def (a OpenRouter repassa ao provedor; o system do hb_agent e'
+    ~17k tok e se repete a cada turn do loop — sem cache o custo explode). Nos demais
+    provedores o caching e' automatico ou inexistente; nada se envia (param anthropic-
+    especifico poderia dar 400). `temperature`/`seed` = None omitem o parametro (gpt-5-*
+    rejeita temperature; claude nao tem seed — ver supported_parameters do /models)."""
+    key = get_key(provider)
+    if not key:
+        _, env, fname = PROVIDERS[provider]
+        raise RuntimeError(f"chave do provedor '{provider}' ausente (env {env} ou eval/strata/{fname})")
+    body = {"model": model, "messages": messages, "tools": tools,
+            "max_tokens": max_tokens, "usage": {"include": True}}
+    if temperature is not None:
+        body["temperature"] = temperature
+    if seed is not None:
+        body["seed"] = seed
+    if model.startswith("anthropic/"):
+        msgs = [dict(m) for m in messages]
+        if msgs and msgs[0].get("role") == "system" and isinstance(msgs[0].get("content"), str):
+            msgs[0]["content"] = [{"type": "text", "text": msgs[0]["content"],
+                                   "cache_control": {"type": "ephemeral"}}]
+        tls = [dict(t) for t in tools]
+        if tls:
+            tls[-1]["cache_control"] = {"type": "ephemeral"}
+        body["messages"], body["tools"] = msgs, tls
+    data = json.dumps(body).encode("utf-8")
+    url, _, _ = PROVIDERS[provider]
+    hdr = _headers(provider, key)
+    last = None
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, data=data, headers=hdr), timeout=timeout) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            last = e
+            if e.code in (429, 500, 502, 503, 529) and attempt < retries - 1:
+                time.sleep(5 * (attempt + 1)); continue
+            raise
+        except Exception as e:  # noqa
+            last = e
+            if attempt < retries - 1:
+                time.sleep(3 * (attempt + 1)); continue
+            raise
+    raise last
+
+
+def tool_msg_of(d):
+    """Extrai da resposta de chat_tools: (content, tool_calls, finish_reason, usage).
+    tool_calls vem como lista de dicts {id, name, arguments(str JSON)}; usage inclui
+    prompt_tokens/completion_tokens e cost (se a OpenRouter devolveu)."""
+    ch = d["choices"][0]
+    msg = ch.get("message", {})
+    raw = msg.get("content")
+    if isinstance(raw, list):  # blocos (anthropic): junta os de texto
+        content = "".join(b.get("text", "") for b in raw if isinstance(b, dict)).strip()
+    else:
+        content = (raw or "").strip()
+    tcs = []
+    for tc in (msg.get("tool_calls") or []):
+        fn = tc.get("function", {}) or {}
+        tcs.append({"id": tc.get("id"), "name": fn.get("name", ""),
+                    "arguments": fn.get("arguments", "") or ""})
+    u = d.get("usage", {}) or {}
+    usage = {"prompt_tokens": u.get("prompt_tokens", 0),
+             "completion_tokens": u.get("completion_tokens", 0),
+             "cost": u.get("cost")}
+    return content, tcs, ch.get("finish_reason"), usage
+
+
 def content_of(d):
     """(content, finish_reason, from_thinking, completion_tokens). Fallback p/ o canal de raciocinio."""
     ch = d["choices"][0]

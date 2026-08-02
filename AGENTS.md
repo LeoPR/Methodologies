@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-08-01
+updated: 2026-08-02
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -31,6 +31,8 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     traducao derivada no mesmo commit (adendo ADR-008). Pendente: Parte IV
     (adocao/operacao).
   - `README.md` — guia de uso do Strata (humano + IA; o arquivo e' efemero).
+    Par EN/PT: `README.en.md` e' o canonico, `README.md` a traducao (fluxo EN-first,
+    como o produto); o mesmo vale para `o-que-voce-ganha.md`/`.en.md`.
 - `decisions/` — **ADRs** (ADR-001..008): por que cada decisao de design. Imutaveis.
 - `lab/` — pesquisa (modo exploratorio), subpastas datadas `YYYY-MM-DD-tema/`:
   - `2026-06-03-modernizacao/`: analise 5-lentes + `experimento-split/` (**FROZEN**)

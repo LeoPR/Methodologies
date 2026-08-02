@@ -524,13 +524,13 @@ across the whole workspace. (The tool that does it today is L2.)
 - **Separate the ephemeral from the canonical** — transient by-products (cache,
   environment, build) do not contaminate the record of the work. The same
   signal-vs-noise principle applied to the workspace.
-- **Reproducibility as a test** — the proving question: *does another person, on
-  another machine, reconstruct the work state in a few steps?* If not, there is an
+- **Reproducibility as a test** — the proving question: *does another person, in
+  another workspace, reconstruct the work state in a few steps?* If not, there is an
   unrecorded implicit dependency — find and record it, or document it as a
   legitimate exception.
 
 > **Adherence** (proportional to third-party reproduction and to the life of the work
-> — §9): the proving question ("does another person, on another machine,
+> — §9): the proving question ("does another person, in another workspace,
 > reconstruct?") **is** the trigger — versioning bites when another needs to
 > reconstruct the state or when the history has audit value. Solo-and-short does not
 > require it in principle; applying it early is only because today it costs almost
@@ -569,10 +569,11 @@ absolute. (The only exception: the security boundary §6-bis, where the *default
 
 **The other regulator is the genre of the work.** Proportionality is not only *how
 much* to organize — it is *which standard* to demand. What counts as
-"well-organized" depends on the **kind** of artifact: a **library** calls for
-tests, packaging, and CI; a **lecture notebook, list, curation, or research
-project** does not — demanding of them the software apparatus is the **same §9
-excess along another axis** (low software-conformance ≠ defect). Before auditing or
+"well-organized" depends on the **kind** of artifact: a **reference work** calls
+for an index, cross-references, errata (in software, a library: tests, packaging,
+CI); a **lecture notebook, list, curation, or research project** does not —
+demanding of them another genre's apparatus is the **same §9
+excess along another axis** (low conformance to a foreign standard ≠ defect). Before auditing or
 acting, **name the genre and apply its standard**; do not demand what does not
 apply. It is the same proportionality-to-relevance of Grice / Sperber-Wilson, here
 about the *kind of work* rather than the distance to the reader.

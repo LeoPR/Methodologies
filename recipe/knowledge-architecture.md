@@ -524,13 +524,13 @@ auditável e recuperável** do trabalho — o mecanismo que torna o append-only
 - **Separar o efêmero do canônico** — subprodutos transitórios (cache,
   ambiente, build) não contaminam o registro do trabalho. Mesmo princípio do
   sinal-vs-ruído aplicado ao espaço de trabalho.
-- **Reprodutibilidade como teste** — a pergunta-prova: *outra pessoa, em outra
-  máquina, reconstrói o estado de trabalho em poucos passos?* Se não, há
+- **Reprodutibilidade como teste** — a pergunta-prova: *outra pessoa, em outro
+  espaço de trabalho, reconstrói o estado de trabalho em poucos passos?* Se não, há
   dependência implícita não registrada — encontre e registre, ou documente como
   exceção legítima.
 
 > **Aderência** (proporcional à reprodução-por-terceiro e à vida do trabalho — §9): a
-> pergunta-prova ("outra pessoa, em outra máquina, reconstrói?") **é** o gatilho —
+> pergunta-prova ("outra pessoa, em outro espaço de trabalho, reconstrói?") **é** o gatilho —
 > versionar morde quando outro precisa reconstruir o estado ou quando o histórico tem
 > valor de auditoria. Solo-e-curto não o exige por princípio; se aplicar cedo, é só
 > porque hoje custa quase nada (L2), não por universalidade.
@@ -566,10 +566,11 @@ a fronteira de segurança §6-bis, onde o *default* é *fail-closed*, não "o m�
 
 **O outro regulador é o gênero do trabalho.** Proporcionalidade não é só *quanto*
 organizar — é *qual padrão* exigir. O que conta como "bem-organizado" depende do
-**tipo** de artefato: uma **biblioteca** pede testes, empacotamento e CI; um
+**tipo** de artefato: uma **obra de referência** pede índice, remissivas e errata
+(em software, uma biblioteca: testes, empacotamento e CI); um
 **caderno de aula, lista, curadoria ou pesquisa** não — cobrar deles o aparato de
-software é o **mesmo excesso de §9 por outro eixo** (baixa-conformidade de software
-≠ defeito). Antes de auditar ou agir, **nomeie o gênero e aplique o padrão dele**;
+outro gênero é o **mesmo excesso de §9 por outro eixo** (baixa conformidade a um
+padrão alheio ≠ defeito). Antes de auditar ou agir, **nomeie o gênero e aplique o padrão dele**;
 não exija o que não se aplica. É a mesma proporcionalidade-à-relevância de Grice /
 Sperber-Wilson, aqui sobre o *tipo de obra* em vez da distância ao leitor.
 

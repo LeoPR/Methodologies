@@ -105,3 +105,24 @@ Três leituras (K=1, direção):
 
 **Opcional em aberto:** baseline local (mais ~22 min de GPU) fecharia o desenho
 também no lado local; a prioridade segue para o núcleo nuvem.
+
+## 2026-08-02 — Local cancelado como frente; combinatória por perguntas-mãe
+
+**Decisão do dono:** com a nuvem rodando e similar ao local, **não rodar mais
+localmente** — os testes simulam as classes de GPU via OpenRouter. O foco do
+manual: **popularidade, mínimo que funcione, menor-melhor, e os consagrados de
+brand**. Perguntas-mãe registradas: (Q1) menor modelo em que o Strata ainda
+funciona; (Q2) menor modelo que usa o **máximo** do Strata; (Q3) a variante por
+brand paga (Haiku, Gemini etc.); (Q4) o melhor possível como prova funcional e
+candidato a juiz. Combinatória completa no PLANO §3.2.
+
+**Catálogo `/api/v1/models` (2026-08-02, $/1M in/out) — degraus-chave:**
+llama-3.2-1b $0,027/0,20 · gemma-3n-e4b $0,06/0,12 · llama-3.2-3b $0,05/0,33 ·
+gemma-3-4b $0,05/0,10 · ministral-3b-2512 $0,10/0,10 · ministral-8b $0,15/0,15 ·
+phi-4 $0,07/0,14 · qwen3-8b $0,117/0,455 · ministral-14b $0,20/0,20 ·
+qwen3-14b $0,23/0,91 · deepseek-v3.2 $0,269/0,40 · gpt-4.1-nano $0,10/0,40 ·
+gpt-4.1-mini $0,40/1,60 · gemini-3.1-flash-lite $0,25/1,50 ·
+claude-haiku-4.5 $1/5 · qwen3.6-27b $0,30/2 · qwen3.6-35b-a3b $0,14/1 ·
+kimi-k2.6 $0,60/3,41 · gpt-5 $1,25/10 · claude-sonnet-5 $2/10 ·
+gemini-3.1-pro-preview $2/12 · qwen3.6-max-preview $1,03/6,16 ·
+kimi-k3 $3/15 · claude-opus-5 $5/25.

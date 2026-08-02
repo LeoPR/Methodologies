@@ -1,0 +1,97 @@
+---
+title: PLANO — Reteste do Strata contra o L0 fechado (perspectiva temporal)
+created: 2026-08-02
+updated: 2026-08-02
+status: ativa — shake-down em curso (GOLD-gate OK; fumaça f4-dup × qwen3.6:27b
+  lançada 2026-08-02)
+---
+
+# PLANO — Reteste do L0 fechado: núcleo → gerais → brands → manual
+
+## 1. Contexto e a tese temporal
+
+O L0 fechou editorialmente em 2026-08-01 (ciclo P1–P5 + V1/V2). O corpus v1
+(`lab/2026-06-04-strata-hipoteses/`) testou um L0 de **12 seções**; o fechado
+tem **11 + §11 novo (classificação)** — variável nova declarada desta rodada.
+
+Tese do dono (2026-08-02): as conclusões **negativas** do corpus eram limitadas
+pela tecnologia de junho (llama3.1:8b, qwen2.5-coder:7b, deepseek-r1:8b,
+qwen3:8b). A prateleira local de hoje é outra (Qwen3.6-27B denso,
+Qwen3.6-35B-A3B MoE, Llama 4 Scout 17B, gpt-oss 20B). **Conclusão negativa
+datada não se refuta pelo calendário — se retesta.** E: os testes contínuos
+alimentam o **manual datado (L2/Órganon: `OPINIAO-DE-USO.md` + Parte III §1)**,
+nunca o L0 — o Strata seria executável por um humano, mais devagar.
+
+## 2. Tabela temporal — o que é candidato a reteste
+
+| Conclusão do corpus | Era tecnologia da época? | Destino |
+|---|---|---|
+| F4-local negativo (zero PASS; local 4-8B destrói/obedece) | **Sim** (8B de junho) | **Reteste #1** |
+| Recusa lexical do fraco (F3 cai sob paráfrase) | Provável | Reteste c/ 17-27B |
+| §9: nenhuma forma torna modelo fraco proporcional | Provável | Reteste |
+| F5/web: alucinação sem web; exploratório | Sim (tool-use amadureceu) | Reteste |
+| "Método+topo de uma vez; econômico = etapas+humano" | Fronteira entre tiers moveu | Remediar datado → manual |
+| §5-fix, §3-tombstone sólidos (âncora mecânica, α=0,918) | **Não** | Não retestar por calendário |
+| Falhas de instrumento (leakage, juiz único) e os ❌ da retroativa | **Não** (defeito de método) | Nunca reabrir |
+
+## 3. Matriz `[2026-08]` — instalada e verificada (2026-08-02)
+
+Ambiente medido: RTX 3060 12GB; ollama com `qwen3.6:27b` (17GB, q4_K_M — roda
+com offload parcial GPU+CPU, lento — confirmado pelo dono), `qwen3.6:35b-a3b`
+(23GB, MoE 3B ativos), `qwen3:14b` (9,3GB — **maior que cabe inteiro na GPU**),
+`qwen3:8b` e `deepseek-r1:8b` (ponte temporal — têm resultados no corpus);
+chave OpenRouter presente.
+
+| Tier | Modelo | Papel |
+|---|---|---|
+| local-ponte | `qwen3:8b`, `deepseek-r1:8b` | **controle temporal** — separa "mudou o modelo" de "mudou o instrumento (L0 12→11+§11)" |
+| local-prático | `qwen3:14b` | maior sem offload (rápido; o que cabe num dia comum) |
+| local-possível | `qwen3.6:27b` | o mais capaz que roda (lento; hipótese: sanha o negativo F4-local) |
+| local-MoE (opcional) | `qwen3.6:35b-a3b` | hipótese velocidade×qualidade (3B ativos); 1 célula-curiosidade |
+| cloud-econômico | `gemini-2.5-flash` (OpenRouter) | ponte cloud do corpus; centavos |
+
+Lista **congelada por rodada** (não perseguir release; tier×vendor×geração
+datada — disciplina herdada). Tiers médio/topo/cloud só na fase "brands" (§6).
+
+## 4. Shake-down (passo 1, em curso)
+
+- **GOLD-gate**: `verify_f4.py --selftest` → **GOLD 100% (2026-08-02)** ✓
+- **Fumaça**: `f4-dup × qwen3.6:27b × K=1`, braço Strata, label `f4s-dup-strata`
+  (prefixo `f4s-` = shake-down 2026-08), num_ctx 20480 / num_predict 5000 —
+  mede tempo real/run no 27b com offload e confirma o pipeline ollama→scorer.
+- **Núcleo** (depois do fumaça): `f4-dup/trap/clean` × {27b, 14b, 8b-ponte,
+  flash} × {strata, baseline} × K=2 → depois família s05 (F3), s01/s04, f6.
+  Critério de saída: os oráculos discriminam como o corpus registrou (strata >
+  baseline; GOLD discrimina) **e** o 27b é medido onde o 8B zerava.
+
+## 5. Regras herdadas (não negociáveis)
+
+Gabarito pré-registrado antes de ver saída · fixtures hash-congeladas
+(`.fixture-hash`) · juiz cross-vendor (nunca Claude único, nunca OpenAI-small) ·
+scorer mecânico com GOLD-gate · falso-zero por truncamento → INDETERMINADO ·
+ADR-006: acurácia × precisão em colunas, k e K publicados, distribuição no
+regime de uso (não caçar temperatura) · campeões-por-eixo (não combinatória) ·
+**o L0 não se retoca com dado de teste** — falha do L0 vira achado registrado
+para o próximo ciclo editorial (separação calibração/validação) · K pequeno =
+direção, não significância.
+
+## 6. Depois do shake-down (ordem de alavanca)
+
+1. **Reteste dirigido** da tabela §2 (F4-local → F3-encoded → §9 → F5-web).
+2. **Dívidas baratas**: gabarito s04 (bug `docs-reproducao.md`); re-pontuar
+   rodadas ecológicas com 2º juiz cross-vendor.
+3. **Brands**: matriz tier×vendor×geração datada (a matéria-prima do manual).
+4. **Degrau 3**: célula texto→agente (tool-use real em sandbox) — viável hoje
+   com tool-call nativo dos modelos novos.
+5. **Manual**: atualizar `OPINIAO-DE-USO.md` (esqueleto já existente) com o
+   desfile por tier — o que cada faixa entrega, com que limite; datado,
+   re-verify-by, **sem tocar o L0**.
+
+## 7. Custos e limites declarados
+
+Local = grátis e lento (27b com offload: tempo/run medido no fumaça; se
+proibitivo, o peso local cai no 14b e o 27b vira célula-chave). Cloud =
+centavos por matriz pequena (checar `/api/v1/credits` antes de matriz grande).
+K=2 é fumaça/direção; medição oficial exige K maior + flip-rate (ADR-006).
+Grupo 2 das alavancas (ouro humano em escala, transferência agêntica em massa)
+segue **fora de alcance solo** — não prometido nesta rodada.

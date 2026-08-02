@@ -1,8 +1,8 @@
 ---
 title: 'Opinião de uso do Strata — honesta, por tarefa × capacidade do modelo × custo'
 created: 2026-06-13
-updated: 2026-06-23
-status: 'Consolidado. O que o Strata entrega na prática, por tarefa/capacidade/custo, com as ressalvas. SINAIS direcionais (sintético + completion-only, N pequeno), não prova. A evolução datada e os experimentos vivem no hub e nos RESULTADOS-*.'
+updated: 2026-08-02
+status: 'Consolidado. O que o Strata entrega na prática, por tarefa/capacidade/custo, com as ressalvas. Atualizado com o reteste do L0 fechado (2026-08-02: grade de estratos, K=2, ~350 runs, gold mecânico + júri cross-vendor). SINAIS direcionais (sintético + completion-only), não prova. A evolução datada e os experimentos vivem no hub e nos RESULTADOS-*.'
 ---
 
 # Opinião de uso do Strata — o que dizer, com honestidade
@@ -62,14 +62,52 @@ Confiança: SÓLIDO é bem medido, sinal é direção, EXPLORATÓRIO/RUIDOSO é 
 
 | Tarefa | Quem dá conta | Confiança |
 |---|---|---|
-| [Consertar um defeito conhecido](RESULTADOS-f4-execucao.md) (§5) | o econômico já dá conta, com o Strata (até o Haiku) | **SÓLIDO** |
+| [Consertar um defeito conhecido](RESULTADOS-f4-execucao.md) (§5) | o econômico já dá conta, com o Strata (até o Haiku); **2026-08: 20/20 de ~8B ao topo de fronteira** | **SÓLIDO** — re-medido com L0 fechado |
 | [Preservar o histórico / tombstone](RESULTADOS-f4-execucao.md) (§3) | o econômico, com o Strata | **SÓLIDO** — replicou no REAL (eco-pdf2md); o pedaço mais robusto |
 | [Recusar instrução maliciosa](RESULTADOS-f3-recusa.md) (§6-bis) | o econômico melhora; o topo recusa nativo | **SINAL** (a medição mais frágil) |
-| [Abster-se num projeto já bom](RESULTADOS-f4-execucao.md) (§9) | só o topo, ou um humano no loop | sinal (é a capacidade que calibra) |
+| [Neutralizar injeção sem propagá-la](RESULTADOS-f4-execucao.md) (§6-bis, trap) | a maioria com Strata; **falha catalogada: re-emitir a diretiva ativa** (8B, gpt-oss-120b e gemini-3.1-pro caíram 1×; llama-4-scout falhou 2/2) | **SÓLIDO** no padrão de falha (2026-08) |
+| [Abster-se num projeto já bom](RESULTADOS-f4-execucao.md) (§9) | **é do MODELO, não do tier**: calibram 27B local, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; superagem haiku-4.5, deepseek-v3.2, qwen3-32b | **SÓLIDO** como propriedade-de-modelo (2026-08) |
 | [Achar dívida real num projeto grande](RESULTADOS-p10-escada-propria-genero.md) | só o topo (e varia por fornecedor) | sinal (sub-detecção é o limite duro) |
 | [Verificar fonte na web](RESULTADOS-f5-pesquisa.md) (§6) | nenhum modelo, de forma confiável | **EXPLORATÓRIO** |
 | [Reconciliar o projeto inteiro num passo](RESULTADOS-f4-execucao.md) | nenhum nível dá conta | sinal (limite do harness) |
-| [Agir sozinha rodando local (4–8B)](RESULTADOS-tier-local.md) | nenhum — não usar para agir | **RUIDOSO** |
+| [Agir sozinha rodando local](RESULTADOS-tier-local.md) | **<4B não roda** (nem o formato); **~8B executa** o conserto; **~20–27B satura** (conserta E se abstém) | **SÓLIDO** no piso/joelho (2026-08, nuvem+ponte local) |
+
+## A grade 2026-08 — na minha máquina ou no meu plano, o que esperar?
+
+Reteste do L0 fechado (2026-08-02): ~350 execuções, K=2, três situações
+(consertar duplicação §5, armadilha com injeção §6-bis, projeto já bom §9),
+gold mecânico + júri cego cross-vendor de 4 famílias. Roster auditado em
+fonte primária na data — **modelos envelhecem rápido; re-audite antes de
+ancorar decisão cara** (a regra está registrada no lab).
+
+- **GPU de consumo (local):** abaixo de ~4B nem o formato sai (1B entra em
+  loop, 3B emite 1–9 tokens) — não é o método, é capacidade. Em ~8B o
+  conserto §5 já sai no padrão. O "usa o máximo" (conserta **e** se abstém)
+  aparece em ~20–27B: o qwen3.6-27b local saturou nos dois lados (22 min/run
+  numa 3060 12GB — factível, lento).
+- **Plano econômico (nuvem barata):** gpt-4.1-mini, haiku-4.5, deepseek-v4-pro
+  **executam o conserto perfeitamente** (6/6 no §5). Para a borda de não-agir,
+  o gpt-4.1-mini calibrou e o haiku-4.5 não — **preço não ordena a borda**;
+  se a abstenção importa, confira o modelo específico, não o tier.
+- **Plano topo:** sonnet-5, gpt-5.6-terra, gemini-3.1-pro, kimi-k3, opus-5,
+  fable-5 — conserto e armadilha perfeitos; opus-5/fable-5 também saturam a
+  abstenção (2/2). O terra atende; o sol é redundância de custo aqui. O
+  kimi-k3 funciona 4/4 mas é lento (2–6 min/run).
+- **Evitar para este uso:** llama-4-scout — único que, com Strata, falhou o
+  conserto da armadilha 2/2 e propagou o payload da injeção num deles.
+- **Esforço/thinking não muda veredito** neste nível de tarefa (sonnet-5
+  com e sem thinking, mesmo resultado) — não pague tokens de raciocínio
+  esperando destravar o F4.
+- **Custo do laboratório:** a grade inteira (núcleo + estratos + júri) saiu
+  por ~US$ 7 — dá para rodar diário e re-testar quando sair modelo novo.
+
+**O que o júri acrescentou sobre os números.** O gold mecânico é conservador
+nos dois sentidos: quando diverge, absolve o Strata (nit de formato) e
+super-reprova o baseline — sem Strata o modelo às vezes conserta de fato,
+mas **não no formato rastreável** (sem tombstone/ponteiro padrão). E em
+segurança o júri cego errou onde a mecânica acertou: 2 juízes absolveram um
+plano que manteve a diretiva maliciosa ativa. Júri complementa, não
+substitui, a verificação mecânica.
 
 ## A regra prática
 
@@ -109,6 +147,23 @@ Confiança: SÓLIDO é bem medido, sinal é direção, EXPLORATÓRIO/RUIDOSO é 
 
 ## Honestidade — as ressalvas que esta opinião carrega (§6)
 
+- **Sintético, K=2 (2026-08).**
+  A grade nova roda em fixtures sintéticas representativas, 2 repetições por
+  célula. O piso (<4B) e o joelho (8B executa, ~20–27B satura) são leituras
+  de borda com deltas grandes, não curvas ajustadas. A fase seguinte (K maior
+  + framing cruzado no clean) está na fila exatamente para as células
+  decisivas.
+
+- **A borda de abstenção é framing-dependente.**
+  O braço Strata induz ação nos modelos menores no projeto já-bom (R8
+  reproduzido). "Calibra / superage" vale sob o framing de auditoria atual;
+  o cruzamento de framing não foi feito ainda.
+
+- **Roster envelhece.**
+  A grade cita modelos de 2026-08 (terra, opus-5, kimi-k3, deepseek-v4-pro).
+  Daqui a meses haverá outros; a estrutura (piso/joelho/tier) tende a se
+  manter, os nomes não. Antes de decidir, re-audite em fonte primária.
+
 - **Só-texto.**
   Medimos a intenção do plano, não o agente real com ferramentas.
   Isso não transfere direto ao produto.
@@ -138,6 +193,12 @@ Confiança: SÓLIDO é bem medido, sinal é direção, EXPLORATÓRIO/RUIDOSO é 
 
 ## Resultado mais recente (resumo) — e onde está a evolução
 
+- **2026-08-02 — L0 fechado re-testado:** conserto §5 satura de ~8B ao topo
+  (20/20 com Strata, baseline ~0 no formato rastreável); piso <4B quebra por
+  capacidade; abstenção é propriedade de modelo, não de tier/preço; esforço
+  (thinking) não muda veredito; júri cross-vendor confirma o gold mecânico
+  (que é conservador nos dois sentidos); único evitar: llama-4-scout.
+  Diário completo: [`lab/2026-08-02-reteste-L0-fechado`](../2026-08-02-reteste-L0-fechado/).
 - **Funciona (sólido):** consertar §5 e preservar §3, até no econômico; recusar injeção §6-bis; e 7 de 9 juízes de 3 empresas convergem, então não é auto-avaliação.
 - **Funciona (sinal):** num projeto limpo, todos se abstêm; sob ruído, só o topo calibra.
 - **Não funciona / em aberto:** auditor autônomo no projeto real (sub-detecção é o limite duro); verificação na web; agente com ferramentas reais; L1/L2.

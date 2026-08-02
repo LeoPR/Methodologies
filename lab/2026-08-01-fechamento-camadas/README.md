@@ -79,7 +79,7 @@ marcadores). Resta da fila editorial da doc multilíngue: `recipe/README.md`,
 |---|---|---|
 | **L1-1 — Conteúdo do L1** | camadas certas? mapeamentos pós-fechamento? `[CANONICAL]` basta? | **FECHADA — (a) aplicada EN-first (2026-08-01); (b) nada se move e (c) `[CANONICAL]`+verificar-ao-tocar decididos; PT pendente (fim do ciclo)** → [`L1-1-revisao-conteudo.md`](L1-1-revisao-conteudo.md) §7 |
 | **L1-2 — Repesquisa de literatura** | as fontes da Parte II existem e sustentam as alegações? relação lógica L0↔L1 válida? lacunas canônicas? (**supera a política L1-1-(c)** por decisão do dono) | **APLICADA EN-first (2026-08-01)** — swarm 7 agentes, web-verificação integral: 0 fontes inexistentes, 0 relações quebradas; aplicados: 14 erros/precisões (A) + 9 reparos editoriais (B) + selos `[WEB ✓ 2026-08-01]` em toda a Parte II; PT pendente (fim do ciclo) → [`L1-2-repesquisa-literatura.md`](L1-2-repesquisa-literatura.md) |
-| **L1-3 — Linhas novas (lacunas canônicas)** | as 8 candidatas da classe C da L1-2 entram? (RFC 2119/8174 §3-bis; FAIR-base e reporting guidelines §4; DRY §5; reference rot §6; capabilities/OAuth §6-bis; DOI/Zenodo publishing) | **PENDENTE** — decisão linha a linha (dono) |
+| **L1-3 — Linhas novas (lacunas canônicas)** | as 8 candidatas da classe C da L1-2 entram? (RFC 2119/8174 §3-bis; FAIR-base e reporting guidelines §4; DRY §5; reference rot §6; capabilities/OAuth §6-bis; DOI/Zenodo publishing) | **FECHADA — APLICADA EN-first (2026-08-01):** dono aprovou **2 de 8** (C1 RFC 2119/8174; C2 FAIR-base) — verificadas em fonte primária e inseridas; 6 rejeitadas registradas (reabrem só por recorrência); PT pendente (fim do ciclo) → [`L1-3-linhas-novas.md`](L1-3-linhas-novas.md) |
 
 ## Série L2 (revisão da Parte III, pós-fechamento do L0)
 

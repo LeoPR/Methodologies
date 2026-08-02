@@ -53,33 +53,47 @@ chave OpenRouter presente.
 Lista **congelada por rodada** (não perseguir release; tier×vendor×geração
 datada — disciplina herdada). Tiers médio/topo/cloud só na fase "brands" (§6).
 
-## 3.2. Combinatória por perguntas-mãe (revisão 2026-08-02, dono)
+## 3.2. A grade de estratos de acesso × escala de capacidade (2026-08-02, dono)
 
-O desenho experimental se organiza pelas perguntas do manual, não por produto
-cartesiano (campeões-por-eixo — disciplina herdada). Local **cancelado** como
-frente de volume (ponte nuvem×local convergiu no ponto medido, K=1); o que já
-foi medido local (27b = 22 min/run na 3060) vira número do manual.
+**Pergunta-mãe única** (substitui a fatiada Q1–Q4 — superseded, ver NOTAS):
+*qual a combinatória de modelos/tipos/quantizações que fecha a experimentação —
+norma, bordas, brands — e que o usuário lê como "na minha máquina ou plano vai
+funcionar?"*
 
-- **Q1 — PISO** ("menor em que o Strata ainda funciona"): escada descendente no
-  f4-dup (strata+baseline, K=2) — qwen3-8b → gemma-3-4b → ministral-3b →
-  llama-3.2-3b → gemma-3n-e4b → llama-3.2-1b (piso absoluto). O degrau que
-  quebra define o piso (~$0,20).
-- **Q2 — JOELHO** ("menor que usa o MÁXIMO do Strata"): escada ascendente
-  {8b→14b→27b→qwen3.6-35b-a3b} em dup **+ clean** (o clean mede abstenção;
-  saturar = PASS nos dois lados) (~$0,30).
-- **Q3 — BRANDS** (1 econômico pago/vendor, dup+clean × 2 braços × K=2):
-  claude-haiku-4.5, gemini-3.1-flash-lite, gpt-4.1-mini, deepseek-v3.2,
-  ministral-14b-2512, kimi-k2.6 (~$1-2).
-- **Q4 — CONTROLE/TOPO**: 1 topo/vendor (claude-sonnet-5, gpt-5,
-  gemini-3.1-pro, qwen3.6-max) dup × 2 braços × K=2 — prova funcional (topo
-  falhando = suspeita no cenário/método) (~$3-5). **Topo como juiz: NÃO por
-  decreto** — disciplina F0: bake-off com casos discriminantes, cross-vendor,
-  nunca único, nunca mesma família do sujeito (viés medido ~0,87; "maior ≠
-  melhor juiz"). Topos da Q4 = candidatos ao painel `[2026-08]`.
+Três princípios (a forma cientificamente defensável):
 
-Custo total estimado ~$5-8 (livres: $33). Ordem: núcleo (em curso) → Q1 → Q2 →
-Q3 → Q4 → bake-off de juízes. Catálogo verificado em `/api/v1/models`
-2026-08-02 (preços e ids concretos nas NOTAS).
+1. **Amostragem estratificada pelo contexto do usuário** — os estratos são os
+   contextos de acesso (classe de GPU, faixa de plano), não o espaço de
+   modelos. Cada linha da grade responde diretamente ao usuário.
+2. **Pontos de fronteira + centro** (lógica de calibração) — mede-se onde a
+   curva vira (piso, joelho, topo) + a norma; os degraus intermediários se
+   interpolam e a interpolação é **declarada** no manual.
+3. **Campeão-por-estrato, desafiante só com razão** — quantização é
+   fator-ponte medido (27b q4 local = fp8 nuvem, K=1), não dimensão varrida.
+
+**Regra de fechamento da experimentação:** todas as linhas medidas; piso
+delimitado (funciona × quebra); joelho localizado; 1 ponto por brand no tier
+consagrado; ponte de quantização medida; topo-controle fechando a prova
+funcional. Fechamento = cobertura do espaço de acesso; significância (K
+grande, flip-rate) só nas células decisivas, fase seguinte.
+
+**A grade** (medição por linha: f4-dup [norma] + f4-clean [borda-abstenção] +
+f4-trap [borda-adversarial, só piso/12GB/24GB/topo] × strata+baseline × K=2):
+
+| Contexto do usuário | Campeão medido | Classe |
+|---|---|---|
+| <4GB (laptop fraco/CPU) | llama-3.2-1b → 3b (até quebrar) | piso absoluto |
+| 4-8GB | gemma-3-4b + qwen3-8b ✓ | piso real |
+| 12GB (3060) | qwen3-14b ✓ + gpt-oss-20b | norma popular |
+| 16GB | qwen3-32b | norma alta |
+| 24GB | qwen3.6-27b ✓ + 35b-a3b | topo local |
+| 48GB+ / Mac | gpt-oss-120b | saturação local |
+| Cloud econômico | gemini-2.5-flash ✓ + deepseek-v3.2 + gpt-4.1-mini + haiku-4.5 | brands |
+| Cloud topo (controle) | sonnet-5 + gpt-5 + gemini-3.1-pro | prova funcional |
+
+✓ = coberto pelo núcleo em curso. Incremental: ~120 runs, $6-12.
+Juiz: disciplina F0 (bake-off cross-vendor; topo da grade = candidato, nunca
+por decreto).
 
 ## 4. Shake-down (passo 1, em curso)
 

@@ -126,3 +126,15 @@ claude-haiku-4.5 $1/5 · qwen3.6-27b $0,30/2 · qwen3.6-35b-a3b $0,14/1 ·
 kimi-k2.6 $0,60/3,41 · gpt-5 $1,25/10 · claude-sonnet-5 $2/10 ·
 gemini-3.1-pro-preview $2/12 · qwen3.6-max-preview $1,03/6,16 ·
 kimi-k3 $3/15 · claude-opus-5 $5/25.
+
+## 2026-08-02 — Reformulação: pergunta única, grade de estratos (PLANO §3.2)
+
+O dono reformulou o desenho: a fatiada Q1–Q4 (registrada acima, **superseded**)
+virou a pergunta única — *a combinatória que fecha a experimentação (norma,
+bordas, brands) e que o usuário lê como "na minha máquina/plano funciona?"*.
+Forma adotada: **grade de estratos de acesso × escala de capacidade**, sobre 3
+princípios nomeados (estratificação pelo contexto do usuário; pontos de
+fronteira + centro — calibração; campeão-por-estrato com quantização como
+fator-ponte). Regra de fechamento declarada: cobertura do espaço de acesso;
+significância só nas células decisivas, fase seguinte. Grade completa e
+interpolação-declarada no PLANO §3.2. Incremental ~120 runs, $6-12.

@@ -2,7 +2,7 @@
 title: Strata com IA — guia prático de uso
 status: active
 created: 2026-06-08
-updated: 2026-08-01
+updated: 2026-08-02
 purpose: responder ao desenvolvedor "funciona no meu ambiente? vai sair caro?" — só o que funciona
 nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9 (p8 = posição/variância; p9 = modelos novos / churn de L2)
 ---
@@ -35,6 +35,21 @@ Duas regras de ouro antes de qualquer modelo:
 > restabelecido 1-jul, hoje cobrado por créditos, fora da assinatura). **Nenhum dos dois foi
 > medido aqui.** Pela lição do P9, o que dura é o padrão por tier, não o nome — leia
 > "Sonnet 4.6" como "o Sonnet vigente" até re-medição.
+
+> **Atualização de elenco (2026-08-02 — re-medição do L0 fechado, grade 2026-08):** o reteste
+> dirigido (~350 runs, K=2, gold mecânico + júri cross-vendor) moveu o chão deste guia.
+> O **conserto de um defeito conhecido (§5) satura de ~8B local ao topo** — o "8B não
+> conserta" abaixo era jun/2026 — e a **recusa de injeção (§6-bis) sai espontânea** na geração
+> atual. O **piso pago da OpenAI passou a ser o gpt-5-mini** (o 4.1-mini virou base legada
+> pinada); haiku-4.5 e deepseek-v4-pro **executam o conserto perfeitamente**. No local (3060),
+> qwen3:14b cabe na GPU e qwen3.6:27b **satura conserto + abstenção** (lento, ~22 min/run).
+> **Evitar llama-4-scout** (único que falhou o conserto da armadilha 2/2 e propagou o payload).
+> O que **não** mudou: a tabela e o gráfico abaixo medem o **projeto limpo** (quanto cada modelo
+> inventa onde não há nada) — essa borda de abstenção é **propriedade de modelo,
+> dependente de framing** (haiku superage só sob audit, K=5), e preço não a ordena. Grade
+> honesta completa na [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md);
+> diário em [`lab/2026-08-02-reteste-L0-fechado`](../lab/2026-08-02-reteste-L0-fechado/).
+> *(Este guia segue só em PT — tradução EN pendente, registrada no STATUS.md.)*
 
 ![Strata por IA — qual modelo usar, por vendor](strata-com-ia-fronteira.svg)
 

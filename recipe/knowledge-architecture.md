@@ -819,7 +819,9 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 # PARTE III — ADAPTAÇÃO À ERA ATUAL (L2)
 
 > **Camada volátil e destacável.** Como as ferramentas de **hoje** expressam o
-> L0/L1. Tudo aqui carrega captura `[2026-08-01]` e `re-verify-by: 2026-11-01`.
+> L0/L1 — cada seção abre com a forma atemporal; os nomes que seguem são a
+> instância corrente dela. Tudo aqui carrega captura `[2026-08-01]` e
+> `re-verify-by: 2026-11-01`.
 > **Quando uma ferramenta morre, só esta parte muda** — Partes I/II ficam
 > intactas. Trate como dado semi-vivo (§6): re-verificar na fonte antes de
 > tratar como verdade.

@@ -820,8 +820,10 @@ the two rules those principles do not give:
 
 # PART III — ADAPTATION TO THE CURRENT ERA (L2)
 
-> **A volatile, detachable layer.** How **today's** tools express the L0/L1.
-> Everything here carries a `[2026-08-01]` capture and `re-verify-by: 2026-11-01`.
+> **A volatile, detachable layer.** How **today's** tools express the L0/L1 —
+> each section opens with the timeless form; the names that follow are its
+> current instance. Everything here carries a `[2026-08-01]` capture and
+> `re-verify-by: 2026-11-01`.
 > **When a tool dies, only this part changes** — Parts I/II stay intact. Treat it
 > as semi-live data (§6): re-verify at the source before treating it as truth.
 >

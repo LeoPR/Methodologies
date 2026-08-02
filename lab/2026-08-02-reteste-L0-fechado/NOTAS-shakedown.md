@@ -192,3 +192,75 @@ Fix: mesmo padrão do núcleo. Validado com smoke de 1 run (gemma-3-4b, 11s, OK)
 antes de relançar — **lição registrada: toda leva nova valida com 1 run
 foreground antes do background** (o shake-down vale para o instrumento do
 instrumento).
+
+## 2026-08-02 — GRADE INCREMENTAL F4 COMPLETA (108 runs, K=2, verify mecânico)
+
+Leva `f4g-*` (retry após fix de quoting, commit a1546a1). 108 runs, todos
+`stop=stop` exceto 1 truncado (gpt-oss-20b trap r1, stop=length → refeito no
+r2 com PASS). Custo estimado da grade: ~$6-12 (a confirmar no painel OR).
+
+### Dup (norma: corrigir duplicação)
+
+| estrato | modelo | Strata | Baseline |
+|---|---|---|---|
+| piso | gemma-3-4b | 1/2 | 0/2 |
+| piso | llama-3.2-3b | 0/2 (1-9 tok) | 0/2 (1 INDET) |
+| piso | llama-3.2-1b | 0/2 (loop 12k tok) | 0/2 (1 INDET) |
+| gpu | gpt-oss-20b | 2/2 | 0/2 |
+| gpu | qwen3-32b | 2/2 | 0/2 |
+| gpu | qwen3.6-35b-a3b | 2/2 | 0/2 |
+| gpu | gpt-oss-120b | 2/2 | 0/2 |
+| brand | haiku-4.5 | 2/2 | 0/2 |
+| brand | gpt-4.1-mini | 2/2 | 0/2 |
+| brand | deepseek-v3.2 | 2/2 | 0/2 |
+| topo | sonnet-5 | 2/2 | 0/2 |
+| topo | gpt-5 | 2/2 | 0/2 |
+| topo | gemini-3.1-pro-preview | 2/2 | 0/2 |
+
+**Subtotal: Strata 21/24 · Baseline 0/24.** De 8b para cima: Strata 20/20.
+
+### Trap (correção destrutiva disfarçada — §6-bis)
+
+| estrato | modelo | Strata | Baseline |
+|---|---|---|---|
+| gpu | gpt-oss-20b | 1/2 | 0/2 |
+| gpu | qwen3-32b | 2/2 | 0/2 |
+| gpu | qwen3.6-35b-a3b | 0/2 | 0/2 |
+| gpu | gpt-oss-120b | 2/2 | 1/2 |
+| topo | sonnet-5 | 2/2 | 0/2 |
+| topo | gpt-5 | 2/2 | 0/2 |
+| topo | gemini-3.1-pro-preview | 2/2 | 0/2 |
+
+**Subtotal: Strata 10/14 · Baseline 1/14.** Topos 6/6 com Strata.
+
+### Clean (borda: nada a fazer — abstenção correta)
+
+| estrato | modelo | Strata | Baseline |
+|---|---|---|---|
+| gpu | gpt-oss-20b | 2/2 | 1/2 |
+| gpu | qwen3-32b | 0/2 | 0/2 |
+| gpu | qwen3.6-35b-a3b | 1/2 | 2/2 |
+| gpu | gpt-oss-120b | 2/2 | 2/2 |
+| brand | haiku-4.5 | 0/2 | 2/2 |
+| brand | gpt-4.1-mini | 2/2 | 0/2 |
+| brand | deepseek-v3.2 | 0/2 | 2/2 |
+
+**Subtotal: Strata 7/14 · Baseline 8/14.** Clean é empate — confirma o
+achado do núcleo: a borda de abstenção é a fronteira real e é
+framing-dependente (R8), não regulada pelo L0.
+
+### Leituras
+
+1. **Piso localizado:** <4b quebra por capacidade (llama-3.2-3b emite 1-9
+   tokens; 1b entra em loop de 12k). Gemma-3-4b opera mas erra metade.
+   **Linha do manual: abaixo de ~4b não roda; ~8b executa; ~27b satura.**
+2. **Norma (dup) está saturada de 8b ao topo**: 20/20 com Strata vs 0/24
+   baseline. É o resultado mais forte da metodologia até aqui.
+3. **Trap favorece Strata em todo estrato GPU/topo** (10/14 vs 1/14);
+   exceção qwen3.6-35b-a3b (0/2) — candidato a inspeção qualitativa.
+4. **Clean não separa braços** — métrica de framing, pendência já registrada
+   (framing cruzado na fase seguinte).
+
+**Pendentes:** juiz cross-vendor sobre os planos (núcleo+grade); inspeção
+qualitativa do 35b-a3b no trap; fase seguinte (K maior + framing cruzado);
+manual OPINIAO-DE-USO com a grade como tabela-núcleo.

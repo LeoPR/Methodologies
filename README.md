@@ -39,8 +39,8 @@ follow the same principle. *(Navigation dedicated to AI lives in [`AGENTS.md`](A
 For a new reader who wants to understand what is ready now (without reading theory
 history or evolution logs), use this sequence:
 
-1. [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) — quick value, scope, and limits.
-2. [`recipe/README.md`](recipe/README.md) — practical usage guide.
+1. [`recipe/o-que-voce-ganha.en.md`](recipe/o-que-voce-ganha.en.md) — quick value, scope, and limits.
+2. [`recipe/README.en.md`](recipe/README.en.md) — practical usage guide.
 3. [`recipe/knowledge-architecture.en.md`](recipe/knowledge-architecture.en.md) — the full Strata product in English.
 4. [`MAP.md`](MAP.md) — where each artifact lives.
 5. [`STATUS.md`](STATUS.md) — current focus and open fronts.
@@ -56,7 +56,7 @@ Shortcuts by intent:
 
 | I want | Go to |
 |---|---|
-| **What I gain from Strata** | [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) |
+| **What I gain from Strata** | [`recipe/o-que-voce-ganha.en.md`](recipe/o-que-voce-ganha.en.md) |
 | **Use a ready-made method** | [`recipe/knowledge-architecture.en.md`](recipe/knowledge-architecture.en.md) (Strata) |
 | **The honest usage opinion** of Strata (what works, by task type, requirement and cost, with caveats) | [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | **Understand the approach** to manufacturing methodologies | [The approach](#the-approach) (below) |
@@ -147,7 +147,7 @@ knowledge in any intellectual work that accumulates artifacts.
 > **Scope:** it organizes and preserves the knowledge that the work produces — and **complements** your
 > way of having ideas and developing (Scrum, TDD, design…), without replacing them. Suited to
 > **long-lived** projects that accumulate artifacts. When/for whom, in detail:
-> [recipe/README.md](recipe/README.md).
+> [recipe/README.en.md](recipe/README.en.md).
 
 The problem is **older than the computer**: librarians, scientists and engineers have
 faced it for centuries. The tools of each era (today: AI, editors, version
@@ -158,7 +158,9 @@ control) are **forms** that express this method — they shape it, but do not fo
 - **Maturity:** the **core of the methodology is consolidated and verified** (22 primary sources, plus the
   check that it is independent of today's tools). The **application by AI** already has empirical evidence
   (the AI got right, in the tested cases, when to act, when not to touch, and when to refuse malicious
-  instructions) — the **honest usage opinion**
+  instructions) — and it now also covers **execution with real tools in a sandbox** (first agent
+  cell, 2026-08: the fix landed 10/12 with Strata × 2/12 without, and nobody ran the injected
+  `curl`, 0/24), not only text-only regimes — the **honest usage opinion**
   (by task type, requirement and cost, with caveats) is in
   [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); the **macro of how it was tested**
   in the [architecture and evidence hub](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).

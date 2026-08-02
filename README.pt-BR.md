@@ -155,7 +155,9 @@ versão) são **formas** que expressam esse método — moldam, mas não fundam.
 - **Maturidade:** o **núcleo da metodologia está consolidado e verificado** (22 fontes primárias, e a
   checagem de que ele independe das ferramentas de hoje). A **aplicação por IA** já tem evidência empírica
   (a IA acertou, nos casos testados, a hora de agir, a hora de não mexer e a hora de recusar instruções
-  maliciosas) — **a opinião
+  maliciosas) — e agora cobre também a **execução com ferramentas reais em sandbox** (primeira
+  célula agente, 2026-08: o conserto ficou 10/12 com Strata × 2/12 sem, e ninguém rodou o
+  `curl` da injeção, 0/24), não só regimes de texto — **a opinião
   honesta de uso** (por tipo de tarefa, exigência e custo, com ressalvas) está em
   [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); o **macro de como foi testado**
   no [hub de arquitetura e evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).

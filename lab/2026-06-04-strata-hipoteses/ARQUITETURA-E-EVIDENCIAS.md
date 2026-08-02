@@ -1,7 +1,7 @@
 ---
 title: Arquitetura de testes e evidências do Strata — o que comprova, em que condições (macro)
 created: 2026-06-13
-updated: 2026-08-01
+updated: 2026-08-02
 status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5/F6 fronteira.
 ---
 
@@ -29,12 +29,12 @@ Quando o acerto não é mecânico, quem dá a nota a um plano é outro modelo de
 Para a nota não herdar o viés de uma só família, pedimos a nota a juízes de vendors diferentes.
 É o **juiz cross-vendor**, e a convergência entre fornecedores distintos é robustez, não o artefato de um avaliador só.
 
-Todo teste é em regime **completion-only**: o modelo só **escreve** (o plano de auditoria, ou o conteúdo de um arquivo) e **não executa nada**.
-O contrário, ainda não testado, seria um **agente com ferramentas**, que roda comandos e altera arquivos de verdade.
+Todo teste deste corpus é em regime **completion-only**: o modelo só **escreve** (o plano de auditoria, ou o conteúdo de um arquivo) e **não executa nada**.
+O contrário, um **agente com ferramentas** que roda comandos e altera arquivos de verdade, teve a **primeira célula medida em 2026-08-02** (Degrau 3, sandbox — transferiu: ver [`OPINIAO-DE-USO`](OPINIAO-DE-USO.md) e [`lab/2026-08-02-reteste-L0-fechado`](../2026-08-02-reteste-L0-fechado/)).
 
 Os demais termos (os modos M0-M4, *fixture*, *fail-closed*, *tombstone*) estão no [`GLOSSARIO.md`](../../GLOSSARIO.md), seção *Termos de avaliação e teste*.
 
-## Estado das fases — fonte única (atualizado em 2026-06-14)
+## Estado das fases — fonte única (atualizado em 2026-08-02)
 
 > Esta tabela é a **fonte canônica** (§5) do estado das evidências. README e demais docs **apontam
 > para cá** em vez de repetir números que envelhecem. **Mudou algo num lab? Atualize só aqui** e
@@ -46,9 +46,9 @@ Os demais termos (os modos M0-M4, *fixture*, *fail-closed*, *tombstone*) estão 
 | **F0** juízes | as conclusões são robustas? | ✅ fechado | alta (3 empresas convergem) | [F0](RESULTADOS-f0-confronto-juizes.md) |
 | **F1/M0** abstenção | sabe *não agir*? | ✅ fechado | média (N pequeno) | [F1/M0](RESULTADOS-f1-m0-abstencao.md) |
 | **P7** camadas | entende L0/L1/L2? | ✅ parcial | média | [P7](RESULTADOS-p7-camadas-entender-aplicar.md) |
-| **F3** recusa | recusa injeção? | ✅ nuvem + local | média-alta (juízes) | [F3](RESULTADOS-f3-recusa.md) |
+| **F3** recusa | recusa injeção? | ✅ nuvem + local · **2026-08: recusa espontânea sólida na geração atual** (a fragilidade lexical era datada — [OPINIAO](OPINIAO-DE-USO.md)) | média-alta (juízes) | [F3](RESULTADOS-f3-recusa.md) |
 | **F4** execução | conserta sem destruir? | ✅ nuvem + eco (real) fecham; local (4-8B) fechado com conclusão **negativa** (zero PASS, pode destruir) | média (N=2) | [F4](RESULTADOS-f4-execucao.md) |
-| **F5** pesquisa (§6/web) | web ajuda a verificar a fonte? | ✅ probe (exploratório) | baixa (N=1-2) | [F5](RESULTADOS-f5-pesquisa.md) |
+| **F5** pesquisa (§6/web) | web ajuda a verificar a fonte? | ✅ probe (exploratório) · **2026-08: com web sai com fonte primária** (sinal, K=2 — [OPINIAO](OPINIAO-DE-USO.md)) | baixa (N=1-2) | [F5](RESULTADOS-f5-pesquisa.md) |
 | **Braço externo** | o falso-positivo é circular? | ✅ bem-comportado + messy (6 repos) | baixa (N=1; messy gênero-confundido) | [externo](RESULTADOS-externo-bemcomportado.md) |
 | **Gênero** | aplica o padrão do gênero? | ✅ probe (com framing) | baixa (N=1) | [gênero](RESULTADOS-genero.md) |
 | **Gênero+Temporal (próprios)** | lê tombstone/supersessão como organização? | ✅ probe (framing+marcadores) | baixa (N=2; **circular**) | [gên+temp próprios](RESULTADOS-genero-temporal-own.md) · [gabarito](GABARITO-genero-temporal-own.md) |
@@ -110,7 +110,7 @@ As disciplinas que tornam os sinais confiáveis:
 O regime completion-only é o limite que atravessa tudo, e é preciso pesá-lo antes de citar qualquer número.
 Como medimos a *disposição* do plano, e não o agente agindo, um modelo pode escrever "recuso e travo" e, com
 ferramentas na mão, agir diferente (ou o contrário).
-Sair do completion-only para o agente com ferramentas é o maior limite de validade externa, e segue aberto.
+Sair do completion-only para o agente com ferramentas era o maior limite de validade externa; a **primeira célula transferiu** (2026-08-02, Degrau 3 — Strata acima do baseline no §5-fix executado em sandbox; ver [`OPINIAO-DE-USO`](OPINIAO-DE-USO.md)). A generalização segue aberta.
 
 - **N pequeno** por célula (2-3 repetições), com 1-2 cenários-mãe: fixtures sintéticas mais um projeto real resumido.
 - **O leque de modelos** é enxuto: cobre os de nuvem (do barato ao forte) e os locais (ruidosos, porque os pequenos às vezes nem emitem o formato pedido).
@@ -155,8 +155,7 @@ O custo dos experimentos tem **dois usos que viram um**: (1) o que **nós** gast
 - **Mais cenários e novos gêneros** (PatchCraft = repetir; **AulaQuantum/DeepLearning** = acompanhamentos
   de aula, não-projetos) + o **confundidor do "projeto próprio"** (conformidade/circularidade) + o **loop
   narrativa↔resultado**: plano em [`PLANO-evidencia-cenarios-e-narrativa.md`](PLANO-evidencia-cenarios-e-narrativa.md).
-- **2º cenário-mãe** e **validade de agente-com-ferramentas-reais** (sair do completion-only) seguem os
-  dois maiores limites a atacar.
+- **2º cenário-mãe** e **escala da validade de agente-com-ferramentas** (a primeira célula transferiu em 2026-08-02; falta volume) seguem os dois maiores limites a atacar.
 - **Questão de design (método, não teste):** exportar/traduzir para normas externas (o "L3"?) — provável
   **corolário** de §5/§3 (eixo **transversal**, não 4ª camada de durabilidade); ferramenta como spinoff.
   Registro: [`IDEIA-exportacao-traducao.md`](IDEIA-exportacao-traducao.md).
@@ -377,3 +376,17 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   1-2-4 ganha o **Nível 3 = guarda mecânica leve**, adotado de fato: `check_stamps`/`check_l10n`).
   `eval/strata/RASTREAMENTO-E-MELHORIA.md` marcado **superseded** (referia instrumentos da 1ª
   geração, tombados em `_superseded/`; referência atual de retomada = `eval/strata/README.md`).
+- **2026-08-02** — **Reteste do L0 fechado + Degrau 3 (agente com ferramentas).** Rodada dirigida
+  contra o L0 fechado (2026-08-01), grade de estratos de acesso × escala de capacidade, gold
+  mecânico + júri cross-vendor (números e roster: [`OPINIAO-DE-USO`](OPINIAO-DE-USO.md); diário:
+  [`lab/2026-08-02-reteste-L0-fechado/NOTAS-shakedown`](../2026-08-02-reteste-L0-fechado/NOTAS-shakedown.md)).
+  Três vereditos:
+  1. **Recusa (§6-bis) sai espontânea na geração 2026-08** — a "fragilidade lexical sob paráfrase"
+     era datada; F3 recalibrado a sólido na geração atual.
+  2. **Conserto §5 satura de ~8B local ao topo** — o negativo F4-local (zero PASS nos 4-8B de junho)
+     era limitação de tecnologia da época; com web, a verificação de fonte sai com fonte primária
+     (F5, sinal K=2).
+  3. **Degrau 3: a primeira célula texto→agente transferiu** — com ferramentas reais em sandbox,
+     Strata fica acima do baseline no §5-fix executado; o limite-mãe (completion-only) deixa de ser
+     virgem, mas a generalização pede volume.
+  Estado consolidado: [`OPINIAO-DE-USO`](OPINIAO-DE-USO.md) (fonte única, ADR-005).

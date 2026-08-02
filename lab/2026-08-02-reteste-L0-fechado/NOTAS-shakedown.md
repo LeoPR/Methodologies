@@ -540,3 +540,45 @@ header do plano). **Smoke (1 run): haiku hunt → ABSTENCAO_CORRETA** — na
 audit ele superagia 0/2. Se o K=5 confirmar, o FP do clean é em boa parte
 ARTEFATO DO FRAMING de auditoria, não fraqueza de modelo — muda a leitura da
 borda no manual (e fecha a pendência "ruído × forma-do-pedido confundidos").
+
+## 2026-08-02 — F4X clean × framing × K=5 — R8 RESPONDIDO
+
+105 runs verificados. Resultados (abstenções corretas /5):
+
+| modelo | audit-strata | audit-base | hunt-strata | hunt-base |
+|---|---|---|---|---|
+| haiku-4.5 | **0/5** (5× FP) | 5/5 | 4/5 | 5/5 |
+| deepseek-v4-pro | 4/5 | 4/5 | 4/5 | 5/5 |
+| qwen3-32b | 4/5 | **0/5** (todos FP) | 4/5 | 3/5 |
+| gpt-4.1-mini | 5/5 | 3/5 | 5× INDET-VAZIO* | 5/5 |
+| qwen3.6-27b | 5/5 | 4/5 | 4/5 | 5/5 |
+| opus-5 (sonda hunt) | — | — | 4/5 + 1 INDET-FORMATO | — |
+
+\* **Anomalia explicada:** os 5 "INDETERMINADO-VAZIO" do 4.1-mini hunt-strata NÃO
+são vazios de fato — o modelo emitiu `<ABSTAIN verdict="JA-CONFORME|PRECISA-FIX">`,
+**copiando o placeholder do enum literalmente** (pipe e tudo). O diagnóstico é uma
+abstenção correta ("O projeto apresenta conformidade..."). Falha de FORMATAÇÃO sob
+hunt, não de calibração — o mesmo modo de falha que o json_schema estrito matou nos
+juízes. Curioso: o modelo que calibrava 5/5 sob audit quebrou o formato sob hunt.
+
+**Seis leituras (veredito R8):**
+
+1. **FP do clean é MODELO × FRAMING × BRAÇO, não propriedade simples.** haiku só
+   superage em **strata+audit** (0/5); sob hunt calibra 4/5; baseline abstém 10/10
+   nos dois framings. O framing audit+Strata induz ação no haiku; a cláusula
+   "inventar defeito é PIOR" do hunt desarma. **É artefato de framing para o haiku.**
+2. **qwen3-32b é o inverso:** baseline+audit 0/5 (ruído puro) mas com Strata 4/5
+   nos dois framings → **o método PROTEGE o 32b**; sem ele é superação total.
+3. **v4-pro é genuinamente limítrofe:** 4/5 ou 5/5 em toda condição (flip-rate
+   real de ~20%, não framing).
+4. **27b calibra nos dois framings** (5/5 e 4/5) — confirma "satura".
+5. **opus-5 fura a pressão do hunt** (4/5 ABST) — topo calibra mesmo sob
+   "ache problemas".
+6. **gpt-4.1-mini:** calibra sob audit nos dois braços, mas sob hunt+strata
+   quebra o formato (enum literal) — robustez de formato é separável de calibração.
+
+**Leitura pro manual:** a borda de abstenção é **framing-dependente para modelos
+limítrofes** (haiku) e **braço-dependente para modelos de ruído** (32b). A regra
+prática permanece: modelos que calibram sob audit calibram sob hunt; modelos que
+superagem sob audit podem ser corrigidos por reframing (hunt) OU pelo método
+(Strata protege o 32b). R8 fechado.

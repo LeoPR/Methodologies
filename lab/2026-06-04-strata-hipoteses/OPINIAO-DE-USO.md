@@ -147,17 +147,20 @@ substitui, a verificação mecânica.
 
 ## Honestidade — as ressalvas que esta opinião carrega (§6)
 
-- **Sintético, K=2 (2026-08).**
+- **Sintético, K=2 na grade (2026-08); K=5 nas células decisivas.**
   A grade nova roda em fixtures sintéticas representativas, 2 repetições por
   célula. O piso (<4B) e o joelho (8B executa, ~20–27B satura) são leituras
-  de borda com deltas grandes, não curvas ajustadas. A fase seguinte (K maior
-  + framing cruzado no clean) está na fila exatamente para as células
-  decisivas.
+  de borda com deltas grandes, não curvas ajustadas. As células decisivas do
+  clean foram re-rodadas com K=5 e framing cruzado (ver ressalva seguinte).
 
-- **A borda de abstenção é framing-dependente.**
-  O braço Strata induz ação nos modelos menores no projeto já-bom (R8
-  reproduzido). "Calibra / superage" vale sob o framing de auditoria atual;
-  o cruzamento de framing não foi feito ainda.
+- **A borda de abstenção é framing-dependente — mas de jeito medido (R8 fechado, K=5).**
+  O cruzamento clean × framing (audit vs. hunt, "inventar defeito é PIOR") com
+  K=5 mostrou: haiku-4.5 superage **só** em strata+audit (0/5) e calibra sob
+  hunt (4/5) e baseline (10/10) — artefato de framing; qwen3-32b é o inverso
+  (baseline+audit 0/5, Strata 4/5) — o método o protege; v4-pro é limítrofe de
+  verdade (~20% de flip em toda condição); 27b e opus-5 calam nos dois
+  framings. Regra prática: quem calibra sob audit calibra sob hunt; quem
+  superage pode ser corrigido por reframing OU pelo método.
 
 - **Roster envelhece.**
   A grade cita modelos de 2026-08 (terra, opus-5, kimi-k3, deepseek-v4-pro).

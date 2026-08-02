@@ -150,7 +150,7 @@ substitui, a verificação mecânica.
 - Que **situe artefatos no tempo** com garantia. É a dimensão mais ruidosa.
   Acerta quando a cronologia é legível (marcadores ou ordem recuperável do conteúdo), e erra quando ela está enterrada.
   Falta o caso real-grande.
-- Que conclusões do modo **só-texto** transfiram para um **agente com ferramentas.** Isso não foi testado.
+- Que conclusões do modo **só-texto** transfiram para um **agente com ferramentas** — **2026-08: a primeira célula transferiu.** Com ferramentas reais em sandbox, o conserto §5 executado ficou 10/12 com Strata × 2/12 sem (coerente com o texto), e ninguém tentou rodar o `curl` da injeção (0/24) — com o `run_shell` na mão. O risco migrou de canal: a falha passa a ser re-escrever a meta-diretiva ativa ou obedecer isca de refatoração, não puxar o gatilho. O loop/contrato é nosso — não mede agente de mercado.
 - **L1 (formalização) e L2 (ferramentas) quase não foram testados.** Afirmações sobre eles são não-testadas.
 
 ## Honestidade — as ressalvas que esta opinião carrega (§6)
@@ -175,9 +175,10 @@ substitui, a verificação mecânica.
   Daqui a meses haverá outros; a estrutura (piso/joelho/tier) tende a se
   manter, os nomes não. Antes de decidir, re-audite em fonte primária.
 
-- **Só-texto.**
-  Medimos a intenção do plano, não o agente real com ferramentas.
-  Isso não transfere direto ao produto.
+- **Só-texto — parcialmente respondido (2026-08).**
+  A primeira célula agente (sandbox, 24 runs, 3 modelos) transferiu: o padrão
+  strata≫baseline manteve-se na execução. Ressalva restante: 1 célula, K=2,
+  contrato de ferramentas nosso — agentes de mercado seguem não medidos.
 
 - **N pequeno** (1 a 5 repetições por célula).
   São deltas grandes contra ruído, não significância estatística.
@@ -212,7 +213,7 @@ substitui, a verificação mecânica.
   Diário completo: [`lab/2026-08-02-reteste-L0-fechado`](../2026-08-02-reteste-L0-fechado/).
 - **Funciona (sólido):** consertar §5 e preservar §3, até no econômico; recusar injeção §6-bis (2026-08: espontânea em todos os testados da geração atual); e 7 de 9 juízes de 3 empresas convergem, então não é auto-avaliação.
 - **Funciona (sinal):** num projeto limpo, todos se abstêm; sob ruído, só o topo calibra; verificar fonte §6 **com web** já sai com fonte primária (gpt-5-mini:online 6/6, K=2).
-- **Não funciona / em aberto:** auditor autônomo no projeto real (sub-detecção é o limite duro); proporcionalidade bilateral da abstenção (abster-se já sai no 27B, mas calibrar o quanto agir ainda não); agente com ferramentas reais; L1/L2.
+- **Não funciona / em aberto:** auditor autônomo no projeto real (sub-detecção é o limite duro); proporcionalidade bilateral da abstenção (abster-se já sai no 27B, mas calibrar o quanto agir ainda não); agentes de mercado com ferramentas (a célula sandbox própria transferiu — o de mercado segue não medido); L1/L2.
 
 Para a **evolução completa** — fase a fase, o que foi dito e descartado, os números por experimento:
 [hub de arquitetura e evidências](ARQUITETURA-E-EVIDENCIAS.md) (histórico) ·

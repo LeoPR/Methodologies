@@ -379,3 +379,21 @@ próxima fase (K maior + framing cruzado) é a célula decisiva.
 
 **Pendentes:** juiz cross-vendor; inspeção qualitativa 35b-a3b + scout;
 fase seguinte (K maior + framing cruzado); manual.
+
+## 2026-08-02 — Júri cross-vendor lançado (núcleo + subconjunto da grade)
+
+Smoke dos juízes (1 chamada cada): cerebras:gpt-oss-120b OK ·
+nvidia:llama-3.3-nemotron-super-49b OK · groq:qwen3.6-27b OK ·
+openrouter:kimi-k3 OK (âncora paga) · **nvidia:mistral-nemotron TIMEOUT —
+fora do júri** (volatilidade de roster; Mistral perde representação nesta
+rodada, registrado). Júri = 4 famílias, auto-julgamento marcado/excluído
+(SELF) pelo script.
+
+Edit aditivo no `judge_f4.py`: `--dirs` aceita pastas da grade
+(f4g/f4u/f4v) e o nome do modelo é reconstruído pela 1a underscore (cobre
+anthropic_/qwen_/meta-llama_/moonshotai_/deepseek_). Rodada: núcleo (36
+planos) + trap-strata-gpu + trap-strata-brand + clean-strata-gpu/brand +
+clean do opus/fable = 70 planos × 4 juízes = 280 julgamentos (est. ~$3;
+free tiers dominam). Foco analítico: (1) confirmar PASS mecânico; (2)
+FALHAs de trap do 35b-a3b/scout — falha real ou nit mecânico?; (3) FPs do
+clean — supereng genuína?; (4) N1_DESTRUICAO do baseline — destruição real?

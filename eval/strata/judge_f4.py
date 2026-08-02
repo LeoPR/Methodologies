@@ -100,6 +100,10 @@ def call_judge(judge, prompt):
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dirs", default="", help="pastas extras sob planos/ (virgula), ex.: f4g-trap-strata-gpu")
+    args = ap.parse_args()
     missing = sorted({providers.parse_spec(j)[0] for j in JUDGES if not providers.have_key(providers.parse_spec(j)[0])})
     if missing:
         print(f"sem chave p/ provedores dos juizes {missing} (env ou eval/strata/.<prov>-key). JUDGES={JUDGES}",
@@ -108,12 +112,26 @@ def main():
     out_dir = os.path.join(HERE, "planos", "f4-judge")
     os.makedirs(out_dir, exist_ok=True)
     jobs = []
+    # model = provedor/modelo reconstruido do filename (1a underscore vira '/') — cobre
+    # anthropic_, qwen_, meta-llama_, moonshotai_, deepseek_ alem de openai_/google_.
+    def model_of(f):
+        return re.sub(r"_", "/", re.match(r"plano-(.+)-F4-r(\d+)", os.path.basename(f)).group(1), count=1)
     for fix in ["f4-dup", "f4-clean", "f4-trap"]:
         for arm in ["strata", "base"]:
             for f in sorted(glob.glob(os.path.join(HERE, "planos", f"f4-{fix}-{arm}", "plano-*.md"))):
-                m = re.match(r"plano-(.+)-F4-r(\d+)", os.path.basename(f))
-                model = m.group(1).replace("openai_", "openai/").replace("google_", "google/")
-                jobs.append((fix, arm, model, int(m.group(2)), f))
+                run = int(re.match(r"plano-(.+)-F4-r(\d+)", os.path.basename(f)).group(2))
+                jobs.append((fix, arm, model_of(f), run, f))
+    # ADITIVO: pastas extras (grade incremental f4g/f4u/f4v) — fixture vem do 2o token do nome.
+    for d in [s.strip() for s in args.dirs.split(",") if s.strip()]:
+        mfix = re.match(r"f4[guv]?-(dup|clean|trap)-", d)
+        if not mfix:
+            print(f"[aviso] pasta {d} fora do padrao f4*-<fix>-*, ignorada", file=sys.stderr)
+            continue
+        fix = f"f4-{mfix.group(1)}"
+        arm = "strata" if "-strata-" in d else "base"
+        for f in sorted(glob.glob(os.path.join(HERE, "planos", d, "plano-*.md"))):
+            run = int(re.match(r"plano-(.+)-F4-r(\d+)", os.path.basename(f)).group(2))
+            jobs.append((fix, arm, model_of(f), run, f))
     print(f"== {len(jobs)} fixes x {len(JUDGES)} juizes = {len(jobs) * len(JUDGES)} julgamentos")
     results = []
     for fix, arm, model, run, f in jobs:

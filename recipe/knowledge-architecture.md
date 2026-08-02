@@ -682,10 +682,14 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 > mapeamento `necessidade L0 → formalização`, sempre com o **sinal de troca**:
 > quando faz sentido aposentar a *formalização* (nunca o *princípio*).
 >
-> **Como ler**: cada entrada = o que é · fonte · sinal de troca. As
-> **identidades de framework** foram web-verificadas (2026-06-03); `[WEB ✓]`
-> marca as verificadas nesta rodada, `[CANÔNICO]` as consagradas citadas de
-> conhecimento. Princípio (L0) não se troca; formalização (L1) sim — quando
+> **Como ler**: cada entrada = o que é · fonte · sinal de troca — o sinal de
+> troca diz **o que substitui** a formalização (não *quando aplicá-la*; a
+> proporcionalidade de aplicação é a Aderência de §9). As **identidades de
+> framework** foram web-verificadas (2026-06-03) e re-verificadas em fontes
+> primárias, com correções, em 2026-08-01 — `[WEB ✓ data]` marca a última
+> verificação; `[CANÔNICO]` marca as consagradas citadas de conhecimento.
+> (Trilha de auditoria: `lab/2026-08-01-fechamento-camadas/L1-2-repesquisa-literatura.md`.)
+> Princípio (L0) não se troca; formalização (L1) sim — quando
 > outra encaixa melhor no domínio, ou quando o overhead dela supera o ganho na
 > sua escala (§9).
 
@@ -693,105 +697,107 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **Cookiecutter Data Science** | layout-padrão que separa fisicamente dado/código/saída — os três tipos de §1 (signal vs ruído) | drivendata `[CANÔNICO]` | adapte ao seu stack |
+| **Cookiecutter Data Science** | layout-padrão que separa fisicamente os três tipos de §1 — `notebooks/`≈exploração, `src/`+`reports/`≈produto, `docs/`+`references/`≈conhecimento | DrivenData (~2015) `[WEB ✓ 2026-08-01]` | a instância morre com o stack/domínio; o padrão "separar os tipos em lugares físicos" fica — o research compendium (Para §4) é a expressão acadêmica |
 
 ## Para §2 "Como uso / entendo isto?" — documentação
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **Diataxis** | 4 tipos de doc ortogonais (tutorial / how-to / referência / explicação), organizados pela necessidade do leitor, não do autor | Procida — diataxis.fr `[WEB ✓]` | se a distinção em 4 quadrantes não couber no material (raro) |
+| **Diataxis** | 4 tipos de doc ortogonais (tutorial / how-to / referência / explicação), organizados pela necessidade do leitor, não do autor | Procida — diataxis.fr `[WEB ✓ 2026-08-01]` | se a distinção em 4 quadrantes não couber no material (raro) |
 
 ## Para §2 "Onde está X?" — achabilidade
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **Arquitetura da informação** | disciplina de organização / rotulação / navegação / busca de conteúdo | Rosenfeld & Morville 1998 `[WEB ✓]` | — (é teoria de base; a *implementação* — mapa/índice/entrada — é L2) |
+| **Arquitetura da informação** | disciplina de organização / rotulação / navegação / busca de conteúdo | Rosenfeld & Morville 1998 (1ª ed.); 4ª ed. c/ Arango 2015 `[WEB ✓ 2026-08-01]` | — (é teoria de base; a *implementação* — mapa/índice/entrada — é L2) |
 
 ## Para §3 — decisões + rastreabilidade
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **ADR** | registro leve e imutável, 1 decisão por arquivo, focado na decisão + contexto | Nygard 2011 `[WEB ✓]` | — (formato muito estável) |
-| **MADR** (Markdown Any Decision Records) | evolução comunitária do ADR (template 4.0, 2024) | adr.github.io/madr `[WEB ✓]` | Y-Statement (Zimmermann) se quer 1 frase; ADR-Nygard puro se quer mínimo |
-| **Conventional Commits / SemVer** | liga cada mudança a um tipo/significado e a uma identidade de versão (rastro commit→sentido→versão) | conventionalcommits.org / semver.org `[CANÔNICO]` | sem release público, a higiene de commit basta sem o padrão formal |
+| **ADR** | registro leve e imutável, 1 decisão por arquivo, focado na decisão + contexto | Nygard 2011 `[WEB ✓ 2026-08-01]` | — (formato muito estável) |
+| **MADR** (Markdown Any Decision Records) | evolução comunitária do ADR (template 4.0, 2024) | adr.github.io/madr `[WEB ✓ 2026-08-01]` | Y-Statement (Zimmermann) se quer 1 frase; ADR-Nygard puro se quer mínimo |
+| **Conventional Commits / SemVer** | liga cada mudança a um tipo/significado e a uma identidade de versão (rastro commit→sentido→versão) | conventionalcommits.org / semver.org `[WEB ✓ 2026-08-01]` | sem release público, a higiene de commit basta sem o padrão formal |
 
 ## Para §3-bis — força do artefato (tipo de ato, referencial, auto-decifrabilidade)
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **ISAD(G)** (Norma Internacional de Descrição Arquivística) | gabarito de descrição arquivística que distingue o ato constitutivo (o registro *é* o ato — dispositivo) do documento evidencial (o registro *relata* o ato — probatório); opera a distinção de §3-bis em escala institucional | ICA/CIA, 2ª ed. 2000 `[CANÔNICO]` | EAD (Encoded Archival Description) se precisar de troca eletrônica; RiC-CM (Records in Contexts) como sucessor emergente |
-| **SI / ISO 80000** | sistema internacional de unidades e grandezas — o *datum* formal de referência para ciência e engenharia; operacionaliza "declare o referencial antes de medir" | BIPM / ISO 80000 `[CANÔNICO]` | EPSG/WGS84 para dado geodésico; TAI/UTC para tempo; IEEE 754 para ponto flutuante |
-| **PRONOM / DROID** | registro de formatos de arquivo (The National Archives UK) — identifica e documenta codecs e formatos para auto-decifrabilidade de longo prazo; o "dicionário" que §3-bis exige que seja co-localizado | The National Archives UK — pronom.nationalarchives.gov.uk `[CANÔNICO]` | relevante para arquivamento de prazo longo; MIME-type (RFC 2045) basta para prazo curto |
+| **ISAD(G)** (Norma Internacional de Descrição Arquivística) | gabarito de descrição arquivística que opera §3-bis em escala institucional; sua área *conditions governing access* registra o **portão de servir** (§6-bis) na mesma escala | ICA/CIA, 2ª ed. 2000 `[WEB ✓ 2026-08-01]` | RiC-CM (Records in Contexts — sucessor oficial do ICA, v1.0 fim de 2023); EAD para troca eletrônica |
+| **RFC 2119 / 8174 keywords** | palavras-chave de nível de exigência (MUST / SHOULD / MAY) que marcam a *força* de cada declaração — normativa vs informativa; a formalização em escala de engenharia de declarar o tipo de ato | Bradner 1997 (RFC 2119); Leiba 2017 (RFC 8174) `[WEB ✓ 2026-08-01]` | — (estável desde 1997; a 8174 só esclarece que só as maiúsculas carregam o sentido) |
+| **SI / ISO 80000** | sistema internacional de unidades e grandezas — o *datum* formal de referência para ciência e engenharia; operacionaliza "declare o referencial antes de medir" | BIPM / ISO 80000 `[WEB ✓ 2026-08-01]` | EPSG/WGS84 para dado geodésico; TAI/UTC para tempo; IEEE 754 para ponto flutuante |
+| **PRONOM / DROID** | registro de formatos de arquivo (The National Archives UK) — identifica e documenta codecs e formatos para auto-decifrabilidade de longo prazo; o "dicionário" que §3-bis exige que seja co-localizado | The National Archives UK — pronom.nationalarchives.gov.uk `[WEB ✓ 2026-08-01]` | relevante para arquivamento de prazo longo; MIME-type (RFC 2046; registro IANA) basta para prazo curto |
 
 ## Para §4 — registro científico
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **IMRaD** (template) | gabarito intro / método / resultado / discussão para um relato | Sollaci & Pereira 2004 `[WEB ✓]` | — (os 4 movimentos são L0; o gabarito é flexível) |
-| **Research Compendium** | contêiner único: artigo + análise + dados + ambiente, reproduzível | Marwick, Boettiger & Mullen 2018 (*Am. Statistician* 72(1):80–88) `[WEB ✓]` | adapte a estrutura ao seu stack; o princípio (tudo junto, reproduzível) fica |
-| **FAIR4RS** | princípios Findable/Accessible/Interoperable/Reusable para *software* de pesquisa | Chue Hong et al. 2022 (*Scientific Data* 9:622) `[WEB ✓]` | aplique só o subconjunto que seu projeto publica |
-| **Pré-registro / Registered Reports** | declarar hipótese + método antes dos dados, formalmente | Nosek et al. 2018 / Chambers 2017 `[WEB ✓]` / `[CANÔNICO]` | versão informal (H1 no README do experimento) basta fora de publicação |
-| **Programas de pesquisa** (núcleo duro + cinto protetor) | estrutura para um *registry* de hipóteses cross-experimento | Lakatos 1978 `[WEB ✓]` | qualquer tabela de hipóteses com status serve; Lakatos dá o vocabulário |
-| **Threats-to-validity** (checklist) | enumerar ameaças interna / externa / construto / conclusão | Campbell & Stanley 1963 / Wohlin et al. 2012 `[WEB ✓]` / `[CANÔNICO]` | — |
+| **IMRaD** (template) | gabarito intro / método / resultado / discussão para um relato | Sollaci & Pereira 2004 `[WEB ✓ 2026-08-01]` | — (os 4 movimentos são L0; o gabarito é flexível) |
+| **Research Compendium** | contêiner único: artigo + análise + dados + ambiente, reproduzível | Marwick, Boettiger & Mullen 2018 (*Am. Statistician* 72(1):80–88) `[WEB ✓ 2026-08-01]` | adapte a estrutura ao seu stack; o princípio (tudo junto, reproduzível) fica |
+| **FAIR** (princípios-guia) | Findable/Accessible/Interoperable/Reusable — os princípios de base para *dados* e objetos digitais de pesquisa; o FAIR4RS é o filho de software | Wilkinson et al. 2016 (*Sci Data* 3:160018) `[WEB ✓ 2026-08-01]` | FAIR4RS para software de pesquisa (linha seguinte); aplique o subconjunto que seu projeto publica |
+| **FAIR4RS** | princípios Findable/Accessible/Interoperable/Reusable para *software* de pesquisa | Barker et al. 2022 (*Sci Data* 9:622); RDA: Chue Hong et al. 2022 `[WEB ✓ 2026-08-01]` | aplique só o subconjunto que seu projeto publica |
+| **Pré-registro / Registered Reports** | declarar hipótese + método antes dos dados, formalmente | Nosek et al. 2018 / Chambers 2013; Chambers & Tzavella 2022 `[WEB ✓ 2026-08-01]` | versão informal (H1 no README do experimento) basta fora de publicação |
+| **Programas de pesquisa** (núcleo duro + cinto protetor) | estrutura para um *registry* de hipóteses cross-experimento | Lakatos 1978 `[WEB ✓ 2026-08-01]` | qualquer tabela de hipóteses com status serve; Lakatos dá o vocabulário |
+| **Threats-to-validity** (checklist) | enumerar ameaças interna / externa / construto / conclusão | Campbell & Stanley 1963 → Cook & Campbell 1979 / Wohlin et al. 2012 `[WEB ✓ 2026-08-01]` | — |
 
 ## Para §5 — fonte única / oráculo
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **Literate programming** | uma fonte → doc (weave) + código (tangle), consistentes por construção | Knuth 1984 `[WEB ✓]` | a maioria usa a versão fraca (docstrings + testes), não WEB |
-| **Design by Contract** | pré/pós-condições + invariantes = spec auto-checável | Meyer 1997 `[CANÔNICO]` | tipos + testes property-based cobrem boa parte |
-| **Specification by Example / living docs** | exemplo automatizado vira spec executável + fonte única | Adzic 2011 `[CANÔNICO]` | — |
-| **C4 model** | diagramar a estrutura do sistema em 4 altitudes (uma vez) | Brown — c4model.info `[CANÔNICO]` | qualquer diagrama de contexto consistente serve |
+| **Literate programming** | uma fonte → doc (weave) + código (tangle), consistentes por construção | Knuth 1984 `[WEB ✓ 2026-08-01]` | a maioria usa a versão fraca (docstrings + testes), não WEB |
+| **Design by Contract** | pré/pós-condições + invariantes = spec auto-checável | Meyer 1997 `[WEB ✓ 2026-08-01]` | tipos + testes property-based cobrem boa parte |
+| **Specification by Example / living docs** | exemplo automatizado vira spec executável + fonte única | Adzic 2011 `[WEB ✓ 2026-08-01]` | — |
+| **C4 model** | um único modelo do sistema → vistas em 4 altitudes (consistência por construção) | Brown — c4model.com `[WEB ✓ 2026-08-01]` | qualquer diagrama de contexto consistente serve |
 
 ## Para §6 — disciplina de fonte
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **Hierarquia de evidência / GRADE** | graduar a força da evidência | Sackett et al. 1996 / GRADE 2008 `[WEB ✓]` / `[CANÔNICO]` | — (princípio L0; GRADE é o grau formal) |
-| **CRAAP test** | checklist de avaliação de fonte (Currency / Relevance / Authority / Accuracy / Purpose) | Blakeslee 2004 `[CANÔNICO]` | SIFT para web rápida; CRAAP para fonte acadêmica |
-| **SIFT** (Four Moves) | parar / investigar a fonte / achar melhor cobertura / rastrear à origem | Caulfield 2017/2019 `[WEB ✓]` | — |
-| **Triangulação** | validar via N fontes independentes | Denzin 1978 `[CANÔNICO]` | — |
+| **Hierarquia de evidência / GRADE** | graduar a força da evidência | Sackett et al. 1996 / GRADE (Atkins et al. 2004; Guyatt et al. 2008) `[WEB ✓ 2026-08-01]` | — (princípio L0; GRADE é o grau formal) |
+| **CRAAP test** | checklist de avaliação de fonte (Currency / Relevance / Authority / Accuracy / Purpose) | Blakeslee 2004 `[WEB ✓ 2026-08-01]` | SIFT para web rápida; CRAAP para fonte acadêmica |
+| **SIFT** (Four Moves) | parar / investigar a fonte / achar melhor cobertura / rastrear à origem | Caulfield 2019 (precursor 2017) `[WEB ✓ 2026-08-01]` | — |
+| **Triangulação** | validar via N fontes independentes | Denzin 1978 `[WEB ✓ 2026-08-01]` | — |
 
-## Para §6-bis — autoridade para agir (canal out-of-band, fail-closed)
+## Para §6-bis — autoridade para agir **e para servir** (canal out-of-band, fail-closed)
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **PKI / X.509** | infraestrutura de chave pública — o canal *out-of-band* padrão: autoridade não se auto-declara no payload, é certificada por cadeia de confiança externa e verificável; operacionaliza §6-bis em sistemas digitais | RFC 5280 (IETF) `[CANÔNICO]` | GPG web-of-trust sem CA hierárquica; PASETO ou JWT com rotação de chave em contextos API |
-| **Zero-trust / NIST SP 800-207** | "nunca confiar, sempre verificar" — nenhuma autoridade é assumida por posição, rede ou sessão prévia; cada executor verifica o canal independentemente | NIST SP 800-207 (2020) `[CANÔNICO]` | BeyondCorp (Google) como implementação de referência; o princípio (*verificar, não assumir*) é L0 |
-| **RBAC / ABAC** | controle de acesso por papel (role) ou atributo — formaliza o portão de §6-bis nos **dois** atos (executar e servir/ler); torna explícita e auditável a autoridade delegada, sem auto-declaração in-band | RBAC: NIST ANSI/INCITS 359-2004; ABAC: NIST SP 800-162 `[CANÔNICO]` | ABAC se granularidade de papel não basta; PBAC (policy-based) em contextos de zero-trust avançado |
+| **PKI / X.509** | infraestrutura de chave pública — o canal *out-of-band* padrão: autoridade não se auto-declara no payload, é certificada por cadeia de confiança externa e verificável; operacionaliza §6-bis em sistemas digitais | RFC 5280 (IETF) `[WEB ✓ 2026-08-01]` | GPG web-of-trust sem CA hierárquica; JWT/PASETO mudam o *formato* do token — o canal out-of-band continua sendo PKI |
+| **Zero-trust / NIST SP 800-207** | "nunca confiar, sempre verificar" — nenhuma autoridade é assumida por posição, rede ou sessão prévia; cada executor verifica o canal independentemente | NIST SP 800-207 (2020) `[WEB ✓ 2026-08-01]` | BeyondCorp (Google) como implementação de referência; o princípio (*verificar, não assumir*) é L0 |
+| **RBAC / ABAC** | controle de acesso por papel (role) ou atributo — formaliza o portão de §6-bis nos **dois** atos (executar e servir/ler); torna explícita e auditável a autoridade delegada, sem auto-declaração in-band | RBAC: ANSI/INCITS 359-2004 (rev. 2012; modelo NIST — Ferraiolo et al. 2001); ABAC: NIST SP 800-162 (2014, atualizado 2019) `[WEB ✓ 2026-08-01]` | ABAC se granularidade de papel não basta; PBAC (policy-based) em contextos de zero-trust avançado |
 
 ## Para §7 — geração e maturação do conhecimento
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **Zettelkasten** | notas atômicas (1 ideia) ligadas em rede; conhecimento que se navega | Luhmann / Ahrens 2017 `[WEB ✓]` | bom p/ conhecimento heterogêneo; índice hierárquico basta p/ pouco volume |
-| **PARA** | organizar conhecimento pessoal (Projects / Areas / Resources / Archives) | Forte 2022 `[CANÔNICO]` | só se você gerencia conhecimento além do projeto |
-| **Rule of Three** | não consolidar antes da 3ª recorrência | Fowler 1999 (atrib. Roberts) `[WEB ✓]` | — |
-| **Compêndio / changelog / narrativa** | consolidar achados (findings), marcos (changelog) e o arco (narrativa de projeto) | convenções `[CANÔNICO]` | escolha o formato pelo público |
+| **Zettelkasten** | notas atômicas (1 ideia) ligadas em rede; conhecimento que se navega | Ahrens 2017 (método de Luhmann) `[WEB ✓ 2026-08-01]` | bom p/ conhecimento heterogêneo; índice hierárquico basta p/ pouco volume |
+| **PARA** | organizar conhecimento pessoal (Projects / Areas / Resources / Archives) | Forte 2022 `[WEB ✓ 2026-08-01]` | só se você gerencia conhecimento além do projeto |
+| **Rule of Three** | não consolidar antes da 3ª recorrência | Fowler 1999 (atrib. Roberts) `[WEB ✓ 2026-08-01]` | — |
+| **Compêndio / changelog / narrativa** | consolidar achados (findings), marcos (changelog) e o arco (narrativa de projeto) | convenções | escolha o formato pelo público — changelog: ver Para §8 (Keep a Changelog); decisão: ver Para §3 (ADR) |
 
 ## Para §7 (cont.) — gerar e priorizar trabalho a partir do conhecimento
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **Kanban** | estados de workflow + limites de WIP | Anderson 2010 `[CANÔNICO]` | Scrum (epic/story) se há sprints; lista simples se solo |
-| **OKR** | objetivos + key results mensuráveis (critério de aceite) | Doerr 2018 `[CANÔNICO]` | — |
-| **MoSCoW** | priorização Must / Should / Could / Won't | DSDM 1994 `[CANÔNICO]` | Now/Next/Later, WSJF, etc. |
+| **Kanban** | estados de workflow + limites de WIP | Anderson 2010 `[WEB ✓ 2026-08-01]` | Scrum (epic/story) se há sprints; lista simples se solo |
+| **OKR** | objetivos + key results mensuráveis | Grove 1983 (origem, Intel); Doerr 2018 `[WEB ✓ 2026-08-01]` | FAST goals / KPIs se o OKR virar teatro trimestral |
+| **MoSCoW** | priorização Must / Should / Could / Won't | Clegg 1994 (Oracle UK); DSDM `[WEB ✓ 2026-08-01]` | Now/Next/Later, WSJF, etc. |
 
 ## Para §8 — versionamento / história imutável
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **Conventional Commits 1.0** | gramática de commit → mudança categorizada → changelog automático | conventionalcommits.org `[CANÔNICO]` | qualquer convenção de commit consistente serve |
-| **SemVer 2.0 / Keep a Changelog** | identidade de versão + formato de changelog | semver.org / keepachangelog.com `[CANÔNICO]` | versionar por marco lógico se "release" não é o marco |
+| **Conventional Commits 1.0** | gramática de commit → mudança categorizada → changelog automático | conventionalcommits.org `[WEB ✓ 2026-08-01]` | qualquer convenção de commit consistente serve |
+| **SemVer 2.0 / Keep a Changelog** | identidade de versão + formato de changelog | semver.org / keepachangelog.com `[WEB ✓ 2026-08-01]` | versionar por marco lógico se "release" não é o marco |
 
 ## Para §10 — durabilidade do portador (redundância verificável, preservação ativa)
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **OAIS (ISO 14721)** | modelo de referência para preservação digital de longo prazo — define papéis (produtor / arquivo / consumidor), pacotes de informação (SIP/AIP/DIP) e o ciclo de sustentabilidade de acesso; a âncora conceitual de qualquer estratégia de §10 | ISO 14721:2012 / CCSDS 650.0-M-2 `[CANÔNICO]` | — (é o modelo de referência; toda formalização de preservação digital o instancia) |
-| **Regra 3-2-1** | 3 cópias, em 2 mídias distintas, sendo 1 offsite — heurística mínima com modos de falha independentes; operacionaliza "N réplicas dispersas" de §10 em projetos de qualquer escala | Carnegie Mellon CERT; amplamente adotado `[CANÔNICO]` | expandir para **3-2-1-1-0** (+ 1 air-gapped + 0 erros verificados) para dados críticos; LOCKSS para publicações acadêmicas |
-| **BagIt (RFC 8493)** | formato de pacote para transferência e armazenamento verificável — manifesto de checksums embutido, payload auto-declarado; implementa a réplica *verificável-contra-origem* de §10 | RFC 8493 (IETF, 2018) / Library of Congress `[CANÔNICO]` | git (com hashes SHA-1/SHA-256) cobre código versionado; BagIt para conteúdo binário ou transferência formal entre instituições |
-| **Fixity checking** | verificação periódica de integridade por hash (MD5/SHA-256) — operacionaliza "preservar é um verbo": sem re-verificação ativa, a cópia apodrece em silêncio (bit rot) | NDSA Levels of Digital Preservation; Archivematica; prática padrão da biblioteconomia digital `[CANÔNICO]` | automação via LOCKSS, rsync --checksum, ou ferramentas de backup com verificação embutida |
+| **OAIS (ISO 14721)** | modelo de referência para preservação digital de longo prazo — define papéis (produtor / arquivo / consumidor), pacotes de informação (SIP/AIP/DIP) e o ciclo de sustentabilidade de acesso; a âncora conceitual de qualquer estratégia de §10 | ISO 14721:2012 / CCSDS 650.0-M-2 `[WEB ✓ 2026-08-01]` | — (é o modelo de referência; toda formalização de preservação digital o instancia) |
+| **Regra 3-2-1** | 3 cópias, em 2 mídias distintas, sendo 1 offsite — heurística mínima com modos de falha independentes; operacionaliza "N réplicas dispersas" de §10 em projetos de qualquer escala | Krogh 2005/2009 (*The DAM Book*, O'Reilly); recomendada pelo US-CERT (Ruggiero & Heckathorn 2012, CMU) `[WEB ✓ 2026-08-01]` | expandir para **3-2-1-1-0** (+ 1 air-gapped + 0 erros verificados) para dados críticos; LOCKSS para publicações acadêmicas |
+| **BagIt (RFC 8493)** | formato de pacote para transferência e armazenamento verificável — manifesto de checksums embutido, payload auto-declarado; implementa a réplica *verificável-contra-origem* de §10 | RFC 8493 (IETF, 2018) / Library of Congress `[WEB ✓ 2026-08-01]` | git (com hashes SHA-1/SHA-256) cobre código versionado; BagIt para conteúdo binário ou transferência formal entre instituições |
+| **Fixity checking** | verificação periódica de integridade por hash (MD5/SHA-256) — operacionaliza "preservar é um verbo": sem re-verificação ativa, a cópia apodrece em silêncio (bit rot) | NDSA Levels of Digital Preservation; Archivematica; prática padrão da biblioteconomia digital `[WEB ✓ 2026-08-01]` | automação via LOCKSS, rsync --checksum, ou ferramentas de backup com verificação embutida |
 
 ## Para §11 — esquemas de classificação
 
@@ -805,14 +811,14 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **CITATION.cff** | metadados de citação legíveis por máquina | citation-file-format.github.io `[CANÔNICO]` | só se publicável |
-| **Dublin Core / DataCite / schema.org** | esquemas de metadados interoperáveis para datasets | datacite.org `[CANÔNICO]` | use o subconjunto necessário |
-| **JOSS** | padrão de software de pesquisa publicável | joss.theoj.org `[CANÔNICO]` | só se for publicar software |
+| **CITATION.cff** | metadados de citação legíveis por máquina | citation-file-format.github.io `[WEB ✓ 2026-08-01]` | CodeMeta se o ecossistema pedir JSON-LD |
+| **Dublin Core / DataCite / schema.org** | esquemas de metadados interoperáveis (recursos genéricos / dados de pesquisa / web) | datacite.org `[WEB ✓ 2026-08-01]` | DCAT para catálogos de datasets; CodeMeta para software |
+| **JOSS** | venue revisada por pares (journal + critérios de revisão) para software de pesquisa publicável | joss.theoj.org `[WEB ✓ 2026-08-01]` | SoftwareX / JORS como venues; Zenodo-DOI sem paper |
 
 # PARTE III — ADAPTAÇÃO À ERA ATUAL (L2)
 
 > **Camada volátil e destacável.** Como as ferramentas de **hoje** expressam o
-> L0/L1. Tudo aqui carrega captura `[2026-06-03]` e `re-verify-by: 2026-09-01`.
+> L0/L1. Tudo aqui carrega captura `[2026-08-01]` e `re-verify-by: 2026-11-01`.
 > **Quando uma ferramenta morre, só esta parte muda** — Partes I/II ficam
 > intactas. Trate como dado semi-vivo (§6): re-verificar na fonte antes de
 > tratar como verdade.
@@ -820,7 +826,9 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 > A coluna **"expressa"** amarra cada ferramenta a uma necessidade atemporal —
 > é o que permite trocá-la sem perder o porquê. A camada de IA abaixo foi
 > web-verificada em 2026-06-03 (análise de modernização em
-> `Strata/lab/2026-06-03-modernizacao/` no repositório de origem).
+> `Strata/lab/2026-06-03-modernizacao/` no repositório de origem) e
+> re-verificada em 2026-08-01
+> (`lab/2026-08-01-fechamento-camadas/L2-2-ferramentas-ia.md`).
 
 ## 1. Agentes de IA — a forma de hoje do colaborador sem memória
 
@@ -834,24 +842,38 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 | **AGENTS.md** (+ `CLAUDE.md`) | arquivo de instruções na raiz: inventário + checklist "antes de agir" + lista NUNCA | §2 ponto de entrada p/ o colaborador |
 | **MCP** (Model Context Protocol) | padrão de conexão agente↔dados/ferramentas; expor `tickets`/`manifest`/dataset como server local | §3 acesso rastreável a recursos |
 | **Agent Skills** (`SKILL.md`) | capacidade empacotada reutilizável (progressive disclosure), cross-tool | operações repetíveis (auditoria, promoção, export) |
-| **Memória em camadas** | (1) arquivo versionado · (2) hook · (3) memória user-scope · (4) memória filesystem (memory tool, contexto 1M) | a 4ª camada do §3 (a (4) gera drift opaco não-versionado — auditar) |
+| **Memória em camadas** | (1) arquivo versionado · (2) auto memória escrita pelo agente (`MEMORY.md`, ligada por default) · (3) memória user-scope · (4) memória filesystem (memory tool, contexto 1M); hooks são **enforcement**, não camada de memória | a 4ª camada do §3 (as camadas (2)+(4) geram drift opaco não-versionado — auditar) |
 | **Context engineering + prompt caching** | curar > encher; rotear via mapa; conteúdo estável (cacheável) antes do volátil | §2 achabilidade por roteamento |
 | **Subagents / fan-out** | orquestrador distribui N subagentes paralelos (retornam sumários, não despejam contexto) | revisão/auditoria de projeto são fan-outs naturais |
 | **Agent evals** | testar AGENTS.md/Skills/hooks (são prompts que regridem em silêncio) | §5 (o checável vira teste) |
 | **Proveniência / C2PA** | marcar `authored-by: ai\|human\|mixed`; assinatura de artefato | §3 rastreabilidade de autoria |
-| **Observabilidade (OTel GenAI)** | traces/spans/tokens por sessão de agente | complemento-máquina do diário/manifest (§3) |
+| **Observabilidade (OTel GenAI)** | traces/spans/tokens por sessão de agente (convenções semânticas ainda **Development** — pine a geração que você usa) | complemento-máquina do diário/manifest (§3) |
 | **Busca grep-first** | agentes descobrem por grep/árvore, não vector DB; semântica (FTS5+sqlite-vec) só p/ corpus grande | §2 achabilidade |
 
-**Estado da matriz (`[VERIFICAR: 2026-06-03]`)**: AGENTS.md é padrão
+**Estado da matriz (`[VERIFICAR: 2026-08-01]`)**: AGENTS.md é padrão
 **estabelecido** (Agentic AI Foundation/Linux Foundation, 2025), nativo em
 Codex/Copilot/Cursor/Gemini CLI/Aider/Windsurf/Zed; Claude Code auto-carrega
-`CLAUDE.md` (importe AGENTS.md com `@AGENTS.md`). **Segurança (NUNCA)**: server
-MCP com escrita/ação = superfície de ataque — menor privilégio; ação com
-side-effect externo exige aprovação. Marcação de conteúdo gerado por IA: o
-**EU AI Act Art. 50 aplica-se desde 2-ago-2026** e exige marcação legível por
-máquina, mas é **tecnologicamente neutro** (não nomeia padrão); C2PA 2.x
-(= ISO/IEC 22144) é hoje o caminho de-facto, e sistemas já no mercado têm
-transição até 2-dez-2026. `[re-verificado: 2026-08-01]`
+`CLAUDE.md` (importe AGENTS.md com `@AGENTS.md`). **Agent Skills** virou padrão
+aberto **cross-tool** (agentskills.io, 2025; ~40 plataformas) — audite skills
+de terceiros como audita servers MCP. **MCP**: a spec corrente é
+**2026-07-28** (núcleo stateless; Roots/Sampling/Logging e o transporte
+HTTP+SSE legado deprecados; governança sob a AAIF/Linux Foundation).
+**Segurança (NUNCA)**: server MCP com escrita/ação = superfície de ataque —
+menor privilégio; ação com side-effect externo exige aprovação. Marcação de
+conteúdo gerado por IA: o **EU AI Act Art. 50 aplica-se desde 2-ago-2026** e
+exige marcação legível por máquina, mas é **tecnologicamente neutro** (não
+nomeia padrão); C2PA 2.x (a caminho de virar **ISO 22144** — ISO/CD, ainda em
+desenvolvimento) é hoje o caminho de-facto — Layer 1 do EU Code of Practice
+sobre transparência de conteúdo gerado por IA (jun-2026). Sistemas colocados
+no mercado antes de 2-ago-2026 têm até 2-dez-2026 **só para o dever de
+marcação do Art. 50(2)** (Art. 111(4), Reg. (UE) 2026/1744).
+`[re-verificado: 2026-08-01]`
+
+> **Fronteira**: a *economia e o roteamento* de recursos de IA (qual modelo,
+> local vs nuvem, custo, estratégia de cache) pertencem à metodologia
+> **Comporta** — em pesquisa (`lab/2026-06-04-economia-ia-tokens/`). Quando
+> destilada, esta seção **aponta** para ela (ADR-005); as linhas acima ficam
+> sobre *expressar* necessidades atemporais, não *precificá-las*.
 
 ## 2. Editor / IDE — a forma de hoje do ambiente de trabalho
 
@@ -872,6 +894,7 @@ Detalhe de editor muda rápido — **não acoplar o método a um editor específ
 |---|---|---|
 | **git** | §8 história recuperável de quem/quando/porquê (sucessor de SCCS, 1975) | tool-agnóstico; sintaxe muda, disciplina fica |
 | **`.gitignore`** | §8 signal vs ruído (o que NÃO versiona) | templates oficiais github/gitignore |
+| **Caminhos privados / ignorados** (`.gitignore`, repos privados, ACLs) | §6-bis **autoridade-para-ler** — retenção por construção: o que nunca entra na superfície versionada não pode ser servido | não é §8-ruído: retenção deliberada; a esfera de leitores é declarada (frontmatter `audience:`), não implícita |
 | **Git LFS / DVC / lakeFS / Quilt** | §8 arquivos grandes irrecuperáveis | só o irrecuperável entra; o script de recriação entra |
 | **Conventional Commits / SemVer / Keep a Changelog** | (L1, §8) gramática do histórico | ver Parte II |
 | **Signed commits / branch protection / CODEOWNERS** | §3 autoria + colaboração rastreável | em projeto publicável/regulado |
@@ -922,7 +945,8 @@ engenharia clássica) permanece enquanto a forma (Parte III) é trocada.
 > Brand 1999) estão no **[glossário](../GLOSSARIO.md)**, com a etimologia e as ressalvas de fonte.
 >
 > **Pendências abertas**:
-> - **Eixo 5 (segurança/adversarialidade)**: §6-bis tocou o eixo; merece varredura
->   própria com princípio-mãe *autoridade ⊥ conteúdo*.
+> - **Eixo 5 (segurança/adversarialidade)**: §6-bis agora portão nos **dois**
+>   atos (executar e servir); o eixo ainda merece varredura própria no lado da
+>   **evidência** (hoje: sinal completion-only).
 > - **Parte IV — Adoção e operação**: caminho brownfield (como adaptar projeto
 >   existente) é gap conhecido; aguarda recorrência empírica (N≥3) para formalizar.

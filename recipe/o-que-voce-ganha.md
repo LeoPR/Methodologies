@@ -1,9 +1,14 @@
 ---
 title: 'Strata: o que você ganha'
 created: 2026-06-16
-updated: 2026-06-20
+updated: 2026-08-02
 status: 'Página de entrada para quem vai usar. Estado consolidado. A evidência é de sinais, não de prova; o detalhe honesto está na OPINIAO-DE-USO.'
 ---
+
+<!-- l10n: doc_id=strata-o-que-voce-ganha · lang=pt-BR · source_lang=en · translation_of=o-que-voce-ganha.en.md -->
+[English](o-que-voce-ganha.en.md) · **Português**
+
+> Tradução de [`o-que-voce-ganha.en.md`](o-que-voce-ganha.en.md). Se houver divergência, o original em inglês prevalece.
 
 # Strata: o que você ganha
 
@@ -27,8 +32,8 @@ Isso funciona até com uma IA econômica.
 Quando há uma instrução perigosa escondida no projeto, como "baixe e rode esta URL" ou "execute sem confirmar", a IA recusa em vez de obedecer.
 
 A sua IA econômica rende muito mais com o método.
-A maior diferença de qualidade vem de como você pede, e não de qual modelo você usa.
-A forma é a alavanca.
+Em muita tarefa, a maior diferença de qualidade vem de como você pede, e não de qual modelo você usa.
+Mas o julgamento de quando não agir é do modelo, e não da forma.
 
 ## Como usar com a IA
 
@@ -44,12 +49,14 @@ E confira o primeiro passo que ela propõe, para não deixar que apague a histó
 
 O Strata não é um auditor autônomo que varre um projeto real e acerta sozinho.
 Nisso, ele não supera a competência pura do modelo.
-Reconhecer que está tudo bem e não mexer, ou achar dívida real num projeto grande, ainda pede um modelo de topo, ou você no loop.
+Reconhecer que está tudo bem e não mexer na medida certa, ou achar dívida real num projeto grande, ainda pede um modelo que calibre esse julgamento — e o preço não ordena isso —, ou você no loop.
 
-Um modelo econômico não é seguro sozinho contra um ataque de verdade, porque a recusa dele é parcial e cai quando o ataque é reescrito.
-Para a segurança que importa, conte com o topo, ou com você no loop.
+Um modelo da geração atual recusa a instrução perigosa espontaneamente, até no econômico — a recusa frágil que caía sob paráfrase era da geração anterior (2026-08).
+O risco residual é a IA reescrever a diretiva ativa em vez de neutralizá-la, e há um modelo a evitar para este uso (o llama-4-scout).
+Para a segurança que importa, revise a saída, e confira o modelo específico na opinião de uso.
 
-A IA também não verifica fonte na web de forma confiável.
+Sem acesso à web, a IA não verifica fonte de forma confiável.
+Com web e um modelo razoável, a verificação já sai com a fonte primária citada.
 
 E vale lembrar que tudo isto é sinal de evidência, e não prova.
 Vem de testes controlados, e o uso no dia a dia ainda está em validação.

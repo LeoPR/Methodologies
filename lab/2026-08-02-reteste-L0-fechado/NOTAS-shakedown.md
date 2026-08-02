@@ -178,3 +178,17 @@ todas as células):
 **Pendentes desta fase:** incremental da grade (piso <8b, gpt-oss-20b, 32b,
 35b-a3b, gpt-oss-120b, brands, topos); juiz cross-vendor sobre os planos;
 K maior + framing cruzado no clean (fase seguinte, células decisivas).
+
+## 2026-08-02 — Falha da leva grade (quoting no script) + lição do smoke
+
+**Sintoma:** as 22 chamadas da grade incremental retornaram HTTP 400 em todos
+os runs. **Custo: $0** (erro imediato, sem tokens).
+
+**Root cause:** erro de shell no `run_f4s_grade_or.sh` — a lista de modelos foi
+passada **com aspas** (`--models "a b c"`); o harness recebeu a string inteira
+como UM modelo inexistente ("1 modelos x 2 run(s)" no log). O script do núcleo
+(`run_f4s_matriz_or.sh`) usava `$M` **sem aspas** (word splitting intencional).
+Fix: mesmo padrão do núcleo. Validado com smoke de 1 run (gemma-3-4b, 11s, OK)
+antes de relançar — **lição registrada: toda leva nova valida com 1 run
+foreground antes do background** (o shake-down vale para o instrumento do
+instrumento).

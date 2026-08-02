@@ -36,3 +36,20 @@ chamadas ollama do `hb_runner.py`. Verificado: import OK, env respeitada.
 
 **Pendente:** veredito do run relançado (fumaça 2, timeout 3600s) — scorer
 `verify_f4.py` sobre `planos/f4s-dup-strata`.
+
+## 2026-08-02 — Estratégia nuvem×local (decisão do dono): nuvem carrega o volume
+
+**Contexto:** créditos OpenRouter medidos — **$33,18 livres**; surrogates de
+todas as classes de GPU disponíveis a ~1-2¢/run (tabela no PLANO §3-bis).
+
+**Decisão:** a **nuvem mede capacidade** (volume, K maior, brands — barato e
+rápido); o **local ancora viabilidade** (probes tok/s + 1-2 células por classe).
+A fumaça 2 (27b local) ganha **papel duplo**: primeira medida do 27b **e**
+âncora da ponte nuvem×local da classe 12GB — ao completar, roda-se a mesma
+célula (`f4-dup`, Strata, K=1) no `qwen/qwen3.6-27b` do OpenRouter e compara-se
+o veredito: convergência = ponte calibrada; divergência = efeito-quantização
+medido (fp8/bf16 nuvem × q4_K_M local), que o manual declara.
+
+**Consequência operacional:** GPU local livre na maior parte do tempo; a matriz
+de núcleo sai por ~$1-3 na nuvem em minutos. Local só para âncoras e para o
+que a nuvem não mede (viabilidade real na 3060).

@@ -59,10 +59,37 @@ datada — disciplina herdada). Tiers médio/topo/cloud só na fase "brands" (§
 - **Fumaça**: `f4-dup × qwen3.6:27b × K=1`, braço Strata, label `f4s-dup-strata`
   (prefixo `f4s-` = shake-down 2026-08), num_ctx 20480 / num_predict 5000 —
   mede tempo real/run no 27b com offload e confirma o pipeline ollama→scorer.
+  **Papel duplo**: também é a âncora nuvem×local da classe 12GB (§3-bis).
 - **Núcleo** (depois do fumaça): `f4-dup/trap/clean` × {27b, 14b, 8b-ponte,
   flash} × {strata, baseline} × K=2 → depois família s05 (F3), s01/s04, f6.
   Critério de saída: os oráculos discriminam como o corpus registrou (strata >
   baseline; GOLD discrimina) **e** o 27b é medido onde o 8B zerava.
+
+## 3-bis. Estratégia nuvem×local — capacidade × viabilidade (2026-08-02)
+
+Decisão do dono: usar os créditos OpenRouter (medido: **$33,18 livres**) para
+simular os modelos que cabem em cada classe de GPU, sem sacrificar a GPU local.
+Separação de perguntas:
+
+- **Capacidade do modelo** (o que ele entrega com o Strata) → medida na
+  **nuvem**: volume, K maior, brands — ~1-2¢/run, segundos por run.
+- **Viabilidade operacional** (tok/s, offload, latência) → **probes locais
+  âncora** + literatura de hardware (ex.: 27b = 4,3 tok/s na 3060 12GB).
+- **Confound declarado**: nuvem serve fp8/bf16, local roda q4_K_M — a
+  quantização pode superestimar a capacidade. Mitigação: **ponte nuvem×local**
+  — 1-2 células âncora por classe nos dois lados (27b = âncora 12GB-offload;
+  qwen3:14b = âncora 12GB-cabe; qwen3:8b = ponte temporal). Divergência =
+  efeito-quantização medido, reportado no manual.
+
+Tabela GPU→surrogate (verificada em `/api/v1/models`, 2026-08-02):
+
+| Classe GPU | Cabe bem | Surrogate OpenRouter | ~$/run |
+|---|---|---|---|
+| 8GB | qwen3-8b, gemma-3-12b Q4 | `qwen/qwen3-8b`, `google/gemma-3-12b-it` | <0,01 |
+| 12GB (3060) | qwen3-14b, llama-4-scout Q4, gpt-oss-20b | `qwen/qwen3-14b`, `meta-llama/llama-4-scout`, `openai/gpt-oss-20b` | ~0,01 |
+| 16GB | gpt-oss-20b, mistral-small-24b Q4 | `openai/gpt-oss-20b`, `mistralai/mistral-small-3.2-24b-instruct` | ~0,01 |
+| 24GB | qwen3.6-27b, qwen3-32b, gemma-3-27b, qwen3.6-35b-a3b | todos no OR | 0,01-0,02 |
+| 48GB+ / Mac | gpt-oss-120b, llama-3.3-70b | `openai/gpt-oss-120b`, `meta-llama/llama-3.3-70b-instruct` | <0,02 |
 
 ## 5. Regras herdadas (não negociáveis)
 

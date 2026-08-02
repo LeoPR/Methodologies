@@ -1,67 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="516" font-family="sans-serif">
-<rect width="960" height="516" fill="white"/>
-<text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — qual modelo usar (jun/2026)</text>
-<text x="30" y="45" font-size="11" fill="#666">Por vendor, do melhor ao mínimo que serve. Todos os usáveis pegam o projeto bagunçado — a diferença está no limpo.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" font-family="sans-serif">
+<rect width="960" height="560" fill="white"/>
+<text x="30" y="26" font-size="16" font-weight="bold">Strata por IA — o que esperar (grade 2026-08)</text>
+<text x="30" y="45" font-size="11" fill="#666">Por contexto de acesso. O conserto de defeito conhecido (§5) saturou de ~8B local ao topo — a borda que separa modelos é a abstenção (§9), e ela é propriedade de modelo, não de preço.</text>
 <line x1="30" y1="58" x2="930" y2="58" stroke="#ccc"/>
 
-<!-- cabecalho que abraca os dois tipos de projeto -->
-<text x="620" y="74" font-size="11" font-style="italic" fill="#555" text-anchor="middle">Quando seu projeto está…</text>
-<text x="30" y="90" font-size="10.5" font-weight="bold" fill="#444">vendor / modelo · tier · custo</text>
-<text x="340" y="90" font-size="11" font-weight="bold" fill="#15803d">BAGUNÇADO</text>
-<text x="420" y="90" font-size="11" font-weight="bold" fill="#b45309">LIMPO <tspan font-weight="normal" font-size="9.5" fill="#777">(inventou menos = melhor)</tspan></text>
+<!-- cabecalho das tres situacoes medidas -->
+<text x="620" y="74" font-size="11" font-style="italic" fill="#555" text-anchor="middle">Medido em 3 situações (Strata × baseline):</text>
+<text x="30" y="90" font-size="10.5" font-weight="bold" fill="#444">contexto / modelo · custo</text>
+<text x="340" y="90" font-size="11" font-weight="bold" fill="#15803d">CONSERTO §5</text>
+<text x="480" y="90" font-size="11" font-weight="bold" fill="#7a5ba8">ARMADILHA §6-bis</text>
+<text x="640" y="90" font-size="11" font-weight="bold" fill="#b45309">ABSTENÇÃO §9 <tspan font-weight="normal" font-size="9.5" fill="#777">(a borda)</tspan></text>
 <line x1="30" y1="96" x2="930" y2="96" stroke="#ccc"/>
 
-<!-- ANTHROPIC -->
-<text x="24" y="114" font-size="11" font-weight="bold" fill="#7a5ba8">Anthropic</text>
-<text x="40" y="132" font-size="10.5" font-weight="bold" fill="#111">Opus 4.8 <tspan font-weight="normal" fill="#666">(topo · $$$)</tspan></text>
-<text x="340" y="132" font-size="9.5" fill="#15803d">ok</text>
-<rect x="420" y="123" width="31" height="11" rx="2" fill="#16a34a"/><text x="457" y="132" font-size="9.5" fill="#333">2,6</text>
-<text x="40" y="152" font-size="10.5" font-weight="bold" fill="#111">Sonnet 4.6 <tspan font-weight="normal" fill="#666">(médio · $$)</tspan></text>
-<text x="340" y="152" font-size="9.5" fill="#15803d">ok</text>
-<rect x="420" y="143" width="46" height="11" rx="2" fill="#5a9e22"/><text x="472" y="152" font-size="9.5" fill="#333">3,8 <tspan fill="#1a7f37" font-weight="bold">◀ mín. que serve</tspan></text>
-<text x="40" y="172" font-size="10.5" font-weight="bold" fill="#111">Haiku 4.5 <tspan font-weight="normal" fill="#666">(base · $)</tspan></text>
-<text x="340" y="172" font-size="9.5" fill="#15803d">ok</text>
-<rect x="420" y="163" width="115" height="11" rx="2" fill="#dc2626"/><text x="541" y="172" font-size="9.5" fill="#333">9,6</text>
-
-<!-- GOOGLE -->
-<text x="24" y="192" font-size="11" font-weight="bold" fill="#3367d6">Google</text>
-<text x="40" y="210" font-size="10.5" font-weight="bold" fill="#111">Gemini 3.1 Pro <tspan font-weight="normal" fill="#666">(topo · $$)</tspan></text>
-<text x="340" y="210" font-size="9.5" fill="#15803d">ok</text>
-<rect x="420" y="201" width="34" height="11" rx="2" fill="#16a34a"/><text x="460" y="210" font-size="9.5" fill="#333">2,8</text>
-<text x="40" y="230" font-size="10.5" font-weight="bold" fill="#111">Gemini 3 Flash <tspan font-weight="normal" fill="#666">(base · $)</tspan></text>
-<text x="340" y="230" font-size="9.5" fill="#15803d">ok</text>
-<rect x="420" y="221" width="50" height="11" rx="2" fill="#84a015"/><text x="476" y="230" font-size="9.5" fill="#333">4,2 <tspan fill="#1a7f37" font-weight="bold">◀ mín. que serve</tspan></text>
-
-<!-- DEEPSEEK -->
-<text x="24" y="250" font-size="11" font-weight="bold" fill="#0b7285">DeepSeek <tspan font-size="9" font-weight="normal" fill="#999">(fora do Copilot; muito barato; V4 é "cloud" = roda remoto)</tspan></text>
-<text x="40" y="268" font-size="10.5" font-weight="bold" fill="#111">V4 Pro <tspan font-weight="normal" fill="#666">(topo · $$)</tspan></text>
-<text x="340" y="268" font-size="9.5" fill="#15803d">ok</text>
-<rect x="420" y="259" width="65" height="11" rx="2" fill="#ca8a04"/><text x="491" y="268" font-size="9.5" fill="#333">5,4</text>
-<text x="40" y="288" font-size="10.5" font-weight="bold" fill="#111">V4 Flash <tspan font-weight="normal" fill="#666">(base · ¢)</tspan></text>
-<text x="340" y="288" font-size="9.5" fill="#15803d">ok</text>
-<rect x="420" y="279" width="70" height="11" rx="2" fill="#d18908"/><text x="496" y="288" font-size="9.5" fill="#333">5,8 <tspan fill="#1a7f37" font-weight="bold">◀ mín. que serve</tspan></text>
-
-<!-- OPENAI -->
-<text x="24" y="308" font-size="11" font-weight="bold" fill="#0a7d6b">OpenAI <tspan font-size="9" font-weight="normal" fill="#999">(gpt-4.1 aposentou em 01/06 → GPT-5.5)</tspan></text>
-<text x="40" y="326" font-size="10.5" font-weight="bold" fill="#111">GPT-5.5 <tspan font-weight="normal" fill="#666">(topo · $$$)</tspan></text>
-<text x="340" y="326" font-size="9.5" fill="#15803d">ok</text>
-<rect x="420" y="317" width="70" height="11" rx="2" fill="#d18908"/><text x="496" y="326" font-size="9.5" fill="#333">5,8</text>
-<text x="40" y="346" font-size="10.5" font-weight="bold" fill="#111">GPT-5 mini <tspan font-weight="normal" fill="#666">(base · $)</tspan></text>
-<text x="340" y="346" font-size="9.5" fill="#15803d">ok</text>
-<rect x="420" y="337" width="89" height="11" rx="2" fill="#e0620d"/><text x="515" y="346" font-size="9.5" fill="#333">7,4</text>
-
 <!-- LOCAL -->
-<text x="24" y="366" font-size="11" font-weight="bold" fill="#888">Local (na sua GPU)</text>
-<text x="40" y="384" font-size="10.5" font-weight="bold" fill="#555">deepseek-r1:8b <tspan font-weight="normal" fill="#888">(q4, ~5GB · 🆓)</tspan></text>
-<text x="340" y="384" font-size="9.5" fill="#999">instável</text>
-<rect x="420" y="375" width="110" height="11" rx="2" fill="#e5e7eb"/><text x="424" y="384" font-size="9" fill="#777">não confiável — alucina no limpo</text>
+<text x="24" y="114" font-size="11" font-weight="bold" fill="#888">Local — GPU de consumo (grátis)</text>
+<text x="40" y="132" font-size="10.5" font-weight="bold" fill="#555">&lt;4B (1B–3B) <tspan font-weight="normal" fill="#888">(🆓)</tspan></text>
+<text x="340" y="132" font-size="9.5" fill="#dc2626">✗ nem o formato sai</text>
+<text x="40" y="152" font-size="10.5" font-weight="bold" fill="#111">~8B — qwen3:8b <tspan font-weight="normal" fill="#666">(🆓)</tspan></text>
+<text x="340" y="152" font-size="9.5" fill="#15803d">✓ executa no padrão</text>
+<text x="40" y="172" font-size="10.5" font-weight="bold" fill="#111">qwen3:14b <tspan font-weight="normal" fill="#666">(cabe numa 3060 12GB · 🆓)</tspan></text>
+<text x="340" y="172" font-size="9.5" fill="#15803d">✓</text>
+<text x="480" y="172" font-size="9.5" fill="#7a5ba8">✓</text>
+<text x="640" y="172" font-size="9.5" fill="#b45309">varia — o prático do dia a dia</text>
+<text x="40" y="192" font-size="10.5" font-weight="bold" fill="#111">qwen3.6:27b <tspan font-weight="normal" fill="#666">(offload, ~22 min/run · 🆓)</tspan></text>
+<text x="340" y="192" font-size="9.5" fill="#15803d">✓</text>
+<text x="480" y="192" font-size="9.5" fill="#7a5ba8">✓</text>
+<text x="640" y="192" font-size="9.5" fill="#15803d" font-weight="bold">✓ satura — conserta E se abstém</text>
+
+<!-- CLOUD ECONOMICO -->
+<text x="24" y="216" font-size="11" font-weight="bold" fill="#0b7285">Nuvem econômica (plano barato)</text>
+<text x="40" y="234" font-size="10.5" font-weight="bold" fill="#111">gpt-5-mini <tspan font-weight="normal" fill="#666">(novo piso pago OpenAI · $)</tspan></text>
+<text x="340" y="234" font-size="9.5" fill="#15803d">✓</text>
+<text x="480" y="234" font-size="9.5" fill="#7a5ba8">✓ recusa espontânea; com web, verifica fonte</text>
+<text x="40" y="254" font-size="10.5" font-weight="bold" fill="#111">haiku-4.5 · deepseek-v4-pro <tspan font-weight="normal" fill="#666">($)</tspan></text>
+<text x="340" y="254" font-size="9.5" fill="#15803d">✓ executam o conserto perfeitamente</text>
+<text x="40" y="274" font-size="10.5" font-weight="bold" fill="#555">gpt-4.1-mini <tspan font-weight="normal" fill="#888">(base legada pinada)</tspan></text>
+<text x="340" y="274" font-size="9.5" fill="#777">referência de geração anterior</text>
+
+<!-- CLOUD TOPO -->
+<text x="24" y="298" font-size="11" font-weight="bold" fill="#7a5ba8">Nuvem topo (custe o que custar)</text>
+<text x="40" y="316" font-size="10.5" font-weight="bold" fill="#111">opus-5 · fable-5 <tspan font-weight="normal" fill="#666">($$$)</tspan></text>
+<text x="340" y="316" font-size="9.5" fill="#15803d">✓ perfeito</text>
+<text x="480" y="316" font-size="9.5" fill="#7a5ba8">✓ perfeito</text>
+<text x="640" y="316" font-size="9.5" fill="#15803d" font-weight="bold">✓ saturam também a abstenção (2/2)</text>
+<text x="40" y="336" font-size="10.5" font-weight="bold" fill="#111">sonnet-5 · gpt-5.6-terra · gemini-3.1-pro · kimi-k3 <tspan font-weight="normal" fill="#666">($$–$$$)</tspan></text>
+<text x="340" y="336" font-size="9.5" fill="#15803d">✓ perfeito</text>
+<text x="480" y="336" font-size="9.5" fill="#7a5ba8">✓ perfeito</text>
+<text x="640" y="336" font-size="9.5" fill="#b45309">varia por modelo — confira na OPINIAO</text>
+
+<!-- EVITAR -->
+<text x="24" y="360" font-size="11" font-weight="bold" fill="#dc2626">Evitar para este uso</text>
+<text x="40" y="378" font-size="10.5" font-weight="bold" fill="#111">llama-4-scout</text>
+<text x="340" y="378" font-size="9.5" fill="#dc2626">✗ falhou o conserto da armadilha 2/2 (propagou o payload num deles)</text>
 
 <!-- leitura -->
-<line x1="30" y1="402" x2="930" y2="402" stroke="#ccc"/>
-<text x="30" y="420" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#b45309">LIMPO</tspan> (projeto já bem-organizado): a barra = <tspan font-weight="bold">quantos problemas o modelo inventa</tspan> onde não há nada. Menos = melhor; a cor acompanha (verde→vermelho).</text>
-<text x="42" y="434" font-size="9.5" fill="#555">Ninguém zera — nem o topo: o melhor já inventa ~3 num projeto que já estava bom. A saída é sempre rascunho a revisar.</text>
-<text x="30" y="454" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">BAGUNÇADO</tspan> (projeto com problemas reais): <tspan font-weight="bold">ok</tspan> = pegou os 4 problemas plantados + a instrução de segurança (nas 5 rodadas). Por isso o diferenciador é o limpo.</text>
-<text x="30" y="474" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#1a7f37">◀ mín. que serve</tspan>: o mais barato do vendor que ainda vale usar. Abaixo dele (e no Local), trate como rascunho.</text>
-<text x="30" y="494" font-size="9.5" fill="#555"><tspan font-weight="bold">Fora do gráfico</tspan> (só no caderno): falham na segurança (gpt-4o-mini, glm-4.5-air, deepseek-v3) ou são grátis instáveis.</text>
-<text x="30" y="510" font-size="8.5" fill="#888">K=5 a temp 0,3; juiz Claude; 2 tipos de projeto. Sinais, não prova. Fable 5 suspenso → Opus 4.8 é o teto. Fonte: RESULTADOS-p9 §P9c–d.</text>
+<line x1="30" y1="396" x2="930" y2="396" stroke="#ccc"/>
+<text x="30" y="414" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">CONSERTO §5</tspan> (defeito conhecido): <tspan font-weight="bold">saturou</tspan> — de ~8B local ao topo, com Strata todos executam no padrão rastreável. O "8B não conserta" de jun/2026 era tecnologia da época.</text>
+<text x="30" y="432" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#7a5ba8">ARMADILHA §6-bis</tspan> (instrução maliciosa plantada): a recusa sai <tspan font-weight="bold">espontânea</tspan> na geração 2026-08; a falha catalogada é re-emitir a diretiva ativa.</text>
+<text x="30" y="450" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#b45309">ABSTENÇÃO §9</tspan> (projeto já bom — a resposta certa é não agir): é <tspan font-weight="bold">propriedade de modelo, não de tier nem de preço</tspan>. É o que separa os modelos hoje; confira o modelo específico.</text>
+<text x="30" y="470" font-size="9.5" fill="#333">Saída de IA = <tspan font-weight="bold">rascunho a revisar</tspan>, sempre — mesmo no topo.</text>
+<text x="30" y="490" font-size="9.5" fill="#555"><tspan font-weight="bold">Esforço/thinking não muda o veredito</tspan> neste nível de tarefa — não pague tokens de raciocínio esperando destravar o conserto.</text>
+<text x="30" y="508" font-size="8.5" fill="#888">~350 runs, K=2, gold mecânico + júri cego cross-vendor (4 famílias); fixtures sintéticas hash-congeladas. Sinais direcionais, não prova. Nomes/preços envelhecem rápido (L2) — re-audite antes de ancorar decisão cara.</text>
+<text x="30" y="524" font-size="8.5" fill="#888">Fonte: OPINIAO-DE-USO (grade 2026-08) · diário: lab/2026-08-02-reteste-L0-fechado/NOTAS-shakedown. Roster auditado em fonte primária em 2026-08-02.</text>
+<text x="30" y="544" font-size="8.5" fill="#aaa">Grade anterior (jun/2026, barras "inventa no limpo" por vendor): RESULTADOS-p9 — superada por esta.</text>
 </svg>

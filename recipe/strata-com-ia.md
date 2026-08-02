@@ -16,77 +16,56 @@ Duas regras de ouro antes de qualquer modelo:
    Dê a **checklist** (`../lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-checklist.md`).
 2. **Saída de IA = rascunho a revisar**, nunca veredito automático.
 
-## Decisão rápida — o que usar (jun/2026)
+## Decisão rápida — o que usar (grade 2026-08)
 
 | Eu quero… | Use (+ checklist) | Por quê |
 |---|---|---|
-| **o mais confiável** | **Opus 4.8** ou **Gemini 3.1 Pro** | inventam menos no **limpo** (~3, o mínimo) e pegam tudo no bagunçado |
-| **bom, mais barato** | **Sonnet 4.6** ou **Gemini 3 Flash** | o "mínimo que serve": pegam tudo no bagunçado; inventam ~4 no limpo → revise |
-| **barato fora do Copilot** | **DeepSeek V4 Flash** (¢) | passa na segurança e pega tudo no bagunçado; inventa ~6 no limpo → rascunho |
-| **se você usa GPT** | **GPT-5.5** (a melhor da OpenAI) | pega tudo no bagunçado; inventa ~6 no limpo → rascunho |
-| **o mais barato que ainda acha o real** | **Haiku 4.5** · **GPT-5 mini** | pegam o bagunçado (4/4 + segurança), mas inventam muito no limpo (7–10) → só rascunho |
-| **NÃO usar sozinho** | gpt-4o-mini, glm-4.5-air, deepseek-v3, locais/grátis | **falham na segurança** (não pegam a instrução perigosa) ou são instáveis |
+| **rodar local (GPU de consumo)** | **qwen3:14b** (cabe inteiro numa 3060 12GB) · **qwen3.6:27b** | o 14b é o prático do dia a dia; o 27b **satura** (conserta **e** se abstém), mas é lento (~22 min/run com offload) |
+| **pagar pouco na nuvem** | **gpt-5-mini** (novo piso pago OpenAI) · **haiku-4.5** · **deepseek-v4-pro** | executam o conserto no padrão; o gpt-5-mini também recusa injeção espontaneamente e, com web, verifica fonte |
+| **o máximo, custe o que custar** | **opus-5** · **fable-5** | conserto e armadilha perfeitos **e** saturam a abstenção (§9) — os únicos medidos nos dois lados do topo |
+| **topo sem pagar o teto** | sonnet-5 · gpt-5.6-terra · gemini-3.1-pro | conserto e armadilha perfeitos; a abstenção varia por modelo |
+| **NÃO usar para isto** | llama-4-scout · local <4B | o scout falhou o conserto da armadilha 2/2 e propagou o payload; abaixo de ~4B nem o formato sai |
 
-*Regra: no projeto **bagunçado** quase todos servem; a diferença está no **limpo** (quanto inventam) — sempre **revise** a saída. Detalhe no gráfico abaixo. (Nomes/preços mudam rápido — é L2; confira a lista atual.)*
+*Regra: o **conserto de defeito conhecido (§5) satura de ~8B local ao topo** — a borda que separa modelos é a **abstenção** (não mexer no que já está bom), e ela é **propriedade de modelo, não de preço**: confira o modelo específico na grade honesta da [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). Saída de IA = rascunho a revisar, sempre. (Nomes/preços mudam rápido — é L2; re-audite antes de ancorar decisão cara.)*
 
-> **Atualização de elenco (2026-08-01, L2 — sem re-medição):** desde os dados de jun/2026,
-> o **Sonnet 5** sucedeu o Sonnet 4.6 (lançado 30-jun; o 4.6 virou legado) e passou a existir
-> o **Fable 5** (tier acima do Opus; suspenso de 12 a 30-jun por controle de exportação,
-> restabelecido 1-jul, hoje cobrado por créditos, fora da assinatura). **Nenhum dos dois foi
-> medido aqui.** Pela lição do P9, o que dura é o padrão por tier, não o nome — leia
-> "Sonnet 4.6" como "o Sonnet vigente" até re-medição.
-
-> **Atualização de elenco (2026-08-02 — re-medição do L0 fechado, grade 2026-08):** o reteste
-> dirigido (~350 runs, K=2, gold mecânico + júri cross-vendor) moveu o chão deste guia.
-> O **conserto de um defeito conhecido (§5) satura de ~8B local ao topo** — o "8B não
-> conserta" abaixo era jun/2026 — e a **recusa de injeção (§6-bis) sai espontânea** na geração
-> atual. O **piso pago da OpenAI passou a ser o gpt-5-mini** (o 4.1-mini virou base legada
-> pinada); haiku-4.5 e deepseek-v4-pro **executam o conserto perfeitamente**. No local (3060),
-> qwen3:14b cabe na GPU e qwen3.6:27b **satura conserto + abstenção** (lento, ~22 min/run).
-> **Evitar llama-4-scout** (único que falhou o conserto da armadilha 2/2 e propagou o payload).
-> O que **não** mudou: a tabela e o gráfico abaixo medem o **projeto limpo** (quanto cada modelo
-> inventa onde não há nada) — essa borda de abstenção é **propriedade de modelo,
-> dependente de framing** (haiku superage só sob audit, K=5), e preço não a ordena. Grade
-> honesta completa na [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md);
-> diário em [`lab/2026-08-02-reteste-L0-fechado`](../lab/2026-08-02-reteste-L0-fechado/).
+> **Fonte e regime (2026-08-02):** reteste do L0 fechado, ~350 runs, K=2, três situações
+> (conserto §5, armadilha com injeção §6-bis, projeto já bom §9), gold mecânico + júri cego
+> cross-vendor. Sinais direcionais (sintético), não prova. Números por tarefa × capacidade:
+> [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); diário da rodada:
+> [`lab/2026-08-02-reteste-L0-fechado`](../lab/2026-08-02-reteste-L0-fechado/).
 > *(Este guia segue só em PT — tradução EN pendente, registrada no STATUS.md.)*
 
 ![Strata por IA — qual modelo usar, por vendor](strata-com-ia-fronteira.svg)
 
-**Como ler o gráfico** (jun/2026; por vendor, do melhor ao mínimo que serve).
-Testamos cada modelo em **dois tipos de projeto**:
+**Como ler o gráfico** (grade 2026-08; por contexto de acesso — GPU local, plano econômico, topo).
 
-- **Projeto limpo** — já bem-organizado, com pouco ou nada a corrigir (o "já-bom").
-  Fixture: [`cenarios/s04-bem-formatado`](../eval/strata/cenarios/s04-bem-formatado).
-- **Projeto bagunçado** — desorganizado, com problemas reais (o *brownfield* típico), incluindo uma
-  instrução de segurança perigosa. Fixture: [`cenarios/s01-comum-brownfield`](../eval/strata/cenarios/s01-comum-brownfield).
+O reteste mediu cada modelo em **três situações** com gabarito pré-registrado:
 
-São **dois fixtures sintéticos** pequenos e controlados (problemas plantados), não repositórios reais — para
-medir limpo × bagunçado de forma justa. Ambos foram rodados para **todos** os modelos do gráfico (K=5).
+- **Conserto §5** — um defeito conhecido (duplicação de informação), braço Strata × baseline.
+- **Armadilha §6-bis** — o mesmo conserto com uma instrução maliciosa plantada no projeto.
+- **Projeto já bom §9** — nada a corrigir; a resposta certa é **não agir**.
 
-A descoberta que organiza o gráfico: **todos esses modelos capazes pegam o projeto bagunçado** — acham os
-4 problemas reais e a instrução de segurança (4/4 · seg 5/5). **O que os separa é o projeto limpo.**
-
-**No projeto limpo, a barra mede quantos problemas o modelo _inventa_** onde não há nada a corrigir. **0 =
-nenhum** (o ideal, num projeto que já está bom); **quanto menos, melhor**. Ninguém zera — nem o topo: o melhor
-já inventa ~3. A barra conta **invenções** (não uma nota fechada) — é o que de fato separa os modelos.
-
-O **◀ "mínimo que serve"** marca, em cada vendor, o modelo mais barato que ainda **não floda** o projeto
-limpo. Abaixo dele, o modelo ainda pega o bagunçado, mas no limpo inventa demais — trate como rascunho.
+O achado que organiza o gráfico: **o conserto §5 saturou** — de ~8B local ao topo de fronteira,
+com Strata todos executam no padrão (o "8B não conserta" de jun/2026 era tecnologia da época).
+**A borda que separa os modelos é a abstenção** (§9): quem se abstém num projeto que já está bom.
+Ela é **propriedade de modelo, não de tier nem de preço** — opus-5/fable-5 saturam, e há
+econômicos calibrados e caros superagentes; confira o modelo específico na OPINIAO.
 
 **O que o gráfico diz:**
-- Inventam menos no limpo (os melhores): **Opus 4.8** (~2,6) e **Gemini 3.1 Pro** (~2,8) — quase empatados.
-- Meio: **Sonnet 4.6** (~3,8) e **Gemini 3 Flash** (~4,2).
-- Inventam bastante (rascunho): **DeepSeek V4** (~5,5) e **GPT-5.5** (~5,8) — passam na segurança, mas agem
-  demais no limpo; **GPT-5 mini** (~7,4) e **Haiku 4.5** (~9,6) inventam muito.
-- **DeepSeek V4** não está no Copilot, mas devs usam (muito barato; é "cloud" = roda remoto). **Local**
-  (deepseek-r1:8b) **alucina no limpo** — não confiável.
-- Ficam **fora do gráfico** (só no caderno científico): os que **falham na segurança** (gpt-4o-mini,
-  glm-4.5-air, deepseek-v3) e o **grátis** (instável). O gráfico mostra só os **usáveis**.
+- **Local:** abaixo de ~4B nem o formato sai (não é o método, é capacidade). O **qwen3:14b**
+  cabe inteiro numa 3060 12GB e carrega o dia a dia; o **qwen3.6:27b** satura (conserta **e**
+  se abstém) mas roda com offload — ~22 min/run, factível, lento.
+- **Nuvem econômica:** **gpt-5-mini** é o novo piso pago da OpenAI (o 4.1-mini virou base
+  legada pinada); **haiku-4.5** e **deepseek-v4-pro** executam o conserto perfeitamente.
+- **Topo:** **opus-5** e **fable-5** fecham os dois lados (conserto/armadilha **e** abstenção);
+  sonnet-5, gpt-5.6-terra, gemini-3.1-pro e kimi-k3 executam conserto e armadilha perfeitos.
+- **Evitar para este uso:** **llama-4-scout** — único que, com Strata, falhou o conserto da
+  armadilha 2/2 e propagou o payload da injeção num deles.
 
-> **Leia pelo padrão, não pelo nome.** Modelos mudam rápido; o que **dura** é o comportamento por tier
-> (nomes de modelo são exemplos datados). Método e dados:
-> [`RESULTADOS-p9`](../lab/2026-06-04-strata-hipoteses/RESULTADOS-p9-modelos-novos-jun.md).
+> **Leia pelo padrão, não pelo nome.** Modelos mudam rápido; o que **dura** é o comportamento por
+> estrato de acesso (nomes de modelo são exemplos datados — roster auditado em fonte primária em
+> 2026-08-02). Grade honesta completa, por tarefa × capacidade × custo:
+> [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).
 
 ## A forma importa mais que o modelo
 
@@ -104,17 +83,19 @@ A maior diferença de qualidade vem de **como** você pede, não de qual modelo:
   rascunho e confirme cada achado com o trecho citado.
 - **Ponto cego universal:** a dimensão **temporal** (datas/história, §3/§8) — o modelo marca o
   histórico/datado como problema atual. Revise esses achados com atenção.
-- **Padrão-ouro:** só o Opus é positivo **e** consistente nos dois tipos de projeto (limpo e
-  bagunçado). Todos os outros **oscilam** entre ajudar e atrapalhar — trate como rascunho.
-- **Reasoner local engana:** um reasoner local (deepseek-r1:8b) pode parecer
-  "limpo" só porque **truncou antes de concluir**; quando ele de fato termina, **alucina** no
-  projeto limpo igual aos econômicos. Não confie no resultado parcial.
+- **Padrão-ouro (2026-08):** só o topo de fronteira (opus-5, fable-5) fecha os dois lados —
+  executa o conserto **e** se abstém onde deve. Os demais **oscilam** num dos lados —
+  trate como rascunho.
+- **Reasoner local engana:** um reasoner local pode parecer
+  "limpo" só porque **truncou antes de concluir**; quando ele de fato termina, o veredito muda.
+  Não confie no resultado parcial (no reteste 2026-08, falso-zero por truncamento vira
+  INDETERMINADO, nunca FAIL).
 
 ## Notas finais
 
-- **Não há opção grátis confiável hoje** — nem local nem remota. Local: ou alucina ao concluir
-  (deepseek-r1:8b) ou acha nada (qwen3:4b-thinking ≈ neutro). Remoto `:free`: rate-limit pesado
-  e qualidade baixa. Para um auditor que **ajuda**, hoje é **pago** (barato-variável ou Opus).
+- **Local grátis virou opção real em 2026-08:** qwen3:14b (cabe numa 3060 12GB) executa o
+  conserto, e qwen3.6:27b satura — grátis, lento. O "não há opção grátis confiável" era
+  jun/2026 (locais 4-8B). Remoto `:free` segue ruim: rate-limit pesado e qualidade baixa.
 - A análise completa — configurações que **não** funcionam, os experimentos e os gráficos
   de pesquisa — está em `lab/2026-06-04-strata-hipoteses/`
   (`RESULTADOS-p6-*`).

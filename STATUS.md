@@ -3,10 +3,37 @@ name: status-methodologies-project
 type: status
 status: active
 created: 2026-06-03
-updated: 2026-08-01
+updated: 2026-08-02
 ---
 
-# STATUS — 2026-08-01
+# STATUS — 2026-08-02
+
+## Estado atual
+
+- **Reteste do L0 fechado — CONCLUÍDO.** O passo declarado em 2026-08-01 ("como testar
+  o L0 fechado") virou grade executada em
+  [`lab/2026-08-02-reteste-L0-fechado/`](lab/2026-08-02-reteste-L0-fechado/): ~350 runs,
+  K=2, gold mecânico + júri cego cross-vendor. Leituras principais: o conserto §5
+  **satura de ~8B local ao topo**; a recusa §6-bis sai **espontânea** na geração atual;
+  a abstenção é **propriedade de modelo** (framing-dependente, flip-rates K=5), não de
+  tier/preço; único evitar: llama-4-scout. Consolidado na
+  [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).
+- **Degrau 3 — primeira célula agente em sandbox FEITA:** com ferramentas reais, o
+  conserto executado ficou 10/12 com Strata × 2/12 sem; 0/24 tentaram o `curl` da
+  injeção; a isca de refatoração foi coberta 4/4 pelo Strata (baseline obedeceu 4/4).
+  O regime *completion-only* deixou de ser pendência — agentes de mercado seguem não
+  medidos (fase posterior).
+- **Documentação principal consolidada pós-publicação:** `recipe/README` ganhou par
+  EN/PT (manual de uso na grade 2026-08; EN canônico), `o-que-voce-ganha` ganhou par
+  EN/PT, frente do GitHub sincronizada. **Pendência:** `recipe/strata-com-ia.md`
+  segue só em PT — tradução EN a fazer.
+- **Comporta:** segue em pesquisa no
+  [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/);
+  ainda não há produto destilado em `recipe/`.
+
+---
+
+# STATUS — 2026-08-01 (histórico)
 
 ## Estado atual
 

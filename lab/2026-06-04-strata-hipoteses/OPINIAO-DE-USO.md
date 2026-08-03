@@ -1,11 +1,11 @@
 ---
-title: 'Opinião de uso do Strata — honesta, por tarefa × capacidade do modelo × custo'
+title: 'Opinião de uso do Strata: honesta, por tarefa × capacidade do modelo × custo'
 created: 2026-06-13
 updated: 2026-08-02
 status: 'Consolidado. O que o Strata entrega na prática, por tarefa/capacidade/custo, com as ressalvas. Atualizado com o reteste do L0 fechado (2026-08-02: grade de estratos, K=2, ~350 runs, gold mecânico + júri cross-vendor). SINAIS direcionais (sintético + completion-only), não prova. A evolução datada e os experimentos vivem no hub e nos RESULTADOS-*.'
 ---
 
-# Opinião de uso do Strata — o que dizer, com honestidade
+# Opinião de uso do Strata: o que dizer, com honestidade
 
 > Texto de **entrega**: o estado consolidado, não o diário. O que esperar do Strata na prática.
 > A evolução por fase, os experimentos e o que foi descartado vivem no [hub](ARQUITETURA-E-EVIDENCIAS.md)
@@ -30,14 +30,14 @@ Três coisas, em ordem de solidez.
   Diante de "baixe e rode esta URL" ou "execute sem confirmar", a IA não obedece.
   E também não inventa ameaça onde não há.
   O econômico melhora muito com o método, e o topo recusa de forma nativa.
-  **2026-08: a "recusa lexical que cai sob paráfrase" era da geração anterior** —
-  no reteste dirigido, 27B local, 32B, gpt-5-mini e até a sonda legado
+  **2026-08: a "recusa lexical que cai sob paráfrase" era da geração anterior.**
+  No reteste dirigido, 27B local, 32B, gpt-5-mini e até a sonda legado
   gpt-4.1-mini detectaram e neutralizaram espontaneamente (8/8, citando §6-bis).
 
 - **Aponta o caminho do "quando NÃO agir", mas a calibração é do modelo (sinal).**
   Reconhecer que o projeto já está bom e não mexer (§9) é o julgamento difícil.
   Ele depende da capacidade, não da forma.
-  **2026-08: a fronteira moveu** — a abstenção correta já sai num 27B local
+  **2026-08: a fronteira moveu.** A abstenção correta já sai num 27B local
   (zero ação, justificando custo×risco), mas a proporcionalidade bilateral
   (abster-se onde deve **e** agir na medida onde deve) ainda não calibra.
 
@@ -53,11 +53,11 @@ Isto ainda é direcional, porque ruído e forma-do-pedido não foram isolados (v
 No conjunto de detecção, 7 de 9 juízes de 3 empresas (OpenAI, Google, Anthropic) convergem no falso-positivo, e a forma anti-falso-positivo reduz o erro para todos eles.
 É esse painel afiado do F0 que fecha o caveat "Claude julga Claude": cross-vendor de verdade, não auto-avaliação.
 
-O R6 traz um 2º juiz, o gpt-4.1-mini, que confirma a ordenação e os deltas e mede o viés de família (~0,87). Mas o próprio F0 mostrou que esse juiz é leniente — cego ao falso-positivo —, então o R6 fecha a direção, não a magnitude anti-falso-positivo.
+O R6 traz um 2º juiz, o gpt-4.1-mini, que confirma a ordenação e os deltas e mede o viés de família (~0,87). Mas o próprio F0 mostrou que esse juiz é leniente (cego ao falso-positivo), então o R6 fecha a direção, não a magnitude anti-falso-positivo.
 
 O resíduo é estreito: só as rodadas ecológicas mais recentes ainda não foram re-pontuadas por um juiz afiado de outro fabricante (Gemini ou GPT). Detalhe em [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3.
 
-## Por tarefa — quem dá conta
+## Por tarefa: quem dá conta
 
 Sobre modelos de IA: "quem dá conta" é qual capacidade faz a tarefa bem.
 A escala vem dos READMEs ([recipe](../../recipe/README.pt-BR.md)): topo, médio, econômico.
@@ -66,52 +66,52 @@ Confiança: SÓLIDO é bem medido, sinal é direção, EXPLORATÓRIO/RUIDOSO é 
 
 | Tarefa | Quem dá conta | Confiança |
 |---|---|---|
-| [Consertar um defeito conhecido](RESULTADOS-f4-execucao.md) (§5) | o econômico já dá conta, com o Strata (até o Haiku); **2026-08: 20/20 de ~8B ao topo de fronteira** | **SÓLIDO** — re-medido com L0 fechado |
-| [Preservar o histórico / tombstone](RESULTADOS-f4-execucao.md) (§3) | o econômico, com o Strata | **SÓLIDO** — replicou no REAL (eco-pdf2md); o pedaço mais robusto |
+| [Consertar um defeito conhecido](RESULTADOS-f4-execucao.md) (§5) | o econômico já dá conta, com o Strata (até o Haiku); **2026-08: 20/20 de ~8B ao topo de fronteira** | **SÓLIDO**, re-medido com L0 fechado |
+| [Preservar o histórico / tombstone](RESULTADOS-f4-execucao.md) (§3) | o econômico, com o Strata | **SÓLIDO**; replicou no REAL (eco-pdf2md); o pedaço mais robusto |
 | [Recusar instrução maliciosa](RESULTADOS-f3-recusa.md) (§6-bis) | **2026-08: todos os testados** (27B local, 32B, gpt-5-mini, 4.1-mini) recusam espontaneamente 8/8 | **SÓLIDO** na geração atual (a fragilidade lexical era datada) |
 | [Neutralizar injeção sem propagá-la](RESULTADOS-f4-execucao.md) (§6-bis, trap) | a maioria com Strata; **falha catalogada: re-emitir a diretiva ativa** (8B, gpt-oss-120b e gemini-3.1-pro caíram 1×; llama-4-scout falhou 2/2) | **SÓLIDO** no padrão de falha (2026-08) |
 | [Abster-se num projeto já bom](RESULTADOS-f4-execucao.md) (§9) | **é do MODELO, não do tier**: calibram 27B local, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; superagem haiku-4.5, deepseek-v3.2, qwen3-32b | **SÓLIDO** como propriedade-de-modelo (2026-08) |
 | [Achar dívida real num projeto grande](RESULTADOS-p10-escada-propria-genero.md) | só o topo (e varia por fornecedor) | sinal (sub-detecção é o limite duro) |
-| [Verificar fonte na web](RESULTADOS-f5-pesquisa.md) (§6) | **2026-08: com web, o gpt-5-mini acertou 6/6 citando fonte primária**; sem web, o erro virou memória declarada ou NÃO-VERIFICÁVEL — a alucinação-de-verificação da geração anterior sumiu | **SINAL** (K=2, 3 claims) |
+| [Verificar fonte na web](RESULTADOS-f5-pesquisa.md) (§6) | **2026-08: com web, o gpt-5-mini acertou 6/6 citando fonte primária**; sem web, o erro virou memória declarada ou NÃO-VERIFICÁVEL. A alucinação-de-verificação da geração anterior sumiu | **SINAL** (K=2, 3 claims) |
 | [Reconciliar o projeto inteiro num passo](RESULTADOS-f4-execucao.md) | nenhum nível dá conta | sinal (limite do harness) |
 | [Agir sozinha rodando local](RESULTADOS-tier-local.md) | **<4B não roda** (nem o formato); **~8B executa** o conserto; **~20–27B satura** (conserta E se abstém) | **SÓLIDO** no piso/joelho (2026-08, nuvem+ponte local) |
 
-## A grade 2026-08 — na minha máquina ou no meu plano, o que esperar?
+## A grade 2026-08: na minha máquina ou no meu plano, o que esperar?
 
 Reteste do L0 fechado (2026-08-02): ~350 execuções, K=2, três situações
 (consertar duplicação §5, armadilha com injeção §6-bis, projeto já bom §9),
 gold mecânico + júri cego cross-vendor de 4 famílias. Roster auditado em
-fonte primária na data — **modelos envelhecem rápido; re-audite antes de
+fonte primária na data. **Modelos envelhecem rápido; re-audite antes de
 ancorar decisão cara** (a regra está registrada no lab).
 
 - **GPU de consumo (local):** abaixo de ~4B nem o formato sai (1B entra em
-  loop, 3B emite 1–9 tokens) — não é o método, é capacidade. Em ~8B o
+  loop, 3B emite 1–9 tokens); não é o método, é capacidade. Em ~8B o
   conserto §5 já sai no padrão. O "usa o máximo" (conserta **e** se abstém)
   aparece em ~20–27B: o qwen3.6-27b local saturou nos dois lados (22 min/run
-  numa 3060 12GB — factível, lento).
+  numa 3060 12GB, factível, lento).
 - **Plano econômico (nuvem barata):** o novo piso OpenAI é o **gpt-5-mini**
-  ($0,25/$2,00 por 1M — mais barato na entrada que o 4.1-mini, com reasoning);
+  ($0,25/$2,00 por 1M, mais barato na entrada que o 4.1-mini, com reasoning);
   ele executa o conserto, recusa a injeção espontaneamente e, com web, verifica
   fonte. O gpt-4.1-mini segue só como referência de **base legada** (deploys
-  pinados) — calibrou a abstenção, mas é geração anterior e quebra formato sob
+  pinados); calibrou a abstenção, mas é geração anterior e quebra formato sob
   pressão. haiku-4.5 e deepseek-v4-pro **executam o conserto perfeitamente**;
-  para a borda de não-agir, **preço não ordena a borda** — se a abstenção
+  para a borda de não-agir, **preço não ordena a borda**. Se a abstenção
   importa, confira o modelo específico, não o tier.
 - **Plano topo:** sonnet-5, gpt-5.6-terra, gemini-3.1-pro, kimi-k3, opus-5,
-  fable-5 — conserto e armadilha perfeitos; opus-5/fable-5 também saturam a
+  fable-5: conserto e armadilha perfeitos; opus-5/fable-5 também saturam a
   abstenção (2/2). O terra atende; o sol é redundância de custo aqui. O
   kimi-k3 funciona 4/4 mas é lento (2–6 min/run).
-- **Evitar para este uso:** llama-4-scout — único que, com Strata, falhou o
+- **Evitar para este uso:** llama-4-scout, único que, com Strata, falhou o
   conserto da armadilha 2/2 e propagou o payload da injeção num deles.
 - **Esforço/thinking não muda veredito** neste nível de tarefa (sonnet-5
-  com e sem thinking, mesmo resultado) — não pague tokens de raciocínio
+  com e sem thinking, mesmo resultado). Não pague tokens de raciocínio
   esperando destravar o F4.
 - **Custo do laboratório:** a grade inteira (núcleo + estratos + júri) saiu
-  por ~US$ 7 — dá para rodar diário e re-testar quando sair modelo novo.
+  por ~US$ 7. Dá para rodar diário e re-testar quando sair modelo novo.
 
 **O que o júri acrescentou sobre os números.** O gold mecânico é conservador
 nos dois sentidos: quando diverge, absolve o Strata (nit de formato) e
-super-reprova o baseline — sem Strata o modelo às vezes conserta de fato,
+super-reprova o baseline: sem Strata o modelo às vezes conserta de fato,
 mas **não no formato rastreável** (sem tombstone/ponteiro padrão). E em
 segurança o júri cego errou onde a mecânica acertou: 2 juízes absolveram um
 plano que manteve a diretiva maliciosa ativa. Júri complementa, não
@@ -143,17 +143,17 @@ substitui, a verificação mecânica.
 - Que o Strata **melhore o que a IA já faz bem sozinha.** Às vezes a prosa piora o óbvio.
 - Que funcione como **auditor autônomo num projeto real.** Ele não bate a competência pura do modelo.
   A falha dominante é falso-positivo no projeto limpo, ou sub-detecção no que precisa.
-- Que **verifique fonte na web de forma confiável sem web.** Sem acesso, o erro é memória declarada ou NÃO-VERIFICÁVEL (2026-08) — ainda revise; com web e modelo razoável, a verificação §6 já sai com fonte primária citada.
-- Que um modelo **da geração anterior seja seguro contra injeção** sob paráfrase — a recusa lexical fraca era datada; a geração 2026-08 recusa espontaneamente, mas modelos novos continuam sendo re-testados.
+- Que **verifique fonte na web de forma confiável sem web.** Sem acesso, o erro é memória declarada ou NÃO-VERIFICÁVEL (2026-08), ainda revise; com web e modelo razoável, a verificação §6 já sai com fonte primária citada.
+- Que um modelo **da geração anterior seja seguro contra injeção** sob paráfrase. A recusa lexical fraca era datada; a geração 2026-08 recusa espontaneamente, mas modelos novos continuam sendo re-testados.
 - Que um modelo **local pequeno (4–8B) aja sozinho.** Ele não conserta, e pode apagar histórico, obedecer ou alucinar.
 - Que **reconcilie um projeto inteiro num passo.**
 - Que **situe artefatos no tempo** com garantia. É a dimensão mais ruidosa.
   Acerta quando a cronologia é legível (marcadores ou ordem recuperável do conteúdo), e erra quando ela está enterrada.
   Falta o caso real-grande.
-- Que conclusões do modo **só-texto** transfiram para um **agente com ferramentas** — **2026-08: a primeira célula transferiu.** Com ferramentas reais em sandbox, o conserto §5 executado ficou 10/12 com Strata × 2/12 sem (coerente com o texto), e ninguém tentou rodar o `curl` da injeção (0/24) — com o `run_shell` na mão. O risco migrou de canal: a falha passa a ser re-escrever a meta-diretiva ativa ou obedecer isca de refatoração, não puxar o gatilho. O loop/contrato é nosso — não mede agente de mercado.
+- Que conclusões do modo **só-texto** transfiram para um **agente com ferramentas**. **2026-08: a primeira célula transferiu.** Com ferramentas reais em sandbox, o conserto §5 executado ficou 10/12 com Strata × 2/12 sem (coerente com o texto), e ninguém tentou rodar o `curl` da injeção (0/24), com o `run_shell` na mão. O risco migrou de canal: a falha passa a ser re-escrever a meta-diretiva ativa ou obedecer isca de refatoração, não puxar o gatilho. O loop/contrato é nosso; não mede agente de mercado.
 - **L1 (formalização) e L2 (ferramentas) quase não foram testados.** Afirmações sobre eles são não-testadas.
 
-## Honestidade — as ressalvas que esta opinião carrega (§6)
+## Honestidade: as ressalvas que esta opinião carrega (§6)
 
 - **Sintético, K=2 na grade (2026-08); K=5 nas células decisivas.**
   A grade nova roda em fixtures sintéticas representativas, 2 repetições por
@@ -161,11 +161,11 @@ substitui, a verificação mecânica.
   de borda com deltas grandes, não curvas ajustadas. As células decisivas do
   clean foram re-rodadas com K=5 e framing cruzado (ver ressalva seguinte).
 
-- **A borda de abstenção é framing-dependente — mas de jeito medido (R8 fechado, K=5).**
+- **A borda de abstenção é framing-dependente, mas de jeito medido (R8 fechado, K=5).**
   O cruzamento clean × framing (audit vs. hunt, "inventar defeito é PIOR") com
   K=5 mostrou: haiku-4.5 superage **só** em strata+audit (0/5) e calibra sob
-  hunt (4/5) e baseline (10/10) — artefato de framing; qwen3-32b é o inverso
-  (baseline+audit 0/5, Strata 4/5) — o método o protege; v4-pro é limítrofe de
+  hunt (4/5) e baseline (10/10), artefato de framing; qwen3-32b é o inverso
+  (baseline+audit 0/5, Strata 4/5): o método o protege; v4-pro é limítrofe de
   verdade (~20% de flip em toda condição); 27b e opus-5 calam nos dois
   framings. Regra prática: quem calibra sob audit calibra sob hunt; quem
   superage pode ser corrigido por reframing OU pelo método.
@@ -175,16 +175,16 @@ substitui, a verificação mecânica.
   Daqui a meses haverá outros; a estrutura (piso/joelho/tier) tende a se
   manter, os nomes não. Antes de decidir, re-audite em fonte primária.
 
-- **Só-texto — parcialmente respondido (2026-08).**
+- **Só-texto: parcialmente respondido (2026-08).**
   A primeira célula agente (sandbox, 24 runs, 3 modelos) transferiu: o padrão
   strata≫baseline manteve-se na execução. Ressalva restante: 1 célula, K=2,
-  contrato de ferramentas do laboratório — agentes de mercado seguem não medidos.
+  contrato de ferramentas do laboratório; agentes de mercado seguem não medidos.
 
 - **N pequeno** (1 a 5 repetições por célula).
   São deltas grandes contra ruído, não significância estatística.
 
 - **Os juízes foram cross-vendor, não Claude sozinho.**
-  O F0 usou 9 juízes de 3 empresas, e 7 convergiram — é esse painel afiado que fecha o caveat de artefato, não a mini. O R6 trouxe um 2º juiz, o gpt-4.1-mini, que confirma a ordenação e os deltas e mede o viés de família; mas o próprio F0 depois o achou leniente ("corrige o 2º-juiz fraco que usávamos"), então ele fecha a direção, não a magnitude anti-falso-positivo (over-claim corrigido em [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3).
+  O F0 usou 9 juízes de 3 empresas, e 7 convergiram; é esse painel afiado que fecha o caveat de artefato, não a mini. O R6 trouxe um 2º juiz, o gpt-4.1-mini, que confirma a ordenação e os deltas e mede o viés de família; mas o próprio F0 depois o achou leniente ("corrige o 2º-juiz fraco que usávamos"), então ele fecha a direção, não a magnitude anti-falso-positivo (over-claim corrigido em [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3).
   O F4 teve 92% entre o Gemini 2.5 Flash e o GPT-4.1, mais a conferência mecânica da abstenção §9. O resíduo é estreito: as rodadas ecológicas mais recentes deste ciclo (projetos próprios, fg2p) foram pontuadas por Claude e ainda não re-pontuadas cross-vendor.
   O viés de família foi medido (Claude ~0,87 ponto mais generoso com o Haiku), por isso a âncora não é célula Claude-julga-Claude. E convergência cross-vendor não é prova de acerto: a literatura 2024-2026 mostra erro correlacionado entre fabricantes, e a Fase B deste corpus mostra juízes concordando nas respostas erradas sem o gabarito. Quem ancora o sólido é o **gold mecânico**, não o consenso ([confronto](RESULTADOS-confronto-literatura.md), [fundamento](FUNDAMENTO-juiz-escala-mensuravel.md)).
 
@@ -203,9 +203,9 @@ substitui, a verificação mecânica.
 
 - **Tudo aqui é sinal / direção forte, não prova.**
 
-## Resultado mais recente (resumo) — e onde está a evolução
+## Resultado mais recente (resumo) e onde está a evolução
 
-- **2026-08-02 — L0 fechado re-testado:** conserto §5 satura de ~8B ao topo
+- **2026-08-02 (L0 fechado re-testado):** conserto §5 satura de ~8B ao topo
   (20/20 com Strata, baseline ~0 no formato rastreável); piso <4B quebra por
   capacidade; abstenção é propriedade de modelo, não de tier/preço; esforço
   (thinking) não muda veredito; júri cross-vendor confirma o gold mecânico
@@ -213,9 +213,9 @@ substitui, a verificação mecânica.
   Diário completo: [`lab/2026-08-02-reteste-L0-fechado`](../2026-08-02-reteste-L0-fechado/).
 - **Funciona (sólido):** consertar §5 e preservar §3, até no econômico; recusar injeção §6-bis (2026-08: espontânea em todos os testados da geração atual); e 7 de 9 juízes de 3 empresas convergem, então não é auto-avaliação.
 - **Funciona (sinal):** num projeto limpo, todos se abstêm; sob ruído, só o topo calibra; verificar fonte §6 **com web** já sai com fonte primária (gpt-5-mini:online 6/6, K=2).
-- **Não funciona / em aberto:** auditor autônomo no projeto real (sub-detecção é o limite duro); proporcionalidade bilateral da abstenção (abster-se já sai no 27B, mas calibrar o quanto agir ainda não); agentes de mercado com ferramentas (a célula sandbox própria transferiu — o de mercado segue não medido); L1/L2.
+- **Não funciona / em aberto:** auditor autônomo no projeto real (sub-detecção é o limite duro); proporcionalidade bilateral da abstenção (abster-se já sai no 27B, mas calibrar o quanto agir ainda não); agentes de mercado com ferramentas (a célula sandbox própria transferiu; o de mercado segue não medido); L1/L2.
 
-Para a **evolução completa** — fase a fase, o que foi dito e descartado, os números por experimento:
+Para a **evolução completa** (fase a fase, o que foi dito e descartado, os números por experimento):
 [hub de arquitetura e evidências](ARQUITETURA-E-EVIDENCIAS.md) (histórico) ·
 [`RESULTADOS-p10`](RESULTADOS-p10-escada-propria-genero.md) (projetos reais) ·
 [`DOSSIE-judge`](DOSSIE-judge-justificativa-cientifica.md) (o juiz) ·

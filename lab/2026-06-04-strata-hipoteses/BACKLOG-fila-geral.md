@@ -1,11 +1,11 @@
 ---
-title: 'Fila geral — backlog PRIORIZADO (pós-consolidação)'
+title: 'Fila geral: backlog PRIORIZADO (pós-consolidação)'
 created: 2026-06-13
 updated: 2026-08-02
-status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava — feito.'
+status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava: feito.'
 ---
 
-# Fila geral — backlog priorizado (o que fazer, em ordem)
+# Fila geral: backlog priorizado (o que fazer, em ordem)
 
 > Pós-**[consolidação](OPINIAO-DE-USO.md)** (que foi o "defrag" pedido). Estado do que já foi FEITO:
 > [hub](ARQUITETURA-E-EVIDENCIAS.md). Opinião de uso: [OPINIAO-DE-USO.md](OPINIAO-DE-USO.md).
@@ -17,23 +17,23 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 > **Alavancas de alto impacto (2026-06-20):** [NOTAS-alavancas-o-que-resolvo-e-o-que-so-a-massa.md](NOTAS-alavancas-o-que-resolvo-e-o-que-so-a-massa.md)
 > separa o que dá para resolver com esforço focado (Grupo 1) do que só a experiência em massa resolve (Grupo 2).
 
-## P0 — antes de mais testes
+## P0: antes de mais testes
 - **Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
   **circularidade** no **topo** de todo relatório/recipe de uso (não em "abertos"). **Recalibrar
   `recipe/strata-com-ia.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.
-  *(O R8 era "o achado mais importante do reteste" e quase não aparecia na opinião de uso — o over-claim mais sério após a tese-mãe.)*
-- **Braço EXTERNO — abstenção FEITA, auditoria rica ABERTA:** a abstenção já rodou em **6 repos open-source de
-  terceiros** (tomli/slugify/humanize/mlscratch/pytorchgan/ml3months) + projetos publicados (FG2P, com artigo) —
+  *(O R8 era "o achado mais importante do reteste" e quase não aparecia na opinião de uso, o over-claim mais sério após a tese-mãe.)*
+- **Braço EXTERNO (abstenção FEITA, auditoria rica ABERTA):** a abstenção já rodou em **6 repos open-source de
+  terceiros** (tomli/slugify/humanize/mlscratch/pytorchgan/ml3months) + projetos publicados (FG2P, com artigo):
   ver [RESULTADOS-externo-bemcomportado.md](RESULTADOS-externo-bemcomportado.md) e
   [RESULTADOS-r8-sintese-3-projetos.md](RESULTADOS-r8-sintese-3-projetos.md). Quebra a circularidade do achado de
   abstenção. **Resta:** levar a **auditoria rica de qualidade** (domínio R8) ao terceiro com **gabarito
   pré-registrado por independente**, **juiz de outro fabricante**, **mais de um gênero** (hoje N=1, só pacote
   Python), e o **gabarito gênero-consciente** que separa sub-detecção de "já-bom-para-o-gênero".
 
-## P1 — alto valor
+## P1: alto valor
 - **Cobertura ampla de modelos, com heurística proporcional** (ideia do dono, 2026-06-14): em vez de poucos
-  modelos por célula, testar **mais modelos** com uma heurística coerente — amostrar **representantes por
-  tier × fornecedor × geração** (não perseguir cada release — §9), **incluir reasoners** (depende do *caminho
+  modelos por célula, testar **mais modelos** com uma heurística coerente: amostrar **representantes por
+  tier × fornecedor × geração** (não perseguir cada release, §9), **incluir reasoners** (depende do *caminho
   reasoning-aware*, em P2), e **reportar por tier** (o que dura), com acurácia × precisão (ADR-006). Motivação:
   P9 mostrou que a assinatura por tier **persiste**, mas a lista de modelos **churna** (L2); cobertura maior e
   **datada** blindaria a generalização sem virar corrida atrás de release. Custo cresce com nº de modelos →
@@ -42,16 +42,16 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   o arquivo **não existe** (nit cosmético legítimo §2). Reprocessar o s04 com o gabarito corrigido (2 nits
   triviais: mapa slash/dash + plural `decisoes`; e o ponteiro pendente). Efeito esperado: "inventados" caem ~1
   em quem apontou o link; ranking não muda. Detalhe: [cenarios/README §s04](../../eval/strata/cenarios/README.md).
-  *(2026-08-02: quantificação mecânica feita — a citação ao link é frequente nas levas históricas, ex. vb3b-s04
+  *(2026-08-02: quantificação mecânica feita: a citação ao link é frequente nas levas históricas, ex. vb3b-s04
   10/10, vb3-s04 17/21, ds-s04 8/10; ver nota no cenarios/README. **Segue pendente o re-julgamento**: a instrução
   de juiz do K=5 não está persistida no harness (juiz único Claude interativo do P9); refazer exige rodada nova
-  de juiz — custo + escolha de juiz/prompt, decisão de desenho.)* **FEITO (2026-08-02):** re-juíz cego
+  de juiz: custo + escolha de juiz/prompt, decisão de desenho.)* **FEITO (2026-08-02):** re-juíz cego
   cross-vendor `gpt-5-mini` sobre os 91 planos (`eval/strata/judge_s04.py`; saída
-  `planos/s04-judge/judgments.json`) — superestimação confirmada na direção (~0,5 ponto/plano; teto ~1
+  `planos/s04-judge/judgments.json`): superestimação confirmada na direção (~0,5 ponto/plano; teto ~1
   em quem citou o link); ranking inalterado; divergência residual glm-4.5-air registrada. Detalhe no
   NOTAS de `lab/2026-08-02-reteste-L0-fechado/`.
 - **Firmar os achados do P10 (revisão adversarial, 2026-06-16):** os 4 achados refinados são **direcionais, não
-  causais** — o framing gênero-consciente confunde ruído×abstenção. Para isolar: (1) rodar o **TCF-limpo sob o
+  causais**: o framing gênero-consciente confunde ruído×abstenção. Para isolar: (1) rodar o **TCF-limpo sob o
   framing "ache problemas"** (cruzar ruído × framing); (2) **fixture par-a-par** que varie só a legibilidade do
   tombstone (sem "Lista de Lixo" embutida, sem PII); (3) **múltiplos projetos de terceiros** + gabarito
   gênero-consciente pré-registrado por independente + **juiz não-Claude**. Detalhe em [P10](RESULTADOS-p10-escada-propria-genero.md).
@@ -61,45 +61,45 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   possível métrica; uma ou duas superfícies (humana × densa); liga-se ao Comporta (menos tokens = menos custo).
   Detalhe em [IDEIA-redacao-clara-para-ia.md](IDEIA-redacao-clara-para-ia.md).
 - **Disciplina de redação como camada de ensino (hipótese registrada, a desenvolver):** o conhecimento de
-  como escrever claro (nomear não negar, frase inteira, quebra de linha) talvez possa ensinar — como comentário
+  como escrever claro (nomear não negar, frase inteira, quebra de linha) talvez possa ensinar: como comentário
   das normas, no "como usar" com exemplos, ou como uma camada L3/L4 de pedagogia acima do L2. Eixo oposto ao da
   compressão para a máquina. Detalhe em [IDEIA-camada-ensino-redacao.md](IDEIA-camada-ensino-redacao.md).
 - **Argumentar o JUDGE (registrado, a executar):** o dossiê [DOSSIE-judge-justificativa-cientifica.md](DOSSIE-judge-justificativa-cientifica.md)
   já reúne o argumento (ideal-regulativo; eixos alinhamento/adequação/herança; modelo centro-ideal-perdido-drift) + literatura
   (Zheng/MT-Bench, G-Eval, Messick, Krippendorff, GUM, PoLL) + evidência interna (F0 cross-vendor, R6 2º juiz, F4 92%×F3 56%).
   **Falta produzir** os gráficos (§6: scatter objetividade×concordância, escada de juízes, centro/drift, Bland-Altman, calibração/ECE)
-  e rodar os testes. **Krippendorff α com IC — FEITO (2026-06-20):** F4 α=0,918, F3 α=0,467, via `eval/strata/calc_stats.py`
-  ([RESULTADOS-concordancia-juizes.md](RESULTADOS-concordancia-juizes.md)). **Juiz sem gabarito — FEITO (2026-06-20):** a dica
+  e rodar os testes. **Krippendorff α com IC (FEITO 2026-06-20):** F4 α=0,918, F3 α=0,467, via `eval/strata/calc_stats.py`
+  ([RESULTADOS-concordancia-juizes.md](RESULTADOS-concordancia-juizes.md)). **Juiz sem gabarito (FEITO 2026-06-20):** a dica
   sustenta o acerto; cegos, juízes atuais caem abaixo do baseline e concordam nas respostas erradas
   ([RESULTADOS-juiz-sem-gabarito.md](RESULTADOS-juiz-sem-gabarito.md), `eval/strata/judge_f4_ablation.py`). **Falta:** PoLL nas
   células de juiz único, ECE (bloqueado: juiz não emite confiança), kappa juiz×humano, e a ablação justa (dar fixture sem o veredito).
   Reconferir citações antes de uso externo.
-- **Gráfico barato × caro por vendor — FEITO** ([P9 §P9b](RESULTADOS-p9-modelos-novos-jun.md)): Haiku (barato
+- **Gráfico barato × caro por vendor (FEITO)** ([P9 §P9b](RESULTADOS-p9-modelos-novos-jun.md)): Haiku (barato
   Anthropic), **Opus refeito sem truncamento** (= o melhor: over-ação 1,2 / recall 4/4 / seg 5/5), glm-4.5-air
   (barato Z-ai) medidos; gráfico reconstruído por vendor. Achado: **caro ≠ melhor** (gemini-2.5-pro caro nem
-  rodou; Haiku barato age + que todos). **Resta:** os **reasoners** (os "caros" novos — gemini-2.5-pro,
+  rodou; Haiku barato age + que todos). **Resta:** os **reasoners** (os "caros" novos: gemini-2.5-pro,
   deepseek-R1, gpt-5-mini/nano) só medíveis com o **caminho reasoning-aware** (item acima).
-- **Claude como SUJEITO — fechar o topo:** **Opus** em **f4-clean** (abstenção por execução, célula decisiva
-  **não rodada**) + **f4-trap** (reconciliação), julgado por não-Claude. *(Haiku/Sonnet já rodaram — escada-claude.)*
+- **Claude como SUJEITO (fechar o topo):** **Opus** em **f4-clean** (abstenção por execução, célula decisiva
+  **não rodada**) + **f4-trap** (reconciliação), julgado por não-Claude. *(Haiku/Sonnet já rodaram, escada-claude.)*
   Decisão de gasto: testar Opus **só** como sujeito-Claude, **não** como teste isolado de §9 (o mapa-de-bordas já
   diz que gpt-4.1 basta → Opus isolado é redundante). Mitigar viés-de-família (R6) com juízes neutros.
 - **Eixo ESFORÇO (econômico):** Sonnet+thinking na abstenção com **N≥3 + 2º juiz** (hoje 0/2→1/2 está dentro do ruído).
 - **Strata CURTO AI-nativo (design) + replicar R4** (razão compressão:gates ~2/3:1/3) na nuvem com 2º juiz.
 
-## P2 — blindar e melhorar
-- **Autoauditoria — FEITA com cross-check** ([AUTOAUDITORIA-repo-vs-strata](AUTOAUDITORIA-repo-vs-strata.md)):
+## P2: blindar e melhorar
+- **Autoauditoria: FEITA com cross-check** ([AUTOAUDITORIA-repo-vs-strata](AUTOAUDITORIA-repo-vs-strata.md)):
   o fan-out de 5 auditores rodou (limite reabriu); aderência **forte**, baratos consertados. Restou **não-trivial**:
-  (a) §10 **fixity `--verify`** — `hash_fixture.py` grava `.fixture-hash` mas nada recomputa/compara; adicionar
+  (a) §10 **fixity `--verify`**: `hash_fixture.py` grava `.fixture-hash` mas nada recomputa/compara; adicionar
   modo `--verify` chamado no início de `hb_f3/f4`; (b) §1/§9 mover `recipe/_variants/` e os `aggregate_<exp>.py`
   one-off para `eval/strata/` quando tocar (risco de quebrar run scripts; não agora).
-- **Reasoners — PARSE corrigido** (2026-06-15, `hb_runner`): o `content=None` era **bug de parse, não
+- **Reasoners: PARSE corrigido** (2026-06-15, `hb_runner`): o `content=None` era **bug de parse, não
   incapacidade** do modelo. Agora `call_openrouter`/`_ex` caem p/ `message.reasoning` quando `content` vem vazio
   (espelha o fallback do Ollama) + `--num-predict` folgado (5000). Smoke OK: gpt-5-mini produz plano; gemini-2.5-pro
   devolve o canal de raciocínio. **Resta refinar:** marcar `finish_reason==length` como INDETERMINADO (não
   falso-zero) e o eixo-esforço (`reasoning_effort` low/med/high).
-- **Acesso aos modelos do Copilot — decidido (2026-06-15):** testar via **OpenRouter** (tem a lista do Copilot:
+- **Acesso aos modelos do Copilot, decidido (2026-06-15):** testar via **OpenRouter** (tem a lista do Copilot:
   Opus 4.8 / Sonnet 4.6 / Haiku 4.5 / família GPT-5 / Gemini 3.x), limpo e reproduzível. A bridge `copilot-api`
-  (usa a licença direto, grátis) é **zona cinza de ToS** — uso automatizado em lote dispara abuse-detection →
+  (usa a licença direto, grátis) é **zona cinza de ToS**: uso automatizado em lote dispara abuse-detection →
   risco de **ban** (casos documentados); só p/ volume mínimo manual. O **GitHub Models API** é sancionado p/ eval
   mas **não cabe** (cap ~4k tok; nosso prompt tem ~17k) e é catálogo diferente. Fatos: **gpt-4.1 aposentou (01/06)
   → GPT-5.5**; **Fable 5 suspenso (12/06) → Opus 4.8 é o teto Anthropic real**; Opus no Copilot costuma exigir Pro+.
@@ -107,34 +107,34 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   **reteste-limpo da NUVEM** contra fixture congelado (remove o asterisco "juiz único" de várias linhas).
 - **Reescrita de NARRATIVA (loop):** reforçar **§9** ("quando NÃO agir" / permitir "nada a corrigir" / situar
   no tempo antes de julgar) e **des-lexicalizar §6-bis** (recusa menos dependente de keyword). *(Os padrões que
-  NÃO somem com mais modelo — super-engenharia, falso-positivo no real, segurança lexical — são design da orientação.)*
-- **Posição/saliência da §9 — RESOLVIDO** ([P8](RESULTADOS-p8-posicao-saliencia-s9.md), seções P8b/P8c):
+  NÃO somem com mais modelo: super-engenharia, falso-positivo no real, segurança lexical. São design da orientação.)*
+- **Posição/saliência da §9: RESOLVIDO** ([P8](RESULTADOS-p8-posicao-saliencia-s9.md), seções P8b/P8c):
   o placebo (A/B/C, K=5) **refutou a posição** (banner neutro C = canônico A) e mostrou que o "8→3" do K=2
   era sorte; o conteúdo (critério de abstenção) move o modelo capaz mas é **fraco e instável** (1/5).
   **Decisão: NÃO adicionar a âncora ao canônico.** Aberto só se quiser blindar: **2º juiz não-Claude** (remove
-  a circularidade Claude-julga-Claude) — baixa prioridade, a decisão já está tomada.
+  a circularidade Claude-julga-Claude); baixa prioridade, a decisão já está tomada.
 - **F6 / temporalidade longitudinal:** testar se a limitação temporal/fonte é **fundamental** (some com datas+
-  instrução? ferramentas? escala?). Decide a "tese-mãe" — hoje o sinal **mais ruidoso**; alto valor de tese, baixo de uso imediato.
+  instrução? ferramentas? escala?). Decide a "tese-mãe": hoje o sinal **mais ruidoso**; alto valor de tese, baixo de uso imediato.
 
-## P3 — cobertura e expansão
-- **Agentes de mercado (Claude Code, Codex CLI etc.) — FASE POSTERIOR declarada (2026-08-02, decisão,
+## P3: cobertura e expansão
+- **Agentes de mercado (Claude Code, Codex CLI etc.), FASE POSTERIOR declarada (2026-08-02, decisão,
   não abandono):** medir agentes de mercado ficaria para uma fase seguinte por 3 motivos registrados:
-  (1) **confound triplo** — mede modelo + agente (loop/prompt do fornecedor) + ferramentas do fornecedor,
+  (1) **confound triplo**: mede modelo + agente (loop/prompt do fornecedor) + ferramentas do fornecedor,
   tudo ao mesmo tempo, e o que queremos isolar é o modelo sob a forma Strata; (2) **custo de licença e
-  ambiente** — exige licenças e setup dos CLIs de cada vendor, fora da economia atual do laboratório;
+  ambiente**: exige licenças e setup dos CLIs de cada vendor, fora da economia atual do laboratório;
   (3) **a pergunta de transferência já foi respondida** pela célula sandbox própria (Degrau 3,
   `hb_agent.py`, contrato nosso declarado como confound): o padrão texto→execução transfere
   (Strata 10/12 × baseline 2/12 no §5-fix executado). Reabrir só se surgir pergunta que a célula
   sandbox não responda.
 - **Decompor L1/L2:** pontuar "nomear formalização" (L1) e "ferramentas datadas" (L2); testar **com-pesquisa**
   num modelo pequeno **bem-calibrado** (onde P7 prevê maior ganho da web). *(Toda a detecção medida é L0.)*
-- **Registro/declaração de uso de IA (proveniência §3-bis) — REGISTRO, a pesquisar:** normas de publicação
+- **Registro/declaração de uso de IA (proveniência §3-bis), REGISTRO, a pesquisar:** normas de publicação
   científica + lei (UE/BR/EUA/propostas) + padrões técnicos (C2PA/SPDX/trailers); camadas por etapa/granularidade/
   artefato; propor 1 padrão **L1** + ADR de encaixe; dogfood no próprio repo. Desenho em
-  [`IDEIA-registro-uso-ia.md`](IDEIA-registro-uso-ia.md). *(Pedido do dono 2026-06-14 — não executar agora.)*
+  [`IDEIA-registro-uso-ia.md`](IDEIA-registro-uso-ia.md). *(Pedido do dono 2026-06-14, não executar agora.)*
 - **Cenários/gêneros:** PatchCraft (2º de código); **AulaQuantum/DeepLearning** (gênero "acompanhamento de aula"
   + temporalidade). Combina com o braço externo.
 - **Decisões de design abertas:** exportação/tradução = **corolário L0 curto** (não uma "L3"); arquivo-extra
   **Q&A** L1/L2 **só** se não colapsar em "sempre-ache-problema" (medir pelos controles de abstenção antes);
-  **fronteira Strata × Comporta** (aparece em caches E setup-de-agente — resolver de uma vez); classificar
+  **fronteira Strata × Comporta** (aparece em caches E setup-de-agente; resolver de uma vez); classificar
   artefatos de ambiente (canônico×regenerável×efêmero) como princípio L0/L1 em satélite L2.

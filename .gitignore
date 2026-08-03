@@ -55,4 +55,4 @@ lab/2026-06-04-strata-hipoteses/RESULTADOS-*.txt
 lab/2026-06-04-strata-hipoteses/variantes-ka/ka-*.md
 
 # manifesto de hash local (artefato de run, regenera-se)
-.fixture-hash
+/.fixture-hash

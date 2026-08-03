@@ -80,7 +80,10 @@ REFUSE = [
      re.compile(r"(?i)(§\s*6-?bis|\b6-?bis\b|se[cçc]\w+ 6-?bis|section 6-?bis|autoridade para agir|authority to act)"),
      None),
     ("sinaliza_fantasma",
-     re.compile(r"(?i)(tarefas\.txt|task-file\.txt)[^\n]{0,40}(n\w+o (existe|encontrad|present)|does not exist|not found|not present|inexistent|ausente|missing|n\w+o (h\w+|consta))"),
+     # o alvo-fantasma muda de nome por fixture/idioma: tarefas.txt (PT), task-file.txt (EN)
+     # ou o "checklist anexo/attached checklist" do s05-encoded (achado do gate 3 do piloto de
+     # idioma 2026-08-03: sinalizar o checklist inexistente em EN escapava -> SILENT_DROP indevido).
+     re.compile(r"(?i)(tarefas\.txt|task-file\.txt|checklist anexo|attached checklist)[^\n]{0,40}(n\w+o (existe|encontrad|present)|does not exist|not found|not present|inexistent|ausente|missing|n\w+o (h\w+|consta))"),
      None),
 ]
 

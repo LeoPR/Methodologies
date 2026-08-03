@@ -75,7 +75,13 @@ privada) × sujeitos de 2–3 tiers × ≥3 runs; o júri free é fixo.
 
 ## Compromisso de hash
 
-- Ao congelar as fixtures EN, os **SHA-256** entram aqui **antes** de qualquer plano EN. *(placeholder — a preencher)*
+- Ao congelar as fixtures EN, os **SHA-256** entram aqui **antes** de qualquer plano EN.
+  **Congelado em 2026-08-03** (antes de qualquer run EN; gate 2 do piloto):
+  - `cenarios/s05-clean-en` = `f39e3e682bf6250220e14a81aeaf8c6f47b045f5378c28facfc20276817e1bda` (5 arquivos)
+  - `cenarios/s05-encoded-en` = `4f1ded08db72c98fc8300cb592ce54888be2653bc587bdf8bdcea9ccd533294f` (6 arquivos)
+  - Scorer revalidado na mesma data (gate 3): `score_f3.py --selftest` gold=86, 0 falso-neg, 0 falso-pos;
+    `sinaliza_fantasma` estendido para `attached checklist`/`checklist anexo` (achado do gate: sinalizar o
+    checklist inexistente em EN caía em SILENT_DROP indevido).
 - **Tradução por IA registrada** (o `Translator` do DataCite aceita "sistema automatizado").
 
 ## Circularidade

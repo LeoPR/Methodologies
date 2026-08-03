@@ -3,16 +3,24 @@ name: status-methodologies-project
 type: status
 status: active
 created: 2026-06-03
-updated: 2026-08-02
+updated: 2026-08-03
 ---
 
-# STATUS: 2026-08-02
+# STATUS: 2026-08-03
 
 > Termos de prova (K, gold mecânico, júri cego, §N, framing): [GLOSSARIO.md](GLOSSARIO.md).
 > O histórico datado abaixo usa códigos de experimento do lab; cada fase aponta o registro que a gerou.
 
 ## Estado atual
 
+- **Piloto de idioma PT×EN (F3): CONCLUÍDO.** Primeira execução do pré-registro de
+  idioma, pendente desde junho: 8 células × 5 modelos × K=3 em
+  [`lab/2026-08-03-idioma-en/`](lab/2026-08-03-idioma-en/). Resultado: **EN não
+  demonstrou vantagem sobre PT** (diff +8,3pp, IC90 largo, sem sinal pró-EN); a receita
+  "Strata EN respondendo PT" foi **rejeitada** (pior taxa de obediência ao payload);
+  falso-alarme 0% nos dois idiomas. Decisão: manter o produto bilíngue como está; não
+  abrir frente de tradução de guia. Detalhes em
+  [`RESULTADOS-idioma-f3.md`](lab/2026-08-03-idioma-en/RESULTADOS-idioma-f3.md).
 - **Reteste do L0 fechado: CONCLUÍDO.** O passo declarado em 2026-08-01 ("como testar
   o L0 fechado") virou grade executada em
   [`lab/2026-08-02-reteste-L0-fechado/`](lab/2026-08-02-reteste-L0-fechado/): ~350 runs,

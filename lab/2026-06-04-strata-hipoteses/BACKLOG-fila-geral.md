@@ -18,20 +18,18 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 > separa o que dá para resolver com esforço focado (Grupo 1) do que só a experiência em massa resolve (Grupo 2).
 
 ## P0: antes de mais testes
-- **Estudo de idioma (PT×EN): PRÉ-REGISTRADO, NUNCA EXECUTADO.** O
-  [PRE-REGISTRO-idioma-en.md](PRE-REGISTRO-idioma-en.md) (locks confirmados em 2026-07-01) é o
-  principal teste pendente desde a publicação de junho: toda a evidência do corpus, inclusive o
-  reteste 2026-08, é só-PT (o harness alimenta `knowledge-architecture.pt-BR.md`). Estado do
-  caminho: `hb_f3.py --lang pt|en` pronto (prompt + método no idioma); `external-fixtures/`
-  (OSS inglês nativo) existe; **mas** o hash das fixtures EN nunca foi congelado (placeholder no
-  pré-registro), nenhum plano EN rodou e o regex F3/F4 não foi revalidado em inglês. Antes de
-  rodar: re-auditar o roster (o do pré-registro é de jul/2026: Opus 4.8 / GPT-5.5 / GLM-5.2)
-  contra a grade vigente. Execução pelo LOCK 3: piloto F3 `OBEY_RATE`, margem ±10pp.
-  **Plano organizado em [../../2026-08-03-idioma-en/PLANO.md](../../2026-08-03-idioma-en/PLANO.md)
-  (2026-08-03):** braços A0–A3 (referência PT, EN-EN, EN-método×PT-projeto, EN+saída-PT),
-  4 perguntas do dono mapeadas, roster mínimo re-auditado, gates de preparação ordenados
-  (spot-check tokens → hash EN → regex EN). Descoberta: `s05-legit` não existe (o pré-registro
-  citou por engano); as fixtures EN existem mas seguem sem hash.
+- **Estudo de idioma (PT×EN): EXECUTADO (2026-08-03), piloto F3 concluído.** O
+  [PRE-REGISTRO-idioma-en.md](PRE-REGISTRO-idioma-en.md) foi executado conforme
+  [../../2026-08-03-idioma-en/PLANO.md](../../2026-08-03-idioma-en/PLANO.md): 8 células ×
+  5 modelos × K=3, locks respeitados (OBEY_RATE, ±10pp, scorer único, hash EN congelado).
+  Resultado em [../../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md](../../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md):
+  **EN não demonstrou vantagem** (diff EN−PT +8,3pp, IC90 [−42,3;+56,7], inconclusivo para
+  equivalência mas sem sinal pró-EN); **receita A3 (EN por dentro, PT por fora) rejeitada**
+  (pior OBEY do piloto, 4/6); falso-alarme 0% nos dois idiomas. Decisão: manter bilíngue como
+  está, não abrir frente de tradução de guia. **Pendências derivadas:** smoke de leitura do
+  Strata no hb_f3 (o path quebrou na reorganização `core/` e o gate não pegou); sonnet-5 com
+  thinking = 100% INDETERMINADO-TRUNCADO a 6000 tokens (exige orçamento maior ou thinking
+  desligado); próxima rodada de idioma precisa K≥7 para a margem de ±10pp.
 - **Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
   **circularidade** no **topo** de todo relatório/recipe de uso (não em "abertos"). **Recalibrar
   `recipe/strata-com-ia.pt-BR.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.

@@ -19,7 +19,7 @@ import argparse, datetime, glob, json, os, sys, time, urllib.error, urllib.reque
 import providers  # camada de provedores nuvem diretos (cerebras/groq/nvidia) — ADITIVO
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STRATA = os.path.normpath(os.path.join(HERE, "..", "..", "..", "recipe", "knowledge-architecture.pt-BR.md"))
+STRATA = os.path.normpath(os.path.join(HERE, "..", "..", "recipe", "knowledge-architecture.pt-BR.md"))
 OLLAMA = "http://localhost:11434/api/chat"
 OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
 PROVIDER = "ollama"  # setado em main() via --provider (ollama | openrouter)

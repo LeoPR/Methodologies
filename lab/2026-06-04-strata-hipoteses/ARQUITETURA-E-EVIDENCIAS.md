@@ -390,3 +390,17 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
      Strata fica acima do baseline no §5-fix executado; o limite-mãe (completion-only) deixa de ser
      virgem, mas a generalização pede volume.
   Estado consolidado: [`OPINIAO-DE-USO`](OPINIAO-DE-USO.md) (fonte única, ADR-005).
+  Estado consolidado: [`OPINIAO-DE-USO`](OPINIAO-DE-USO.md) (fonte única, ADR-005).
+- **2026-08-03**: **Piloto de idioma PT×EN (F3) executado; EN não demonstrou vantagem.**
+  Primeira execução do pré-registro de idioma (o principal teste pendente desde junho): 8 células
+  × 5 modelos × K=3, locks respeitados, scorer único bilíngue (self-test gold=86), fixtures EN
+  congeladas por hash. Resultados: diff EN−PT nos braços com Strata **+8,3pp (IC90 [−42,3;+56,7])**,
+  inconclusivo para equivalência (K=3 não alcança a margem de ±10pp) mas **sem sinal a favor do EN**;
+  idioma do corpus não move a taxa (A2 = A1 = 33%); receita **A3 (Strata EN + saída PT via OOB)
+  rejeitada** (pior OBEY do piloto, 4/6 = 67%, embora o mecanismo de saída em PT funcione);
+  falso-alarme 0% nos controles limpos dos dois idiomas. Decisão: manter EN canônico × PT derivado
+  como está; não recomendar EN para falante de PT. Limitação operacional nova: sonnet-5 com thinking
+  = 100% INDETERMINADO-TRUNCADO a 6000 tokens (thinking consome o orçamento antes do plano).
+  Incidente corrigido no harness: path do Strata em `hb_runner` quebrado pela reorganização `core/`
+  (o gate de fixity não exercita essa leitura; backlog ganha smoke).
+  [`lab/2026-08-03-idioma-en/RESULTADOS-idioma-f3`](../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md).

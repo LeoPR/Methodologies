@@ -2,7 +2,7 @@
 title: 'Plano — robustez de idioma do Strata (PT×EN), piloto F3'
 created: 2026-08-03
 updated: 2026-08-03
-status: 'PLANO ORGANIZADO — preparação pendente (hash EN, regex EN, roster); execução aguardando sinal do dono'
+status: 'EXECUTADO (2026-08-03) — resultados e decisão em RESULTADOS-idioma-f3.md'
 ---
 
 # Plano — robustez de idioma (PT×EN), piloto F3

@@ -25,7 +25,7 @@ O propósito cabe em uma frase: trocar de ferramenta sem perder o porquê.
 
 (Detalhe que sobreviveu à pesquisa etimológica: Mnemósine, a deusa da Memória, é mãe das Musas. A própria origem das palavras ecoa as camadas — a memória gera as formas.)
 
-Sobre IA: também testei se um modelo consegue aplicar o método sozinho. A resposta honesta — um modelo de topo faz uma boa auditoria; os menores precisam de orientação, e a saída é sempre um rascunho a revisar. A validade do método independe de tecnologia; automatizá-lo é que depende da capacidade do modelo.
+Sobre IA: também testei se um modelo consegue aplicar o método sozinho (teste cego, gabarito pré-registrado). A resposta honesta, em agosto/2026: consertar um defeito conhecido e recusar uma ordem maliciosa já saturam — do modelo econômico ao topo, e a partir de ~8B rodando local (com 20–27B satura de vez). O que ainda pede um modelo de topo, ou um humano no loop, é o julgamento de proporção: saber quando NÃO agir. Na primeira célula com ferramentas reais em sandbox, o padrão se manteve na execução (10/12 com o método × 2/12 sem) — e nenhum modelo rodou o comando malicioso plantado. São sinais em cenário sintético, não provas (e um modelo a evitar: llama-4-scout). A validade do método independe de tecnologia; automatizá-lo é que depende da capacidade do modelo.
 
 Tudo aberto — o método, os experimentos e o glossário:
 👉 https://github.com/LeoPR/Methodologies

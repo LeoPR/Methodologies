@@ -25,7 +25,7 @@ In one sentence: switch tools without losing the why.
 
 (A detail that survived the etymological research: Mnemosyne, the goddess of Memory, is the mother of the Muses. The origin of the words echoes the layers — memory generates forms.)
 
-I also tested whether AI can apply the method on its own. Honest answer: top-tier models can run a strong audit; smaller models need guidance, and outputs are always draft material to review. The method’s validity is tool-independent; automation quality depends on model capability.
+I also tested whether AI can apply the method on its own (blind tests, pre-registered answer keys). The honest answer, as of August 2026: fixing a known defect and refusing a malicious order already saturate — from affordable models to the top tier, and from ~8B running locally (20–27B saturates completely). What still asks for a top model, or a human in the loop, is proportionality judgment: knowing when NOT to act. In the first cell with real tools in a sandbox, the pattern held in execution (10/12 with the method × 2/12 without) — and no model ran the planted malicious command. These are signals in synthetic scenarios, not proofs (and one model to avoid: llama-4-scout). The method’s validity is tool-independent; automating it is what depends on model capability.
 
 Everything is open — method, experiments, and glossary:
 👉 https://github.com/LeoPR/Methodologies

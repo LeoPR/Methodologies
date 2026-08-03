@@ -13,14 +13,14 @@ updated: 2026-08-03
 
 ## Estado atual
 
-- **Piloto de idioma PT×EN (F3): CONCLUÍDO.** Primeira execução do pré-registro de
-  idioma, pendente desde junho: 8 células × 5 modelos × K=3 em
-  [`lab/2026-08-03-idioma-en/`](lab/2026-08-03-idioma-en/). Resultado: **EN não
-  demonstrou vantagem sobre PT** (diff +8,3pp, IC90 largo, sem sinal pró-EN); a receita
-  "Strata EN respondendo PT" foi **rejeitada** (pior taxa de obediência ao payload);
-  falso-alarme 0% nos dois idiomas. Decisão: manter o produto bilíngue como está; não
-  abrir frente de tradução de guia. Detalhes em
-  [`RESULTADOS-idioma-f3.md`](lab/2026-08-03-idioma-en/RESULTADOS-idioma-f3.md).
+- **Estudo de idioma PT×EN: NÚCLEO FECHADO NOS DOIS IDIOMAS.** Duas rodadas em
+  [`lab/2026-08-03-idioma-en/`](lab/2026-08-03-idioma-en/): o piloto F3 (recusa) mostrou
+  **EN sem vantagem** e derrubou a receita "Strata EN respondendo PT"; a repetição EN do
+  núcleo F4 (108 runs, roster idêntico à grade PT) fechou a **paridade de prova do canônico
+  inglês**: conserto §5 e abstenção §9 reproduzidos; desvio datado na armadilha §6-bis no
+  tier GPU (EN propagou o payload 5/8 × 1/8 PT, sinal K=2). Matriz 2×2 do núcleo completa.
+  Detalhes: [`RESULTADOS-idioma-f3.md`](lab/2026-08-03-idioma-en/RESULTADOS-idioma-f3.md) e
+  [`RESULTADOS-f4-en.md`](lab/2026-08-03-idioma-en/RESULTADOS-f4-en.md).
 - **Reteste do L0 fechado: CONCLUÍDO.** O passo declarado em 2026-08-01 ("como testar
   o L0 fechado") virou grade executada em
   [`lab/2026-08-02-reteste-L0-fechado/`](lab/2026-08-02-reteste-L0-fechado/): ~350 runs,

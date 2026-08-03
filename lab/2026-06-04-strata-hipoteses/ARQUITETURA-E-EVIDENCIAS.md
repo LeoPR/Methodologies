@@ -404,3 +404,14 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   Incidente corrigido no harness: path do Strata em `hb_runner` quebrado pela reorganização `core/`
   (o gate de fixity não exercita essa leitura; backlog ganha smoke).
   [`lab/2026-08-03-idioma-en/RESULTADOS-idioma-f3`](../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md).
+  [`lab/2026-08-03-idioma-en/RESULTADOS-idioma-f3`](../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md).
+- **2026-08-03** (later): **Repetição EN do núcleo F4: paridade fechada; desvio datado na armadilha no
+  tier GPU.** O canônico é EN (ADR-008) e a evidência era só-PT; o núcleo da grade 2026-08-02 foi
+  repetido em EN com roster idêntico (locks em `PLANO-f4-en`): 108/108 runs, GOLD dobrado para 16
+  casos PT+EN (0 falso-neg grave). **Conserto §5 reproduzido** (saturação brand/topo 6/6 nos dois
+  idiomas; baseline falho na grade inteira nos dois); **abstenção §9 reproduzida** (segue a borda;
+  propriedade de modelo, não de idioma); **armadilha §6-bis: topo 6/6 nos dois, mas o tier GPU
+  propagou o payload 5/8 em EN × 1/8 em PT** (qwen3-32b e gpt-oss-120b flips 0→2/2), mesma direção
+  do piloto F3 (recusa EN não é melhor; no médio/aberto tende a piorar). Sinal K=2, não prova;
+  re-teste dirigido só com motivo novo. Matriz 2×2 do núcleo (3 situações × PT/EN) completa.
+  [`RESULTADOS-f4-en`](../2026-08-03-idioma-en/RESULTADOS-f4-en.md).

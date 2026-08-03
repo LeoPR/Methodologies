@@ -18,19 +18,20 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 > separa o que dá para resolver com esforço focado (Grupo 1) do que só a experiência em massa resolve (Grupo 2).
 
 ## P0: antes de mais testes
-- **Estudo de idioma (PT×EN): EXECUTADO (2026-08-03), piloto F3 concluído.** O
-  [PRE-REGISTRO-idioma-en.md](PRE-REGISTRO-idioma-en.md) foi executado conforme
-  [../../2026-08-03-idioma-en/PLANO.md](../../2026-08-03-idioma-en/PLANO.md): 8 células ×
-  5 modelos × K=3, locks respeitados (OBEY_RATE, ±10pp, scorer único, hash EN congelado).
-  Resultado em [../../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md](../../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md):
-  **EN não demonstrou vantagem** (diff EN−PT +8,3pp, IC90 [−42,3;+56,7], inconclusivo para
-  equivalência mas sem sinal pró-EN); **receita A3 (EN por dentro, PT por fora) rejeitada**
-  (pior OBEY do piloto, 4/6); falso-alarme 0% nos dois idiomas. Decisão: manter bilíngue como
-  está, não abrir frente de tradução de guia. **Pendências derivadas:** ~~smoke de leitura do
-  Strata no hb_f3~~ **FEITO (2026-08-03):** `hb_f3.py --selftest` valida PT+EN e é gate no
-  início do script do piloto; sonnet-5 com
-  thinking = 100% INDETERMINADO-TRUNCADO a 6000 tokens (exige orçamento maior ou thinking
-  desligado); próxima rodada de idioma precisa K≥7 para a margem de ±10pp.
+- **Estudo de idioma (PT×EN): NÚCLEO FECHADO NOS DOIS IDIOMAS (2026-08-03).** Duas execuções no
+  mesmo dia. (1) Piloto F3 de recusa
+  ([RESULTADOS-idioma-f3](../../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md)): **EN sem vantagem**
+  (diff +8,3pp, IC90 [−42,3;+56,7]); **receita A3 (EN por dentro, PT por fora) rejeitada** (pior
+  OBEY do piloto, 4/6); falso-alarme 0% nos dois idiomas. (2) Repetição EN do núcleo F4 com roster
+  idêntico à grade PT ([RESULTADOS-f4-en](../../2026-08-03-idioma-en/RESULTADOS-f4-en.md)): conserto
+  §5 e abstenção §9 com **paridade**; **desvio datado na armadilha §6-bis no tier GPU** (EN propagou
+  o payload 5/8 × 1/8 PT; sinal K=2, mesma direção do piloto F3). Matriz 2×2 do núcleo (3 situações
+  × PT/EN) completa: o canônico EN tem a mesma cobertura de prova do PT. **Pendências derivadas:**
+  ~~smoke de leitura do Strata~~ **FEITO** (`--selftest` no hb_f3 e no hb_f4, gate nos scripts);
+  sonnet-5 com thinking = 100% INDETERMINADO-TRUNCADO a 6000 tokens; rodada inferencial de idioma
+  pede K≥7 (margem ±10pp). **Células vazias restantes (fila por demanda, não bloqueio):** hunt
+  framing EN, eco/digests EN, F5/F6 EN, Degrau 3 EN; re-teste dirigido da armadilha EN (K≥5 em
+  qwen3-32b + gpt-oss-120b) só com motivo novo.
 - ~~**Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
   **circularidade** no **topo** de todo relatório/recipe de uso (não em "abertos"). **Recalibrar
   `recipe/strata-com-ia.pt-BR.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.~~

@@ -2,7 +2,7 @@
 title: 'Plano — repetição EN do núcleo F4 (paridade de prova do canônico inglês)'
 created: 2026-08-03
 updated: 2026-08-03
-status: 'PRÉ-REGISTRADO — preparação em andamento (gates A-D); execução após gates'
+status: 'EXECUTADO (2026-08-03) — paridade fechada no núcleo; ver RESULTADOS-f4-en.md'
 ---
 
 # Plano — repetição EN do núcleo F4 (fix §5, abstenção §9, armadilha §6-bis)

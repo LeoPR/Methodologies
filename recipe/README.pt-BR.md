@@ -88,7 +88,9 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
 
 Há **dois modos**, e qual usar depende da força do modelo (guia completo, com custos e
 ambientes (local/grátis/pago), em **[`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md)**;
-versão em inglês: [`strata-com-ia.en.md`](strata-com-ia.en.md)):
+versão em inglês: [`strata-com-ia.en.md`](strata-com-ia.en.md)).
+**Em qual idioma rodar o Strata** (PT ou EN, o que funciona onde):
+**[`strata-idiomas.pt-BR.md`](strata-idiomas.pt-BR.md)**):
 
 - **De uma vez (modelo de topo, ex. Opus):** entregue o método + o projeto e peça a avaliação
   inteira num passo. Funciona: acha o real, reconhece o bom, não inventa. Use os pedidos abaixo.

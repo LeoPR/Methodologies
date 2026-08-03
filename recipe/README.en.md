@@ -85,8 +85,9 @@ The method is written in **durability layers**. Knowing which one you are in cha
 ### How to use it: by an AI (it applies it to your project)
 
 There are **two modes**, and which one to use depends on the model's strength (full guide,
-with costs and environments (local/free/paid), in **[`strata-com-ia.en.md`](strata-com-ia.en.md)**,
-currently in Portuguese):
+with costs and environments (local/free/paid), in **[`strata-com-ia.en.md`](strata-com-ia.en.md)**.
+**Which language to run Strata in** (PT or EN, what works where):
+**[`strata-idiomas.en.md`](strata-idiomas.en.md)**):
 
 - **One pass (top model, e.g. Opus):** hand over the method + the project and ask for the whole
   evaluation in one step. It works: it finds the real, recognizes the good, does not invent.

@@ -8,21 +8,21 @@ audience: ai-primary
 applies-to: estudo do braço "prompt ingênuo" (NAIVE) no harness F4
 ---
 
-# Prompt ingênuo: os modelos fazem sozinhos o que o Strata faz?
+# Prompt ingênuo: uma IA precisa do Strata?
 
 ## A pergunta
 
-O corpus do Strata compara sempre **método completo** (braço strata) contra
-**baseline instruído** (braço bare). Falta a célula que responde à objeção mais
-natural de quem olha o projeto de fora: *"e se eu só pedir 'arruma aí', sem
-ensinar nada, o modelo já não faz isso sozinho?"*
+Forma mais afiada, revisada em diálogo (2026-08-03): **"Uma IA precisa do
+Strata para o que, com instruções de uma pessoa, conseguiria fazer sozinha?"**
+Não é "o método está certo?" — isso o corpus já respondeu. É: dado o modelo de
+hoje, o método ainda **agrega** sobre o que emerge de instruções leigas? E o
+lado simétrico: instruções leigas (mas não estúpidas) chegam perto do Strata —
+ou até o superam, caso o método encaixote o modelo e crie viés de forma?
 
 Este estudo mede o braço **NAIVE**: a mesma tarefa, nas mesmas fixtures, com
 um pedido vago e realista de usuário leigo, sem vocabulário de método, sem
-instrução de proporcionalidade, sem instrução de abstenção. O objetivo não é
-derrubar nem defender o Strata: é descobrir se instruções leigas (mas não
-estúpidas) chegam perto dele — ou até o superam, caso o método encaixote o
-modelo e crie viés de forma.
+instrução de proporcionalidade, sem instrução de abstenção. O objetivo é
+desafiar o Strata, não defendê-lo.
 
 ## Por que o baseline existente NÃO responde a essa pergunta
 
@@ -59,12 +59,68 @@ Cada frase leva, como os demais braços, o aviso do regime downstream
 EXATAMENTE os arquivos que voce emitir.") — o aviso é parte do regime de prova,
 não do método.
 
+## Simular "humano com nada/pouca/muita experiência": análise crítica
+
+A intuição (medir níveis de experiência do usuário) é correta; a operacionalização
+óbvia — persona ("finja ser um novato") — é fraca e foi rejeitada:
+
+- **Sem gold**: não existe gabarito do que um novato humano escreveria; estaríamos
+  testando nosso estereótipo de novato, não o novato.
+- **Persona não é variável causal limpa**: "aja como iniciante" muda estilo de
+  saída de forma imprevisível e não auditável; não dá para pré-registrar o que
+  conta como sucesso da simulação.
+- **O que entra no prompt é instrução, não experiência**: o modelo só vê texto.
+  A variável honesta e mensurável é o **conteúdo da instrução** — o que ela
+  declara de objetivo, restrição e vocabulário.
+
+Conclusão: manter a ideia, trocar a operacionalização. Em vez de personas,
+uma **escada de conteúdo de instrução**, ancorada em traços observáveis:
+
+- **E0 — vago** (as frases N1–N3): só o desconforto ("pra eu não me perder").
+  Sem objetivo operacional, sem restrição, sem vocabulário.
+- **E1 — leigo com destino** (congelada): declara o para-quê sem saber o como.
+  "Organize este projeto para outra pessoa conseguir continuar meu trabalho sem
+  me perguntar nada." (Ainda sem proporcionalidade, sem abstenção, sem método.)
+- **E2 — leigo informado** (congelada): conhece a dor pelo nome, sem conhecer
+  método. "Tem informação repetida em vários arquivos e eu nunca sei qual vale.
+  Resolva isso sem bagunçar o que funciona." (Quase-espora: diz o defeito, não
+  a técnica.)
+- **E3 — bom senso instruído**: é o braço `bare` existente (proporcionalidade +
+  abstenção explícitas). Já medido, não roda de novo.
+- **E4 — método**: é o braço `strata` existente. Já medido.
+
+A escada responde a pergunta afiada em cada degrau: **onde, entre E0 e E4, o
+comportamento "de Strata" emerge sozinho?** Se emerge no E1, o método agrega
+pouco para aquele modelo. Se nem o E2 chega perto, o método é o diferencial.
+
+## Braços adversariais: desafiar o Strata além da instrução única
+
+Pré-registrados, para não movermos o gol depois da partida. Dois desafios que
+um cético honesto levantaria, ambos baratos e dentro do harness single-turn:
+
+- **ADV-1 — naive + auto-revisão** (2 turnos): após a resposta naive, um turno
+  extra: "Verifique se o que você fez resolve o problema sem estragar o que já
+  funcionava; corrija se necessário." Testa se **iteração substitui método** —
+  leigos reais iteram. Se naive+revisão ≈ strata, o valor do Strata é
+  economia de turnos, não capacidade.
+- **ADV-2 — naive best-of-K oráculo**: roda K=5 naive e escolhe a melhor saída
+  pelo scorer mecânico (oráculo inatingível na prática). Testa se o Strata é só
+  **redução de variância**: se o teto do naive (best-of-5) ≈ strata mediano, o
+  método compra consistência, não teto. É o desafio mais forte que cabe no
+  harness — e mesmo assim é generoso com o naive, porque nenhum usuário leigo
+  tem oráculo.
+
+Fora de escopo (registrar para não fingir que não existe): interação real
+(modelo pede esclarecimento ao usuário), multi-turno longo, ferramentas de
+edição em loop. O harness é single-turn; quem quiser testar isso precisa de
+outro harness — ticket futuro, não gate deste estudo.
+
 ## Desenho
 
-- **Braços** (comparação three-way pareada):
-  - `naive`: preâmbulo baseline + fixture + frase N1/N2/N3 + bloco FORMAT.
-  - `bare`: já existe nos planos f4g (não roda de novo).
-  - `strata`: já existe nos planos f4g (não roda de novo).
+- **Braços** (comparação pareada):
+  - `naive-E0`: preâmbulo baseline + fixture + frase N1/N2/N3 + bloco FORMAT.
+  - `naive-E1` / `naive-E2`: idem, com as frases E1/E2 congeladas acima.
+  - `bare` (=E3) e `strata` (=E4): já existem nos planos f4g (não roda de novo).
 - **Por que o FORMAT fica**: o bloco `<ABSTAIN>/<FILE>` é plumbing do harness —
   o F4_BARE também o inclui. Sem ele o verificador mecânico não parseia e
   perderíamos o gold. FORMAT não é metodologia.
@@ -81,6 +137,10 @@ não do método.
 - **K**: 2 no piloto. K≥5 depois, só nas células que decidirem algo.
 - **Locks**: scorer mecânico único (`verify/verify_f4.py` + `f4-manifests/`),
   sem juiz. Mesma fixture, mesmo gold, mesma temperatura default do harness.
+- **Guarda combinatória**: escada × adversariais × fixtures × modelos × K
+  explode. A espinha do piloto é E0 (3 frases) × 3 fixtures × 4 modelos × K=2
+  (72 chamadas). E1/E2 e ADV-1/ADV-2 só entram **condicionados** ao Gate 2, e
+  só nas células (fixture × modelo) que decidirem a narrativa.
 
 ## Análise pré-registrada
 
@@ -126,10 +186,10 @@ acertar. Só quando "experimento + ferramentas rudimentares" dão sinal de vida
 N1–N3 também são protótipos descartáveis.
 
 - **Etapa 0 — dirtylab** (custo-alvo: ≤ 6 chamadas; tudo descartável):
-  - 0a. Implementar a variante `F4_NAIVE` no `hb_f4.py` (flag `--naive
-    N1|N2|N3`, mesmo caminho do `--baseline`) e rodar 1 chamada de fumaça
-    (1 modelo barato × f4-dup × K=1) só para ver se o harness parseia e o
-    verificador mecânico lê a saída.
+  - 0a. Implementar a variante de task ingênua no `hb_f4.py` (uma flag
+    `--escada E0:N1|E0:N2|E0:N3|E1|E2`, mesmo caminho do `--baseline`) e rodar
+    1 chamada de fumaça (1 modelo barato × f4-dup × K=1) só para ver se o
+    harness parseia e o verificador mecânico lê a saída.
   - 0b. Medir o que não sabemos: custo por chamada e latência por modelo do
     roster (registrar na tabela de custos do estudo). Se algum modelo estiver
     caro demais para K≥5 depois, trocar o roster agora, não no meio do lab.
@@ -139,18 +199,27 @@ N1–N3 também são protótipos descartáveis.
     que as frases N1–N3 podem morrer e virar N4+.
   - **Gate 0**: harness roda, verificador lê, custo conhecido, frase validada
     como ingênua de fato. Sem isso, não existe lab.
-- **Etapa 1 — piloto** (24 chamadas: 4 modelos × 3 fixtures × K=2, label
-  `f4n-*`): gera os planos e roda o verificador mecânico.
-- **Etapa 2 — análise three-way** (naive × bare × strata, pareada com os
-  planos f4g existentes): redige `RESULTADOS.md` nesta pasta. **Gate 2**:
-  as células são conclusivas com K=2? Empate técnico ou divergência entre
-  frases N1–N3 manda a célula para a Etapa 3; célula decidida encerra.
+- **Etapa 1 — piloto E0** (72 chamadas: 3 frases N1–N3 × 3 fixtures × 4
+  modelos × K=2, label `f4n-*`): gera os planos e roda o verificador mecânico.
+- **Etapa 2 — análise** (E0 × bare × strata, pareada com os planos f4g
+  existentes): redige `RESULTADOS.md` nesta pasta. **Gate 2**: onde o E0 fica
+  em relação a bare e strata? Três despachos possíveis: (a) E0 ≈ bare em
+  tudo → a escada E1/E2 e os adversariais são a pergunta seguinte, rodar a
+  Etapa 2b; (b) E0 já toca o strata em alguma célula → a escada é secundária,
+  priorizar confirmação K≥5 naquela célula (Etapa 3); (c) divergência entre
+  frases N1–N3 → a frase é variável, não ruído: registrar e tratar cada degrau
+  por frase, não agregado.
+- **Etapa 2b — escada e adversariais** (condicionada ao Gate 2): E1/E2 nas
+  células decisivas; ADV-1 (naive + auto-revisão) e ADV-2 (naive best-of-5
+  oráculo) no f4-dup com 2 modelos (gpt-5-mini e claude-sonnet-5: piso e topo).
+  Cada braço novo é pré-contabilizado aqui antes de rodar.
 - **Etapa 3 — confirmação** (K≥5, só nas células que o Gate 2 marcou):
   fecha as células ambíguas antes de qualquer conclusão subir.
 - **Etapa 4 — consolidação**: conclusão sobe ao hub
   `lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md` (ponteiros,
   sem copiar literais — ADR-005); se mudar a narrativa do produto (leituras
-  2–3), abre ticket de revisão do manual de confiança.
+  2–3, ou emergência precoce na escada), abre ticket de revisão do manual de
+  confiança.
 
 Custo total estimado antes da Etapa 0: desconhecido por construção — medir em
 0b e registrar aqui antes do piloto. Teto de gasto: o piloto não deve passar

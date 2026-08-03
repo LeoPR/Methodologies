@@ -118,6 +118,6 @@ canônico + `README.pt-BR.md` derivado). Executada em 5 pacotes:
 - **Complemento SVG (2026-08-02):** a primeira varredura cobriu `.md`; varredura
   corretiva cobriu os 8 SVGs publicados (outreach 2, recipe 2, VIZ-p6 4).
   Rótulos no padrão "·"; prosa com vírgula/dois-pontos/ponto-e-vírgula. XML
-  validado. **Pendência:** os PNGs de outreach (`strata-linkedin*.png`) são
-  binários renderizados dos SVGs e seguem com o texto antigo; re-render exige
-  cairo/inkscape, ausente no Windows desta máquina.
+  validado. Os PNGs de outreach (`strata-linkedin*.png`) foram re-renderizados
+  dos SVGs corrigidos com svglib+reportlab+rlPyCairo, tudo dentro do `.venv`
+  (cadeia Python pura, verificação visual feita).

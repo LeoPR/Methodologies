@@ -1,7 +1,7 @@
 ---
 title: 'Strata: o que você ganha'
 created: 2026-06-16
-updated: 2026-08-02
+updated: 2026-08-03
 status: 'Página de entrada para quem vai usar. Estado consolidado. A evidência é de sinais, não de prova; o detalhe honesto está na OPINIAO-DE-USO.'
 ---
 
@@ -63,9 +63,23 @@ Vem de testes controlados, e o uso no dia a dia ainda está em validação.
 
 ## Custo
 
-Aplicar a IA a um projeto custa, na prática, de centavos a poucos dólares.
-No dia a dia, use o econômico.
-Para a organização completa, vale pagar o premium uma vez.
+Os números, medidos em 2026-08-03:
+
+- **Uma auditoria de IA num projeto pequeno custa cerca de 1 centavo** com um modelo
+  econômico. O método mais o projeto dá ~20 mil tokens de entrada, a resposta ~1-3 mil
+  de saída; ao preço do piso econômico (US$ 0,25/2,00 por milhão de tokens, gpt-5-mini),
+  fica abaixo de US$ 0,01. Um projeto real grande custa alguns centavos. O topo custa
+  uma a duas ordens de grandeza a mais por auditoria: ainda centavos a poucos dólares,
+  e vale uma vez para a organização completa.
+- **Reproduzir a grade de testes publicada inteira custa cerca de US$ 7** (~350 runs,
+  gabarito mecânico mais júri cross-vendor). Manter o laboratório pronto para rodar
+  todo dia custa menos que uma assinatura de streaming.
+- **A regra prática: centavos por auditoria, horas economizadas.** A métrica que
+  importa é o **custo por projeto organizado**: uma passada de IA + Strata custa menos
+  que um minuto do seu tempo, e a saída é rastreável (o que mudou, por quê, sob que
+  autoridade). O idioma move isso em ~20% (o português tokeniza um pouco mais caro;
+  detalhes em [`strata-idiomas.pt-BR.md`](strata-idiomas.pt-BR.md)); o modelo que você
+  escolhe move muito mais.
 
 ## Comece aqui
 

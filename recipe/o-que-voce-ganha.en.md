@@ -1,7 +1,7 @@
 ---
 title: 'Strata: what you gain'
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-03
 status: 'Entry page for those who will use it. Consolidated state. The evidence is signals, not proof; the honest detail is in OPINIAO-DE-USO.'
 ---
 
@@ -61,12 +61,26 @@ It comes from controlled tests, and day-to-day use is still being validated.
 
 ## Cost
 
-Applying an AI to a project costs, in practice, from cents to a few dollars.
-Day to day, use the affordable one.
-For the full organization, paying the premium once is worth it.
+The numbers, measured on 2026-08-03:
+
+- **One AI audit of a small project costs about 1 cent** with an affordable model.
+  The method plus the project is ~20k input tokens, the answer ~1-3k output tokens;
+  at the affordable floor price ($0.25/$2.00 per million tokens, gpt-5-mini), that is
+  under US$ 0.01. A large real project costs a few cents. The top tier costs one to
+  two orders of magnitude more per audit: still cents to a few dollars, and worth it
+  once for the full organization.
+- **Reproducing the whole published test grade costs about US$ 7** (~350 runs, gold
+  standard plus cross-vendor jury). Keeping the laboratory ready to re-run daily costs
+  less than a streaming subscription.
+- **The rule of thumb: cents per audit, hours saved.** The metric that matters is
+  **cost per organized project**: one AI + Strata pass costs less than a minute of
+  your time, and the output is traceable (what changed, why, under which authority).
+  The language moves this by ~20% (Portuguese tokenizes a bit pricier; details in
+  [`strata-idiomas.en.md`](strata-idiomas.en.md)); the model you pick moves it by far
+  more.
 
 ## Start here
 
 The method, in one file that travels on its own: [`knowledge-architecture.en.md`](knowledge-architecture.en.md).
-Which model to use, by cost and environment: [`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md) (currently in Portuguese).
+Which model to use, by cost and environment: [`strata-com-ia.en.md`](strata-com-ia.en.md).
 The honest opinion, in depth: [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).

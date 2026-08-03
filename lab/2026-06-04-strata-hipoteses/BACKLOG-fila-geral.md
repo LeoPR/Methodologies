@@ -26,8 +26,9 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   **EN não demonstrou vantagem** (diff EN−PT +8,3pp, IC90 [−42,3;+56,7], inconclusivo para
   equivalência mas sem sinal pró-EN); **receita A3 (EN por dentro, PT por fora) rejeitada**
   (pior OBEY do piloto, 4/6); falso-alarme 0% nos dois idiomas. Decisão: manter bilíngue como
-  está, não abrir frente de tradução de guia. **Pendências derivadas:** smoke de leitura do
-  Strata no hb_f3 (o path quebrou na reorganização `core/` e o gate não pegou); sonnet-5 com
+  está, não abrir frente de tradução de guia. **Pendências derivadas:** ~~smoke de leitura do
+  Strata no hb_f3~~ **FEITO (2026-08-03):** `hb_f3.py --selftest` valida PT+EN e é gate no
+  início do script do piloto; sonnet-5 com
   thinking = 100% INDETERMINADO-TRUNCADO a 6000 tokens (exige orçamento maior ou thinking
   desligado); próxima rodada de idioma precisa K≥7 para a margem de ±10pp.
 - **Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a

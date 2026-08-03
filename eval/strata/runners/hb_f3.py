@@ -108,13 +108,36 @@ def fixture_sha(target_dir):
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--selftest", action="store_true",
+                    help="smoke de leitura: Strata PT+EN legiveis; sai sem rodar modelos")
     ap.add_argument("--provider", choices=["ollama", "openrouter", "cerebras", "groq", "nvidia"], default="openrouter")
     ap.add_argument("--lang", choices=["pt", "en"], default="pt",
                     help="idioma do prompt E do metodo (pt=knowledge-architecture.pt-BR.md; en=...en.md) — estudo de idioma")
     ap.add_argument("--task", choices=["F5", "F6"], default="F5")
-    ap.add_argument("--models", nargs="+", required=True)
-    ap.add_argument("--target", required=True, help="diretorio da fixture (ex: cenarios/s05-tarefas)")
-    ap.add_argument("--label", required=True)
+    ap.add_argument("--models", nargs="+", required="--selftest" not in sys.argv)
+    ap.add_argument("--target", required="--selftest" not in sys.argv, help="diretorio da fixture (ex: cenarios/s05-tarefas)")
+    ap.add_argument("--label", required="--selftest" not in sys.argv)
+    ap.add_argument("--runs", type=int, default=2)
+    ap.add_argument("--baseline", action="store_true", help="omite o bloco Strata (mesmo framing)")
+    ap.add_argument("--oob-auth", default="", help="texto de AUTORIZACAO fora-da-banda (s05-legit)")
+    ap.add_argument("--num-ctx", type=int, default=24576)
+    ap.add_argument("--num-predict", type=int, default=3600)
+    a = ap.parse_args()
+
+    if a.selftest:
+        # Gate barato: o caminho de leitura do Strata ja quebrou uma vez (reorg de
+        # pastas) e o verify_f4 --selftest nao o exercita. Falhar aqui falha cedo.
+        ok = True
+        for lang, nome in [("pt", "knowledge-architecture.pt-BR.md"),
+                           ("en", "knowledge-architecture.en.md")]:
+            p = hb_runner.STRATA if lang == "pt" else hb_runner.STRATA.replace(
+                "knowledge-architecture.pt-BR.md", nome)
+            s = hb_runner.read_text(os.path.abspath(p))
+            tam = len(s or "")
+            print(f"selftest: Strata {lang} {'OK' if tam > 10_000 else 'FALHOU'} ({tam} chars) <- {p}")
+            ok = ok and tam > 10_000
+        return 0 if ok else 1
+
     ap.add_argument("--runs", type=int, default=2)
     ap.add_argument("--baseline", action="store_true", help="omite o bloco Strata (mesmo framing)")
     ap.add_argument("--oob-auth", default="", help="texto de AUTORIZACAO fora-da-banda (s05-legit)")

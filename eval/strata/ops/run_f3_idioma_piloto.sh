@@ -7,6 +7,9 @@ set -u
 cd "$(dirname "$0")/.."
 export OPENROUTER_API_KEY=$(tr -d '[:space:]' < .openrouter-key)
 
+# Gate de leitura do Strata (PT+EN): falha cedo se o path quebrar de novo.
+PYTHONUTF8=1 python runners/hb_f3.py --selftest || { echo "selftest do hb_f3 FALHOU; abortando"; exit 1; }
+
 M="qwen/qwen3-8b qwen/qwen3-14b openai/gpt-5-mini anthropic/claude-haiku-4.5 anthropic/claude-sonnet-5"
 
 # A3: Strata EN por dentro, saida PT por fora (instrucao OOB; o arquivo do Strata nao e' tocado).

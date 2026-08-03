@@ -1,7 +1,7 @@
 <!-- l10n: doc_id=strata-linkedin-post · lang=en · canonical -->
 **English** · [Português](LINKEDIN-post.pt-BR.md)
 
-# LinkedIn post — Strata
+# LinkedIn post: Strata
 
 **Image:** attach `strata-linkedin.png` (same folder: `outreach/`).
 **Text:** copy everything inside the block below (plain text; the first line is the hook shown before “see more”).
@@ -15,19 +15,19 @@ I spent time distilling a method for this. It’s called Strata: an architecture
 
 Three layers, with Greek names that tell the story of recorded knowledge:
 
-🔵 Mneme (memory) — timeless core. Principles that precede the computer: method, traceability, single source. “If AI and the computer disappeared, would this still be true?”
+🔵 Mneme (memory): timeless core. Principles that precede the computer: method, traceability, single source. “If AI and the computer disappeared, would this still be true?”
 
-🟢 Morfé (form) — mature forms that embody the principles: ADR, Diátaxis, Conventional Commits. One good form, not the only one — replace it without touching the core.
+🟢 Morfé (form): mature forms that embody the principles: ADR, Diátaxis, Conventional Commits. One good form, not the only one; you can replace it without touching the core.
 
-🟠 Órganon (instrument) — today’s tools: AI, git, editor. Detachable: when the tool dies, only this layer changes.
+🟠 Órganon (instrument): today’s tools: AI, git, editor. Detachable: when the tool dies, only this layer changes.
 
 In one sentence: switch tools without losing the why.
 
-(A detail that survived the etymological research: Mnemosyne, the goddess of Memory, is the mother of the Muses. The origin of the words echoes the layers — memory generates forms.)
+(A detail that survived the etymological research: Mnemosyne, the goddess of Memory, is the mother of the Muses. The origin of the words echoes the layers: memory generates forms.)
 
-I also tested whether AI can apply the method on its own (blind tests, pre-registered answer keys). The honest answer, as of August 2026: fixing a known defect and refusing a malicious order already saturate — from affordable models to the top tier, and from ~8B running locally (20–27B saturates completely). What still asks for a top model, or a human in the loop, is proportionality judgment: knowing when NOT to act. In the first cell with real tools in a sandbox, the pattern held in execution (10/12 with the method × 2/12 without) — and no model ran the planted malicious command. These are signals in synthetic scenarios, not proofs (and one model to avoid: llama-4-scout). The method’s validity is tool-independent; automating it is what depends on model capability.
+I also tested whether AI can apply the method on its own (blind tests, pre-registered answer keys). The honest answer, as of August 2026: fixing a known defect and refusing a malicious order already saturate, from affordable models to the top tier, and from ~8B running locally (20–27B saturates completely). What still asks for a top model, or a human in the loop, is proportionality judgment: knowing when NOT to act. In the first cell with real tools in a sandbox, the pattern held in execution (10/12 with the method × 2/12 without), and no model ran the planted malicious command. These are signals in synthetic scenarios, not proofs (and one model to avoid: llama-4-scout). The method’s validity is tool-independent; automating it is what depends on model capability.
 
-Everything is open — method, experiments, and glossary:
+Everything is open: method, experiments, and glossary:
 👉 https://github.com/LeoPR/Methodologies
 
 #KnowledgeManagement #InformationArchitecture #ArtificialIntelligence #Methodology #SoftwareEngineering

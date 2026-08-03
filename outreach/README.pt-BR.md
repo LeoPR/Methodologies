@@ -1,7 +1,7 @@
 <!-- l10n: doc_id=strata-outreach-readme · lang=pt-BR · source_lang=en · translation_of=README.md -->
 [English](README.md) · **Português**
 
-# `outreach/` — material de comunicação
+# `outreach/`: material de comunicação
 
 Peças para **apresentar o projeto publicamente** (posts, imagens). É **apoio**, não faz parte
 da metodologia (esta vive em [`recipe/`](../recipe/)) nem da pesquisa ([`lab/`](../lab/)).

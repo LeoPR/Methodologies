@@ -1,33 +1,33 @@
 <!-- l10n: doc_id=strata-linkedin-post · lang=pt-BR · source_lang=en · translation_of=LINKEDIN-post.md -->
 [English](LINKEDIN-post.md) · **Português**
 
-# Post para o LinkedIn — Strata
+# Post para o LinkedIn: Strata
 
 **Imagem:** anexe **`strata-linkedin.pt-BR.png`** (nesta mesma pasta, `outreach/`).
-**Texto:** copie tudo dentro do bloco abaixo (é texto puro — sem formatação que o LinkedIn quebra). A primeira linha é o gancho (o LinkedIn corta em "ver mais" depois de ~3 linhas).
+**Texto:** copie tudo dentro do bloco abaixo (é texto puro, sem formatação que o LinkedIn quebra). A primeira linha é o gancho (o LinkedIn corta em "ver mais" depois de ~3 linhas).
 
 ---
 
 ```
-Você acumula trabalho — pesquisa, código, decisões, notas. E com o tempo ele apodrece: você não acha o que decidiu, não sabe o que ainda vale, e a próxima ferramenta ameaça obrigar a recomeçar do zero.
+Você acumula trabalho: pesquisa, código, decisões, notas. E com o tempo ele apodrece: você não acha o que decidiu, não sabe o que ainda vale, e a próxima ferramenta ameaça obrigar a recomeçar do zero.
 
-Passei um tempo destilando um método para isso. Chama-se Strata: uma arquitetura para organizar conhecimento em camadas de durabilidade — separando o que é atemporal do que é datado.
+Passei um tempo destilando um método para isso. Chama-se Strata: uma arquitetura para organizar conhecimento em camadas de durabilidade, separando o que é atemporal do que é datado.
 
 São três camadas, com nomes gregos que contam a própria história do registro do conhecimento:
 
-🔵 Mneme (memória) — o núcleo atemporal. Os princípios que precedem o computador: método, rastreabilidade, fonte única. "Se a IA e o computador sumissem, continuaria verdadeiro?"
+🔵 Mneme (memória): o núcleo atemporal. Os princípios que precedem o computador: método, rastreabilidade, fonte única. "Se a IA e o computador sumissem, continuaria verdadeiro?"
 
-🟢 Morfé (forma) — as formas maduras que dão corpo aos princípios: ADR, Diátaxis, Conventional Commits. Uma boa forma, não a única — troca-se sem tocar no núcleo.
+🟢 Morfé (forma): as formas maduras que dão corpo aos princípios: ADR, Diátaxis, Conventional Commits. Uma boa forma, não a única; troca-se sem tocar no núcleo.
 
-🟠 Órganon (instrumento) — as ferramentas de hoje: a IA, o git, o editor. Destacáveis: quando a ferramenta morre, só esta camada muda.
+🟠 Órganon (instrumento): as ferramentas de hoje: a IA, o git, o editor. Destacáveis: quando a ferramenta morre, só esta camada muda.
 
 O propósito cabe em uma frase: trocar de ferramenta sem perder o porquê.
 
-(Detalhe que sobreviveu à pesquisa etimológica: Mnemósine, a deusa da Memória, é mãe das Musas. A própria origem das palavras ecoa as camadas — a memória gera as formas.)
+(Detalhe que sobreviveu à pesquisa etimológica: Mnemósine, a deusa da Memória, é mãe das Musas. A própria origem das palavras ecoa as camadas: a memória gera as formas.)
 
-Sobre IA: também testei se um modelo consegue aplicar o método sozinho (teste cego, gabarito pré-registrado). A resposta honesta, em agosto/2026: consertar um defeito conhecido e recusar uma ordem maliciosa já saturam — do modelo econômico ao topo, e a partir de ~8B rodando local (com 20–27B satura de vez). O que ainda pede um modelo de topo, ou um humano no loop, é o julgamento de proporção: saber quando NÃO agir. Na primeira célula com ferramentas reais em sandbox, o padrão se manteve na execução (10/12 com o método × 2/12 sem) — e nenhum modelo rodou o comando malicioso plantado. São sinais em cenário sintético, não provas (e um modelo a evitar: llama-4-scout). A validade do método independe de tecnologia; automatizá-lo é que depende da capacidade do modelo.
+Sobre IA: também testei se um modelo consegue aplicar o método sozinho (teste cego, gabarito pré-registrado). A resposta honesta, em agosto/2026: consertar um defeito conhecido e recusar uma ordem maliciosa já saturam, do modelo econômico ao topo, e a partir de ~8B rodando local (com 20–27B satura de vez). O que ainda pede um modelo de topo, ou um humano no loop, é o julgamento de proporção: saber quando NÃO agir. Na primeira célula com ferramentas reais em sandbox, o padrão se manteve na execução (10/12 com o método × 2/12 sem), e nenhum modelo rodou o comando malicioso plantado. São sinais em cenário sintético, não provas (e um modelo a evitar: llama-4-scout). A validade do método independe de tecnologia; automatizá-lo é que depende da capacidade do modelo.
 
-Tudo aberto — o método, os experimentos e o glossário:
+Tudo aberto: o método, os experimentos e o glossário:
 👉 https://github.com/LeoPR/Methodologies
 
 #GestãoDoConhecimento #ArquiteturaDaInformação #InteligênciaArtificial #Metodologia #EngenhariaDeSoftware
@@ -36,6 +36,6 @@ Tudo aberto — o método, os experimentos e o glossário:
 ---
 
 **Dicas rápidas de LinkedIn:**
-- Poste **imagem + texto** juntos (não cole o link como prévia — a imagem já é o visual; o link fica clicável no texto).
-- Se quiser mais curto, corte o parágrafo entre parênteses (a curiosidade da Mnemósine) e/ou os 2 últimos parágrafos sobre IA — o núcleo (gancho + 3 camadas + propósito + link) já se sustenta.
+- Poste **imagem + texto** juntos (não cole o link como prévia; a imagem já é o visual; o link fica clicável no texto).
+- Se quiser mais curto, corte o parágrafo entre parênteses (a curiosidade da Mnemósine) e/ou os 2 últimos parágrafos sobre IA; o núcleo (gancho + 3 camadas + propósito + link) já se sustenta.
 - Os 3 emojis coloridos casam com as cores do gráfico (azul/verde/laranja).

@@ -1,7 +1,7 @@
 <!-- l10n: doc_id=strata-outreach-readme · lang=en · canonical -->
 **English** · [Português](README.pt-BR.md)
 
-# `outreach/` — outreach materials
+# `outreach/`: outreach materials
 
 Assets to present the project publicly (posts, images).
 This is support material, not part of the methodology itself (which lives in

@@ -1,5 +1,5 @@
 ---
-title: 'eval/strata — Strata proof harness (LIVE pipeline)'
+title: 'eval/strata: Strata proof harness (LIVE pipeline)'
 created: 2026-06-05
 updated: 2026-08-02
 status: 'active. Replaces the "H-B kit" doc (old lumen/matrix arc, refuted by AUDITORIA-2026-06-07 → _superseded/).'
@@ -8,18 +8,18 @@ status: 'active. Replaces the "H-B kit" doc (old lumen/matrix arc, refuted by AU
 <!-- l10n: doc_id=eval-strata-readme · lang=en · canonical -->
 [Português](README.pt-BR.md) · **English**
 
-# eval/strata — how Strata's evidence is produced
+# eval/strata: how Strata's evidence is produced
 
 The **"screwdriver"** (a means, **not** the methodology). It gathers the runners, fixtures,
 answer keys and verifiers that generate the lab's `RESULTADOS-*`. **The conclusions do NOT
-live here** — the entry point is the honest usage opinion:
+live here**. The entry point is the honest usage opinion:
 [`../../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md`](../../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)
 (+ the `ARQUITETURA-E-EVIDENCIAS.md` hub).
 
 > ⚠️ **Fixtures = FABRICATED inert data, deliberately problematic** (they include
 > intentionally unsafe instructions to test §6-bis). They are read **as text only** by a
 > model (zero real execution). **Never run anything from `cenarios/` or
-> `_superseded/fixtures/` — every fixture is inert data.** Real projects/digests are
+> `_superseded/fixtures/`: every fixture is inert data.** Real projects/digests are
 > **private** and stay **gitignored** (`planos/`, `external-fixtures/`, `own-fixtures/`,
 > `fixtures-real/`).
 
@@ -43,7 +43,7 @@ hb_<phase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out>/plano-
 | `hb_genre.py` | genre-awareness (§9) | `external-fixtures/`, `own-fixtures/` | reading |
 | `hb_temporal.py` | temporal on the owner's project | `own-fixtures/` | reading |
 | `hb_m0.py` | M0 abstention | scenarios | reading |
-| `hb_runner.py` | **base** (does not run alone): `call_ex`, `call_openrouter_ex` (`reasoning`/`:online`), `call_ollama_ex` (thinking+fallback), `read_target`; `--temp` flag (additive, default 0.3) **only on the F1/prime path** (`call`/`run_one`; phase runners use `call_ex`, still fixed at 0.3) | — | — |
+| `hb_runner.py` | **base** (does not run alone): `call_ex`, `call_openrouter_ex` (`reasoning`/`:online`), `call_ollama_ex` (thinking+fallback), `read_target`; `--temp` flag (additive, default 0.3) **only on the F1/prime path** (`call`/`run_one`; phase runners use `call_ex`, still fixed at 0.3) | n/a | n/a |
 
 **Verification / judges:** `verify_f4.py` (mechanical + **GOLD-gate**; `--selftest`) ·
 `score_f3.py` (regex + `--selftest`) · `judge_f3.py`/`judge_f4.py`/`judge_openrouter.py`
@@ -51,7 +51,7 @@ hb_<phase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out>/plano-
 projects: `build_ext_digest.py` (third-party) / `build_local_digest.py` (owner's) → write
 to **gitignored** fixtures.
 
-**How to report (norm — ADR-006):** accuracy × precision in **separate columns**, always
+**How to report (norm: ADR-006):** accuracy × precision in **separate columns**, always
 with **k/K**, and **map the distribution** (multi-seed/temp) instead of hunting for "the
 right temperature"; `pass@k` (ceiling) ≠ `pass^k` (reliable). See
 [`../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
@@ -69,20 +69,20 @@ The `run_*.sh` scripts package ready-made matrices (cloud/local/eco). **Cost:** 
 balance first (`curl .../api/v1/credits`); on the order of cents to ~US$1 per small matrix.
 
 > **K=2 here is a smoke demo.** Official measurements report **larger K + *flip-rate***
-> (ADR-006); small K is a sample ceiling, not a stable measurement — that was the
+> (ADR-006); small K is a sample ceiling, not a stable measurement; that was the
 > "gpt-4.1 K=2 not attestable" case from P8.
 
 ## Conventions
-- **OpenRouter key:** only in `eval/strata/.openrouter-key` (**gitignored**) — never commit/echo it.
+- **OpenRouter key:** only in `eval/strata/.openrouter-key` (**gitignored**); never commit/echo it.
 - **Answer key OUTSIDE the fixture:** `read_target` reads `.md/.json/.py…` recursively;
   that is why the `*-manifest.json` files stay **outside** `cenarios/<fix>/` (otherwise
   they would leak the answer into the prompt).
-- **Regenerable outputs** (`planos/`, dumps) are gitignored or by-products — they are not
+- **Regenerable outputs** (`planos/`, dumps) are gitignored or by-products, not
   the evidence; the curated evidence lives in the lab's `RESULTADOS-*.md`.
 
-## Old arc (refuted) — `_superseded/`
+## Old arc (refuted): `_superseded/`
 The **lumen → matrix → limit-search** arc (2026-06-05/07) was **refuted by
 AUDITORIA-2026-06-07** (the prompt leaked the P1..P7 taxonomy; neutralized fixture ≠
 answer key; per-id scorers produced artifactual zeros). It is archived in
-**`_superseded/`** with a tombstone — replaced by this pipeline (`hb_f3/f4/f5/f6` +
+**`_superseded/`** with a tombstone. It was replaced by this pipeline (`hb_f3/f4/f5/f6` +
 `verify_f4`/`judge_*`). Kept as a record (append-only), **do not use**.

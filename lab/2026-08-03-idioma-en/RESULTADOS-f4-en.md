@@ -82,3 +82,21 @@ FC=falha de correção · IND=indeterminado. n = planos na célula.
 - Planos e scores: `eval/strata/planos/f4e-*/` (gitignored), `f4-mech-scores.json` por pasta.
 - Instrumento: `runners/hb_f4.py` (`--lang en`, `--selftest`), `verify/verify_f4.py`
   (GOLD 16 PT+EN, gate 0 falso-neg grave), fixtures/manifests `f4-*-en`, hashes no plano.
+
+---
+
+## Adendo (2026-08-03): vetor custo de token PT×EN
+
+Medição direta sobre os artefatos deste estudo:
+
+- **Entrada:** o documento do método tokeniza em 20.610 (PT) × 16.928 (EN) tokens
+  (cl100k via tiktoken), razão PT/EN = **1,218**, embora o PT tenha menos caracteres.
+  A fixture f4-dup segue a mesma razão (261 × 219). É a desigualdade de tokenização da
+  literatura (Ahia et al., EMNLP 2023; NeurIPS 2023): PT é caso leve (~1,2×).
+- **Saída:** mediana pareada por modelo×fixture na grade (27 pares): EN/PT = **0,911**
+  (mediana global 0,777, confundida por comportamento; ex.: llama-3.2-1b entrou em loop
+  em PT). Sinal suave: saídas EN um pouco mais curtas.
+- **Leitura:** EN sai ~15-20% mais barato em tokens por run neste harness; em dinheiro,
+  fração de centavo por auditoria a preços de nuvem. Token é métrica de **custo**, não
+  de **valor**: a paridade de resultado (acima) é o numerador. Registrado no manual de
+  uso em `recipe/strata-idiomas.*` com as ressalvas.

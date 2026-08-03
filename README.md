@@ -29,6 +29,13 @@ cases measured**, each up to its own limit (mapped in the
 [usage opinion](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)); **Comporta** will
 follow the same principle. *(Navigation dedicated to AI lives in [`AGENTS.md`](AGENTS.md).)*
 
+> **Abstract in concept, computational in practice.** The core of each product is
+> deliberately timeless: the principles would work on paper, with any tool, in any
+> century. The workshop itself, though, is honest about its own century: it is built
+> for people who work on computers, uses git as the versioning backbone, and treats
+> AI as a first-class reader and applier. The abstraction is the spine; the
+> computational practice of the 21st century is the proving ground and the audience.
+
 > **A note on language.** This entry page is in English, but many of the deeper
 > documents (the research, the evidence, the usage opinion) are currently in
 > Portuguese, with translation in progress. Some links below lead to Portuguese

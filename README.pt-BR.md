@@ -31,6 +31,13 @@ medidos**, cada uma até o seu limite (mapeado na
 [opinião de uso](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)); **Comporta** seguirá
 o mesmo princípio. *(A navegação dedicada a IA fica em [`AGENTS.md`](AGENTS.md).)*
 
+> **Abstrato no conceito, computacional na prática.** O núcleo de cada produto é
+> deliberadamente atemporal: os princípios funcionariam no papel, com qualquer
+> ferramenta, em qualquer século. A oficina, porém, é honesta sobre o próprio século:
+> é feita para quem trabalha em computador, usa o git como espinha de versionamento e
+> trata a IA como leitora e aplicadora de primeira classe. A abstração é a espinha;
+> a prática computacional do século vinte e um é o campo de prova e o público.
+
 ## Trilha de primeira leitura (só superfície)
 
 Para uma pessoa nova entender o que já está pronto (sem mergulhar no histórico de

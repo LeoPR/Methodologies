@@ -13,11 +13,25 @@ nota: the full research (including what does NOT work and why) is in lab/2026-06
 # Strata with AI: practical guide
 
 The method text is the same for everyone. What changes the result is **who runs it and how**.
-Two golden rules before any model:
+Three golden rules before any model:
 
 1. **Do NOT hand the raw canonical method to a cheap model**: it is the worst option.
    Give it the **checklist** (`../lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-checklist.md`).
 2. **AI output = a draft to review**, never an automatic verdict.
+3. **Autonomous self-audit (AI auditing a project alone) is a top-tier-only mode**: the only
+   models measured closing both sides (fix + abstention) are opus-5/fable-5. For mid/budget
+   models the setup that works is **checklist + human confirming each finding**.
+
+> **Where the evidence holds (read before the table):** the saturation and abstention numbers
+> come from **synthetic fixtures** with a pre-registered answer key. In **real third-party
+> projects**, the AI self-auditor did **not** beat plain competence: with the "find problems"
+> framing, every arm (baseline included) over-detected, inventing violations and criticizing
+> good practices; the **abstention form** is what corrects the false positives
+> ([R8](../lab/2026-06-04-strata-hipoteses/RESULTADOS-r8-sintese-3-projetos.md), reinterpreted
+> 2026-06-13; [external arm](../lab/2026-06-04-strata-hipoteses/RESULTADOS-externo-bemcomportado.md)).
+> Residual circularity: the rich quality audit on third-party projects still lacks an
+> independent answer key and covers a single genre. Use the table to pick a model for
+> **controlled tasks** (fix, trap, abstention); treat real-project audits as drafts for a human.
 
 ## Quick decision: what to use (2026-08 grade)
 
@@ -25,7 +39,7 @@ Two golden rules before any model:
 |---|---|---|
 | **run locally (consumer GPU)** | **qwen3:14b** (fits whole in a 3060 12GB) · **qwen3.6:27b** | the 14b is the daily workhorse; the 27b **saturates** (fixes **and** abstains), but is slow (~22 min/run with offload) |
 | **pay little in the cloud** | **gpt-5-mini** (OpenAI paid floor) · **haiku-4.5** · **deepseek-v4-pro** | they execute the fix to standard; gpt-5-mini also refuses injection spontaneously and, with web access, verifies sources |
-| **the most, at any cost** | **opus-5** · **fable-5** | perfect fix and trap **and** they saturate abstention (§9): the only ones measured on both sides of the top |
+| **the most, at any cost** | **opus-5** · **fable-5** | perfect fix and trap **and** they saturate abstention (§9): the only ones measured on both sides of the top, and the only ones fit for **autonomous self-audit** |
 | **top tier without paying the ceiling** | sonnet-5 · gpt-5.6-terra · gemini-3.1-pro | perfect fix and trap; abstention varies by model |
 | **do NOT use for this** | llama-4-scout · local <4B | the scout failed the trap fix 2/2 and propagated the payload; below ~4B not even the format comes out |
 

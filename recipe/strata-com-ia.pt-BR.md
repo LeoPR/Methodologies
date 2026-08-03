@@ -13,11 +13,27 @@ nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em la
 # Strata com IA: guia prático
 
 O texto do método é o mesmo para todos. O que muda o resultado é **quem executa e como**.
-Duas regras de ouro antes de qualquer modelo:
+Três regras de ouro antes de qualquer modelo:
 
 1. **NÃO entregue o método canônico cru a um modelo barato**: é a pior opção.
    Dê a **checklist** (`../lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-checklist.md`).
 2. **Saída de IA = rascunho a revisar**, nunca veredito automático.
+3. **Auto-auditoria autônoma (a IA auditando um projeto sozinha) é modo só de topo**: os
+   únicos modelos medidos fechando os dois lados (conserto + abstenção) são opus-5/fable-5.
+   Para modelos médios/econômicos, o arranjo que funciona é **checklist + humano confirmando
+   cada achado**.
+
+> **Onde a evidência vale (leia antes da tabela):** os números de saturação e abstenção vêm
+> de **fixtures sintéticas** com gabarito pré-registrado. Em **projetos reais de terceiros**,
+> o auto-auditor de IA **não** bateu a competência pura: com o framing "ache problemas",
+> todos os braços (baseline incluso) super-detectaram, inventando violações e criticando
+> práticas boas; é a **forma de abstenção** que corrige o falso-positivo
+> ([R8](../lab/2026-06-04-strata-hipoteses/RESULTADOS-r8-sintese-3-projetos.md), reinterpretado
+> em 2026-06-13; [braço externo](../lab/2026-06-04-strata-hipoteses/RESULTADOS-externo-bemcomportado.md)).
+> Circularidade residual: a auditoria rica de qualidade em projeto de terceiro ainda não tem
+> gabarito independente e cobre um só gênero. Use a tabela para escolher modelo em **tarefas
+> controladas** (conserto, armadilha, abstenção); trate auditoria de projeto real como
+> rascunho para um humano.
 
 ## Decisão rápida: o que usar (grade 2026-08)
 
@@ -25,7 +41,7 @@ Duas regras de ouro antes de qualquer modelo:
 |---|---|---|
 | **rodar local (GPU de consumo)** | **qwen3:14b** (cabe inteiro numa 3060 12GB) · **qwen3.6:27b** | o 14b é o prático do dia a dia; o 27b **satura** (conserta **e** se abstém), mas é lento (~22 min/run com offload) |
 | **pagar pouco na nuvem** | **gpt-5-mini** (piso pago OpenAI) · **haiku-4.5** · **deepseek-v4-pro** | executam o conserto no padrão; o gpt-5-mini também recusa injeção espontaneamente e, com web, verifica fonte |
-| **o máximo, custe o que custar** | **opus-5** · **fable-5** | conserto e armadilha perfeitos **e** saturam a abstenção (§9): os únicos medidos nos dois lados do topo |
+| **o máximo, custe o que custar** | **opus-5** · **fable-5** | conserto e armadilha perfeitos **e** saturam a abstenção (§9): os únicos medidos nos dois lados do topo, e os únicos aptos à **auto-auditoria autônoma** |
 | **topo sem pagar o teto** | sonnet-5 · gpt-5.6-terra · gemini-3.1-pro | conserto e armadilha perfeitos; a abstenção varia por modelo |
 | **NÃO usar para isto** | llama-4-scout · local <4B | o scout falhou o conserto da armadilha 2/2 e propagou o payload; abaixo de ~4B nem o formato sai |
 

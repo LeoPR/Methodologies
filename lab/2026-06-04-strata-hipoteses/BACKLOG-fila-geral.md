@@ -31,9 +31,13 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   início do script do piloto; sonnet-5 com
   thinking = 100% INDETERMINADO-TRUNCADO a 6000 tokens (exige orçamento maior ou thinking
   desligado); próxima rodada de idioma precisa K≥7 para a margem de ±10pp.
-- **Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
+- ~~**Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
   **circularidade** no **topo** de todo relatório/recipe de uso (não em "abertos"). **Recalibrar
-  `recipe/strata-com-ia.pt-BR.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.
+  `recipe/strata-com-ia.pt-BR.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.~~
+  **FEITO (2026-08-03):** o par `recipe/strata-com-ia.{en,pt-BR}.md` ganhou a 3ª regra de ouro
+  (auto-auditoria autônoma só com topo; médios/baratos = checklist + humano), o bloco "onde a
+  evidência vale" no topo (R8 reinterpretado + circularidade residual, com ponteiros) e a linha
+  do topo da tabela marcando opus-5/fable-5 como os únicos aptos à auto-auditoria autônoma.
   *(O R8 era "o achado mais importante do reteste" e quase não aparecia na opinião de uso, o over-claim mais sério após a tese-mãe.)*
 - **Braço EXTERNO (abstenção FEITA, auditoria rica ABERTA):** a abstenção já rodou em **6 repos open-source de
   terceiros** (tomli/slugify/humanize/mlscratch/pytorchgan/ml3months) + projetos publicados (FG2P, com artigo):

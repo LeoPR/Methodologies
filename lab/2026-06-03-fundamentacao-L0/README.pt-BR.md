@@ -2,10 +2,15 @@
 title: Fundamentação do núcleo atemporal (L0) — revisão de literatura
 status: closed
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-08-02
 tags: [knowledge-architecture, L0, literature-review, fontes-primarias, auto-revisao]
 outcome: confirmed
 ---
+
+<!-- l10n: doc_id=lab-fundamentacao-l0-readme · lang=pt-BR · source_lang=en · translation_of=README.en.md -->
+[English](README.en.md) · **Português**
+
+> Tradução de [`README.en.md`](README.en.md). Se houver divergência, o original em inglês prevalece.
 
 # Fundamentação do núcleo atemporal (L0) — revisão de literatura
 

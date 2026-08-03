@@ -1,3 +1,8 @@
+<!-- l10n: doc_id=eval-readme · lang=pt-BR · source_lang=en · translation_of=README.en.md -->
+[English](README.en.md) · **Português**
+
+> Tradução de [`README.en.md`](README.en.md). Se houver divergência, o original em inglês prevalece.
+
 # `eval/` — laboratório de PROVA (a "chave de fenda")
 
 Ferramentas executáveis que **comprovam** se uma metodologia funciona. **Não** são a
@@ -18,7 +23,7 @@ metodologia nem o foco.
 ## Estrutura
 
 - `strata/` — prova do Strata: runner multi-modelo, scorers, fixtures, cenários, `planos/`.
-  Ver [`strata/README.md`](strata/README.md).
+  Ver [`strata/README.pt-BR.md`](strata/README.pt-BR.md).
 - `comporta/` — (futuro) prova do Comporta (ex.: `detect_env` + cenários de ambiente).
 
 ## Regra de classificação (de `strata/RASTREAMENTO-E-MELHORIA.md`)

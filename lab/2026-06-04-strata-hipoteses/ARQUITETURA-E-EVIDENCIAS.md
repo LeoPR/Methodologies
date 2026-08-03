@@ -375,7 +375,7 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   Parte IV" era o próximo número livre à época; hoje seria ADR-009) e **ADR-005** (a escada
   1-2-4 ganha o **Nível 3 = guarda mecânica leve**, adotado de fato: `check_stamps`/`check_l10n`).
   `eval/strata/RASTREAMENTO-E-MELHORIA.md` marcado **superseded** (referia instrumentos da 1ª
-  geração, tombados em `_superseded/`; referência atual de retomada = `eval/strata/README.md`).
+  geração, tombados em `_superseded/`; referência atual de retomada = `eval/strata/README.pt-BR.md`).
 - **2026-08-02** — **Reteste do L0 fechado + Degrau 3 (agente com ferramentas).** Rodada dirigida
   contra o L0 fechado (2026-08-01), grade de estratos de acesso × escala de capacidade, gold
   mecânico + júri cross-vendor (números e roster: [`OPINIAO-DE-USO`](OPINIAO-DE-USO.md); diário:

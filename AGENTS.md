@@ -51,7 +51,7 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     `ARQUITETURA-E-EVIDENCIAS.md` (estado datado + histórico append-only); backlog em
     `BACKLOG-fila-geral.md`; auditoria do que envelheceu em `REVISAO-RETROATIVA.md`. Os `RESULTADOS-*.md`
     são os registros por fase (alguns superseded — siga o hub, não conclusões soltas). O HARNESS que gerou
-    isso mora em `eval/strata/` (ver `eval/strata/README.md`). *Assinatura: econômico over-age / topo calibra /
+    isso mora em `eval/strata/` (ver `eval/strata/README.pt-BR.md`). *Assinatura: econômico over-age / topo calibra /
     forma padroniza — sinal, não prova (sintético, completion-only).*
   - `2026-06-06-comprovacao-forte-strata/`: plano de comprovação (gates) — **SUPERSEDED** pela consolidação
     em `strata-hipoteses` (mantido como registro).
@@ -63,7 +63,7 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   nem o foco; reutilizavel entre metodologias). `strata/` = harness do Strata (runner
   multi-modelo, scorers, fixtures, cenarios, `RASTREAMENTO-E-MELHORIA.md`); `*/planos/` =
   saidas brutas **gitignored** (projetos reais sao PRIVADOS). Regra: toda execucao e'
-  `evidencia|instrumento|infra`. Ver `eval/README.md`.
+  `evidencia|instrumento|infra`. Ver `eval/README.pt-BR.md`.
 - `prototype/` — placeholder (testar a receita em escala; futuro).
 - `outreach/` — **APOIO** (comunicacao/divulgacao: posts, imagens). Fora dos 3 territorios de
   artefato (e do `decisions/`); nao e produto, pesquisa nem ferramenta. Nao publica metrica nova.

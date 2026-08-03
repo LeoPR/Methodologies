@@ -2,9 +2,14 @@
 title: Hipóteses abertas do Strata — código-como-documento + aferição de compreensão por IA
 status: open
 created: 2026-06-04
-updated: 2026-06-08
+updated: 2026-08-02
 tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-metodo, ai-native, temporalidade]
 ---
+
+<!-- l10n: doc_id=lab-strata-hipoteses-readme · lang=pt-BR · source_lang=en · translation_of=README.en.md -->
+[English](README.en.md) · **Português**
+
+> Tradução de [`README.en.md`](README.en.md). Se houver divergência, o original em inglês prevalece.
 
 # Hipóteses abertas do Strata
 
@@ -12,6 +17,7 @@ tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-me
 > entre por **[`OPINIAO-DE-USO.md`](OPINIAO-DE-USO.md)** (porta de entrada) e pelo hub
 > **[`ARQUITETURA-E-EVIDENCIAS.md`](ARQUITETURA-E-EVIDENCIAS.md)** (estado datado + histórico). Backlog em
 > [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md); o que envelheceu em [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md).
+> **Não leia conclusões soltas** de `RESULTADOS-*` individuais — alguns estão superseded; siga o hub.
 > *Este README é o índice ORIGINAL de hipóteses (H-A..H-D); H-A e H-C seguem conceituais/não-executadas.*
 
 > Hipóteses de refinamento/validação do Strata, registradas para discutir e testar depois.

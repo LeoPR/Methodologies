@@ -1,9 +1,14 @@
 ---
 title: 'eval/strata — harness de prova do Strata (pipeline VIVO)'
 created: 2026-06-05
-updated: 2026-06-14
+updated: 2026-08-02
 status: 'ativo. Substitui o doc "H-B kit" (arco antigo lumen/matrix, refutado pela AUDITORIA-2026-06-07 → _superseded/).'
 ---
+
+<!-- l10n: doc_id=eval-strata-readme · lang=pt-BR · source_lang=en · translation_of=README.en.md -->
+[English](README.en.md) · **Português**
+
+> Tradução de [`README.en.md`](README.en.md). Se houver divergência, o original em inglês prevalece.
 
 # eval/strata — como a evidência do Strata é produzida
 

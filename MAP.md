@@ -6,12 +6,12 @@ created: 2026-06-03
 updated: 2026-08-02
 ---
 
-# Methodologies — mapa
+# Methodologies: mapa
 
 ```
 Methodologies/                        <- Oficina de metodologias (Strata pronto; Comporta no forno)
 ├── recipe/
-│   ├── knowledge-architecture.en.md  <- PRODUTO Strata, FONTE CANÔNICA (L0/L1/L2; L0 fechado 2026-08-01, v1.2.0)
+│   ├── knowledge-architecture.en.md  <- PRODUTO Strata, FONTE CANÔNICA (L0/L1/L2; L0 fechado 2026-08-01, v1.2.1)
 │   ├── knowledge-architecture.md     <- tradução pt-BR derivada do canônico EN
 │   ├── README.md                     <- guia de uso do Strata (humano + IA; efêmero; pendências)
 │   ├── strata-com-ia.md              <- guia prático "funciona no meu ambiente? sai caro?"
@@ -35,14 +35,14 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   ├── 2026-06-04-economia-ia-tokens/    <- COMPORTA (2ª metodologia): economia/roteamento de recursos de IA
 │   ├── 2026-06-04-dev-environment-z/     <- metodologia Z:\ python/venv/cache (snapshot p/ estudo)
 │   ├── 2026-06-04-strata-hipoteses/      <- IDEIAS + EVIDÊNCIA do Strata. ENTRADA: OPINIAO-DE-USO.md (opinião honesta) · hub ARQUITETURA-E-EVIDENCIAS.md · BACKLOG-fila-geral.md · REVISAO-RETROATIVA.md · RESULTADOS-*.md
-│   └── 2026-06-06-comprovacao-forte-strata/ <- plano de comprovação (gates G1-G6) — SUPERSEDED pela consolidação em strata-hipoteses
-│   └── 2026-08-01-fechamento-camadas/  <- CICLO P1–P5 que FECHOU o L0 (régua axiomática; §11, §6-bis+ver, persona, âncoras L1) — decisões datadas por parte
-│   └── 2026-08-02-reteste-L0-fechado/  <- RETESTE do L0 fechado (grade de estratos × capacidade; Degrau 3 agente) — PLANO.md + NOTAS-shakedown.md (diário)
+│   └── 2026-06-06-comprovacao-forte-strata/ <- plano de comprovação (gates G1-G6); SUPERSEDED pela consolidação em strata-hipoteses
+│   └── 2026-08-01-fechamento-camadas/  <- CICLO P1–P5 que FECHOU o L0 (régua axiomática; §11, §6-bis+ver, persona, âncoras L1); decisões datadas por parte
+│   └── 2026-08-02-reteste-L0-fechado/  <- RETESTE do L0 fechado (grade de estratos × capacidade; Degrau 3 agente): PLANO.md + NOTAS-shakedown.md (diário)
 ├── eval/                             <- LABORATÓRIO DE PROVA (a "chave de fenda": comprova; NÃO é a metodologia, NÃO é o foco)
 │   ├── README.md                     <- princípio (meio≠fim) + 3 territórios + regra evidencia/instrumento/infra
 │   └── strata/                       <- harness do Strata: runner, scorers, fixtures, cenários + planos/ (gitignored)
 ├── prototype/                        <- cozinha prototipo (escala; futuro)
-├── outreach/                         <- APOIO: comunicação/divulgação (posts, imagens) — fora dos 3 territórios de artefato
+├── outreach/                         <- APOIO: comunicação/divulgação (posts, imagens); fora dos 3 territórios de artefato
 ├── README.md                         <- entry humano (as 3 cozinhas)
 ├── AGENTS.md                         <- entry IA
 ├── MAP.md                            <- este arquivo

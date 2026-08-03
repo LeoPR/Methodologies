@@ -1,7 +1,7 @@
 ---
 title: 'Dossiê: justificativa científica do LLM-as-judge no Strata'
 created: 2026-06-16
-updated: 2026-06-20
+updated: 2026-08-02
 status: 'REGISTRO — argumento + plano para defender o judge (literatura + evidência interna). Krippendorff α FEITO (2026-06-20); falta o restante dos gráficos/testes da §6.'
 nota: 'Âncoras internas (F0/R6/F4/P1P2, scripts) conferidas por existência. Citações de literatura a reconferir antes de uso EXTERNO (publicação).'
 ---
@@ -13,6 +13,14 @@ nota: 'Âncoras internas (F0/R6/F4/P1P2, scripts) conferidas por existência. Ci
 > `RESULTADOS-p1p2-anv3.md`, `GABARITO-genero-temporal-own.md`; scripts `eval/strata/compare_judges_ladder.py`,
 > `eval/strata/verify_f4.py`; definição de método em `GLOSSARIO.md` e `ARQUITETURA-E-EVIDENCIAS.md`.
 > Tudo abaixo é sinal/direção forte, não prova. Regime completion-only, N pequeno. Ver caveats no fim.
+>
+> **Como ler os códigos deste registro.** F0, F3, F4 e R6 são rodadas de experimento,
+> cada uma com registro próprio em `RESULTADOS-*.md` (índice no hub
+> `ARQUITETURA-E-EVIDENCIAS.md`): F0 é o confronto de juízes, F3 a auditoria de plano,
+> F4 a execução do conserto e R6 a rodada do segundo juiz. P1..P7 são os problemas do
+> gabarito de auditoria. NNN é o projeto real anonimizado usado como fixture; AN-v2 e
+> AN-v3 são versões da forma "AI-native" do Strata; GOLD é o gabarito mecânico, a regra
+> objetiva que confere sem LLM. Siglas estatísticas são abertas no primeiro uso.
 
 ## 1. A pergunta científica e a crítica que ela responde
 
@@ -50,7 +58,7 @@ dados, subdeterminação, limites de decidibilidade, júri sob dependência, fal
 ## 2. O argumento do ideal-regulativo (com a literatura de medida)
 
 ### 2.1 O ideal é guia, não meta atingível
-Em Kant (via SEP, Williams 2023), princípios **regulativos** orientam a investigação sem garantir nada sobre os objetos.
+Em Kant (via Stanford Encyclopedia of Philosophy, Williams 2023), princípios **regulativos** orientam a investigação sem garantir nada sobre os objetos.
 A unidade/objetividade da ciência é norte, não ponto de chegada — porque a experiência é sempre finita.
 Aplicado aqui: "julgamento perfeito" guia o trabalho; o progresso é **afastamento do erro reconhecido**, não toque no absoluto.
 
@@ -58,7 +66,7 @@ Aplicado aqui: "julgamento perfeito" guia o trabalho; o progresso é **afastamen
 Humanos discordam.
 Em tarefas subjetivas, a discordância é **sinal**, não só ruído (Aroyo & Welty, 2015 — *crowd truth*: o ground-truth é distribucional).
 Juízes LLM fortes batem ~80%+ de concordância com preferências humanas em MT-Bench/Chatbot Arena — o **mesmo patamar** da concordância humano-humano (~81%; GPT-4 vs humano ~85%) (Zheng et al., 2023).
-Em NLG, o juiz LLM com chain-of-thought correlaciona Spearman 0.514 com humanos, batendo BLEU/ROUGE (Liu et al., G-Eval, 2023).
+Em NLG (geração de linguagem natural), o juiz LLM com chain-of-thought correlaciona Spearman 0.514 com humanos, batendo as métricas automáticas clássicas (BLEU/ROUGE) (Liu et al., G-Eval, 2023).
 A régua justa, portanto, é o **piso de ruído humano-humano**, não um avaliador perfeito.
 
 ### 2.3 Validade e confiabilidade são erros distintos — e ambos se caracterizam
@@ -71,7 +79,7 @@ Confiabilidade é necessária, não suficiente.
 Validar é **investigação científica sobre o significado do escore**, não consulta a um critério único (Cronbach & Meehl, 1955; Messick, 1995 — validade de construto como conceito unificado, num processo aberto e provisório).
 
 ### 2.4 O erro caracterizado é, ele próprio, um resultado
-Na metrologia (GUM/JCGM 100:2008), um resultado **só está completo com sua incerteza declarada**.
+Na metrologia, o Guia de Incerteza de Medição (GUM/JCGM 100:2008) estabelece que um resultado **só está completo com sua incerteza declarada**.
 Viés entra como termo de correção no modelo; até correção zero carrega incerteza residual.
 Logo, **mapear o tamanho, a direção e a estrutura do erro é um resultado científico** — não um defeito a esconder.
 
@@ -80,7 +88,7 @@ Números altos não bastam.
 Correlação mede relação relativa, não acordo absoluto: um juiz pode correlacionar bem e ainda ser sistematicamente severo/leniente (*Judge's Verdict*, 2025).
 Kappa é instável sob desbalanceamento (paradoxo do kappa; Zapf et al., 2016; McHugh, 2012).
 Medidas corrigidas por acaso são preferíveis; Krippendorff (2004) sugere α ≥ 0.800 para confiar, 0.667-0.800 só para preliminar — heurísticas, não leis.
-Calibração é eixo **ortogonal** à concordância: mede se a confiança declarada bate com a acurácia (ECE; Guo et al., 2017). LLMs com RLHF tendem à superconfiança (Tian et al., 2023; Leng et al., 2024).
+Calibração é eixo **ortogonal** à concordância: mede se a confiança declarada bate com a acurácia (o erro esperado de calibração, ECE; Guo et al., 2017). LLMs ajustados por feedback humano (RLHF) tendem à superconfiança (Tian et al., 2023; Leng et al., 2024).
 
 **Fio condutor.** Porque a medida perfeita é ideal regulativo, o trabalho científico desloca-se de "acertar o alvo" para "caracterizar quão perto se está e em que direção se erra". É exatamente o que os eixos abaixo fazem.
 
@@ -92,13 +100,13 @@ Fornecedores diferentes erram de modos **menos** dependentes — mas não indepe
 Se juízes de empresas distintas **divergem**, é uma chamada dependente-de-julgamento, sinal de baixar a confiança.
 Se **convergem**, fica descartada a auto-avaliação pura, e o self-preference bias é mitigado — mas **convergência não é correção** (ver caveat de erro correlacionado abaixo).
 A convergência cross-vendor é, portanto, **proxy fraco de independência**, não garantia de acerto.
-Isso ataca o **self-preference bias** — o juiz favorecer a própria saída (Zheng et al., 2023; Panickssery et al., 2024) — e segue a mitigação canônica de **júri cross-vendor** (Verga et al., PoLL, 2024). Essas citações valem para a *mitigação de viés*, não para "consenso = qualidade".
+Isso ataca o **self-preference bias** — o juiz favorecer a própria saída (Zheng et al., 2023; Panickssery et al., 2024) — e segue a mitigação canônica de **júri cross-vendor**, o painel de juízes de fornecedores distintos (Verga et al., 2024, o painel PoLL). Essas citações valem para a *mitigação de viés*, não para "consenso = qualidade".
 
 Caveat — erro correlacionado cross-família (literatura 2025-2026, [RESULTADOS-confronto-literatura.md](RESULTADOS-confronto-literatura.md)).
 A diversidade de fornecedor **reduz, mas não elimina**, o erro compartilhado.
 Em painel de 9 juízes / 7 famílias, a independência efetiva é só **~2,18 votos** e os pares mais correlacionados são **cross-família** (Kohli/Apple, 2026, arXiv:2605.29800).
 O erro correlacionado **cresce com a acurácia**, mesmo entre fornecedores distintos (Kim et al., ICML 2025, arXiv:2506.07962).
-Isto é coerente com a nossa própria Fase B: dois juízes seguem concordando (κ = 0,600) **nas respostas erradas** sem o gabarito ([RESULTADOS-juiz-sem-gabarito.md](RESULTADOS-juiz-sem-gabarito.md)). Quem revela o acerto é o **gold mecânico**, não o consenso.
+Isto é coerente com a nossa própria Fase B: dois juízes seguem concordando (κ de Cohen = 0,600) **nas respostas erradas** sem o gabarito ([RESULTADOS-juiz-sem-gabarito.md](RESULTADOS-juiz-sem-gabarito.md)). Quem revela o acerto é o **gold mecânico**, não o consenso.
 
 Evidência interna (F0, `RESULTADOS-f0-confronto-juizes.md`; script `eval/strata/compare_judges_ladder.py`).
 > **Snapshot de juízes 2026-06-04 (L2 datado).** A escada abaixo nomeia modelos da época do F0
@@ -118,7 +126,7 @@ OpenAI-small (nano/mini/4.1-mini) são **lenientes** — cegos ao erro. Não usa
 Concordância em regime real (R6, `RESULTADOS-r6-2o-juiz.md`).
 2º juiz não-Claude (gpt-4.1-mini) re-pontua cego 63 planos.
 **Ordenação e deltas idênticos:** AN > prosa > baseline com os dois juízes (det_found: baseline 3.43/4.62; prosa 4.24/5.43; AN-v2 5.67/6.52; AN−prosa +1.43/+1.09; prosa−baseline +0.81 em ambos).
-A **divergência é de magnitude, não direção**: MAE(det_found)=1.14 na escala 0-7; viés de leniência ~1 ponto.
+A **divergência é de magnitude, não direção**: o erro absoluto médio entre os dois juízes (MAE, em det_found) é 1.14 na escala 0-7; viés de leniência ~1 ponto.
 Concordância "found" por problema: P1 0.94, P7 0.90, P4 0.89, P5 0.86, P6 0.76, P3 0.71, P2 0.56 — **alta nos gates críticos** (conflito/fail-open/honestidade), baixa nos "moles" (datas, readme).
 **Lição transversal:** reportar deltas e ordenação, **nunca absolutos** como verdade.
 
@@ -212,8 +220,8 @@ Os três eixos da §3 são a instância concreta dessas mitigações no Strata.
 - **Swap/randomização de ordem** com métricas de position consistency (Shi et al., 2024) nas tarefas de par.
 - **Júri cross-vendor formal (PoLL)** nas células decisivas hoje com juiz único (abstenção §9, reteste-limpo, faixa ecológica).
 - **ECE do juiz** com confiança verbalizada + temperature scaling (Tian et al., 2023).
-- **Replicar F0 contra IAA humano** num subconjunto: comparar kappa juiz-vs-humano com kappa humano-vs-humano (régua justa, Zheng et al., 2023).
-- **N ≥ 5** nas células-âncora; reportar pass@k vs pass^k (ADR-006).
+- **Replicar F0 contra concordância humana** num subconjunto: comparar o kappa juiz-vs-humano com o kappa humano-vs-humano, a régua justa (Zheng et al., 2023).
+- **N ≥ 5** nas células-âncora; reportar pass@k (acerta em pelo menos uma de k tentativas) vs pass^k (acerta em todas), conforme o ADR-006.
 - **Braço de terceiros** com gabarito pré-registrado e juiz cego ao Strata (quebra de circularidade).
 - **GOLD self-test periódico** sobre fixtures de hash congelado (detecta drift do verificador).
 

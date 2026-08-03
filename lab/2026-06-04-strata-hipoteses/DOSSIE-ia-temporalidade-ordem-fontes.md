@@ -1,6 +1,7 @@
 ---
 title: Dossiê (IDEIA, para estudar depois) — por que IAs falham com temporalidade, ordem, fonte primária e organização de pesquisa
 created: 2026-06-09
+updated: 2026-08-02
 status: REGISTRO de ideia/hipótese. NÃO executado. Subsume e amplia a [[H-D temporalidade]]. Estudar adiante.
 tags: temporalidade, ordem, fonte-primaria, organizacao-pesquisa, dossie, hipotese
 ---
@@ -43,10 +44,11 @@ Esses quatro podem ter **raiz comum** — não são quatro bugs avulsos. Candida
 
 ## A evidência que JÁ temos (ponteiros — não repetir aqui)
 
-- **H-D** ([README.md](README.md), seção H-D) + [RESULTADOS-r8-sintese-3-projetos.md](RESULTADOS-r8-sintese-3-projetos.md)
+- **H-D**, a hipótese "datas" (modelos tratam o histórico como problema atual;
+  [README.md](README.md), seção H-D) + [RESULTADOS-r8-sintese-3-projetos.md](RESULTADOS-r8-sintese-3-projetos.md)
   (e [RESULTADOS-r8-projeto-real.md](RESULTADOS-r8-projeto-real.md)): em projeto real, os modelos
   tratam o **superado/histórico como problema atual** (falso-positivo temporal).
-- [VIZ-capacidade-por-secao.md](VIZ-capacidade-por-secao.md) (P4): a seção **§3/§8 (datas/história)
+- [VIZ-capacidade-por-secao.md](VIZ-capacidade-por-secao.md) (fase P4 da escada de auditoria): a seção **§3/§8 (datas/história)
   é o ponto cego de longe** (~33%, a mais fraca) — em todos os modelos.
 - [RESULTADOS-p7-camadas-entender-aplicar.md](RESULTADOS-p7-camadas-entender-aplicar.md): na
   **verificação de fonte/conhecimento (§6/L1)**, o modelo médio erra confiante e o pequeno admite
@@ -59,13 +61,13 @@ Esses quatro podem ter **raiz comum** — não são quatro bugs avulsos. Candida
 ## Perguntas de pesquisa (para quando estudarmos)
 
 - A temporalidade melhora com (a) **datas explícitas + instrução de situar** (vimos ganho
-  parcial), (b) **ferramentas/pesquisa** (liga ao eixo-pesquisa, F5 do roadmap), (c) **escala/
-  capacidade** — ou é **fundamental** da arquitetura (não some no topo)?
+  parcial), (b) **ferramentas/pesquisa** (liga ao eixo-pesquisa, a frente F5 do roadmap),
+  (c) **escala/capacidade** — ou é **fundamental** da arquitetura (não some no topo)?
 - Os 4 problemas têm **raiz comum** (H-r1..r5) ou são distintos? Desenhar para **separá-los**.
 - **Benchmark de confusão temporal** (a fixture H-D já registrada): artefatos datados, alguns
   superados, com a armadilha "nome-simples = velho / cópia = novo" — isola o eixo.
-- **Modo longitudinal** (F6 do roadmap): reauditar um corpus que **mudou** — o teste natural de
-  ordem-no-tempo, ausente da escada single-shot.
+- **Modo longitudinal** (a frente F6 do roadmap, temporalidade/longitudinal): reauditar um
+  corpus que **mudou** — o teste natural de ordem-no-tempo, ausente da escada single-shot.
 
 ## Por que importa para o Strata
 

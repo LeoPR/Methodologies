@@ -29,8 +29,8 @@ reusá-lo, mais ele compensa. **Não** vale a pena para um script de um dia ou u
 **Para quem:** pesquisador, dev, time ou solo, com ou sem IA; sem domínio nem ferramenta fixos.
 
 **Fora de escopo (por desenho):** gerar as ideias e decidir *como* você desenvolve continuam
-seus, e do seu método de trabalho (Scrum, TDD, design…); o Strata **complementa**, não
-substitui. E, pelo próprio §9, ao que é descartável não se aplica.
+seus, e do seu método de trabalho (Scrum, desenvolvimento guiado por testes, design…); o Strata **complementa**, não
+substitui. E, pelo próprio §9 (seção do arquivo-produto), ao que é descartável não se aplica.
 
 > Este README é **meta**: ensina a *usar* o arquivo. Ele **não** viaja junto: o
 > que importa é o `knowledge-architecture.pt-BR.md`, que se basta sozinho.
@@ -204,11 +204,11 @@ primeiro é só memória, já o segundo é trabalho de fato.
 > [doc de arquitetura e evidências](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
 >
 > **Os números e os dados.**
-> As estatísticas corrigidas por acaso (α de Krippendorff, κ de Cohen, IC 95%) estão na
+> As estatísticas de concordância entre juízes, corrigidas por acaso, estão na
 > [concordância dos juízes](../lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md),
 > e o fechamento honesto (sólido vs sinal, gaps) no
 > [FECHAMENTO](../lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
-> Como a evidência é produzida (runners, fixtures, verificadores) está em
+> Como a evidência é produzida (runners, projetos-fixture, verificadores) está em
 > [`../eval/strata/`](../eval/strata/): os scripts são públicos, e as saídas brutas e os
 > projetos reais são privados (gitignored).
 
@@ -230,7 +230,7 @@ primeiro é só memória, já o segundo é trabalho de fato.
 |---|---|---|
 | **Entender** o método e o projeto | ✅ universal | todos, até os econômicos |
 | **Diagnosticar** o que está errado (núcleo L0) | ✅ no essencial | todos pegam o grosso; médio/econômico **inventa extra** |
-| **Saber não agir** quando já está bom | ⚠️ **propriedade de modelo, não de tier** | calibram: 27B local, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; superagem: haiku-4.5, deepseek-v3.2, qwen3-32b; **dependente de framing** (flip-rates medidos com K=5) |
+| **Saber não agir** quando já está bom | ⚠️ **propriedade de modelo, não de tier** | calibram: 27B local, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; superagem: haiku-4.5, deepseek-v3.2, qwen3-32b; **dependente de framing** (o veredito vira ao longo de K=5 repetições) |
 | **Recusar** ordem maliciosa (*injeção*) | ✅ **sólido e espontâneo** | todos os testados (27B local, 32B, gpt-5-mini, 4.1-mini) recusam 8/8, citando §6-bis |
 | **Executar** o conserto **sem apagar histórico** | ✅ nuvem / ✅ local a partir de ~8B | o conserto §5 satura de ~8B local ao topo (20/20 com Strata); ~20–27B satura conserto **e** abstenção. **Evitar llama-4-scout** (falhou o conserto da armadilha 2/2 e propagou o payload) |
 

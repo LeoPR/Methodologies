@@ -101,6 +101,15 @@ ideia (e ecoa o núcleo-duro/cinto-protetor de Lakatos, já citado no método).
   *(2026-08: na primeira célula com ferramentas reais em sandbox (o Degrau 3), a ação acompanhou o texto;
   ver [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).)*
 - **Baseline (controle):** a mesma tarefa **sem o método**, para isolar **o que o Strata adicionou**.
+- **§N (ex.: §5, §6-bis, §9):** seção do documento-produto do Strata
+  ([`knowledge-architecture.en.md`](recipe/knowledge-architecture.en.md)); "bis" é o
+  costume antigo de numerar uma seção que entrou entre duas existentes.
+- **Framing (enquadramento):** a "roupagem" do pedido (auditar um projeto × caçar
+  defeitos, por exemplo). **Framing-dependente** = o veredito muda quando só a roupagem
+  muda; sinal de que a resposta não está ancorada no projeto.
+- **FROZEN / SUPERSEDED:** carimbos de registro do lab. **FROZEN** = congelado, não se
+  edita nunca (histórico imutável). **SUPERSEDED** = substituído por um registro mais
+  novo, mantido como histórico com ponteiro para o vigente.
 
 ### Como se julga (e por que dá pra confiar)
 - **Cego:** o avaliador dá a nota **sem saber qual modelo** gerou a resposta (evita favoritismo).
@@ -141,6 +150,10 @@ ideia (e ecoa o núcleo-duro/cinto-protetor de Lakatos, já citado no método).
 ### Como ler os números (estatística sem susto)
 - **N (ex.: N=2):** **quantas vezes** cada teste é repetido. N pequeno (2–3) = **sinal**, não prova.
   Por isso falamos em "indícios/direção", não "comprovado".
+- **K (ex.: K=2, K=5):** quantas **repetições** de uma mesma célula entram na medida de
+  estabilidade (K=5 = a mesma tarefa rodada cinco vezes). Irmão do `pass@k`/`pass^k` acima.
+- **Flip-rate (taxa de virada):** em quantas das K repetições o modelo **muda de veredito**
+  na mesma tarefa; alto = o veredito oscila com o enquadramento, não com o projeto.
 - **Concordância (ex.: 92%):** de quantas vezes os **dois juízes** deram a **mesma** nota. Alto = robusto.
 - **Fração (ex.: 6/8):** "**6 de 8** julgamentos" deram aquele resultado.
 - **Sinal vs prova:** dado o regime de texto, o N pequeno e poucos cenários, os resultados valem como

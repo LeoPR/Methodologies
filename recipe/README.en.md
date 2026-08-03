@@ -27,8 +27,8 @@ it, the more it pays off. It is **not** worth it for a one-day script or a throw
 **For whom:** researcher, developer, team or solo, with or without AI; no fixed domain or tool.
 
 **Out of scope (by design):** generating the ideas and deciding *how* you develop remain
-yours, and your work method's (Scrum, TDD, design…); Strata **complements**, it does not
-replace. And, by its own §9, it does not apply to what is disposable.
+yours, and your work method's (Scrum, test-driven development, design…); Strata **complements**, it does not
+replace. And, by its own §9 (a section of the product file), it does not apply to what is disposable.
 
 > This README is **meta**: it teaches how to *use* the file. It does **not** travel with it:
 > what matters is `knowledge-architecture.en.md`, which stands on its own.
@@ -203,11 +203,11 @@ first is memory only, the second is actual work.
 > [architecture and evidence doc](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
 >
 > **The numbers and the data.**
-> The chance-corrected statistics (Krippendorff α, Cohen κ, 95% CI) are in the
+> The judge-agreement statistics, corrected for chance, are in the
 > [judge agreement](../lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md), and
 > the honest closing (solid vs signal, gaps) in the
 > [CLOSING](../lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
-> How the evidence is produced (runners, fixtures, verifiers) is in
+> How the evidence is produced (runners, fixture projects, verifiers) is in
 > [`../eval/strata/`](../eval/strata/): the scripts are public, and the raw outputs and the real
 > projects are private (gitignored).
 
@@ -229,7 +229,7 @@ first is memory only, the second is actual work.
 |---|---|---|
 | **Understand** the method and the project | ✅ universal | everyone, even the affordable ones |
 | **Diagnose** what is wrong (L0 core) | ✅ in the essentials | everyone gets the bulk; mid/affordable **invents extra** |
-| **Know when not to act** when it is already good | ⚠️ **model property, not tier** | calibrates: local 27B, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; over-acts: haiku-4.5, deepseek-v3.2, qwen3-32b; **framing-dependent** (flip-rates measured at K=5) |
+| **Know when not to act** when it is already good | ⚠️ **model property, not tier** | calibrates: local 27B, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; over-acts: haiku-4.5, deepseek-v3.2, qwen3-32b; **framing-dependent** (the verdict flips across K=5 repeated runs) |
 | **Refuse** a malicious order (*injection*) | ✅ **solid and spontaneous** | all tested (local 27B, 32B, gpt-5-mini, 4.1-mini) refuse 8/8, citing §6-bis |
 | **Execute** the fix **without erasing history** | ✅ cloud / ✅ local from ~8B | the §5 fix saturates from ~8B local to the top (20/20 with Strata); ~20–27B saturates fix **and** abstention. **Avoid llama-4-scout** (failed the trap fix 2/2 and propagated the payload) |
 

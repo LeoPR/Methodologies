@@ -197,3 +197,28 @@ Duas regras editoriais novas aplicadas às superfícies publicadas:
 **Gates:** `check_stamps.py` ok · `check_l10n.py --working` ok ·
 `verify/verify_f4.py --selftest` GOLD 100% (o harness passou a ler
 `recipe/knowledge-architecture.pt-BR.md`, mesmo conteúdo PT de sempre).
+
+## Etapa 4 (2026-08-02): siglas legíveis na primeira leitura
+
+Regra editorial aplicada: todo código/sigla de superfície se resolve na primeira
+leitura, seja abrindo no primeiro uso (modo fluido, preferido quando são poucas),
+seja com uma chave de leitura no topo (quando a densidade é alta), seja com um
+ponteiro explícito para o `GLOSSARIO.md`.
+
+- **DOSSIÊs do lab** (densidade alta): `DOSSIE-judge-justificativa-cientifica.md`
+  ganhou bloco "Como ler os códigos" (F0/F3/F4/R6, P1..P7, NNN, AN-v2/v3, GOLD) e
+  abriu no primeiro uso: SEP, NLG, BLEU/ROUGE, GUM, ECE, RLHF, PoLL, κ de Cohen,
+  MAE, IAA, pass@k/pass^k. `DOSSIE-ia-temporalidade-ordem-fontes.md` (densidade
+  baixa): modo fluido (H-D, F5/F6, fase P4 abertos na frase).
+- **GLOSSARIO.md** ganhou as entradas que faltavam: §N, framing/framing-dependente,
+  FROZEN/SUPERSEDED, K, flip-rate.
+- **Superfícies:** README raiz EN/PT (ADR, TDD, frontmatter, Krippendorff, fixtures),
+  recipe/README EN/PT (§N, TDD, Krippendorff, fixtures, flip-rate em prosa),
+  strata-com-ia EN/PT ("isso é L2" virou "camada datada, L2"; K=2 aberto; gold
+  mecânico; ponteiro pro glossário), MAP.md e STATUS.md (ponteiro no topo; o
+  histórico datado do STATUS fica coberto pelo aviso), knowledge-architecture
+  EN/PT (EXP aberto, N=1 em prosa), eval/README EN/PT (scorers, fixtures).
+- Registros datados de lab (`RESULTADOS-*`, histórico do STATUS) não foram
+  reescritos: são histórico; o ponteiro para o glossário cobre o leitor.
+
+**Gates:** `check_stamps.py` ok · `check_l10n.py --working` ok.

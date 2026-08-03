@@ -207,7 +207,7 @@ um agente. Cada uma carrega sua etiqueta (a forma da etiqueta é L2).
 > (*Developing Time-Oriented Database Applications in SQL*, Morgan Kaufmann).
 >
 > Instância de era `[2026-06]`: a rastreabilidade legível deixa um leitor-IA
-> situar o tempo (sinal, N=1): `lab/2026-06-04-strata-hipoteses/RESULTADOS-f6-temporal-sem-marcadores.md`.
+> situar o tempo (sinal, rodada única): `lab/2026-06-04-strata-hipoteses/RESULTADOS-f6-temporal-sem-marcadores.md`.
 
 ## 3-bis. Força do artefato: que ato isto é
 
@@ -926,7 +926,7 @@ Detalhe de editor muda rápido; **não acoplar o método a um editor específico
 - O **canonical** (markdown+git) é a fonte da verdade; o tracker é **destino**.
 - **Bridge unidirecional** (export canonical → CSV/API). Bidirecional gera dual
   source of truth e drift.
-- Cards retroativos: sempre linkar evidência versionada (commit/ADR/EXP); sem
+- Cards retroativos: sempre linkar evidência versionada (um commit, um ADR ou um registro datado de experimento); sem
   isso, é ficção.
 
 ## Re-verificação (esta parte é semi-viva)

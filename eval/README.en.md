@@ -21,7 +21,8 @@ methodology nor the focus.
 
 ## Structure
 
-- `strata/` holds Strata's proof: multi-model runner, scorers, fixtures, scenarios, `planos/`.
+- `strata/` holds Strata's proof: multi-model runner, scorers (the programs that grade
+  outputs), fixtures (controlled toy projects), scenarios, `planos/`.
   See [`strata/README.en.md`](strata/README.en.md).
 - `comporta/`: (future) Comporta's proof (e.g.: `detect_env` + environment scenarios).
 

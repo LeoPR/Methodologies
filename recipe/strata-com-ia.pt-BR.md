@@ -29,11 +29,12 @@ Duas regras de ouro antes de qualquer modelo:
 | **topo sem pagar o teto** | sonnet-5 · gpt-5.6-terra · gemini-3.1-pro | conserto e armadilha perfeitos; a abstenção varia por modelo |
 | **NÃO usar para isto** | llama-4-scout · local <4B | o scout falhou o conserto da armadilha 2/2 e propagou o payload; abaixo de ~4B nem o formato sai |
 
-*Regra: o **conserto de defeito conhecido (§5) satura de ~8B local ao topo**. A borda que separa modelos é a **abstenção** (não mexer no que já está bom), e ela é **propriedade de modelo, não de preço**: confira o modelo específico na grade honesta da [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). Saída de IA = rascunho a revisar, sempre. (Nomes/preços mudam rápido: é L2. Re-audite antes de ancorar decisão cara.)*
+*Regra: o **conserto de defeito conhecido (§5) satura de ~8B local ao topo**. A borda que separa modelos é a **abstenção** (não mexer no que já está bom), e ela é **propriedade de modelo, não de preço**: confira o modelo específico na grade honesta da [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). Saída de IA = rascunho a revisar, sempre. (Nomes e preços datam rápido: vivem na camada datada, o L2. Re-audite antes de ancorar decisão cara.)*
 
-> **Fonte e regime (2026-08-02):** reteste do L0 fechado, ~350 runs, K=2, três situações
-> (conserto §5, armadilha com injeção §6-bis, projeto já bom §9), gold mecânico + júri cego
-> cross-vendor. Sinais direcionais (sintético), não prova. Números por tarefa × capacidade:
+> **Fonte e regime (2026-08-02):** reteste do L0 fechado, ~350 runs, K=2 (duas rodadas por
+> célula), três situações (conserto §5, armadilha com injeção §6-bis, projeto já bom §9),
+> gabarito mecânico (gold) + júri cego cross-vendor (termos: [GLOSSARIO](../GLOSSARIO.md)).
+> Sinais direcionais (sintético), não prova. Números por tarefa × capacidade:
 > [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); diário da rodada:
 > [`lab/2026-08-02-reteste-L0-fechado`](../lab/2026-08-02-reteste-L0-fechado/).
 

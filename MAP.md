@@ -8,6 +8,8 @@ updated: 2026-08-02
 
 # Methodologies: mapa
 
+> Camadas (L0/L1/L2), carimbos (FROZEN, SUPERSEDED) e códigos de experimento: vocabulário em [GLOSSARIO.md](GLOSSARIO.md).
+
 ```
 Methodologies/                        <- Oficina de metodologias (Strata pronto; Comporta no forno)
 ├── recipe/

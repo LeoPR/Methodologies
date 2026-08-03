@@ -8,6 +8,9 @@ updated: 2026-08-02
 
 # STATUS: 2026-08-02
 
+> Termos de prova (K, gold mecânico, júri cego, §N, framing): [GLOSSARIO.md](GLOSSARIO.md).
+> O histórico datado abaixo usa códigos de experimento do lab; cada fase aponta o registro que a gerou.
+
 ## Estado atual
 
 - **Reteste do L0 fechado: CONCLUÍDO.** O passo declarado em 2026-08-01 ("como testar

@@ -75,7 +75,7 @@ part resists the passage of time and the change of tools:
 | Layer | What it is | Change cadence |
 |---|---|---|
 | **Mneme** · L0 | timeless core (principles that precede the computer) | almost never |
-| **Morfé** · L1 | consolidated patterns (e.g.: ADR, Diátaxis, OAIS, Conventional Commits) | when the pattern is superseded |
+| **Morfé** · L1 | consolidated patterns (e.g.: decision records (ADR), Diátaxis, OAIS, Conventional Commits) | when the pattern is superseded |
 | **Órganon** · L2 | dated tools (AI, git, editors) | every tool cycle; **detachable** |
 
 The layers have Greek names: **Mneme** (memory), **Morfé** (form), **Órganon** (instrument).
@@ -145,7 +145,7 @@ knowledge in any intellectual work that accumulates artifacts.
 *There is already evidence of this in controlled tests; proof in day-to-day use is in progress.*
 
 > **Scope:** it organizes and preserves the knowledge that the work produces, and **complements** your
-> way of having ideas and developing (Scrum, TDD, design…), without replacing them. Suited to
+> way of having ideas and developing (Scrum, test-driven development, design…), without replacing them. Suited to
 > **long-lived** projects that accumulate artifacts. When/for whom, in detail:
 > [recipe/README.en.md](recipe/README.en.md).
 
@@ -154,7 +154,7 @@ faced it for centuries. The tools of each era (today: AI, editors, version
 control) are **forms** that express this method: they shape it, but do not found it.
 
 - **Format:** 1 single, portable file (it travels alone). **Version 1.2.1** ·
-  CC BY-SA 4.0 license. (The canonical version lives in the file's own frontmatter.)
+  CC BY-SA 4.0 license. (The canonical version lives in the metadata header at the top of the file itself.)
 - **Maturity:** the **core of the methodology is consolidated and verified** (22 primary sources, plus the
   check that it is independent of today's tools). The **application by AI** already has empirical evidence
   (the AI got right, in the tested cases, when to act, when not to touch, and when to refuse malicious
@@ -171,8 +171,8 @@ control) are **forms** that express this method: they shape it, but do not found
 
 > **How it was tested: numbers and data.**
 > The macro of how it was tested is in the [evidence hub](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md), and the honest closing (what is solid, what is only a signal, and the named gaps) in the [CLOSING](lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
-> The chance-corrected statistics (Krippendorff α, Cohen κ, 95% CI) are in the [judge agreement](lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md), and the per-experiment numbers in the `RESULTADOS-*` of the same lab.
-> How the evidence is produced (runners, fixtures, gold standards, verifiers) is in [`eval/strata/`](eval/strata/).
+> The agreement statistics between judges, corrected for chance, are in the [judge agreement](lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md), and the per-experiment numbers in the `RESULTADOS-*` of the same lab.
+> How the evidence is produced (runners, fixture projects, gold standards, verifiers) is in [`eval/strata/`](eval/strata/).
 > The aggregate numbers and the scripts are public; the raw model outputs and the real projects are private (gitignored), so there is no raw dataset to download.
 
 ## In the oven: Comporta

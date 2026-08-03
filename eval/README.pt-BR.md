@@ -22,7 +22,8 @@ metodologia nem o foco.
 
 ## Estrutura
 
-- `strata/` guarda a prova do Strata: runner multi-modelo, scorers, fixtures, cenários, `planos/`.
+- `strata/` guarda a prova do Strata: runner multi-modelo, scorers (os programas que dão
+  nota às saídas), fixtures (projetinhos controlados), cenários, `planos/`.
   Ver [`strata/README.pt-BR.md`](strata/README.pt-BR.md).
 - `comporta/`: (futuro) prova do Comporta (ex.: `detect_env` + cenários de ambiente).
 

@@ -72,7 +72,7 @@ parte resiste à passagem do tempo e à troca de ferramenta:
 | Camada | O que é | Cadência de troca |
 |---|---|---|
 | **Mneme** · L0 | núcleo atemporal (princípios que precedem o computador) | quase nunca |
-| **Morfé** · L1 | padrões consolidados (ex.: ADR, Diátaxis, OAIS, Conventional Commits) | quando o padrão é superado |
+| **Morfé** · L1 | padrões consolidados (ex.: registros de decisão (ADR), Diátaxis, OAIS, Conventional Commits) | quando o padrão é superado |
 | **Órganon** · L2 | ferramentas datadas (IA, git, editores) | a cada ciclo de ferramenta; **destacável** |
 
 As camadas têm nomes gregos: **Mneme** (memória), **Morfé** (forma), **Órganon** (instrumento).
@@ -142,7 +142,7 @@ conhecimento em qualquer trabalho intelectual que acumula artefatos.
 *Já há evidência disso em testes controlados; a comprovação no uso do dia a dia está em andamento.*
 
 > **Escopo:** organiza e preserva o conhecimento que o trabalho produz, e **complementa** o seu
-> jeito de ter ideias e de desenvolver (Scrum, TDD, design…), sem substituí-los. Indicado para
+> jeito de ter ideias e de desenvolver (Scrum, desenvolvimento guiado por testes, design…), sem substituí-los. Indicado para
 > projeto de **vida longa** que acumula artefatos. Quando/para quem, em detalhe:
 > [recipe/README.pt-BR.md](recipe/README.pt-BR.md).
 
@@ -151,7 +151,7 @@ enfrentam há séculos. As ferramentas de cada era (hoje: IA, editores, controle
 versão) são **formas** que expressam esse método: moldam, mas não fundam.
 
 - **Formato:** 1 arquivo único, portável (viaja sozinho). **Versão 1.2.1** ·
-  licença CC BY-SA 4.0. (A versão canônica fica no frontmatter do próprio arquivo.)
+  licença CC BY-SA 4.0. (A versão canônica fica no cabeçalho de metadados do próprio arquivo.)
 - **Maturidade:** o **núcleo da metodologia está consolidado e verificado** (22 fontes primárias, e a
   checagem de que ele independe das ferramentas de hoje). A **aplicação por IA** já tem evidência empírica
   (a IA acertou, nos casos testados, a hora de agir, a hora de não mexer e a hora de recusar instruções
@@ -168,8 +168,8 @@ versão) são **formas** que expressam esse método: moldam, mas não fundam.
 
 > **Como foi testado: números e dados.**
 > O macro de como foi testado está no [hub de evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md), e o fechamento honesto (o que é sólido, o que é só sinal, e os gaps nomeados) no [FECHAMENTO](lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
-> As estatísticas corrigidas por acaso (Krippendorff α, Cohen κ, IC 95%) estão na [concordância dos juízes](lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md), e os números por experimento nos `RESULTADOS-*` do mesmo lab.
-> Como a evidência é produzida (runners, fixtures, gabaritos, verificadores) está em [`eval/strata/`](eval/strata/).
+> As estatísticas de concordância entre juízes, corrigidas por acaso, estão na [concordância dos juízes](lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md), e os números por experimento nos `RESULTADOS-*` do mesmo lab.
+> Como a evidência é produzida (runners, projetos-fixture, gabaritos, verificadores) está em [`eval/strata/`](eval/strata/).
 > Os números agregados e os scripts são públicos; as saídas brutas dos modelos e os projetos reais são privados (gitignored), então não há um dado-bruto para baixar.
 
 ## No forno: Comporta

@@ -1,12 +1,13 @@
 ---
 title: 'Revisão retroativa — a técnica de análise evoluiu; o que dos resultados antigos sobrevive, enfraquece ou caiu'
 created: 2026-06-13
+updated: 2026-08-02
 status: 'AUDITORIA do próprio corpus. Aplica os padrões novos retroativamente. Anota, não reescreve (§3/§8).'
 ---
 
 # Revisão retroativa do corpus Strata
 
-> Conforme aperfeiçoamos a **técnica de análise**, achados antigos podem ter ficado **obsoletos ou errados**.
+> Conforme a **técnica de análise** é aperfeiçoada, achados antigos podem ter ficado **obsoletos ou errados**.
 > Esta é a auditoria que reavalia tudo contra o **padrão atual** — e fixa o **"ótimo até o momento"** (campeão)
 > como ponto de partida, evitando re-testar tudo-em-tudo. Fonte da opinião atual: [`OPINIAO-DE-USO.md`](OPINIAO-DE-USO.md).
 
@@ -36,7 +37,7 @@ status: 'AUDITORIA do próprio corpus. Aplica os padrões novos retroativamente.
 | **Dossiê temporalidade** | ⚠️ **reenquadrado** | a "tese-mãe" é o sinal **mais ruidoso** | continua **hipótese registrada** (estudar via F6); **não** "o argumento de valor mais forte" |
 
 ## Os "ótimos até o momento" (campeões — ponto de partida, não re-testar tudo)
-Em vez de combinatória (tudo×tudo), mantemos um **campeão por eixo**; testes novos são **desafiantes vs o campeão**:
+Em vez de combinatória (tudo×tudo), mantém-se um **campeão por eixo**; testes novos são **desafiantes vs o campeão**:
 - **Juiz:** gemini-2.5-flash + gpt-4.1 (cross-vendor). *(Desafiante só se houver suspeita de viés conjunto.)*
 - **Scorer:** GOLD-gated + juiz no resíduo. *(Nunca regex cru de novo.)*
 - **Forma do método:** densa/curta AI-nativa para o degrau fraco; prosa para o topo.

@@ -68,6 +68,6 @@ parte da leitura inicial de superfície:
 
 | Quero | Va para |
 |---|---|
-| Entender como a gente pesquisou | [lab/2026-06-03-modernizacao/README.md](lab/2026-06-03-modernizacao/README.md) |
+| Entender como a pesquisa foi feita | [lab/2026-06-03-modernizacao/README.md](lab/2026-06-03-modernizacao/README.md) |
 | Ver a analise (inventario/gaps/sintese) | [lab/2026-06-03-modernizacao/analise-5-lentes.md](lab/2026-06-03-modernizacao/analise-5-lentes.md) |
 | Ver o experimento de split (10 docs) | [lab/2026-06-03-modernizacao/experimento-split/](lab/2026-06-03-modernizacao/experimento-split/) |

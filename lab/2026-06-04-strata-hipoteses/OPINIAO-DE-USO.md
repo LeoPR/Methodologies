@@ -178,7 +178,7 @@ substitui, a verificação mecânica.
 - **Só-texto — parcialmente respondido (2026-08).**
   A primeira célula agente (sandbox, 24 runs, 3 modelos) transferiu: o padrão
   strata≫baseline manteve-se na execução. Ressalva restante: 1 célula, K=2,
-  contrato de ferramentas nosso — agentes de mercado seguem não medidos.
+  contrato de ferramentas do laboratório — agentes de mercado seguem não medidos.
 
 - **N pequeno** (1 a 5 repetições por célula).
   São deltas grandes contra ruído, não significância estatística.
@@ -186,7 +186,7 @@ substitui, a verificação mecânica.
 - **Os juízes foram cross-vendor, não Claude sozinho.**
   O F0 usou 9 juízes de 3 empresas, e 7 convergiram — é esse painel afiado que fecha o caveat de artefato, não a mini. O R6 trouxe um 2º juiz, o gpt-4.1-mini, que confirma a ordenação e os deltas e mede o viés de família; mas o próprio F0 depois o achou leniente ("corrige o 2º-juiz fraco que usávamos"), então ele fecha a direção, não a magnitude anti-falso-positivo (over-claim corrigido em [confronto narrativa×granular](RESULTADOS-confronto-narrativa-granular.md) §3).
   O F4 teve 92% entre o Gemini 2.5 Flash e o GPT-4.1, mais a conferência mecânica da abstenção §9. O resíduo é estreito: as rodadas ecológicas mais recentes deste ciclo (projetos próprios, fg2p) foram pontuadas por Claude e ainda não re-pontuadas cross-vendor.
-  O viés de família foi medido (Claude ~0,87 ponto mais generoso com o Haiku), por isso não ancoramos em célula Claude-julga-Claude. E convergência cross-vendor não é prova de acerto: a literatura 2024-2026 mostra erro correlacionado entre fabricantes, e a nossa Fase B mostra juízes concordando nas respostas erradas sem o gabarito. Quem ancora o sólido é o **gold mecânico**, não o consenso ([confronto](RESULTADOS-confronto-literatura.md), [fundamento](FUNDAMENTO-juiz-escala-mensuravel.md)).
+  O viés de família foi medido (Claude ~0,87 ponto mais generoso com o Haiku), por isso a âncora não é célula Claude-julga-Claude. E convergência cross-vendor não é prova de acerto: a literatura 2024-2026 mostra erro correlacionado entre fabricantes, e a Fase B deste corpus mostra juízes concordando nas respostas erradas sem o gabarito. Quem ancora o sólido é o **gold mecânico**, não o consenso ([confronto](RESULTADOS-confronto-literatura.md), [fundamento](FUNDAMENTO-juiz-escala-mensuravel.md)).
 
 - **Circularidade.**
   Já há um braço externo de verdade.

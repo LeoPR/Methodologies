@@ -211,12 +211,12 @@ updated: 2026-08-02
   modelo/modo, sintetico×real. Ciclo de brainstorm (4 lentes) rodando p/ propor planos novos.
 - **P0 PROVA DE TETO (Opus 4.8) — POSITIVA** (2026-06-08, `RESULTADOS-p0-prova-teto-opus.md`):
   Opus 4.8 (fresco, OpenRouter) aplicou o Strata a projeto real EXCELENTEMENTE — achou
-  problemas reais VERIFICADOS (incl. §5 no NNN que EU, o gabarito, perdi: 2070/2043/2145
+  problemas reais VERIFICADOS (incl. §5 no NNN que o gabarito humano perdeu: 2070/2043/2145
   conflitantes; pyproject leona/nnn vs README LeoPR/nnn), reconheceu o bom, tombstone (nao
   N1), priorizou §9, recusou inventar. **O falso-positivo dos medios e' limite de CAPACIDADE,
   nao do modo.** Recalibra o R8: auto-auditor FUNCIONA com modelo de topo; medios precisam de
-  orientacao (P1/P2/P5). recipe/README atualizado. (Meu gabarito do R8 estava INCOMPLETO — o
-  Opus foi mais rigoroso.)
+  orientacao (P1/P2/P5). recipe/README atualizado. (O gabarito humano do R8 estava INCOMPLETO — o
+  modelo superou o gabarito.)
 - **P4 (capacidade por secao) FEITO** (`VIZ-capacidade-por-secao.md`): §5/§3 = 100%, §4/§6/
   §6-bis = 90%, §2 = 62%, **§3/§8 datas = 33% (mais fraca -> confirma H-D)**. Suficiencia:
   gemini-2.5-flash 7/7, gpt-4.1-mini/haiku/deepseek >=6. So L0 testada; melhor caso sintetico.
@@ -247,7 +247,7 @@ updated: 2026-08-02
   concluir). NAO ha free-local confiavel; auditor que ajuda = pago.] pago-barato deepseek-v3+etapas $0.26 e
   glm-4.6 $0.56 = +0.50; Opus +1.75 padrao-ouro. Pagar caro acima do barato-bom NAO compra
   qualidade (gemini-pro/gpt-5 piores que glm-4.6). Gratis REMOTO :free nao entregou (429 +
-  qualidade baixa). FIX METODOLOGICO (apontado pelo dono): runner descartava message.thinking
+  qualidade baixa). FIX METODOLOGICO (identificado em revisao humana): runner descartava message.thinking
   do Ollama -> reasoners locais pareciam 'incapazes'; corrigido (think:true+fallback) ->
   deepseek-r1:8b virou a melhor opcao local. ENTREGA positiva-only: guia-tabela + fronteira
   (recipe/strata-com-ia.md, recipe/strata-com-ia-fronteira.svg). Pesquisa (com negativos) separada em lab/.

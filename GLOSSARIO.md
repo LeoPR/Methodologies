@@ -1,3 +1,8 @@
+---
+created: 2026-06-03
+updated: 2026-08-02
+---
+
 # Glossário
 
 Termos próprios do repositório, em duas partes: as **camadas de durabilidade** (o vocabulário do
@@ -91,18 +96,20 @@ ideia (e ecoa o núcleo-duro/cinto-protetor de Lakatos, já citado no método).
   limpo — para testar a IA num cenário controlado (como um boneco de *crash-test*). Fica com **hash
   congelado** (impressão digital) para garantir que ninguém mexeu nele entre os testes.
 - **Completion-only (regime de texto):** a IA só **escreve** (um plano, um arquivo); **não roda nada**
-  (sem terminal, sem internet). Medimos a **intenção no texto**, não a ação real — o **principal limite**
+  (sem terminal, sem internet). Mede-se a **intenção no texto**, não a ação real — o **principal limite**
   destes testes (um modelo pode escrever "recuso" e, com ferramentas de verdade, agir diferente).
+  *(2026-08: na primeira célula com ferramentas reais em sandbox — Degrau 3 — a ação acompanhou o texto;
+  ver [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).)*
 - **Baseline (controle):** a mesma tarefa **sem o método**, para isolar **o que o Strata adicionou**.
 
 ### Como se julga (e por que dá pra confiar)
 - **Cego:** o avaliador dá a nota **sem saber qual modelo** gerou a resposta (evita favoritismo).
-- **Juiz cross-vendor (de empresas diferentes):** usamos 2 avaliadores de IA de **empresas distintas**
+- **Juiz cross-vendor (de empresas diferentes):** usam-se 2 avaliadores de IA de **empresas distintas**
   (Google + OpenAI). Empresas diferentes erram de jeitos diferentes; se **concordam**, provavelmente está
   certo (≠ artefato de um avaliador).
 - **Verificação mecânica + gabarito-ouro (GOLD):** onde dá, um **programa** confere o resultado por regra
   objetiva (o valor existe? o arquivo foi preservado?), em vez de opinião. Antes de confiar no programa,
-  testamos ele contra **respostas de gabarito conhecido**; só usamos se acerta **100%**. O juiz (IA) só
+  ele é testado contra **respostas de gabarito conhecido**; só é usado se acerta **100%**. O juiz (IA) só
   entra no **resíduo** que a regra não fecha.
 - **Acurácia × precisão (eixos separados):** *acurácia* = a decisão central é boa (capacidade); *precisão* =
   estabilidade entre repetições. São independentes — dá para ser **preciso e errado**. Reportamos os dois,
@@ -132,7 +139,7 @@ ideia (e ecoa o núcleo-duro/cinto-protetor de Lakatos, já citado no método).
   modelo (Opus, GPT-5.5, Gemini-Pro…) são exemplos datados (L2). *(Ver [ADR-007](decisions/ADR-007-narrativa-entrega-estado-consolidado.md).)*
 
 ### Como ler os números (estatística sem susto)
-- **N (ex.: N=2):** **quantas vezes** repetimos cada teste. N pequeno (2–3) = **sinal**, não prova —
+- **N (ex.: N=2):** **quantas vezes** cada teste é repetido. N pequeno (2–3) = **sinal**, não prova —
   por isso falamos em "indícios/direção", não "comprovado".
 - **Concordância (ex.: 92%):** de quantas vezes os **dois juízes** deram a **mesma** nota. Alto = robusto.
 - **Fração (ex.: 6/8):** "**6 de 8** julgamentos" deram aquele resultado.

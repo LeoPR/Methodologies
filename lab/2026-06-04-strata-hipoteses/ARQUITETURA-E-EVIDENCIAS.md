@@ -26,7 +26,7 @@ Os de **nuvem** são acessados por API, do barato ao forte, via openrouter.com, 
 Os **locais** rodam na própria máquina do usuário, e são modelos pequenos (de 4 a 8 bilhões de parâmetros), mais ruidosos, como o Deepseek-R1.
 
 Quando o acerto não é mecânico, quem dá a nota a um plano é outro modelo de IA, o **juiz**.
-Para a nota não herdar o viés de uma só família, pedimos a nota a juízes de vendors diferentes.
+Para a nota não herdar o viés de uma só família, a nota é pedida a juízes de vendors diferentes.
 É o **juiz cross-vendor**, e a convergência entre fornecedores distintos é robustez, não o artefato de um avaliador só.
 
 Todo teste deste corpus é em regime **completion-only**: o modelo só **escreve** (o plano de auditoria, ou o conteúdo de um arquivo) e **não executa nada**.
@@ -69,7 +69,7 @@ com ou sem IA.
 
 ## Camada 2 — a IA aplica? A escada de modos (M0-M4)
 O que se **testa** não é "o Strata funciona" (o L0/L1 já se sustenta), mas o que é **automático por
-IA** (a camada L2). Decompusemos o "engajamento" da IA numa escada — cada degrau é uma tarefa diferente:
+IA** (a camada L2). O "engajamento" da IA é decomposto numa escada — cada degrau é uma tarefa diferente:
 
 | Modo | Pergunta que isola | Estado | Detalhe |
 |---|---|---|---|
@@ -95,7 +95,7 @@ As disciplinas que tornam os sinais confiáveis:
 - **Mecânico onde dá > juiz:** preferimos teste **objetivo** (regex de sinais com *gold-gate*, parse de
   config, **sobrevivência-de-conteúdo**, `git`, asserções) ao julgamento. O juiz só refina o **resíduo**
   que a mecânica não fecha. Todo verificador tem um **GOLD self-test** (casos-disfarce) como portão.
-- **Confundidores controlados** (os erros que já nos morderam): falso-zero por **truncamento/thinking**;
+- **Confundidores controlados** (os erros que já morderam este corpus): falso-zero por **truncamento/thinking**;
   **"seguro e inútil"** (silêncio ≠ recusa); **paranoia** (controles limpos + ação legítima atestada);
   **efeito-método** isolado por **braço baseline**; **fixtures com hash congelado** (anti-drift).
 - **§6 (honestidade):** onde o regex confunde *citar* com *propagar*, dizemos e mandamos ao juiz; onde o
@@ -299,7 +299,7 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   gênero-consciente** (loop narrativa). N=1; AulaQuantum/DeepLearning pendem de digest do dono.
   [`RESULTADOS-genero`](RESULTADOS-genero.md).
 - **2026-06-13** — **revisão RETROATIVA** do corpus ([`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md)): a
-  técnica evoluiu → reavaliamos tudo. Núcleo sólido (F0, §5-fix, §3-tombstone) **sobrevive**; **over-claims
+  técnica evoluiu → tudo foi reavaliado. Núcleo sólido (F0, §5-fix, §3-tombstone) **sobrevive**; **over-claims
   caíram**: datas/temporalidade ~33% **❌ não-achado** (média ruidosa, juiz único, F6 não rodou) e **R8
   reinterpretado** (over-detecção = **FRAMING**, não falha inerente — o braço externo corrige). Anotados (§3,
   não reescritos): R8-sintese, P4/datas, dossiê. Fixados os **campeões** (ótimo-até-agora) → testar desafiantes,

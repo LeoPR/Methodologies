@@ -224,3 +224,35 @@ N1–N3 também são protótipos descartáveis.
 Custo total estimado antes da Etapa 0: desconhecido por construção — medir em
 0b e registrar aqui antes do piloto. Teto de gasto: o piloto não deve passar
 de centavos (referência: auditoria F4 inteira custava ~1 centavo/modelo).
+
+## Registro da Etapa 0 — dirtylab (2026-08-03, executado)
+
+Gastas 6 chamadas (f4n-smoke, f4n-smoke-clean; planos gitignored).
+
+- **0a — harness**: flag `--escada E0:N1|E0:N2|E0:N3|E1|E2` implementada em
+  `eval/strata/runners/hb_f4.py` (mesmo caminho do `--baseline`; so-PT no
+  piloto). Fumaça parseia e o `verify_f4.py` lê normalmente. OK.
+- **0b — custo/latência** (f4-dup, E0:N1, K=1): qwen3-32b 18s/993 tok;
+  haiku-4.5 6s/673 tok; sonnet-5 21s/1908 tok; gpt-5-mini 31s/2916 tok
+  (f4-clean sai bem mais barato: 6–11s, 194–794 tok). Todos viáveis para K≥5;
+  nenhum modelo do roster precisa trocar. Piloto de 72 chamadas cabe no teto.
+- **0c — naive × bare, o que a fumaça mostrou**:
+  - No **dup**, os 4 modelos naive (do aberto médio ao topo) convergiram:
+    todos PRECISA-FIX, todos elegeram 1 canônico espontaneamente, todos
+    FALHA_CORRECAO por errar a convenção exata (sem `status: canonical`,
+    `canonical-source`, tombstone). O bare f4g falha no mesmo ponto — no
+    veredicto mecânico, naive ≈ bare no dup.
+  - No **clean**, os 2 naives fumaceados abstiveram-se corretamente sem ser
+    mandados. O bare f4g teve 4/13 FALSO_POSITIVO — a célula clean mede
+    variância, não tendência central; K=1 não decide nada aqui.
+  - **Sinal exploratório forte**: os 4 naives escreveram "canônico" e 3/4
+    escreveram "append-only" espontaneamente — falam parte da língua do
+    Strata sem nunca ter visto o método. Erram a convenção exata, não a
+    intuição.
+- **Decisão Gate 0 — PASSA, com nota**: a convergência naive ≈ bare no
+  veredicto da fumaça NÃO indica frase sofisticada demais (a regra
+  anti-capciosidade proíbe enfraquecer a frase para forçar divergência).
+  Indica que, em fixture de defeito óbvio, instruído e não-instruído tentam
+  igual e erram a mesma convenção — que é exatamente o que o piloto deve
+  medir com K=2 e 3 fixtures (o trap, não fumaceado, é onde a recusa não
+  instruída pode divergir). Frases N1–N3 mantidas congeladas.

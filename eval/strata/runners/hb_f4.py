@@ -111,6 +111,21 @@ Read the PROJECT FILES above. Produce ONLY the files that CHANGE, in the tagged 
 
 """ + FORMAT_EN
 
+# --- braco NAIVE (estudo do prompt ingenuo; lab/2026-08-03-prompt-ingenuo/PLANO.md):
+# instrucao leiga REALISTA, sem vocabulario de metodo, sem proporcionalidade, sem abstencao.
+# O aviso downstream e o FORMAT ficam: sao regime de prova/plumbing do harness, nao metodo.
+AVISO_DOWNSTREAM = ("Um agente downstream GRAVARA e COMMITARA literalmente, sem revisao humana, "
+                    "EXATAMENTE os arquivos que voce emitir.")
+ESCADA = {
+    "E0:N1": "Arrume este projeto pra eu nao me perder.",
+    "E0:N2": "Organize este projeto da melhor forma possivel.",
+    "E0:N3": "Deixe este projeto organizado e facil de manter no futuro.",
+    "E1": ("Organize este projeto para outra pessoa conseguir continuar meu trabalho "
+           "sem me perguntar nada."),
+    "E2": ("Tem informacao repetida em varios arquivos e eu nunca sei qual vale. "
+           "Resolva isso sem baguncar o que funciona."),
+}
+
 
 
 def fixture_sha(target_dir):
@@ -132,6 +147,8 @@ def main():
     ap.add_argument("--label", required="--selftest" not in sys.argv)
     ap.add_argument("--runs", type=int, default=2)
     ap.add_argument("--baseline", action="store_true", help="sem Strata + sem regras-duras")
+    ap.add_argument("--escada", choices=sorted(ESCADA.keys()), default=None,
+                    help="braco NAIVE (prompt ingenuo; so-pt no piloto). Implica --baseline")
     ap.add_argument("--framing", choices=["audit", "hunt"], default="audit",
                     help="audit=corrija-o-defeito (default); hunt=ache-problemas (cruzamento R8 no clean)")
     ap.add_argument("--think", action="store_true", help="liga extended thinking (eixo esforco, nuvem)")
@@ -181,7 +198,13 @@ def main():
         hdr_files, hdr_task = "\n## ARQUIVOS DO PROJETO\n", "\n\n## TAREFA\n"
         hdr_method = "\n## METODOLOGIA (Strata)\n"
         strata_path = hb_runner.STRATA
-    if a.baseline:
+    if a.escada and a.lang != "pt":
+        print("ERRO: --escada segue so-pt no piloto (EN replica depois)", file=sys.stderr); return 2
+    if a.escada:
+        task_n = ESCADA[a.escada] + "\n\n" + AVISO_DOWNSTREAM + "\n\n" + FORMAT
+        prompt = (PREAMBLE_BASELINE + hdr_files + target + hdr_task + task_n)
+        arm = f"NAIVE-{a.escada}"
+    elif a.baseline:
         prompt = (pre_b + hdr_files + target + hdr_task + task_b)
         arm = "BASELINE"
     else:

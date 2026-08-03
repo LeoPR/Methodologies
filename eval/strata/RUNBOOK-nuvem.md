@@ -1,7 +1,7 @@
 ---
 title: Runbook do tier NUVEM do H-B
 created: 2026-06-05
-updated: 2026-06-07
+updated: 2026-08-02
 ---
 
 # Runbook — tier nuvem
@@ -9,7 +9,7 @@ updated: 2026-06-07
 ## A) AUTOMÁTICO via OpenRouter (atual — multi-sabor, sem chat manual)
 
 Decidido: nuvem automatizada por **OpenRouter** (1 key → OpenAI, Anthropic, Google,
-Meta, Mistral, DeepSeek… tudo `openai_compat`). Usa o **mesmo** `hb_runner.py`,
+Meta, Mistral, DeepSeek… tudo `openai_compat`). Usa o **mesmo** `core/hb_runner.py`,
 **mesmo prompt limpo** (prosa, sem enum), **mesmo fixture congelado** e baseline do
 tier local → paridade total local↔nuvem. (As extensões do editor não são scriptáveis
 externamente; OpenRouter é a via de automação multi-sabor.)
@@ -27,12 +27,12 @@ externamente; OpenRouter é a via de automação multi-sabor.)
 Espelhando o local: 3 braços (prosa / AN-v2 / baseline) × N sabores × N=3, no fixture
 congelado `fixtures/lumen-bugado`:
 ```bash
-python hb_runner.py --provider openrouter --mode main --runs 3 \
+python core/hb_runner.py --provider openrouter --mode main --runs 3 \
   --models openai/gpt-4.1-mini anthropic/claude-3.5-haiku google/gemini-flash-1.5 ... \
   --target fixtures/lumen-bugado --strata ../../recipe/knowledge-architecture.md --label cloud-prose --num-predict 2800
 # (idem p/ --strata ...strata-an-v2.md --label cloud-an ; e --baseline --label cloud-baseline)
 ```
-Depois: anonimizar (`blind_planos.py`) → pontuar cego → `aggregate_all.py` → comparar
+Depois: anonimizar (`gen/blind_planos.py`) → pontuar cego → `aggregate/aggregate_all.py` → comparar
 com o local + checar **falsa-inteligência** (algum local/barato supera um frontier?).
 
 ---

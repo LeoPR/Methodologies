@@ -8,4 +8,4 @@ Sondas/smoke-tests pontuais, fora do pipeline de evidência (`hb_f*` → `verify
 - `probe2.py` — smoke genérico.
 - `diag_ollama.py` — diagnostica thinking/`done_reason` do Ollama local.
 
-> `probe_l1.py` ficou em `eval/strata/` (importa a base viva `hb_runner`). Estes aqui não importam nada local.
+> `probe_l1.py` ficou em `eval/strata/runners/` (importa a base viva `hb_runner`). Estes aqui não importam nada local.

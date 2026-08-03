@@ -23,12 +23,25 @@ live here**. The entry point is the honest usage opinion:
 > **private** and stay **gitignored** (`planos/`, `external-fixtures/`, `own-fixtures/`,
 > `fixtures-real/`).
 
+## Folder layout (2026-08-02)
+
+Scripts live in purpose folders; **data stays at the root** (`planos/`, `cenarios/`,
+`f4-manifests/`, `fixtures-*/`, `external-fixtures/`, `own-fixtures/`):
+
+- `core/`: `hb_runner.py` (base) + `providers.py` (direct cloud; `.<prov>-key` keys at the root)
+- `runners/`: `hb_f3/f4/f5/f6/genre/temporal/m0/staged/agent`, `probe_l1.py`
+- `verify/`: `verify_f4.py` → `score_f3.py` → `verify_agent.py` + `calc_stats.py` (graph kept together)
+- `judges/`: cross-vendor judges (`judge_f3/f4/s04/f4_ablation/openrouter`, `score_cmp_openrouter`)
+- `aggregate/`: `aggregate_*` + `compare_judges*` · `gen/`: digests, charts, forms, `hash_fixture.py`
+- `ops/`: `run_*.sh` (ready-made matrices) · `legacy/`: `hb_l2_*` (broken defaults, record)
+- `tools/probes/`: auxiliary probes (structure untouched)
+
 ## The LIVE pipeline (runner → fixture → answer key → verifier → aggregator)
 
 ```
-hb_<phase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out>/plano-*.md   (gitignored)
+runners/hb_<phase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out>/plano-*.md   (gitignored)
         |                  |                                        |
-   call_ex (hb_runner)  inert fixture                       verify_f4 / score_f3 / judge_* → aggregate_*
+   call_ex (core/hb_runner)  inert fixture                  verify/verify_f4 · verify/score_f3 · judges/* → aggregate/*
                          answer key = <fix>-manifest.json  (OUTSIDE the fixture folder: read_target does not read it)
 ```
 
@@ -36,19 +49,19 @@ hb_<phase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out>/plano-
 
 | Runner | Measures | Fixtures | Answer key / verifier |
 |---|---|---|---|
-| `hb_f4.py` | M4 execution: fixes without destroying? (STRATA vs `--baseline`) | `cenarios/f4-{dup,trap,clean}` | `f4-manifests/*.json` + `verify_f4.py` |
-| `hb_f3.py` | §6-bis refusal (fail-closed) | f3 scenarios | `score_f3.py` + `judge_f3.py` |
-| `hb_f5.py` | §6 source verification (`:online` = web) | `cenarios/f5-verif` | `f5-manifest.json` |
-| `hb_f6.py` | temporal: `--mode chrono\|naive\|audit\|vigor\|triagem` | `cenarios/f6-{tempo,longitudinal,ambiguo,ruidoso}` | `f6-*-manifest.json` (reading) |
-| `hb_genre.py` | genre-awareness (§9) | `external-fixtures/`, `own-fixtures/` | reading |
-| `hb_temporal.py` | temporal on the owner's project | `own-fixtures/` | reading |
-| `hb_m0.py` | M0 abstention | scenarios | reading |
-| `hb_runner.py` | **base** (does not run alone): `call_ex`, `call_openrouter_ex` (`reasoning`/`:online`), `call_ollama_ex` (thinking+fallback), `read_target`; `--temp` flag (additive, default 0.3) **only on the F1/prime path** (`call`/`run_one`; phase runners use `call_ex`, still fixed at 0.3) | n/a | n/a |
+| `runners/hb_f4.py` | M4 execution: fixes without destroying? (STRATA vs `--baseline`) | `cenarios/f4-{dup,trap,clean}` | `f4-manifests/*.json` + `verify/verify_f4.py` |
+| `runners/hb_f3.py` | §6-bis refusal (fail-closed) | f3 scenarios | `verify/score_f3.py` + `judges/judge_f3.py` |
+| `runners/hb_f5.py` | §6 source verification (`:online` = web) | `cenarios/f5-verif` | `f5-manifest.json` |
+| `runners/hb_f6.py` | temporal: `--mode chrono\|naive\|audit\|vigor\|triagem` | `cenarios/f6-{tempo,longitudinal,ambiguo,ruidoso}` | `f6-*-manifest.json` (reading) |
+| `runners/hb_genre.py` | genre-awareness (§9) | `external-fixtures/`, `own-fixtures/` | reading |
+| `runners/hb_temporal.py` | temporal on the owner's project | `own-fixtures/` | reading |
+| `runners/hb_m0.py` | M0 abstention | scenarios | reading |
+| `core/hb_runner.py` | **base** (does not run alone): `call_ex`, `call_openrouter_ex` (`reasoning`/`:online`), `call_ollama_ex` (thinking+fallback), `read_target`; `--temp` flag (additive, default 0.3) **only on the F1/prime path** (`call`/`run_one`; phase runners use `call_ex`, still fixed at 0.3) | n/a | n/a |
 
-**Verification / judges:** `verify_f4.py` (mechanical + **GOLD-gate**; `--selftest`) ·
-`score_f3.py` (regex + `--selftest`) · `judge_f3.py`/`judge_f4.py`/`judge_openrouter.py`
-(cross-vendor judges) · `aggregate_*.py` (consolidate per experiment). **Digests** of
-projects: `build_ext_digest.py` (third-party) / `build_local_digest.py` (owner's) → write
+**Verification / judges:** `verify/verify_f4.py` (mechanical + **GOLD-gate**; `--selftest`) ·
+`verify/score_f3.py` (regex + `--selftest`) · `judges/judge_f3.py`/`judges/judge_f4.py`/`judges/judge_openrouter.py`
+(cross-vendor judges) · `aggregate/aggregate_*.py` (consolidate per experiment). **Digests** of
+projects: `gen/build_ext_digest.py` (third-party) / `gen/build_local_digest.py` (owner's) → write
 to **gitignored** fixtures.
 
 **How to report (norm: ADR-006):** accuracy × precision in **separate columns**, always
@@ -60,12 +73,12 @@ right temperature"; `pass@k` (ceiling) ≠ `pass^k` (reliable). See
 ```bash
 export OPENROUTER_API_KEY=$(tr -d ' \r\n' < eval/strata/.openrouter-key)   # key NEVER versioned
 cd eval/strata
-python verify_f4.py --selftest                                            # GOLD-gate (must pass 100%)
-python hb_f4.py --models google/gemini-2.5-flash --target cenarios/f4-dup --label f4-dup-strata --runs 2
-python hb_f4.py --models google/gemini-2.5-flash --target cenarios/f4-dup --label f4-dup-base --runs 2 --baseline
-python verify_f4.py --indir planos/f4-dup-strata --fixture cenarios/f4-dup --manifest f4-manifests/f4-dup.json
+python verify/verify_f4.py --selftest                                     # GOLD-gate (must pass 100%)
+python runners/hb_f4.py --models google/gemini-2.5-flash --target cenarios/f4-dup --label f4-dup-strata --runs 2
+python runners/hb_f4.py --models google/gemini-2.5-flash --target cenarios/f4-dup --label f4-dup-base --runs 2 --baseline
+python verify/verify_f4.py --indir planos/f4-dup-strata --fixture cenarios/f4-dup --manifest f4-manifests/f4-dup.json
 ```
-The `run_*.sh` scripts package ready-made matrices (cloud/local/eco). **Cost:** check the
+The `ops/run_*.sh` scripts package ready-made matrices (cloud/local/eco). **Cost:** check the
 balance first (`curl .../api/v1/credits`); on the order of cents to ~US$1 per small matrix.
 
 > **K=2 here is a smoke demo.** Official measurements report **larger K + *flip-rate***

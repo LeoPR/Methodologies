@@ -64,6 +64,11 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   multi-modelo, scorers, fixtures, cenarios, `RASTREAMENTO-E-MELHORIA.md`); `*/planos/` =
   saidas brutas **gitignored** (projetos reais sao PRIVADOS). Regra: toda execucao e'
   `evidencia|instrumento|infra`. Ver `eval/README.pt-BR.md`.
+  - `eval/strata/`: scripts em **subpastas por proposito** (2026-08-02): `core/` (hb_runner+
+    providers), `runners/` (hb_f*/probe_l1), `verify/` (verify_f4→score_f3→verify_agent+
+    calc_stats), `judges/`, `aggregate/`, `gen/`, `ops/` (run_*.sh), `legacy/` (hb_l2_*).
+    **Dados ficam na raiz** (planos/, cenarios/, f4-manifests/, fixtures-*/). Detalhes:
+    `eval/strata/README.pt-BR.md`, secao "Layout das pastas".
 - `prototype/`: placeholder (testar a receita em escala; futuro).
 - `outreach/`: **APOIO** (comunicacao/divulgacao: posts, imagens). Fora dos 3 territorios de
   artefato (e do `decisions/`); nao e produto, pesquisa nem ferramenta. Nao publica metrica nova.

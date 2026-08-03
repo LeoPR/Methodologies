@@ -133,7 +133,7 @@ Há só **dois nits cosméticos** legítimos (triviais, §2 housekeeping):
 > de juiz (custo + escolha de juiz/prompt) — decisão de desenho, não conserto mecânico.
 >
 > **Re-julgamento FEITO (2026-08-02).** Juiz cego cross-vendor único `openai/gpt-5-mini`
-> (`eval/strata/judge_s04.py`, prompt no espírito do `judge_f4.py`, gabarito corrigido: o link
+> (`eval/strata/judges/judge_s04.py`, prompt no espírito do `judge_f4.py`, gabarito corrigido: o link
 > pendente conta como nit LEGÍTIMO), sobre os 91 planos históricos das 6 levas
 > (`ds/vb/vb2/vb3/vb3b/new-s04`). Saída: `planos/s04-judge/judgments.json`. Resultado:
 > **confirma a direção da superestimação, com magnitude ~0,5 ponto/plano** (teto ~1 nos que citam

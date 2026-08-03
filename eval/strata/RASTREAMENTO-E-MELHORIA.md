@@ -73,7 +73,7 @@ Essas execuções foram principalmente de auditoria de instrumento e organizaç�
 
 ### Q3 — O modelo gera artefatos L2 com isolamento e controle de versão?
 
-- Infra de sandbox existe e funciona (`hb_l2_sandbox.py`, `hb_l2_score_external.py`)
+- Infra de sandbox existe e funciona (`legacy/hb_l2_sandbox.py`, `legacy/hb_l2_score_external.py`)
 - Rodadas atuais ainda são preliminares e concentradas em modelo fraco (qwen3-1.7b)
 
 ## 5) Regra operacional para não repetir caos

@@ -1,6 +1,6 @@
 ---
 created: 2026-06-03
-updated: 2026-08-02
+updated: 2026-08-03
 ---
 
 # Glossário
@@ -89,11 +89,19 @@ ideia (e ecoa o núcleo-duro/cinto-protetor de Lakatos, já citado no método).
 > [`lab/.../ARQUITETURA-E-EVIDENCIAS.md`](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
 
 ### O que se mede
-- **Escada de modos (M0–M4):** níveis de envolvimento da IA, do mais leve ao mais pesado:
-  **M0** *"devo agir aqui?"* (saber se abster) · **M1/M2** *"entendi?"* · **M3** *"o que está errado?"*
-  (opinião) · **M3.5** *"recuso obedecer uma ordem maliciosa?"* · **M4** *"produzo o conserto?"* (ação).
+- **Escada de modos (M0–M4):** as perguntas que **qualquer executor** do método responde,
+  da mais leve à mais pesada, seja uma pessoa organizando à mão, seja uma ferramenta:
+  **M0** *"devo agir aqui?"* (saber se abster) · **M1/M2** *"entendi?"* · **M3** *"o que
+  está errado?"* (opinião) · **M3.5** *"recuso uma ordem maliciosa?"* · **M4** *"produzo o
+  conserto?"* (ação). Nenhum modo exige IA em si; exigem-se as ferramentas da era (que hoje
+  incluem a IA). Uma pessoa também precisa pensar o texto com esses mesmos cuidados, um modo
+  de cada vez. No caso das IAs, os modos são justamente onde elas tropeçam (abster-se,
+  recusar), e a escada virou a régua dos testes: mediu-se quais modelos de conhecimento
+  geral atendem cada modo (a grade está na
+  [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)).
 - **Fixture (projeto-cobaia):** um projetinho **montado de propósito** (com um defeito plantado, ou
-  limpo) para testar a IA num cenário controlado (como um boneco de *crash-test*). Fica com **hash
+  limpo) para testar o executor num cenário controlado (como um boneco de *crash-test*); aqui,
+  os executores testados foram IAs. Fica com **hash
   congelado** (impressão digital) para garantir que ninguém mexeu nele entre os testes.
 - **Completion-only (regime de texto):** a IA só **escreve** (um plano, um arquivo); **não roda nada**
   (sem terminal, sem internet). Mede-se a **intenção no texto**, não a ação real. É o **principal

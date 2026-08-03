@@ -2,7 +2,7 @@
 title: Estilo de redação dos documentos
 status: active
 created: 2026-06-20
-updated: 2026-06-20
+updated: 2026-08-02
 ---
 
 # Estilo de redação dos documentos
@@ -23,7 +23,7 @@ A escola de **escrita escaneável** acrescenta o formato: uma ideia por bloco, p
 
 As fontes que ancoram cada peça:
 
-- **ISO 24495-1:2023, *Plain Language — Part 1*** (ISO, 2023). A norma internacional. O texto deve ser relevante, encontrável, compreensível e acionável para quem lê.
+- **ISO 24495-1:2023, *Plain Language, Part 1*** (ISO, 2023). A norma internacional. O texto deve ser relevante, encontrável, compreensível e acionável para quem lê.
 - **Federal Plain Language Guidelines** (PLAIN, 2011) e o **Plain Writing Act of 2010** (EUA). A fonte canônica dos princípios: escreva para o público, voz ativa, palavra comum, frase curta, fale com "você".
 - **Manual de Redação da Presidência da República** (Casa Civil, 2ª ed., 2002; atributos da 3ª ed., 2018). Define que conciso é dizer o máximo com o mínimo de palavras, cortando palavra inútil, nunca o pensamento. Define a coesão como o entrelaçamento entre frases e parágrafos.
 - **Manual de linguagem simples** (gov.br, 2023) e a apostila de **Linguagem Simples no Setor Público** (ENAP, com Heloisa Fischer, 2021). A versão brasileira e oficial do movimento.
@@ -60,8 +60,10 @@ As fontes que ancoram cada peça:
    Uma cadeia de raciocínio (A, logo B, logo C) lê-se melhor amarrada por conectivos do que picada em frases soltas, ainda mais quando o raciocínio é difícil.
    Avalie se a quebra ajuda; não a aplique de forma mecânica. Na dúvida, vale a orientação clássica de clareza.
 
-   O mesmo vale para o travessão. A pergunta não é "tem travessão?", e sim "ele é mesmo necessário?".
-   Muitas vezes a ordem narrativa (passo 7) dispensa o travessão; mas, para um aparte curto e genuíno, ele ainda é a ferramenta certa.
+   Evite o travessão (decisão do dono, 2026-08-02).
+   Ele não tem função semântica que outro sinal não cumpra, e o excesso dele é marca conhecida de texto gerado por IA.
+   Um aparte curto e genuíno vai entre parênteses ou aspas.
+   Para dar continuidade à frase, use ponto final, dois-pontos ou ponto-e-vírgula, o que ler melhor.
 
 7. Comece pelo mais importante.
    Diga primeiro a conclusão, depois os detalhes.
@@ -82,10 +84,10 @@ As fontes que ancoram cada peça:
 - "Como usar com IA (a receita)"
   vira "Como usar com a IA".
 
-- "Funciona até com IA econômica — a forma é a alavanca."
+- "Funciona até com IA econômica, e a forma é a alavanca."
   vira "Funciona até com a IA econômica, porque a forma é a alavanca."
 
-- "só o topo, ou um humano no loop — nisso não supera"
+- "só o topo, ou um humano no loop, nisso não supera"
   vira "Sozinho, ele não supera a competência pura. Para isso, use o topo, ou fique no loop."
 
 - "um 2º juiz não-Claude (gpt-4.1-mini)"

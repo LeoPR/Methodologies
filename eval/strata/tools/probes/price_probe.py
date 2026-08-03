@@ -6,7 +6,7 @@ import os
 import urllib.request
 
 KEY = os.environ["OPENROUTER_API_KEY"]
-HERE = os.path.dirname(os.path.abspath(__file__))
+HERE = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 req = urllib.request.Request("https://openrouter.ai/api/v1/models",
                              headers={"Authorization": "Bearer " + KEY})
 data = json.loads(urllib.request.urlopen(req, timeout=60).read())["data"]

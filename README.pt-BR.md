@@ -27,7 +27,7 @@ Os documentos que uma pessoa lê seguem uma **norma de redação clara** (Lingua
 [`ESTILO-REDACAO.md`](ESTILO-REDACAO.md). E não é só
 teoria: **várias IAs populares — de diferentes fornecedores (OpenAI, Google, Anthropic),
 do econômico ao topo — já leem e aplicam o primeiro produto (o Strata) nos casos que
-medimos**, cada uma até o seu limite (mapeado na
+medidos**, cada uma até o seu limite (mapeado na
 [opinião de uso](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)); **Comporta** seguirá
 o mesmo princípio. *(A navegação dedicada a IA fica em [`AGENTS.md`](AGENTS.md).)*
 

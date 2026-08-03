@@ -25,7 +25,7 @@ The documents a person reads follow a **clear writing standard** (Plain Language
 [`ESTILO-REDACAO.md`](ESTILO-REDACAO.md). And it is not just
 theory: **several popular AIs — from different vendors (OpenAI, Google, Anthropic),
 from the cheap to the top — already read and apply the first product (Strata) in the
-cases we measured**, each up to its own limit (mapped in the
+cases measured**, each up to its own limit (mapped in the
 [usage opinion](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md)); **Comporta** will
 follow the same principle. *(Navigation dedicated to AI lives in [`AGENTS.md`](AGENTS.md).)*
 

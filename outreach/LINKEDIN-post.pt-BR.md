@@ -1,14 +1,8 @@
 <!-- l10n: doc_id=strata-linkedin-post · lang=pt-BR · source_lang=en · translation_of=LINKEDIN-post.md -->
 [English](LINKEDIN-post.md) · **Português**
 
-# Post para o LinkedIn: Strata
+![Strata: separe o que é atemporal do que é datado, e troque de ferramenta sem perder o porquê.](strata-linkedin.pt-BR.png)
 
-**Imagem:** anexe **`strata-linkedin.pt-BR.png`** (nesta mesma pasta, `outreach/`).
-**Texto:** copie tudo dentro do bloco abaixo (é texto puro, sem formatação que o LinkedIn quebra). A primeira linha é o gancho (o LinkedIn corta em "ver mais" depois de ~3 linhas).
-
----
-
-```
 Você acumula trabalho: pesquisa, código, decisões, notas. E com o tempo ele apodrece: você não acha o que decidiu, não sabe o que ainda vale, e a próxima ferramenta ameaça obrigar a recomeçar do zero.
 
 Passei um tempo destilando um método para isso. Chama-se Strata: uma arquitetura para organizar conhecimento em camadas de durabilidade, separando o que é atemporal do que é datado.
@@ -31,11 +25,3 @@ Tudo aberto: o método, os experimentos e o glossário:
 👉 https://github.com/LeoPR/Methodologies
 
 #GestãoDoConhecimento #ArquiteturaDaInformação #InteligênciaArtificial #Metodologia #EngenhariaDeSoftware
-```
-
----
-
-**Dicas rápidas de LinkedIn:**
-- Poste **imagem + texto** juntos (não cole o link como prévia; a imagem já é o visual; o link fica clicável no texto).
-- Se quiser mais curto, corte o parágrafo entre parênteses (a curiosidade da Mnemósine) e/ou os 2 últimos parágrafos sobre IA; o núcleo (gancho + 3 camadas + propósito + link) já se sustenta.
-- Os 3 emojis coloridos casam com as cores do gráfico (azul/verde/laranja).

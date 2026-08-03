@@ -8,10 +8,19 @@ da metodologia (esta vive em [`recipe/`](../recipe/)) nem da pesquisa ([`lab/`](
 
 | Arquivo | O que é |
 |---|---|
-| [`LINKEDIN-post.md`](LINKEDIN-post.md) | versão canônica em inglês do texto para LinkedIn |
-| [`LINKEDIN-post.pt-BR.md`](LINKEDIN-post.pt-BR.md) | versão em português para copiar + postar |
+| [`LINKEDIN-post.md`](LINKEDIN-post.md) | o post do LinkedIn em si (inglês) |
+| [`LINKEDIN-post.pt-BR.md`](LINKEDIN-post.pt-BR.md) | o mesmo post em português |
 | `strata-linkedin.png` / `.svg` | imagem em inglês e fonte editável |
 | `strata-linkedin.pt-BR.png` / `.svg` | imagem em português e fonte editável |
+
+**Notas de produção (publicação):**
+- Cada arquivo de post é a própria publicação: anexe o `.png` correspondente e cole
+  o texto abaixo dela (texto puro; a primeira linha é o gancho antes do "ver mais").
+- Poste imagem + texto juntos (não cole o link como prévia; a imagem já é o visual,
+  e o link fica clicável no texto).
+- Para um post mais curto, corte o parágrafo da Mnemósine e/ou os 2 últimos sobre IA;
+  o núcleo (gancho + 3 camadas + propósito + link) se sustenta sozinho.
+- Os 3 emojis coloridos casam com as cores do gráfico (azul/verde/laranja).
 
 **Re-render do PNG a partir do SVG** (depois de editar um `.svg`): tudo dentro
 do venv do projeto (`playwright` + Chromium em `.venv/pw-browsers`):

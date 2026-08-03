@@ -1,14 +1,8 @@
 <!-- l10n: doc_id=strata-linkedin-post · lang=en · canonical -->
 **English** · [Português](LINKEDIN-post.pt-BR.md)
 
-# LinkedIn post: Strata
+![Strata: separate what is timeless from what is dated, and switch tools without losing the why.](strata-linkedin.png)
 
-**Image:** attach `strata-linkedin.png` (same folder: `outreach/`).
-**Text:** copy everything inside the block below (plain text; the first line is the hook shown before “see more”).
-
----
-
-```text
 You accumulate work: research, code, decisions, notes. Over time it rots: you can’t find what you decided, you don’t know what still holds, and the next tool threatens a full restart.
 
 I spent time distilling a method for this. It’s called Strata: an architecture for organizing knowledge in durability layers, separating what is timeless from what is dated.
@@ -31,11 +25,3 @@ Everything is open: method, experiments, and glossary:
 👉 https://github.com/LeoPR/Methodologies
 
 #KnowledgeManagement #InformationArchitecture #ArtificialIntelligence #Methodology #SoftwareEngineering
-```
-
----
-
-**Quick LinkedIn tips:**
-- Post **image + text** together (do not paste the link as a preview; the image is already the visual).
-- For shorter copy, remove the Mnemosyne paragraph and/or the last two AI paragraphs.
-- The three colored circles match the chart palette (blue/green/orange).

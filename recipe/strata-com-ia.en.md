@@ -8,7 +8,7 @@ nota: the full research (including what does NOT work and why) is in lab/2026-06
 ---
 
 <!-- l10n: doc_id=strata-com-ia · lang=en · canonical -->
-**English** · [Português](strata-com-ia.md)
+**English** · [Português](strata-com-ia.pt-BR.md)
 
 # Strata with AI: practical guide
 
@@ -48,8 +48,7 @@ The retest measured each model in **three situations** with a pre-registered ans
 - **Already-good project §9**: nothing to correct; the right answer is **not to act**.
 
 The finding that organizes the chart: **the §5 fix saturated**: from ~8B local to the frontier
-top, with Strata everyone executes to standard (the "8B cannot fix" of Jun/2026 was the
-technology of the time). **The edge that separates models is abstention** (§9): who abstains
+top, with Strata everyone executes to standard. **The edge that separates models is abstention** (§9): who abstains
 on a project that is already good. It is a **model property, not tier or price**. Opus-5/fable-5
 saturate, and there are calibrated budget models and overacting expensive ones; check the
 specific model in OPINIAO.
@@ -97,8 +96,8 @@ The biggest quality difference comes from **how** you ask, not which model:
 ## Final notes
 
 - **Free local is a real option:** qwen3:14b (fits in a 3060 12GB) executes the
-  fix, and qwen3.6:27b saturates: free, slow. "There is no reliable free option" was
-  Jun/2026 (local 4-8B). Remote `:free` remains bad: heavy rate-limiting and low quality.
+  fix, and qwen3.6:27b saturates: free, slow. Remote `:free` remains bad: heavy
+  rate-limiting and low quality.
 - The full analysis (configurations that do **not** work, the experiments and the research
   charts) is in `lab/2026-06-04-strata-hipoteses/`
   (`RESULTADOS-p6-*`).

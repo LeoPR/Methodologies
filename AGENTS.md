@@ -27,12 +27,12 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
 - `recipe/`: **produtos prontos** (single-source das tecnicas):
   - `knowledge-architecture.en.md`: **STRATA, FONTE CANONICA** (v1.2.1).
     Arquitetura do conhecimento em camadas L0/L1/L2. **Fluxo EN-first** (decisao
-    do dono 2026-08-01): edita-se o EN, o PT (`knowledge-architecture.md`) e'
+    do dono 2026-08-01): edita-se o EN, o PT (`knowledge-architecture.pt-BR.md`) e'
     traducao derivada no mesmo commit (adendo ADR-008). Pendente: Parte IV
     (adocao/operacao).
   - `README.pt-BR.md`: guia de uso do Strata (humano + IA; o arquivo e' efemero).
     Par EN/PT: `README.en.md` e' o canonico, `README.pt-BR.md` a traducao (fluxo EN-first,
-    como o produto); o mesmo vale para `o-que-voce-ganha.md`/`.en.md`.
+    como o produto); o mesmo vale para `o-que-voce-ganha.pt-BR.md`/`.en.md`.
 - `decisions/`: **ADRs** (ADR-001..008): por que cada decisao de design. Imutaveis.
 - `lab/`: pesquisa (modo exploratorio), subpastas datadas `YYYY-MM-DD-tema/`:
   - `2026-06-03-modernizacao/`: analise 5-lentes + `experimento-split/` (**FROZEN**)

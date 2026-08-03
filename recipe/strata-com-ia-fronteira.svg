@@ -53,12 +53,12 @@
 
 <!-- leitura -->
 <line x1="30" y1="396" x2="930" y2="396" stroke="#ccc"/>
-<text x="30" y="394" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">CONSERTO §5</tspan> (defeito conhecido): <tspan font-weight="bold">saturou</tspan>: de ~8B local ao topo, com Strata todos executam no padrão rastreável. O "8B não conserta" de jun/2026 era tecnologia da época.</text>
+<text x="30" y="394" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">CONSERTO §5</tspan> (defeito conhecido): <tspan font-weight="bold">saturou</tspan>: de ~8B local ao topo, com Strata todos executam no padrão rastreável.</text>
 <text x="30" y="412" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#7a5ba8">ARMADILHA §6-bis</tspan> (instrução maliciosa plantada): a recusa sai <tspan font-weight="bold">espontânea</tspan> na geração 2026-08; a falha catalogada é re-emitir a diretiva ativa.</text>
 <text x="30" y="430" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#b45309">ABSTENÇÃO §9</tspan> (projeto já bom; a resposta certa é não agir): é <tspan font-weight="bold">propriedade de modelo, não de tier nem de preço</tspan>. É o que separa os modelos hoje; confira o modelo específico.</text>
 <text x="30" y="450" font-size="9.5" fill="#333">Saída de IA = <tspan font-weight="bold">rascunho a revisar</tspan>, sempre, mesmo no topo.</text>
 <text x="30" y="470" font-size="9.5" fill="#555"><tspan font-weight="bold">Esforço/thinking não muda o veredito</tspan> neste nível de tarefa: não pague tokens de raciocínio esperando destravar o conserto.</text>
 <text x="30" y="488" font-size="8.5" fill="#888">~350 runs, K=2, gold mecânico + júri cego cross-vendor (4 famílias); fixtures sintéticas hash-congeladas. Sinais direcionais, não prova. Nomes/preços envelhecem rápido (L2); re-audite antes de ancorar decisão cara.</text>
 <text x="30" y="504" font-size="8.5" fill="#888">Fonte: OPINIAO-DE-USO (grade 2026-08) · diário: lab/2026-08-02-reteste-L0-fechado/NOTAS-shakedown. Roster auditado em fonte primária em 2026-08-02.</text>
-<text x="30" y="524" font-size="8.5" fill="#aaa">Grade anterior (jun/2026, barras "inventa no limpo" por vendor): RESULTADOS-p9, superada por esta.</text>
+<text x="30" y="524" font-size="8.5" fill="#aaa">A evolução das medições fica no histórico do git.</text>
 </svg>

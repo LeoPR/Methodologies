@@ -48,7 +48,7 @@ O reteste mediu cada modelo em **três situações** com gabarito pré-registrad
 - **Projeto já bom §9**: nada a corrigir; a resposta certa é **não agir**.
 
 O achado que organiza o gráfico: **o conserto §5 saturou**: de ~8B local ao topo de fronteira,
-com Strata todos executam no padrão (o "8B não conserta" de jun/2026 era tecnologia da época).
+com Strata todos executam no padrão.
 **A borda que separa os modelos é a abstenção** (§9): quem se abstém num projeto que já está bom.
 Ela é **propriedade de modelo, não de tier nem de preço**. Opus-5/fable-5 saturam, e há
 econômicos calibrados e caros superagentes; confira o modelo específico na OPINIAO.
@@ -96,8 +96,8 @@ A maior diferença de qualidade vem de **como** você pede, não de qual modelo:
 ## Notas finais
 
 - **Local grátis é opção real:** qwen3:14b (cabe numa 3060 12GB) executa o
-  conserto, e qwen3.6:27b satura: grátis, lento. O "não há opção grátis confiável" era
-  jun/2026 (locais 4-8B). Remoto `:free` segue ruim: rate-limit pesado e qualidade baixa.
+  conserto, e qwen3.6:27b satura: grátis, lento. Remoto `:free` segue ruim: rate-limit
+  pesado e qualidade baixa.
 - A análise completa (configurações que **não** funcionam, os experimentos e os gráficos
   de pesquisa) está em `lab/2026-06-04-strata-hipoteses/`
   (`RESULTADOS-p6-*`).

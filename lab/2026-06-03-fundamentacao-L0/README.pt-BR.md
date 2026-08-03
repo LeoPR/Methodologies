@@ -22,7 +22,7 @@ outcome: confirmed
 
 ## Pergunta
 
-As afirmações do núcleo atemporal (`recipe/knowledge-architecture.md`, Parte I)
+As afirmações do núcleo atemporal (`recipe/knowledge-architecture.pt-BR.md`, Parte I)
 têm sustentação em **fontes primárias** verificáveis — e cada uma é de fato
 *anterior* à IA/ao computador, como a tese das camadas afirma?
 
@@ -148,7 +148,7 @@ evidência e marcar honestamente o status:
 
 ## Próximo passo
 
-Tecer estas citações de volta no `recipe/knowledge-architecture.md`: cada
+Tecer estas citações de volta no `recipe/knowledge-architecture.pt-BR.md`: cada
 seção do L0 ganha uma linha **"Fundamentação"** apontando a(s) fonte(s)
 primária(s) — tornando o próprio núcleo rastreável (dogfood da §3). Depois,
 seguir para as Partes II (L1) e III (L2).

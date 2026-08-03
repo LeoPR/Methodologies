@@ -9,7 +9,7 @@ status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5/F6 front
 
 > Documento **macro**: a ideia abstrata por trás dos testes e o que eles mostram. Os números
 > granulares e as ressalvas finas vivem nos `RESULTADOS-*` linkados. O **método** está em
-> [`recipe/knowledge-architecture.md`](../../recipe/knowledge-architecture.md); aqui é sobre a
+> [`recipe/knowledge-architecture.pt-BR.md`](../../recipe/knowledge-architecture.pt-BR.md); aqui é sobre a
 > **validação** dele. Tudo abaixo é **sinal/indício**, não prova (ver *Regime e limites*).
 >
 > **➡️ Opinião de uso final (honesta, consolidada):** [`OPINIAO-DE-USO.md`](OPINIAO-DE-USO.md) ·
@@ -253,7 +253,7 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   "lost-in-the-middle"); só o **conteúdo** (critério de abstenção, B) move, e **fraco/instável** (calibra 1/5; o
   "8→3" era sorte de K=2). Fracos: teto de capacidade (~nada). **Variância:** K=5 superestimava (segurança do
   fraco ~10%, `pass^k=0`; mode-lock a temp 0,3). Sobrevive *"capacidade é o portão"*. **Decisão: NÃO editar o
-  `knowledge-architecture.md` canônico.** Metodologia em [`ADR-006`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
+  `knowledge-architecture.pt-BR.md` canônico.** Metodologia em [`ADR-006`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
   [`RESULTADOS-p8`](RESULTADOS-p8-posicao-saliencia-s9.md).
 - **2026-06-14**: **defrag/housekeeping + privacidade** (não-experimental): wayfinding aponta à OPINIÃO;
   README do harness vivo; arco antigo → `eval/strata/_superseded/` (tombstone); dado pessoal sensível

@@ -20,7 +20,7 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 ## P0: antes de mais testes
 - **Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
   **circularidade** no **topo** de todo relatório/recipe de uso (não em "abertos"). **Recalibrar
-  `recipe/strata-com-ia.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.
+  `recipe/strata-com-ia.pt-BR.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.
   *(O R8 era "o achado mais importante do reteste" e quase não aparecia na opinião de uso, o over-claim mais sério após a tese-mãe.)*
 - **Braço EXTERNO (abstenção FEITA, auditoria rica ABERTA):** a abstenção já rodou em **6 repos open-source de
   terceiros** (tomli/slugify/humanize/mlscratch/pytorchgan/ml3months) + projetos publicados (FG2P, com artigo):

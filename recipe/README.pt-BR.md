@@ -7,12 +7,12 @@
 
 Aqui ficam as metodologias **destiladas e portáveis**.
 
-## Strata: [`knowledge-architecture.md`](knowledge-architecture.md)
+## Strata: [`knowledge-architecture.pt-BR.md`](knowledge-architecture.pt-BR.md)
 
 Arquitetura do conhecimento em camadas. Um arquivo único, auto-suficiente
 (todas as fundamentações *inline*), licença CC BY-SA 4.0.
 
-> **Novo por aqui?** Comece pela página [o-que-voce-ganha.md](o-que-voce-ganha.md).
+> **Novo por aqui?** Comece pela página [o-que-voce-ganha.pt-BR.md](o-que-voce-ganha.pt-BR.md).
 > Ela diz, em linguagem simples, o que o Strata entrega, quando vale a pena, e o que não esperar.
 
 ### Para que serve · quando · para quem
@@ -33,7 +33,7 @@ seus, e do seu método de trabalho (Scrum, TDD, design…); o Strata **complemen
 substitui. E, pelo próprio §9, ao que é descartável não se aplica.
 
 > Este README é **meta**: ensina a *usar* o arquivo. Ele **não** viaja junto: o
-> que importa é o `knowledge-architecture.md`, que se basta sozinho.
+> que importa é o `knowledge-architecture.pt-BR.md`, que se basta sozinho.
 
 ### O arquivo é efêmero (e tudo bem)
 
@@ -87,7 +87,7 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
 ### Como usar: por uma IA (ela aplica ao seu projeto)
 
 Há **dois modos**, e qual usar depende da força do modelo (guia completo, com custos e
-ambientes (local/grátis/pago), em **[`strata-com-ia.md`](strata-com-ia.md)**;
+ambientes (local/grátis/pago), em **[`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md)**;
 versão em inglês: [`strata-com-ia.en.md`](strata-com-ia.en.md)):
 
 - **De uma vez (modelo de topo, ex. Opus):** entregue o método + o projeto e peça a avaliação
@@ -96,7 +96,7 @@ versão em inglês: [`strata-com-ia.en.md`](strata-com-ia.en.md)):
   vez eles ainda erram a proporção: inventam violações ou deixam o real passar. Em vez do
   texto canônico cru, dê uma **checklist** e aplique **em etapas** (reconheça o bom → situe
   no tempo → gate a gate com evidência → priorize pelo §9). Ajuda, mas o resultado é
-  **rascunho a revisar**. (Receitas prontas em `strata-com-ia.md`.)
+  **rascunho a revisar**. (Receitas prontas em `strata-com-ia.pt-BR.md`.)
 
 > **O que mudou em 2026-08:** o aviso "econômico de-uma-vez alucina tudo" ficou parcialmente
 > datado. A geração atual **executa o conserto** de um defeito conhecido (§5) e **recusa
@@ -109,7 +109,7 @@ Exemplos de pedido para o **modo de-uma-vez** (Claude, Copilot Chat, etc.), em u
 com o seu projeto aberto:
 
 ```text
-Leia knowledge-architecture.md e avalie se este projeto está aderente.
+Leia knowledge-architecture.pt-BR.md e avalie se este projeto está aderente.
 Liste, por seção do L0, o que já cumpre, o que falta, e o mínimo que eu
 faria primeiro (use o §9 para priorizar — não me mande aplicar tudo).
 ```
@@ -133,7 +133,7 @@ grava sozinha e escolhe onde guardar. Nomear um arquivo só amarraria a orienta�
 ferramenta de hoje, e o que importa é o comportamento, não o nome do arquivo.
 
 ```text
-Lembre que este projeto segue o método Strata, que ele está em knowledge-architecture.md,
+Lembre que este projeto segue o método Strata, que ele está em knowledge-architecture.pt-BR.md,
 e que, quando formos trabalhar, você deve reconferir a aderência ao núcleo (L0) antes de
 mudanças grandes. Guarde na sua memória do jeito que achar melhor; não precisa me dizer
 onde gravou.
@@ -161,7 +161,7 @@ primeiro é só memória, já o segundo é trabalho de fato.
 > [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).)*
 >
 > **Saída de IA = rascunho a revisar.** Guia prático por modelo, custo e ambiente:
-> [`strata-com-ia.md`](strata-com-ia.md).
+> [`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md).
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 
@@ -231,10 +231,10 @@ primeiro é só memória, já o segundo é trabalho de fato.
 | **Entender** o método e o projeto | ✅ universal | todos, até os econômicos |
 | **Diagnosticar** o que está errado (núcleo L0) | ✅ no essencial | todos pegam o grosso; médio/econômico **inventa extra** |
 | **Saber não agir** quando já está bom | ⚠️ **propriedade de modelo, não de tier** | calibram: 27B local, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; superagem: haiku-4.5, deepseek-v3.2, qwen3-32b; **dependente de framing** (flip-rates medidos com K=5) |
-| **Recusar** ordem maliciosa (*injeção*) | ✅ **sólido na geração atual, espontâneo** | todos os testados (27B local, 32B, gpt-5-mini, 4.1-mini) recusam 8/8, citando §6-bis; a "recusa lexical que caía sob paráfrase" era da geração anterior |
-| **Executar** o conserto **sem apagar histórico** | ✅ nuvem / ✅ local a partir de ~8B | o conserto §5 satura de ~8B local ao topo (20/20 com Strata); ~20–27B satura conserto **e** abstenção; o "0 acerto" do local era jun/2026. **Evitar llama-4-scout** (falhou o conserto da armadilha 2/2 e propagou o payload) |
+| **Recusar** ordem maliciosa (*injeção*) | ✅ **sólido e espontâneo** | todos os testados (27B local, 32B, gpt-5-mini, 4.1-mini) recusam 8/8, citando §6-bis |
+| **Executar** o conserto **sem apagar histórico** | ✅ nuvem / ✅ local a partir de ~8B | o conserto §5 satura de ~8B local ao topo (20/20 com Strata); ~20–27B satura conserto **e** abstenção. **Evitar llama-4-scout** (falhou o conserto da armadilha 2/2 e propagou o payload) |
 
-**Tabela 2: Como usar o `knowledge-architecture.md`, por onde você roda**
+**Tabela 2: Como usar o `knowledge-architecture.pt-BR.md`, por onde você roda**
 
 | Onde você roda | Modelos típicos | Como usar o arquivo | Cuidado principal |
 |---|---|---|---|

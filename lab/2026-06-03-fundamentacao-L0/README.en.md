@@ -19,7 +19,7 @@ outcome: confirmed
 
 ## Question
 
-Do the claims of the timeless core (`recipe/knowledge-architecture.md`, Part I) have
+Do the claims of the timeless core (`recipe/knowledge-architecture.pt-BR.md`, Part I) have
 support in verifiable **primary sources** — and is each one in fact *older* than AI/the
 computer, as the layers thesis claims?
 
@@ -144,6 +144,6 @@ the status:
 
 ## Next step
 
-Weave these citations back into `recipe/knowledge-architecture.md`: each L0 section
+Weave these citations back into `recipe/knowledge-architecture.pt-BR.md`: each L0 section
 gets a **"Grounding"** line pointing to the primary source(s) — making the core itself
 traceable (§3 dogfooding). Then proceed to Parts II (L1) and III (L2).

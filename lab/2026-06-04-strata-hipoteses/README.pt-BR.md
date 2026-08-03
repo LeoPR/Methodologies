@@ -59,7 +59,7 @@ de compreensão por IA (GATES de autoridade humana lidos como prosa). Falta uma
 **O experimento (desenho do dono, formalizado)**:
 
 1. **Fixar** um projeto-alvo real (pequeno, com problemas conhecidos de organização)
-   e o `knowledge-architecture.md` (versão congelada por hash).
+   e o `knowledge-architecture.pt-BR.md` (versão congelada por hash).
 2. **Variável isolada = o modelo**. Para cada modelo (Copilot Chat em modo
    automático e com modelos configurados manualmente: GPT-4.1, Gemini, etc.; e
    Claude em chat novo):

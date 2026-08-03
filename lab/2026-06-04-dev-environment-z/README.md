@@ -42,7 +42,7 @@ convergentes, não inventados:
 
 Formalizá-la = mapear explicitamente sobre L0/L1/L2 e nomear as camadas que ela
 já tem implícitas. Ela é candidata natural a virar um `recipe/` próprio no futuro
-(ao lado do knowledge-architecture.md), OU o segundo caso de teste de transporte
+(ao lado do knowledge-architecture.pt-BR.md), OU o segundo caso de teste de transporte
 do Strata.
 
 ## Achados da aplicação (2026-06-04) — primeira evidência de campo

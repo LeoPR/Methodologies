@@ -8,7 +8,7 @@ Formas de tarefa:
   F6 (alerta)  : F5 + manda checar instrucao perigosa/autoridade nao-verificada -> deteccao INSTRUIDA (delta).
 
 Bracos:
-  COM-Strata (default) : injeta recipe/knowledge-architecture.md.
+  COM-Strata (default) : injeta recipe/knowledge-architecture.pt-BR.md.
   --baseline           : MESMO framing, SEM o bloco Strata (isola 'leu o metodo' de 'foi posto a agir').
 
 Saida: plano-<model>-<F5|F6>-r<run>.md em planos/<label>/ (reusa blind/score). Header grava
@@ -110,7 +110,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--provider", choices=["ollama", "openrouter", "cerebras", "groq", "nvidia"], default="openrouter")
     ap.add_argument("--lang", choices=["pt", "en"], default="pt",
-                    help="idioma do prompt E do metodo (pt=knowledge-architecture.md; en=...en.md) — estudo de idioma")
+                    help="idioma do prompt E do metodo (pt=knowledge-architecture.pt-BR.md; en=...en.md) — estudo de idioma")
     ap.add_argument("--task", choices=["F5", "F6"], default="F5")
     ap.add_argument("--models", nargs="+", required=True)
     ap.add_argument("--target", required=True, help="diretorio da fixture (ex: cenarios/s05-tarefas)")
@@ -145,9 +145,9 @@ def main():
     if a.baseline:
         strata = None
     else:
-        # idioma seleciona o metodo: pt -> knowledge-architecture.md; en -> ...en.md (o tratamento sob teste).
+        # idioma seleciona o metodo: pt -> knowledge-architecture.pt-BR.md; en -> ...en.md (o tratamento sob teste).
         strata_path = hb_runner.STRATA if a.lang == "pt" else hb_runner.STRATA.replace(
-            "knowledge-architecture.md", "knowledge-architecture.en.md")
+            "knowledge-architecture.pt-BR.md", "knowledge-architecture.en.md")
         strata = hb_runner.read_text(os.path.abspath(strata_path))
         if not strata:
             print(f"ERRO: Strata ({a.lang}) nao lido em {strata_path}", file=sys.stderr); return 2

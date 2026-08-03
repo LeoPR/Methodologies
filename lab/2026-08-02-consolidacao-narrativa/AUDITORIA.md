@@ -27,7 +27,7 @@ evidência e deixou docs de superfície para trás.
 | ARQUITETURA-E-EVIDENCIAS.md | hub se declara fonte canônica mas sem entrada 2026-08-02; F3/F5/agente datados (l33,39-41,113,158-159) | RASTREABILIDADE | alta | entrada datada + recalibrar linhas |
 | recipe/documentacao-multilingue.md:123-126 | fila diz recipe/README e o-que-voce-ganha "sem par" (falso hoje) | RASTREABILIDADE | alta | atualizar tabela |
 | FECHAMENTO-avaliacao-strata.md:l70+passo9 | gaps já fechados (completion-only, s04) como abertos | RASTREABILIDADE | alta | entrada datada 2026-08-02 |
-| recipe/strata-com-ia.md | tabela de decisão + SVG no roster jun/2026 | RASTREABILIDADE | alta | grade 2026-08 |
+| recipe/strata-com-ia.pt-BR.md | tabela de decisão + SVG no roster jun/2026 | RASTREABILIDADE | alta | grade 2026-08 |
 | lab/2026-08-02-reteste-L0-fechado/PLANO.md | status "shake-down em curso", já executado | RASTREABILIDADE | média | status executado |
 | MAP.md | árvore sem lab/2026-08-02-reteste-L0-fechado; trilha "prova" só ao hub | RASTREABILIDADE | média | adicionar + apontar OPINIAO |
 
@@ -93,7 +93,7 @@ canônico + `README.pt-BR.md` derivado). Executada em 5 pacotes:
 
 ### Pendências registradas
 
-- Tradução EN de `recipe/strata-com-ia.md` (canônico pendente; já constava na fila
+- Tradução EN de `recipe/strata-com-ia.pt-BR.md` (canônico pendente; já constava na fila
   de `documentacao-multilingue.md`).
 - Hub `ARQUITETURA-E-EVIDENCIAS.md`: 1ª pessoa residual fora do mapeado (acima).
 - PNGs de outreach: renderizar novamente se o texto dos SVGs mudar (não mudou).
@@ -168,3 +168,32 @@ HERE consistente.
 
 **Pendência:** nenhuma funcional. `_superseded/` segue congelado com os HEREs
 da época (não roda mais por basename — registro, não usar).
+
+## Etapa 3 (2026-08-02): superfície não cita erro antigo + sufixo pt-BR
+
+Duas regras editoriais novas aplicadas às superfícies publicadas:
+
+1. **Superfície não cita erro antigo.** Documento de superfície afirma o que é
+   verdade hoje, direto; nunca escreve o correto e depois "(antes estava errado
+   assim)". Quem lê desconhece o passado do texto e não deve adivinhá-lo; as
+   formas erradas são infinitas e não se citam. A evolução vive no histórico do
+   git. Varredura e correção em: `recipe/strata-com-ia.pt-BR.md` +
+   `.en.md` (2 pontos), `recipe/README.pt-BR.md` + `README.en.md` (2 linhas de
+   tabela), `recipe/o-que-voce-ganha.pt-BR.md` + `.en.md` (1 ponto),
+   `recipe/strata-com-ia-fronteira.svg` (2 linhas; a linha da grade anterior
+   virou "A evolução das medições fica no histórico do git."). Datação legítima
+   de método (ex.: "roster auditado em fonte primária em 2026-08-02", bloco
+   "Fonte e regime") permanece: datar o método não é citar erro.
+2. **Sufixo de idioma em todo par não-README.** Só o README da raiz usa
+   `README.md` (EN) + `README.pt-BR.md`. Nos demais pares o PT não fica sem
+   sufixo: `X.en.md` (canônico) + `X.pt-BR.md`. Renomeados com `git mv`:
+   `recipe/knowledge-architecture.md` → `.pt-BR.md`, `recipe/o-que-voce-ganha.md`
+   → `.pt-BR.md`, `recipe/strata-com-ia.md` → `.pt-BR.md`. Referências
+   atualizadas em todos os docs vivos (raiz, recipe/, eval/ código e RUNBOOK,
+   READMEs e hubs do lab); registros datados e imutáveis (ADRs, RESULTADOS-*,
+   FROZEN, planos/) ficaram com os caminhos da época, como histórico.
+   `recipe/documentacao-multilingue.md` registra a convenção.
+
+**Gates:** `check_stamps.py` ok · `check_l10n.py --working` ok ·
+`verify/verify_f4.py --selftest` GOLD 100% (o harness passou a ler
+`recipe/knowledge-architecture.pt-BR.md`, mesmo conteúdo PT de sempre).

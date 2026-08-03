@@ -51,7 +51,7 @@ O Strata não é um auditor autônomo que varre um projeto real e acerta sozinho
 Nisso, ele não supera a competência pura do modelo.
 Reconhecer que está tudo bem e não mexer na medida certa, ou achar dívida real num projeto grande, ainda pede um modelo que calibre esse julgamento (e o preço não ordena isso), ou você no loop.
 
-Um modelo da geração atual recusa a instrução perigosa espontaneamente, até no econômico. A recusa frágil que caía sob paráfrase era da geração anterior (2026-08).
+Um modelo da geração atual recusa a instrução perigosa espontaneamente, até no econômico.
 O risco residual é a IA reescrever a diretiva ativa em vez de neutralizá-la, e há um modelo a evitar para este uso (o llama-4-scout).
 Para a segurança que importa, revise a saída, e confira o modelo específico na opinião de uso.
 
@@ -69,6 +69,6 @@ Para a organização completa, vale pagar o premium uma vez.
 
 ## Comece aqui
 
-O método, em um arquivo que viaja sozinho: [`knowledge-architecture.md`](knowledge-architecture.md).
-Qual modelo usar, por custo e ambiente: [`strata-com-ia.md`](strata-com-ia.md).
+O método, em um arquivo que viaja sozinho: [`knowledge-architecture.pt-BR.md`](knowledge-architecture.pt-BR.md).
+Qual modelo usar, por custo e ambiente: [`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md).
 A opinião honesta, a fundo: [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).

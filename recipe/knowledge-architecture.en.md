@@ -20,7 +20,7 @@ decisions: decisions/
 <!-- Freshness ruler = git history (see recipe/documentacao-multilingue.md), not a hand-written stamp.
      Translate prose only, never the § refs, code, paths, the Greek layer names (Mneme/Morfé/Órganon),
      or the grounding citations. -->
-[Português](knowledge-architecture.md) · **English**
+[Português](knowledge-architecture.pt-BR.md) · **English**
 
 # Knowledge architecture: organize, track, and generate
 

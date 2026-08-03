@@ -2,7 +2,7 @@
 title: 'Ideia: a clareza para uma IA pode pedir um estilo de redação próprio'
 status: 'registrado — hipótese a pensar depois; não executado'
 created: 2026-06-20
-updated: 2026-06-20
+updated: 2026-08-02
 ---
 
 # Ideia: a clareza para uma IA pode pedir um estilo próprio
@@ -44,7 +44,7 @@ O ponto de vista muda. Não é "como fica claro para mim", é "como fica claro p
 
 Já há sinal de que a forma densa ajuda o modelo pequeno.
 Nos testes P1, P2 e P6, a forma densa e a checklist em etapas renderam mais nos modelos médios e econômicos do que a prosa canônica longa.
-O guia `../../recipe/strata-com-ia.md` diz o mesmo: a prosa longa afoga os modelos de ~8B, que precisam da versão densa ou da checklist.
+O guia `../../recipe/strata-com-ia.pt-BR.md` diz o mesmo: a prosa longa afoga os modelos de ~8B, que precisam da versão densa ou da checklist.
 O modelo de topo, ao contrário, lê a prosa canônica direto.
 
 Então a compressão parece ajudar mais o tier econômico do que o topo.

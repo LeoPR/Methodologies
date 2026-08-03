@@ -12,7 +12,7 @@ updated: 2026-08-02
 Methodologies/                        <- Oficina de metodologias (Strata pronto; Comporta no forno)
 ├── recipe/
 │   ├── knowledge-architecture.en.md  <- PRODUTO Strata, FONTE CANÔNICA (L0/L1/L2; L0 fechado 2026-08-01, v1.2.1)
-│   ├── knowledge-architecture.md     <- tradução pt-BR derivada do canônico EN
+│   ├── knowledge-architecture.pt-BR.md     <- tradução pt-BR derivada do canônico EN
 │   ├── README.md                     <- guia de uso do Strata (humano + IA; efêmero; pendências)
 │   ├── strata-com-ia{,.en}.md          <- guia prático "funciona no meu ambiente? sai caro?"
 │   ├── documentacao-multilingue.md   <- método portável: docs de entrada em 2 línguas (fonte canônica + tradução rastreável)
@@ -53,8 +53,8 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 
 | Quero | Va para |
 |---|---|
-| **Começar do zero (onboarding de superfície)** | [`README.md`](README.md) → [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) → [`recipe/README.pt-BR.md`](recipe/README.pt-BR.md) → [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) |
-| **Usar a metodologia** (produto) | [recipe/knowledge-architecture.en.md](recipe/knowledge-architecture.en.md) (canônico EN; pt-BR: `knowledge-architecture.md`) |
+| **Começar do zero (onboarding de superfície)** | [`README.md`](README.md) → [`recipe/o-que-voce-ganha.pt-BR.md`](recipe/o-que-voce-ganha.pt-BR.md) → [`recipe/README.pt-BR.md`](recipe/README.pt-BR.md) → [`recipe/knowledge-architecture.pt-BR.md`](recipe/knowledge-architecture.pt-BR.md) |
+| **Usar a metodologia** (produto) | [recipe/knowledge-architecture.en.md](recipe/knowledge-architecture.en.md) (canônico EN; pt-BR: `knowledge-architecture.pt-BR.md`) |
 | **Organizar docs de entrada em 2 línguas** (aplicável a outro projeto) | [recipe/documentacao-multilingue.md](recipe/documentacao-multilingue.md) |
 | **A opinião honesta de uso** (o que funciona, por tarefa/tier/custo) | [lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | Ver a **prova** de que o Strata funciona (a "chave de fenda") | [OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) (estado consolidado) · hub [ARQUITETURA-E-EVIDENCIAS.md](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md) · rodada atual [lab/2026-08-02-reteste-L0-fechado/](lab/2026-08-02-reteste-L0-fechado/) · harness em [eval/strata/](eval/strata/) |

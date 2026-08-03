@@ -58,6 +58,6 @@ Já há ganchos no produto — **não inventar do zero**:
 ## Estado
 **REGISTRO.** Não estudar agora. Quando retomar: pesquisar os 3 eixos (web), propor 1 padrão L1 + um ADR de
 encaixe, e dogfoodar no próprio repo (este projeto usa IA o tempo todo — é o primeiro caso de teste).
-Cruza com: §3/§3-bis/§6 do [`../../recipe/knowledge-architecture.md`](../../recipe/knowledge-architecture.md),
+Cruza com: §3/§3-bis/§6 do [`../../recipe/knowledge-architecture.pt-BR.md`](../../recipe/knowledge-architecture.pt-BR.md),
 [`DOSSIE-ia-temporalidade-ordem-fontes.md`](DOSSIE-ia-temporalidade-ordem-fontes.md),
 [`IDEIA-exportacao-traducao.md`](IDEIA-exportacao-traducao.md) e [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md).

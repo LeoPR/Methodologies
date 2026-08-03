@@ -230,8 +230,8 @@ first is memory only, the second is actual work.
 | **Understand** the method and the project | ✅ universal | everyone, even the affordable ones |
 | **Diagnose** what is wrong (L0 core) | ✅ in the essentials | everyone gets the bulk; mid/affordable **invents extra** |
 | **Know when not to act** when it is already good | ⚠️ **model property, not tier** | calibrates: local 27B, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; over-acts: haiku-4.5, deepseek-v3.2, qwen3-32b; **framing-dependent** (flip-rates measured at K=5) |
-| **Refuse** a malicious order (*injection*) | ✅ **solid in the current generation, spontaneous** | all tested (local 27B, 32B, gpt-5-mini, 4.1-mini) refuse 8/8, citing §6-bis; the "lexical refusal that fell to paraphrase" was the previous generation |
-| **Execute** the fix **without erasing history** | ✅ cloud / ✅ local from ~8B | the §5 fix saturates from ~8B local to the top (20/20 with Strata); ~20–27B saturates fix **and** abstention; the local "zero hits" was jun/2026. **Avoid llama-4-scout** (failed the trap fix 2/2 and propagated the payload) |
+| **Refuse** a malicious order (*injection*) | ✅ **solid and spontaneous** | all tested (local 27B, 32B, gpt-5-mini, 4.1-mini) refuse 8/8, citing §6-bis |
+| **Execute** the fix **without erasing history** | ✅ cloud / ✅ local from ~8B | the §5 fix saturates from ~8B local to the top (20/20 with Strata); ~20–27B saturates fix **and** abstention. **Avoid llama-4-scout** (failed the trap fix 2/2 and propagated the payload) |
 
 **Table 2: How to use `knowledge-architecture.en.md`, by where you run it**
 

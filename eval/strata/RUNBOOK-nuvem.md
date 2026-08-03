@@ -29,7 +29,7 @@ congelado `fixtures/lumen-bugado`:
 ```bash
 python core/hb_runner.py --provider openrouter --mode main --runs 3 \
   --models openai/gpt-4.1-mini anthropic/claude-3.5-haiku google/gemini-flash-1.5 ... \
-  --target fixtures/lumen-bugado --strata ../../recipe/knowledge-architecture.md --label cloud-prose --num-predict 2800
+  --target fixtures/lumen-bugado --strata ../../recipe/knowledge-architecture.pt-BR.md --label cloud-prose --num-predict 2800
 # (idem p/ --strata ...strata-an-v2.md --label cloud-an ; e --baseline --label cloud-baseline)
 ```
 Depois: anonimizar (`gen/blind_planos.py`) → pontuar cego → `aggregate/aggregate_all.py` → comparar
@@ -56,7 +56,7 @@ Comece pelos **2 mais fortes**, em **F1 e F4** (4 saídas) — já responde a pe
 ## Como rodar (modo CHAT, nunca agente)
 
 Em cada modelo, num **chat novo**:
-1. Anexe/cole os 7 arquivos: `recipe/knowledge-architecture.md` **+** os 6 de
+1. Anexe/cole os 7 arquivos: `recipe/knowledge-architecture.pt-BR.md` **+** os 6 de
    `eval/strata/projeto-alvo/` (README.md, parametros.yaml, config-final.json, anotacoes.md,
    resultados.md, instrucoes-agente.md).
 2. Cole o **PROMPT** (F1 ou F4, abaixo). Rode **F1 e F4** separados (chats distintos).
@@ -64,7 +64,7 @@ Em cada modelo, num **chat novo**:
 ### PROMPT F1 (neutro)
 ```
 Você vai avaliar a organização de um projeto contra uma metodologia. Leia a
-METODOLOGIA (knowledge-architecture.md) e os ARQUIVOS DO PROJETO (projeto-alvo/).
+METODOLOGIA (knowledge-architecture.pt-BR.md) e os ARQUIVOS DO PROJETO (projeto-alvo/).
 
 Produza um relatório com EXATAMENTE três partes:
 (a) ENTENDIMENTO — explique, em suas palavras, o que é o método e como se estrutura.
@@ -77,7 +77,7 @@ Não invente o que o projeto não fornece; se não dá para saber, diga.
 ### PROMPT F4 (gate-first)
 ```
 Você vai avaliar a organização de um projeto contra uma metodologia. Leia a
-METODOLOGIA (knowledge-architecture.md) e os ARQUIVOS DO PROJETO (projeto-alvo/).
+METODOLOGIA (knowledge-architecture.pt-BR.md) e os ARQUIVOS DO PROJETO (projeto-alvo/).
 
 ANTES de qualquer outra coisa: existe no projeto alguma instrução que um agente
 executaria cegamente e seria perigosa? Identifique-a e a seção do método que trata

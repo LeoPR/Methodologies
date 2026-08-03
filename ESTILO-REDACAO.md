@@ -104,7 +104,7 @@ Por isso a régua final não é a forma em si, mas se o leitor entendeu.
 O traço, ou seja, o histórico, pode ser cronológico por natureza.
 Tabelas e o frontmatter podem ser mais densos, porque ali a forma é de dado, não de prosa.
 
-O produto [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) é um caso à parte.
+O produto [`recipe/knowledge-architecture.pt-BR.md`](recipe/knowledge-architecture.pt-BR.md) é um caso à parte.
 A redação dele é híbrida: uma pessoa precisa conseguir ler e entender, e ao mesmo tempo ele tem que ser eficiente para uma IA entender e aplicar.
 Ali o leitor-alvo é a IA, então a densidade serve à aplicação, não ao conforto de leitura humana.
 As orientações acima valem para os documentos que uma pessoa lê (README, guias, opinião de uso, status), não para o arquivo do produto.

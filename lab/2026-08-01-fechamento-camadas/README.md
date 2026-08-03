@@ -1,7 +1,7 @@
 ---
 title: Fechamento das camadas L0/L1/L2 — revisão fundamentada em partes
 created: 2026-08-01
-updated: 2026-08-01
+updated: 2026-08-02
 status: **CICLO P1–P5 FECHADO (2026-08-01)** — L0 editorialmente fechado: §11
   enxuto no canônico (P1), P2 refutada, §6-bis expandido com autoridade-para-ver
   (P3), notas datadas resolvidas com persona declarada no lead (P4), âncoras do
@@ -70,7 +70,7 @@ produto~~ — **FEITO 2026-08-01**: o par `strata-knowledge-architecture` invert
 (EN canônico, PT derivado) por decisão explícita do dono; adendo datado no
 ADR-008, cólofons trocados, `tools/check_l10n.py` inalterado (orientada a
 marcadores). Resta da fila editorial da doc multilíngue: `recipe/README.md`,
-`MAP.md`, `STATUS.md`, `o-que-voce-ganha.md` (sem par — ver tabela em
+`MAP.md`, `STATUS.md`, `o-que-voce-ganha.pt-BR.md` (sem par — ver tabela em
 `recipe/documentacao-multilingue.md`).
 
 ## Série L1 (revisão de conteúdo da Parte II — a que havia ficado para trás)

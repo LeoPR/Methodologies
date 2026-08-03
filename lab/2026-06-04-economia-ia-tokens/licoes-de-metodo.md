@@ -2,7 +2,7 @@
 title: Lições de método — melhorias no processo científico (ciclo economia-IA)
 created: 2026-06-04
 status: vivo (acumula lições conforme aparecem)
-purpose: melhorar COMO pesquisamos; candidato a realimentar o Strata (knowledge-architecture.md)
+purpose: melhorar COMO pesquisamos; candidato a realimentar o Strata (knowledge-architecture.pt-BR.md)
 ---
 
 # Lições de método

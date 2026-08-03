@@ -6,7 +6,7 @@ status: 'Entry page for those who will use it. Consolidated state. The evidence 
 ---
 
 <!-- l10n: doc_id=strata-o-que-voce-ganha · lang=en · canonical -->
-[Português](o-que-voce-ganha.md) · **English**
+[Português](o-que-voce-ganha.pt-BR.md) · **English**
 
 # Strata: what you gain
 
@@ -49,7 +49,7 @@ Strata is not an autonomous auditor that sweeps a real project and gets it right
 At that, it does not beat the model's raw competence.
 Recognizing that everything is fine and not touching it in the right measure, or finding real debt in a big project, still asks for a model that calibrates that judgment (and price does not order this), or you in the loop.
 
-A model from the current generation refuses the dangerous instruction spontaneously, even at the affordable tier. The fragile refusal that fell to paraphrase belonged to the previous generation (2026-08).
+A model from the current generation refuses the dangerous instruction spontaneously, even at the affordable tier.
 The residual risk is the AI rewriting the active directive instead of neutralizing it, and there is one model to avoid for this use (llama-4-scout).
 For the security that matters, review the output, and check the specific model in the usage opinion.
 
@@ -68,5 +68,5 @@ For the full organization, paying the premium once is worth it.
 ## Start here
 
 The method, in one file that travels on its own: [`knowledge-architecture.en.md`](knowledge-architecture.en.md).
-Which model to use, by cost and environment: [`strata-com-ia.md`](strata-com-ia.md) (currently in Portuguese).
+Which model to use, by cost and environment: [`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md) (currently in Portuguese).
 The honest opinion, in depth: [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).

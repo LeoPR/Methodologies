@@ -2,7 +2,7 @@
 title: Varredura future-proof do núcleo L0 — invariantes atemporais faltantes
 status: closed
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-08-02
 tags: [knowledge-architecture, L0, future-proof, multi-lens, auto-revisao, fan-out]
 outcome: confirmed (L0 incompleto; 3 seções novas integradas, refinos pendentes)
 ---
@@ -17,7 +17,7 @@ outcome: confirmed (L0 incompleto; 3 seções novas integradas, refinos pendente
 
 ## Pergunta
 
-O núcleo atemporal (`recipe/knowledge-architecture.md`, Parte I, §1–§9) é
+O núcleo atemporal (`recipe/knowledge-architecture.pt-BR.md`, Parte I, §1–§9) é
 **suficientemente atemporal e future-proof**? Existem invariantes de organização
 do conhecimento que valeriam tanto na Biblioteca de Alexandria quanto num
 arquivo de 10.000 anos no futuro — e que o L0 **não captura, captura mal, ou põe
@@ -93,7 +93,7 @@ variável). É o que **destrava a tensão com §9** que o L0 não resolvia. → 
 
 ## Decisão (integração)
 
-**Onda 1 aplicada** ao `recipe/knowledge-architecture.md`: §3 (gradiente
+**Onda 1 aplicada** ao `recipe/knowledge-architecture.pt-BR.md`: §3 (gradiente
 traço/superfície/conhecimento-vivo + disposição-com-tombstone + bitemporal),
 **§3-bis** (tipo-de-ato + referencial), **§6-bis** (autoridade-para-agir, eixo
 SEGURANÇA), **§10** (durabilidade do portador). Numeração `-bis` para **não

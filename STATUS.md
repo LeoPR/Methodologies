@@ -68,7 +68,7 @@ updated: 2026-08-02
   [`recipe/documentacao-multilingue.md`](recipe/documentacao-multilingue.md). A guarda
   `tools/check_l10n.py` valida os pares Markdown e o pre-commit pode incorporá-la ao hook
   já configurado no ambiente; ativos visuais exigem revisão/renderização própria.
-- **Strata:** produto consolidado em [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md);
+- **Strata:** produto consolidado em [`recipe/knowledge-architecture.pt-BR.md`](recipe/knowledge-architecture.pt-BR.md);
   opinião de uso e estado da evidência em
   [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) e
   [`ARQUITETURA-E-EVIDENCIAS.md`](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
@@ -242,7 +242,7 @@ updated: 2026-08-02
   Novos: strata-checklist.md, hb_staged.py, gen_scatter.py (SVG puro), price_probe.py.
   Gasto OpenRouter total ~\$7. (P6-A/B caveat: N pequeno; medias incluem NNN exemplar.)
 - **P6 #2 (value/free/local) + ENTREGA FEITO** (2026-06-08, `RESULTADOS-p6-grid2-value-free-
-  local.md` + `recipe/strata-com-ia.md`). Preencheu a fronteira de USO. [VALIDACAO N=3 DEPOIS:
+  local.md` + `recipe/strata-com-ia.pt-BR.md`). Preencheu a fronteira de USO. [VALIDACAO N=3 DEPOIS:
   o "+0.50" do deepseek-r1:8b LOCAL era ARTEFATO DE TRUNCAGEM; validado = -1.50 (alucina ao
   concluir). NAO ha free-local confiavel; auditor que ajuda = pago.] pago-barato deepseek-v3+etapas $0.26 e
   glm-4.6 $0.56 = +0.50; Opus +1.75 padrao-ouro. Pagar caro acima do barato-bom NAO compra
@@ -250,7 +250,7 @@ updated: 2026-08-02
   qualidade baixa). FIX METODOLOGICO (identificado em revisao humana): runner descartava message.thinking
   do Ollama -> reasoners locais pareciam 'incapazes'; corrigido (think:true+fallback) ->
   deepseek-r1:8b virou a melhor opcao local. ENTREGA positiva-only: guia-tabela + fronteira
-  (recipe/strata-com-ia.md, recipe/strata-com-ia-fronteira.svg). Pesquisa (com negativos) separada em lab/.
+  (recipe/strata-com-ia.pt-BR.md, recipe/strata-com-ia-fronteira.svg). Pesquisa (com negativos) separada em lab/.
 - **REORG (2026-06-07): 3 territorios**: separado o LABORATORIO DE PROVA do resto.
   `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses + RESULTADOS-*.md +
   `strata-ai-native/`) · **`eval/`** = harness de prova (a "chave de fenda": meio, NAO
@@ -260,7 +260,7 @@ updated: 2026-08-02
   fixtures **inertes/seguros** (o gabarito espera P1/P7, mas o fixture foi neutralizado).
 - **Refinar a metodologia de organizacao+rastreamento por camadas de
   durabilidade** (L0 atemporal / L1 padroes consolidados / L2 adaptacao
-  datada). Novo produto: `recipe/knowledge-architecture.md`.
+  datada). Novo produto: `recipe/knowledge-architecture.pt-BR.md`.
 - **Feito**: esqueleto L0/L1/L2; Parte I (L0) escrita; **fundamentacao do L0
   verificada** (22 fontes primarias web-verificadas em
   `lab/2026-06-03-fundamentacao-L0/`) e tecida de volta no L0 (linha
@@ -270,14 +270,14 @@ updated: 2026-08-02
   (Diataxis, ADR/MADR, FAIR4RS, Research Compendium, Lakatos, Zettelkasten).
 - **Feito tambem**: Parte III (L2) escrita: ferramentas de hoje (IA/editor/
   git/filesystem/SaaS) mapeadas ao L0/L1, datadas e destacaveis. As 3 camadas
-  do knowledge-architecture.md estao completas.
+  do knowledge-architecture.pt-BR.md estao completas.
 - **Feito (2026-06-03)**: revisao critica do L0 + **varredura future-proof** em
   2 rodadas multi-lente com verificacao adversarial (registrada em
   `lab/2026-06-03-future-proof-sweep/`). Veredito: L0 NAO era atemporalmente
   completo (ponto cego sistematico: assumia substrato perpetuo + leitor que ja
   decodifica + crescimento monotonico). Principio-mae: "autoridade-logica e'
   ortogonal a instancia/expressao/acesso/portador".
-  - **Onda 1 APLICADA** ao knowledge-architecture.md: +§3-bis (tipo-de-ato
+  - **Onda 1 APLICADA** ao knowledge-architecture.pt-BR.md: +§3-bis (tipo-de-ato
     dispositivo/probatorio + referencial), +§6-bis (autoridade-para-agir, eixo
     SEGURANCA), +§10 (durabilidade do portador/redundancia), gradiente
     append-only em §3 (traco/superficie/conhecimento-vivo + disposicao-tombstone
@@ -349,7 +349,7 @@ updated: 2026-08-02
 - Bloco operacional (adoção, brownfield, auditoria periódica) **não migrou**
   (decisão 0b: coberto implicitamente por L1/L2). Matéria-prima preservada em
   `lab/2026-06-03-predecessor/README.md` caso vire "Parte IV" futuramente.
-- `recipe/knowledge-architecture.md` promovido de `draft` → **`active`**.
+- `recipe/knowledge-architecture.pt-BR.md` promovido de `draft` → **`active`**.
 - Wayfinding re-apontado: `README.md`, `AGENTS.md`, `MAP.md` todos atualizados.
 
 ## Lacunas L1 fechadas (Passo 2, 2026-06-03)

@@ -61,7 +61,7 @@ proof** is missing.
 **The experiment (owner's design, formalized)**:
 
 1. **Fix** a real target project (small, with known organization problems) and the
-   `knowledge-architecture.md` (hash-frozen version).
+   `knowledge-architecture.pt-BR.md` (hash-frozen version).
 2. **Isolated variable = the model**. For each model (Copilot Chat in automatic mode
    and with manually configured models: GPT-4.1, Gemini, etc.; and Claude in a fresh
    chat):

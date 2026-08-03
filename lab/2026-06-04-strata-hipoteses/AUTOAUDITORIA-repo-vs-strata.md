@@ -1,7 +1,7 @@
 ---
 title: Autoauditoria — o repo Methodologies contra o próprio Strata (dogfood)
 created: 2026-06-14
-updated: 2026-08-01
+updated: 2026-08-02
 method: auditoria seção a seção do L0 (§1-§10) aplicada ao próprio repositório, em DUAS passadas — (1) loop principal (1 auditor, com o fan-out bloqueado pelo limite de gasto); (2) fan-out de 5 auditores independentes (cross-check) após o limite reabrir. A 2ª achou mais e é a referência; ver "Atualização".
 status: 'SINAL/dogfood. Aderência FORTE nas 12 seções (cross-check de 5 auditores). As violações eram de baixa/média severidade; as baratas foram corrigidas, o resto está aceito (§9) ou no BACKLOG.'
 ---
@@ -79,7 +79,7 @@ Refeita com os **5 auditores independentes** (o desenho original; o limite de ga
 **Consertado nesta passada (barato):**
 - §2 — **`divulgacao/` invisível** na navegação (pasta hoje em `outreach/`): adicionado a MAP, README (Mapa do repositório) e AGENTS,
   marcado como **apoio** (fora dos 3 territórios de artefato).
-- §2 — **satélites do recipe** (`strata-com-ia.md`, SVGs) fora da árvore do MAP: adicionados.
+- §2 — **satélites do recipe** (`strata-com-ia.pt-BR.md`, SVGs) fora da árvore do MAP: adicionados.
 - §6 — **contradição "Strata FINALIZADO"** (AGENTS) vs pendências (produto/README): trocado por
   "núcleo consolidado; eixo segurança §6-bis e Parte IV pendentes".
 - §6-bis — **payload fail-open em `_superseded/fixtures/`** fora do banner: banner do harness

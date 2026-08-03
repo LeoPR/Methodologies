@@ -121,12 +121,12 @@ Estado atual e fila recomendada (superfície primeiro):
 |---|---|---|
 | `README.md` | ✅ par pronto (`README.pt-BR.md`) | manter sincronizado por commit; guarda l10n disponível |
 | `outreach/` | ✅ pares prontos (README, post e imagem) | manter cada par sincronizado; revisar/renderizar ativos ao alterar |
-| `recipe/knowledge-architecture.en.md` | ✅ par pronto: **EN canônico** + `.md` (PT-BR derivado). Autoridade migrada 2026-08-01 por decisão explícita (adendo ADR-008) | manter sincronizado por commit; guarda l10n disponível |
+| `recipe/knowledge-architecture.en.md` | ✅ par pronto: **EN canônico** (`knowledge-architecture.en.md`) + `knowledge-architecture.pt-BR.md` (PT-BR derivado). Autoridade migrada 2026-08-01 por decisão explícita (adendo ADR-008); sufixo PT aplicado 2026-08-02 | manter sincronizado por commit; guarda l10n disponível |
 | `recipe/README.en.md` | ✅ par pronto: **EN canônico** (`README.en.md`) + `README.pt-BR.md` (PT-BR derivado). Fluxo EN-first, como o produto; convenção de sufixos 2026-08-02 | manter sincronizado por commit; guarda l10n disponível |
 | `MAP.md` | ❌ sem par | mover a fonte PT-BR para `MAP.pt-BR.md` e criar `MAP.md` em inglês |
 | `STATUS.md` | ❌ sem par | manter histórico em PT-BR; criar superfície canônica curta em inglês + tradução pt-BR |
-| `recipe/o-que-voce-ganha.en.md` | ✅ par pronto: **EN canônico** (`o-que-voce-ganha.en.md`) + `o-que-voce-ganha.md` (PT-BR derivado) | manter sincronizado por commit; guarda l10n disponível |
-| `recipe/strata-com-ia.md` | ❌ sem par (só PT-BR) | criar o canônico EN (tradução pendente, registrada no STATUS.md) |
+| `recipe/o-que-voce-ganha.en.md` | ✅ par pronto: **EN canônico** (`o-que-voce-ganha.en.md`) + `o-que-voce-ganha.pt-BR.md` (PT-BR derivado) | manter sincronizado por commit; guarda l10n disponível |
+| `recipe/strata-com-ia.pt-BR.md` | ❌ sem par (só PT-BR) | criar o canônico EN (tradução pendente, registrada no STATUS.md) |
 
 Critério de priorização:
 

@@ -97,13 +97,13 @@ múltiplos arquivos, medir tokens antes/depois com AgentsRoom. Custo: $0
 
 ### H15 — O resultado deste lab pode virar um "recipe" autônomo
 
-A missão não é criar métricas para o knowledge-architecture.md. É criar
+A missão não é criar métricas para o knowledge-architecture.pt-BR.md. É criar
 **um documento operacional separado** que diz:
 
 > "Para configurar um ambiente de desenvolvimento IA-assistido eficiente,
 > faça X, Y, Z. Aqui está como verificar que funcionou."
 
-Esse documento seria um **recipe** novo, paralelo ao knowledge-architecture.md:
+Esse documento seria um **recipe** novo, paralelo ao knowledge-architecture.pt-BR.md:
 - `recipe/ai-dev-environment.md` (ou nome melhor)
 - Descreve como montar a pilha: Ollama + Continue.dev + Copilot + Claude Code
 - Inclui tabela de decisão: qual ferramenta para qual tarefa
@@ -114,7 +114,7 @@ Esse documento seria um **recipe** novo, paralelo ao knowledge-architecture.md:
 
 O Strata tem `prototype/` vazio esperando o primeiro experimento de vendoring.
 Hipótese: criar `recipe/ai-dev-environment.md` usando o próprio
-knowledge-architecture.md como metodologia base (§5 fonte única, §9 economia,
+knowledge-architecture.pt-BR.md como metodologia base (§5 fonte única, §9 economia,
 §6-bis fail-closed para decisões de agente) seria o primeiro teste empírico
 real de que o Strata funciona fora de si mesmo.
 

@@ -21,7 +21,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 # The colophon must be the first content in the file — optionally preceded by ONE
-# standard YAML frontmatter block (product files like knowledge-architecture.md carry
+# standard YAML frontmatter block (product files like knowledge-architecture.pt-BR.md carry
 # real metadata frontmatter; README-style files carry none). Either way, nothing but
 # frontmatter may come before it: this keeps the guard's "prominent top-of-file" intent.
 COLOPHON_RE = re.compile(

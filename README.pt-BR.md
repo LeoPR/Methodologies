@@ -36,9 +36,9 @@ o mesmo princípio. *(A navegação dedicada a IA fica em [`AGENTS.md`](AGENTS.m
 Para uma pessoa nova entender o que já está pronto (sem mergulhar no histórico de
 teorias e evolução), use esta sequência:
 
-1. [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md): valor, escopo e limites, em linguagem simples.
+1. [`recipe/o-que-voce-ganha.pt-BR.md`](recipe/o-que-voce-ganha.pt-BR.md): valor, escopo e limites, em linguagem simples.
 2. [`recipe/README.pt-BR.md`](recipe/README.pt-BR.md): guia prático de uso.
-3. [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md): produto Strata completo.
+3. [`recipe/knowledge-architecture.pt-BR.md`](recipe/knowledge-architecture.pt-BR.md): produto Strata completo.
 4. [`MAP.md`](MAP.md): onde fica cada artefato.
 5. [`STATUS.md`](STATUS.md): foco atual e frentes abertas.
 
@@ -53,8 +53,8 @@ Atalhos por intenção:
 
 | Quero | Vá para |
 |---|---|
-| **O que eu ganho com o Strata** | [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) |
-| **Usar um método pronto** | [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) (Strata) |
+| **O que eu ganho com o Strata** | [`recipe/o-que-voce-ganha.pt-BR.md`](recipe/o-que-voce-ganha.pt-BR.md) |
+| **Usar um método pronto** | [`recipe/knowledge-architecture.pt-BR.md`](recipe/knowledge-architecture.pt-BR.md) (Strata) |
 | **A opinião honesta de uso** do Strata (o que funciona, por tipo de tarefa, exigência e custo, com ressalvas) | [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | **Entender a abordagem** de fabricar metodologias | [A abordagem](#a-abordagem) (abaixo) |
 | Ver a **pesquisa em andamento** (Comporta, 2ª metodologia) | [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/) |
@@ -130,7 +130,7 @@ flowchart TB
 
 ## Produto em destaque: Strata
 
-[`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md): **arquitetura
+[`recipe/knowledge-architecture.pt-BR.md`](recipe/knowledge-architecture.pt-BR.md): **arquitetura
 do conhecimento em camadas**. Metodologia para organizar, rastrear e gerar
 conhecimento em qualquer trabalho intelectual que acumula artefatos.
 
@@ -187,7 +187,7 @@ e diz se vale usar IA local: *ligar agora / considerar / bloqueado*, com o porqu
 
 | Pasta | O que é |
 |---|---|
-| [`recipe/`](recipe/) | **produtos prontos**: hoje, Strata (`knowledge-architecture.md`) |
+| [`recipe/`](recipe/) | **produtos prontos**: hoje, Strata (`knowledge-architecture.pt-BR.md`) |
 | [`lab/`](lab/) | pesquisa exploratória, datada (fundamentação-L0, future-proof, aderência/portabilidade, **economia de IA**) |
 | [`prototype/`](prototype/) | teste em escala, em projetos reais (futuro) |
 | [`decisions/`](decisions/) | ADRs: por que cada decisão de design foi tomada |
@@ -199,7 +199,7 @@ e diz se vale usar IA local: *ligar agora / considerar / bloqueado*, com o porqu
 
 Strata é projetado para viajar sozinho: copie o arquivo e leia o núcleo; uma régua
 interna diz o que aplicar à sua escala. Os passos de **uso, adoção em projeto existente
-e transporte** vivem no [próprio produto](recipe/knowledge-architecture.md),
+e transporte** vivem no [próprio produto](recipe/knowledge-architecture.pt-BR.md),
 junto das fundamentações *inline* que tornam qualquer cópia auto-suficiente.
 
 ## Licença

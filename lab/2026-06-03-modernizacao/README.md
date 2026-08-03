@@ -2,7 +2,7 @@
 title: Modernizacao + reorganizacao da metodologia de organizacao
 status: closed
 created: 2026-06-03
-updated: 2026-06-03
+updated: 2026-08-02
 tags: [methodology, modernization, ai-2026, split-experiment]
 outcome: partial
 ---
@@ -41,7 +41,7 @@ suite multi-doc)?
 
 ## Discussao / decisao
 
-- **Produto final = 1 arquivo**: hoje [`../../recipe/knowledge-architecture.md`](../../recipe/knowledge-architecture.md)
+- **Produto final = 1 arquivo**: hoje [`../../recipe/knowledge-architecture.pt-BR.md`](../../recipe/knowledge-architecture.pt-BR.md)
   (o predecessor `organization-methodology.md` citado aqui foi **arquivado** em
   [`../2026-06-03-predecessor/`](../2026-06-03-predecessor/)), consolidando as tecnicas + a modernizacao
   IA-2026. O split fica como registro de pesquisa (este experimento).

@@ -123,3 +123,48 @@ canônico + `README.pt-BR.md` derivado). Executada em 5 pacotes:
   (navegador em `.venv/pw-browsers`; fidelidade de browser, verificação visual
   feita; a tentativa svglib+rlPyCairo degradou fontes/resolução e foi revertida).
   Caminho registrado em `outreach/README*`; script `tools/render_svg_png.py`.
+
+---
+
+## Reorganização de eval/strata em subpastas por propósito (2026-08-02)
+
+Os ~50 scripts soltos de `eval/strata/` foram reorganizados em subpastas por
+propósito, com `git mv` (histórico preservado) e **sem quebrar o pipeline**:
+`core/` (hb_runner + providers), `runners/` (hb_f3/f4/f5/f6/genre/temporal/m0/
+staged/agent + probe_l1), `verify/` (verify_f4 → score_f3 → verify_agent +
+calc_stats, grafo junto), `judges/` (juízes cross-vendor), `aggregate/`
+(aggregate_* + compare_judges*), `gen/` (digests/charts/forms/blind/hash),
+`ops/` (run_*.sh), `legacy/` (hb_l2_*, defaults já quebrados). **Dados ficaram
+na raiz** (planos/, cenarios/, f4-manifests/, fixtures-*/, external-fixtures/,
+own-fixtures/, manifests f5/f6, README/RUNBOOK/RASTREAMENTO/AUDITORIA);
+`tools/probes/` intacto.
+
+**Receita de shim aplicada:** (1) todo `.py` movido que computa o próprio HERE
+subiu UM nível (`dirname(dirname(...))` / `parents[1]`); (2) imports internos
+flat ganharam `sys.path.insert` antes do import — `core/` para runners e judges
+(hb_runner/providers), `verify/` para aggregate_f4, mesma pasta dentro de
+verify/; (3) `core/hb_runner.py`: STRATA subiu um nível (`../../../recipe/...`);
+(4) `core/providers.py`: chaves `.<prov>-key` seguem na raiz (HERE ajustado);
+(5) paths `../../lab/...` de aggregate/gen não tocados (corretos com o HERE
+na raiz); (6) `ops/*.sh`: `cd "$(dirname "$0")/.."` + invocação
+`python runners/hb_*.py` (antes era basename); (7) bug latente corrigido:
+`tools/probes/price_probe.py` gravava em `tools/probes/planos/` (fora do
+gitignore) — HERE subiu 2 níveis, grava em `eval/strata/planos/`.
+
+**Gates pós-mover (todos 100%):** `verify/verify_f4.py --selftest` (GOLD=8, 0
+erros) · `verify/verify_agent.py --selftest` (GOLD=10, 0 erros) ·
+`verify/score_f3.py --selftest` (gold=86, 0 falso-neg/pos) · `calc_stats`
+(selftest() True — o script não tem flag `--selftest`; o self-test roda sempre
+no main() e foi invocado direto) · `runners/hb_f4.py --help` (import chain viva)
+· `compileall` em core/runners/verify/judges/aggregate/gen/ops/legacy/tools sem
+erros. Smoke extra: imports cruzados (hb_agent, aggregate_f4, judge_f3) com
+HERE consistente.
+
+**Docs vivos atualizados:** `eval/strata/README.pt-BR.md` + `README.en.md`
+(nova seção "Layout das pastas", bloco de comandos com prefixos), RUNBOOK-nuvem,
+`cenarios/README.md`, `RASTREAMENTO-E-MELHORIA.md` (hb_l2_* → legacy/),
+`tools/probes/README.md`, `AGENTS.md` (inventário). Lab e ADRs não tocados
+(registros citam caminhos antigos — ficam como histórico).
+
+**Pendência:** nenhuma funcional. `_superseded/` segue congelado com os HEREs
+da época (não roda mais por basename — registro, não usar).

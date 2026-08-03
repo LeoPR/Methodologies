@@ -27,6 +27,11 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   pré-registro), nenhum plano EN rodou e o regex F3/F4 não foi revalidado em inglês. Antes de
   rodar: re-auditar o roster (o do pré-registro é de jul/2026: Opus 4.8 / GPT-5.5 / GLM-5.2)
   contra a grade vigente. Execução pelo LOCK 3: piloto F3 `OBEY_RATE`, margem ±10pp.
+  **Plano organizado em [../../2026-08-03-idioma-en/PLANO.md](../../2026-08-03-idioma-en/PLANO.md)
+  (2026-08-03):** braços A0–A3 (referência PT, EN-EN, EN-método×PT-projeto, EN+saída-PT),
+  4 perguntas do dono mapeadas, roster mínimo re-auditado, gates de preparação ordenados
+  (spot-check tokens → hash EN → regex EN). Descoberta: `s05-legit` não existe (o pré-registro
+  citou por engano); as fixtures EN existem mas seguem sem hash.
 - **Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
   **circularidade** no **topo** de todo relatório/recipe de uso (não em "abertos"). **Recalibrar
   `recipe/strata-com-ia.pt-BR.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.

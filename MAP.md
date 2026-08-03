@@ -42,6 +42,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   └── 2026-06-06-comprovacao-forte-strata/ <- plano de comprovação (gates G1-G6); SUPERSEDED pela consolidação em strata-hipoteses
 │   └── 2026-08-01-fechamento-camadas/  <- CICLO P1–P5 que FECHOU o L0 (régua axiomática; §11, §6-bis+ver, persona, âncoras L1); decisões datadas por parte
 │   └── 2026-08-02-reteste-L0-fechado/  <- RETESTE do L0 fechado (grade de estratos × capacidade; Degrau 3 agente): PLANO.md + NOTAS-shakedown.md (diário)
+│   └── 2026-08-03-idioma-en/           <- IDIOMA PT×EN (piloto F3 pré-registrado): PLANO.md (braços A0–A3, gates de preparação)
 ├── eval/                             <- LABORATÓRIO DE PROVA (a "chave de fenda": comprova; NÃO é a metodologia, NÃO é o foco)
 │   ├── README.md                     <- princípio (meio≠fim) + 3 territórios + regra evidencia/instrumento/infra
 │   └── strata/                       <- harness do Strata: runner, scorers, fixtures, cenários + planos/ (gitignored)

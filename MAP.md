@@ -14,7 +14,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   ├── knowledge-architecture.en.md  <- PRODUTO Strata, FONTE CANÔNICA (L0/L1/L2; L0 fechado 2026-08-01, v1.2.1)
 │   ├── knowledge-architecture.md     <- tradução pt-BR derivada do canônico EN
 │   ├── README.md                     <- guia de uso do Strata (humano + IA; efêmero; pendências)
-│   ├── strata-com-ia.md              <- guia prático "funciona no meu ambiente? sai caro?"
+│   ├── strata-com-ia{,.en}.md          <- guia prático "funciona no meu ambiente? sai caro?"
 │   ├── documentacao-multilingue.md   <- método portável: docs de entrada em 2 línguas (fonte canônica + tradução rastreável)
 │   └── *.svg                         <- diagramas (strata-modo; custo×qualidade×ambiente)
 ├── decisions/                        <- ADRs (registros de decisão imutáveis)

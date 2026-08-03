@@ -4,8 +4,11 @@ status: active
 created: 2026-06-08
 updated: 2026-08-02
 purpose: responder ao desenvolvedor "funciona no meu ambiente? vai sair caro?". Só o que funciona
-nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9 (p8 = posição/variância; p9 = modelos novos / churn de L2)
+nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9 (p8 = posição/variância; p9 = churn de elenco, L2)
 ---
+
+<!-- l10n: doc_id=strata-com-ia · lang=pt-BR · source_lang=en · translation_of=strata-com-ia.en.md -->
+[English](strata-com-ia.en.md) · **Português**
 
 # Strata com IA: guia prático
 
@@ -21,7 +24,7 @@ Duas regras de ouro antes de qualquer modelo:
 | Eu quero… | Use (+ checklist) | Por quê |
 |---|---|---|
 | **rodar local (GPU de consumo)** | **qwen3:14b** (cabe inteiro numa 3060 12GB) · **qwen3.6:27b** | o 14b é o prático do dia a dia; o 27b **satura** (conserta **e** se abstém), mas é lento (~22 min/run com offload) |
-| **pagar pouco na nuvem** | **gpt-5-mini** (novo piso pago OpenAI) · **haiku-4.5** · **deepseek-v4-pro** | executam o conserto no padrão; o gpt-5-mini também recusa injeção espontaneamente e, com web, verifica fonte |
+| **pagar pouco na nuvem** | **gpt-5-mini** (piso pago OpenAI) · **haiku-4.5** · **deepseek-v4-pro** | executam o conserto no padrão; o gpt-5-mini também recusa injeção espontaneamente e, com web, verifica fonte |
 | **o máximo, custe o que custar** | **opus-5** · **fable-5** | conserto e armadilha perfeitos **e** saturam a abstenção (§9): os únicos medidos nos dois lados do topo |
 | **topo sem pagar o teto** | sonnet-5 · gpt-5.6-terra · gemini-3.1-pro | conserto e armadilha perfeitos; a abstenção varia por modelo |
 | **NÃO usar para isto** | llama-4-scout · local <4B | o scout falhou o conserto da armadilha 2/2 e propagou o payload; abaixo de ~4B nem o formato sai |
@@ -33,7 +36,6 @@ Duas regras de ouro antes de qualquer modelo:
 > cross-vendor. Sinais direcionais (sintético), não prova. Números por tarefa × capacidade:
 > [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); diário da rodada:
 > [`lab/2026-08-02-reteste-L0-fechado`](../lab/2026-08-02-reteste-L0-fechado/).
-> *(Este guia segue só em PT: tradução EN pendente, registrada no STATUS.md.)*
 
 ![Strata por IA: qual modelo usar, por vendor](strata-com-ia-fronteira.svg)
 
@@ -55,8 +57,8 @@ econômicos calibrados e caros superagentes; confira o modelo específico na OPI
 - **Local:** abaixo de ~4B nem o formato sai (não é o método, é capacidade). O **qwen3:14b**
   cabe inteiro numa 3060 12GB e carrega o dia a dia; o **qwen3.6:27b** satura (conserta **e**
   se abstém) mas roda com offload: ~22 min/run, factível, lento.
-- **Nuvem econômica:** **gpt-5-mini** é o novo piso pago da OpenAI (o 4.1-mini virou base
-  legada pinada); **haiku-4.5** e **deepseek-v4-pro** executam o conserto perfeitamente.
+- **Nuvem econômica:** **gpt-5-mini** é o piso pago da OpenAI; **haiku-4.5** e
+  **deepseek-v4-pro** executam o conserto perfeitamente.
 - **Topo:** **opus-5** e **fable-5** fecham os dois lados (conserto/armadilha **e** abstenção);
   sonnet-5, gpt-5.6-terra, gemini-3.1-pro e kimi-k3 executam conserto e armadilha perfeitos.
 - **Evitar para este uso:** **llama-4-scout**, único que, com Strata, falhou o conserto da
@@ -93,7 +95,7 @@ A maior diferença de qualidade vem de **como** você pede, não de qual modelo:
 
 ## Notas finais
 
-- **Local grátis virou opção real em 2026-08:** qwen3:14b (cabe numa 3060 12GB) executa o
+- **Local grátis é opção real:** qwen3:14b (cabe numa 3060 12GB) executa o
   conserto, e qwen3.6:27b satura: grátis, lento. O "não há opção grátis confiável" era
   jun/2026 (locais 4-8B). Remoto `:free` segue ruim: rate-limit pesado e qualidade baixa.
 - A análise completa (configurações que **não** funcionam, os experimentos e os gráficos

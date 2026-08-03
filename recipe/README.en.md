@@ -85,7 +85,7 @@ The method is written in **durability layers**. Knowing which one you are in cha
 ### How to use it: by an AI (it applies it to your project)
 
 There are **two modes**, and which one to use depends on the model's strength (full guide,
-with costs and environments (local/free/paid), in **[`strata-com-ia.md`](strata-com-ia.md)**,
+with costs and environments (local/free/paid), in **[`strata-com-ia.en.md`](strata-com-ia.en.md)**,
 currently in Portuguese):
 
 - **One pass (top model, e.g. Opus):** hand over the method + the project and ask for the whole
@@ -95,7 +95,7 @@ currently in Portuguese):
   they still miss the proportion, inventing violations or letting the real pass. Give them a
   **checklist** instead of the raw canonical text, and apply it **in stages** (recognize the
   good → place it in time → gate by gate with evidence → prioritize by §9). It helps, but the
-  result is a **draft to review**. (Ready-made recipes in `strata-com-ia.md`.)
+  result is a **draft to review**. (Ready-made recipes in `strata-com-ia.en.md`.)
 
 > **What changed in 2026-08:** the "affordable models hallucinate everything" warning was
 > partially dated. The current generation **executes the fix** of a known defect (§5) and
@@ -160,7 +160,7 @@ first is memory only, the second is actual work.
 > [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).)*
 >
 > **AI output = draft to review.** Practical guide by model, cost and environment:
-> [`strata-com-ia.md`](strata-com-ia.md).
+> [`strata-com-ia.en.md`](strata-com-ia.en.md).
 
 ### What is still missing in Strata (maturity honesty)
 

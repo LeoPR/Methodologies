@@ -25,8 +25,8 @@ updated: 2026-08-02
   medidos (fase posterior).
 - **Documentação principal consolidada pós-publicação:** `recipe/README` ganhou par
   EN/PT (manual de uso na grade 2026-08; EN canônico), `o-que-voce-ganha` ganhou par
-  EN/PT, frente do GitHub sincronizada. **Pendência:** `recipe/strata-com-ia.md`
-  segue só em PT: tradução EN a fazer.
+  EN/PT, `strata-com-ia` ganhou par EN/PT (EN canônico), frente do GitHub
+  sincronizada.
 - **Comporta:** segue em pesquisa no
   [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/);
   ainda não há produto destilado em `recipe/`.

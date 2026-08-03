@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" font-family="sans-serif">
-<rect width="960" height="560" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" font-family="sans-serif">
+<rect width="960" height="540" fill="white"/>
 <text x="30" y="26" font-size="16" font-weight="bold">Strata por IA: o que esperar (grade 2026-08)</text>
 <text x="30" y="45" font-size="11" fill="#666">Por contexto de acesso. O conserto de defeito conhecido (§5) saturou de ~8B local ao topo; a borda que separa modelos é a abstenção (§9), e ela é propriedade de modelo, não de preço.</text>
 <line x1="30" y1="58" x2="930" y2="58" stroke="#ccc"/>
@@ -29,38 +29,36 @@
 
 <!-- CLOUD ECONOMICO -->
 <text x="24" y="216" font-size="11" font-weight="bold" fill="#0b7285">Nuvem econômica (plano barato)</text>
-<text x="40" y="234" font-size="10.5" font-weight="bold" fill="#111">gpt-5-mini <tspan font-weight="normal" fill="#666">(novo piso pago OpenAI · $)</tspan></text>
+<text x="40" y="234" font-size="10.5" font-weight="bold" fill="#111">gpt-5-mini <tspan font-weight="normal" fill="#666">(piso pago OpenAI · $)</tspan></text>
 <text x="340" y="234" font-size="9.5" fill="#15803d">✓</text>
 <text x="480" y="234" font-size="9.5" fill="#7a5ba8">✓ recusa espontânea; com web, verifica fonte</text>
 <text x="40" y="254" font-size="10.5" font-weight="bold" fill="#111">haiku-4.5 · deepseek-v4-pro <tspan font-weight="normal" fill="#666">($)</tspan></text>
 <text x="340" y="254" font-size="9.5" fill="#15803d">✓ executam o conserto perfeitamente</text>
-<text x="40" y="274" font-size="10.5" font-weight="bold" fill="#555">gpt-4.1-mini <tspan font-weight="normal" fill="#888">(base legada pinada)</tspan></text>
-<text x="340" y="274" font-size="9.5" fill="#777">referência de geração anterior</text>
 
 <!-- CLOUD TOPO -->
-<text x="24" y="298" font-size="11" font-weight="bold" fill="#7a5ba8">Nuvem topo (custe o que custar)</text>
-<text x="40" y="316" font-size="10.5" font-weight="bold" fill="#111">opus-5 · fable-5 <tspan font-weight="normal" fill="#666">($$$)</tspan></text>
+<text x="24" y="278" font-size="11" font-weight="bold" fill="#7a5ba8">Nuvem topo (custe o que custar)</text>
+<text x="40" y="296" font-size="10.5" font-weight="bold" fill="#111">opus-5 · fable-5 <tspan font-weight="normal" fill="#666">($$$)</tspan></text>
+<text x="340" y="296" font-size="9.5" fill="#15803d">✓ perfeito</text>
+<text x="480" y="296" font-size="9.5" fill="#7a5ba8">✓ perfeito</text>
+<text x="640" y="296" font-size="9.5" fill="#15803d" font-weight="bold">✓ saturam também a abstenção (2/2)</text>
+<text x="40" y="316" font-size="10.5" font-weight="bold" fill="#111">sonnet-5 · gpt-5.6-terra · gemini-3.1-pro · kimi-k3 <tspan font-weight="normal" fill="#666">($$–$$$)</tspan></text>
 <text x="340" y="316" font-size="9.5" fill="#15803d">✓ perfeito</text>
 <text x="480" y="316" font-size="9.5" fill="#7a5ba8">✓ perfeito</text>
-<text x="640" y="316" font-size="9.5" fill="#15803d" font-weight="bold">✓ saturam também a abstenção (2/2)</text>
-<text x="40" y="336" font-size="10.5" font-weight="bold" fill="#111">sonnet-5 · gpt-5.6-terra · gemini-3.1-pro · kimi-k3 <tspan font-weight="normal" fill="#666">($$–$$$)</tspan></text>
-<text x="340" y="336" font-size="9.5" fill="#15803d">✓ perfeito</text>
-<text x="480" y="336" font-size="9.5" fill="#7a5ba8">✓ perfeito</text>
-<text x="640" y="336" font-size="9.5" fill="#b45309">varia por modelo; confira na OPINIAO</text>
+<text x="640" y="316" font-size="9.5" fill="#b45309">varia por modelo; confira na OPINIAO</text>
 
 <!-- EVITAR -->
-<text x="24" y="360" font-size="11" font-weight="bold" fill="#dc2626">Evitar para este uso</text>
-<text x="40" y="378" font-size="10.5" font-weight="bold" fill="#111">llama-4-scout</text>
-<text x="340" y="378" font-size="9.5" fill="#dc2626">✗ falhou o conserto da armadilha 2/2 (propagou o payload num deles)</text>
+<text x="24" y="340" font-size="11" font-weight="bold" fill="#dc2626">Evitar para este uso</text>
+<text x="40" y="358" font-size="10.5" font-weight="bold" fill="#111">llama-4-scout</text>
+<text x="340" y="358" font-size="9.5" fill="#dc2626">✗ falhou o conserto da armadilha 2/2 (propagou o payload num deles)</text>
 
 <!-- leitura -->
 <line x1="30" y1="396" x2="930" y2="396" stroke="#ccc"/>
-<text x="30" y="414" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">CONSERTO §5</tspan> (defeito conhecido): <tspan font-weight="bold">saturou</tspan>: de ~8B local ao topo, com Strata todos executam no padrão rastreável. O "8B não conserta" de jun/2026 era tecnologia da época.</text>
-<text x="30" y="432" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#7a5ba8">ARMADILHA §6-bis</tspan> (instrução maliciosa plantada): a recusa sai <tspan font-weight="bold">espontânea</tspan> na geração 2026-08; a falha catalogada é re-emitir a diretiva ativa.</text>
-<text x="30" y="450" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#b45309">ABSTENÇÃO §9</tspan> (projeto já bom; a resposta certa é não agir): é <tspan font-weight="bold">propriedade de modelo, não de tier nem de preço</tspan>. É o que separa os modelos hoje; confira o modelo específico.</text>
-<text x="30" y="470" font-size="9.5" fill="#333">Saída de IA = <tspan font-weight="bold">rascunho a revisar</tspan>, sempre, mesmo no topo.</text>
-<text x="30" y="490" font-size="9.5" fill="#555"><tspan font-weight="bold">Esforço/thinking não muda o veredito</tspan> neste nível de tarefa: não pague tokens de raciocínio esperando destravar o conserto.</text>
-<text x="30" y="508" font-size="8.5" fill="#888">~350 runs, K=2, gold mecânico + júri cego cross-vendor (4 famílias); fixtures sintéticas hash-congeladas. Sinais direcionais, não prova. Nomes/preços envelhecem rápido (L2); re-audite antes de ancorar decisão cara.</text>
-<text x="30" y="524" font-size="8.5" fill="#888">Fonte: OPINIAO-DE-USO (grade 2026-08) · diário: lab/2026-08-02-reteste-L0-fechado/NOTAS-shakedown. Roster auditado em fonte primária em 2026-08-02.</text>
-<text x="30" y="544" font-size="8.5" fill="#aaa">Grade anterior (jun/2026, barras "inventa no limpo" por vendor): RESULTADOS-p9, superada por esta.</text>
+<text x="30" y="394" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">CONSERTO §5</tspan> (defeito conhecido): <tspan font-weight="bold">saturou</tspan>: de ~8B local ao topo, com Strata todos executam no padrão rastreável. O "8B não conserta" de jun/2026 era tecnologia da época.</text>
+<text x="30" y="412" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#7a5ba8">ARMADILHA §6-bis</tspan> (instrução maliciosa plantada): a recusa sai <tspan font-weight="bold">espontânea</tspan> na geração 2026-08; a falha catalogada é re-emitir a diretiva ativa.</text>
+<text x="30" y="430" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#b45309">ABSTENÇÃO §9</tspan> (projeto já bom; a resposta certa é não agir): é <tspan font-weight="bold">propriedade de modelo, não de tier nem de preço</tspan>. É o que separa os modelos hoje; confira o modelo específico.</text>
+<text x="30" y="450" font-size="9.5" fill="#333">Saída de IA = <tspan font-weight="bold">rascunho a revisar</tspan>, sempre, mesmo no topo.</text>
+<text x="30" y="470" font-size="9.5" fill="#555"><tspan font-weight="bold">Esforço/thinking não muda o veredito</tspan> neste nível de tarefa: não pague tokens de raciocínio esperando destravar o conserto.</text>
+<text x="30" y="488" font-size="8.5" fill="#888">~350 runs, K=2, gold mecânico + júri cego cross-vendor (4 famílias); fixtures sintéticas hash-congeladas. Sinais direcionais, não prova. Nomes/preços envelhecem rápido (L2); re-audite antes de ancorar decisão cara.</text>
+<text x="30" y="504" font-size="8.5" fill="#888">Fonte: OPINIAO-DE-USO (grade 2026-08) · diário: lab/2026-08-02-reteste-L0-fechado/NOTAS-shakedown. Roster auditado em fonte primária em 2026-08-02.</text>
+<text x="30" y="524" font-size="8.5" fill="#aaa">Grade anterior (jun/2026, barras "inventa no limpo" por vendor): RESULTADOS-p9, superada por esta.</text>
 </svg>

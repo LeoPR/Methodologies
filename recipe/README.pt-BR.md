@@ -87,7 +87,8 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
 ### Como usar: por uma IA (ela aplica ao seu projeto)
 
 Há **dois modos**, e qual usar depende da força do modelo (guia completo, com custos e
-ambientes (local/grátis/pago), em **[`strata-com-ia.md`](strata-com-ia.md)**):
+ambientes (local/grátis/pago), em **[`strata-com-ia.md`](strata-com-ia.md)**;
+versão em inglês: [`strata-com-ia.en.md`](strata-com-ia.en.md)):
 
 - **De uma vez (modelo de topo, ex. Opus):** entregue o método + o projeto e peça a avaliação
   inteira num passo. Funciona: acha o real, reconhece o bom, não inventa. Use os pedidos abaixo.

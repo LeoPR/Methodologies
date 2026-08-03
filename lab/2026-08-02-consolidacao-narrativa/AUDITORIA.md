@@ -243,3 +243,17 @@ ponteiro explícito para o `GLOSSARIO.md`.
   primeiro citado em README raiz, MAP e AGENTS.
 
 **Gates:** `check_stamps.py` ok · `check_l10n.py --working` ok.
+
+## Etapa 6 (2026-08-03): enumeração em lista, não inline
+
+Regra de higiene de formatação: série de 3+ itens com conteúdo (vereditos, modos,
+passos) vai em **lista**, não encadeada em parágrafo com "·" ("receita de bolo
+inline"). Fundamentação: NN/g, *7 Tips for Presenting Bulleted Lists* (2017);
+BC/Yukon, *Technical Writing Essentials* §3.3 (listas simplificam frases longas);
+*Technical Communication Fundamentals* (3+ itens relacionados pedem lista).
+Aplicado: GLOSSARIO.md (escada M0–M4 e vereditos F3/F4 viraram sub-bullets; a
+escada também ficou global, executor = humano ou ferramenta, com a IA como caso
+comentado) e MAP.md (inventário da pasta strata-hipoteses em duas linhas).
+Varredura nas demais superfícies: sem outros casos em prosa.
+
+**Gates:** `check_stamps.py` ok.

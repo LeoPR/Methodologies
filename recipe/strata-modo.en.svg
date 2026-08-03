@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="500" font-family="sans-serif">
+<rect width="940" height="500" fill="white"/>
+<text x="34" y="32" font-size="19" font-weight="bold">Strata: the three layers and how to apply it</text>
+<text x="34" y="54" font-size="12.5" fill="#555">L0/L1 hold regardless of technology (a human applies them manually). Applying it via AI depends on the model's capability.</text>
+
+<!-- durability axis -->
+<text x="22" y="300" font-size="11" fill="#888" text-anchor="middle" transform="rotate(-90 22 300)">← more durable / more abstract     more dated / more concrete →</text>
+
+<!-- layers -->
+<rect x="48" y="78" width="430" height="92" rx="6" fill="#dcfce7" stroke="#16a34a"/>
+<text x="64" y="104" font-size="15" font-weight="bold" fill="#15803d">L0 · Timeless core</text>
+<text x="64" y="124" font-size="11.5" fill="#333">scientific method, epistemology, traceability, single source…</text>
+<text x="64" y="142" font-size="11" fill="#555" font-style="italic">"still true if AI and the computer were gone" · decades/centuries</text>
+<rect x="380" y="86" width="90" height="22" rx="11" fill="#16a34a"/><text x="425" y="101" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">TIMELESS</text>
+
+<rect x="48" y="180" width="430" height="86" rx="6" fill="#dcfce7" stroke="#22c55e"/>
+<text x="64" y="205" font-size="15" font-weight="bold" fill="#15803d">L1 · Consolidated patterns</text>
+<text x="64" y="225" font-size="11.5" fill="#333">Diátaxis, ADR, FAIR, IMRaD, Conventional Commits…</text>
+<text x="64" y="243" font-size="11" fill="#555" font-style="italic">"one good way to do L0, not the only one" · ~decades</text>
+<rect x="360" y="188" width="110" height="22" rx="11" fill="#22c55e"/><text x="415" y="203" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">REPLACEABLE</text>
+
+<rect x="48" y="276" width="430" height="150" rx="6" fill="#fef3c7" stroke="#f59e0b"/>
+<text x="64" y="301" font-size="15" font-weight="bold" fill="#b45309">L2 · Adaptation to the current era</text>
+<text x="64" y="321" font-size="11.5" fill="#333">how today's tools express L0/L1: AI agents, IDE, git…</text>
+<text x="64" y="339" font-size="11" fill="#555" font-style="italic">swappable without touching L0 · months · where AI automation lives</text>
+<rect x="388" y="284" width="82" height="22" rx="11" fill="#f59e0b"/><text x="429" y="299" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">DATED</text>
+<!-- mode mini-scale inside L2 -->
+<text x="64" y="366" font-size="11" font-weight="bold" fill="#92400e">applying via AI, from easiest to hardest:</text>
+<rect x="64" y="376" width="124" height="40" rx="4" fill="#16a34a" opacity="0.85"/><text x="126" y="392" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">manual (human)</text><text x="126" y="407" font-size="9.5" fill="#fff" text-anchor="middle">works ✓</text>
+<rect x="196" y="376" width="124" height="40" rx="4" fill="#eab308"/><text x="258" y="392" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">guided AI (steps)</text><text x="258" y="407" font-size="9.5" fill="#fff" text-anchor="middle">helps; review</text>
+<rect x="328" y="376" width="140" height="40" rx="4" fill="#ea580c"/><text x="398" y="392" font-size="10.5" fill="#fff" text-anchor="middle" font-weight="bold">one-shot automatic AI</text><text x="398" y="407" font-size="9.5" fill="#fff" text-anchor="middle">only the top (e.g. Opus)</text>
+
+<!-- right panel: how to apply -->
+<line x1="510" y1="78" x2="510" y2="426" stroke="#e5e7eb"/>
+<text x="536" y="98" font-size="14" font-weight="bold">How to apply</text>
+
+<rect x="536" y="116" width="372" height="104" rx="6" fill="#f0fdf4" stroke="#16a34a"/>
+<text x="552" y="140" font-size="13" font-weight="bold" fill="#15803d">Manually (a human)</text>
+<text x="552" y="162" font-size="11.5" fill="#333">Applies everything, by judgment, using §9 as the ruler.</text>
+<text x="552" y="180" font-size="11.5" fill="#333">The core (L0/L1) <tspan font-weight="bold">is technology-independent</tspan>, it holds</text>
+<text x="552" y="196" font-size="11.5" fill="#333">with or without AI, with or without a computer.</text>
+<text x="552" y="214" font-size="10.5" fill="#777" font-style="italic">this is what most deserves actual checking</text>
+
+<rect x="536" y="232" width="372" height="180" rx="6" fill="#fffbeb" stroke="#f59e0b"/>
+<text x="552" y="256" font-size="13" font-weight="bold" fill="#b45309">Through an AI (depends on the model)</text>
+<text x="552" y="280" font-size="11.5" fill="#333">• <tspan font-weight="bold">One-shot (top-tier model, e.g. Opus):</tspan> does the</text>
+<text x="560" y="296" font-size="11.5" fill="#333">whole evaluation: finds the real, recognizes the good.</text>
+<text x="552" y="318" font-size="11.5" fill="#333">• <tspan font-weight="bold">Other models:</tspan> guide it in steps, with a checklist;</text>
+<text x="560" y="334" font-size="11.5" fill="#333">it helps, but the output is <tspan font-weight="bold">a draft to review</tspan>.</text>
+<text x="552" y="356" font-size="11.5" fill="#333">• <tspan font-weight="bold">Free / automatic without review:</tspan> not yet.</text>
+<text x="552" y="380" font-size="10.5" fill="#777" font-style="italic">What changes between models is capability, not the</text>
+<text x="552" y="395" font-size="10.5" fill="#777" font-style="italic">method's validity.</text>
+
+<text x="34" y="456" font-size="11" fill="#666">The method's core (L0/L1) is durable and technology-independent. The layer that changes with tools (L2) is where AI</text>
+<text x="34" y="472" font-size="11" fill="#666">automation enters: how well, and how cheaply, an AI applies it. Practical guide: recipe/strata-com-ia.en.md.</text>
+</svg>

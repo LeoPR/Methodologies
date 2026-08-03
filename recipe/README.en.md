@@ -58,7 +58,7 @@ The method is written in **durability layers**. Knowing which one you are in cha
 > come from the progression *what endures → the form → the tool*; `L0/L1/L2` is the
 > technical nickname. Etymology and rationale in the [glossary](../GLOSSARIO.md).
 
-![layers and mode](strata-modo.svg)
+![layers and mode](strata-modo.en.svg)
 
 > **The core is independent of technology; AI automation is not.** Layers **L0/L1 are
 > grounded and technology-independent**: a human with time applies everything manually, with

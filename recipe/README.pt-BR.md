@@ -60,7 +60,7 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
 > (instrumento), vêm da progressão *o que perdura → a forma → a ferramenta*; `L0/L1/L2` é o
 > apelido técnico. Etimologia e porquê no [glossário](../GLOSSARIO.md).
 
-![camadas e modo](strata-modo.svg)
+![camadas e modo](strata-modo.pt-BR.svg)
 
 > **O núcleo independe de tecnologia; a automação por IA, não.** As camadas **L0/L1 são
 > fundamentadas e independem de tecnologia**: um humano com tempo aplica tudo manualmente, com

@@ -119,5 +119,7 @@ canônico + `README.pt-BR.md` derivado). Executada em 5 pacotes:
   corretiva cobriu os 8 SVGs publicados (outreach 2, recipe 2, VIZ-p6 4).
   Rótulos no padrão "·"; prosa com vírgula/dois-pontos/ponto-e-vírgula. XML
   validado. Os PNGs de outreach (`strata-linkedin*.png`) foram re-renderizados
-  dos SVGs corrigidos com svglib+reportlab+rlPyCairo, tudo dentro do `.venv`
-  (cadeia Python pura, verificação visual feita).
+  dos SVGs corrigidos com playwright+Chromium, tudo dentro do `.venv`
+  (navegador em `.venv/pw-browsers`; fidelidade de browser, verificação visual
+  feita; a tentativa svglib+rlPyCairo degradou fontes/resolução e foi revertida).
+  Caminho registrado em `outreach/README*`; script `tools/render_svg_png.py`.

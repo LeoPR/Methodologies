@@ -49,9 +49,9 @@ E confira o primeiro passo que ela propõe, para não deixar que apague a histó
 
 O Strata não é um auditor autônomo que varre um projeto real e acerta sozinho.
 Nisso, ele não supera a competência pura do modelo.
-Reconhecer que está tudo bem e não mexer na medida certa, ou achar dívida real num projeto grande, ainda pede um modelo que calibre esse julgamento — e o preço não ordena isso —, ou você no loop.
+Reconhecer que está tudo bem e não mexer na medida certa, ou achar dívida real num projeto grande, ainda pede um modelo que calibre esse julgamento (e o preço não ordena isso), ou você no loop.
 
-Um modelo da geração atual recusa a instrução perigosa espontaneamente, até no econômico — a recusa frágil que caía sob paráfrase era da geração anterior (2026-08).
+Um modelo da geração atual recusa a instrução perigosa espontaneamente, até no econômico. A recusa frágil que caía sob paráfrase era da geração anterior (2026-08).
 O risco residual é a IA reescrever a diretiva ativa em vez de neutralizá-la, e há um modelo a evitar para este uso (o llama-4-scout).
 Para a segurança que importa, revise a saída, e confira o modelo específico na opinião de uso.
 

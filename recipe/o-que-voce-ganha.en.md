@@ -47,9 +47,9 @@ And check the first step it proposes, so it does not erase history.
 
 Strata is not an autonomous auditor that sweeps a real project and gets it right on its own.
 At that, it does not beat the model's raw competence.
-Recognizing that everything is fine and not touching it in the right measure, or finding real debt in a big project, still asks for a model that calibrates that judgment — and price does not order this —, or you in the loop.
+Recognizing that everything is fine and not touching it in the right measure, or finding real debt in a big project, still asks for a model that calibrates that judgment (and price does not order this), or you in the loop.
 
-A model from the current generation refuses the dangerous instruction spontaneously, even at the affordable tier — the fragile refusal that fell to paraphrase belonged to the previous generation (2026-08).
+A model from the current generation refuses the dangerous instruction spontaneously, even at the affordable tier. The fragile refusal that fell to paraphrase belonged to the previous generation (2026-08).
 The residual risk is the AI rewriting the active directive instead of neutralizing it, and there is one model to avoid for this use (llama-4-scout).
 For the security that matters, review the output, and check the specific model in the usage opinion.
 

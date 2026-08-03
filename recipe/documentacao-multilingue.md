@@ -1,11 +1,11 @@
 ---
-title: Documentação multilíngue — fonte canônica + tradução rastreável
+title: Documentação multilíngue (fonte canônica + tradução rastreável)
 status: portável (piloto aplicado neste repo; pronto para reuso)
 created: 2026-06-30
 updated: 2026-08-02
 ---
 
-# Documentação multilíngue — fonte canônica + tradução rastreável
+# Documentação multilíngue: fonte canônica + tradução rastreável
 
 Método portável para ter o README e os documentos de entrada em mais de uma língua,
 com **uma fonte canônica** e **traduções que não apodrecem em silêncio**.
@@ -63,7 +63,7 @@ Não use bandeiras: bandeira é país, não idioma.
 
 **O que traduzir:** só a prosa. Nunca código, caminhos, nomes de arquivo, chaves de configuração, nem o texto da LICENSE.
 
-## Como aplicar — por uma IA
+## Como aplicar (por uma IA)
 
 Num chat novo com o projeto aberto, cole:
 
@@ -83,7 +83,7 @@ Faça o par do README primeiro. Depois liste que outros docs de entrada valem tr
 e deixe os de pesquisa numa língua só, com uma nota.
 ```
 
-## Como aplicar — por um humano
+## Como aplicar (por um humano)
 
 1. Escolha a língua canônica; deixe-a no arquivo sem sufixo. As traduções recebem sufixo BCP 47.
 2. Ponha o cólofon l10n no topo de cada arquivo (o mesmo `doc_id` nas versões da mesma obra).
@@ -111,7 +111,7 @@ Objetivo editorial deste repo:
 - `README.md` (raiz) em **inglês** como canônico.
 - Versão em português no par `README.pt-BR.md`.
 - Nas demais pastas, o par se dá **só por sufixo**: o canônico é `README.en.md` e a
-  tradução `README.pt-BR.md` (convenção do dono, 2026-08-02) — não há `README.md`
+  tradução `README.pt-BR.md` (convenção do dono, 2026-08-02); não há `README.md`
   sem sufixo dentro das pastas.
 - Um par legado com outra língua canônica não muda de autoridade silenciosamente: a migração precisa ser explícita.
 
@@ -121,8 +121,8 @@ Estado atual e fila recomendada (superfície primeiro):
 |---|---|---|
 | `README.md` | ✅ par pronto (`README.pt-BR.md`) | manter sincronizado por commit; guarda l10n disponível |
 | `outreach/` | ✅ pares prontos (README, post e imagem) | manter cada par sincronizado; revisar/renderizar ativos ao alterar |
-| `recipe/knowledge-architecture.en.md` | ✅ par pronto: **EN canônico** + `.md` (PT-BR derivado) — autoridade migrada 2026-08-01 por decisão explícita (adendo ADR-008) | manter sincronizado por commit; guarda l10n disponível |
-| `recipe/README.en.md` | ✅ par pronto: **EN canônico** (`README.en.md`) + `README.pt-BR.md` (PT-BR derivado) — fluxo EN-first, como o produto; convenção de sufixos 2026-08-02 | manter sincronizado por commit; guarda l10n disponível |
+| `recipe/knowledge-architecture.en.md` | ✅ par pronto: **EN canônico** + `.md` (PT-BR derivado). Autoridade migrada 2026-08-01 por decisão explícita (adendo ADR-008) | manter sincronizado por commit; guarda l10n disponível |
+| `recipe/README.en.md` | ✅ par pronto: **EN canônico** (`README.en.md`) + `README.pt-BR.md` (PT-BR derivado). Fluxo EN-first, como o produto; convenção de sufixos 2026-08-02 | manter sincronizado por commit; guarda l10n disponível |
 | `MAP.md` | ❌ sem par | mover a fonte PT-BR para `MAP.pt-BR.md` e criar `MAP.md` em inglês |
 | `STATUS.md` | ❌ sem par | manter histórico em PT-BR; criar superfície canônica curta em inglês + tradução pt-BR |
 | `recipe/o-que-voce-ganha.en.md` | ✅ par pronto: **EN canônico** (`o-que-voce-ganha.en.md`) + `o-que-voce-ganha.md` (PT-BR derivado) | manter sincronizado por commit; guarda l10n disponível |

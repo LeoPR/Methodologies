@@ -4,7 +4,7 @@
 
 <text x="80" y="118" font-size="64" font-weight="800" fill="#111827">Strata</text>
 <text x="80" y="166" font-size="30" fill="#374151">organize knowledge that lasts</text>
-<text x="80" y="214" font-size="22" fill="#6b7280">Separate what is timeless from what is dated — switch tools without losing the why.</text>
+<text x="80" y="214" font-size="22" fill="#6b7280">Separate what is timeless from what is dated, and switch tools without losing the why.</text>
 
 <!-- durability axis -->
 <text x="44" y="640" font-size="18" fill="#9ca3af" text-anchor="middle" transform="rotate(-90 44 640)">↑ more durable        more dated ↓</text>
@@ -12,7 +12,7 @@
 <!-- MNEME -->
 <rect x="80" y="262" width="1040" height="262" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
 <text x="116" y="330" font-size="42" font-weight="800" fill="#1d4ed8">Mneme</text>
-<text x="320" y="330" font-size="24" fill="#6b7280">memory · L0 — timeless core</text>
+<text x="320" y="330" font-size="24" fill="#6b7280">memory · L0 · timeless core</text>
 <text x="116" y="378" font-size="24" fill="#111827">Principles that precede the computer: method, traceability, single source.</text>
 <text x="116" y="416" font-size="22" fill="#374151" font-style="italic">“If AI and the computer disappeared, would this still be true?”</text>
 <rect x="116" y="450" width="150" height="44" rx="22" fill="#2563eb"/><text x="191" y="479" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">centuries</text>
@@ -20,15 +20,15 @@
 <!-- MORFÉ -->
 <rect x="80" y="540" width="1040" height="262" rx="16" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
 <text x="116" y="608" font-size="42" font-weight="800" fill="#15803d">Morfé</text>
-<text x="300" y="608" font-size="24" fill="#6b7280">form · L1 — consolidated patterns</text>
+<text x="300" y="608" font-size="24" fill="#6b7280">form · L1 · consolidated patterns</text>
 <text x="116" y="656" font-size="23" fill="#111827">Mature forms that embody the principles: ADR, Diátaxis, Conventional Commits.</text>
-<text x="116" y="694" font-size="22" fill="#374151" font-style="italic">One good form, not the only one — replace it without touching the core.</text>
+<text x="116" y="694" font-size="22" fill="#374151" font-style="italic">One good form, not the only one: replace it without touching the core.</text>
 <rect x="116" y="728" width="150" height="44" rx="22" fill="#16a34a"/><text x="191" y="757" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">decades</text>
 
 <!-- ÓRGANON -->
 <rect x="80" y="818" width="1040" height="262" rx="16" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
 <text x="116" y="886" font-size="42" font-weight="800" fill="#c2410c">Órganon</text>
-<text x="330" y="886" font-size="24" fill="#6b7280">instrument · L2 — dated tools</text>
+<text x="330" y="886" font-size="24" fill="#6b7280">instrument · L2 · dated tools</text>
 <text x="116" y="934" font-size="25" fill="#111827">Today’s tools: AI, git, editor. Detachable.</text>
 <text x="116" y="972" font-size="22" fill="#374151" font-style="italic">When the tool dies, only this layer changes.</text>
 <rect x="116" y="1006" width="150" height="44" rx="22" fill="#ea580c"/><text x="191" y="1035" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">months</text>

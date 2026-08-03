@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="820" height="540" font-family="sans-serif">
 <rect width="820" height="540" fill="white"/>
-<text x="70" y="30" font-size="18" font-weight="bold">P6 — Vetor ORIENTAÇÃO: qualidade × forma (tutoria crescente →)</text>
+<text x="70" y="30" font-size="18" font-weight="bold">P6 · Vetor ORIENTAÇÃO: qualidade × forma (tutoria crescente →)</text>
 <text x="70" y="48" font-size="12" fill="#666">Y = genuíno − falso-positivo (média 2 projetos) · cada linha = um modelo barato · mais à direita = mais tutoria</text>
 <line x1="70" y1="132.2985074626866" x2="620" y2="132.2985074626866" stroke="#999" stroke-dasharray="5,4"/>
 <text x="620" y="127.29850746268659" font-size="11" fill="#999" text-anchor="end">0 (ruído=sinal)</text>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" font-family="sans-serif">
 <rect width="980" height="620" fill="white"/>
-<text x="80" y="30" font-size="18" font-weight="bold">P6 — Qualidade do Strata por modelo: FAIXA de variação (candlestick)</text>
+<text x="80" y="30" font-size="18" font-weight="bold">P6 · Qualidade do Strata por modelo: FAIXA de variação (candlestick)</text>
 <text x="80" y="48" font-size="12" fill="#666">barra = min..max nas 4 células (2 projetos × 2 runs) · ▬ = média · azul=projeto messy(pdf2md) vermelho=exemplar(NNN) · △reasoner ☆Opus</text>
 <line x1="80" y1="187.8823529411765" x2="760" y2="187.8823529411765" stroke="#999" stroke-dasharray="5,4"/>
 <text x="760" y="182.8823529411765" font-size="11" fill="#999" text-anchor="end">qualidade 0 (ruído=sinal)</text>

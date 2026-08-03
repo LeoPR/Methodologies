@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" font-family="sans-serif">
 <rect width="980" height="620" fill="white"/>
-<text x="80" y="30" font-size="18" font-weight="bold">P6 — Bubble: custo × qualidade × INCONSISTÊNCIA × operadora</text>
+<text x="80" y="30" font-size="18" font-weight="bold">P6 · Bubble: custo × qualidade × INCONSISTÊNCIA × operadora</text>
 <text x="80" y="48" font-size="12" fill="#666">X=custo(log) · Y=qualidade média · tamanho da bolha = amplitude(max−min) = inconsistência/risco · cor=operadora · △reasoner ☆Opus</text>
 <line x1="80" y1="199.1597633136095" x2="760" y2="199.1597633136095" stroke="#999" stroke-dasharray="5,4"/>
 <line x1="80" y1="64" x2="80" y2="550" stroke="#333"/><line x1="80" y1="550" x2="760" y2="550" stroke="#333"/>

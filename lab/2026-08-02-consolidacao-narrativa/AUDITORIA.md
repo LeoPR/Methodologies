@@ -115,3 +115,9 @@ canônico + `README.pt-BR.md` derivado). Executada em 5 pacotes:
   `eval/` (hash-congelados), `RESULTADOS-*`/`PLANO.md`/`NOTAS-shakedown.md`
   (registros datados), `_superseded/`, `recipe/_variants/`. Travessões em
   blocos de código (prompts prontos para copiar) foram preservados.
+- **Complemento SVG (2026-08-02):** a primeira varredura cobriu `.md`; varredura
+  corretiva cobriu os 8 SVGs publicados (outreach 2, recipe 2, VIZ-p6 4).
+  Rótulos no padrão "·"; prosa com vírgula/dois-pontos/ponto-e-vírgula. XML
+  validado. **Pendência:** os PNGs de outreach (`strata-linkedin*.png`) são
+  binários renderizados dos SVGs e seguem com o texto antigo; re-render exige
+  cairo/inkscape, ausente no Windows desta máquina.

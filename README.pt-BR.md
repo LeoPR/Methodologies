@@ -37,7 +37,7 @@ Para uma pessoa nova entender o que já está pronto (sem mergulhar no históric
 teorias e evolução), use esta sequência:
 
 1. [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) — valor, escopo e limites, em linguagem simples.
-2. [`recipe/README.md`](recipe/README.md) — guia prático de uso.
+2. [`recipe/README.pt-BR.md`](recipe/README.pt-BR.md) — guia prático de uso.
 3. [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) — produto Strata completo.
 4. [`MAP.md`](MAP.md) — onde fica cada artefato.
 5. [`STATUS.md`](STATUS.md) — foco atual e frentes abertas.
@@ -144,7 +144,7 @@ conhecimento em qualquer trabalho intelectual que acumula artefatos.
 > **Escopo:** organiza e preserva o conhecimento que o trabalho produz — e **complementa** o seu
 > jeito de ter ideias e de desenvolver (Scrum, TDD, design…), sem substituí-los. Indicado para
 > projeto de **vida longa** que acumula artefatos. Quando/para quem, em detalhe:
-> [recipe/README.md](recipe/README.md).
+> [recipe/README.pt-BR.md](recipe/README.pt-BR.md).
 
 O problema é **anterior ao computador**: bibliotecários, cientistas e engenheiros o
 enfrentam há séculos. As ferramentas de cada era (hoje: IA, editores, controle de

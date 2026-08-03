@@ -1,5 +1,5 @@
 <!-- l10n: doc_id=strata-recipe-readme · lang=en · canonical -->
-[Português](README.md) · **English**
+[Português](README.pt-BR.md) · **English**
 
 # `recipe/` — finished products
 

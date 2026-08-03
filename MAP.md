@@ -53,7 +53,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 
 | Quero | Va para |
 |---|---|
-| **Começar do zero (onboarding de superfície)** | [`README.md`](README.md) → [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) → [`recipe/README.md`](recipe/README.md) → [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) |
+| **Começar do zero (onboarding de superfície)** | [`README.md`](README.md) → [`recipe/o-que-voce-ganha.md`](recipe/o-que-voce-ganha.md) → [`recipe/README.pt-BR.md`](recipe/README.pt-BR.md) → [`recipe/knowledge-architecture.md`](recipe/knowledge-architecture.md) |
 | **Usar a metodologia** (produto) | [recipe/knowledge-architecture.en.md](recipe/knowledge-architecture.en.md) (canônico EN; pt-BR: `knowledge-architecture.md`) |
 | **Organizar docs de entrada em 2 línguas** (aplicável a outro projeto) | [recipe/documentacao-multilingue.md](recipe/documentacao-multilingue.md) |
 | **A opinião honesta de uso** (o que funciona, por tarefa/tier/custo) | [lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |

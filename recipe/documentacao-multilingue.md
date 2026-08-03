@@ -110,7 +110,9 @@ Objetivo editorial deste repo:
 
 - `README.md` (raiz) em **inglês** como canônico.
 - Versão em português no par `README.pt-BR.md`.
-- Nos novos pares, o arquivo canônico fica sem sufixo; a tradução recebe o sufixo BCP 47.
+- Nas demais pastas, o par se dá **só por sufixo**: o canônico é `README.en.md` e a
+  tradução `README.pt-BR.md` (convenção do dono, 2026-08-02) — não há `README.md`
+  sem sufixo dentro das pastas.
 - Um par legado com outra língua canônica não muda de autoridade silenciosamente: a migração precisa ser explícita.
 
 Estado atual e fila recomendada (superfície primeiro):
@@ -120,7 +122,7 @@ Estado atual e fila recomendada (superfície primeiro):
 | `README.md` | ✅ par pronto (`README.pt-BR.md`) | manter sincronizado por commit; guarda l10n disponível |
 | `outreach/` | ✅ pares prontos (README, post e imagem) | manter cada par sincronizado; revisar/renderizar ativos ao alterar |
 | `recipe/knowledge-architecture.en.md` | ✅ par pronto: **EN canônico** + `.md` (PT-BR derivado) — autoridade migrada 2026-08-01 por decisão explícita (adendo ADR-008) | manter sincronizado por commit; guarda l10n disponível |
-| `recipe/README.en.md` | ✅ par pronto: **EN canônico** (`README.en.md`) + `README.md` (PT-BR derivado) — fluxo EN-first, como o produto | manter sincronizado por commit; guarda l10n disponível |
+| `recipe/README.en.md` | ✅ par pronto: **EN canônico** (`README.en.md`) + `README.pt-BR.md` (PT-BR derivado) — fluxo EN-first, como o produto; convenção de sufixos 2026-08-02 | manter sincronizado por commit; guarda l10n disponível |
 | `MAP.md` | ❌ sem par | mover a fonte PT-BR para `MAP.pt-BR.md` e criar `MAP.md` em inglês |
 | `STATUS.md` | ❌ sem par | manter histórico em PT-BR; criar superfície canônica curta em inglês + tradução pt-BR |
 | `recipe/o-que-voce-ganha.en.md` | ✅ par pronto: **EN canônico** (`o-que-voce-ganha.en.md`) + `o-que-voce-ganha.md` (PT-BR derivado) | manter sincronizado por commit; guarda l10n disponível |

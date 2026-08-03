@@ -60,7 +60,7 @@ O resíduo é estreito: só as rodadas ecológicas mais recentes ainda não fora
 ## Por tarefa — quem dá conta
 
 Sobre modelos de IA: "quem dá conta" é qual capacidade faz a tarefa bem.
-A escala vem dos READMEs ([recipe](../../recipe/README.md)): topo, médio, econômico.
+A escala vem dos READMEs ([recipe](../../recipe/README.pt-BR.md)): topo, médio, econômico.
 É capacidade, não tamanho, porque um *flash* barato pode bater um 70B.
 Confiança: SÓLIDO é bem medido, sinal é direção, EXPLORATÓRIO/RUIDOSO é fraco.
 

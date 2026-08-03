@@ -3,7 +3,7 @@ name: map-methodologies-project
 type: navigation
 status: active
 created: 2026-06-03
-updated: 2026-08-02
+updated: 2026-08-03
 ---
 
 # Methodologies: mapa
@@ -12,13 +12,14 @@ updated: 2026-08-02
 
 ```
 Methodologies/                        <- Oficina de metodologias (Strata pronto; Comporta no forno)
-├── recipe/
+├── recipe/                           <- PRODUTOS prontos (fonte única das técnicas)
 │   ├── knowledge-architecture.en.md  <- PRODUTO Strata, FONTE CANÔNICA (L0/L1/L2; L0 fechado 2026-08-01, v1.2.1)
 │   ├── knowledge-architecture.pt-BR.md     <- tradução pt-BR derivada do canônico EN
-│   ├── README.md                     <- guia de uso do Strata (humano + IA; efêmero; pendências)
-│   ├── strata-com-ia{,.en}.md          <- guia prático "funciona no meu ambiente? sai caro?"
+│   ├── README.en.md / README.pt-BR.md      <- guia de uso do Strata (humano + IA; efêmero; EN canônico)
+│   ├── o-que-voce-ganha.en/.pt-BR.md       <- o que muda na prática (par EN/PT)
+│   ├── strata-com-ia.en/.pt-BR.md          <- guia prático "funciona no meu ambiente? sai caro?"
 │   ├── documentacao-multilingue.md   <- método portável: docs de entrada em 2 línguas (fonte canônica + tradução rastreável)
-│   └── *.svg                         <- diagramas (strata-modo; custo×qualidade×ambiente)
+│   └── *.en.svg / *.pt-BR.svg        <- diagramas (strata-modo; fronteira por contexto de acesso), par EN/PT
 ├── decisions/                        <- ADRs (registros de decisão imutáveis)
 │   ├── ADR-001-formato-produto.md    <- 1 arquivo vs suíte de docs
 │   ├── ADR-002-estrutura-L0-L1-L2.md <- camadas de durabilidade
@@ -36,7 +37,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   ├── 2026-06-04-aderencia-portabilidade/ <- aderencia/brownfield/IA/portabilidade (4 lentes)
 │   ├── 2026-06-04-economia-ia-tokens/    <- COMPORTA (2ª metodologia): economia/roteamento de recursos de IA
 │   ├── 2026-06-04-dev-environment-z/     <- metodologia Z:\ python/venv/cache (snapshot p/ estudo)
-│   ├── 2026-06-04-strata-hipoteses/      <- IDEIAS + EVIDÊNCIA do Strata. ENTRADA: OPINIAO-DE-USO.md (opinião honesta) · hub ARQUITETURA-E-EVIDENCIAS.md · BACKLOG-fila-geral.md · REVISAO-RETROATIVA.md · RESULTADOS-*.md
+│   ├── 2026-06-04-strata-hipoteses/      <- IDEIAS + EVIDÊNCIA do Strata. ENTRADA: OPINIAO-DE-USO.md (opinião honesta) · hub ARQUITETURA-E-EVIDENCIAS.md · BACKLOG-fila-geral.md · REVISAO-RETROATIVA.md · RESULTADOS-*.md · variantes-ka/ (braços âncora/placebo do produto)
 │   └── 2026-06-06-comprovacao-forte-strata/ <- plano de comprovação (gates G1-G6); SUPERSEDED pela consolidação em strata-hipoteses
 │   └── 2026-08-01-fechamento-camadas/  <- CICLO P1–P5 que FECHOU o L0 (régua axiomática; §11, §6-bis+ver, persona, âncoras L1); decisões datadas por parte
 │   └── 2026-08-02-reteste-L0-fechado/  <- RETESTE do L0 fechado (grade de estratos × capacidade; Degrau 3 agente): PLANO.md + NOTAS-shakedown.md (diário)

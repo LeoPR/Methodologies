@@ -3,7 +3,7 @@ name: auditoria-consolidacao-narrativa
 type: registro
 status: etapa 1 (rastreabilidade) e etapa 2 (tom) executadas 2026-08-02
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-03
 audience: ai-primary
 ---
 
@@ -220,5 +220,26 @@ ponteiro explícito para o `GLOSSARIO.md`.
   EN/PT (EXP aberto, N=1 em prosa), eval/README EN/PT (scorers, fixtures).
 - Registros datados de lab (`RESULTADOS-*`, histórico do STATUS) não foram
   reescritos: são histórico; o ponteiro para o glossário cobre o leitor.
+
+**Gates:** `check_stamps.py` ok · `check_l10n.py --working` ok.
+
+## Etapa 5 (2026-08-03): recipe enxuto + diagramas em par EN/PT
+
+- **`recipe/_variants/` morava no território errado:** os braços âncora/placebo
+  (ka-B, ka-C, v1.1.0) são material de experimento datado, não produto. Movidos
+  para `lab/2026-06-04-strata-hipoteses/variantes-ka/` (eram gitignored e
+  seguem; o README da pasta, tracked, explica a proveniência). BACKLOG
+  atualizado (o item (b) da autoauditoria pedia esse movimento).
+- **Diagramas em par EN/PT**, mesma convenção dos textos: `strata-modo.svg` →
+  `strata-modo.pt-BR.svg` + `strata-modo.en.svg` (novo, canônico);
+  `strata-com-ia-fronteira.svg` → `.pt-BR.svg` + `.en.svg` (novo). Cada
+  documento aponta o diagrama do próprio idioma. Renders conferidos em PNG
+  (Chromium do venv), sem overflow.
+- **Bloco recipe do MAP.md reescrito** para o estado real (README pair,
+  o-que-voce-ganha pair, sufixos .en/.pt-BR, variantes-ka no lab); README raiz
+  EN/PT sincronizado (nome do arquivo pt-BR).
+- Resultado: no GitHub, `recipe/` lista só produto e guias; o canônico
+  (`knowledge-architecture.en.md`) é o 2º nome na listagem alfabética e o
+  primeiro citado em README raiz, MAP e AGENTS.
 
 **Gates:** `check_stamps.py` ok · `check_l10n.py --working` ok.

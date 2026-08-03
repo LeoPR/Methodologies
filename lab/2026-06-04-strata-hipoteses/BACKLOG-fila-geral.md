@@ -1,7 +1,7 @@
 ---
 title: 'Fila geral: backlog PRIORIZADO (pós-consolidação)'
 created: 2026-06-13
-updated: 2026-08-02
+updated: 2026-08-03
 status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava: feito.'
 ---
 
@@ -90,7 +90,8 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 - **Autoauditoria: FEITA com cross-check** ([AUTOAUDITORIA-repo-vs-strata](AUTOAUDITORIA-repo-vs-strata.md)):
   o fan-out de 5 auditores rodou (limite reabriu); aderência **forte**, baratos consertados. Restou **não-trivial**:
   (a) §10 **fixity `--verify`**: `hash_fixture.py` grava `.fixture-hash` mas nada recomputa/compara; adicionar
-  modo `--verify` chamado no início de `hb_f3/f4`; (b) §1/§9 mover `recipe/_variants/` e os `aggregate_<exp>.py`
+  modo `--verify` chamado no início de `hb_f3/f4`; (b) §1/§9: `recipe/_variants/` **movido** para
+  `variantes-ka/` nesta pasta (2026-08-02); resta mover os `aggregate_<exp>.py`
   one-off para `eval/strata/` quando tocar (risco de quebrar run scripts; não agora).
 - **Reasoners: PARSE corrigido** (2026-06-15, `hb_runner`): o `content=None` era **bug de parse, não
   incapacidade** do modelo. Agora `call_openrouter`/`_ex` caem p/ `message.reasoning` quando `content` vem vazio

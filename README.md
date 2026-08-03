@@ -190,7 +190,7 @@ and says whether local AI is worth it: *turn on now / consider / blocked*, with 
 
 | Folder | What it is |
 |---|---|
-| [`recipe/`](recipe/) | **ready products**: today, Strata (`knowledge-architecture.en.md`, canonical; `.md` = pt-BR translation) |
+| [`recipe/`](recipe/) | **ready products**: today, Strata (`knowledge-architecture.en.md`, canonical; `.pt-BR.md` = pt-BR translation) |
 | [`lab/`](lab/) | exploratory, dated research (L0-grounding, future-proof, adherence/portability, **AI economy**) |
 | [`prototype/`](prototype/) | testing at scale, on real projects (future) |
 | [`decisions/`](decisions/) | ADRs: why each design decision was made |

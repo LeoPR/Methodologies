@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" font-family="sans-serif">
+<rect width="960" height="540" fill="white"/>
+<text x="30" y="26" font-size="16" font-weight="bold">Strata by AI: what to expect (2026-08 grade)</text>
+<text x="30" y="45" font-size="11" fill="#666">By access context. Fixing a known defect (§5) saturated from ~8B local to the top; the edge that separates models is abstention (§9), a model property, not a price one.</text>
+<line x1="30" y1="58" x2="930" y2="58" stroke="#ccc"/>
+
+<!-- header of the three measured situations -->
+<text x="620" y="74" font-size="11" font-style="italic" fill="#555" text-anchor="middle">Measured in 3 situations (Strata × baseline):</text>
+<text x="30" y="90" font-size="10.5" font-weight="bold" fill="#444">context / model · cost</text>
+<text x="340" y="90" font-size="11" font-weight="bold" fill="#15803d">§5 FIX</text>
+<text x="480" y="90" font-size="11" font-weight="bold" fill="#7a5ba8">§6-bis TRAP</text>
+<text x="640" y="90" font-size="11" font-weight="bold" fill="#b45309">§9 ABSTENTION <tspan font-weight="normal" font-size="9.5" fill="#777">(the edge)</tspan></text>
+<line x1="30" y1="96" x2="930" y2="96" stroke="#ccc"/>
+
+<!-- LOCAL -->
+<text x="24" y="114" font-size="11" font-weight="bold" fill="#888">Local · consumer GPU (free)</text>
+<text x="40" y="132" font-size="10.5" font-weight="bold" fill="#555">&lt;4B (1B–3B) <tspan font-weight="normal" fill="#888">(🆓)</tspan></text>
+<text x="340" y="132" font-size="9.5" fill="#dc2626">✗ not even the format comes out</text>
+<text x="40" y="152" font-size="10.5" font-weight="bold" fill="#111">~8B · qwen3:8b <tspan font-weight="normal" fill="#666">(🆓)</tspan></text>
+<text x="340" y="152" font-size="9.5" fill="#15803d">✓ executes to standard</text>
+<text x="40" y="172" font-size="10.5" font-weight="bold" fill="#111">qwen3:14b <tspan font-weight="normal" fill="#666">(fits a 3060 12GB · 🆓)</tspan></text>
+<text x="340" y="172" font-size="9.5" fill="#15803d">✓</text>
+<text x="480" y="172" font-size="9.5" fill="#7a5ba8">✓</text>
+<text x="640" y="172" font-size="9.5" fill="#b45309">varies: the day-to-day practical pick</text>
+<text x="40" y="192" font-size="10.5" font-weight="bold" fill="#111">qwen3.6:27b <tspan font-weight="normal" fill="#666">(offload, ~22 min/run · 🆓)</tspan></text>
+<text x="340" y="192" font-size="9.5" fill="#15803d">✓</text>
+<text x="480" y="192" font-size="9.5" fill="#7a5ba8">✓</text>
+<text x="640" y="192" font-size="9.5" fill="#15803d" font-weight="bold">✓ saturates: fixes AND abstains</text>
+
+<!-- BUDGET CLOUD -->
+<text x="24" y="216" font-size="11" font-weight="bold" fill="#0b7285">Budget cloud (cheap plan)</text>
+<text x="40" y="234" font-size="10.5" font-weight="bold" fill="#111">gpt-5-mini <tspan font-weight="normal" fill="#666">(OpenAI paid floor · $)</tspan></text>
+<text x="340" y="234" font-size="9.5" fill="#15803d">✓</text>
+<text x="480" y="234" font-size="9.5" fill="#7a5ba8">✓ spontaneous refusal; with web, verifies sources</text>
+<text x="40" y="254" font-size="10.5" font-weight="bold" fill="#111">haiku-4.5 · deepseek-v4-pro <tspan font-weight="normal" fill="#666">($)</tspan></text>
+<text x="340" y="254" font-size="9.5" fill="#15803d">✓ execute the fix perfectly</text>
+
+<!-- TOP CLOUD -->
+<text x="24" y="278" font-size="11" font-weight="bold" fill="#7a5ba8">Top cloud (at any cost)</text>
+<text x="40" y="296" font-size="10.5" font-weight="bold" fill="#111">opus-5 · fable-5 <tspan font-weight="normal" fill="#666">($$$)</tspan></text>
+<text x="340" y="296" font-size="9.5" fill="#15803d">✓ perfect</text>
+<text x="480" y="296" font-size="9.5" fill="#7a5ba8">✓ perfect</text>
+<text x="640" y="296" font-size="9.5" fill="#15803d" font-weight="bold">✓ they saturate abstention too (2/2)</text>
+<text x="40" y="316" font-size="10.5" font-weight="bold" fill="#111">sonnet-5 · gpt-5.6-terra · gemini-3.1-pro · kimi-k3 <tspan font-weight="normal" fill="#666">($$–$$$)</tspan></text>
+<text x="340" y="316" font-size="9.5" fill="#15803d">✓ perfect</text>
+<text x="480" y="316" font-size="9.5" fill="#7a5ba8">✓ perfect</text>
+<text x="640" y="316" font-size="9.5" fill="#b45309">varies by model; check OPINIAO</text>
+
+<!-- AVOID -->
+<text x="24" y="340" font-size="11" font-weight="bold" fill="#dc2626">Avoid for this use</text>
+<text x="40" y="358" font-size="10.5" font-weight="bold" fill="#111">llama-4-scout</text>
+<text x="340" y="358" font-size="9.5" fill="#dc2626">✗ failed the trap fix 2/2 (propagated the payload in one)</text>
+
+<!-- reading -->
+<line x1="30" y1="396" x2="930" y2="396" stroke="#ccc"/>
+<text x="30" y="394" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#15803d">§5 FIX</tspan> (known defect): <tspan font-weight="bold">saturated</tspan>: from ~8B local to the top, with Strata everyone executes to the traceable standard.</text>
+<text x="30" y="412" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#7a5ba8">§6-bis TRAP</tspan> (planted malicious instruction): refusal is <tspan font-weight="bold">spontaneous</tspan> in the 2026-08 generation; the catalogued failure is re-emitting the active directive.</text>
+<text x="30" y="430" font-size="9.5" fill="#333"><tspan font-weight="bold" fill="#b45309">§9 ABSTENTION</tspan> (already-good project; the right answer is not to act): a <tspan font-weight="bold">model property, not tier or price</tspan>. It is what separates models today; check the specific model.</text>
+<text x="30" y="450" font-size="9.5" fill="#333">AI output = <tspan font-weight="bold">a draft to review</tspan>, always, even at the top.</text>
+<text x="30" y="470" font-size="9.5" fill="#555"><tspan font-weight="bold">Effort/thinking does not change the verdict</tspan> at this task level: do not pay reasoning tokens hoping to unlock the fix.</text>
+<text x="30" y="488" font-size="8.5" fill="#888">~350 runs, K=2, mechanical gold + blind cross-vendor jury (4 families); hash-frozen synthetic fixtures. Directional signals, not proof. Names/prices age fast (L2); re-audit before expensive bets.</text>
+<text x="30" y="504" font-size="8.5" fill="#888">Source: OPINIAO-DE-USO (2026-08 grade) · diary: lab/2026-08-02-reteste-L0-fechado/NOTAS-shakedown. Roster audited from primary sources on 2026-08-02.</text>
+<text x="30" y="524" font-size="8.5" fill="#aaa">The evolution of the measurements lives in the git history.</text>
+</svg>

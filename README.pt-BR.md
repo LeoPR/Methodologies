@@ -187,7 +187,7 @@ e diz se vale usar IA local: *ligar agora / considerar / bloqueado*, com o porqu
 
 | Pasta | O que é |
 |---|---|
-| [`recipe/`](recipe/) | **produtos prontos**: hoje, Strata (`knowledge-architecture.pt-BR.md`) |
+| [`recipe/`](recipe/) | **produtos prontos**: hoje, Strata (`knowledge-architecture.pt-BR.md`; canônico: `.en.md`) |
 | [`lab/`](lab/) | pesquisa exploratória, datada (fundamentação-L0, future-proof, aderência/portabilidade, **economia de IA**) |
 | [`prototype/`](prototype/) | teste em escala, em projetos reais (futuro) |
 | [`decisions/`](decisions/) | ADRs: por que cada decisão de design foi tomada |

@@ -2,7 +2,7 @@
 title: Strata com IA (guia prático de uso)
 status: active
 created: 2026-06-08
-updated: 2026-08-02
+updated: 2026-08-03
 purpose: responder ao desenvolvedor "funciona no meu ambiente? vai sair caro?". Só o que funciona
 nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9 (p8 = posição/variância; p9 = churn de elenco, L2)
 ---
@@ -38,7 +38,7 @@ Duas regras de ouro antes de qualquer modelo:
 > [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); diário da rodada:
 > [`lab/2026-08-02-reteste-L0-fechado`](../lab/2026-08-02-reteste-L0-fechado/).
 
-![Strata por IA: qual modelo usar, por vendor](strata-com-ia-fronteira.svg)
+![Strata por IA: qual modelo usar, por vendor](strata-com-ia-fronteira.pt-BR.svg)
 
 **Como ler o gráfico** (grade 2026-08; por contexto de acesso: GPU local, plano econômico, topo).
 

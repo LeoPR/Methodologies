@@ -1,7 +1,7 @@
 ---
 title: 'Índice de artefatos para discussão (snapshot 2026-06-16)'
 created: 2026-06-16
-updated: 2026-08-02
+updated: 2026-08-03
 status: 'L2 — snapshot datado para discutir. Só ponteiros (ADR-005: apontar, não propagar). A verdade vive nos docs apontados.'
 ---
 
@@ -32,7 +32,7 @@ Porta de entrada permanente continua sendo [OPINIAO-DE-USO.md](OPINIAO-DE-USO.md
 - [RESULTADOS-genero.md](RESULTADOS-genero.md) (probe N=1 anterior), [GABARITO-genero-temporal-own.md](GABARITO-genero-temporal-own.md) (pré-registrado), [PRE-REGISTRO-own-tcf.md](PRE-REGISTRO-own-tcf.md) (hash do gabarito do TCF, run pendente de crédito).
 
 ## 3. Produto (o que o dev usa)
-- [recipe/strata-com-ia.pt-BR.md](../../recipe/strata-com-ia.pt-BR.md) + [recipe/strata-com-ia-fronteira.svg](../../recipe/strata-com-ia-fronteira.svg) — guia + gráfico (barra=inventados, gradiente, DeepSeek V4, linha Local).
+- [recipe/strata-com-ia.pt-BR.md](../../recipe/strata-com-ia.pt-BR.md) + [gráfico fronteira](../../recipe/strata-com-ia-fronteira.pt-BR.svg) — guia + gráfico da grade 2026-08 por contexto de acesso (local / nuvem econômica / topo). Braços âncora/placebo do produto: [variantes-ka/](variantes-ka/).
 - [RESULTADOS-p9-modelos-novos-jun.md](RESULTADOS-p9-modelos-novos-jun.md) — P9/P9b/P9c/P9d (escada por vendor; K=5 derrubou o K=3 do topo).
 
 ## 4. Cenários / fixtures (o teor e a lógica de construção)

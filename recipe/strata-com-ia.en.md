@@ -2,7 +2,7 @@
 title: Strata with AI (practical usage guide)
 status: active
 created: 2026-06-08
-updated: 2026-08-02
+updated: 2026-08-03
 purpose: answer the developer asking "does it work in my environment? will it be expensive?". Only what works
 nota: the full research (including what does NOT work and why) is in lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9 (p8 = position/variance; p9 = roster churn, L2)
 ---
@@ -38,7 +38,7 @@ Two golden rules before any model:
 > [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); round diary:
 > [`lab/2026-08-02-reteste-L0-fechado`](../lab/2026-08-02-reteste-L0-fechado/).
 
-![Strata by AI: which model to use, by vendor](strata-com-ia-fronteira.svg)
+![Strata by AI: which model to use, by vendor](strata-com-ia-fronteira.en.svg)
 
 **How to read the chart** (2026-08 grade; by access context: local GPU, budget plan, top tier).
 

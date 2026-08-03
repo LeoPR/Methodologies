@@ -1,8 +1,8 @@
 ---
-title: Hipóteses abertas do Strata: código-como-documento + aferição de compreensão por IA
+title: 'Hipóteses abertas do Strata: código-como-documento + aferição de compreensão por IA'
 status: open
 created: 2026-06-04
-updated: 2026-08-02
+updated: 2026-08-03
 tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-metodo, ai-native, temporalidade]
 ---
 

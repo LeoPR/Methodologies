@@ -18,6 +18,15 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 > separa o que dá para resolver com esforço focado (Grupo 1) do que só a experiência em massa resolve (Grupo 2).
 
 ## P0: antes de mais testes
+- **Estudo de idioma (PT×EN): PRÉ-REGISTRADO, NUNCA EXECUTADO.** O
+  [PRE-REGISTRO-idioma-en.md](PRE-REGISTRO-idioma-en.md) (locks confirmados em 2026-07-01) é o
+  principal teste pendente desde a publicação de junho: toda a evidência do corpus, inclusive o
+  reteste 2026-08, é só-PT (o harness alimenta `knowledge-architecture.pt-BR.md`). Estado do
+  caminho: `hb_f3.py --lang pt|en` pronto (prompt + método no idioma); `external-fixtures/`
+  (OSS inglês nativo) existe; **mas** o hash das fixtures EN nunca foi congelado (placeholder no
+  pré-registro), nenhum plano EN rodou e o regex F3/F4 não foi revalidado em inglês. Antes de
+  rodar: re-auditar o roster (o do pré-registro é de jul/2026: Opus 4.8 / GPT-5.5 / GLM-5.2)
+  contra a grade vigente. Execução pelo LOCK 3: piloto F3 `OBEY_RATE`, margem ±10pp.
 - **Honestidade de produto (redação, econômico):** carregar a **disconfirmação ecológica (R8)** e a
   **circularidade** no **topo** de todo relatório/recipe de uso (não em "abertos"). **Recalibrar
   `recipe/strata-com-ia.pt-BR.md`**: auto-auditor autônomo **só com topo**; médios/baratos = checklist + humano.

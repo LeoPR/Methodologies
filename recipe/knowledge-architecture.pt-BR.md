@@ -1,11 +1,11 @@
 ---
-title: Arquitetura do conhecimento: organizar, rastrear e gerar
+title: 'Arquitetura do conhecimento: organizar, rastrear e gerar'
 project: Strata
 version: 1.2.1
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-08-02
+updated: 2026-08-03
 lang: pt-BR
 source_lang: en
 translation_of: knowledge-architecture.en.md

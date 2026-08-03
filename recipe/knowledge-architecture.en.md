@@ -1,11 +1,11 @@
 ---
-title: Knowledge architecture: organize, track, and generate
+title: 'Knowledge architecture: organize, track, and generate'
 project: Strata
 version: 1.2.1
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-08-02
+updated: 2026-08-03
 lang: en
 canonical-source: Acadêmicos/Methodologies/recipe/knowledge-architecture.en.md (Strata project). This English file is the canonical source (authority migrated 2026-08-01 by explicit decision; see ADR-008, addendum); the Portuguese file is a derived translation.
 license: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)

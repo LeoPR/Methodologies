@@ -1,7 +1,7 @@
 ---
-title: Retest of the closed L0 (2026-08-02): shake-down + targeted retest + Degrau 3
+title: 'Retest of the closed L0 (2026-08-02): shake-down + targeted retest + Degrau 3'
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-03
 status: executed 2026-08-02
 ---
 

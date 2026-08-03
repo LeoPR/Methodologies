@@ -257,3 +257,20 @@ comentado) e MAP.md (inventário da pasta strata-hipoteses em duas linhas).
 Varredura nas demais superfícies: sem outros casos em prosa.
 
 **Gates:** `check_stamps.py` ok.
+
+## Etapa 7 (2026-08-03): frontmatter YAML + revisão do estudo de idioma
+
+- **Bug de YAML:** `title:` com dois-pontos interno sem aspas quebrava o parse do
+  frontmatter ("Nested mappings are not allowed in compact mappings"). Quotados:
+  `knowledge-architecture.en.md` e `.pt-BR.md` (o produto), mais os 4 docs vivos de
+  lab com o mesmo padrão (READMEs e hub de strata-hipoteses, READMEs do reteste).
+  Validado com parser (`yaml.safe_load`). Os ADRs 005/008 têm o mesmo padrão e
+  **não foram tocados** (imutáveis); leitores de YAML devem ser tolerantes ali.
+- **Estudo de idioma (PT×EN), revisão:** pré-registrado em 2026-07-01
+  (`PRE-REGISTRO-idioma-en.md`, locks confirmados), **nunca executado**. Pronto:
+  `hb_f3.py --lang pt|en`, `external-fixtures/` (OSS inglês nativo). Faltando:
+  congelar hash das fixtures EN (placeholder), revalidar regex F3/F4 em inglês,
+  re-auditar o roster (jul/2026) contra a grade vigente. Toda a evidência atual,
+  inclusive o reteste 2026-08, é só-PT. Item P0 no BACKLOG.
+
+**Gates:** `check_stamps.py` ok · `check_l10n.py --working` ok · YAML parse ok.

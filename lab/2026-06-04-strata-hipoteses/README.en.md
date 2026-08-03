@@ -1,8 +1,8 @@
 ---
-title: Open Strata hypotheses: code-as-document + empirical check of AI comprehension
+title: 'Open Strata hypotheses: code-as-document + empirical check of AI comprehension'
 status: open
 created: 2026-06-04
-updated: 2026-08-02
+updated: 2026-08-03
 tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-metodo, ai-native, temporalidade]
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: Reteste do L0 fechado (2026-08-02): shake-down + reteste dirigido + Degrau 3
+title: 'Reteste do L0 fechado (2026-08-02): shake-down + reteste dirigido + Degrau 3'
 created: 2026-08-02
-updated: 2026-08-02
+updated: 2026-08-03
 status: executado 2026-08-02
 ---
 

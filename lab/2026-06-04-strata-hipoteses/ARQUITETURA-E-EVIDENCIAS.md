@@ -1,7 +1,7 @@
 ---
-title: Arquitetura de testes e evidências do Strata: o que comprova, em que condições (macro)
+title: 'Arquitetura de testes e evidências do Strata: o que comprova, em que condições (macro)'
 created: 2026-06-13
-updated: 2026-08-02
+updated: 2026-08-03
 status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5/F6 fronteira.
 ---
 

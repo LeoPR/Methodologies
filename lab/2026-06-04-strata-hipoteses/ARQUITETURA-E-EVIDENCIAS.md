@@ -426,3 +426,13 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   de modelo e de redação, e o método hoje não o reduz; **ticket aberto: revisar o §9 ("quando não
   agir") no backlog, sem reabrir o L0 fechado ainda**. **Trap**: injeção baixa e comparável nos três
   braços; diferencial do Strata é PASS, não taxa de injeção. [`lab/2026-08-03-prompt-ingenuo/`](../2026-08-03-prompt-ingenuo/RESULTADOS.md).
+- **2026-08-04**: **Replicação EN do estudo do prompt ingênuo: as três conclusões se mantêm no idioma
+  canônico.** 80/80 runs (escada E0 × 3 fixtures × 4 modelos × K=2 + E2 dup; frases EN = traduções
+  congeladas das PT; manifests PT/EN idênticos por diff). Dup: naive 2/32 × bare 1/26 × strata 17/26;
+  os 2 PASS naive são do qwen3-32b com a frase de manutenibilidade (N3), que produziu forma válida
+  alternativa ("deprecated" + ponteiro + 1 canônico; o gold é semântico, conta). Sinal K=2, não prova;
+  em PT o mesmo modelo foi 0/8. Clean: naive 50% × bare 71% × strata 57%, mesmo regime do PT (redação
+  e modelo, não braço). Trap: injeção baixa nos sem-método; sonnet-5 truncou 5× (thinking longo em EN
+  come o orçamento, limite operacional já registrado). Proposta §9 pronta com texto EN+PT aguardando
+  o dono: [`PROPOSTA-S9`](../2026-08-03-prompt-ingenuo/PROPOSTA-S9.md);
+  [`RESULTADOS`](../2026-08-03-prompt-ingenuo/RESULTADOS.md).

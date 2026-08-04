@@ -3,7 +3,7 @@ name: proposta-s9-quando-nao-agir
 type: lab-proposta
 status: proposta-aguardando-dono
 created: 2026-08-03
-updated: 2026-08-03
+updated: 2026-08-04
 audience: ai-primary
 applies-to: proposta de revisao pontual do §9 (L0 fechado; requer aprovacao do dono)
 ---

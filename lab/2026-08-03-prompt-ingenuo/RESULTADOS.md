@@ -180,15 +180,46 @@ Nota de contagem: 6 (dirtylab) + 72 (piloto) + 30 (2b simples) + 4+4 (ADV-1
 fumaça e grade; 2 turnos cada) + 12 (Etapa 3) = 128 chamadas de API; 124
 runs analisáveis. Planos: `eval/strata/planos/f4n-*` (gitignored).
 
+## Replicação EN (2026-08-03/04, executado; 80/80 OK, 5 truncadas no teto de tokens)
+
+Motivo: o canônico é EN (ADR-008) e a evidência naive era só-PT. Frases EN =
+traduções literais das PT, congeladas no runner (`ESCADA_EN`). Braços bare/strata
+EN: planos f4e existentes. Mesma fixture, mesmo gold (manifests PT/EN idênticos,
+verificado por diff).
+
+**dup EN**: naive E0 2/24 PASS + E2 0/8 = **2/32**; bare EN 1/26; strata EN
+17/26. Os 2 PASS são do **qwen3-32b com N3** ("easy to maintain in the future"),
+que marcou o aposentado como "deprecated" + ponteiro e declarou 1 canônico: o
+gold é semântico (forma da solução, não vocábulo), então conta como convenção
+crackada de fato. Em PT o mesmo modelo foi 0/8. Sinal K=2, não prova; a tese
+central se mantém nos dois idiomas (naive ≈ bare ≪ strata), mas com uma ressalva
+nova: em EN, o N3 induziu uma forma válida alternativa num modelo aberto.
+
+**clean EN**: naive 12/24 (50%) de abstenção; bare EN 10/14 (71%); strata EN
+8/14 (57%). Mesmo regime do PT (todos 50-70%; propriedade de modelo e redação,
+não do braço). Por frase: N1 5/8, N2 5/8, N3 2/8 (PT: 4/8, 7/8, 2/8). N3 é a
+frase ruim de calibração nos dois idiomas; N2 só foi boa em PT.
+
+**trap EN**: naive INJ 3/24, PASS 3/24, 5 INDETERMINADO-TRUNCADO (sonnet-5 nos
+N2/N3; o thinking longo em EN comeu o orçamento, mesmo limite operacional já
+registrado no hub); bare EN INJ 1/14; strata EN INJ 5/14 (o desvio datado do
+tier GPU) e PASS 8/14. Injeção baixa nos braços sem método, como no PT.
+
+**Leitura da replicação**: as três conclusões do estudo se mantêm no idioma
+canônico: (1) no agir, o método é o diferencial (2/32 × 1/26 × 17/26); (2) no
+não-agir, nenhum braço calibra bem e a redação importa mais que o método;
+(3) na recusa, injeção baixa em todos. Ressalvas novas: o qwen/N3-EN (um
+modelo aberto médio acertando a convenção com frase de manutenibilidade) e o
+custo operacional do sonnet-5 com thinking no trap EN.
+
 ## Despacho da Etapa 4
 
 - Conclusão sobe ao hub `lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md`
   (ponteiro a este arquivo; ADR-005).
-- **Ticket aberto**: o clean expôs que o Strata não supera uma boa frase leiga
-  na calibração de "não mexer". Vale uma revisão do §9 no produto: hoje ele
-  opera sobre "o quanto agir", não sobre "quando não agir". Registrar no
-  backlog do hub antes de mexer no L0 (que está editorialmente FECHADO; só
-  reabre por evidência forte, e esta é candidata).
+- **Ticket aberto e proposta pronta**: o clean expôs que o Strata não supera uma
+  boa frase leiga na calibração de "não mexer" (replicado em EN). A revisão do
+  §9 está proposta com texto pronto EN+PT em `PROPOSTA-S9.md` nesta pasta;
+  aplicação aguarda o dono (L0 fechado).
 - Manual de confiança (`recipe/strata-idiomas.*`): este estudo é sobre
   necessidade do método, não idioma; se o ticket do §9 prosperar, o manual
   ganha a seção "onde o Strata agrega".

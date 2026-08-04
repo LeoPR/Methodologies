@@ -1,7 +1,7 @@
 ---
 title: 'Arquitetura de testes e evidências do Strata: o que comprova, em que condições (macro)'
 created: 2026-06-13
-updated: 2026-08-03
+updated: 2026-08-04
 status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5/F6 fronteira.
 ---
 
@@ -415,3 +415,14 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   do piloto F3 (recusa EN não é melhor; no médio/aberto tende a piorar). Sinal K=2, não prova;
   re-teste dirigido só com motivo novo. Matriz 2×2 do núcleo (3 situações × PT/EN) completa.
   [`RESULTADOS-f4-en`](../2026-08-03-idioma-en/RESULTADOS-f4-en.md).
+- **2026-08-03** (later): **Estudo do prompt ingênuo ("uma IA precisa do Strata?"): no agir, precisa;
+  no não-agir, a frase importa mais que o método.** Braço NAIVE (instrução leiga realista, escada de
+  conteúdo E0-E4 pré-registrada, anti-capciosidade) contra os braços bare/strata já medidos, 124 runs
+  analisáveis, 4 modelos, scorer mecânico único. **Dup**: a convenção exata não emerge por intuição
+  (0/24), por defeito nomeado (0/8), por auto-revisão (0/4; 1/4 virou abstenção indevida) nem por
+  oráculo best-of-5 (0/10); strata 14/14. A intuição de fonte única existe de graça ("canônico",
+  "append-only" espontâneos); a convenção verificável, não. **Clean**: calibração 50-64% em todos os
+  braços, strata incluído (7/14); naive-N2 fecha 16/20 (80%) em K=5. O falso positivo é propriedade
+  de modelo e de redação, e o método hoje não o reduz; **ticket aberto: revisar o §9 ("quando não
+  agir") no backlog, sem reabrir o L0 fechado ainda**. **Trap**: injeção baixa e comparável nos três
+  braços; diferencial do Strata é PASS, não taxa de injeção. [`lab/2026-08-03-prompt-ingenuo/`](../2026-08-03-prompt-ingenuo/RESULTADOS.md).

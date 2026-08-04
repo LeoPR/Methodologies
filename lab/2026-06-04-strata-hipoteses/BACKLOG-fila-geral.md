@@ -1,7 +1,7 @@
 ---
 title: 'Fila geral: backlog PRIORIZADO (pós-consolidação)'
 created: 2026-06-13
-updated: 2026-08-03
+updated: 2026-08-04
 status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava: feito.'
 ---
 
@@ -157,3 +157,9 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   **Q&A** L1/L2 **só** se não colapsar em "sempre-ache-problema" (medir pelos controles de abstenção antes);
   **fronteira Strata × Comporta** (aparece em caches E setup-de-agente; resolver de uma vez); classificar
   artefatos de ambiente (canônico×regenerável×efêmero) como princípio L0/L1 em satélite L2.
+- **Revisar o §9 ("quando não agir"), ticket da evidência 2026-08-03:** o estudo do prompt ingênuo mediu
+  que, no clean, o Strata (7/14 abstenção) NÃO supera uma frase leiga bem redigida (naive-N2 16/20, K=5);
+  o falso positivo é propriedade de modelo e de redação, não do degrau de instrução (escada E0-E4 50-64%).
+  O §9 hoje opera sobre "o quanto agir", não sobre "quando não agir". Candidata a evidência forte para
+  eventual reabertura pontual do L0 (que está FECHADO; não reabrir ainda). Fonte:
+  [`lab/2026-08-03-prompt-ingenuo/RESULTADOS.md`](../2026-08-03-prompt-ingenuo/RESULTADOS.md).

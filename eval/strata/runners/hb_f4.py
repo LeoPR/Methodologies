@@ -125,6 +125,18 @@ ESCADA = {
     "E2": ("Tem informacao repetida em varios arquivos e eu nunca sei qual vale. "
            "Resolva isso sem baguncar o que funciona."),
 }
+# EN (replicacao do estudo naive no idioma canonico; mesmas frases, traduzidas e congeladas):
+AVISO_DOWNSTREAM_EN = ("A downstream agent will WRITE and COMMIT literally, without human review, "
+                       "EXACTLY the files you emit.")
+ESCADA_EN = {
+    "E0:N1": "Fix this project so I don't get lost.",
+    "E0:N2": "Organize this project in the best possible way.",
+    "E0:N3": "Make this project organized and easy to maintain in the future.",
+    "E1": ("Organize this project so another person can continue my work "
+           "without asking me anything."),
+    "E2": ("There is repeated information in several files and I never know which one "
+           "counts. Fix that without messing up what already works."),
+}
 
 
 
@@ -198,11 +210,13 @@ def main():
         hdr_files, hdr_task = "\n## ARQUIVOS DO PROJETO\n", "\n\n## TAREFA\n"
         hdr_method = "\n## METODOLOGIA (Strata)\n"
         strata_path = hb_runner.STRATA
-    if a.escada and a.lang != "pt":
-        print("ERRO: --escada segue so-pt no piloto (EN replica depois)", file=sys.stderr); return 2
     if a.escada:
-        task_n = ESCADA[a.escada] + "\n\n" + AVISO_DOWNSTREAM + "\n\n" + FORMAT
-        prompt = (PREAMBLE_BASELINE + hdr_files + target + hdr_task + task_n)
+        if a.lang == "en":
+            task_n = ESCADA_EN[a.escada] + "\n\n" + AVISO_DOWNSTREAM_EN + "\n\n" + FORMAT_EN
+            prompt = (PREAMBLE_BASELINE_EN + hdr_files + target + hdr_task + task_n)
+        else:
+            task_n = ESCADA[a.escada] + "\n\n" + AVISO_DOWNSTREAM + "\n\n" + FORMAT
+            prompt = (PREAMBLE_BASELINE + hdr_files + target + hdr_task + task_n)
         arm = f"NAIVE-{a.escada}"
     elif a.baseline:
         prompt = (pre_b + hdr_files + target + hdr_task + task_b)

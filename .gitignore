@@ -1,9 +1,9 @@
-# Ambiente Python (convenção Z:\ — ver lab/2026-06-04-dev-environment-z/)
-# A junction .venv aponta para Z:\venvs\Methodologies (regenerável via `uv sync`).
+# Ambiente Python (venv fora do repo, convenção externa — ver lab/2026-06-04-dev-environment-z/)
+# A junction .venv aponta para o venv externo (regenerável via `uv sync`).
 # NUNCA versionar: é link para fora do repo, com milhões de arquivos.
 .venv/
 
-# Caches Python (redirecionados para Z:\caches por env vars User-scope;
+# Caches Python (redirecionados para fora do repo por env vars User-scope;
 # ignorados aqui por segurança caso algum apareça localmente).
 __pycache__/
 *.py[cod]

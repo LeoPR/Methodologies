@@ -416,10 +416,11 @@ updated: 2026-08-03
 
 ## Ambiente Python + Estagio 1 EXECUTADOS (2026-06-04)
 
-- **Ambiente Python** configurado via metodologia dev-environment Z:\
-  (`New-ZPythonProject.ps1`): venv em `Z:\venvs\Methodologies`, junction `.venv`,
-  pyproject canonico, `.gitignore` criado (lacuna do git que a metodologia nao
-  cobria). Metodologia importada para estudo em `lab/2026-06-04-dev-environment-z/`.
+- **Ambiente Python** configurado pela plataforma externa dev-environment Z:\
+  (`New-ZPythonProject.ps1`): venv fora do repo, junction `.venv`,
+  pyproject canonico, `.gitignore` criado (lacuna operacional que a plataforma nao
+  cobria). Contexto preservado em `lab/2026-06-04-dev-environment-z/`; nao integra
+  o conteudo nem a evidencia do Strata.
 - **Estagio 1 do plano experimental EXECUTADO** (custo zero), artefatos em
   `lab/2026-06-04-economia-ia-tokens/instrumento/`:
   - A1: `parse_usage.py`: dedup por message.id, 0 parse-fails, 6,87x inflacao evitada.

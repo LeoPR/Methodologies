@@ -85,11 +85,16 @@ def est_cost_usd(u: dict, model: str):
 
 
 def default_base() -> str:
-    return os.path.join(
-        os.path.expanduser("~"),
-        ".claude", "projects",
-        "c--Users-leona-OneDrive-Documents-Projects-Acad-micos-Methodologies",
-    )
+    root = os.path.join(os.path.expanduser("~"), ".claude", "projects")
+    # O slug do projeto e derivado do cwd pelo Claude Code e varia por maquina;
+    # resolve pelo sufixo do nome do repo, sem hardcodar caminho pessoal.
+    try:
+        for name in sorted(os.listdir(root)):
+            if name.endswith("-Methodologies"):
+                return os.path.join(root, name)
+    except OSError:
+        pass
+    return root
 
 
 def iter_usage_records(base: str, until=None, since=None, exclude_session=None):

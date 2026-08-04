@@ -3,7 +3,7 @@ export const meta = {
   description: 'Pontua cego a validacao local (deepseek-r1:8b/qwen3-thinking N=3)',
   phases: [{ title: 'nnn' }, { title: 'pdf2md' }],
 }
-const BASE = 'c:/Users/leona/OneDrive/Documents/Projects/Acadêmicos/Methodologies/eval/strata/planos'
+const BASE = 'eval/strata/planos'
 const SCHEMA = {
   type: 'object', additionalProperties: false,
   required: ['id', 'recognized_good', 'false_positives', 'genuine_real', 'flag_extra', 'notes'],

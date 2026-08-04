@@ -3,7 +3,7 @@ name: map-methodologies-project
 type: navigation
 status: active
 created: 2026-06-03
-updated: 2026-08-03
+updated: 2026-08-04
 ---
 
 # Methodologies: mapa
@@ -36,7 +36,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   ├── 2026-06-03-predecessor/       <- organization-methodology.md arquivado (FROZEN)
 │   ├── 2026-06-04-aderencia-portabilidade/ <- aderencia/brownfield/IA/portabilidade (4 lentes)
 │   ├── 2026-06-04-economia-ia-tokens/    <- COMPORTA (2ª metodologia): economia/roteamento de recursos de IA
-│   ├── 2026-06-04-dev-environment-z/     <- metodologia Z:\ python/venv/cache (snapshot p/ estudo)
+│   ├── 2026-06-04-dev-environment-z/     <- registro lateral da plataforma Python usada (não é produto/evidência)
 │   ├── 2026-06-04-strata-hipoteses/      <- IDEIAS + EVIDÊNCIA do Strata. ENTRADA: OPINIAO-DE-USO.md (opinião honesta)
 │   │                                        hub ARQUITETURA-E-EVIDENCIAS.md · BACKLOG · REVISAO-RETROATIVA · RESULTADOS-* · variantes-ka/
 │   └── 2026-06-06-comprovacao-forte-strata/ <- plano de comprovação (gates G1-G6); SUPERSEDED pela consolidação em strata-hipoteses

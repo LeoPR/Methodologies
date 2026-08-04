@@ -22,7 +22,7 @@ com N=5 e 3 cenarios (`s03-simples`, `s01-comum-brownfield`, `s04-bem-formatado`
 Comando:
 
 ```powershell
-c:/Users/leona/OneDrive/Documents/Projects/Acadêmicos/Methodologies/.venv/Scripts/python.exe hb_limit_search.py --method strata-an-v1.md --only-model gemma3-4b --only-scenario s03-simples s01-comum-brownfield s04-bem-formatado --ctx-min 4096 --ctx-max 4096 --runs 5 --target-pass-rate 0.8 --timeout-s 60
+.venv/Scripts/python.exe hb_limit_search.py --method strata-an-v1.md --only-model gemma3-4b --only-scenario s03-simples s01-comum-brownfield s04-bem-formatado --ctx-min 4096 --ctx-max 4096 --runs 5 --target-pass-rate 0.8 --timeout-s 60
 ```
 
 Saida:
@@ -40,7 +40,7 @@ Resultado:
 Comando:
 
 ```powershell
-c:/Users/leona/OneDrive/Documents/Projects/Acadêmicos/Methodologies/.venv/Scripts/python.exe hb_limit_search.py --method strata-an-v1.md --only-model llama3.1-8b --only-scenario s03-simples s01-comum-brownfield s04-bem-formatado --ctx-min 4096 --ctx-max 4096 --runs 5 --target-pass-rate 0.8 --timeout-s 60
+.venv/Scripts/python.exe hb_limit_search.py --method strata-an-v1.md --only-model llama3.1-8b --only-scenario s03-simples s01-comum-brownfield s04-bem-formatado --ctx-min 4096 --ctx-max 4096 --runs 5 --target-pass-rate 0.8 --timeout-s 60
 ```
 
 Progresso observado:
@@ -55,8 +55,8 @@ Estado:
 ## Proximo disparo recomendado (retomar 8B)
 
 ```powershell
-Set-Location "c:/Users/leona/OneDrive/Documents/Projects/Acadêmicos/Methodologies/lab/2026-06-04-strata-hipoteses/hb-kit"
-c:/Users/leona/OneDrive/Documents/Projects/Acadêmicos/Methodologies/.venv/Scripts/python.exe hb_limit_search.py --method strata-an-v1.md --only-model llama3.1-8b --only-scenario s03-simples s01-comum-brownfield s04-bem-formatado --ctx-min 4096 --ctx-max 4096 --runs 5 --target-pass-rate 0.8 --timeout-s 60
+Set-Location "lab/2026-06-04-strata-hipoteses/hb-kit"
+.venv/Scripts/python.exe hb_limit_search.py --method strata-an-v1.md --only-model llama3.1-8b --only-scenario s03-simples s01-comum-brownfield s04-bem-formatado --ctx-min 4096 --ctx-max 4096 --runs 5 --target-pass-rate 0.8 --timeout-s 60
 ```
 
 Ao concluir, usar `limit-search-summary.md` para preencher o placar de aceite local

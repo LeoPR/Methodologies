@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """R6: compara juiz Claude (cego) vs 2o juiz nao-Claude (gpt-4.1-mini) nos planos nuvem.
 Uso: python compare_judges.py <claude_scores.json> <gpt_judge.json> <cloud-key.json>"""
+
 import json
 import os
 import sys
+import tempfile
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PLANOS = os.path.join(HERE, "planos")
@@ -19,9 +21,14 @@ def load(p):
     return {s["id"]: s for s in r["scores"]}
 
 
-C = load(sys.argv[1])          # juiz Claude
-G = load(sys.argv[2])          # juiz gpt-4.1-mini
-KEY = json.load(open(sys.argv[3] if len(sys.argv) > 3 else os.path.join(PLANOS, "cloud-key.json"), encoding="utf-8"))
+C = load(sys.argv[1])  # juiz Claude
+G = load(sys.argv[2])  # juiz gpt-4.1-mini
+KEY = json.load(
+    open(
+        sys.argv[3] if len(sys.argv) > 3 else os.path.join(PLANOS, "cloud-key.json"),
+        encoding="utf-8",
+    )
+)
 ids = [i for i in KEY if i in C and i in G]
 
 
@@ -36,7 +43,7 @@ o.append("\n=== det_found medio por braco, por JUIZ ===")
 o.append(f"{'braco':16} {'Claude':>7} {'gpt-4.1-mini':>13} {'dif':>6}")
 for arm in ARMS:
     c, g = arm_df(C, arm), arm_df(G, arm)
-    o.append(f"{arm:16} {c:>7} {g:>13} {round(c-g,2):>6}")
+    o.append(f"{arm:16} {c:>7} {g:>13} {round(c - g, 2):>6}")
 
 # concordancia
 diffs = [C[i]["detection_found"] - G[i]["detection_found"] for i in ids]
@@ -57,13 +64,24 @@ o.append(f"MAE(det_found) Claude vs gpt = {mae}  | vies medio (Claude - gpt) = {
 o.append("concordancia 'found' por problema (1.0 = sempre concordam):")
 o.append("  " + " ".join(f"{p}={pa[p]}" for p in PROBS))
 
+
 # teste de vies: Claude favorece modelos Claude?
 def fam_bias(is_claude):
-    sub = [C[i]["detection_found"] - G[i]["detection_found"] for i in ids if ("claude" in KEY[i]["model"]) == is_claude]
+    sub = [
+        C[i]["detection_found"] - G[i]["detection_found"]
+        for i in ids
+        if ("claude" in KEY[i]["model"]) == is_claude
+    ]
     return round(sum(sub) / len(sub), 2) if sub else None
+
+
 o.append(f"\n=== VIES DE FAMILIA (Claude - gpt, por tipo de modelo avaliado) ===")
 o.append(f"  modelos CLAUDE (haiku):   {fam_bias(True)}")
 o.append(f"  modelos NAO-Claude:       {fam_bias(False)}")
-o.append("  (se o de Claude for >> o de nao-Claude, ha indicio de Claude-favorece-Claude)")
+o.append(
+    "  (se o de Claude for >> o de nao-Claude, ha indicio de Claude-favorece-Claude)"
+)
 print("\n".join(o))
-open(r"C:\Users\leona\AppData\Local\Temp\judges.txt", "w", encoding="utf-8").write("\n".join(o))
+open(os.path.join(tempfile.gettempdir(), "judges.txt"), "w", encoding="utf-8").write(
+    "\n".join(o)
+)

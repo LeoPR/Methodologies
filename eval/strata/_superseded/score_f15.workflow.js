@@ -3,7 +3,7 @@ export const meta = {
   description: 'Pontua cego a F1.5 (checklist+) contra o gabarito corrigido',
   phases: [{ title: 'F15' }],
 }
-const BASE = 'c:/Users/leona/OneDrive/Documents/Projects/Acadêmicos/Methodologies/eval/strata/planos'
+const BASE = 'eval/strata/planos'
 const SCHEMA = {
   type: 'object', additionalProperties: false,
   required: ['id', 'recognized_good', 'false_positives', 'genuine_real', 'flag_extra', 'notes'],

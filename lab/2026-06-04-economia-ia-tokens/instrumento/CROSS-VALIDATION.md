@@ -66,7 +66,7 @@ justifica agora (§9) — a régua já é confiável para medir deltas.
   Workaround: `$env:PYTHONIOENCODING='utf-8'; $env:PYTHONUTF8='1'`. Candidato a
   regra na metodologia de ambiente (terminal UTF-8 por padrão).
 - **`uv tool install` falha hardlink** porque `UV_CACHE_DIR=Z:` e o destino
-  `C:\Users\leona\.local\bin` estão em filesystems diferentes → "falling back to
+   o diretório de cache e `$HOME/.local/bin` estão em filesystems diferentes → "falling back to
   full copy". Não quebra, mas é a **LACUNA 3** da metodologia Z:\: tools globais
   do uv não se beneficiam do cache em Z: (cross-FS). Documentar ou setar
   `UV_LINK_MODE=copy` para silenciar.

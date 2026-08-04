@@ -16,7 +16,7 @@ source: docker inspect / docker system df na máquina do dono
 | **Modelos Ollama (25 modelos)** | **118,5 GB** | `M:\ollama\models` (bind-mount Docker) |
 | Imagens Docker | 25,5 GB (4,9 reclaimable) | data-root Docker |
 | Build cache Docker | 15,4 GB (**10,5 reclaimable**) | data-root Docker |
-| `.aitk` (Foundry/AI Toolkit) | 0,32 GB (só catálogo, 0 modelos) | C:\Users\leona |
+| `.aitk` (Foundry/AI Toolkit) | 0,32 GB (só catálogo, 0 modelos) | diretório do usuário |
 | `~/.ollama` (Windows) | **0 GB** (vazio!) | — |
 
 Volumes: C: 206GB livre · D: 587 · **M: 423** · Z: 1502.

@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-08-02
+updated: 2026-08-04
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -44,8 +44,9 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     roteamento de recursos de IA: compute/memoria/E-S/custo). Tem instrumentos medidos
     (`instrumento/`), arvore de decisao, `prototipo/detect_env.py` (classifica ambiente
     A1-A6). NAO destilado p/ recipe ainda (virara `recipe/comporta-*.md`).
-  - `2026-06-04-dev-environment-z/`: metodologia Z:\ importada p/ estudo
-    (`snapshot-fonte/` e' **gitignored**: nao publicar; so o README de estudo vai ao git)
+  - `2026-06-04-dev-environment-z/`: registro lateral da plataforma Python usada
+    no desenvolvimento; NAO e' produto nem evidencia do Strata (`snapshot-fonte/`
+    e' **gitignored**: nao publicar; so o README de contexto vai ao git)
   - `2026-06-04-strata-hipoteses/`: **IDEIAS + EVIDÊNCIA do Strata** (corpus v1 CONSOLIDADO).
     **ENTRE POR AQUI:** `OPINIAO-DE-USO.md` (opinião honesta por tarefa/tier/custo) e o hub
     `ARQUITETURA-E-EVIDENCIAS.md` (estado datado + histórico append-only); backlog em

@@ -3,7 +3,7 @@ export const meta = {
   description: 'Pontua cego o grid P6 Fase B (F1 grid 12 modelos + F4 overlay) p/ o scatterplot',
   phases: [{ title: 'F1-grid' }, { title: 'F4-overlay' }],
 }
-const BASE = 'c:/Users/leona/OneDrive/Documents/Projects/Acadêmicos/Methodologies/eval/strata/planos'
+const BASE = 'eval/strata/planos'
 const SCHEMA = {
   type: 'object', additionalProperties: false,
   required: ['id', 'recognized_good', 'false_positives', 'genuine_real', 'flag_extra', 'notes'],

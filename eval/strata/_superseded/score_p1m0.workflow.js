@@ -3,7 +3,7 @@ export const meta = {
   description: 'Pontua cego M0 (abstencao) vs audit: veredito + nº acoes + falso-positivo, 3 projetos',
   phases: [{ title: 'nnn' }, { title: 'pdf2md' }, { title: 'fg2p' }],
 }
-const BASE = 'c:/Users/leona/OneDrive/Documents/Projects/Acadêmicos/Methodologies/eval/strata/planos'
+const BASE = 'eval/strata/planos'
 const SCHEMA = {
   type: 'object', additionalProperties: false,
   required: ['id', 'verdict', 'action_count', 'false_positives', 'genuine_real', 'recognized_good', 'notes'],

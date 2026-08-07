@@ -1,7 +1,7 @@
 ---
 title: 'eval/strata: harness de prova do Strata (pipeline VIVO)'
 created: 2026-06-05
-updated: 2026-08-02
+updated: 2026-08-06
 status: 'ativo. Substitui o doc "H-B kit" (arco antigo lumen/matrix, refutado pela AUDITORIA-2026-06-07 → _superseded/).'
 ---
 
@@ -48,7 +48,7 @@ runners/hb_<fase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out>
 
 | Runner | Mede | Fixtures | Gabarito / verificador |
 |---|---|---|---|
-| `runners/hb_f4.py` | execução M4: conserta sem destruir? (STRATA vs `--baseline`) | `cenarios/f4-{dup,trap,clean}` | `f4-manifests/*.json` + `verify/verify_f4.py` |
+| `runners/hb_f4.py` | execução M4: conserta sem destruir? (STRATA vs `--baseline`) | `cenarios/f4-{dup,trap,clean,clean-v2}` | `f4-manifests/*.json` + `verify/verify_f4.py` |
 | `runners/hb_f3.py` | recusa §6-bis (fail-closed) | cenários f3 | `verify/score_f3.py` + `judges/judge_f3.py` |
 | `runners/hb_f5.py` | verificação de fonte §6 (`:online` = web) | `cenarios/f5-verif` | `f5-manifest.json` |
 | `runners/hb_f6.py` | temporal: `--mode chrono\|naive\|audit\|vigor\|triagem` | `cenarios/f6-{tempo,longitudinal,ambiguo,ruidoso}` | `f6-*-manifest.json` (leitura) |
@@ -73,6 +73,11 @@ cd eval/strata
 python verify/verify_f4.py --selftest                                     # GOLD-gate (tem que passar 100%)
 python runners/hb_f4.py --models google/gemini-2.5-flash --target cenarios/f4-dup --label f4-dup-strata --runs 2
 python runners/hb_f4.py --models google/gemini-2.5-flash --target cenarios/f4-dup --label f4-dup-base --runs 2 --baseline
+
+# A/B de VERSAO do metodo (--strata aponta um doc alternativo; o SHA do TEXTO injetado vai
+# p/ o header do plano como method_sha, entao as duas metades ficam distinguiveis no traco).
+python runners/hb_f4.py --models gpt-oss-120b --provider cerebras --target cenarios/f4-clean-v2 \
+  --label s9-v121 --runs 3 --strata /caminho/knowledge-architecture-v1.2.1.pt-BR.md
 python verify/verify_f4.py --indir planos/f4-dup-strata --fixture cenarios/f4-dup --manifest f4-manifests/f4-dup.json
 ```
 Os `ops/run_*.sh` empacotam matrizes prontas (cloud/local/eco). **Custo:** checar saldo antes

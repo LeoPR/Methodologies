@@ -1,7 +1,7 @@
 ---
 title: 'Arquitetura de testes e evidências do Strata: o que comprova, em que condições (macro)'
 created: 2026-06-13
-updated: 2026-08-04
+updated: 2026-08-06
 status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5/F6 fronteira.
 ---
 
@@ -433,6 +433,17 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   alternativa ("deprecated" + ponteiro + 1 canônico; o gold é semântico, conta). Sinal K=2, não prova;
   em PT o mesmo modelo foi 0/8. Clean: naive 50% × bare 71% × strata 57%, mesmo regime do PT (redação
   e modelo, não braço). Trap: injeção baixa nos sem-método; sonnet-5 truncou 5× (thinking longo em EN
-  come o orçamento, limite operacional já registrado). Proposta §9 pronta com texto EN+PT aguardando
-  o dono: [`PROPOSTA-S9`](../2026-08-03-prompt-ingenuo/PROPOSTA-S9.md);
+  come o orçamento, limite operacional já registrado).
   [`RESULTADOS`](../2026-08-03-prompt-ingenuo/RESULTADOS.md).
+- **§9 "quando não agir" (2026-08-06): APLICADO e TESTADO — SEM EFEITO MEDIDO.** A
+  [`PROPOSTA-S9`](../2026-08-03-prompt-ingenuo/PROPOSTA-S9.md) foi aprovada pelo dono, entrou no par
+  canônico (v1.2.2) e passou pelo portão que ela mesma estipulou: A/B do **próprio texto do método**
+  (mesmas fixtures/modelos/seeds; `method_sha` no traço), 3 modelos econômico-médio, K=3 →
+  **33%→33%** (`f4-clean`) e **22%→12%** (`f4-clean-v2`), **nenhuma célula melhor**. A hipótese
+  registrada (~50% → ~80%) falhou. O parágrafo **fica** no produto (norma útil ao leitor humano; o L0
+  não depende de tecnologia), carimbado `[TESTADO, SEM EFEITO MEDIDO]`. Abstenção segue **propriedade
+  do modelo**, não do texto — 2 dos 3 nunca abstiveram em nenhuma versão.
+  **Recalibra série antiga:** o `f4-clean` **vazava a resposta** no README ("Nao ha fontes
+  concorrentes" com gabarito ABSTER-SE); gpt-oss-120b faz 3/3 nele e 2/3 na sucessora byte-idêntica
+  sem a frase. Nasce `f4-clean-v2` (sem vazamento, hash congelado).
+  [`RESULTADOS-verificacao-s9`](../2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md).

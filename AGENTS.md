@@ -20,7 +20,7 @@ Esta e' uma **oficina de metodologias** (ver `README.md`). 2 produtos: **Strata*
 (**L0 editorialmente FECHADO 2026-08-01**: 13 secoes, ciclo P1-P5 em
 `lab/2026-08-01-fechamento-camadas/`; §6-bis cobre agir E ver; o teste empirico do L0
 fechado JA rodou, em `lab/2026-08-02-reteste-L0-fechado/`; pendentes: Parte IV
-adocao/operacao e a proposta de §9 "quando nao agir" aguardando o dono) e **Comporta** (economia de IA,
+adocao/operacao; a revisao do §9 "quando nao agir" foi aplicada e TESTADA em 2026-08-06 -- SEM EFEITO MEDIDO, paragrafo mantido por decisao do dono) e **Comporta** (economia de IA,
 EM ANDAMENTO no `lab/`). **Tres territorios
 por tipo de artefato**: `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses/
 conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a metodologia).
@@ -71,8 +71,10 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   - `2026-08-03-dev-environment-revisao/`: revisão do dev-environment **vivo** (2026-08-03);
     registro lateral, como o estudo de 2026-06-04: NÃO é produto nem evidência do Strata.
   - `2026-08-03-prompt-ingenuo/`: **braço NAIVE** ("uma IA precisa do Strata para o quê?"):
-    `PLANO.md` pré-registrado, `RESULTADOS.md` (PT + replicação EN) e `PROPOSTA-S9.md`
-    (revisão do §9 "quando não agir", texto pronto EN+PT, **aguardando o dono**; L0 fechado).
+    `PLANO.md` pré-registrado, `RESULTADOS.md` (PT + replicação EN), `PROPOSTA-S9.md`
+    (revisão do §9 "quando não agir") e `RESULTADOS-verificacao-s9.md`: proposta **aplicada
+    (v1.2.2) e testada — SEM EFEITO MEDIDO** (A/B do texto do método, 33%→33% e 22%→12%);
+    o parágrafo fica por ser norma útil ao leitor humano.
 - `eval/`: **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia
   nem o foco; reutilizavel entre metodologias). `strata/` = harness do Strata (runner
   multi-modelo, scorers, fixtures, cenarios, `RASTREAMENTO-E-MELHORIA.md`); `*/planos/` =

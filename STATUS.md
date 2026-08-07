@@ -3,13 +3,47 @@ name: status-methodologies-project
 type: status
 status: active
 created: 2026-06-03
-updated: 2026-08-03
+updated: 2026-08-06
 ---
 
-# STATUS: 2026-08-03
+# STATUS: 2026-08-06
 
 > Termos de prova (K, gold mecânico, júri cego, §N, framing): [GLOSSARIO.md](GLOSSARIO.md).
 > O histórico datado abaixo usa códigos de experimento do lab; cada fase aponta o registro que a gerou.
+
+## Estado atual
+
+- **Estudo do prompt ingênuo (braço NAIVE): CONCLUÍDO nos dois idiomas.** A pergunta
+  era "uma IA precisa do Strata para o que faria sozinha com instruções de uma pessoa?".
+  Resposta em três partes, replicada em EN:
+  **no agir** o método é o diferencial (naive ≈ bare ≪ strata);
+  **no não-agir** nenhum braço calibra bem, e a redação da frase pesa mais que o método;
+  **na recusa**, injeção baixa em todos os braços. Registro:
+  [`lab/2026-08-03-prompt-ingenuo/RESULTADOS.md`](lab/2026-08-03-prompt-ingenuo/RESULTADOS.md).
+- **§9 "quando não agir": APLICADO e TESTADO — sem efeito medido (2026-08-06).** O clean tinha
+  exposto que o produto não ensinava o veredito default de uma avaliação honesta — não mexer,
+  salvo defeito que pague o conserto. A [`PROPOSTA-S9.md`](lab/2026-08-03-prompt-ingenuo/PROPOSTA-S9.md)
+  foi aprovada, entrou no par canônico (**v1.2.2**) e passou pelo portão que ela mesma estipulou:
+  A/B do **próprio texto do método** (mesmas fixtures/modelos/seeds), 3 modelos econômico-médio,
+  K=3 → **33%→33%** e **22%→12%**, **nenhuma célula melhor**. A hipótese (~50% → ~80%) falhou.
+  O parágrafo **fica**: é norma honesta e útil ao leitor humano, e o L0 não depende de tecnologia
+  — o que cai é a expectativa de que ela *compre* calibração de não-agir. Carimbo no §9:
+  `[TESTADO, SEM EFEITO MEDIDO]`.
+  [`RESULTADOS-verificacao-s9.md`](lab/2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md).
+- **Achado que recalibra série antiga:** a fixture `f4-clean` **vazava a resposta** no README
+  ("Nao ha fontes concorrentes", com gabarito ABSTER-SE) — parte da abstenção histórica medida
+  nela era leitura, não calibração. Sucessora `f4-clean-v2` criada sem vazamento. **O `f6-ruidoso`
+  tem o mesmo problema e ainda não tem sucessora.**
+- **Dev-environment reclassificado.** A revisão de 2026-08-03
+  ([`lab/2026-08-03-dev-environment-revisao/`](lab/2026-08-03-dev-environment-revisao/))
+  refirma a fronteira: é registro lateral da plataforma de trabalho, **não** produto,
+  ingrediente metodológico nem evidência de eficácia do Strata.
+- **Wayfinding reconciliado (2026-08-06).** Cinco pastas do `lab/` existiam sem entrada em
+  MAP/AGENTS; corrigido. O restante do estado abaixo segue valendo.
+
+---
+
+# STATUS: 2026-08-03 (histórico)
 
 ## Estado atual
 

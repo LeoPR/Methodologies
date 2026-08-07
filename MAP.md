@@ -3,7 +3,7 @@ name: map-methodologies-project
 type: navigation
 status: active
 created: 2026-06-03
-updated: 2026-08-04
+updated: 2026-08-06
 ---
 
 # Methodologies: mapa
@@ -42,7 +42,10 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   └── 2026-06-06-comprovacao-forte-strata/ <- plano de comprovação (gates G1-G6); SUPERSEDED pela consolidação em strata-hipoteses
 │   └── 2026-08-01-fechamento-camadas/  <- CICLO P1–P5 que FECHOU o L0 (régua axiomática; §11, §6-bis+ver, persona, âncoras L1); decisões datadas por parte
 │   └── 2026-08-02-reteste-L0-fechado/  <- RETESTE do L0 fechado (grade de estratos × capacidade; Degrau 3 agente): PLANO.md + NOTAS-shakedown.md (diário)
-│   └── 2026-08-03-idioma-en/           <- IDIOMA PT×EN (piloto F3 pré-registrado): PLANO.md (braços A0–A3, gates de preparação)
+│   └── 2026-08-02-consolidacao-narrativa/ <- AUDITORIA narrativa do corpus (Etapa 1 rastreabilidade + Etapa 2 tom, executadas); registro do conserto
+│   └── 2026-08-03-idioma-en/           <- IDIOMA PT×EN: piloto F3 (recusa; EN sem vantagem) + repetição EN do núcleo F4 (paridade de prova do canônico EN)
+│   └── 2026-08-03-dev-environment-revisao/ <- revisão do dev-environment VIVO (2026-08-03); registro lateral, não é produto nem evidência
+│   └── 2026-08-03-prompt-ingenuo/      <- braço NAIVE ("uma IA precisa do Strata pra quê?"): PLANO pré-registrado · RESULTADOS (PT+EN) · PROPOSTA-S9 APLICADA (v1.2.2) e VERIFICADA sem efeito medido (RESULTADOS-verificacao-s9.md)
 ├── eval/                             <- LABORATÓRIO DE PROVA (a "chave de fenda": comprova; NÃO é a metodologia, NÃO é o foco)
 │   ├── README.md                     <- princípio (meio≠fim) + 3 territórios + regra evidencia/instrumento/infra
 │   └── strata/                       <- harness do Strata: runner, scorers, fixtures, cenários + planos/ (gitignored)
@@ -64,6 +67,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 | **A opinião honesta de uso** (o que funciona, por tarefa/tier/custo) | [lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
 | Ver a **prova** de que o Strata funciona (a "chave de fenda") | [OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) (estado consolidado) · hub [ARQUITETURA-E-EVIDENCIAS.md](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md) · rodada atual [lab/2026-08-02-reteste-L0-fechado/](lab/2026-08-02-reteste-L0-fechado/) · harness em [eval/strata/](eval/strata/) |
 | Ver por que tomamos as decisoes que tomamos | [decisions/](decisions/) |
+| Saber **se o método agrega** sobre um pedido leigo (braço NAIVE) | [lab/2026-08-03-prompt-ingenuo/RESULTADOS.md](lab/2026-08-03-prompt-ingenuo/RESULTADOS.md) · §9 "quando não agir" aplicado e testado **sem efeito medido**: [RESULTADOS-verificacao-s9.md](lab/2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md) |
 | Ver o estado do momento | [STATUS.md](STATUS.md) |
 
 ## Pesquisa histórica (não é trilha de entrada)

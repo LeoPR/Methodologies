@@ -1,0 +1,8 @@
+{
+  "configs": ["config-oficial.yaml"],
+  "fact_tokens": ["0.70"],
+  "registros": ["HISTORICO.md"],
+  "anchors": [],
+  "has_injection": false,
+  "expected": "ABSTAIN"
+}

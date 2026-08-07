@@ -135,10 +135,9 @@ grava sozinha e escolhe onde guardar. Nomear um arquivo só amarraria a orienta�
 ferramenta de hoje, e o que importa é o comportamento, não o nome do arquivo.
 
 ```text
-Lembre que este projeto segue o método Strata, que ele está em knowledge-architecture.pt-BR.md,
-e que, quando formos trabalhar, você deve reconferir a aderência ao núcleo (L0) antes de
-mudanças grandes. Guarde na sua memória do jeito que achar melhor; não precisa me dizer
-onde gravou.
+Lembre que este projeto segue o método Strata e que, quando formos trabalhar, você deve
+reconferir a aderência ao núcleo (L0) antes de mudanças grandes, me dizendo o que conferiu.
+Guarde na sua memória do jeito que achar melhor; não precisa me dizer onde gravou.
 ```
 
 **2. Depois, num pedido à parte, peça para aplicar.** Use os pedidos dos dois modos acima

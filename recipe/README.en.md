@@ -133,10 +133,10 @@ its own and chooses where to store it. Naming a file would only tie the guidance
 tool, and what matters is the behavior, not the file name.
 
 ```text
-Remember that this project follows the Strata method, that it lives in
-knowledge-architecture.en.md, and that, when we work together, you should re-check
-adherence to the core (L0) before big changes. Store it in your memory however you
-see fit; you don't need to tell me where you saved it.
+Remember that this project follows the Strata method and that, when we work together,
+you should re-check adherence to the core (L0) before big changes, telling me what you
+checked. Store it in your memory however you see fit; you don't need to tell me where
+you saved it.
 ```
 
 **2. Then, in a separate prompt, ask it to apply.** Use the prompts of the two modes above

@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-08-04
+updated: 2026-08-06
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -18,8 +18,9 @@ Projeto de P&D de metodologia de organizacao. **3 cozinhas**: `lab/`
 
 Esta e' uma **oficina de metodologias** (ver `README.md`). 2 produtos: **Strata**
 (**L0 editorialmente FECHADO 2026-08-01**: 13 secoes, ciclo P1-P5 em
-`lab/2026-08-01-fechamento-camadas/`; §6-bis cobre agir E ver; pendente: Parte IV
-adocao/operacao; proximo passo: TESTE empirico do L0 fechado) e **Comporta** (economia de IA,
+`lab/2026-08-01-fechamento-camadas/`; §6-bis cobre agir E ver; o teste empirico do L0
+fechado JA rodou, em `lab/2026-08-02-reteste-L0-fechado/`; pendentes: Parte IV
+adocao/operacao e a proposta de §9 "quando nao agir" aguardando o dono) e **Comporta** (economia de IA,
 EM ANDAMENTO no `lab/`). **Tres territorios
 por tipo de artefato**: `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses/
 conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a metodologia).
@@ -60,6 +61,18 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     sob a "régua axiomática" (instanciado sem computador, a operação existe no repertório?). §11 entrou
     enxuto; §6-bis ganhou autoridade-para-VER; persona declarada 1× no lead; âncoras L1 completas.
     Decisões datadas por parte (P1..P5). **É aqui que vive o porquê do estado atual do L0.**
+  - `2026-08-02-consolidacao-narrativa/`: auditoria narrativa do corpus (Etapa 1 rastreabilidade
+    e Etapa 2 tom, executadas); régua do dono em 4 linhas. Registro do conserto, não fonte de estado.
+  - `2026-08-02-reteste-L0-fechado/`: **RETESTE do L0 fechado** (grade estratos × capacidade,
+    gold mecânico + júri cego): `PLANO.md` + `NOTAS-shakedown.md` (diário). As conclusões
+    consolidam na `OPINIAO-DE-USO.md`, não aqui.
+  - `2026-08-03-idioma-en/`: **IDIOMA PT×EN**: piloto F3 (recusa; EN sem vantagem) +
+    repetição EN do núcleo F4. Fecha a paridade de prova do canônico inglês.
+  - `2026-08-03-dev-environment-revisao/`: revisão do dev-environment **vivo** (2026-08-03);
+    registro lateral, como o estudo de 2026-06-04: NÃO é produto nem evidência do Strata.
+  - `2026-08-03-prompt-ingenuo/`: **braço NAIVE** ("uma IA precisa do Strata para o quê?"):
+    `PLANO.md` pré-registrado, `RESULTADOS.md` (PT + replicação EN) e `PROPOSTA-S9.md`
+    (revisão do §9 "quando não agir", texto pronto EN+PT, **aguardando o dono**; L0 fechado).
 - `eval/`: **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia
   nem o foco; reutilizavel entre metodologias). `strata/` = harness do Strata (runner
   multi-modelo, scorers, fixtures, cenarios, `RASTREAMENTO-E-MELHORIA.md`); `*/planos/` =
@@ -74,6 +87,26 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
 - `outreach/`: **APOIO** (comunicacao/divulgacao: posts, imagens). Fora dos 3 territorios de
   artefato (e do `decisions/`); nao e produto, pesquisa nem ferramenta. Nao publica metrica nova.
 - `README.md` (oficina) / `MAP.md` (mapa) / `STATUS.md` (foco atual): wayfinding.
+
+## Conferência do núcleo (condição permanente)
+
+Este projeto dogfooda o método que produz, então mexer nele sem conferi-lo custa a autoridade do
+próprio resultado. Antes de alterar o instrumento de medida em `eval/`, o produto publicado em
+`recipe/`, ou uma afirmação que já saiu daqui, reconfira o núcleo L0 e diga o que conferiu — e,
+não conseguindo garantir essa conferência, avise antes de seguir, em vez de seguir deixando supor
+que ela aconteceu.
+
+O método existe em duas expressões, uma em inglês e uma em português, e ambas realizam o mesmo
+trabalho intelectual: conferir por qualquer uma delas é conferir pelo método. O que as distingue é
+por onde a edição entra — o inglês primeiro, o português no mesmo commit —, e isso pesa quando se
+escreve, não quando se lê. Divergência de substância entre elas não torna uma delas "errada": é
+sinal de que o núcleo perdeu integridade entre as expressões, e vale registrar como defeito em vez
+de arbitrar hierarquia. Localize a fonte pelo papel que ela cumpre, não pelo caminho — nomes e
+pastas já mudaram mais de uma vez.
+
+Instrução permanente como esta se guarda onde o dono possa auditá-la, e vale olhar o que o projeto
+já usa para instruir IA antes de inventar lugar novo, assim como vale rever essa escolha quando
+aparecer lugar melhor. O mecanismo de guardar é ferramenta datada; o que ele carrega é que é núcleo.
 
 ## Antes de agir (checklist)
 

@@ -1,11 +1,11 @@
 ---
 title: 'Arquitetura do conhecimento: organizar, rastrear e gerar'
 project: Strata
-version: 1.2.1
+version: 1.2.2
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-08-03
+updated: 2026-08-06
 lang: pt-BR
 source_lang: en
 translation_of: knowledge-architecture.en.md
@@ -574,6 +574,13 @@ padrão alheio ≠ defeito). Antes de auditar ou agir, **nomeie o gênero e apli
 não exija o que não se aplica. É a mesma proporcionalidade-à-relevância de Grice /
 Sperber-Wilson, aqui sobre o *tipo de obra* em vez da distância ao leitor.
 
+**Agir sobre o que já existe obedece à mesma economia.** Avaliar uma base para
+alterá-la tem a mesma forma de custo-benefício de organizá-la: o veredito default
+de uma avaliação honesta é **não mudar nada**, a menos que um defeito real pague o
+conserto. Inventar trabalho onde nada está quebrado é excesso de §9 no eixo da
+ação: gasta a confiança do leitor e a história do projeto (§8) com ruído. Nomeie o
+defeito primeiro; se não houver, o entregável é a declaração de que não há.
+
 > **Fundamentação**: organizar/otimizar cedo demais não compensa: Knuth 1974
 > (*ACM Computing Surveys*, "premature optimization…"); não construir o que
 > ainda não é necessário (YAGNI): Beck (Extreme Programming); declarar/organizar
@@ -584,6 +591,21 @@ Sperber-Wilson, aqui sobre o *tipo de obra* em vez da distância ao leitor.
 > Instância de era `[2026-06]`: pedido o gênero explicitamente, leitores-IA
 > aplicam o padrão certo e deixam de super-exigir (sinal forte mas circular):
 > `lab/2026-06-04-strata-hipoteses/RESULTADOS-genero.md`.
+>
+> Instância de era `[2026-08]`: o método sozinho não compra a calibração de "não
+> agir" — numa base limpa o braço Strata absteve-se *menos* que uma frase leiga
+> simples (sinal não circular, e adverso ao próprio método: scorer mecânico,
+> fixtures sintéticas, 4 modelos, K=5):
+> `lab/2026-08-03-prompt-ingenuo/RESULTADOS.md`. Essa medição documenta a
+> **lacuna**. O parágrafo acima é a correção proposta para ela — e, medido, **não
+> muda o comportamento**: A/B do próprio texto do método (v1.2.1 × v1.2.2, mesmas
+> fixtures/modelos/seeds, 3 modelos econômico-médio, K=3) deu 33%→33% e 22%→12% de
+> abstenção correta, sem nenhuma célula melhor
+> `[TESTADO, SEM EFEITO MEDIDO 2026-08-06]`:
+> `lab/2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md`. A norma fica por
+> valer para o leitor humano — o L0 não depende de tecnologia —, mas **não compre
+> a ideia de que ela calibra um modelo**: abstenção segue sendo propriedade do
+> modelo, não do texto.
 
 ## 10. Durabilidade do portador: redundância e dispersão
 

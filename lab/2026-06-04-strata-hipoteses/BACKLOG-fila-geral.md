@@ -1,7 +1,7 @@
 ---
 title: 'Fila geral: backlog PRIORIZADO (pós-consolidação)'
 created: 2026-06-13
-updated: 2026-08-04
+updated: 2026-08-06
 status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava: feito.'
 ---
 
@@ -18,6 +18,21 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 > separa o que dá para resolver com esforço focado (Grupo 1) do que só a experiência em massa resolve (Grupo 2).
 
 ## P0: antes de mais testes
+- ~~**§9 "quando não agir": norma APLICADA e NÃO VERIFICADA.**~~ **VERIFICADO (2026-08-06):
+  SEM EFEITO MEDIDO** — ver [RESULTADOS-verificacao-s9](../2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md).
+  A [PROPOSTA-S9](../2026-08-03-prompt-ingenuo/PROPOSTA-S9.md) foi aprovada, entrou no par canônico
+  (v1.2.2) e foi submetida ao A/B do próprio texto do método: **33%→33%** (`f4-clean`) e
+  **22%→12%** (`f4-clean-v2`), 3 modelos econômico-médio, K=3, **nenhuma célula melhor**. A
+  hipótese registrada (subir de ~50% p/ ~80%) **falhou**. Decisão do dono: o parágrafo **fica**
+  (norma honesta e útil p/ leitor humano; L0 não depende de tecnologia), com o carimbo trocado
+  p/ `[TESTADO, SEM EFEITO MEDIDO]`. **Achado lateral que recalibra série antiga:** o `f4-clean`
+  **vazava a resposta** no README ("Nao ha fontes concorrentes" com gabarito ABSTER-SE);
+  gpt-oss-120b faz 3/3 nele e 2/3 na sucessora byte-idêntica sem a frase — parte da abstenção
+  histórica era leitura, não calibração. **Os 3 bloqueios do instrumento foram consertados:**
+  `hb_f4.py --strata` (A/B de versão do método), `method_sha` no header do plano (derivado do
+  texto injetado, não do caminho — §3), e provedores free no `hb_f4.py`. **Fica aberto (fila por
+  demanda):** repetir com modelo de **topo** e K maior; `f6-ruidoso` tem o mesmo vazamento do
+  `f4-clean` e ainda não tem sucessora.
 - **Estudo de idioma (PT×EN): NÚCLEO FECHADO NOS DOIS IDIOMAS (2026-08-03).** Duas execuções no
   mesmo dia. (1) Piloto F3 de recusa
   ([RESULTADOS-idioma-f3](../../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md)): **EN sem vantagem**

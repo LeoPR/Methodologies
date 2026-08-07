@@ -1,9 +1,9 @@
 ---
 name: proposta-s9-quando-nao-agir
 type: lab-proposta
-status: proposta-aguardando-dono
+status: aprovada-aplicada-VERIFICADA-sem-efeito
 created: 2026-08-03
-updated: 2026-08-04
+updated: 2026-08-06
 audience: ai-primary
 applies-to: proposta de revisao pontual do §9 (L0 fechado; requer aprovacao do dono)
 ---
@@ -74,3 +74,11 @@ texto pronto. Aplicar = decisão do dono; ao aplicar, editar EN + PT no mesmo
 commit (ADR-008) e bumpar o `updated:` dos dois. Se aprovada, re-teste dirigido
 barato: rodar a grade f4-clean (strata) PT+EN e comparar a abstenção antes/depois
 (a expectativa é subir de ~50% para o regime do N2, ~80%).
+
+## Verificação (2026-08-06)
+
+O re-teste dirigido que esta proposta estipulou como portão foi executado:
+[RESULTADOS-verificacao-s9.md](RESULTADOS-verificacao-s9.md). **A expectativa registrada acima
+(subir de ~50% para ~80%) FALHOU**: A/B v1.2.1 × v1.2.2 deu 33%→33% e 22%→12%, sem nenhuma
+célula melhor. O parágrafo fica no produto por decisão do dono (norma útil ao leitor humano),
+com carimbo `[TESTADO, SEM EFEITO MEDIDO]` no §9.

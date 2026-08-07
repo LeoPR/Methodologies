@@ -13,6 +13,7 @@ READ-ONLY, completion-only. Uso:
 """
 import argparse
 import datetime
+import hashlib
 import os
 import sys
 
@@ -147,11 +148,25 @@ def fixture_sha(target_dir):
     return "nohash"
 
 
+def method_sha(texto):
+    """SHA do TEXTO do metodo efetivamente injetado (nao do caminho): sem isto, um A/B entre
+    versoes do metodo nao fica auditavel no traco (§3). 'nostrata' nos bracos sem metodo."""
+    if not texto:
+        return "nostrata"
+    return hashlib.sha256(texto.encode("utf-8")).hexdigest()[:12]
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--provider", choices=["ollama", "openrouter"], default="openrouter")
+    ap.add_argument("--provider", choices=["ollama", "openrouter", "cerebras", "groq", "nvidia"],
+                    default="openrouter")
     ap.add_argument("--lang", choices=["pt", "en"], default="pt",
                     help="idioma do prompt E do metodo (en = estudo de idioma; hunt segue so-pt)")
+    # A/B de VERSAO do metodo: sem isto, so da p/ trocar o arquivo no disco entre rodadas — o que
+    # nao deixa traco. Ex.: comparar a v1.2.1 (sem o paragrafo §9 "quando nao agir") com a v1.2.2.
+    ap.add_argument("--strata", default=None,
+                    help="caminho alternativo do doc do metodo (default: derivado de --lang). "
+                         "Use p/ A/B entre versoes do metodo; o SHA vai p/ o header do plano.")
     ap.add_argument("--selftest", action="store_true",
                     help="smoke de leitura: Strata PT+EN legiveis; sai sem rodar modelos")
     ap.add_argument("--models", nargs="+", required="--selftest" not in sys.argv)
@@ -210,6 +225,9 @@ def main():
         hdr_files, hdr_task = "\n## ARQUIVOS DO PROJETO\n", "\n\n## TAREFA\n"
         hdr_method = "\n## METODOLOGIA (Strata)\n"
         strata_path = hb_runner.STRATA
+    if a.strata:  # override explicito vence o derivado do idioma (A/B de versao)
+        strata_path = a.strata
+    strata = None
     if a.escada:
         if a.lang == "en":
             task_n = ESCADA_EN[a.escada] + "\n\n" + AVISO_DOWNSTREAM_EN + "\n\n" + FORMAT_EN
@@ -228,8 +246,10 @@ def main():
         prompt = (pre_s + hdr_method + strata
                   + hdr_files + target + hdr_task + task_s)
         arm = "STRATA"
+    msha = method_sha(strata)
 
-    print(f"== F4 | arm={arm} | lang={a.lang} | alvo='{a.label}' | fixture_sha={sha} | {len(a.models)} modelos x {a.runs} run(s)")
+    print(f"== F4 | arm={arm} | lang={a.lang} | alvo='{a.label}' | fixture_sha={sha} | "
+          f"method_sha={msha} | {len(a.models)} modelos x {a.runs} run(s)")
     for m in a.models:
         for run in range(1, a.runs + 1):
             safe = m.replace(":", "_").replace("/", "_")
@@ -241,7 +261,8 @@ def main():
                     m, prompt, a.num_ctx, a.num_predict, seed=run, think=a.think)
                 hdr = (f"<!-- F4 {arm} | model={m} | run={run} | {stamp} | {secs:.0f}s | "
                        f"{tok} tok | stop={stop} | from_thinking={from_think} | think={a.think} | "
-                       f"framing={a.framing} | lang={a.lang} | fixture_sha={sha} | target={a.label} -->\n\n")
+                       f"framing={a.framing} | lang={a.lang} | fixture_sha={sha} | "
+                       f"method_sha={msha} | target={a.label} -->\n\n")
                 open(os.path.join(out, name), "w", encoding="utf-8").write(hdr + content)
                 trunc = " [TRUNCADO?]" if stop in ("length", "max_tokens") else ""
                 print(f"     OK {secs:.0f}s, {tok} tok, stop={stop}{trunc}", flush=True)

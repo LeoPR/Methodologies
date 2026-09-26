@@ -157,8 +157,8 @@ O problema é **anterior ao computador**: bibliotecários, cientistas e engenhei
 enfrentam há séculos. As ferramentas de cada era (hoje: IA, editores, controle de
 versão) são **formas** que expressam esse método: moldam, mas não fundam.
 
-- **Formato:** 1 arquivo único, portável (viaja sozinho). **Versão 1.2.1** ·
-  licença CC BY-SA 4.0. (A versão canônica fica no cabeçalho de metadados do próprio arquivo.)
+- **Formato:** 1 arquivo único, portável (viaja sozinho) · licença CC BY-SA 4.0. A
+  versão fica no cabeçalho de metadados do próprio arquivo.
 - **Maturidade:** o **núcleo da metodologia está consolidado e verificado** (22 fontes primárias, e a
   checagem de que ele independe das ferramentas de hoje). A **aplicação por IA** já tem evidência empírica
   (a IA acertou, nos casos testados, a hora de agir, a hora de não mexer e a hora de recusar instruções
@@ -196,6 +196,7 @@ e diz se vale usar IA local: *ligar agora / considerar / bloqueado*, com o porqu
 |---|---|
 | [`recipe/`](recipe/) | **produtos prontos**: hoje, Strata (`knowledge-architecture.pt-BR.md`; canônico: `.en.md`) |
 | [`lab/`](lab/) | pesquisa exploratória, datada (fundamentação-L0, future-proof, aderência/portabilidade, **economia de IA**) |
+| [`eval/`](eval/) | **laboratório de prova**: runners, scorers e projetos-fixture que testam o método (meio, não a metodologia). `recipe/`, `lab/` e `eval/` são os 3 territórios de artefato |
 | [`prototype/`](prototype/) | teste em escala, em projetos reais (futuro) |
 | [`decisions/`](decisions/) | ADRs: por que cada decisão de design foi tomada |
 | [`outreach/`](outreach/) | **apoio**: comunicação/divulgação (posts, imagens), fora dos 3 territórios de artefato |

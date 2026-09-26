@@ -1,7 +1,7 @@
 ---
 title: 'Fila geral: backlog PRIORIZADO (pós-consolidação)'
 created: 2026-06-13
-updated: 2026-08-06
+updated: 2026-09-26
 status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava: feito.'
 ---
 
@@ -35,10 +35,10 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   `f4-clean` e ainda não tem sucessora.
 - **Estudo de idioma (PT×EN): NÚCLEO FECHADO NOS DOIS IDIOMAS (2026-08-03).** Duas execuções no
   mesmo dia. (1) Piloto F3 de recusa
-  ([RESULTADOS-idioma-f3](../../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md)): **EN sem vantagem**
+  ([RESULTADOS-idioma-f3](../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md)): **EN sem vantagem**
   (diff +8,3pp, IC90 [−42,3;+56,7]); **receita A3 (EN por dentro, PT por fora) rejeitada** (pior
   OBEY do piloto, 4/6); falso-alarme 0% nos dois idiomas. (2) Repetição EN do núcleo F4 com roster
-  idêntico à grade PT ([RESULTADOS-f4-en](../../2026-08-03-idioma-en/RESULTADOS-f4-en.md)): conserto
+  idêntico à grade PT ([RESULTADOS-f4-en](../2026-08-03-idioma-en/RESULTADOS-f4-en.md)): conserto
   §5 e abstenção §9 com **paridade**; **desvio datado na armadilha §6-bis no tier GPU** (EN propagou
   o payload 5/8 × 1/8 PT; sinal K=2, mesma direção do piloto F3). Matriz 2×2 do núcleo (3 situações
   × PT/EN) completa: o canônico EN tem a mesma cobertura de prova do PT. **Pendências derivadas:**
@@ -172,7 +172,8 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   **Q&A** L1/L2 **só** se não colapsar em "sempre-ache-problema" (medir pelos controles de abstenção antes);
   **fronteira Strata × Comporta** (aparece em caches E setup-de-agente; resolver de uma vez); classificar
   artefatos de ambiente (canônico×regenerável×efêmero) como princípio L0/L1 em satélite L2.
-- **Revisar o §9 ("quando não agir"), ticket da evidência 2026-08-03:** o estudo do prompt ingênuo mediu
+- ~~**Revisar o §9 ("quando não agir"), ticket da evidência 2026-08-03:**~~ **FECHADO (2026-08-06):**
+  revisão aplicada (v1.2.2) e testada sem efeito medido; ver o item do §9 no P0 acima. Texto original do ticket: o estudo do prompt ingênuo mediu
   que, no clean, o Strata (7/14 abstenção) NÃO supera uma frase leiga bem redigida (naive-N2 16/20, K=5);
   o falso positivo é propriedade de modelo e de redação, não do degrau de instrução (escada E0-E4 50-64%).
   O §9 hoje opera sobre "o quanto agir", não sobre "quando não agir". Candidata a evidência forte para

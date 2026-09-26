@@ -160,8 +160,8 @@ The problem is **older than the computer**: librarians, scientists and engineers
 faced it for centuries. The tools of each era (today: AI, editors, version
 control) are **forms** that express this method: they shape it, but do not found it.
 
-- **Format:** 1 single, portable file (it travels alone). **Version 1.2.1** ·
-  CC BY-SA 4.0 license. (The canonical version lives in the metadata header at the top of the file itself.)
+- **Format:** 1 single, portable file (it travels alone) · CC BY-SA 4.0 license. The
+  version lives in the metadata header at the top of the file itself.
 - **Maturity:** the **core of the methodology is consolidated and verified** (22 primary sources, plus the
   check that it is independent of today's tools). The **application by AI** already has empirical evidence
   (the AI got right, in the tested cases, when to act, when not to touch, and when to refuse malicious
@@ -199,6 +199,7 @@ and says whether local AI is worth it: *turn on now / consider / blocked*, with 
 |---|---|
 | [`recipe/`](recipe/) | **ready products**: today, Strata (`knowledge-architecture.en.md`, canonical; `.pt-BR.md` = pt-BR translation) |
 | [`lab/`](lab/) | exploratory, dated research (L0-grounding, future-proof, adherence/portability, **AI economy**) |
+| [`eval/`](eval/) | **proof laboratory**: runners, scorers and fixture projects that test the method (a means, not the methodology). `recipe/`, `lab/` and `eval/` are the 3 artifact territories |
 | [`prototype/`](prototype/) | testing at scale, on real projects (future) |
 | [`decisions/`](decisions/) | ADRs: why each design decision was made |
 | [`outreach/`](outreach/) | **support**: communication/outreach (posts, images), outside the 3 artifact territories |

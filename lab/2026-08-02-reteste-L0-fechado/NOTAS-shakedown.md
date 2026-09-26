@@ -1,8 +1,8 @@
 ---
 title: NOTAS — Shake-down do instrumento contra o L0 fechado (diário)
 created: 2026-08-02
-updated: 2026-08-02
-status: em curso — reteste dirigido F3/§9/F5 feito + Degrau 3 1a célula agente (2026-08-02)
+updated: 2026-09-26
+status: encerrado (a última entrada fecha a fila da rodada); reteste dirigido F3/§9/F5 + Degrau 3 1a célula agente (2026-08-02)
 ---
 
 # NOTAS — Shake-down (diário append-only)

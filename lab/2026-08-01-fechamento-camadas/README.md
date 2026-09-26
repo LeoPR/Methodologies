@@ -1,12 +1,13 @@
 ---
 title: Fechamento das camadas L0/L1/L2 — revisão fundamentada em partes
 created: 2026-08-01
-updated: 2026-08-02
+updated: 2026-09-26
 status: **CICLO P1–P5 FECHADO (2026-08-01)** — L0 editorialmente fechado: §11
   enxuto no canônico (P1), P2 refutada, §6-bis expandido com autoridade-para-ver
   (P3), notas datadas resolvidas com persona declarada no lead (P4), âncoras do
   L1 mapeadas (P5). Flip EN-canônico formalizado (adendo ADR-008).
-  Próximo passo declarado pelo dono: como TESTAR o L0 fechado.
+  Próximo passo declarado pelo dono: como TESTAR o L0 fechado (executado em
+  lab/2026-08-02-reteste-L0-fechado/).
 origem: avaliação do repo (2026-08-01) — o usuário exigiu que cada achado fosse
   sustentado por lógica + literatura + evidência, uma parte por vez, antes de
   decidir qualquer mudança no canônico (recipe/)

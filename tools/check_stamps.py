@@ -9,7 +9,9 @@ Uso:
   python tools/check_stamps.py            # checa o que esta STAGED (modo pre-commit)
   python tools/check_stamps.py --working  # checa o working tree vs HEAD
 
-Ativar como hook:  git config core.hooksPath tools/githooks
+Ativar como hook: chame este script a partir do pre-commit JA configurado (ver
+tools/githooks/pre-commit). NAO aponte core.hooksPath para tools/githooks: isso desliga
+o hook global existente.
 Burlar 1 commit intencional:  git commit --no-verify
 """
 import datetime

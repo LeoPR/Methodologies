@@ -24,7 +24,7 @@ A **AUDITORIA-2026-06-07** (adversarial multi-agente) refutou este arco por furo
 ## O que o substituiu (pipeline VIVO)
 `hb_f3/f4/f5/f6` + `hb_genre/temporal/m0` sobre `cenarios/*` com **gabarito FORA da fixture**
 (`f4-manifests/`, `f6-*-manifest.json`), verificação **mecânica + GOLD-gate** (`verify_f4.py`) e **juízes
-cross-vendor** (`judge_f3/f4`). Ver [`../README.md`](../README.md).
+cross-vendor** (`judge_f3/f4`). Ver [`../README.pt-BR.md`](../README.pt-BR.md).
 
 ## Por que preservado (não apagado)
 §3/§8 do Strata (append-only): um instrumento **refutado** é conhecimento — registra **como** a pontuação cega

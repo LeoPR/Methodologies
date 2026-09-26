@@ -3,7 +3,7 @@ name: map-methodologies-project
 type: navigation
 status: active
 created: 2026-06-03
-updated: 2026-08-06
+updated: 2026-09-26
 ---
 
 # Methodologies: mapa
@@ -13,11 +13,12 @@ updated: 2026-08-06
 ```
 Methodologies/                        <- Oficina de metodologias (Strata pronto; Comporta no forno)
 ├── recipe/                           <- PRODUTOS prontos (fonte única das técnicas)
-│   ├── knowledge-architecture.en.md  <- PRODUTO Strata, FONTE CANÔNICA (L0/L1/L2; L0 fechado 2026-08-01, v1.2.1)
+│   ├── knowledge-architecture.en.md  <- PRODUTO Strata, FONTE CANÔNICA (L0/L1/L2; L0 fechado 2026-08-01; versão no frontmatter)
 │   ├── knowledge-architecture.pt-BR.md     <- tradução pt-BR derivada do canônico EN
 │   ├── README.en.md / README.pt-BR.md      <- guia de uso do Strata (humano + IA; efêmero; EN canônico)
 │   ├── o-que-voce-ganha.en/.pt-BR.md       <- o que muda na prática (par EN/PT)
 │   ├── strata-com-ia.en/.pt-BR.md          <- guia prático "funciona no meu ambiente? sai caro?"
+│   ├── strata-idiomas.en/.pt-BR.md         <- manual de confiança PT × EN (o que funciona onde)
 │   ├── documentacao-multilingue.md   <- método portável: docs de entrada em 2 línguas (fonte canônica + tradução rastreável)
 │   └── *.en.svg / *.pt-BR.svg        <- diagramas (strata-modo; fronteira por contexto de acesso), par EN/PT
 ├── decisions/                        <- ADRs (registros de decisão imutáveis)
@@ -46,8 +47,9 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   └── 2026-08-03-idioma-en/           <- IDIOMA PT×EN: piloto F3 (recusa; EN sem vantagem) + repetição EN do núcleo F4 (paridade de prova do canônico EN)
 │   └── 2026-08-03-dev-environment-revisao/ <- revisão do dev-environment VIVO (2026-08-03); registro lateral, não é produto nem evidência
 │   └── 2026-08-03-prompt-ingenuo/      <- braço NAIVE ("uma IA precisa do Strata pra quê?"): PLANO pré-registrado · RESULTADOS (PT+EN) · PROPOSTA-S9 APLICADA (v1.2.2) e VERIFICADA sem efeito medido (RESULTADOS-verificacao-s9.md)
+│   └── 2026-09-26-revisao-superficie/  <- revisão de superfície do Strata + AUDITORIA declarado × feito (destino por achado)
 ├── eval/                             <- LABORATÓRIO DE PROVA (a "chave de fenda": comprova; NÃO é a metodologia, NÃO é o foco)
-│   ├── README.md                     <- princípio (meio≠fim) + 3 territórios + regra evidencia/instrumento/infra
+│   ├── README.en.md / README.pt-BR.md <- princípio (meio≠fim) + 3 territórios + regra evidencia/instrumento/infra
 │   └── strata/                       <- harness do Strata: runner, scorers, fixtures, cenários + planos/ (gitignored)
 ├── prototype/                        <- cozinha prototipo (escala; futuro)
 ├── outreach/                         <- APOIO: comunicação/divulgação (posts, imagens); fora dos 3 territórios de artefato
@@ -65,7 +67,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 | **Usar a metodologia** (produto) | [recipe/knowledge-architecture.en.md](recipe/knowledge-architecture.en.md) (canônico EN; pt-BR: `knowledge-architecture.pt-BR.md`) |
 | **Organizar docs de entrada em 2 línguas** (aplicável a outro projeto) | [recipe/documentacao-multilingue.md](recipe/documentacao-multilingue.md) |
 | **A opinião honesta de uso** (o que funciona, por tarefa/tier/custo) | [lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) |
-| Ver a **prova** de que o Strata funciona (a "chave de fenda") | [OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) (estado consolidado) · hub [ARQUITETURA-E-EVIDENCIAS.md](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md) · rodada atual [lab/2026-08-02-reteste-L0-fechado/](lab/2026-08-02-reteste-L0-fechado/) · harness em [eval/strata/](eval/strata/) |
+| Ver a **prova** de que o Strata funciona (a "chave de fenda") | [OPINIAO-DE-USO.md](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md) (estado consolidado) · hub [ARQUITETURA-E-EVIDENCIAS.md](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md) · rodadas mais recentes: [reteste do L0 fechado](lab/2026-08-02-reteste-L0-fechado/), [idioma PT×EN](lab/2026-08-03-idioma-en/), [prompt ingênuo + A/B do §9](lab/2026-08-03-prompt-ingenuo/) · harness em [eval/strata/](eval/strata/) |
 | Ver por que tomamos as decisoes que tomamos | [decisions/](decisions/) |
 | Saber **se o método agrega** sobre um pedido leigo (braço NAIVE) | [lab/2026-08-03-prompt-ingenuo/RESULTADOS.md](lab/2026-08-03-prompt-ingenuo/RESULTADOS.md) · §9 "quando não agir" aplicado e testado **sem efeito medido**: [RESULTADOS-verificacao-s9.md](lab/2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md) |
 | Ver o estado do momento | [STATUS.md](STATUS.md) |

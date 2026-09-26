@@ -1,7 +1,7 @@
 ---
 title: 'Arquitetura de testes e evidências do Strata: o que comprova, em que condições (macro)'
 created: 2026-06-13
-updated: 2026-08-06
+updated: 2026-09-26
 status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5/F6 fronteira.
 ---
 
@@ -169,7 +169,7 @@ O custo dos experimentos tem **dois usos que viram um**: (1) o que **nós** gast
 Desenhos: [DESIGN-f3](DESIGN-f3-recusa.md) · [DESIGN-f4](DESIGN-f4-execucao.md) (+ `*-synthesis.json`).
 Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0-confronto-juizes.md) ·
 [P7 camadas](RESULTADOS-p7-camadas-entender-aplicar.md) · [F3](RESULTADOS-f3-recusa.md) ·
-[F4](RESULTADOS-f4-execucao.md). Hipóteses/índice: [`README.md`](README.md).
+[F4](RESULTADOS-f4-execucao.md). Hipóteses/índice: [`README.pt-BR.md`](README.pt-BR.md).
 
 ## Histórico de evidências (append-only, §3/§8: não reescrever, só acrescentar)
 

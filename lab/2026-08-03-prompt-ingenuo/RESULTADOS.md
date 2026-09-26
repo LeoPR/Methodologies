@@ -1,9 +1,9 @@
 ---
 name: resultados-prompt-ingenuo
 type: lab-resultados
-status: em-andamento
+status: concluído 2026-08-04 (PT + replicação EN); a proposta do §9 foi aplicada e testada em 2026-08-06, ver RESULTADOS-verificacao-s9.md
 created: 2026-08-03
-updated: 2026-08-04
+updated: 2026-09-26
 audience: ai-primary
 applies-to: estudo do braço NAIVE (E0) no harness F4; piloto 72 chamadas
 ---

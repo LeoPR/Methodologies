@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-08-06
+updated: 2026-09-26
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -20,13 +20,15 @@ Esta e' uma **oficina de metodologias** (ver `README.md`). 2 produtos: **Strata*
 (**L0 editorialmente FECHADO 2026-08-01**: 13 secoes, ciclo P1-P5 em
 `lab/2026-08-01-fechamento-camadas/`; §6-bis cobre agir E ver; o teste empirico do L0
 fechado JA rodou, em `lab/2026-08-02-reteste-L0-fechado/`; pendentes: Parte IV
-adocao/operacao; a revisao do §9 "quando nao agir" foi aplicada e TESTADA em 2026-08-06 -- SEM EFEITO MEDIDO, paragrafo mantido por decisao do dono) e **Comporta** (economia de IA,
+adocao/operacao e a varredura propria de evidencia do eixo de seguranca (os dois "Open items" do
+canonico); a revisao do §9 "quando nao agir" foi aplicada e TESTADA em 2026-08-06 -- SEM EFEITO MEDIDO, paragrafo mantido por decisao do dono) e **Comporta** (economia de IA,
 EM ANDAMENTO no `lab/`). **Tres territorios
 por tipo de artefato**: `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses/
 conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a metodologia).
 
 - `recipe/`: **produtos prontos** (single-source das tecnicas):
-  - `knowledge-architecture.en.md`: **STRATA, FONTE CANONICA** (v1.2.1).
+  - `knowledge-architecture.en.md`: **STRATA, FONTE CANONICA** (versao no frontmatter do
+    proprio arquivo; nao copie o numero aqui, §5).
     Arquitetura do conhecimento em camadas L0/L1/L2. **Fluxo EN-first** (decisao
     do dono 2026-08-01): edita-se o EN, o PT (`knowledge-architecture.pt-BR.md`) e'
     traducao derivada no mesmo commit (adendo ADR-008). Pendente: Parte IV
@@ -34,6 +36,8 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   - `README.pt-BR.md`: guia de uso do Strata (humano + IA; o arquivo e' efemero).
     Par EN/PT: `README.en.md` e' o canonico, `README.pt-BR.md` a traducao (fluxo EN-first,
     como o produto); o mesmo vale para `o-que-voce-ganha.pt-BR.md`/`.en.md`.
+  - `strata-com-ia.en.md` / `.pt-BR.md`: guia pratico por modelo, custo e ambiente.
+    `strata-idiomas.en.md` / `.pt-BR.md`: manual de confianca PT × EN (o que funciona onde).
 - `decisions/`: **ADRs** (ADR-001..008): por que cada decisao de design. Imutaveis.
 - `lab/`: pesquisa (modo exploratorio), subpastas datadas `YYYY-MM-DD-tema/`:
   - `2026-06-03-modernizacao/`: analise 5-lentes + `experimento-split/` (**FROZEN**)
@@ -60,7 +64,8 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   - `2026-08-01-fechamento-camadas/`: **ciclo P1-P5 que FECHOU o L0**: revisão fundamentada em partes
     sob a "régua axiomática" (instanciado sem computador, a operação existe no repertório?). §11 entrou
     enxuto; §6-bis ganhou autoridade-para-VER; persona declarada 1× no lead; âncoras L1 completas.
-    Decisões datadas por parte (P1..P5). **É aqui que vive o porquê do estado atual do L0.**
+    Decisões datadas por parte (P1..P5). **É aqui que vive o porquê do estado atual do L0**
+    (exceto a revisão do §9 de 2026-08-06, cujo porquê está em `2026-08-03-prompt-ingenuo/`).
   - `2026-08-02-consolidacao-narrativa/`: auditoria narrativa do corpus (Etapa 1 rastreabilidade
     e Etapa 2 tom, executadas); régua do dono em 4 linhas. Registro do conserto, não fonte de estado.
   - `2026-08-02-reteste-L0-fechado/`: **RETESTE do L0 fechado** (grade estratos × capacidade,
@@ -75,9 +80,12 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     (revisão do §9 "quando não agir") e `RESULTADOS-verificacao-s9.md`: proposta **aplicada
     (v1.2.2) e testada — SEM EFEITO MEDIDO** (A/B do texto do método, 33%→33% e 22%→12%);
     o parágrafo fica por ser norma útil ao leitor humano.
+  - `2026-09-26-revisao-superficie/`: revisão de superfície do Strata + **auditoria declarado × feito**
+    (`AUDITORIA-sync.md`, destino por achado). Registro do conserto, não fonte de estado.
 - `eval/`: **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia
   nem o foco; reutilizavel entre metodologias). `strata/` = harness do Strata (runner
-  multi-modelo, scorers, fixtures, cenarios, `RASTREAMENTO-E-MELHORIA.md`); `*/planos/` =
+  multi-modelo, scorers, fixtures, cenarios; `RASTREAMENTO-E-MELHORIA.md` e' SUPERSEDED, o
+  estado vivo e' o README); `*/planos/` =
   saidas brutas **gitignored** (projetos reais sao PRIVADOS). Regra: toda execucao e'
   `evidencia|instrumento|infra`. Ver `eval/README.pt-BR.md`.
   - `eval/strata/`: scripts em **subpastas por proposito** (2026-08-02): `core/` (hb_runner+

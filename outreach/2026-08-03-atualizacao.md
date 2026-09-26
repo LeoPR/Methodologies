@@ -1,7 +1,7 @@
 ---
 title: 'Notícia 2026-08-03: Strata testado nos dois idiomas, custo medido, manual de uso publicado'
 created: 2026-08-03
-updated: 2026-08-03
+updated: 2026-09-26
 status: 'Fonte canônica das notícias de divulgação. Os canais (linkedin/, medium/) formatam daqui.'
 ---
 
@@ -61,3 +61,7 @@ e do que é ferramenta datada (Órganon, L2). Trocar de ferramenta sem perder o 
 - Guia de modelo: `recipe/strata-com-ia.*` · Guia de idioma: `recipe/strata-idiomas.*`
 - Evidência: `lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md`,
   `lab/2026-08-03-idioma-en/RESULTADOS-*.md`
+
+> **Corrigida em 2026-09-26** (acrescentado; o texto acima não foi editado): três afirmações desta
+> notícia não se sustentam nos registros. Ver a seção de correções em
+> [`2026-09-26-atualizacao.md`](2026-09-26-atualizacao.md).

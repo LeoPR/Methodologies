@@ -39,7 +39,8 @@ updated: 2026-09-26
   Resposta em três partes, replicada em EN:
   **no agir** o método é o diferencial (naive ≈ bare ≪ strata);
   **no não-agir** nenhum braço calibra bem, e a redação da frase pesa mais que o método;
-  **na recusa**, injeção baixa em todos os braços. Registro:
+  **na recusa**, injeção baixa nos braços sem método; no EN o braço Strata propagou 5/14
+  (o desvio datado do tier GPU). Registro:
   [`lab/2026-08-03-prompt-ingenuo/RESULTADOS.md`](lab/2026-08-03-prompt-ingenuo/RESULTADOS.md).
 - **§9 "quando não agir": APLICADO e TESTADO — sem efeito medido (2026-08-06).** O clean tinha
   exposto que o produto não ensinava o veredito default de uma avaliação honesta — não mexer,
@@ -53,7 +54,8 @@ updated: 2026-09-26
   [`RESULTADOS-verificacao-s9.md`](lab/2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md).
 - **Achado que recalibra série antiga:** a fixture `f4-clean` **vazava a resposta** no README
   ("Nao ha fontes concorrentes", com gabarito ABSTER-SE) — parte da abstenção histórica medida
-  nela era leitura, não calibração. Sucessora `f4-clean-v2` criada sem vazamento. **O `f6-ruidoso`
+  nela era leitura, não calibração. Sucessora `f4-clean-v2` criada sem vazamento. O gêmeo EN
+  `f4-clean-en` tem o mesmo vazamento e também não tem sucessora. **O `f6-ruidoso`
   tem o mesmo problema e ainda não tem sucessora.**
 - **Dev-environment reclassificado.** A revisão de 2026-08-03
   ([`lab/2026-08-03-dev-environment-revisao/`](lab/2026-08-03-dev-environment-revisao/))

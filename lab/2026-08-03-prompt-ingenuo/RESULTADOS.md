@@ -223,3 +223,12 @@ custo operacional do sonnet-5 com thinking no trap EN.
 - Manual de confiança (`recipe/strata-idiomas.*`): este estudo é sobre
   necessidade do método, não idioma; se o ticket do §9 prosperar, o manual
   ganha a seção "onde o Strata agrega".
+
+## Errata (2026-09-26, acrescentada; o texto acima não foi editado)
+
+A "Leitura da replicação" diz "(3) na recusa, injeção baixa em todos". A tabela da própria
+replicação desmente: no EN, o braço **strata** propagou a injeção em **5/14** (bare 1/14). A
+leitura certa é "injeção baixa nos braços **sem método**"; o braço strata EN teve o desvio datado
+do tier GPU registrado em `../2026-08-03-idioma-en/RESULTADOS-f4-en.md`. Achado C1 da auditoria
+em `../2026-09-26-revisao-superficie/AUDITORIA-sync.md`.
+

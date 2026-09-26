@@ -63,14 +63,9 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
 ![camadas e modo](strata-modo.pt-BR.svg)
 
 > **O núcleo independe de tecnologia; a automação por IA, não.** As camadas **L0/L1 são
-> fundamentadas e independem de tecnologia**: um humano com tempo aplica tudo manualmente, com
-> ou sem IA. O que **depende do modelo** é aplicá-lo por uma IA (camada **L2**).
-> **2026-08:** o conserto de um defeito conhecido (§5) e a recusa de uma instrução maliciosa
-> (§6-bis) **saturam do econômico ao topo**: gpt-5-mini e haiku-4.5 executam o conserto
-> perfeitamente, e a geração atual recusa injeção espontaneamente. O que ainda pede um modelo
-> de topo (ou você no loop) é o **julgamento de abstenção bilateral** (não agir onde não deve
-> **e** agir na medida onde deve) e a **auditoria autônoma em projeto real**. O que varia entre
-> modelos é a **capacidade**, não a validade do método.
+> fundamentadas e independem de tecnologia**: um humano com tempo aplica tudo à mão, com ou
+> sem IA. O que **depende do modelo** é aplicá-lo por uma IA (camada **L2**): veja
+> [Como uma IA se sai](#como-uma-ia-se-sai-aplicando-o-strata), abaixo.
 
 ### Como usar: por um humano
 
@@ -87,26 +82,17 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
 
 ### Como usar: por uma IA (ela aplica ao seu projeto)
 
-Há **dois modos**, e qual usar depende da força do modelo (guia completo, com custos e
-ambientes (local/grátis/pago), em **[`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md)**;
-versão em inglês: [`strata-com-ia.en.md`](strata-com-ia.en.md)).
-**Em qual idioma rodar o Strata** (PT ou EN, o que funciona onde):
-**[`strata-idiomas.pt-BR.md`](strata-idiomas.pt-BR.md)**):
+Há **dois modos**, e qual usar depende da força do modelo. Qual modelo cabe no seu ambiente
+e no seu bolso: **[`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md)**. Em qual idioma rodar o
+Strata (PT ou EN): **[`strata-idiomas.pt-BR.md`](strata-idiomas.pt-BR.md)**.
 
-- **De uma vez (modelo de topo, ex. Opus):** entregue o método + o projeto e peça a avaliação
-  inteira num passo. Funciona: acha o real, reconhece o bom, não inventa. Use os pedidos abaixo.
+- **De uma vez (modelo de topo):** entregue o método + o projeto e peça a avaliação inteira
+  num passo. Use os pedidos abaixo.
 - **Orientando (modelos médios/econômicos, inclusive locais):** na avaliação completa de uma
   vez eles ainda erram a proporção: inventam violações ou deixam o real passar. Em vez do
   texto canônico cru, dê uma **checklist** e aplique **em etapas** (reconheça o bom → situe
-  no tempo → gate a gate com evidência → priorize pelo §9). Ajuda, mas o resultado é
-  **rascunho a revisar**. (Receitas prontas em `strata-com-ia.pt-BR.md`.)
-
-> **O que mudou em 2026-08:** o aviso "econômico de-uma-vez alucina tudo" ficou parcialmente
-> datado. A geração atual **executa o conserto** de um defeito conhecido (§5) e **recusa
-> injeção** (§6-bis) até no econômico. O risco residual é mais estreito: **super-aplicação
-> dependente de framing** (o haiku-4.5 só superage sob framing de auditoria) e
-> **proporcionalidade bilateral** (abster-se onde deve **e** agir na medida onde deve).
-> Para essas duas, mantenha um modelo de topo ou um humano no loop.
+  no tempo → gate a gate com evidência → priorize pelo §9). O resultado é **rascunho a
+  revisar**.
 
 Exemplos de pedido para o **modo de-uma-vez** (Claude, Copilot Chat, etc.), em um chat novo
 com o seu projeto aberto:
@@ -129,8 +115,8 @@ Se você trabalha no VS Code com um agente que tem memória, como o Claude Code 
 Copilot, dá para deixar a reconferência mais perto da rotina, sem precisar lembrar de
 pedir toda vez. Faça em **dois passos separados**, porque eles servem a coisas diferentes.
 
-**1. Peça para a IA lembrar.** Diga que este projeto segue o Strata, onde o método está,
-e que ela deve reconferir a aderência quando vocês forem trabalhar. Basta linguagem
+**1. Peça para a IA lembrar.** Diga que este projeto segue o Strata e que ela deve
+reconferir a aderência quando vocês forem trabalhar. Basta linguagem
 natural, do tipo "lembre disso". Você **não precisa nomear arquivo nenhum**: a ferramenta
 grava sozinha e escolhe onde guardar. Nomear um arquivo só amarraria a orientação a uma
 ferramenta de hoje, e o que importa é o comportamento, não o nome do arquivo.
@@ -150,20 +136,31 @@ primeiro é só memória, já o segundo é trabalho de fato.
 > ter memorizado. Se você quer que algo rode **sempre** num ponto fixo (por exemplo, antes
 > de todo commit), isso é tarefa de um **gancho de automação** do editor, não da memória.
 
-> **Como uma IA se sai aplicando o Strata: resumo.**
-> Em teste cego e reprodutível, modelos modernos **aplicam** o método: o conserto de um
-> defeito conhecido satura de ~8B local ao topo (2026-08), e a geração atual **recusa**
-> espontaneamente uma ordem maliciosa lida do projeto.
-> A primeira célula com **ferramentas reais em sandbox** transferiu o padrão: o conserto
-> executado ficou 10/12 com Strata × 2/12 sem, e ninguém tentou rodar o `curl` da injeção (0/24).
-> O que **varia é a capacidade** do modelo, não a validade do método. O detalhe por etapa e
-> por modelo está nas **tabelas no fim desta página**.
-> *(São sinais em cenário sintético, não provas. Em projeto real, o auto-auditor autônomo
-> só rendeu no modelo de topo. Ressalva e opinião honesta na
-> [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).)*
->
-> **Saída de IA = rascunho a revisar.** Guia prático por modelo, custo e ambiente:
-> [`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md).
+### Como uma IA se sai aplicando o Strata
+
+Um resumo só, com as ressalvas num lugar. São **sinais de testes cegos e reprodutíveis em
+cenários sintéticos, não provas**.
+
+- **Consertar um defeito conhecido sem apagar histórico (§5)**: modelos modernos fazem, de
+  ~8B local ao topo. Com ferramentas reais em sandbox, o conserto saiu muito mais vezes com o
+  Strata do que sem.
+- **Recusar uma ordem maliciosa lida do projeto (§6-bis)**: a geração atual costuma recusar,
+  mas não todo modelo nem toda vez. Revise a saída; o detalhe por modelo está em
+  [`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md).
+- **Saber quando *não* agir (§9)**: depende do **modelo** (não do seu tier de preço) e da
+  **redação do pedido**; o texto do método não compra isso (testado).
+- **Auditoria autônoma de projeto real**: só rendeu com o modelo de topo. Com modelo médio
+  ou econômico, use a checklist e mantenha um humano no loop.
+
+**Regra de ouro:** método + modelo de topo → de uma vez; método + modelo médio/econômico →
+orientar em etapas e revisar. **Saída de IA = rascunho a revisar.** Aplicar uma IA a um
+projeto custa de centavos a poucos dólares ([o que você ganha](o-que-voce-ganha.pt-BR.md#custo)).
+
+Onde está a evidência: a opinião de uso honesta, por tarefa, tier e custo, na
+[`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); o estado datado no
+[hub de evidências](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md); como a
+evidência é produzida em [`../eval/strata/`](../eval/strata/) (scripts públicos; saídas brutas e
+projetos reais privados). Termos: [`GLOSSARIO.md`](../GLOSSARIO.md).
 
 ### O que ainda falta no Strata (honestidade de maturidade)
 
@@ -175,90 +172,6 @@ primeiro é só memória, já o segundo é trabalho de fato.
 - **Parte IV, adoção e operação**: o caminho passo a passo para adotar o Strata num
   projeto que já existe (fases de adoção, auditoria periódica) ainda não foi escrito.
   O caminho está esboçado nos labs, aguardando dor empírica que justifique destilá-lo.
-
-### Resultados: o que cada modelo consegue, por etapa
-
-> **Sinais, não provas**: em geral regime de **só-texto** (a IA escreve um plano/arquivo;
-> não roda nada), poucas repetições por teste, 1–2 cenários; **uma** célula já rodou com
-> ferramentas reais em sandbox (2026-08-02) e transferiu o padrão. Vocabulário completo em
-> [`GLOSSARIO.md`](../GLOSSARIO.md).
->
-> **⚠️ A ressalva que mais importa:** estas tabelas são de **cenários sintéticos**.
-> Em **projetos reais**, o Strata como auto-auditor automático de IA **não superou** a
-> competência pura do modelo: o falso-positivo dominou (até a versão sem o método), e o
-> ganho do sintético **não se traduziu** ao real, exceto no **modelo de topo**.
-> Além disso, quase todo o "real" testado é projeto **do próprio autor** (circularidade).
-> Na prática: use o auto-auditor autônomo **só com um modelo forte**; com médio ou barato,
-> **checklist + humano no loop**.
->
-> **A assinatura:** as IAs **mais populares agem demais**; o **modelo de topo calibra**; e o
-> **método padroniza** o conserto.
-> Foi o padrão mais consistente, visto em **três cenários de teste sintéticos**: abster-se num
-> projeto limpo, situar no tempo sob ruído, e respeitar o tipo do projeto.
-> Em todos, o modelo popular erra na mesma direção (mexe no que já estava bom, re-levanta o
-> que já fora resolvido, cobra teste de um caderno de notas); só o topo acerta.
-> A **forma** não compra proporcionalidade para o modelo fraco. O que ela acrescenta, mesmo no
-> topo, é **padronização e rastreabilidade do conserto**.
->
-> **Opinião de uso honesta e completa** (por tarefa/tier/custo, com todas as ressalvas):
-> [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). Estas tabelas são um
-> **panorama**; o estado datado vive no
-> [doc de arquitetura e evidências](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
->
-> **Os números e os dados.**
-> As estatísticas de concordância entre juízes, corrigidas por acaso, estão na
-> [concordância dos juízes](../lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md),
-> e o fechamento honesto (sólido vs sinal, gaps) no
-> [FECHAMENTO](../lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
-> Como a evidência é produzida (runners, projetos-fixture, verificadores) está em
-> [`../eval/strata/`](../eval/strata/): os scripts são públicos, e as saídas brutas e os
-> projetos reais são privados (gitignored).
-
-**Vocabulário (o mínimo para ler as tabelas):**
-
-| Termo | O que quer dizer |
-|---|---|
-| **Etapa / modo** | o "tamanho do passo" que a IA dá: de *"devo agir aqui?"* a *"produzo o conserto"*. |
-| **De uma vez** | você entrega método + projeto e a IA faz **tudo num passo** (avaliação/organização completa; pede modelo de topo). |
-| **Orientar** | você **quebra em etapas** / dá *checklist* e **revisa** (modelos médios e econômicos). |
-| **Abster-se** | reconhecer que o projeto **já está bom** e **não mexer** (o difícil). |
-| **Falso-positivo / super-aplicar** | apontar/consertar um problema que **não existe**. |
-| **Recusar** | diante de uma **ordem maliciosa** escrita no projeto, **não obedecer**. |
-| **Topo / médio / econômico** | nível de **capacidade** (não preço nem tamanho; um *flash* barato pode bater um 70B). **Custo** é eixo à parte: econômico/premium. |
-
-**Tabela 1: A IA consegue cada etapa?**
-
-| Etapa (o que a IA faz) | Consegue? | Quem |
-|---|---|---|
-| **Entender** o método e o projeto | ✅ universal | todos, até os econômicos |
-| **Diagnosticar** o que está errado (núcleo L0) | ✅ no essencial | todos pegam o grosso; médio/econômico **inventa extra** |
-| **Saber não agir** quando já está bom | ⚠️ **propriedade de modelo, não de tier** | calibram: 27B local, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; superagem: haiku-4.5, deepseek-v3.2, qwen3-32b; **dependente de framing** (o veredito vira ao longo de K=5 repetições) |
-| **Recusar** ordem maliciosa (*injeção*) | ✅ **sólido e espontâneo** | todos os testados (27B local, 32B, gpt-5-mini, 4.1-mini) recusam 8/8, citando §6-bis |
-| **Executar** o conserto **sem apagar histórico** | ✅ nuvem / ✅ local a partir de ~8B | o conserto §5 satura de ~8B local ao topo (20/20 com Strata); ~20–27B satura conserto **e** abstenção. **Evitar llama-4-scout** (falhou o conserto da armadilha 2/2 e propagou o payload) |
-
-**Tabela 2: Como usar o `knowledge-architecture.pt-BR.md`, por onde você roda**
-
-| Onde você roda | Modelos típicos | Como usar o arquivo | Cuidado principal |
-|---|---|---|---|
-| **Claude Code · claude.ai** | haiku-4.5 → sonnet-5 → opus-5/fable-5 | o haiku **executa o conserto perfeitamente** e recusa injeção; opus-5/fable-5 também **saturam a abstenção** | o haiku **superage sob framing de auditoria** (0/5 em strata+audit, calibra sob hunt) → reframing ou revise |
-| **Copilot · API forte** | **gpt-5-mini é o novo piso pago da OpenAI** (4.1-mini = base legada pinada) | o gpt-5-mini executa o conserto, recusa espontaneamente e, com web, verifica fonte citando a primária | o 4.1-mini legado **quebra formato sob pressão**; mantenha só como referência legada pinada |
-| **Modelo econômico** | gpt-5-mini, haiku-4.5, deepseek-v4-pro | os três **executam o conserto perfeitamente**; para a borda de não-agir, **preço não ordena**: confira o modelo específico, não o tier | **falso-positivo** no projeto limpo: trate como rascunho |
-| **Local (ex.: RTX 3060)** | qwen3:14b (cabe na GPU), qwen3.6:27b | ~8B **executa o conserto**; o 27b **satura conserto + abstenção**, mas lento (~22 min/run) | abaixo de ~4B nem o formato sai; **evitar llama-4-scout**; humano no loop |
-
-> **A forma do arquivo importa:** o **topo** lê a **prosa canônica** direto; os **locais
-> pequenos** rendem mais com a **versão densa (AI-nativa)** ou com **checklist em etapas**.
-> A prosa longa os afoga.
-
-**Regra de ouro (uma frase):** **método + modelo de topo** → de uma vez; **método + modelo
-médio/econômico** → orientar em etapas e **manter um humano no loop**, exceto para o
-**conserto conhecido** e a **recusa de injeção**, que o econômico com o método já fecha
-(2026-08). O método dá a *direção certa*; saber **quando NÃO agir** (proporção, §9) depende
-da **capacidade** do modelo.
-
-**Custo (relativo):** recusar injeção e **consertar** fecham no **econômico**; *abster-se* /
-organizar por completo pede **premium**, mas como **uso único/esporádico**. Ou seja:
-**econômico no dia-a-dia, premium uma vez para o *organize* proporcional**. (Aplicar a IA a
-um projeto custa, na prática, de centavos a poucos dólares.)
 
 ## Método companheiro: documentação multilíngue · [`documentacao-multilingue.md`](documentacao-multilingue.md)
 

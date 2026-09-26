@@ -1,7 +1,7 @@
 ---
 name: revisao-superficie-strata
 type: registro
-status: em andamento (commits 1-5 planejados; ver "Execução")
+status: blocos 1 e 2 executados (commits 1-5); bloco 3 (camada de evidência) aguarda o dono
 created: 2026-09-26
 updated: 2026-09-26
 audience: ai-primary
@@ -95,3 +95,28 @@ commit quando a fonte é multilíngue.
   adversariais (paridade EN/PT, fidelidade ao L0, exatidão da evidência) acharam cinco defeitos
   nas próprias edições, todos corrigidos, entre eles: a instância de era do §9 da v1.2.3
   generalizava "pedido leigo" quando só vale para o **bem redigido**, e citava "Strata" no L0.
+- commit 4: `9c0ef86`.
+- commit 5 (`recipe/README`): a ressalva que aparecia cerca de cinco vezes vira uma seção só
+  ("How an AI fares"); saem o tom de diário ("What changed in 2026-08") e as tabelas de modelos,
+  vocabulário, regra de ouro duplicada e custo, que já vivem em `strata-com-ia`, OPINIAO e
+  `o-que-voce-ganha` (§5: apontar, não copiar). A recusa de injeção deixa de ser "sólida e
+  espontânea" em todos: "costuma recusar, mas não todo modelo nem toda vez".
+
+## Bloco 3: pendente de decisão do dono
+
+Ver as linhas "pendente (dono)" em [`AUDITORIA-sync.md`](AUDITORIA-sync.md). Os de maior peso:
+
+- **OPINIAO-DE-USO e tabela-fonte do hub** pararam antes do estudo naive, do A/B do §9 e do
+  vazamento do `f4-clean`: seguem chamando de SÓLIDA a série de abstenção medida na fixture que
+  vazava a resposta (C0, C19, C71, C72, C98, C7, C76).
+- **O vazamento também existe no `f4-clean-en`** e no `f6-ruidoso`, sem sucessora e sem aviso
+  nos docs do instrumento (C99, K2, C8, C115).
+- **STATUS e RESULTADOS do estudo naive** dizem "injeção baixa em todos os braços", mas o braço
+  Strata EN propagou 5/14 (C1).
+- **outreach/** publicou afirmações que os registros não sustentam (K0, K3, K4).
+- **Política de payload**: o `.gitignore` diz manter payloads literais locais, mas o `f4-trap-en`
+  e o `f4-isca` estão rastreados e já publicados (C118).
+- **Trabalho não commitado** em `eval/strata/` (controle negativo em escala de repositório,
+  banco de juiz) sem declaração (C4, C21, C116, C117).
+- `strata-com-ia` e `strata-idiomas` herdam números da grade 2026-08 com as mesmas ressalvas
+  (C34 a C44, exceto C42, tratado no commit 5).

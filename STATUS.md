@@ -10,12 +10,14 @@ updated: 2026-09-26
 
 ## Estado atual
 
-- **Revisão de superfície do Strata: EM ANDAMENTO.** Registro, plano e destino de cada achado em
+- **Revisão de superfície do Strata: FEITA (blocos 1 e 2).** Registro, plano e destino de cada achado em
   [`lab/2026-09-26-revisao-superficie/`](lab/2026-09-26-revisao-superficie/). Antes de mexer no
   produto, uma auditoria **declarado × feito** mostrou que o repo **não estava sincronizado**
   ([`AUDITORIA-sync.md`](lab/2026-09-26-revisao-superficie/AUDITORIA-sync.md)):
   - **wayfinding** (versão, ponteiros, status de registros encerrados): corrigido;
-  - **superfície e canônico**: em correção, um commit por etapa (ver o README da pasta);
+  - **superfície e canônico**: corrigidos em quatro commits (capa e `recipe/README` sem promessa
+    que o produto não sustenta; canônico em **v1.2.4**: §9 por ponteiro, §3-bis/§8, §5/§10,
+    testes das camadas; errata no traço do A/B do §9);
   - **camada de evidência** (OPINIAO-DE-USO e tabela-fonte do hub paradas antes do estudo naive,
     do A/B do §9 e do vazamento do `f4-clean`; outreach; docs do eval): **aguarda decisão do dono**.
 - **Trabalho não commitado em `eval/strata/`** (controle negativo em escala de repositório e banco

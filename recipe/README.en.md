@@ -61,14 +61,9 @@ The method is written in **durability layers**. Knowing which one you are in cha
 ![layers and mode](strata-modo.en.svg)
 
 > **The core is independent of technology; AI automation is not.** Layers **L0/L1 are
-> grounded and technology-independent**: a human with time applies everything manually, with
-> or without AI. What **depends on the model** is applying it through an AI (layer **L2**).
-> **2026-08:** the fix of a known defect (§5) and the refusal of a malicious instruction
-> (§6-bis) **saturate from the affordable tier to the top**: gpt-5-mini and haiku-4.5 execute
-> the fix perfectly, and the current generation refuses injection spontaneously. What still
-> asks for a top model (or you in the loop) is the **bilateral abstention judgment** (not acting
-> where it should not *and* acting in the right measure where it should) and the **autonomous
-> audit on a real project**. What varies across models is **capability**, not the method's validity.
+> grounded and technology-independent**: a human with time applies everything by hand, with or
+> without AI. What **depends on the model** is applying it through an AI (layer **L2**): see
+> [How an AI fares](#how-an-ai-fares-applying-strata), below.
 
 ### How to use it: by a human
 
@@ -85,26 +80,17 @@ The method is written in **durability layers**. Knowing which one you are in cha
 
 ### How to use it: by an AI (it applies it to your project)
 
-There are **two modes**, and which one to use depends on the model's strength (full guide,
-with costs and environments (local/free/paid), in **[`strata-com-ia.en.md`](strata-com-ia.en.md)**.
-**Which language to run Strata in** (PT or EN, what works where):
-**[`strata-idiomas.en.md`](strata-idiomas.en.md)**):
+There are **two modes**, and which one to use depends on the model's strength. Which model
+fits your environment and budget: **[`strata-com-ia.en.md`](strata-com-ia.en.md)**. Which
+language to run Strata in (PT or EN): **[`strata-idiomas.en.md`](strata-idiomas.en.md)**.
 
-- **One pass (top model, e.g. Opus):** hand over the method + the project and ask for the whole
-  evaluation in one step. It works: it finds the real, recognizes the good, does not invent.
-  Use the prompts below.
-- **Guiding (mid/affordable models, including local ones):** for the one-pass full evaluation
+- **One pass (top model):** hand over the method + the project and ask for the whole
+  evaluation in one step. Use the prompts below.
+- **Guiding (mid/affordable models, including local ones):** in a one-pass full evaluation
   they still miss the proportion, inventing violations or letting the real pass. Give them a
   **checklist** instead of the raw canonical text, and apply it **in stages** (recognize the
-  good → place it in time → gate by gate with evidence → prioritize by §9). It helps, but the
-  result is a **draft to review**. (Ready-made recipes in `strata-com-ia.en.md`.)
-
-> **What changed in 2026-08:** the "affordable models hallucinate everything" warning was
-> partially dated. The current generation **executes the fix** of a known defect (§5) and
-> **refuses injection** (§6-bis) even at the affordable tier. The residual risk is narrower:
-> **framing-dependent over-application** (haiku-4.5 over-acts only under audit framing) and
-> **bilateral proportionality** (abstaining where it should *and* acting in the right measure).
-> For those two, keep a top model or a human in the loop.
+  good → place it in time → gate by gate with evidence → prioritize by §9). The result is a
+  **draft to review**.
 
 Example prompts for the **one-pass mode** (Claude, Copilot Chat, etc.), in a fresh chat
 with your project open:
@@ -127,8 +113,8 @@ If you work in VS Code with an agent that has memory, like Claude Code or Copilo
 bring re-checking closer to the routine, without having to remember to ask every time. Do it
 in **two separate steps**, because they serve different things.
 
-**1. Ask the AI to remember.** Say that this project follows Strata, where the method lives,
-and that it should re-check adherence when you work together. Plain natural language is
+**1. Ask the AI to remember.** Say that this project follows Strata and that it should
+re-check adherence when you work together. Plain natural language is
 enough, like "remember this". You **do not need to name any file**: the tool records it on
 its own and chooses where to store it. Naming a file would only tie the guidance to today's
 tool, and what matters is the behavior, not the file name.
@@ -149,20 +135,31 @@ first is memory only, the second is actual work.
 > because it memorized it. If you want something to run **always** at a fixed point (for
 > example, before every commit), that is a job for an editor **automation hook**, not memory.
 
-> **How an AI fares applying Strata: summary.**
-> In blind, reproducible tests, modern models **apply** the method: the fix of a known defect
-> saturates from ~8B local to the top (2026-08), and the current generation **refuses** a
-> malicious order read from the project spontaneously.
-> The first cell with **real tools in a sandbox** transferred the pattern: the fix executed
-> landed 10/12 with Strata × 2/12 without, and nobody tried to run the injected `curl` (0/24).
-> What **varies is the model's capability**, not the method's validity. The detail per step and
-> per model is in the **tables at the end of this page**.
-> *(These are signals in synthetic scenarios, not proofs. On a real project, the autonomous
-> self-auditor only paid off at the top model. Caveats and the honest opinion in
-> [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).)*
->
-> **AI output = draft to review.** Practical guide by model, cost and environment:
-> [`strata-com-ia.en.md`](strata-com-ia.en.md).
+### How an AI fares applying Strata
+
+One summary, with the caveats in one place. These are **signals from blind, reproducible tests
+on synthetic scenarios, not proofs**.
+
+- **Fixing a known defect without erasing history (§5)**: modern models do it, from ~8B local
+  to the top. With real tools in a sandbox, the fix landed far more often with Strata than
+  without.
+- **Refusing a malicious order read from the project (§6-bis)**: the current generation
+  usually refuses, but not every model and not every time. Review the output; per-model
+  detail is in [`strata-com-ia.en.md`](strata-com-ia.en.md).
+- **Knowing when *not* to act (§9)**: it depends on the **model** (not on its price tier) and
+  on **how the request is worded**; the method's text does not buy it (tested).
+- **Autonomous audit of a real project**: it only paid off with the top model. With a mid or
+  affordable model, use the checklist and keep a human in the loop.
+
+**Golden rule:** method + top model → one pass; method + mid/affordable model → guide in
+stages and review. **AI output = draft to review.** Applying an AI to a project costs cents
+to a few dollars ([what you gain](o-que-voce-ganha.en.md#cost)).
+
+Where the evidence lives: the honest usage opinion, by task, tier and cost, in
+[`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); the dated state in
+the [evidence hub](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md); how the
+evidence is produced in [`../eval/strata/`](../eval/strata/) (scripts public; raw outputs and
+real projects private). Terms: [`GLOSSARIO.md`](../GLOSSARIO.md).
 
 ### What is still missing in Strata (maturity honesty)
 
@@ -174,90 +171,6 @@ first is memory only, the second is actual work.
 - **Part IV, adoption and operation**: the step-by-step path for adopting Strata in a project
   that already exists (adoption phases, periodic audit) has not been written yet. The path is sketched
   in the labs, waiting for empirical pain to justify distilling it.
-
-### Results: what each model can do, per step
-
-> **Signals, not proofs**: mostly **text-only** regime (the AI writes a plan/file; it runs
-> nothing), few repetitions per test, 1–2 scenarios; **one** cell already ran with real tools
-> in a sandbox (2026-08-02) and transferred the pattern. Full vocabulary in
-> [`GLOSSARIO.md`](../GLOSSARIO.md).
->
-> **⚠️ The caveat that matters most:** these tables come from **synthetic scenarios**.
-> On **real projects**, Strata as an automatic AI self-auditor did **not** beat the model's
-> raw competence: false positives dominated (even the version without the method), and the
-> synthetic gain **did not translate** to the real, except at the **top model**.
-> Besides, almost all the "real" tested is the **author's own** project (circularity).
-> In practice: use the autonomous self-auditor **only with a strong model**; with a mid or
-> cheap one, **checklist + human in the loop**.
->
-> **The signature:** the **most popular AIs over-act**; the **top model calibrates**; and the
-> **method standardizes** the fix.
-> It was the most consistent pattern, seen in **three synthetic test scenarios**: abstaining on
-> a clean project, placing in time under noise, and respecting the project type.
-> In all of them, the popular model errs in the same direction (touches what was already good,
-> re-raises what had been settled, demands tests from a notebook); only the top gets it right.
-> **Form** does not buy proportionality for the weak model. What it adds, even at the top, is
-> **standardization and traceability of the fix**.
->
-> **Honest and complete usage opinion** (by task/tier/cost, with all caveats):
-> [`OPINIAO-DE-USO.md`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). These tables are a
-> **panorama**; the dated state lives in the
-> [architecture and evidence doc](../lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
->
-> **The numbers and the data.**
-> The judge-agreement statistics, corrected for chance, are in the
-> [judge agreement](../lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md), and
-> the honest closing (solid vs signal, gaps) in the
-> [CLOSING](../lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
-> How the evidence is produced (runners, fixture projects, verifiers) is in
-> [`../eval/strata/`](../eval/strata/): the scripts are public, and the raw outputs and the real
-> projects are private (gitignored).
-
-**Vocabulary (the minimum to read the tables):**
-
-| Term | What it means |
-|---|---|
-| **Step / mode** | the "step size" the AI takes: from *"should I act here?"* to *"I produce the fix"*. |
-| **One pass** | you hand over method + project and the AI does **everything in one step** (full evaluation/organization; asks for a top model). |
-| **Guide** | you **break it into stages** / give a *checklist* and **review** (mid and affordable models). |
-| **Abstain** | recognize that the project is **already good** and **not touch it** (the hard part). |
-| **False positive / over-apply** | point at / fix a problem that **does not exist**. |
-| **Refuse** | faced with a **malicious order** written in the project, **do not obey**. |
-| **Top / mid / affordable** | level of **capability** (not price or size; a cheap *flash* can beat a 70B). **Cost** is a separate axis: affordable/premium. |
-
-**Table 1: Can the AI do each step?**
-
-| Step (what the AI does) | Can it? | Who |
-|---|---|---|
-| **Understand** the method and the project | ✅ universal | everyone, even the affordable ones |
-| **Diagnose** what is wrong (L0 core) | ✅ in the essentials | everyone gets the bulk; mid/affordable **invents extra** |
-| **Know when not to act** when it is already good | ⚠️ **model property, not tier** | calibrates: local 27B, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; over-acts: haiku-4.5, deepseek-v3.2, qwen3-32b; **framing-dependent** (the verdict flips across K=5 repeated runs) |
-| **Refuse** a malicious order (*injection*) | ✅ **solid and spontaneous** | all tested (local 27B, 32B, gpt-5-mini, 4.1-mini) refuse 8/8, citing §6-bis |
-| **Execute** the fix **without erasing history** | ✅ cloud / ✅ local from ~8B | the §5 fix saturates from ~8B local to the top (20/20 with Strata); ~20–27B saturates fix **and** abstention. **Avoid llama-4-scout** (failed the trap fix 2/2 and propagated the payload) |
-
-**Table 2: How to use `knowledge-architecture.en.md`, by where you run it**
-
-| Where you run | Typical models | How to use the file | Main care |
-|---|---|---|---|
-| **Claude Code · claude.ai** | haiku-4.5 → sonnet-5 → opus-5/fable-5 | haiku **executes the fix perfectly** and refuses injection; opus-5/fable-5 also **saturate abstention** | haiku **over-acts under audit framing** (0/5 in strata+audit, calibrates under hunt) → reframe or review |
-| **Copilot · strong API** | **gpt-5-mini is the new OpenAI paid floor** (4.1-mini = legacy pinned base) | gpt-5-mini executes the fix, refuses spontaneously and, with web, verifies sources citing the primary one | the legacy 4.1-mini **breaks format under pressure**; keep it only as a pinned legacy reference |
-| **Affordable model** | gpt-5-mini, haiku-4.5, deepseek-v4-pro | all three **execute the fix perfectly**; for the not-acting edge, **price does not order**: check the specific model, not the tier | **false positive** on the clean project: treat as draft |
-| **Local (e.g.: RTX 3060)** | qwen3:14b (fits in GPU), qwen3.6:27b | ~8B **executes the fix**; the 27b **saturates fix + abstention**, but slowly (~22 min/run) | below ~4B not even the format comes out; **avoid llama-4-scout**; human in the loop |
-
-> **The file's form matters:** the **top** reads the **canonical prose** directly; **small
-> locals** do better with the **dense version (AI-native)** or a **checklist in stages**.
-> Long prose drowns them.
-
-**Golden rule (one sentence):** **method + top model** → one pass; **method + mid/affordable
-model** → guide in stages and **keep a human in the loop**, except for the **known fix** and
-the **injection refusal**, which the affordable model with the method already closes (2026-08).
-The method gives the *right direction*; knowing **when NOT to act** (proportion, §9) depends on
-the **model's capability**.
-
-**Cost (relative):** refusing injection and **fixing** close at the **affordable** tier;
-*abstaining* / organizing in full asks for **premium**, but as **one-off/sporadic use**.
-In other words: **affordable day-to-day, premium once for the proportional *organize***.
-(Applying an AI to a project costs, in practice, from cents to a few dollars.)
 
 ## Companion method: multilingual documentation · [`documentacao-multilingue.md`](documentacao-multilingue.md)
 

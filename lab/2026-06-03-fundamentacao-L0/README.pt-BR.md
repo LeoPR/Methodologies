@@ -2,7 +2,7 @@
 title: Fundamentação do núcleo atemporal (L0) — revisão de literatura
 status: closed
 created: 2026-06-03
-updated: 2026-08-02
+updated: 2026-09-26
 tags: [knowledge-architecture, L0, literature-review, fontes-primarias, auto-revisao]
 outcome: confirmed
 ---
@@ -152,3 +152,9 @@ Tecer estas citações de volta no `recipe/knowledge-architecture.pt-BR.md`: cad
 seção do L0 ganha uma linha **"Fundamentação"** apontando a(s) fonte(s)
 primária(s) — tornando o próprio núcleo rastreável (dogfood da §3). Depois,
 seguir para as Partes II (L1) e III (L2).
+
+> **Errata (2026-09-26, acrescentada; a tabela acima não foi editada):** a tipologia quádrupla
+> (interna/externa/construto/conclusão) é de Cook & Campbell 1979 (*Quasi-Experimentation*);
+> Campbell & Stanley 1963 têm só validade interna e externa. Achado na re-pesquisa de
+> 2026-08-01 (`../2026-08-01-fechamento-camadas/L1-2-repesquisa-literatura.md`, linha A3); a
+> fundamentação do §4 no canônico traz a genealogia corrigida desde a v1.2.4.

@@ -85,3 +85,13 @@ commit quando a fonte é multilíngue.
   carimbo + ponteiro), sem modelos, K nem percentuais no L0; os travessões que a v1.2.2
   reintroduzira saíram junto. Errata acrescentada ao registro do A/B (braço B ≠ v1.2.2
   commitada; A/B só em PT; comparação com a frase leiga não pareada) e nota na PROPOSTA-S9.
+- commit 3: `76cdea1`.
+- commit 4 (L0 editorial, v1.2.4): leads do §3 e do §7 sem a voz do dono; teste do L1 decidível
+  (sobrevive à troca de ferramenta e tem substituto nomeado) e teste do L2 que exclui o L1; §3-bis
+  e §8 se apontam (o §8 diz por que dispositivo e probatório são imutáveis por razões
+  diferentes); §10 deixa de repetir o §5; caminhos `Strata/lab/` → `lab/`; mapa de ciclos da
+  Parte I completo; genealogia Campbell & Stanley → Cook & Campbell no §4 (com errata no
+  registro do 1º ciclo); nota do Eixo 5 por ponteiro. Antes do commit, três revisores
+  adversariais (paridade EN/PT, fidelidade ao L0, exatidão da evidência) acharam cinco defeitos
+  nas próprias edições, todos corrigidos, entre eles: a instância de era do §9 da v1.2.3
+  generalizava "pedido leigo" quando só vale para o **bem redigido**, e citava "Strata" no L0.

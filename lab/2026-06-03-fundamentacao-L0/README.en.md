@@ -2,7 +2,7 @@
 title: Grounding of the timeless core (L0) — literature review
 status: closed
 created: 2026-06-03
-updated: 2026-08-02
+updated: 2026-09-26
 tags: [knowledge-architecture, L0, literature-review, fontes-primarias, auto-revisao]
 outcome: confirmed
 ---
@@ -147,3 +147,9 @@ the status:
 Weave these citations back into `recipe/knowledge-architecture.pt-BR.md`: each L0 section
 gets a **"Grounding"** line pointing to the primary source(s) — making the core itself
 traceable (§3 dogfooding). Then proceed to Parts II (L1) and III (L2).
+
+> **Erratum (2026-09-26, appended; the table above was not edited):** the four-fold typology
+> (internal/external/construct/conclusion) is Cook & Campbell 1979 (*Quasi-Experimentation*);
+> Campbell & Stanley 1963 has internal and external validity only. Found in the 2026-08-01
+> re-research (`../2026-08-01-fechamento-camadas/L1-2-repesquisa-literatura.md`, row A3); the
+> canonical §4 grounding carries the corrected genealogy since v1.2.4.

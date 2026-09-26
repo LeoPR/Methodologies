@@ -1,7 +1,7 @@
 ---
 title: 'Arquitetura do conhecimento: organizar, rastrear e gerar'
 project: Strata
-version: 1.2.3
+version: 1.2.4
 type: reference
 status: active
 created: 2026-05-20
@@ -47,8 +47,8 @@ e o que você deve esperar trocar.
 | Camada | O que é | Cadência | Teste |
 |---|---|---|---|
 | **Mneme** · L0 · Núcleo atemporal | método científico, arquitetura da informação, epistemologia, rastreabilidade | décadas/séculos | "se a IA e o computador sumissem, continua verdadeiro?" |
-| **Morfé** · L1 · Padrões consolidados | formalizações nomeadas, maduras, mas substituíveis (Diataxis, ADR, FAIR, IMRaD, Conventional Commits) | ~décadas | "é *uma* boa forma de fazer o L0, não a única" |
-| **Órganon** · L2 · Adaptação à era atual | como as ferramentas de hoje expressam L0/L1 (agentes de IA, IDE/VSCode, git, caches) | meses | "trocável sem tocar no L0" |
+| **Morfé** · L1 · Padrões consolidados | formalizações nomeadas, maduras, mas substituíveis (Diataxis, ADR, FAIR, IMRaD, Conventional Commits) | ~décadas | "sobrevive à troca de ferramentas e, ainda assim, outro padrão nomeado atenderia à mesma necessidade do L0?" |
+| **Órganon** · L2 · Adaptação à era atual | como as ferramentas de hoje expressam L0/L1 (agentes de IA, IDE/VSCode, git, caches) | meses | "trocável sem tocar no L0 nem no L1" |
 
 > **Os nomes das camadas** (gregos; `L0/L1/L2` segue como apelido técnico): **Mneme** (μνήμη,
 > *memória*: o que perdura e se transmite sem se perder), **Morfé** (μορφή, *forma*: como o
@@ -76,13 +76,14 @@ e o que você deve esperar trocar.
 > específica, ele está no lugar errado; pertence à Parte III.
 >
 > **Fundamentação**: cada seção lista suas fontes primárias. No repositório de
-> origem (`Strata/lab/2026-06-03-fundamentacao-L0/`), 22 fontes web-verificadas
+> origem (`lab/2026-06-03-fundamentacao-L0/`), 22 fontes web-verificadas
 > (2026-06-03), **todas anteriores à IA e ao VSCode** (de Pacioli, 1494, à
 > engenharia de software clássica), o que confirma a tese das camadas. As seções
 > acrescentadas depois (§3-bis, §6-bis, §10 e os refinos de §3/§5/§6/§7/§9)
 > tiveram suas fundamentações verificadas num segundo ciclo `[WEB ✓ 2026-06-03]`
-> (`Strata/lab/2026-06-03-future-proof-sweep/`). O §11 teve a sua verificada
-> num terceiro ciclo `[WEB ✓ 2026-08-01]` (`lab/2026-08-01-fechamento-camadas/`).
+> (`lab/2026-06-03-future-proof-sweep/`). O §11, a autoridade-para-ler do §6-bis e a
+> correção Cook & Campbell do §4 tiveram a sua verificada num terceiro ciclo
+> `[WEB ✓ 2026-08-01]` (`lab/2026-08-01-fechamento-camadas/`).
 
 ## 1. O problema invariante: três tipos de artefato que conflitam
 
@@ -134,7 +135,8 @@ se já existe.
 
 ## 3. Rastreabilidade: o princípio de primeira classe
 
-> Você nomeou isto como meta central ("organização **e** rastreamento"). É um
+> Rastrear é uma das três coisas que este método promete (organizar, **rastrear**,
+> gerar). É um
 > princípio L0 por si só, não um detalhe espalhado.
 
 **Todo artefato, afirmação e decisão deve ser rastreável até três coisas:**
@@ -221,8 +223,8 @@ O corte de maior carga prática:
 - **Dispositivo**: o artefato **constitui** o que diz: uma decisão, uma
   definição, um compromisso, uma diretiva. Não há fonte externa a conferir:
   ele **é** a fonte. Desfazê-lo é um **novo ato**, não uma edição (é por isto, e
-  não por custo de recriação, que uma decisão aceita é imutável, distinção que
-  §8 hoje funde).
+  não por custo de recriação, que uma decisão aceita é imutável; o §8 aplica
+  isso).
 - **Probatório**: o artefato **registra** algo verdadeiro alhures: uma medição,
   uma observação, uma crônica. Tem fonte externa e, por isso, **se revalida na
   fonte** (§6). Marcar isto como dispositivo seria fingir que o artefato cria o
@@ -292,7 +294,8 @@ quanto a um artigo. (Formalização: IMRaD, na Parte II.)
 
 > **Fundamentação**: hipótese declarada antes / pré-registro: Nosek et al.
 > 2018 (*PNAS*); reprodutibilidade: Claerbout & Karrenbach 1992 (cunha o
-> termo); ameaças à validade: Campbell & Stanley 1963; preservar o negativo /
+> termo); ameaças à validade: Campbell & Stanley 1963 (interna/externa) →
+> Cook & Campbell 1979 (a taxonomia quádrupla) `[WEB ✓ 2026-08-01]`; preservar o negativo /
 > viés de publicação: Rosenthal 1979 ("file drawer"); estrutura IMRaD:
 > Sollaci & Pereira 2004. Tradição: cadernos de laboratório (séc. XIX).
 
@@ -453,7 +456,7 @@ e, igualmente, para um agente que lê o mesmo corpus que opera: é onde mora o
 
 ## 7. O pipeline de geração e maturação do conhecimento
 
-> O "**como gerar**" que você pediu. Conhecimento não nasce pronto: amadurece
+> O "**gerar**" do título. Conhecimento não nasce pronto: amadurece
 > por níveis. O valor está em saber **o que sobe de nível, quando e por quê**.
 
 ```
@@ -515,8 +518,10 @@ auditável e recuperável** do trabalho: o mecanismo que torna o append-only
   Isto **elimina a versão manual**: nunca
   `relatorio_v2`, `script_antigo`, `backup_da_data`: a história já faz isso, e
   cópias manuais poluem e derivam. (Exceção: artefato declaradamente imutável,
-  como decisão aceita, experimento fechado, versão publicada, onde "v2" é um novo
-  registro formal, não um backup informal.)
+  onde "v2" é um novo registro formal, não um backup informal. Por que ele é
+  imutável depende do ato (§3-bis): uma decisão aceita *constitui* o que diz, então
+  desfazê-la é um novo ato; um experimento fechado ou uma versão publicada
+  *registra* um estado, então editá-lo falsificaria o testemunho.)
 - **Sinal vs ruído**: entra no registro o que **define** o trabalho (essência:
   fontes, decisões, o irrecuperável); fica fora o **regenerável** ou
   **não-pertinente** (o que se reconstrói a partir do que entrou). Quando algo
@@ -593,10 +598,11 @@ defeito primeiro; se não houver, o entregável é a declaração de que não h�
 > `lab/2026-06-04-strata-hipoteses/RESULTADOS-genero.md`.
 >
 > Instância de era `[2026-08]`: leitores de IA não obtêm do texto do método a
-> calibração de "não agir". Numa base limpa, o braço Strata não se absteve mais que
-> um pedido leigo simples, e o parágrafo acima, uma vez acrescentado, não elevou a
-> abstenção num A/B do texto do método `[TESTADO, SEM EFEITO MEDIDO 2026-08-06]`.
-> A norma fica pelo leitor humano; a abstenção segue sendo propriedade do modelo.
+> calibração de "não agir". Numa base limpa, o braço com o método não se absteve
+> mais que um pedido leigo bem redigido, e o parágrafo "Agir sobre o que já existe",
+> uma vez acrescentado, não elevou a abstenção num A/B do texto do método
+> `[TESTADO, SEM EFEITO MEDIDO 2026-08-06]`. A norma é mantida pelo leitor humano;
+> a abstenção depende do modelo e da redação do pedido, não do texto do método.
 > Registro, braços e limites: `lab/2026-08-03-prompt-ingenuo/`.
 
 ## 10. Durabilidade do portador: redundância e dispersão
@@ -607,18 +613,14 @@ deriva (duas vozes discordando) vs um portador que morre (o único que havia,
 some).
 
 **Fonte única ≠ cópia única.** §5 manda uma só **autoridade lógica** por fato,
-para resolver **divergência**. Isto **não** implica um só **portador físico**.
-Contra a **perda**, o invariante é o oposto: **N cópias, dispersas em substratos
-com modos de falha independentes**. Lido ao pé da letra, "não copie" empurraria
-para um único ponto de falha: exatamente o que consumiu a Biblioteca de
-Alexandria e quase apagou Lucrécio (sobreviveu por **um** manuscrito); e o que a
-vida evita há bilhões de anos (multicópia, redundância).
-
-A reconciliação é limpa: a redundância nunca cria uma segunda **verdade**, só um
-segundo **portador da mesma verdade**. Uma réplica que **se sabe derivada** e se
-**verifica contra a origem** (mesmo conteúdo, mesma soma de verificação) é
-*backup* legítimo, não a "cópia que deriva" condenada em §8. Só a cópia que
-**finge ser fonte** é o antipadrão.
+para resolver **divergência**, e já separa autoridade de materialização. Contra a
+**perda**, o invariante é o oposto: **N cópias, dispersas em substratos com modos
+de falha independentes**. Lido ao pé da letra, "não copie" empurraria para um
+único ponto de falha: exatamente o que consumiu a Biblioteca de Alexandria e quase
+apagou Lucrécio (sobreviveu por **um** manuscrito); e o que a vida evita há bilhões
+de anos (multicópia, redundância). Cada réplica é um segundo **portador da mesma
+verdade**, nunca uma segunda verdade (§5). O que esta seção acrescenta é o que
+mantém um portador vivo:
 
 - **Verificável contra a origem**: a réplica prova que ainda é fiel
   (comparação, soma de verificação); cópia que ninguém confere apodrece em
@@ -843,7 +845,7 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 > A coluna **"expressa"** amarra cada ferramenta a uma necessidade atemporal:
 > é o que permite trocá-la sem perder o porquê. A camada de IA abaixo foi
 > web-verificada em 2026-06-03 (análise de modernização em
-> `Strata/lab/2026-06-03-modernizacao/` no repositório de origem) e
+> `lab/2026-06-03-modernizacao/` no repositório de origem) e
 > re-verificada em 2026-08-01
 > (`lab/2026-08-01-fechamento-camadas/L2-2-ferramentas-ia.md`).
 
@@ -964,6 +966,7 @@ engenharia clássica) permanece enquanto a forma (Parte III) é trocada.
 > **Pendências abertas**:
 > - **Eixo 5 (segurança/adversarialidade)**: §6-bis agora portão nos **dois**
 >   atos (executar e servir); o eixo ainda merece varredura própria no lado da
->   **evidência** (hoje: sinal completion-only).
+>   **evidência**; o ato de servir ainda não foi medido (estado datado:
+>   `lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md`).
 > - **Parte IV (Adoção e operação)**: caminho brownfield (como adaptar projeto
 >   existente) é gap conhecido; aguarda recorrência empírica (N≥3) para formalizar.

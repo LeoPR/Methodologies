@@ -1,7 +1,7 @@
 ---
 title: 'Knowledge architecture: organize, track, and generate'
 project: Strata
-version: 1.2.3
+version: 1.2.4
 type: reference
 status: active
 created: 2026-05-20
@@ -44,8 +44,8 @@ what you should expect to replace.
 | Layer | What it is | Cadence | Test |
 |---|---|---|---|
 | **Mneme** · L0: Timeless core | scientific method, information architecture, epistemology, traceability | decades/centuries | "if AI and the computer vanished, would it still be true?" |
-| **Morfé** · L1: Consolidated patterns | named, mature, but replaceable formalizations (Diataxis, ADR, FAIR, IMRaD, Conventional Commits) | ~decades | "it is *one* good way to do the L0, not the only one" |
-| **Órganon** · L2: Adaptation to the current era | how today's tools express L0/L1 (AI agents, IDE/VSCode, git, caches) | months | "swappable without touching the L0" |
+| **Morfé** · L1: Consolidated patterns | named, mature, but replaceable formalizations (Diataxis, ADR, FAIR, IMRaD, Conventional Commits) | ~decades | "would it outlive a change of tools, yet could another named pattern meet the same L0 need?" |
+| **Órganon** · L2: Adaptation to the current era | how today's tools express L0/L1 (AI agents, IDE/VSCode, git, caches) | months | "swappable without touching the L0 or the L1" |
 
 > **The layer names** (Greek; `L0/L1/L2` remains the technical nickname): **Mneme** (μνήμη,
 > *memory*: what endures and is transmitted without being lost), **Morfé** (μορφή, *form*: how
@@ -73,13 +73,14 @@ what you should expect to replace.
 > to Part III.
 >
 > **Grounding**: each section lists its primary sources. In the source repository
-> (`Strata/lab/2026-06-03-fundamentacao-L0/`), 22 web-verified sources
+> (`lab/2026-06-03-fundamentacao-L0/`), 22 web-verified sources
 > (2026-06-03), **all predating AI and VSCode** (from Pacioli, 1494, to classical
 > software engineering), which confirms the layers thesis. The sections added
 > later (§3-bis, §6-bis, §10 and the refinements to §3/§5/§6/§7/§9) had their
 > grounding verified in a second cycle `[WEB ✓ 2026-06-03]`
-> (`Strata/lab/2026-06-03-future-proof-sweep/`). §11 had its grounding verified
-> in a third cycle `[WEB ✓ 2026-08-01]` (`lab/2026-08-01-fechamento-camadas/`).
+> (`lab/2026-06-03-future-proof-sweep/`). §11, the authority-to-read in §6-bis, and
+> the Cook & Campbell correction in §4 had their grounding verified in a third
+> cycle `[WEB ✓ 2026-08-01]` (`lab/2026-08-01-fechamento-camadas/`).
 
 ## 1. The invariant problem: three kinds of artifact that conflict
 
@@ -130,7 +131,8 @@ creating, check whether it already exists.
 
 ## 3. Traceability: the first-class principle
 
-> You named this as a central goal ("organization **and** tracking"). It is an L0
+> Tracking is one of the three things this method promises (organize, **track**,
+> generate). It is an L0
 > principle in its own right, not a detail scattered around.
 
 **Every artifact, claim, and decision must be traceable to three things:**
@@ -219,8 +221,8 @@ The cut with the most practical weight:
 - **Dispositive**: the artifact **constitutes** what it says: a decision, a
   definition, a commitment, a directive. There is no external source to check;
   it **is** the source. Undoing it is a **new act**, not an edit (this, and not
-  the cost of re-creation, is why an accepted decision is immutable, a distinction
-  §8 today conflates).
+  the cost of re-creation, is why an accepted decision is immutable; §8 applies
+  it).
 - **Probative**: the artifact **records** something true elsewhere: a
   measurement, an observation, a chronicle. It has an external source, and so it
   **revalidates at the source** (§6). Marking this as dispositive would be
@@ -290,7 +292,8 @@ is a **movement**, not a format: it serves an experiment as much as an article.
 
 > **Grounding**: hypothesis declared beforehand / pre-registration: Nosek et al.
 > 2018 (*PNAS*); reproducibility: Claerbout & Karrenbach 1992 (coins the term);
-> threats to validity: Campbell & Stanley 1963; preserving the negative /
+> threats to validity: Campbell & Stanley 1963 (internal/external) → Cook &
+> Campbell 1979 (the four-fold taxonomy) `[WEB ✓ 2026-08-01]`; preserving the negative /
 > publication bias: Rosenthal 1979 ("file drawer"); IMRaD structure: Sollaci &
 > Pereira 2004. Tradition: laboratory notebooks (19th century).
 
@@ -451,7 +454,7 @@ operates on; that is where *prompt injection* lives.
 
 ## 7. The pipeline for generating and maturing knowledge
 
-> The "**how to generate**" you asked for. Knowledge is not born finished; it
+> The "**generate**" of the title. Knowledge is not born finished; it
 > matures by levels. The value is in knowing **what rises a level, when, and why**.
 
 ```
@@ -513,9 +516,11 @@ across the whole workspace. (The tool that does it today is L2.)
   marked (the physical implementation of append-only, §3). This **eliminates
   manual versioning**: never `report_v2`, `old_script`, `backup_of_the_date`; the
   history already does that, and manual copies pollute and drift. (Exception: an
-  artifact that is declaredly immutable, such as an accepted decision, a closed
-  experiment, or a published version; there, "v2" is a new formal record, not an
-  informal backup.)
+  artifact that is declaredly immutable; there, "v2" is a new formal record, not an
+  informal backup. Why it is immutable depends on the act (§3-bis): an accepted
+  decision *constitutes* what it says, so undoing it is a new act; a closed
+  experiment or a published version *records* a state, so editing it would falsify
+  the witness.)
 - **Signal vs noise**: what **defines** the work enters the record (the essence:
   sources, decisions, the irrecoverable); what is **regenerable** or
   **non-pertinent** stays out (what can be reconstructed from what entered). When
@@ -597,10 +602,12 @@ first; if there is none, the deliverable is the statement that there is none.
 > `lab/2026-06-04-strata-hipoteses/RESULTADOS-genero.md`.
 >
 > Era instance `[2026-08]`: AI readers do not get the "do not act" calibration
-> from the method's text. On a clean base the Strata arm did not abstain more than
-> a plain lay request, and the paragraph above, once added, did not raise
-> abstention in an A/B of the method text `[TESTED, NO MEASURED EFFECT 2026-08-06]`.
-> The norm stands for the human reader; abstention remains a property of the model.
+> from the method's text. On a clean base the arm given this method did not abstain
+> more than a well-worded lay request, and the paragraph "Acting on what already
+> exists", once added, did not raise abstention in an A/B of the method text
+> `[TESTED, NO MEASURED EFFECT 2026-08-06]`. The norm is kept for the human reader;
+> abstention depends on the model and on how the request is worded, not on the
+> method's text.
 > Record, arms and limits: `lab/2026-08-03-prompt-ingenuo/`.
 
 ## 10. Durability of the carrier: redundancy and dispersion
@@ -611,18 +618,14 @@ that drifts (two voices disagreeing) vs a carrier that dies (the only one there
 was, gone).
 
 **Single source ≠ single copy.** §5 mandates a single **logical authority** per
-fact, to resolve **divergence**. This does **not** imply a single **physical
-carrier**. Against **loss**, the invariant is the opposite: **N copies, dispersed
-across substrates with independent failure modes**. Read literally, "do not copy"
-would push toward a single point of failure: exactly what consumed the Library of
-Alexandria and nearly erased Lucretius (who survived by **one** manuscript); and
-what life has avoided for billions of years (multi-copy, redundancy).
-
-The reconciliation is clean: redundancy never creates a second **truth**, only a
-second **carrier of the same truth**. A replica that **knows itself derived** and
-**verifies against the origin** (same content, same checksum) is a legitimate
-*backup*, not the "copy that drifts" condemned in §8. Only the copy that
-**pretends to be the source** is the antipattern.
+fact, to resolve **divergence**, and already separates authority from
+materialization. Against **loss**, the invariant is the opposite: **N copies,
+dispersed across substrates with independent failure modes**. Read literally, "do
+not copy" would push toward a single point of failure: exactly what consumed the
+Library of Alexandria and nearly erased Lucretius (who survived by **one**
+manuscript); and what life has avoided for billions of years (multi-copy,
+redundancy). Each replica is a second **carrier of the same truth**, never a second
+truth (§5). What this section adds is what keeps a carrier alive:
 
 - **Verifiable against the origin**: the replica proves it is still faithful
   (comparison, checksum); a copy nobody checks rots in silence.
@@ -843,7 +846,7 @@ the two rules those principles do not give:
 >
 > The **"expresses"** column ties each tool to a timeless need; it is what lets
 > you swap it without losing the why. The AI layer below was web-verified on
-> 2026-06-03 (modernization analysis in `Strata/lab/2026-06-03-modernizacao/` in
+> 2026-06-03 (modernization analysis in `lab/2026-06-03-modernizacao/` in
 > the source repository) and re-verified on 2026-08-01
 > (`lab/2026-08-01-fechamento-camadas/L2-2-ferramentas-ia.md`).
 
@@ -966,7 +969,8 @@ the living proof of the layers thesis: the foundation (Parts I/II, from Pacioli
 > **Open items**:
 > - **Axis 5 (security/adversariality)**: §6-bis now gates **both** acts
 >   (executing and serving); the axis still deserves its own sweep on the
->   **evidence** side (today: completion-only signal).
+>   **evidence** side; the act of serving has no measurement yet (dated state:
+>   `lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md`).
 > - **Part IV: Adoption and operation**: the brownfield path (how to adapt an
 >   existing project) is a known gap; it awaits empirical recurrence (N≥3) to
 >   formalize.

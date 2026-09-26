@@ -2,7 +2,7 @@
 title: Strata em português ou inglês (guia de confiança)
 status: active
 created: 2026-08-03
-updated: 2026-08-03
+updated: 2026-09-26
 purpose: responder, objetivamente, "em qual idioma rodar o Strata?". Só as conclusões; o porquê vive na evidência linkada
 ---
 
@@ -21,11 +21,14 @@ o comportamento do núcleo é o mesmo.
 
 - **O conserto de defeito conhecido (§5) satura**: dos modelos econômicos de nuvem ao topo
   de fronteira, todos executam o conserto no padrão com Strata, em PT e em EN igualmente
-  (6/6 e 6/6). Sem Strata, os mesmos modelos falham na grade inteira nos dois idiomas.
-- **A abstenção (§9) é a borda, e é propriedade de modelo**: não de preço, não de tier, não
-  de idioma. Os mesmos modelos superagem ou se calam calibrados nos dois idiomas.
-- **O topo fecha os dois lados nos dois idiomas** (conserto/armadilha/abstenção, 6/6): o
-  modo de auto-auditoria autônoma é seguro em qualquer um dos dois.
+  (6/6 e 6/6). Sem Strata, quase nenhum deles faz o conserto, em nenhum dos dois idiomas.
+- **A abstenção (§9) é a borda, e depende do modelo**: não de preço, não de tier, não de
+  idioma. Os mesmos modelos superagem ou se calam calibrados nos dois idiomas. Sinal fraco: a
+  fixture limpa de cada idioma dizia a resposta no próprio README, então parte do que se mediu
+  é leitura.
+- **O topo consertou nos dois idiomas (6/6)**; na armadilha passou 6/6 em EN e 5/6 em PT (uma
+  rodada re-emitiu a diretiva ativa). A abstenção dele não foi medida nas grades de idioma.
+  Para a auto-auditoria autônoma, quem decide é o modelo, não o idioma.
 - **O idioma do seu PROJETO não importa**: método em EN × projeto em PT pontuou igual a
   método EN × projeto EN.
 
@@ -48,7 +51,7 @@ o comportamento do núcleo é o mesmo.
 | Você lê/trabalha em português | Use `knowledge-architecture.pt-BR.md`. Cobertura plena; nada perdido. |
 | Você lê/trabalha em inglês | Use `knowledge-architecture.en.md`. Mesma cobertura de prova. |
 | Modelo médio/econômico ou local | Qualquer um dos idiomas + **checklist + humano confirmando cada achado** |
-| Modelo topo, auto-auditoria autônoma | Qualquer um dos idiomas (6/6 nos dois) |
+| Modelo topo, auto-auditoria autônoma | Qualquer um dos idiomas (quem decide é o modelo, não o idioma) |
 | Projeto em idioma diferente do método | Tudo bem assim; não precisa traduzir o projeto |
 
 ## Custo de token: um idioma é mais barato?
@@ -56,8 +59,8 @@ o comportamento do núcleo é o mesmo.
 Medido em 2026-08-03 (mesmo roster, células pareadas; tokenizer cl100k para a contagem
 de entrada):
 
-- **Lado da entrada: português custa ~22% mais tokens.** O documento do método tokeniza
-  em 20.610 tokens em PT × 16.928 em EN, embora o arquivo PT tenha *menos* caracteres.
+- **Lado da entrada: português custa ~22% mais tokens.** O documento do método custa cerca
+  de 1,2× mais tokens em PT que em EN (cl100k), embora o arquivo PT tenha *menos* caracteres.
   É a desigualdade de tokenização entre idiomas, documentada na literatura
   ([Ahia et al., EMNLP 2023](https://aclanthology.org/2023.emnlp-main.614.pdf);
   [NeurIPS 2023](https://openreview.net/pdf?id=Pj4YYuxTq9)): texto não-inglês fragmenta

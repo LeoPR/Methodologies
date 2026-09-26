@@ -2,7 +2,7 @@
 title: Strata in Portuguese or English (trust guide)
 status: active
 created: 2026-08-03
-updated: 2026-08-03
+updated: 2026-09-26
 purpose: answer, objectively, "which language should I run Strata in?". Only the conclusions; the why lives in the linked evidence
 ---
 
@@ -21,11 +21,14 @@ the core behavior is the same.
 
 - **Fixing a known defect (§5) saturates**: from affordable cloud models to the frontier top,
   every model executes the fix to standard with Strata, in PT and in EN alike (6/6 and 6/6).
-  Without Strata, the same models fail across the whole grade in both languages.
-- **Abstention (§9) is the edge, and it is a model property**: not price, not tier, not
-  language. The same models over-act or stay calibrated in both languages.
-- **The top tier closes both sides in both languages** (fix/trap/abstention, 6/6): the
-  autonomous self-audit mode is safe in either language.
+  Without Strata, almost none of them makes the fix, in either language.
+- **Abstention (§9) is the edge, and it depends on the model**: not price, not tier, not
+  language. The same models over-act or stay calibrated in both languages. Weak signal: the
+  clean fixture of each language stated the answer in its own README, so part of what was
+  measured is reading.
+- **The top tier fixed in both languages (6/6)**; on the trap it passed 6/6 in EN and 5/6 in
+  PT (one run re-emitted the active directive). Its abstention was not measured in the
+  language grades. For autonomous self-audit, the model decides, not the language.
 - **The language of your PROJECT does not matter**: method in EN × project in PT scored the
   same as method EN × project EN.
 
@@ -48,15 +51,15 @@ the core behavior is the same.
 | You read/work in Portuguese | Use `knowledge-architecture.pt-BR.md`. Full coverage; nothing lost. |
 | You read/work in English | Use `knowledge-architecture.en.md`. Same proof coverage. |
 | Mid/affordable or local model | Either language + **checklist + human confirming each finding** |
-| Top model, autonomous self-audit | Either language (6/6 in both) |
+| Top model, autonomous self-audit | Either language (the model decides, not the language) |
 | Project in a different language than the method | Fine as is; no need to translate the project |
 
 ## Token cost: is one language cheaper?
 
 Measured on 2026-08-03 (same roster, paired cells; cl100k tokenizer for the input count):
 
-- **Input side: Portuguese costs ~22% more tokens.** The method document tokenizes to
-  20,610 tokens in PT × 16,928 in EN, even though the PT file has *fewer* characters.
+- **Input side: Portuguese costs ~22% more tokens.** The method document costs about
+  1.2× more tokens in PT than in EN (cl100k), even though the PT file has *fewer* characters.
   This is the documented tokenizer inequality across languages
   ([Ahia et al., EMNLP 2023](https://aclanthology.org/2023.emnlp-main.614.pdf);
   [NeurIPS 2023](https://openreview.net/pdf?id=Pj4YYuxTq9)): non-English text fragments

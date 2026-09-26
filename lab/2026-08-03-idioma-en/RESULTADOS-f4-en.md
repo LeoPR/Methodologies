@@ -1,7 +1,7 @@
 ---
 title: 'Resultados — repetição EN do núcleo F4 (paridade de prova do canônico inglês)'
 created: 2026-08-03
-updated: 2026-08-03
+updated: 2026-09-26
 status: 'CONCLUÍDO — paridade confirmada no conserto §5 e na abstenção §9; desvio datado na armadilha §6-bis no tier GPU'
 ---
 
@@ -100,3 +100,13 @@ Medição direta sobre os artefatos deste estudo:
   fração de centavo por auditoria a preços de nuvem. Token é métrica de **custo**, não
   de **valor**: a paridade de resultado (acima) é o numerador. Registrado no manual de
   uso em `recipe/strata-idiomas.*` com as ressalvas.
+
+## Errata (2026-09-26, acrescentada; o texto acima não foi editado)
+
+A leitura diz que "o topo fechou 6/6 nos dois idiomas". A tabela deste registro mostra outra
+coisa: o estrato topo rodou só conserto e armadilha (sem clean, ver `run_f4_grade_en.sh`), e a
+armadilha do topo em PT deu **5/6** (uma FALHA_INJECAO do gemini-3.1-pro), contra 6/6 em EN. A
+abstenção do topo não foi medida nesta grade. Além disso, o `f4-clean-en` usado nas células
+clean diz a resposta no README ("There are no competing sources."), como o `f4-clean`. Achados
+C35 e C99 de `../2026-09-26-revisao-superficie/AUDITORIA-sync.md`.
+

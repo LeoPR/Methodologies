@@ -1,0 +1,227 @@
+[
+ {
+  "model": "qwen3:8b",
+  "arch": {
+   "arch": "qwen3",
+   "params": 8190735360,
+   "layers": 36,
+   "kv_heads": 8,
+   "heads": 32,
+   "key_len": 128,
+   "embed": 4096,
+   "ctx_max": 40960,
+   "experts": null,
+   "experts_used": null,
+   "quant": "Q4_K_M",
+   "file_gb": 5.225
+  },
+  "points": [
+   {
+    "model": "qwen3:8b",
+    "num_ctx": 8192,
+    "size_gb": 6.295,
+    "size_vram_gb": 6.295,
+    "offload": false,
+    "decode_tps": 56.27,
+    "prefill_tps": 208.9,
+    "wall_s": 10.1,
+    "gpu_used_before_mib": 1383,
+    "gpu_used_after_mib": 7375,
+    "gpu_total_mib": 12288
+   },
+   {
+    "model": "qwen3:8b",
+    "num_ctx": 32768,
+    "size_gb": 9.835,
+    "size_vram_gb": 9.835,
+    "offload": false,
+    "decode_tps": 57.02,
+    "prefill_tps": 211.2,
+    "wall_s": 10.3,
+    "gpu_used_before_mib": 1277,
+    "gpu_used_after_mib": 10627,
+    "gpu_total_mib": 12288
+   }
+  ]
+ },
+ {
+  "model": "gemma4:12b",
+  "arch": {
+   "arch": "gemma4",
+   "params": 11907350576,
+   "layers": 48,
+   "kv_heads": null,
+   "heads": 16,
+   "key_len": 512,
+   "embed": 3840,
+   "ctx_max": 262144,
+   "experts": null,
+   "experts_used": null,
+   "quant": "Q4_K_M",
+   "file_gb": 7.557
+  },
+  "points": [
+   {
+    "model": "gemma4:12b",
+    "num_ctx": 8192,
+    "size_gb": 8.373,
+    "size_vram_gb": 8.373,
+    "offload": false,
+    "decode_tps": 37.01,
+    "prefill_tps": 153.2,
+    "wall_s": 16.5,
+    "gpu_used_before_mib": 1243,
+    "gpu_used_after_mib": 9733,
+    "gpu_total_mib": 12288
+   },
+   {
+    "model": "gemma4:12b",
+    "num_ctx": 32768,
+    "size_gb": 8.092,
+    "size_vram_gb": 8.092,
+    "offload": false,
+    "decode_tps": 36.16,
+    "prefill_tps": 156.3,
+    "wall_s": 16.7,
+    "gpu_used_before_mib": 1184,
+    "gpu_used_after_mib": 9805,
+    "gpu_total_mib": 12288
+   }
+  ]
+ },
+ {
+  "model": "qwen3:14b",
+  "arch": {
+   "arch": "qwen3",
+   "params": 14768307200,
+   "layers": 40,
+   "kv_heads": 8,
+   "heads": 40,
+   "key_len": 128,
+   "embed": 5120,
+   "ctx_max": 40960,
+   "experts": null,
+   "experts_used": null,
+   "quant": "Q4_K_M",
+   "file_gb": 9.276
+  },
+  "points": [
+   {
+    "model": "qwen3:14b",
+    "num_ctx": 8192,
+    "size_gb": 10.322,
+    "size_vram_gb": 10.322,
+    "offload": false,
+    "decode_tps": 33.56,
+    "prefill_tps": 190.5,
+    "wall_s": 31.0,
+    "gpu_used_before_mib": 1140,
+    "gpu_used_after_mib": 11084,
+    "gpu_total_mib": 12288
+   },
+   {
+    "model": "qwen3:14b",
+    "num_ctx": 32768,
+    "size_gb": 14.96,
+    "size_vram_gb": 10.703,
+    "offload": true,
+    "decode_tps": 13.98,
+    "prefill_tps": 68.3,
+    "wall_s": 25.4,
+    "gpu_used_before_mib": 1114,
+    "gpu_used_after_mib": 11358,
+    "gpu_total_mib": 12288
+   }
+  ]
+ },
+ {
+  "model": "qwen3.8:27b",
+  "arch": {
+   "arch": "qwen35",
+   "params": 27320697856,
+   "layers": 65,
+   "kv_heads": 4,
+   "heads": 24,
+   "key_len": 256,
+   "embed": 5120,
+   "ctx_max": 262144,
+   "experts": null,
+   "experts_used": null,
+   "quant": "Q4_K_M",
+   "file_gb": 17.742
+  },
+  "points": [
+   {
+    "model": "qwen3.8:27b",
+    "num_ctx": 8192,
+    "size_gb": 18.339,
+    "size_vram_gb": 8.785,
+    "offload": true,
+    "decode_tps": 5.35,
+    "prefill_tps": 16.9,
+    "wall_s": 85.6,
+    "gpu_used_before_mib": 1083,
+    "gpu_used_after_mib": 10917,
+    "gpu_total_mib": 12288
+   },
+   {
+    "model": "qwen3.8:27b",
+    "num_ctx": 32768,
+    "size_gb": 19.405,
+    "size_vram_gb": 8.175,
+    "offload": true,
+    "decode_tps": 4.96,
+    "prefill_tps": 15.9,
+    "wall_s": 69.4,
+    "gpu_used_before_mib": 1074,
+    "gpu_used_after_mib": 11032,
+    "gpu_total_mib": 12288
+   }
+  ]
+ },
+ {
+  "model": "qwen3.6:35b-a3b",
+  "arch": {
+   "arch": "qwen35moe",
+   "params": 35951822704,
+   "layers": 40,
+   "kv_heads": null,
+   "heads": 16,
+   "key_len": 256,
+   "embed": 2048,
+   "ctx_max": 262144,
+   "experts": 256,
+   "experts_used": 8,
+   "quant": "Q4_K_M",
+   "file_gb": 23.938
+  },
+  "points": [
+   {
+    "model": "qwen3.6:35b-a3b",
+    "num_ctx": 8192,
+    "size_gb": 23.327,
+    "size_vram_gb": 9.9,
+    "offload": true,
+    "decode_tps": 29.52,
+    "prefill_tps": 31.5,
+    "wall_s": 43.0,
+    "gpu_used_before_mib": 1067,
+    "gpu_used_after_mib": 11513,
+    "gpu_total_mib": 12288
+   },
+   {
+    "model": "qwen3.6:35b-a3b",
+    "num_ctx": 32768,
+    "size_gb": 23.881,
+    "size_vram_gb": 9.906,
+    "offload": true,
+    "decode_tps": 29.68,
+    "prefill_tps": 29.3,
+    "wall_s": 43.1,
+    "gpu_used_before_mib": 1060,
+    "gpu_used_after_mib": 11518,
+    "gpu_total_mib": 12288
+   }
+  ]
+ }
+]

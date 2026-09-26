@@ -3,7 +3,7 @@ title: Comporta — economia e roteamento de recursos de IA
 project: Comporta
 status: open
 created: 2026-06-04
-updated: 2026-06-05
+updated: 2026-09-26
 tags: [comporta, economia-tokens, local-llm, ollama, copilot, rtx3060, vscode, hardware, fornecedores, roteamento]
 phase: lab-sujo (coleta concluída — hipóteses confrontadas — em direção à 1ª recipe)
 ---
@@ -28,6 +28,7 @@ phase: lab-sujo (coleta concluída — hipóteses confrontadas — em direção 
 4. [`resultado-ciclo2.md`](resultado-ciclo2.md) — Foundry Local, Ollama HF/cloud, Claude Code + Copilot
 5. [`mapa-recursos-llm.md`](mapa-recursos-llm.md) — **o MAPA**: primitivas, métrica de esforço, grade sempre-ótimo/depende/não-sabível, caminho feliz, chutes
 6. [`plano-experimental.md`](plano-experimental.md) — **as SONDAS**: plano de ablação faseado (6 estágios, gates, custo zero até a Fase 2)
+7. [`instrumento/STAGE5.md`](instrumento/STAGE5.md) — **encaixe por placa** (2026-09-26): poucos pontos medidos na 3060, projeção de "qual modelo cabe em qual GPU, a que velocidade" para placas de mercado; é o lado da viabilidade da separação capacidade (nuvem) × viabilidade (local)
 
 > **Mapa × Sondas**: o mapa (5) classifica o terreno por certeza; o plano (6)
 > testa as células incertas. Dois workflows independentes (38 + 26 agentes)

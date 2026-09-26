@@ -29,6 +29,10 @@ PROVIDERS = {
     "cerebras":   ("https://api.cerebras.ai/v1/chat/completions", "CEREBRAS_API_KEY", ".cerebras-key"),
     "groq":       ("https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY", ".groq-key"),
     "nvidia":     ("https://integrate.api.nvidia.com/v1/chat/completions", "NVIDIA_API_KEY", ".nvidia-key"),
+    # LOCAL: endpoint OpenAI-compativel do ollama. Nao usa chave. Entra aqui para que o
+    # tier local possa ser medido pelo MESMO caminho (mesma escada de fallback, mesma
+    # contabilidade) que os de nuvem — sem isso, local e nuvem nao sao comparaveis.
+    "ollama":     ("http://localhost:11434/v1/chat/completions", "OLLAMA_NO_KEY", ".ollama-key"),
 }
 
 
@@ -53,12 +57,15 @@ def get_key(provider):
 
 
 def have_key(provider):
+    if provider == "ollama":
+        return True  # servidor local nao autentica
     return bool(get_key(provider))
 
 
 def _headers(provider, key):
-    h = {"Content-Type": "application/json", "Authorization": f"Bearer {key}",
-         "User-Agent": _UA, "Accept": "application/json"}
+    h = {"Content-Type": "application/json", "User-Agent": _UA, "Accept": "application/json"}
+    if provider != "ollama":
+        h["Authorization"] = f"Bearer {key}"
     if provider == "openrouter":
         h["HTTP-Referer"] = "https://github.com/LeoPR/Methodologies"
         h["X-Title"] = "Strata-eval"
@@ -69,7 +76,7 @@ def chat(provider, model, prompt, *, max_tokens=800, temperature=0.0, seed=None,
          response_format=None, reasoning=None, timeout=300, retries=4):
     """Chamada OpenAI-compativel generica com retry (429/5xx). Retorna o dict cru da API."""
     key = get_key(provider)
-    if not key:
+    if not key and provider != "ollama":  # servidor local nao autentica
         _, env, fname = PROVIDERS[provider]
         raise RuntimeError(f"chave do provedor '{provider}' ausente (env {env} ou eval/strata/{fname})")
     body = {"model": model, "messages": [{"role": "user", "content": prompt}],
@@ -116,7 +123,7 @@ def chat_tools(provider, model, messages, tools, *, max_tokens=6000, temperature
     especifico poderia dar 400). `temperature`/`seed` = None omitem o parametro (gpt-5-*
     rejeita temperature; claude nao tem seed — ver supported_parameters do /models)."""
     key = get_key(provider)
-    if not key:
+    if not key and provider != "ollama":  # servidor local nao autentica
         _, env, fname = PROVIDERS[provider]
         raise RuntimeError(f"chave do provedor '{provider}' ausente (env {env} ou eval/strata/{fname})")
     body = {"model": model, "messages": messages, "tools": tools,
@@ -230,7 +237,7 @@ def harden_schema(schema):
     return out
 
 
-def judge_json(spec, prompt, *, schema=None, max_tokens=700, timeout=120):
+def judge_json(spec, prompt, *, schema=None, max_tokens=700, timeout=120, with_meta=False):
     """Roda um JUIZ (spec 'provider:model') e devolve o dict do veredito.
 
     Com `schema`, tenta primeiro o modo json_schema ESTRITO: a decodificacao restrita torna
@@ -239,31 +246,48 @@ def judge_json(spec, prompt, *, schema=None, max_tokens=700, timeout=120):
     estrito -> json_object -> texto puro, porque nem todo provedor/modelo aceita cada modo.
     Embute o User-Agent (Cloudflare) e o retry de 429/5xx via chat()."""
     provider, model = parse_spec(spec)
+    meta = {"modo": None, "degraus": 0, "prompt_tokens": 0, "completion_tokens": 0,
+            "from_thinking": False, "finish_reason": None}
+
+    def _fim(obj):
+        return (obj, meta) if with_meta else obj
+
+    def _contabiliza(d, rotulo):
+        u = d.get("usage", {}) or {}
+        meta["prompt_tokens"] += u.get("prompt_tokens", 0) or 0
+        meta["completion_tokens"] += u.get("completion_tokens", 0) or 0
+        meta["degraus"] += 1
+        meta["modo"] = rotulo
 
     formats = []
     if schema is not None:
-        formats.append({"type": "json_schema",
-                        "json_schema": {"name": "verdict", "strict": True,
-                                        "schema": harden_schema(schema)}})
-    formats.append({"type": "json_object"})
-    formats.append(None)  # sem response_format
+        formats.append(({"type": "json_schema",
+                         "json_schema": {"name": "verdict", "strict": True,
+                                         "schema": harden_schema(schema)}}, "json_schema"))
+    formats.append(({"type": "json_object"}, "json_object"))
+    formats.append((None, "texto"))  # sem response_format
 
-    for rf in formats:
+    for rf, rotulo in formats:
         try:
             d = chat(provider, model, prompt, max_tokens=max_tokens, temperature=0.0,
                      response_format=rf, timeout=timeout)
         except urllib.error.HTTPError as e:
             if e.code in (400, 415, 422):
+                meta["degraus"] += 1
                 continue  # provedor/modelo recusa este response_format -> proximo da escada
             raise
-        content, _, _, _ = content_of(d)
+        _contabiliza(d, rotulo)
+        content, fin, think, _ = content_of(d)
+        meta["finish_reason"], meta["from_thinking"] = fin, think
         try:
-            return _extract_json(content)
+            return _fim(_extract_json(content))
         except Exception:  # noqa — resposta nao parseou; tenta o proximo modo
             continue
 
     # ultimo recurso: pedir explicitamente "so o objeto JSON", sem response_format
     prompt2 = prompt + "\n\nResponda ESTRITAMENTE apenas com o objeto JSON, sem nenhum texto fora dele."
     d = chat(provider, model, prompt2, max_tokens=max_tokens, temperature=0.0, timeout=timeout)
-    content, _, _, _ = content_of(d)
-    return _extract_json(content)
+    _contabiliza(d, "texto-insistido")
+    content, fin, think, _ = content_of(d)
+    meta["finish_reason"], meta["from_thinking"] = fin, think
+    return _fim(_extract_json(content))

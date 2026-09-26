@@ -27,11 +27,16 @@ geram os `RESULTADOS-*` do lab. **As conclusões NÃO moram aqui**. A porta de e
 Os scripts vivem em subpastas por propósito; **dados ficam na raiz** (`planos/`, `cenarios/`,
 `f4-manifests/`, `fixtures-*/`, `external-fixtures/`, `own-fixtures/`):
 
-- `core/`: `hb_runner.py` (base) + `providers.py` (nuvem direta; chaves `.<prov>-key` na raiz)
+- `core/`: `hb_runner.py` (base) + `providers.py` (nuvem direta e `ollama` local, pelo mesmo caminho
+  para local e nuvem serem comparáveis; chaves `.<prov>-key` na raiz)
 - `runners/`: `hb_f3/f4/f5/f6/genre/temporal/m0/staged/agent`, `probe_l1.py`
 - `verify/`: `verify_f4.py` → `score_f3.py` → `verify_agent.py` + `calc_stats.py` (grafo junto)
-- `judges/`: juízes cross-vendor (`judge_f3/f4/s04/f4_ablation/openrouter`, `score_cmp_openrouter`)
-- `aggregate/`: `aggregate_*` + `compare_judges*` · `gen/`: digests, charts, forms, `hash_fixture.py`
+- `judges/`: juízes cross-vendor (`judge_f3/f4/s04/f4_ablation/openrouter`, `score_cmp_openrouter`);
+  `bench_juiz.py` escolhe juiz por acerto × custo × latência, com portão de virada (o veredito tem de
+  mudar quando só a autorização muda) e portão marcador (alegação falsa que o juiz carimbador confirma)
+- `aggregate/`: `aggregate_*` + `compare_judges*` · `gen/`: digests, charts, forms, `hash_fixture.py`,
+  `build_nc_repo.py` (controle negativo em escala de repositório: planta 5 defeitos L0 + 1 item
+  negativo numa cópia deste repo; gabarito e primeiro resultado em `nc-manifest.json`)
 - `ops/`: `run_*.sh` (matrizes prontas) · `legacy/`: `hb_l2_*` (defaults quebrados, registro)
 - `tools/probes/`: sondas auxiliares (estrutura intacta)
 

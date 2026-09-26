@@ -28,11 +28,16 @@ live here**. The entry point is the honest usage opinion:
 Scripts live in purpose folders; **data stays at the root** (`planos/`, `cenarios/`,
 `f4-manifests/`, `fixtures-*/`, `external-fixtures/`, `own-fixtures/`):
 
-- `core/`: `hb_runner.py` (base) + `providers.py` (direct cloud; `.<prov>-key` keys at the root)
+- `core/`: `hb_runner.py` (base) + `providers.py` (direct cloud and local `ollama`, same path so local
+  and cloud are comparable; `.<prov>-key` keys at the root)
 - `runners/`: `hb_f3/f4/f5/f6/genre/temporal/m0/staged/agent`, `probe_l1.py`
 - `verify/`: `verify_f4.py` → `score_f3.py` → `verify_agent.py` + `calc_stats.py` (graph kept together)
-- `judges/`: cross-vendor judges (`judge_f3/f4/s04/f4_ablation/openrouter`, `score_cmp_openrouter`)
-- `aggregate/`: `aggregate_*` + `compare_judges*` · `gen/`: digests, charts, forms, `hash_fixture.py`
+- `judges/`: cross-vendor judges (`judge_f3/f4/s04/f4_ablation/openrouter`, `score_cmp_openrouter`);
+  `bench_juiz.py` picks a judge by accuracy × cost × latency, with a flip gate (the verdict must
+  change when only the authorization changes) and a marker gate (a false claim a stamping judge confirms)
+- `aggregate/`: `aggregate_*` + `compare_judges*` · `gen/`: digests, charts, forms, `hash_fixture.py`,
+  `build_nc_repo.py` (repo-scale negative control: plants 5 L0 defects + 1 negative item in a copy of
+  this repo; answer key and first result in `nc-manifest.json`)
 - `ops/`: `run_*.sh` (ready-made matrices) · `legacy/`: `hb_l2_*` (broken defaults, record)
 - `tools/probes/`: auxiliary probes (structure untouched)
 

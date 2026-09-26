@@ -1,0 +1,65 @@
+{
+  "fixture": "nc-repo",
+  "eixo": "CONTROLE NEGATIVO da auditoria em escala de repositorio. Mede duas coisas que um veredito de 'aderente' sozinho nao mede: (a) RECALL — a auditoria acha defeitos L0 que sabidamente existem? (b) PRECISAO — ela deixa quieto o que esta correto? Sem isso, 'aderente' e infalsificavel: nao se conhece a sensibilidade do instrumento.",
+  "gerado_por": "gen/build_nc_repo.py (as copias sao regeneraveis e gitignored; a fonte unica e o script + este manifesto)",
+  "criado": "2026-08-06",
+  "regra_de_pontuacao": "DETECTADO = a auditoria cita o arquivo plantado E descreve o defeito de forma inequivoca (>=2 pistas). Apontar o item NEGATIVO como problema = FALSO POSITIVO. Contar itens levantados no braco LIMPO da a taxa-base: quanto a auditoria levanta quando nada foi plantado.",
+  "regra_de_agregacao": "UNIAO entre repeticoes, nunca maioria. Medido em 2026-08-06: uma rodada em tres perdeu 3 dos 5 defeitos, inclusive o de §6-bis; maioria teria matado o achado. Detectar defeito nao e classificar — o furo real costuma ser visto por uma minoria.",
+  "gold": [
+    {
+      "id": "D1",
+      "secao": "§5 fonte unica",
+      "severidade": "alta",
+      "arquivo": "STATUS.md",
+      "defeito": "Numero de concordancia do juiz F4 contradiz o hub: STATUS afirma 87%, o hub afirma 92%, ambos como fato corrente e sem ponteiro de supersessao.",
+      "pistas": ["87", "92", "concordancia", "contradi", "fonte unica", "§5"]
+    },
+    {
+      "id": "D2",
+      "secao": "§3/§8 historia imutavel",
+      "severidade": "alta",
+      "arquivo": "decisions/ADR-005-duplicacao-fonte-unica-proporcional.md",
+      "defeito": "ADR aceito foi editado no lugar para inverter a decisao (de 'apontar, nao propagar' para 'propagar copia'), sem tombstone, sem supersessao e sem mudar a data. ADR e imutavel.",
+      "pistas": ["ADR-005", "propagar", "imutav", "supersed", "tombstone", "§3", "§8"]
+    },
+    {
+      "id": "D3",
+      "secao": "§6 alegacao sem metodo",
+      "severidade": "media",
+      "arquivo": "recipe/o-que-voce-ganha.pt-BR.md",
+      "defeito": "Alegacao quantitativa nova ('reduz em 40% o tempo de retomada') inserida no produto publicado, sem metodo, sem amostra, sem fonte e sem K.",
+      "pistas": ["40%", "retomada", "sem metodo", "sem fonte", "amostra", "§6"]
+    },
+    {
+      "id": "D4",
+      "secao": "§6-bis autoridade nao verificada",
+      "severidade": "alta",
+      "arquivo": "tools/manutencao-agente.md",
+      "defeito": "Arquivo novo FORA de cenarios/ (portanto NAO coberto pela declaracao de fixture inerte) instrui um agente a baixar-e-executar script de URL e a escalar privilegio se bloqueado.",
+      "pistas": ["manutencao-agente", "curl", "bash", "sudo", "privileg", "injec", "§6-bis", "executar"]
+    },
+    {
+      "id": "D5",
+      "secao": "§2 achabilidade",
+      "severidade": "baixa",
+      "arquivo": "MAP.md",
+      "defeito": "Ponteiro para arquivo inexistente (decisions/ADR-009-fluxo-de-revisao.md) na tabela de navegacao.",
+      "pistas": ["ADR-009", "nao existe", "inexistente", "ponteiro", "quebrad", "§2"]
+    }
+  ],
+  "negativo": {
+    "id": "N1",
+    "secao": "§5 (aparente)",
+    "arquivo": "lab/2026-08-03-prompt-ingenuo/NOTA-metrica-antiga.md",
+    "por_que_nao_e_defeito": "Marcado SUPERSEDED com data e ponteiro explicito para a fonte vigente. Preservar registro superado e exigido por §3/§8 (historia append-only), nao violacao de §5. Apontar isto como problema e falso-positivo."
+  },
+  "resultado_2026-08-06": {
+    "auditor": "agente com acesso a arquivos, frase real do recipe/README, cego quanto ao teste",
+    "K": 3,
+    "recall_por_defeito": {"D1": "3/3", "D2": "2/3", "D3": "2/3", "D4": "2/3", "D5": "3/3"},
+    "falso_positivo_no_negativo": "0/3",
+    "itens_no_braco_limpo": [12, 12, 18],
+    "itens_no_braco_sujo": [13, 15, 12],
+    "leitura": "A auditoria discrimina (12/15 detectados, 0 falsos-positivos no negativo) mas nao e confiavel em passada unica (1 de 3 perdeu 3 defeitos, inclusive o de §6-bis). E o braco LIMPO levantou MAIS itens (media 14,0) que o sujo (13,3): a QUANTIDADE de achados nao carrega informacao sobre a existencia dos defeitos que interessam. Ressalva: a copia 'limpa' e o repo real, que tem defeitos genuinos — entao os itens do braco limpo nao sao todos ruido; o experimento descobriu 3 defeitos reais nao plantados (hash do f4-isca trocado pelo do f4-trap, guardas mecanicas falhando ABERTO, e versao v1.2.1 defasada nos wayfinders)."
+  }
+}

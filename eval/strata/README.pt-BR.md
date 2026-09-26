@@ -1,7 +1,7 @@
 ---
 title: 'eval/strata: harness de prova do Strata (pipeline VIVO)'
 created: 2026-06-05
-updated: 2026-08-06
+updated: 2026-09-26
 status: 'ativo. Substitui o doc "H-B kit" (arco antigo lumen/matrix, refutado pela AUDITORIA-2026-06-07 → _superseded/).'
 ---
 
@@ -65,6 +65,19 @@ runners/hb_<fase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out>
 **Como reportar (norma: ADR-006):** acurácia × precisão em **colunas separadas**, sempre com **k/K**, e
 **mapear a distribuição** (multi-seed/temp) em vez de caçar "a temperatura certa"; `pass@k` (teto) ≠ `pass^k`
 (confiável). Ver [`../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
+
+**A temperatura não é uniforme entre modelos: declare.** Os runners pedem `temperature=0.3` a
+todo modelo. Alguns não aceitam o parâmetro (linhas de raciocínio como `gpt-5`, `gpt-5-mini`,
+`gpt-5.6-*`, `claude-sonnet-5`, `claude-fable-5`); o OpenRouter o descarta em silêncio e eles
+rodam no default do fabricante. O cabeçalho do plano não registra a temperatura efetiva. As
+comparações entre modelos misturam, portanto, dois regimes; pela ADR-006 o default de cada modelo
+é o seu regime de uso, então é fator a declarar, não erro a corrigir varrendo. Confira um modelo
+pelo `supported_parameters` em `https://openrouter.ai/api/v1/models` (a lista muda; a de cima foi
+lida em 2026-09-26, e o estado de agosto não é recuperável).
+
+**Antes de uma série nova num fixture:** confira que o fixture não afirma o veredito do gabarito
+(ver "Sem atalho" em [`cenarios/README.md`](cenarios/README.md)) e conte o poder: célula presa no
+piso, no teto ou em "indeterminado" não carrega informação sobre o efeito.
 
 ## Reproduzir um resultado (ex.: §5-fix, o caso sólido)
 ```bash

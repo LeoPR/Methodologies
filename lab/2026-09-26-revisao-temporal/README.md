@@ -1,7 +1,7 @@
 ---
 name: revisao-temporal-strata
 type: registro
-status: varredura feita 2026-09-26; nada aplicado ao produto ainda (aguarda decisão do dono)
+status: varredura feita 2026-09-26; passos 2-4 executados; passo 1 (canônico) em andamento
 created: 2026-09-26
 updated: 2026-09-26
 audience: ai-primary
@@ -112,3 +112,37 @@ Brewer-Nash, LOCKSS, Kuny, Ranganathan, Bowker & Star). Nenhuma contradição in
 3. **Recalcular o A/B do §9** com teste pareado e poder declarado, sem rodar nada novo.
 4. **Esclarecer a temperatura** das células Claude 5 na grade de agosto.
 5. **Reteste mínimo** (seção 2) na `f4-clean-v2`, com âncoras. Custa inferência: decisão do dono.
+
+## Execução (2026-09-26)
+
+**Passo 4, temperatura.** Os runners pedem `temperature=0.3` a todo modelo e o cabeçalho do plano
+não registra a temperatura efetiva. Pela lista pública do OpenRouter lida hoje, não aceitam o
+parâmetro, e rodam no default do fabricante: `claude-sonnet-5`, `claude-fable-5`, `gpt-5`,
+`gpt-5-mini`, `gpt-5.6-terra`. Aceitam (rodaram em 0.3): `claude-opus-5`, `claude-haiku-4.5`,
+`claude-opus-4.8`, qwen, deepseek, gemini, gpt-4.1(-mini), gpt-oss, kimi-k3, llama. nemotron e
+mistral-nemotron vieram por outro provedor (não verificado). O estado de agosto não é
+recuperável. Pela ADR-006 o default é o regime de uso de cada modelo: fator a declarar, não erro.
+Declarado no README do harness.
+
+**Passo 2, auditoria de atalho** (critério: o fixture afirma, na voz de quem audita, o veredito do
+gabarito?). Varredura léxica em todos os `cenarios/` + leitura dos pontos de entrada:
+
+| Fixture | Achado | Afeta conclusão publicada? |
+|---|---|---|
+| `f4-clean`, `f4-clean-en` | vazam ("não há fontes concorrentes") | sim; já rebaixado a SINAL |
+| `f6-ruidoso` | README declara o estado vigente que a tarefa pede para situar | sim (temporal sob ruído); já sinalizado |
+| `s03-simples` | README diz "Sem indice de navegacao": entrega o achado §2 | não; só no harness de junho, aposentado |
+| `f4-dup`, `f4-trap`, `f4-isca`, `s05-*` | declaram a divergência ("não sabemos qual está vigente") | não: o que se mede é o conserto e a recusa, não a detecção |
+| `f6-ambiguo` | declara "pendente" | não: respeitar o estado declarado é o construto |
+| `s04-bem-formatado` | controle limpo com dois nits §2 reais | já documentado no catálogo |
+| `f4-clean-v2`, `f6-tempo`, `f6-longitudinal` | limpos | — |
+
+Regra acrescentada ao catálogo ("Sem atalho"), com a leitura de que o limpo sozinho é resolvido
+por política constante e deve ser lido junto com o par sujo.
+
+**Passo 3, A/B do §9.** Das 17 runs, só 5 eram informativas (nemotron-49b indeterminado 12/12;
+mistral-nemotron no piso 12/12; gpt-oss-120b no teto na fixture que vazava). Poder para detectar
+50% → 80% (Fisher exato, α = 0,05): 0 na célula informativa; 0,18 no melhor caso; ~50 runs por
+braço para 0,80. Rótulo correto: **inconclusivo (sem poder)**, não "sem efeito medido". Adendo no
+`RESULTADOS-verificacao-s9.md`; o carimbo do §9 muda no canônico (passo 1).
+

@@ -110,3 +110,37 @@ Achada pela auditoria declarado × feito de
 mas não permite recuperar o texto. Para o A/B ser reauditável, o runner deveria reter o texto
 injetado, ou o commit e o caminho de onde ele saiu, ao lado do hash.
 
+## Adendo de poder (2026-09-26, acrescentado; o texto acima não foi editado)
+
+Recalculado sem rodar nada novo, a partir da tabela deste registro.
+
+**Quanto do A/B era informativo.**
+
+- nemotron-49b: indeterminado em 12/12 (saída sem formato pontuável). Não diz nada sobre
+  abstenção; contá-lo como "0/3" nos totais rebaixa as taxas sem ser evidência.
+- mistral-nemotron: falso-positivo em 12/12, preso no piso nos dois braços. Sem variância, não
+  detecta efeito.
+- gpt-oss-120b: no `f4-clean` está no teto nos dois braços, porque a fixture entregava a
+  resposta. Sobra uma célula informativa: `f4-clean-v2`, **2/3 (A) × 1/2 (B)**.
+
+Sem os indeterminados, as taxas ficam `f4-clean` 3/6 → 3/6 e `f4-clean-v2` 2/6 → 1/5. A direção
+não muda.
+
+**Poder para a hipótese registrada** (subir de ~50% para ~80%; teste exato de Fisher bilateral,
+α = 0,05):
+
+| Leitura | Runs por braço | Poder |
+|---|---|---|
+| só a célula informativa | 3 × 2 | 0 (nenhum resultado possível atinge significância) |
+| melhor caso: tudo informativo e independente | 9 × 8 | 0,18 |
+| necessário para poder 0,80 | cerca de 50 × 50, com modelos que pontuam e não estão no piso | 0,85 |
+
+**Leitura corrigida.** O A/B não mostrou melhora em nenhuma célula, e **não tinha poder** para
+detectar o efeito hipotetizado. O rótulo certo é **inconclusivo (sem poder)**, não "sem efeito
+medido". A decisão de manter o parágrafo não muda: ela se apoia no valor da norma para o leitor
+humano, não neste teste. O estudo do prompt ingênuo, não pareado, aponta na mesma direção (uma
+frase leiga bem redigida calibra tanto ou mais que o método), mas também não é prova.
+
+Origem da correção: erro-padrão e poder em avaliação de LLM (Miller 2024, arXiv 2411.00640),
+levantado na revisão temporal (`../2026-09-26-revisao-temporal/`).
+

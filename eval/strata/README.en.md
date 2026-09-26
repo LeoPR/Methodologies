@@ -1,7 +1,7 @@
 ---
 title: 'eval/strata: Strata proof harness (LIVE pipeline)'
 created: 2026-06-05
-updated: 2026-08-06
+updated: 2026-09-26
 status: 'active. Replaces the "H-B kit" doc (old lumen/matrix arc, refuted by AUDITORIA-2026-06-07 → _superseded/).'
 ---
 
@@ -68,6 +68,19 @@ to **gitignored** fixtures.
 with **k/K**, and **map the distribution** (multi-seed/temp) instead of hunting for "the
 right temperature"; `pass@k` (ceiling) ≠ `pass^k` (reliable). See
 [`../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
+
+**Temperature is not uniform across models: declare it.** The runners request `temperature=0.3`
+for every model. Some models do not accept the parameter (reasoning lines such as
+`gpt-5`, `gpt-5-mini`, `gpt-5.6-*`, `claude-sonnet-5`, `claude-fable-5`); OpenRouter drops it
+silently and they run at the vendor's default. The plan header does not record the effective
+temperature. Cross-model comparisons therefore mix two regimes; per ADR-006 each model's default
+is its regime of use, so this is a factor to declare, not an error to fix by sweeping. Check a
+model with `supported_parameters` in `https://openrouter.ai/api/v1/models` (the list changes;
+the one above was read on 2026-09-26, and the August state is not recoverable).
+
+**Before a new series on a fixture:** check that the fixture does not state the answer key's
+verdict (see the "Sem atalho" principle, in Portuguese, in [`cenarios/README.md`](cenarios/README.md)), and count power: a
+cell stuck at floor, ceiling or "indeterminate" carries no information about the effect.
 
 ## Reproduce a result (e.g.: §5-fix, the solid case)
 ```bash

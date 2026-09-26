@@ -110,3 +110,9 @@ abstenção do topo não foi medida nesta grade. Além disso, o `f4-clean-en` us
 clean diz a resposta no README ("There are no competing sources."), como o `f4-clean`. Achados
 C35 e C99 de `../2026-09-26-revisao-superficie/AUDITORIA-sync.md`.
 
+Nota (2026-09-26, rótulo): o pré-registro (`PRE-REGISTRO-idioma-en.md`) só permite declarar
+"replica em inglês" se o IC 90% da diferença pareada couber em ±10 pp; senão, "indeterminado". O
+piloto F3 deu IC [−42,3; +56,7] e esta repetição declarou-se sem margem inferencial. O status
+"paridade confirmada" deve ser lido como **sem diferença detectada, equivalência não demonstrada
+(indeterminado)**. Achado K4 de `../2026-09-26-revisao-superficie/AUDITORIA-sync.md`.
+

@@ -14,14 +14,16 @@ purpose: answer, objectively, "which language should I run Strata in?". Only the
 **Short answer: run Strata in the language of whoever reads and applies it.** Both versions
 are first-class: `knowledge-architecture.en.md` is the canonical source and
 `knowledge-architecture.pt-BR.md` is the derived translation, updated in the same commit
-(ADR-008). The method was measured in both languages on 2026-08-03 with identical rosters;
-the core behavior is the same.
+(ADR-008). The method was measured in both languages on 2026-08-03 with identical rosters: no
+difference showed up in the core, but equivalence was not demonstrated either (the
+pre-registered margin was not met; the correct label is *indeterminate*).
 
-## What holds in BOTH languages (measured)
+## What was seen in BOTH languages (measured; no difference detected)
 
 - **Fixing a known defect (§5) saturates**: from affordable cloud models to the frontier top,
   every model executes the fix to standard with Strata, in PT and in EN alike (6/6 and 6/6).
-  Without Strata, almost none of them makes the fix, in either language.
+  Without Strata, the fix rarely comes out in the traceable form the answer key checks, in
+  either language (sometimes it comes out, but outside the format).
 - **Abstention (§9) is the edge, and it depends on the model**: not price, not tier, not
   language. The same models over-act or stay calibrated in both languages. Weak signal: the
   clean fixture of each language stated the answer in its own README, so part of what was

@@ -72,7 +72,8 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     gold mecânico + júri cego): `PLANO.md` + `NOTAS-shakedown.md` (diário). As conclusões
     consolidam na `OPINIAO-DE-USO.md`, não aqui.
   - `2026-08-03-idioma-en/`: **IDIOMA PT×EN**: piloto F3 (recusa; EN sem vantagem) +
-    repetição EN do núcleo F4. Fecha a paridade de prova do canônico inglês.
+    repetição EN do núcleo F4. Sem diferença detectada entre os idiomas; equivalência não
+    demonstrada (margem pré-registrada não atingida: indeterminado).
   - `2026-08-03-dev-environment-revisao/`: revisão do dev-environment **vivo** (2026-08-03);
     registro lateral, como o estudo de 2026-06-04: NÃO é produto nem evidência do Strata.
   - `2026-08-03-prompt-ingenuo/`: **braço NAIVE** ("uma IA precisa do Strata para o quê?"):

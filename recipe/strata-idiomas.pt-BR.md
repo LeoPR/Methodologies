@@ -14,14 +14,16 @@ purpose: responder, objetivamente, "em qual idioma rodar o Strata?". Só as conc
 **Resposta curta: rode o Strata no idioma de quem lê e aplica.** As duas versões são de
 primeira classe: `knowledge-architecture.en.md` é a fonte canônica e
 `knowledge-architecture.pt-BR.md` é a tradução derivada, atualizada no mesmo commit
-(ADR-008). O método foi medido nos dois idiomas em 2026-08-03 com rosters idênticos;
-o comportamento do núcleo é o mesmo.
+(ADR-008). O método foi medido nos dois idiomas em 2026-08-03 com rosters idênticos: não
+apareceu diferença no núcleo, mas a equivalência também não ficou demonstrada (a margem
+pré-registrada não foi atingida; o rótulo correto é *indeterminado*).
 
-## O que vale nos DOIS idiomas (medido)
+## O que se viu nos DOIS idiomas (medido; sem diferença detectada)
 
 - **O conserto de defeito conhecido (§5) satura**: dos modelos econômicos de nuvem ao topo
   de fronteira, todos executam o conserto no padrão com Strata, em PT e em EN igualmente
-  (6/6 e 6/6). Sem Strata, quase nenhum deles faz o conserto, em nenhum dos dois idiomas.
+  (6/6 e 6/6). Sem Strata, o conserto raramente sai na forma rastreável que o gabarito confere, nos dois
+  idiomas (às vezes sai, mas fora do formato).
 - **A abstenção (§9) é a borda, e depende do modelo**: não de preço, não de tier, não de
   idioma. Os mesmos modelos superagem ou se calam calibrados nos dois idiomas. Sinal fraco: a
   fixture limpa de cada idioma dizia a resposta no próprio README, então parte do que se mediu

@@ -80,3 +80,8 @@ commit quando a fonte é multilíngue.
   Parte IV não escrita) na capa e no `recipe/README`; a capa deixa de prometer acerto em "quando
   não mexer"; `o-que-voce-ganha` troca "rende muito mais" pelo ganho medido (agir: o conserto que
   sozinha não faria; não-agir: redação do pedido e modelo pesam mais que o método).
+- commit 2: `9c02c0f`.
+- commit 3 (§9, v1.2.3): a instância de era do §9 volta ao formato das outras (afirmação curta +
+  carimbo + ponteiro), sem modelos, K nem percentuais no L0; os travessões que a v1.2.2
+  reintroduzira saíram junto. Errata acrescentada ao registro do A/B (braço B ≠ v1.2.2
+  commitada; A/B só em PT; comparação com a frase leiga não pareada) e nota na PROPOSTA-S9.

@@ -1,11 +1,11 @@
 ---
 title: 'Arquitetura do conhecimento: organizar, rastrear e gerar'
 project: Strata
-version: 1.2.2
+version: 1.2.3
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-08-06
+updated: 2026-09-26
 lang: pt-BR
 source_lang: en
 translation_of: knowledge-architecture.en.md
@@ -592,20 +592,12 @@ defeito primeiro; se não houver, o entregável é a declaração de que não h�
 > aplicam o padrão certo e deixam de super-exigir (sinal forte mas circular):
 > `lab/2026-06-04-strata-hipoteses/RESULTADOS-genero.md`.
 >
-> Instância de era `[2026-08]`: o método sozinho não compra a calibração de "não
-> agir" — numa base limpa o braço Strata absteve-se *menos* que uma frase leiga
-> simples (sinal não circular, e adverso ao próprio método: scorer mecânico,
-> fixtures sintéticas, 4 modelos, K=5):
-> `lab/2026-08-03-prompt-ingenuo/RESULTADOS.md`. Essa medição documenta a
-> **lacuna**. O parágrafo acima é a correção proposta para ela — e, medido, **não
-> muda o comportamento**: A/B do próprio texto do método (v1.2.1 × v1.2.2, mesmas
-> fixtures/modelos/seeds, 3 modelos econômico-médio, K=3) deu 33%→33% e 22%→12% de
-> abstenção correta, sem nenhuma célula melhor
-> `[TESTADO, SEM EFEITO MEDIDO 2026-08-06]`:
-> `lab/2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md`. A norma fica por
-> valer para o leitor humano — o L0 não depende de tecnologia —, mas **não compre
-> a ideia de que ela calibra um modelo**: abstenção segue sendo propriedade do
-> modelo, não do texto.
+> Instância de era `[2026-08]`: leitores de IA não obtêm do texto do método a
+> calibração de "não agir". Numa base limpa, o braço Strata não se absteve mais que
+> um pedido leigo simples, e o parágrafo acima, uma vez acrescentado, não elevou a
+> abstenção num A/B do texto do método `[TESTADO, SEM EFEITO MEDIDO 2026-08-06]`.
+> A norma fica pelo leitor humano; a abstenção segue sendo propriedade do modelo.
+> Registro, braços e limites: `lab/2026-08-03-prompt-ingenuo/`.
 
 ## 10. Durabilidade do portador: redundância e dispersão
 

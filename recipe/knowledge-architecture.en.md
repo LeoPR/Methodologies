@@ -1,11 +1,11 @@
 ---
 title: 'Knowledge architecture: organize, track, and generate'
 project: Strata
-version: 1.2.2
+version: 1.2.3
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-08-06
+updated: 2026-09-26
 lang: en
 canonical-source: Acadêmicos/Methodologies/recipe/knowledge-architecture.en.md (Strata project). This English file is the canonical source (authority migrated 2026-08-01 by explicit decision; see ADR-008, addendum); the Portuguese file is a derived translation.
 license: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
@@ -596,20 +596,12 @@ first; if there is none, the deliverable is the statement that there is none.
 > right standard and stop over-demanding (strong but circular signal):
 > `lab/2026-06-04-strata-hipoteses/RESULTADOS-genero.md`.
 >
-> Era instance `[2026-08]`: the method alone does not buy the "do not act"
-> calibration — on a clean base the Strata arm abstained *less* than a plain lay
-> phrase (non-circular signal, and adverse to the method itself: mechanical
-> scorer, synthetic fixtures, 4 models, K=5):
-> `lab/2026-08-03-prompt-ingenuo/RESULTADOS.md`. That measurement documents the
-> **gap**. The paragraph above is the correction proposed for it — and, once
-> measured, it **does not change behaviour**: an A/B of the method text itself
-> (v1.2.1 × v1.2.2, same fixtures/models/seeds, 3 affordable-to-mid models, K=3)
-> gave 33%→33% and 22%→12% correct abstention, with no cell improving
-> `[TESTED, NO MEASURED EFFECT 2026-08-06]`:
-> `lab/2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md`. The norm stands
-> for the human reader — the L0 does not depend on technology — but **do not buy
-> the idea that it calibrates a model**: abstention remains a property of the
-> model, not of the text.
+> Era instance `[2026-08]`: AI readers do not get the "do not act" calibration
+> from the method's text. On a clean base the Strata arm did not abstain more than
+> a plain lay request, and the paragraph above, once added, did not raise
+> abstention in an A/B of the method text `[TESTED, NO MEASURED EFFECT 2026-08-06]`.
+> The norm stands for the human reader; abstention remains a property of the model.
+> Record, arms and limits: `lab/2026-08-03-prompt-ingenuo/`.
 
 ## 10. Durability of the carrier: redundancy and dispersion
 

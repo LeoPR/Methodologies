@@ -3,7 +3,7 @@ name: resultados-verificacao-s9
 type: lab-resultados
 status: fechado
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-09-26
 audience: ai-primary
 applies-to: verificacao A/B do paragrafo §9 "quando nao agir" (PROPOSTA-S9 aplicada em v1.2.2)
 ---
@@ -83,3 +83,30 @@ Três consertos que eram prerequisito e agora estão no harness:
 `hb_f4.py --strata` (A/B de versão do método sem trocar arquivo no disco); `method_sha` no header
 do plano, derivado do texto injetado e não do caminho (§3 — antes duas rodadas eram
 indistinguíveis no traço); e provedores de tier gratuito no `hb_f4.py`, que só o `hb_f3.py` tinha.
+
+## Errata (2026-09-26, acrescentada; o texto acima não foi editado)
+
+Achada pela auditoria declarado × feito de
+[`lab/2026-09-26-revisao-superficie/`](../2026-09-26-revisao-superficie/AUDITORIA-sync.md)
+(achados C56, C63/C106, C49/C103) e reconferida à mão.
+
+1. **O braço B não é a v1.2.2 commitada.** Os planos `s9ab-v122-*` trazem
+   `method_sha=4ef1fd5ea98e`. A v1.2.2 que entrou no git (`3e92195`) tem `6c126752d37a` no PT e
+   `d01111ae16df` no EN. O braço A confere com a v1.2.1 PT (`68af3a9f6bc1`). O texto do braço B
+   não foi retido (os planos são gitignored e guardam só o hash). Pelo que este registro diz
+   acima, o braço B tinha o parágrafo e a instância de era ainda com o carimbo anterior ao
+   resultado; o commit trocou essa nota pelo resultado. Que o **parágrafo da norma** é o mesmo
+   nos dois textos é afirmação do registro, não verificação por hash.
+2. **O A/B rodou só em PT.** Os planos têm `lang=pt`. O portão da PROPOSTA-S9 pedia PT+EN, e a
+   expressão inglesa não foi testada. Pela regra do projeto, as duas expressões fazem o mesmo
+   trabalho intelectual, então o achado vale para o método. O desvio do portão pré-registrado
+   fica declarado aqui.
+3. **O parêntese do canônico sobre a comparação com a frase leiga descrevia só um braço.**
+   "4 models, K=5" vale para o naive N2. O braço Strata veio da grade f4g (7 modelos, K=2), com 2
+   modelos em comum, e os dois braços rodaram na `f4-clean`, que vazava a resposta. A comparação
+   não é pareada. A v1.2.3 tirou esses números do produto e aponta para esta pasta.
+
+**Lição de instrumento (não implementada aqui):** o `method_sha` prova que dois textos diferem,
+mas não permite recuperar o texto. Para o A/B ser reauditável, o runner deveria reter o texto
+injetado, ou o commit e o caminho de onde ele saiu, ao lado do hash.
+

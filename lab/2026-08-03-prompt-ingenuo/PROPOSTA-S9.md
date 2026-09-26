@@ -3,7 +3,7 @@ name: proposta-s9-quando-nao-agir
 type: lab-proposta
 status: aprovada-aplicada-VERIFICADA-sem-efeito
 created: 2026-08-03
-updated: 2026-08-06
+updated: 2026-09-26
 audience: ai-primary
 applies-to: proposta de revisao pontual do §9 (L0 fechado; requer aprovacao do dono)
 ---
@@ -82,3 +82,6 @@ O re-teste dirigido que esta proposta estipulou como portão foi executado:
 (subir de ~50% para ~80%) FALHOU**: A/B v1.2.1 × v1.2.2 deu 33%→33% e 22%→12%, sem nenhuma
 célula melhor. O parágrafo fica no produto por decisão do dono (norma útil ao leitor humano),
 com carimbo `[TESTADO, SEM EFEITO MEDIDO]` no §9.
+
+Nota (2026-09-26): o portão rodou só em PT, não PT+EN, e o texto testado como v1.2.2 difere do
+commitado. Ver a errata em [RESULTADOS-verificacao-s9.md](RESULTADOS-verificacao-s9.md).

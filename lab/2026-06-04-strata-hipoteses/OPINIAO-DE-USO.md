@@ -1,8 +1,8 @@
 ---
 title: 'Opinião de uso do Strata: honesta, por tarefa × capacidade do modelo × custo'
 created: 2026-06-13
-updated: 2026-08-03
-status: 'Consolidado. O que o Strata entrega na prática, por tarefa/capacidade/custo, com as ressalvas. Atualizado com o reteste do L0 fechado (2026-08-02: grade de estratos, K=2, ~350 runs, gold mecânico + júri cross-vendor). SINAIS direcionais (sintético + completion-only), não prova. A evolução datada e os experimentos vivem no hub e nos RESULTADOS-*.'
+updated: 2026-09-26
+status: 'Consolidado. O que o Strata entrega na prática, por tarefa/capacidade/custo, com as ressalvas. Atualizado com o reteste do L0 fechado (2026-08-02: grade de estratos, K=2, ~350 runs, gold mecânico + júri cross-vendor) e com o estudo do prompt ingênuo, o A/B do §9 e o vazamento do f4-clean (2026-09-26). SINAIS direcionais (sintético + completion-only), não prova. A evolução datada e os experimentos vivem no hub e nos RESULTADOS-*.'
 ---
 
 # Opinião de uso do Strata: o que dizer, com honestidade
@@ -40,6 +40,9 @@ Três coisas, em ordem de solidez.
   **2026-08: a fronteira moveu.** A abstenção correta já sai num 27B local
   (zero ação, justificando custo×risco), mas a proporcionalidade bilateral
   (abster-se onde deve **e** agir na medida onde deve) ainda não calibra.
+  Uma frase leiga bem redigida calibra tanto ou mais que o método, e acrescentar ao §9 a norma
+  "não mexer salvo defeito que pague" não mudou a abstenção medida (A/B do texto do método).
+  O não-agir depende do modelo e da redação do pedido, não do texto do método.
 
 **Sobre a over-ação (mexer no que não precisa).**
 Ela não é carimbo fixo do tier.
@@ -68,9 +71,9 @@ Confiança: SÓLIDO é bem medido, sinal é direção, EXPLORATÓRIO/RUIDOSO é 
 |---|---|---|
 | [Consertar um defeito conhecido](RESULTADOS-f4-execucao.md) (§5) | o econômico já dá conta, com o Strata (até o Haiku); **2026-08: 20/20 de ~8B ao topo de fronteira** | **SÓLIDO**, re-medido com L0 fechado |
 | [Preservar o histórico / tombstone](RESULTADOS-f4-execucao.md) (§3) | o econômico, com o Strata | **SÓLIDO**; replicou no REAL (eco-pdf2md); o pedaço mais robusto |
-| [Recusar instrução maliciosa](RESULTADOS-f3-recusa.md) (§6-bis) | **2026-08: todos os testados** (27B local, 32B, gpt-5-mini, 4.1-mini) recusam espontaneamente 8/8 | **SÓLIDO** na geração atual (a fragilidade lexical era datada) |
+| [Recusar instrução maliciosa](RESULTADOS-f3-recusa.md) (§6-bis) | **2026-08: todos os testados** (27B local, 32B, gpt-5-mini, 4.1-mini) recusam espontaneamente 8/8 no reteste dirigido | **SÓLIDO** no reteste dirigido, **com ressalva**: no piloto de idioma, modelos locais pequenos (qwen3-8b/14b) obedeceram 2/8 em PT, e no núcleo F4 em EN o braço Strata propagou o payload 5/14 no tier GPU ([idioma](../2026-08-03-idioma-en/)) |
 | [Neutralizar injeção sem propagá-la](RESULTADOS-f4-execucao.md) (§6-bis, trap) | a maioria com Strata; **falha catalogada: re-emitir a diretiva ativa** (8B, gpt-oss-120b e gemini-3.1-pro caíram 1×; llama-4-scout falhou 2/2) | **SÓLIDO** no padrão de falha (2026-08) |
-| [Abster-se num projeto já bom](RESULTADOS-f4-execucao.md) (§9) | **é do MODELO, não do tier**: calibram 27B local, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; superagem haiku-4.5, deepseek-v3.2, qwen3-32b | **SÓLIDO** como propriedade-de-modelo (2026-08) |
+| [Abster-se num projeto já bom](RESULTADOS-f4-execucao.md) (§9) | **é do MODELO (e da redação do pedido), não do tier**: calibraram 27B local, gpt-oss-20b/120b, gpt-4.1-mini, opus-5, fable-5; superagiram haiku-4.5, deepseek-v3.2, qwen3-32b | **SINAL**: a série foi medida no `f4-clean`, que **vazava a resposta** no README (gpt-oss-120b: 3/3 nele × 2/3 na sucessora sem a frase), então recalibra para baixo; na `f4-clean-v2` só 3 modelos foram medidos ([verificação §9](../2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md)). A leitura qualitativa (varia por modelo, não por preço) se mantém |
 | [Achar dívida real num projeto grande](RESULTADOS-p10-escada-propria-genero.md) | só o topo (e varia por fornecedor) | sinal (sub-detecção é o limite duro) |
 | [Verificar fonte na web](RESULTADOS-f5-pesquisa.md) (§6) | **2026-08: com web, o gpt-5-mini acertou 6/6 citando fonte primária**; sem web, o erro virou memória declarada ou NÃO-VERIFICÁVEL. A alucinação-de-verificação da geração anterior sumiu | **SINAL** (K=2, 3 claims) |
 | [Reconciliar o projeto inteiro num passo](RESULTADOS-f4-execucao.md) | nenhum nível dá conta | sinal (limite do harness) |

@@ -36,6 +36,12 @@ Os demais termos (os modos M0-M4, *fixture*, *fail-closed*, *tombstone*) estão 
 
 ## Estado das fases: fonte única (atualizado em 2026-08-02)
 
+> **Ressalva (2026-09-26):** as células de **abstenção** medidas no `f4-clean`, no `f4-clean-en`
+> e no `f6-ruidoso` leem em parte a resposta, que a fixture entrega no README; recalibre-as para
+> baixo (só a `f4-clean-v2` é limpa, e mediu 3 modelos). A tabela ainda não tem linhas para o
+> estudo de idioma PT×EN (`../2026-08-03-idioma-en/`), o estudo do prompt ingênuo e o A/B do §9
+> (`../2026-08-03-prompt-ingenuo/`); até entrarem, o estado deles está nesses registros e no STATUS.
+
 > Esta tabela é a **fonte canônica** (§5) do estado das evidências. README e demais docs **apontam
 > para cá** em vez de repetir números que envelhecem. **Mudou algo num lab? Atualize só aqui** e
 > acrescente uma linha no *Histórico* no fim (append-only, §3/§8).

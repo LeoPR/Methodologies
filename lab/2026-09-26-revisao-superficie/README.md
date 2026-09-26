@@ -120,3 +120,12 @@ Ver as linhas "pendente (dono)" em [`AUDITORIA-sync.md`](AUDITORIA-sync.md). Os 
   banco de juiz) sem declaração (C4, C21, C116, C117).
 - `strata-com-ia` e `strata-idiomas` herdam números da grade 2026-08 com as mesmas ressalvas
   (C34 a C44, exceto C42, tratado no commit 5).
+
+### Bloco 3: executado em parte
+
+- `2440ca7`: recusa EN corrigida no STATUS (errata no RESULTADOS naive, C1); aviso de vazamento
+  no catálogo de fixtures para `f4-clean-en` e `f6-ruidoso` (C99, K2, C8, C115).
+- `0e7ec49`: OPINIAO-DE-USO e hub com a ressalva do vazamento, o estudo naive e o A/B do §9
+  (C0, C19, C71, C72, C98, C74; parcial em C7/C76: faltam as linhas próprias na tabela do hub).
+- Seguem pendentes: política de payload (C118), outreach (K0, K3, K4), trabalho não commitado
+  do eval, `strata-com-ia`/`strata-idiomas` (C34 a C44) e os de severidade baixa.

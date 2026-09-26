@@ -147,7 +147,8 @@ on synthetic scenarios, not proofs**.
   usually refuses, but not every model and not every time. Review the output; per-model
   detail is in [`strata-com-ia.en.md`](strata-com-ia.en.md).
 - **Knowing when *not* to act (§9)**: it depends on the **model** (not on its price tier) and
-  on **how the request is worded**; the method's text does not buy it (tested).
+  on **how the request is worded**; there is no evidence that the method's text buys it (the
+  A/B was inconclusive).
 - **Autonomous audit of a real project**: it only paid off with the top model. With a mid or
   affordable model, use the checklist and keep a human in the loop.
 

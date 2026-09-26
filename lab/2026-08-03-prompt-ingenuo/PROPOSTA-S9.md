@@ -85,3 +85,7 @@ com carimbo `[TESTADO, SEM EFEITO MEDIDO]` no §9.
 
 Nota (2026-09-26): o portão rodou só em PT, não PT+EN, e o texto testado como v1.2.2 difere do
 commitado. Ver a errata em [RESULTADOS-verificacao-s9.md](RESULTADOS-verificacao-s9.md).
+
+Nota (2026-09-26, poder): o A/B não tinha poder para a expectativa registrada (0 na única célula
+informativa; 0,18 no melhor caso). "FALHOU" deve ser lido como **inconclusivo**. Ver o adendo de
+poder em [RESULTADOS-verificacao-s9.md](RESULTADOS-verificacao-s9.md).

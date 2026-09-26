@@ -148,7 +148,8 @@ cenários sintéticos, não provas**.
   mas não todo modelo nem toda vez. Revise a saída; o detalhe por modelo está em
   [`strata-com-ia.pt-BR.md`](strata-com-ia.pt-BR.md).
 - **Saber quando *não* agir (§9)**: depende do **modelo** (não do seu tier de preço) e da
-  **redação do pedido**; o texto do método não compra isso (testado).
+  **redação do pedido**; não há evidência de que o texto do método compre isso (o A/B foi
+  inconclusivo).
 - **Auditoria autônoma de projeto real**: só rendeu com o modelo de topo. Com modelo médio
   ou econômico, use a checklist e mantenha um humano no loop.
 

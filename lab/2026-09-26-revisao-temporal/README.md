@@ -1,7 +1,7 @@
 ---
 name: revisao-temporal-strata
 type: registro
-status: varredura feita 2026-09-26; passos 2-4 executados; passo 1 (canônico) em andamento
+status: executada 2026-09-26 (passos 1-4); pendente só o reteste, que custa inferência
 created: 2026-09-26
 updated: 2026-09-26
 audience: ai-primary
@@ -15,8 +15,9 @@ as formalizações do L1 e as ferramentas do L2 continuam corretas, e (4) se o t
 por humano, diz o que as fontes citadas dizem.
 
 Método: quatro agentes de pesquisa em paralelo, só leitura (três com busca web; a revisão do L0
-foi feita por conhecimento de referência, sem web). Nenhum achado abaixo foi aplicado. Onde a
-fonte é secundária ou não foi aberta, está marcado.
+foi feita por conhecimento de referência, sem web). As seções 1 a 4 registram os achados como
+foram levantados; o que foi aplicado, e com qual verificação, está em "Execução". Onde a fonte é
+secundária ou não foi aberta, está marcado.
 
 ## 1. Métodos de avaliação (o que muda no harness)
 
@@ -145,4 +146,25 @@ mistral-nemotron no piso 12/12; gpt-oss-120b no teto na fixture que vazava). Pod
 50% → 80% (Fisher exato, α = 0,05): 0 na célula informativa; 0,18 no melhor caso; ~50 runs por
 braço para 0,80. Rótulo correto: **inconclusivo (sem poder)**, não "sem efeito medido". Adendo no
 `RESULTADOS-verificacao-s9.md`; o carimbo do §9 muda no canônico (passo 1).
+
+**Passo 1, canônico v1.2.5.** Um agente com busca web conferiu os 17 itens das seções 3 e 4 na
+fonte (URLs e datas no relatório do agente; acesso em 2026-09-26). Todos confirmados ou
+confirmados em parte; um refutado em parte: Polybius VI.34–36 descreve a tábua da senha e as
+fichas da ronda, **não** uma contrassenha. Três pontos em que a verificação corrigiu a seção 4:
+
+- Claerbout & Karrenbach 1992 (*SEG Expanded Abstracts*, pp. 601–604) **cunham** a expressão
+  "reproducible research" no sentido computacional; não cunham "reprodutibilidade".
+- As marcas tipadas de ausência de Codd aparecem em 1986 (*SIGMOD Record* 15(4)) e no livro
+  *RM/V2* (1990).
+- EU AI Act: o prazo de 2-dez-2026 do Art. 50(2) (Art. 111(4), Reg. (UE) 2026/1744) foi conferido
+  na versão consolidada de artificialintelligenceact.eu, porque o EUR-Lex bloqueou o texto
+  completo (o considerando 38 foi lido no EUR-Lex).
+
+Aplicado no par EN/PT: as correções das citações do L0, com carimbo `[WEB ✓ 2026-09-26]`; o
+quarto ciclo no mapa de fundamentação da Parte I; OAIS 2025, Canadian Task Force e Hulme nas
+linhas do L1; C2PA 2.4 e ISO 22144 em rascunho, OTel em repositório próprio e as Guidelines do
+Art. 50 no L2; o carimbo do §9 como `[TESTADO 2026-08-06: INCONCLUSIVO]`. Com a correção de
+Polybius, a prosa do §6-bis troca a "contrassenha em canal separado" pela senha em tábua
+devolvida a quem a emitiu. Um revisor independente conferiu o diff (paridade, markdown, regra
+"sem produto, sem data" no L0) e achou cinco defeitos, corrigidos antes do commit.
 

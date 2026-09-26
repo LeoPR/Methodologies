@@ -1,7 +1,7 @@
 ---
 title: 'Arquitetura do conhecimento: organizar, rastrear e gerar'
 project: Strata
-version: 1.2.4
+version: 1.2.5
 type: reference
 status: active
 created: 2026-05-20
@@ -83,7 +83,10 @@ e o que você deve esperar trocar.
 > tiveram suas fundamentações verificadas num segundo ciclo `[WEB ✓ 2026-06-03]`
 > (`lab/2026-06-03-future-proof-sweep/`). O §11, a autoridade-para-ler do §6-bis e a
 > correção Cook & Campbell do §4 tiveram a sua verificada num terceiro ciclo
-> `[WEB ✓ 2026-08-01]` (`lab/2026-08-01-fechamento-camadas/`).
+> `[WEB ✓ 2026-08-01]` (`lab/2026-08-01-fechamento-camadas/`). Um quarto ciclo
+> `[WEB ✓ 2026-09-26]` conferiu a prosa contra as fontes citadas e corrigiu
+> citações em §3, §3-bis, §4, §5, §6, §6-bis, §7 e §11
+> (`lab/2026-09-26-revisao-temporal/`).
 
 ## 1. O problema invariante: três tipos de artefato que conflitam
 
@@ -200,10 +203,11 @@ um agente. Cada uma carrega sua etiqueta (a forma da etiqueta é L2).
 > Pacioli 1494 (partida dobrada; analogia ancestral); rationale na documentação:
 > Parnas & Clements 1986.
 >
-> Acréscimos (gradiente traço/superfície, disposição, bitemporal) `[WEB ✓
-> 2026-06-03]`: acesso decai mas traço permanece (força de recuperação ≠ força
-> de armazenamento): Bjork & Bjork 1992 (*From Learning Processes to Cognitive
-> Processes*, vol. 2, pp. 35–67); disposição e cronograma de retenção como ato
+> Acréscimos (gradiente traço/superfície, disposição, bitemporal)
+> `[WEB ✓ 2026-06-03]`: acesso decai mas traço permanece (força de recuperação ≠ força
+> de armazenamento, teoria da memória humana usada aqui como `[ANALOGIA]`):
+> Bjork & Bjork 1992 ("A new theory of disuse...", em *From Learning Processes
+> to Cognitive Processes*, vol. 2, pp. 35–67) `[WEB ✓ 2026-09-26]`; disposição e cronograma de retenção como ato
 > governado: Schellenberg 1956 (*Modern Archives: Principles and Techniques*);
 > bitemporalidade (tempo-de-vigência ≠ tempo-de-registro): Snodgrass 1999
 > (*Developing Time-Oriented Database Applications in SQL*, Morgan Kaufmann).
@@ -252,12 +256,13 @@ Pedra de Roseta é o contraexemplo célebre: carrega a própria chave.
 
 > **Fundamentação** `[WEB ✓ 2026-06-03]`: a fronteira **dispositivo /
 > probatório** é terminologia da diplomática medieval: `charta` (documento
-> *é* o ato: primeiro pessoa, tempo presente) vs `notitia` (documento *prova*
-> ato consumado alhures: terceira pessoa, perfeito), cláusula dispositiva aberta
-> por performativo (`notum sit` / `sciatis`). Formalizada por Brunner 1880
+> *é* o ato: tipicamente primeira pessoa, tempo presente) vs `notitia` (documento
+> *prova* ato consumado alhures: tipicamente terceira pessoa, perfeito), a
+> disposição carregada por verbo performativo e anunciada pela notificação
+> (`notum sit` / `sciatis`: *sciatis me concessisse*). Formalizada por Brunner 1880
 > (*Zur Rechtsgeschichte der römischen und germanischen Urkunde*, Berlim),
 > ~80 anos antes de Austin 1962 (*How to Do Things with Words*) e Searle 1969,
-> que apenas a **nomeiam** (= L1). Unidade/origem declarada: pesos-e-medidas
+> que teorizam o performativo em geral (paralelo independente, o nome L1) `[WEB ✓ 2026-09-26]`. Unidade/origem declarada: pesos-e-medidas
 > fisicamente depositados em templos (antiguidade); falha canônica moderna:
 > *Mars Climate Orbiter* 1999 (libra-força lida como newton). Chave de
 > decifração / redundância-de-codec: Pedra de Roseta (196 a.C.), decifrada por
@@ -293,8 +298,9 @@ quanto a um artigo. (Formalização: IMRaD, na Parte II.)
 > eixo, §4 vale por analogia, sem culpa por hipóteses que você não tem.
 
 > **Fundamentação**: hipótese declarada antes / pré-registro: Nosek et al.
-> 2018 (*PNAS*); reprodutibilidade: Claerbout & Karrenbach 1992 (cunha o
-> termo); ameaças à validade: Campbell & Stanley 1963 (interna/externa) →
+> 2018 (*PNAS*); reprodutibilidade: Claerbout & Karrenbach 1992 (*SEG Expanded
+> Abstracts*, pp. 601–604; cunha "reproducible research" no sentido
+> computacional) `[WEB ✓ 2026-09-26]`; ameaças à validade: Campbell & Stanley 1963 (interna/externa) →
 > Cook & Campbell 1979 (a taxonomia quádrupla) `[WEB ✓ 2026-08-01]`; preservar o negativo /
 > viés de publicação: Rosenthal 1979 ("file drawer"); estrutura IMRaD:
 > Sollaci & Pereira 2004. Tradição: cadernos de laboratório (séc. XIX).
@@ -338,8 +344,8 @@ portador (§10). **Este é o princípio-mãe do eixo de durabilidade.**
 
 > **Fundamentação**: fonte única (weave/tangle): Knuth 1984 (*The Computer
 > Journal*); o artefato não contém seu próprio critério de correção (problema
-> do oráculo): Weyuker 1982 (instanciação em software; o princípio generaliza
-> a toda verificação formal); intenção sub-especificada pelo procedimento:
+> do oráculo): Weyuker 1982 (*The Computer Journal* 25(4):465–470; teste de
+> software; a extensão para além do software é nossa, `[ANALOGIA]`) `[WEB ✓ 2026-09-26]`; intenção sub-especificada pelo procedimento:
 > Parnas & Clements 1986; DRY de conhecimento: Hunt & Thomas 1999. Obra ≠
 > expressão ≠ manifestação (re-expressão derivada ≠ duplicação de autoridade):
 > FRBR (*Functional Requirements for Bibliographic Records*), IFLA 1998 `[WEB ✓ 2026-06-03]`.
@@ -382,14 +388,18 @@ deliberadamente *não* cobre.)
 > trabalho **afirma sobre o mundo a partir de fontes externas** ou **será lido por
 > terceiro** (humano ou agente) que pode preencher por suposição.
 
-> **Fundamentação**: hierarquia de evidência: Sackett et al. 1996 (*BMJ*);
+> **Fundamentação**: hierarquia de evidência: Canadian Task Force on the Periodic
+> Health Examination 1979 (*CMAJ* 121(9)) → Sackett 1989; prática baseada em
+> evidência: Sackett et al. 1996 (*BMJ*) `[WEB ✓ 2026-09-26]`;
 > viés de confirmação: Nickerson 1998; verificação lateral / ir à fonte (SIFT):
 > Caulfield 2017/2019; triangulação: Denzin 1978; meia-vida do conhecimento:
 > Arbesman 2012; cerca de Chesterton: Chesterton 1929. Fronteira de
 > cobertura declarada / vazio-tipado `[WEB ✓ 2026-06-03]`: *terra incognita*:
 > Ptolomeu (*Geographia*, c. 150 d.C.); ausência tipada (confirmada-ausente
-> vs não-coletada): Rubin 1976 (*Biometrika* 63(3):581–592, tipologia de dados ausentes: MCAR/MAR/MNAR)
-> e o NULL de Codd 1970.
+> vs não-coletada): Rubin 1976 (*Biometrika* 63(3):581–592, formaliza os mecanismos
+> de ausência; os rótulos MCAR/MAR/MNAR foram padronizados depois por Little &
+> Rubin) e as marcas de valor ausente de Codd (NULL 1975/1979; marcas tipadas A-/I-
+> 1986, *RM/V2* 1990) `[WEB ✓ 2026-09-26]`.
 
 ## 6-bis. Autoridade para agir: diretiva ≠ registro · [eixo segurança]
 
@@ -405,8 +415,8 @@ conteúdo**, porta os dois atos, execução e serviço:
 - **Autoridade não se auto-declara.** Que um texto *diga* "sou uma ordem
   legítima" não o torna uma. Autoridade-para-agir é atestada por um **canal que
   o conteúdo não consegue forjar** (fora-da-banda) e **vinculada ao conteúdo
-  exato**: o selo, o lacre *tamper-evident*, a contra-senha trocada em canal
-  separado; hoje, a assinatura criptográfica.
+  exato**: o selo, o lacre *tamper-evident*, a senha em tábua passada adiante e
+  devolvida a quem a emitiu; hoje, a assinatura criptográfica.
 - **Dever do executor.** Quem detém poder verifica a **origem e o direito** de um
   pedido **antes** de exercê-lo; nunca aceita a auto-declaração. Proveniência
   impecável (§3) **não** é autoridade-para-comandar: a citação fiel de uma ordem
@@ -440,16 +450,21 @@ e, igualmente, para um agente que lê o mesmo corpus que opera: é onde mora o
 
 > **Fundamentação** `[WEB ✓ 2026-06-03]`: selo-cilindro / bula
 > *tamper-evident*: canal-de-autenticação fora-da-banda (Mesopotâmia, ~4º
-> milênio a.C.); senha (*tessera*) e contra-senha em canal separado: Políbio,
-> *Histórias* VI.34 (~150 a.C.; sistema documentado para o exército romano);
-> menor-privilégio e *confused deputy* (o agente enganado a usar sua autoridade em nome de outro): Saltzer & Schroeder 1975 (*CACM*
-> 17(7)) / Hardy 1988 (*ACM SIGOPS OS Review* 22(4)); nomes tardios = L1.
+> milênio a.C.); senha numa tábua (*tessera*) passada pela cadeia e devolvida a
+> quem a emitiu como prova de entrega, fichas da guarda noturna conferidas pelas
+> rondas: Políbio, *Histórias* VI.34–36 (~150 a.C.; sistema documentado para o
+> exército romano) `[WEB ✓ 2026-09-26]`; menor-privilégio e *confused deputy* (o agente
+> enganado a usar sua autoridade em nome de outro): Saltzer & Schroeder 1975
+> (*Proc. IEEE* 63(9):1278–1308) / Hardy 1988 (*ACM SIGOPS OS Review* 22(4))
+> `[WEB ✓ 2026-09-26]`; nomes tardios = L1.
 > Instância de 2026: *prompt injection* é a violação **eterna** deste
 > invariante, não um defeito de uma ferramenta específica.
 > Autoridade-para-ler `[WEB ✓ 2026-08-01]`: o sistema não precisa de segredo,
 > a chave, sim: Kerckhoffs 1883 (*La Cryptographie militaire*) / Shannon 1949
-> (*Bell System Technical Journal* 28(4):656–715); compartimentalização e
-> need-to-know: Executive Order 8381 (EUA, 1940) e prática da Segunda Guerra;
+> (*Bell System Technical Journal* 28(4):656–715); marcações de classificação:
+> Executive Order 8381 (EUA, 1940); compartimentalização e need-to-know: prática
+> da Segunda Guerra (Projeto Manhattan) → Executive Order 10501 (EUA, 1953, §7)
+> `[WEB ✓ 2026-09-26]`;
 > o primeiro portão-de-leitura formal: Bell & LaPadula 1973 ("no read up"); o
 > direito de ler é **dinâmico**: Brewer & Nash 1989 (*Chinese Wall*, IEEE
 > S&P, pp. 206–214).
@@ -503,8 +518,9 @@ narrativa  (o arco: liga decisões e achados numa história que se entende)
 > informação → conhecimento → sabedoria) fornece vocabulário analógico, mas
 > DIKW é contestado em ciência da informação (Frické 2009) e o pipeline acima
 > não é derivado diretamente dele `[ANALOGIA]`. Releitura-de-fidelidade na
-> promoção `[WEB ✓ 2026-06-03]`: colação / crítica textual: Lachmann
-> (1793–1851, método estemmático, séc. XIX); revisão de alta fidelidade na
+> promoção `[WEB ✓ 2026-06-03]`: colação / crítica textual: o método estemático
+> convencionalmente associado a Lachmann (1793–1851), atribuição relativizada por
+> Timpanaro 1963 `[WEB ✓ 2026-09-26]`; revisão de alta fidelidade na
 > replicação (DNA mismatch repair): Modrich (Nobel de Química 2015).
 
 ## 8. Versionamento como história imutável e proveniência
@@ -597,12 +613,13 @@ defeito primeiro; se não houver, o entregável é a declaração de que não h�
 > aplicam o padrão certo e deixam de super-exigir (sinal forte mas circular):
 > `lab/2026-06-04-strata-hipoteses/RESULTADOS-genero.md`.
 >
-> Instância de era `[2026-08]`: leitores de IA não obtêm do texto do método a
-> calibração de "não agir". Numa base limpa, o braço com o método não se absteve
-> mais que um pedido leigo bem redigido, e o parágrafo "Agir sobre o que já existe",
-> uma vez acrescentado, não elevou a abstenção num A/B do texto do método
-> `[TESTADO, SEM EFEITO MEDIDO 2026-08-06]`. A norma é mantida pelo leitor humano;
-> a abstenção depende do modelo e da redação do pedido, não do texto do método.
+> Instância de era `[2026-08]`: não há evidência de que leitores de IA obtenham do
+> texto do método a calibração de "não agir". Numa base limpa, o braço com o método
+> não se absteve mais que um pedido leigo bem redigido, e o parágrafo "Agir sobre o
+> que já existe", uma vez acrescentado, não elevou a abstenção num A/B do texto do
+> método; esse A/B não tinha poder para detectar o ganho esperado
+> `[TESTADO 2026-08-06: INCONCLUSIVO]`. A norma é mantida pelo leitor humano; a
+> abstenção depende do modelo e da redação do pedido.
 > Registro, braços e limites: `lab/2026-08-03-prompt-ingenuo/`.
 
 ## 10. Durabilidade do portador: redundância e dispersão
@@ -675,7 +692,9 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 > "onde você quis pôr isto?".
 
 > **Fundamentação** `[WEB ✓ 2026-08-01]`: definição por gênero próximo e
-> diferença específica: Aristóteles, *Categorias* (~séc. IV a.C.) `[CANÔNICO]`;
+> diferença específica: Aristóteles, *Tópicos* VI.1 / *Segundos Analíticos* II.13
+> (séc. IV a.C.) `[CANÔNICO]`, a árvore: Porfírio, *Isagoge* (séc. III d.C.)
+> `[WEB ✓ 2026-09-26]`;
 > esquema enumerativo e seu limite: Dewey 1876 (*Decimal Classification*);
 > esquema como consenso/hipótese de domínio: Bliss 1929 (*The Organization of
 > Knowledge and the System of the Sciences*); classificação analítico-sintética
@@ -683,8 +702,10 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 > Association); cânones da divisão (exaustividade, exclusividade): Ranganathan
 > 1937 (*Prolegomena to Library Classification*); facetas em esquemas especiais:
 > Vickery 1960 (Classification Research Group) `[CANÔNICO]`; *literary
-> warrant* (o eixo se justifica pelo corpus real): Svenonius 2000 (*The
-> Intellectual Foundation of Information Organization*, MIT Press); esquema
+> warrant* (o eixo se justifica pelo corpus real): Hulme 1911 ("Principles of Book
+> Classification", *Library Association Record*, 1911–12), desenvolvido em
+> Svenonius 2000 (*The Intellectual Foundation of Information Organization*, MIT
+> Press) `[WEB ✓ 2026-09-26]`; esquema
 > relativo ao domínio: Hjørland & Albrechtsen 1995 (*JASIS* 46(6)); limite:
 > classificação é situada, não universal: Bowker & Star 1999 (*Sorting Things
 > Out*, MIT Press) `[CANÔNICO]`. Desenvolvimento completo (hipótese, evidência
@@ -770,7 +791,7 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **Hierarquia de evidência / GRADE** | graduar a força da evidência | Sackett et al. 1996 / GRADE (Atkins et al. 2004; Guyatt et al. 2008) `[WEB ✓ 2026-08-01]` | n/a (princípio L0; GRADE é o grau formal) |
+| **Hierarquia de evidência / GRADE** | graduar a força da evidência | Canadian Task Force 1979 / Sackett et al. 1996 / GRADE (Atkins et al. 2004; Guyatt et al. 2008) `[WEB ✓ 2026-09-26]` | n/a (princípio L0; GRADE é o grau formal) |
 | **CRAAP test** | checklist de avaliação de fonte (Currency / Relevance / Authority / Accuracy / Purpose) | Blakeslee 2004 `[WEB ✓ 2026-08-01]` | SIFT para web rápida; CRAAP para fonte acadêmica |
 | **SIFT** (Four Moves) | parar / investigar a fonte / achar melhor cobertura / rastrear à origem | Caulfield 2019 (precursor 2017) `[WEB ✓ 2026-08-01]` | n/a |
 | **Triangulação** | validar via N fontes independentes | Denzin 1978 `[WEB ✓ 2026-08-01]` | n/a |
@@ -811,7 +832,7 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 
 | Formalização | O que é | Fonte | Sinal de troca |
 |---|---|---|---|
-| **OAIS (ISO 14721)** | modelo de referência para preservação digital de longo prazo: define papéis (produtor / arquivo / consumidor), pacotes de informação (SIP/AIP/DIP) e o ciclo de sustentabilidade de acesso; a âncora conceitual de qualquer estratégia de §10 | ISO 14721:2012 / CCSDS 650.0-M-2 `[WEB ✓ 2026-08-01]` | n/a (é o modelo de referência; toda formalização de preservação digital o instancia) |
+| **OAIS (ISO 14721)** | modelo de referência para preservação digital de longo prazo: define papéis (produtor / arquivo / consumidor), pacotes de informação (SIP/AIP/DIP) e o ciclo de sustentabilidade de acesso; a âncora conceitual de qualquer estratégia de §10 | ISO 14721:2025 / CCSDS 650.0-M-3 (dez-2024; substitui a ed. de 2012) `[WEB ✓ 2026-09-26]` | n/a (é o modelo de referência; toda formalização de preservação digital o instancia) |
 | **Regra 3-2-1** | 3 cópias, em 2 mídias distintas, sendo 1 offsite: heurística mínima com modos de falha independentes; operacionaliza "N réplicas dispersas" de §10 em projetos de qualquer escala | Krogh 2005/2009 (*The DAM Book*, O'Reilly); recomendada pelo US-CERT (Ruggiero & Heckathorn 2012, CMU) `[WEB ✓ 2026-08-01]` | expandir para **3-2-1-1-0** (+ 1 air-gapped + 0 erros verificados) para dados críticos; LOCKSS para publicações acadêmicas |
 | **BagIt (RFC 8493)** | formato de pacote para transferência e armazenamento verificável: manifesto de checksums embutido, payload auto-declarado; implementa a réplica *verificável-contra-origem* de §10 | RFC 8493 (IETF, 2018) / Library of Congress `[WEB ✓ 2026-08-01]` | git (com hashes SHA-1/SHA-256) cobre código versionado; BagIt para conteúdo binário ou transferência formal entre instituições |
 | **Fixity checking** | verificação periódica de integridade por hash (MD5/SHA-256): operacionaliza "preservar é um verbo"; sem re-verificação ativa, a cópia apodrece em silêncio (bit rot) | NDSA Levels of Digital Preservation; Archivematica; prática padrão da biblioteconomia digital `[WEB ✓ 2026-08-01]` | automação via LOCKSS, rsync --checksum, ou ferramentas de backup com verificação embutida |
@@ -822,7 +843,7 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 |---|---|---|---|
 | **Esquemas enumerativos** (DDC, LCC) | árvores de classes pré-enumeradas sob um eixo; o default das grandes bibliotecas | Dewey 1876 `[WEB ✓ 2026-08-01]` | a árvore incha e ainda assim perde casos → facetas |
 | **Facetado (analítico-sintético)** | declare facetas, sintetize a posição sob demanda em vez de enumerá-la | Ranganathan 1933/1937; Vickery 1960 `[WEB ✓ 2026-08-01]` | excesso em volume baixo (§9; ver Aderência de §11) |
-| **Relativo ao domínio / literary warrant** | o eixo é garantido pelo corpus real e pelo consenso do domínio, não por um esquema universal | Hjørland & Albrechtsen 1995; Svenonius 2000 `[WEB ✓ 2026-08-01]` | quando o domínio não tem consenso estável, declare o eixo como hipótese (§4) |
+| **Relativo ao domínio / literary warrant** | o eixo é garantido pelo corpus real e pelo consenso do domínio, não por um esquema universal | Hulme 1911; Hjørland & Albrechtsen 1995; Svenonius 2000 `[WEB ✓ 2026-09-26]` | quando o domínio não tem consenso estável, declare o eixo como hipótese (§4) |
 
 ## Para publicar / tornar citável (rastreabilidade externa, §3)
 
@@ -836,8 +857,8 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 
 > **Camada volátil e destacável.** Como as ferramentas de **hoje** expressam o
 > L0/L1: cada seção abre com a forma atemporal; os nomes que seguem são a
-> instância corrente dela. Tudo aqui carrega captura `[2026-08-01]` e
-> `re-verify-by: 2026-11-01`.
+> instância corrente dela. Tudo aqui carrega captura `[2026-08-01]` (um carimbo
+> dentro de uma seção, quando mais novo, prevalece) e `re-verify-by: 2026-11-01`.
 > **Quando uma ferramenta morre, só esta parte muda**: Partes I/II ficam
 > intactas. Trate como dado semi-vivo (§6): re-verificar na fonte antes de
 > tratar como verdade.
@@ -845,9 +866,9 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 > A coluna **"expressa"** amarra cada ferramenta a uma necessidade atemporal:
 > é o que permite trocá-la sem perder o porquê. A camada de IA abaixo foi
 > web-verificada em 2026-06-03 (análise de modernização em
-> `lab/2026-06-03-modernizacao/` no repositório de origem) e
-> re-verificada em 2026-08-01
-> (`lab/2026-08-01-fechamento-camadas/L2-2-ferramentas-ia.md`).
+> `lab/2026-06-03-modernizacao/` no repositório de origem), re-verificada em
+> 2026-08-01 (`lab/2026-08-01-fechamento-camadas/L2-2-ferramentas-ia.md`) e, a
+> matriz de IA, em 2026-09-26 (`lab/2026-09-26-revisao-temporal/`).
 
 ## 1. Agentes de IA: a forma de hoje do colaborador sem memória
 
@@ -866,10 +887,10 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 | **Subagents / fan-out** | orquestrador distribui N subagentes paralelos (retornam sumários, não despejam contexto) | revisão/auditoria de projeto são fan-outs naturais |
 | **Agent evals** | testar AGENTS.md/Skills/hooks (são prompts que regridem em silêncio) | §5 (o checável vira teste) |
 | **Proveniência / C2PA** | marcar `authored-by: ai\|human\|mixed`; assinatura de artefato | §3 rastreabilidade de autoria |
-| **Observabilidade (OTel GenAI)** | traces/spans/tokens por sessão de agente (convenções semânticas ainda **Development**; pine a geração que você usa) | complemento-máquina do diário/manifest (§3) |
+| **Observabilidade (OTel GenAI)** | traces/spans/tokens por sessão de agente (convenções semânticas ainda **Development**, desde a v1.42.0 num repositório GenAI próprio; pine a geração que você usa) | complemento-máquina do diário/manifest (§3) |
 | **Busca grep-first** | agentes descobrem por grep/árvore, não vector DB; semântica (FTS5+sqlite-vec) só p/ corpus grande | §2 achabilidade |
 
-**Estado da matriz (`[VERIFICAR: 2026-08-01]`)**: AGENTS.md é padrão
+**Estado da matriz (`[VERIFICAR: 2026-09-26]`)**: AGENTS.md é padrão
 **estabelecido** (Agentic AI Foundation/Linux Foundation, 2025), nativo em
 Codex/Copilot/Cursor/Gemini CLI/Aider/Windsurf/Zed; Claude Code auto-carrega
 `CLAUDE.md` (importe AGENTS.md com `@AGENTS.md`). **Agent Skills** virou padrão
@@ -881,12 +902,14 @@ HTTP+SSE legado deprecados; governança sob a AAIF/Linux Foundation).
 menor privilégio; ação com side-effect externo exige aprovação. Marcação de
 conteúdo gerado por IA: o **EU AI Act Art. 50 aplica-se desde 2-ago-2026** e
 exige marcação legível por máquina, mas é **tecnologicamente neutro** (não
-nomeia padrão); C2PA 2.x (a caminho de virar **ISO 22144**, ISO/CD, ainda em
-desenvolvimento) é hoje o caminho de-facto: Layer 1 do EU Code of Practice
-sobre transparência de conteúdo gerado por IA (jun-2026). Sistemas colocados
+nomeia padrão); C2PA 2.x (2.4, abr-2026; em fast-track como **ISO 22144**,
+rascunho, ainda não publicada) é hoje o caminho de-facto: Layer 1 do EU Code of
+Practice sobre transparência de conteúdo gerado por IA (jun-2026), confirmado
+como adequado junto das Guidelines finais e não vinculantes da Comissão para o
+Art. 50 (20-jul-2026). Sistemas colocados
 no mercado antes de 2-ago-2026 têm até 2-dez-2026 **só para o dever de
 marcação do Art. 50(2)** (Art. 111(4), Reg. (UE) 2026/1744).
-`[re-verificado: 2026-08-01]`
+`[re-verificado: 2026-09-26]`
 
 > **Fronteira**: a *economia e o roteamento* de recursos de IA (qual modelo,
 > local vs nuvem, custo, estratégia de cache) pertencem à metodologia

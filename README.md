@@ -165,7 +165,7 @@ control) are **forms** that express this method: they shape it, but do not found
 - **Maturity:** the **core of the methodology is consolidated and verified** (22 primary sources, plus the
   check that it is independent of today's tools). The **application by AI** already has empirical evidence
   (in the tested cases, the AI makes the known fix and refuses malicious instructions; knowing when
-  *not* to touch still depends on the model, and the method's text does not buy it), and it now also covers **execution with real tools in a sandbox** (first agent
+  *not* to touch still depends on the model, and there is no evidence that the method's text buys it), and it now also covers **execution with real tools in a sandbox** (first agent
   cell, 2026-08: the fix landed 10/12 with Strata × 2/12 without, and nobody ran the injected
   `curl`, 0/24), not only text-only regimes. The **honest usage opinion**
   (by task type, requirement and cost, with caveats) is in

@@ -18,8 +18,17 @@ updated: 2026-09-26
   - **superfície e canônico**: corrigidos em quatro commits (capa e `recipe/README` sem promessa
     que o produto não sustenta; canônico em **v1.2.4**: §9 por ponteiro, §3-bis/§8, §5/§10,
     testes das camadas; errata no traço do A/B do §9);
-  - **camada de evidência** (OPINIAO-DE-USO e tabela-fonte do hub paradas antes do estudo naive,
-    do A/B do §9 e do vazamento do `f4-clean`; outreach; docs do eval): **aguarda decisão do dono**.
+  - **camada de evidência**: OPINIAO-DE-USO, hub, `strata-com-ia`, `strata-idiomas` e catálogo de
+    fixtures alinhados (vazamento do `f4-clean`, estudo naive, "não medido" onde não houve medição).
+    **Aguardam decisão do dono:** política de payload publicado e afirmações do outreach.
+- **Revisão temporal do Strata: FEITA** ([`lab/2026-09-26-revisao-temporal/`](lab/2026-09-26-revisao-temporal/)).
+  - **Canônico em v1.2.5:** citações do L0 conferidas na web e corrigidas (Saltzer & Schroeder,
+    Claerbout, diplomática, EO 8381, Codd, Rubin, Hulme, Weyuker, Polybius, Sackett, Lachmann,
+    Aristóteles); OAIS 2025; C2PA, OTel e AI Act atualizados no L2.
+  - **§9:** o A/B não tinha poder; o carimbo passa a `[TESTADO 2026-08-06: INCONCLUSIVO]`.
+  - **Instrumento:** regra "Sem atalho" nas fixtures (o `s03-simples` entrega um achado; só no
+    harness de junho) e dois regimes de temperatura na grade 2026-08, declarados no README do harness.
+  - **Pendente, custa inferência:** reteste mínimo com âncoras na `f4-clean-v2` e roster atualizado.
 - **Trabalho não commitado em `eval/strata/`** (controle negativo em escala de repositório e banco
   de escolha de juiz): existe no working tree, sem declaração em nenhuma superfície. Não faz parte
   desta revisão; fica como está até o dono decidir.

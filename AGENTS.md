@@ -21,7 +21,7 @@ Esta e' uma **oficina de metodologias** (ver `README.md`). 2 produtos: **Strata*
 `lab/2026-08-01-fechamento-camadas/`; §6-bis cobre agir E ver; o teste empirico do L0
 fechado JA rodou, em `lab/2026-08-02-reteste-L0-fechado/`; pendentes: Parte IV
 adocao/operacao e a varredura propria de evidencia do eixo de seguranca (os dois "Open items" do
-canonico); a revisao do §9 "quando nao agir" foi aplicada e TESTADA em 2026-08-06 -- SEM EFEITO MEDIDO, paragrafo mantido por decisao do dono) e **Comporta** (economia de IA,
+canonico); a revisao do §9 "quando nao agir" foi aplicada e TESTADA em 2026-08-06 -- nenhuma celula melhorou, mas o A/B nao tinha poder: INCONCLUSIVO; paragrafo mantido por decisao do dono) e **Comporta** (economia de IA,
 EM ANDAMENTO no `lab/`). **Tres territorios
 por tipo de artefato**: `recipe/` = metodologia (o fim) · `lab/` = IDEIAS (hipoteses/
 conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a metodologia).
@@ -78,8 +78,11 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   - `2026-08-03-prompt-ingenuo/`: **braço NAIVE** ("uma IA precisa do Strata para o quê?"):
     `PLANO.md` pré-registrado, `RESULTADOS.md` (PT + replicação EN), `PROPOSTA-S9.md`
     (revisão do §9 "quando não agir") e `RESULTADOS-verificacao-s9.md`: proposta **aplicada
-    (v1.2.2) e testada — SEM EFEITO MEDIDO** (A/B do texto do método, 33%→33% e 22%→12%);
+    (v1.2.2) e testada — INCONCLUSIVO** (A/B do texto do método sem melhora e sem poder para
+    detectar o ganho esperado; adendo de poder no `RESULTADOS-verificacao-s9.md`);
     o parágrafo fica por ser norma útil ao leitor humano.
+  - `2026-09-26-revisao-temporal/`: **revisão temporal** (métodos de avaliação, roster de modelos,
+    L1/L2, L0 teoria × texto): achados com fonte e o que foi aplicado. Registro, não fonte de estado.
   - `2026-09-26-revisao-superficie/`: revisão de superfície do Strata + **auditoria declarado × feito**
     (`AUDITORIA-sync.md`, destino por achado). Registro do conserto, não fonte de estado.
 - `eval/`: **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia

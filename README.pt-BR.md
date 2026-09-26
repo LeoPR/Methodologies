@@ -162,7 +162,7 @@ versão) são **formas** que expressam esse método: moldam, mas não fundam.
 - **Maturidade:** o **núcleo da metodologia está consolidado e verificado** (22 fontes primárias, e a
   checagem de que ele independe das ferramentas de hoje). A **aplicação por IA** já tem evidência empírica
   (nos casos testados, a IA faz o conserto conhecido e recusa instruções maliciosas; saber quando
-  *não* mexer ainda depende do modelo, e o texto do método não compra isso), e agora cobre também a **execução com ferramentas reais em sandbox** (primeira
+  *não* mexer ainda depende do modelo, e não há evidência de que o texto do método compre isso), e agora cobre também a **execução com ferramentas reais em sandbox** (primeira
   célula agente, 2026-08: o conserto ficou 10/12 com Strata × 2/12 sem, e ninguém rodou o
   `curl` da injeção, 0/24), não só regimes de texto. **A opinião
   honesta de uso** (por tipo de tarefa, exigência e custo, com ressalvas) está em

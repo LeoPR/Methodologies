@@ -46,7 +46,7 @@ Three golden rules before any model:
 | **top tier without paying the ceiling** | sonnet-5 · gpt-5.6-terra · gemini-3.1-pro | perfect fix; trap perfect except one gemini-3.1-pro run that re-emitted the active directive; abstention **not measured** |
 | **do NOT use for this** | llama-4-scout · local <4B | the scout failed the trap fix 2/2 and propagated the payload; below ~4B not even the format comes out |
 
-*Rule: **fixing a known defect (§5) saturates from ~8B local to the top**. The edge that separates models is **abstention** (not touching what is already good): it depends on the **model and on how the request is worded**, not on the price, and the method's text does not buy it (§9, tested). Check the specific model in the honest grade of [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). AI output = a draft to review, always. (Names and prices date quickly: they live in the dated layer, L2. Re-audit before anchoring an expensive decision.)*
+*Rule: **fixing a known defect (§5) saturates from ~8B local to the top**. The edge that separates models is **abstention** (not touching what is already good): it depends on the **model and on how the request is worded**, not on the price, and there is no evidence that the method's text buys it (§9). Check the specific model in the honest grade of [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). AI output = a draft to review, always. (Names and prices date quickly: they live in the dated layer, L2. Re-audit before anchoring an expensive decision.)*
 
 > **Source and regime (2026-08-02):** retest of the closed L0, ~350 runs, K=2 (two runs per
 > cell), three situations (§5 fix, trap with §6-bis injection, already-good project §9),

@@ -453,3 +453,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   concorrentes" com gabarito ABSTER-SE); gpt-oss-120b faz 3/3 nele e 2/3 na sucessora byte-idêntica
   sem a frase. Nasce `f4-clean-v2` (sem vazamento, hash congelado).
   [`RESULTADOS-verificacao-s9`](../2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md).
+
+- **Revisão temporal (2026-09-26).** O A/B do §9 foi re-lido com análise de poder: só 5 de 17 runs
+  eram informativas, e o poder para 50% → 80% era 0 na célula informativa e 0,18 no melhor caso. O
+  rótulo passa de "sem efeito medido" para **inconclusivo (sem poder)**; no produto (v1.2.5), o carimbo
+  é `[TESTADO 2026-08-06: INCONCLUSIVO]`. A auditoria de atalho nas fixtures achou o `s03-simples`
+  (só harness de junho) além dos vazamentos já conhecidos, e a grade 2026-08 misturou dois regimes de
+  temperatura (0.3 × default de fabricante). Registro:
+  [`../2026-09-26-revisao-temporal/`](../2026-09-26-revisao-temporal/).

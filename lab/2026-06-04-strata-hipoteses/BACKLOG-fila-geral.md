@@ -25,7 +25,8 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   **22%→12%** (`f4-clean-v2`), 3 modelos econômico-médio, K=3, **nenhuma célula melhor**. A
   hipótese registrada (subir de ~50% p/ ~80%) **falhou**. Decisão do dono: o parágrafo **fica**
   (norma honesta e útil p/ leitor humano; L0 não depende de tecnologia), com o carimbo trocado
-  p/ `[TESTADO, SEM EFEITO MEDIDO]`. **Achado lateral que recalibra série antiga:** o `f4-clean`
+  p/ `[TESTADO, SEM EFEITO MEDIDO]` (re-lido em 2026-09-26: **inconclusivo, sem poder**; o
+  carimbo no produto virou `[TESTADO 2026-08-06: INCONCLUSIVO]`). **Achado lateral que recalibra série antiga:** o `f4-clean`
   **vazava a resposta** no README ("Nao ha fontes concorrentes" com gabarito ABSTER-SE);
   gpt-oss-120b faz 3/3 nele e 2/3 na sucessora byte-idêntica sem a frase — parte da abstenção
   histórica era leitura, não calibração. **Os 3 bloqueios do instrumento foram consertados:**
@@ -173,7 +174,7 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
   **fronteira Strata × Comporta** (aparece em caches E setup-de-agente; resolver de uma vez); classificar
   artefatos de ambiente (canônico×regenerável×efêmero) como princípio L0/L1 em satélite L2.
 - ~~**Revisar o §9 ("quando não agir"), ticket da evidência 2026-08-03:**~~ **FECHADO (2026-08-06):**
-  revisão aplicada (v1.2.2) e testada sem efeito medido; ver o item do §9 no P0 acima. Texto original do ticket: o estudo do prompt ingênuo mediu
+  revisão aplicada (v1.2.2) e testada, inconclusiva (sem poder); ver o item do §9 no P0 acima. Texto original do ticket: o estudo do prompt ingênuo mediu
   que, no clean, o Strata (7/14 abstenção) NÃO supera uma frase leiga bem redigida (naive-N2 16/20, K=5);
   o falso positivo é propriedade de modelo e de redação, não do degrau de instrução (escada E0-E4 50-64%).
   O §9 hoje opera sobre "o quanto agir", não sobre "quando não agir". Candidata a evidência forte para

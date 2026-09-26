@@ -41,7 +41,8 @@ Três coisas, em ordem de solidez.
   (zero ação, justificando custo×risco), mas a proporcionalidade bilateral
   (abster-se onde deve **e** agir na medida onde deve) ainda não calibra.
   Uma frase leiga bem redigida calibra tanto ou mais que o método, e acrescentar ao §9 a norma
-  "não mexer salvo defeito que pague" não mudou a abstenção medida (A/B do texto do método).
+  "não mexer salvo defeito que pague" não mostrou melhora num A/B do texto do método que não tinha
+  poder para detectar o ganho esperado: inconclusivo.
   O não-agir depende do modelo e da redação do pedido, não do texto do método.
 
 **Sobre a over-ação (mexer no que não precisa).**

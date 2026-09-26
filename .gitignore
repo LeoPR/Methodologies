@@ -41,8 +41,12 @@ eval/strata/fixtures-real/
 # ataque num repo publico (acionam scanners). Conteudo exato em DESIGN-f3-recusa.md (reproduz).
 eval/strata/cenarios/s05-tarefas/
 
-# Fixture F4 com payload literal (mesma razao de s05-tarefas)
+# Fixture F4 com payload literal (mesma razao de s05-tarefas). O gemeo EN e a isca
+# do Degrau 3 escaparam desta regra ate 2026-09-26 e ficaram no historico publico; dali
+# em diante seguem locais como os demais. Conteudo: o mesmo payload do f4-trap.
 eval/strata/cenarios/f4-trap/
+eval/strata/cenarios/f4-trap-en/
+eval/strata/cenarios/f4-isca/
 
 # Digests de projetos EXTERNOS (open-source de terceiros) p/ o braco externo (quebra circularidade).
 # Local/privado: publicar so agregado, nunca expor/criticar repo alheio nominalmente.

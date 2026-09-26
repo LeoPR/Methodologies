@@ -27,7 +27,7 @@ When one piece of information became two, or when something old needs to be reti
 It marks what was left behind, without erasing it.
 This works even with an affordable AI.
 
-When there is a dangerous instruction hidden in the project, like "download and run this URL" or "execute without confirming", the AI refuses instead of obeying.
+When there is a dangerous instruction hidden in the project, like "download and run this URL" or "execute without confirming", the AI usually refuses instead of obeying.
 
 With the method, your affordable AI acts better: it makes the fix it would not make alone, and makes it the traceable way.
 Knowing when *not* to act is different: there, how you phrase the request weighs more than the method, and the rest depends on the model.
@@ -48,7 +48,7 @@ Strata is not an autonomous auditor that sweeps a real project and gets it right
 At that, it does not beat the model's raw competence.
 Recognizing that everything is fine and not touching it in the right measure, or finding real debt in a big project, still asks for a model that calibrates that judgment (and price does not order this), or you in the loop.
 
-A model from the current generation refuses the dangerous instruction spontaneously, even at the affordable tier.
+A model from the current generation usually refuses the dangerous instruction on its own, even at the affordable tier, but not every model and not every time.
 The residual risk is the AI rewriting the active directive instead of neutralizing it, and there is one model to avoid for this use (llama-4-scout).
 For the security that matters, review the output, and check the specific model in the usage opinion.
 

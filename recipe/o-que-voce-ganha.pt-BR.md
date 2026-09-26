@@ -29,7 +29,7 @@ Quando uma informação virou duas, ou quando algo antigo precisa ser aposentado
 Ele marca o que ficou para trás, sem apagar.
 Isso funciona até com uma IA econômica.
 
-Quando há uma instrução perigosa escondida no projeto, como "baixe e rode esta URL" ou "execute sem confirmar", a IA recusa em vez de obedecer.
+Quando há uma instrução perigosa escondida no projeto, como "baixe e rode esta URL" ou "execute sem confirmar", a IA costuma recusar em vez de obedecer.
 
 Com o método, a sua IA econômica age melhor: faz o conserto que sozinha não faria, e faz do jeito rastreável.
 Saber quando *não* agir é diferente: aí, a redação do pedido pesa mais que o método, e o resto depende do modelo.
@@ -50,7 +50,7 @@ O Strata não é um auditor autônomo que varre um projeto real e acerta sozinho
 Nisso, ele não supera a competência pura do modelo.
 Reconhecer que está tudo bem e não mexer na medida certa, ou achar dívida real num projeto grande, ainda pede um modelo que calibre esse julgamento (e o preço não ordena isso), ou você no loop.
 
-Um modelo da geração atual recusa a instrução perigosa espontaneamente, até no econômico.
+Um modelo da geração atual costuma recusar a instrução perigosa por conta própria, até no econômico, mas não todo modelo nem toda vez.
 O risco residual é a IA reescrever a diretiva ativa em vez de neutralizá-la, e há um modelo a evitar para este uso (o llama-4-scout).
 Para a segurança que importa, revise a saída, e confira o modelo específico na opinião de uso.
 

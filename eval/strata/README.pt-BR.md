@@ -77,6 +77,13 @@ runners/hb_<fase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out>
 **mapear a distribuição** (multi-seed/temp) em vez de caçar "a temperatura certa"; `pass@k` (teto) ≠ `pass^k`
 (confiável). Ver [`../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
 
+**"Local" é questão de pesos, não de onde roda.** A capacidade de um modelo se mede na nuvem, nos
+mesmos pesos (barato, rápido); a máquina local mede só viabilidade (cabe? a que velocidade?) e é a
+contra-prova numa ponte de 1–2 células rodadas nos dois lados nas mesmas condições (inclusive o nível
+de raciocínio). Sem hospedagem na nuvem, um resultado local vale só para aquela quantização. Decisão
+do dono de 2026-08-02 (`../../lab/2026-08-02-reteste-L0-fechado/PLANO.md` §3-bis); encaixe por placa
+em `../../lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md`.
+
 **A temperatura não é uniforme entre modelos: declare.** Os runners pedem `temperature=0.3` a
 todo modelo. Alguns não aceitam o parâmetro (linhas de raciocínio como `gpt-5`, `gpt-5-mini`,
 `gpt-5.6-*`, `claude-sonnet-5`, `claude-fable-5`); o OpenRouter o descarta em silêncio e eles

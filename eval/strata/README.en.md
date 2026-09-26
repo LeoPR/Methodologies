@@ -80,6 +80,13 @@ with **k/K**, and **map the distribution** (multi-seed/temp) instead of hunting 
 right temperature"; `pass@k` (ceiling) ≠ `pass^k` (reliable). See
 [`../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md`](../../decisions/ADR-006-acuracia-precisao-mapear-distribuicao.md).
 
+**"Local" is a question of weights, not of where it runs.** A model's capability is measured in the
+cloud on the same weights (cheap, fast); the local machine measures only viability (fits? how
+fast?) and is the counter-proof in a bridge of 1–2 cells run on both sides under the same conditions
+(reasoning level included). With no cloud host, a local result holds only for that quantization.
+Owner's decision of 2026-08-02 (`../../lab/2026-08-02-reteste-L0-fechado/PLANO.md` §3-bis); fit by
+GPU in `../../lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md`.
+
 **Temperature is not uniform across models: declare it.** The runners request `temperature=0.3`
 for every model. Some models do not accept the parameter (reasoning lines such as
 `gpt-5`, `gpt-5-mini`, `gpt-5.6-*`, `claude-sonnet-5`, `claude-fable-5`); OpenRouter drops it

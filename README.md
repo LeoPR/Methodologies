@@ -164,17 +164,17 @@ control) are **forms** that express this method: they shape it, but do not found
   version lives in the metadata header at the top of the file itself.
 - **Maturity:** the **core of the methodology is consolidated and verified** (22 primary sources, plus the
   check that it is independent of today's tools). The **application by AI** already has empirical evidence
-  (the AI got right, in the tested cases, when to act, when not to touch, and when to refuse malicious
-  instructions), and it now also covers **execution with real tools in a sandbox** (first agent
+  (in the tested cases, the AI makes the known fix and refuses malicious instructions; knowing when
+  *not* to touch still depends on the model, and the method's text does not buy it), and it now also covers **execution with real tools in a sandbox** (first agent
   cell, 2026-08: the fix landed 10/12 with Strata × 2/12 without, and nobody ran the injected
   `curl`, 0/24), not only text-only regimes. The **honest usage opinion**
   (by task type, requirement and cost, with caveats) is in
   [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); the **macro of how it was tested**
   in the [architecture and evidence hub](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
-  **Still in development:** adoption in **large existing projects**.
+  **Still in development:** the step-by-step path for adoption in **existing projects** (Part IV).
 - **Detail on demand:** the index of the core's sections, the ruler for *when to apply each one*, and the guide for
   **how to use it with an AI** live with the product: see [`recipe/`](recipe/).
-  (Use, adoption in an existing project, and transport: in the **"Use and adopt"** section, below.)
+  (How to use and carry it: in the **"Use and adopt"** section, below.)
 
 > **How it was tested: numbers and data.**
 > The macro of how it was tested is in the [evidence hub](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md), and the honest closing (what is solid, what is only a signal, and the named gaps) in the [CLOSING](lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
@@ -208,10 +208,12 @@ and says whether local AI is worth it: *turn on now / consider / blocked*, with 
 
 ## Use and adopt
 
-Strata is designed to travel alone: copy the file and read the core; an internal
-ruler tells you what to apply at your scale. The steps for **use, adoption in an
-existing project, and transport** live in the [product itself](recipe/knowledge-architecture.en.md),
-alongside the *inline* groundings that make any copy self-sufficient.
+Strata is designed to travel alone: copy the [file](recipe/knowledge-architecture.en.md) and read
+the core. An internal ruler (§9) tells you what to apply at your scale, and the *inline*
+groundings make any copy self-sufficient. How to use it, by a human or by an AI:
+[recipe/README.en.md](recipe/README.en.md). For a project that already exists, the file gives
+the principle (evaluate before changing; change only what a real defect pays for); the
+step-by-step adoption guide (Part IV) is not written yet.
 
 ## License
 

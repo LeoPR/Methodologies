@@ -82,7 +82,8 @@ O método é escrito em **camadas de durabilidade**. Saber em qual você está m
    sem confundir o padrão (trocável) com o princípio L0 (não).
 4. Para projeto que já existe (**brownfield**), não recomece: para cada coisa que
    você já faz, pergunte que necessidade L0 ela cumpre; só mude o que viola um
-   princípio forte. (Guia completo dentro do arquivo.)
+   princípio forte. O arquivo traz o princípio (§9, "agir sobre o que já existe"); o guia
+   passo a passo de adoção (Parte IV) ainda não foi escrito.
 
 ### Como usar: por uma IA (ela aplica ao seu projeto)
 
@@ -171,8 +172,8 @@ primeiro é só memória, já o segundo é trabalho de fato.
   segue inicial: F3 (recusa de *prompt injection*) e F4 (execução: *tombstone* +
   fail-closed), mais a primeira célula agente em sandbox (2026-08-02). Falta
   **consolidar**: mais cenários (incl. o ato de servir) e mais células com ferramentas reais.
-- **Parte IV, adoção e operação**: a operacionalização para adotar em projetos
-  legados *em escala* (fases de adoção, auditoria periódica) ainda não foi escrita.
+- **Parte IV, adoção e operação**: o caminho passo a passo para adotar o Strata num
+  projeto que já existe (fases de adoção, auditoria periódica) ainda não foi escrito.
   O caminho está esboçado nos labs, aguardando dor empírica que justifique destilá-lo.
 
 ### Resultados: o que cada modelo consegue, por etapa

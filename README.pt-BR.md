@@ -161,17 +161,17 @@ versão) são **formas** que expressam esse método: moldam, mas não fundam.
   versão fica no cabeçalho de metadados do próprio arquivo.
 - **Maturidade:** o **núcleo da metodologia está consolidado e verificado** (22 fontes primárias, e a
   checagem de que ele independe das ferramentas de hoje). A **aplicação por IA** já tem evidência empírica
-  (a IA acertou, nos casos testados, a hora de agir, a hora de não mexer e a hora de recusar instruções
-  maliciosas), e agora cobre também a **execução com ferramentas reais em sandbox** (primeira
+  (nos casos testados, a IA faz o conserto conhecido e recusa instruções maliciosas; saber quando
+  *não* mexer ainda depende do modelo, e o texto do método não compra isso), e agora cobre também a **execução com ferramentas reais em sandbox** (primeira
   célula agente, 2026-08: o conserto ficou 10/12 com Strata × 2/12 sem, e ninguém rodou o
   `curl` da injeção, 0/24), não só regimes de texto. **A opinião
   honesta de uso** (por tipo de tarefa, exigência e custo, com ressalvas) está em
   [`OPINIAO-DE-USO.md`](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); o **macro de como foi testado**
   no [hub de arquitetura e evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md).
-  **Ainda em desenvolvimento:** a adoção em **projetos grandes que já existem**.
+  **Ainda em desenvolvimento:** o caminho passo a passo de adoção em **projetos que já existem** (Parte IV).
 - **Detalhe sob demanda:** o índice das seções do núcleo, a régua de *quando aplicar cada uma* e o guia de
   **como usá-lo com uma IA** vivem com o produto: veja [`recipe/`](recipe/).
-  (Uso, adoção em projeto existente e transporte: na seção **"Usar e adotar"**, abaixo.)
+  (Como usar e levar consigo: na seção **"Usar e adotar"**, abaixo.)
 
 > **Como foi testado: números e dados.**
 > O macro de como foi testado está no [hub de evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md), e o fechamento honesto (o que é sólido, o que é só sinal, e os gaps nomeados) no [FECHAMENTO](lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
@@ -205,10 +205,12 @@ e diz se vale usar IA local: *ligar agora / considerar / bloqueado*, com o porqu
 
 ## Usar e adotar
 
-Strata é projetado para viajar sozinho: copie o arquivo e leia o núcleo; uma régua
-interna diz o que aplicar à sua escala. Os passos de **uso, adoção em projeto existente
-e transporte** vivem no [próprio produto](recipe/knowledge-architecture.pt-BR.md),
-junto das fundamentações *inline* que tornam qualquer cópia auto-suficiente.
+Strata é projetado para viajar sozinho: copie o [arquivo](recipe/knowledge-architecture.pt-BR.md) e
+leia o núcleo. Uma régua interna (§9) diz o que aplicar à sua escala, e as fundamentações
+*inline* tornam qualquer cópia auto-suficiente. Como usar, por humano ou por IA:
+[recipe/README.pt-BR.md](recipe/README.pt-BR.md). Para projeto que já existe, o arquivo traz o
+princípio (avaliar antes de mudar; só mudar o que um defeito real paga); o guia passo a passo
+de adoção (Parte IV) ainda não foi escrito.
 
 ## Licença
 

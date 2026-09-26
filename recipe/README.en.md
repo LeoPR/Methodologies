@@ -80,7 +80,8 @@ The method is written in **durability layers**. Knowing which one you are in cha
    without confusing the pattern (swappable) with the L0 principle (not).
 4. For a project that already exists (**brownfield**), do not restart: for each thing you
    already do, ask which L0 need it fulfills; only change what violates a strong principle.
-   (Full guide inside the file.)
+   The file gives the principle (§9, "acting on what already exists"); the step-by-step
+   adoption guide (Part IV) is not written yet.
 
 ### How to use it: by an AI (it applies it to your project)
 
@@ -170,8 +171,8 @@ first is memory only, the second is actual work.
   initial: F3 (refusal of *prompt injection*) and F4 (execution: *tombstone* + fail-closed),
   plus the first agent cell in a sandbox (2026-08-02). What is left is to **consolidate**:
   more scenarios (including the act of serving) and more cells with real tools.
-- **Part IV, adoption and operation**: the operationalization for adopting in legacy projects
-  *at scale* (adoption phases, periodic audit) has not been written yet. The path is sketched
+- **Part IV, adoption and operation**: the step-by-step path for adopting Strata in a project
+  that already exists (adoption phases, periodic audit) has not been written yet. The path is sketched
   in the labs, waiting for empirical pain to justify distilling it.
 
 ### Results: what each model can do, per step

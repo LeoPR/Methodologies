@@ -1,7 +1,7 @@
 ---
 title: 'Strata: what you gain'
 created: 2026-08-02
-updated: 2026-08-03
+updated: 2026-09-26
 status: 'Entry page for those who will use it. Consolidated state. The evidence is signals, not proof; the honest detail is in OPINIAO-DE-USO.'
 ---
 
@@ -29,9 +29,8 @@ This works even with an affordable AI.
 
 When there is a dangerous instruction hidden in the project, like "download and run this URL" or "execute without confirming", the AI refuses instead of obeying.
 
-Your affordable AI yields much more with the method.
-In many tasks, the biggest quality difference comes from how you ask, not from which model you use.
-But the judgment of when not to act belongs to the model, not to the form.
+With the method, your affordable AI acts better: it makes the fix it would not make alone, and makes it the traceable way.
+Knowing when *not* to act is different: there, how you phrase the request weighs more than the method, and the rest depends on the model.
 
 ## How to use it with AI
 

@@ -72,3 +72,11 @@ commit quando a fonte é multilíngue.
 | 3 | canônico: §9 enxuto (ponteiro, não diário) + errata do traço do A/B | idem |
 | 4 | canônico: §3-bis/§8, §5/§10, persona, teste do L1, caminhos, itens abertos | idem |
 | 5 | `recipe/README`: uma ressalva só, sem diário, evidência por ponteiro | idem |
+
+### Log
+
+- commit 1 (wayfinding): `fefd82c`.
+- commit 2 (superfície): brownfield alinhado ao canônico (princípio no §9, guia passo a passo =
+  Parte IV não escrita) na capa e no `recipe/README`; a capa deixa de prometer acerto em "quando
+  não mexer"; `o-que-voce-ganha` troca "rende muito mais" pelo ganho medido (agir: o conserto que
+  sozinha não faria; não-agir: redação do pedido e modelo pesam mais que o método).

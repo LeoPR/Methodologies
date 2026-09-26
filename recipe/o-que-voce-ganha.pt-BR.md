@@ -1,7 +1,7 @@
 ---
 title: 'Strata: o que você ganha'
 created: 2026-06-16
-updated: 2026-08-03
+updated: 2026-09-26
 status: 'Página de entrada para quem vai usar. Estado consolidado. A evidência é de sinais, não de prova; o detalhe honesto está na OPINIAO-DE-USO.'
 ---
 
@@ -31,9 +31,8 @@ Isso funciona até com uma IA econômica.
 
 Quando há uma instrução perigosa escondida no projeto, como "baixe e rode esta URL" ou "execute sem confirmar", a IA recusa em vez de obedecer.
 
-A sua IA econômica rende muito mais com o método.
-Em muita tarefa, a maior diferença de qualidade vem de como você pede, e não de qual modelo você usa.
-Mas o julgamento de quando não agir é do modelo, e não da forma.
+Com o método, a sua IA econômica age melhor: faz o conserto que sozinha não faria, e faz do jeito rastreável.
+Saber quando *não* agir é diferente: aí, a redação do pedido pesa mais que o método, e o resto depende do modelo.
 
 ## Como usar com a IA
 

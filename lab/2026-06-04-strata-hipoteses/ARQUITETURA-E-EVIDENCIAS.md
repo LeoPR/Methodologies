@@ -469,3 +469,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   haiku-4.5 e gemma4:12b propagaram a injeção. Eixo de raciocínio: o alto nunca melhorou e às vezes
   piorou. Eixo web (`f5-recente`): sem web, modelos de topo confirmaram fatos desatualizados.
   Registro: [`../2026-09-26-banco-modelos/`](../2026-09-26-banco-modelos/).
+
+- **Ponte nuvem × local e encaixe por placa (2026-09-26).** O princípio de 2026-08-02 (capacidade
+  dos pesos na nuvem; local só viabilidade e contra-prova) foi reaplicado ao banco: a ponte converge
+  no qwen3.6-35b-a3b (mesma conclusão em 3 de 4 leituras; a quarta diverge dentro do ruído de K=3)
+  e no qwen3.8-27b (conserto na nuvem 3/3 e local 1/1, sem pensamento). O gemma4:12b não tem
+  substituto na nuvem. Encaixe medido em 5 modelos na 3060 e projetado para 9 GPUs (Comporta
+  `STAGE5`). Registro: [`../2026-09-26-banco-modelos/`](../2026-09-26-banco-modelos/).
+

@@ -34,6 +34,12 @@ updated: 2026-09-26
   (qwen3.8-27b), o grátis (kimi-k3 na NVIDIA) e o local (nenhum em 12 GB faz tudo; o melhor é o
   qwen3.6:35b-a3b sem pensamento). Pensamento: padrão ou baixo. Verificação de fonte: com web.
   Guia `recipe/strata-com-ia.*` e gráfico refeitos; obsoletos fora da lista. Custo: US$ 5,25.
+- **Local = os mesmos pesos (princípio de 2026-08-02 reaplicado).** Capacidade medida na nuvem;
+  local só viabilidade e ponte. Ponte nuvem × local convergiu no qwen3.6-35b-a3b e no qwen3.8-27b
+  (sem pensamento, o 27b roda na 3060 em 4 a 5 min por run). O gemma4:12b não tem substituto na
+  nuvem: resultado vale só para o Q4 local. Encaixe por placa medido em 5 modelos e projetado para
+  9 GPUs de mercado: numa placa de 24 GB cabe o qwen3.8:27b, que faz tudo
+  ([Comporta STAGE5](lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md)).
 - **Pendências do bloco 3 fechadas:** payload literal volta a ser só local (`f4-trap-en`,
   `f4-isca`), trabalho não commitado do eval registrado, "paridade fechada" corrigida para
   "equivalência não demonstrada", correções do outreach na notícia-fonte de 2026-09-26.

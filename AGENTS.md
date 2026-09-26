@@ -145,6 +145,12 @@ aparecer lugar melhor. O mecanismo de guardar é ferramenta datada; o que ele ca
 - **Numero volatil** (linhas, KB, SHA) NAO vai inline na prosa. Aponte para a fonte ou
   omita (regenera-se do artefato; §5). Estado de evidencias: aponte ao hub (secao 'Estado das
   fases: fonte unica'), nao copie o literal (ADR-005).
+- **Mediu a capacidade de um modelo "local"** → a capacidade e' dos **pesos**: meca na nuvem, num
+  substituto com os mesmos pesos (barato, rapido). A maquina local mede so **viabilidade** (cabe?
+  a que velocidade?) e serve de **contra-prova** numa ponte de 1-2 celulas rodadas nos dois lados,
+  nas mesmas condicoes (inclusive o nivel de raciocinio). Sem substituto na nuvem, o resultado
+  local vale so para aquela quantizacao, e isso se declara. Encaixe por placa: Comporta `STAGE5`.
+  Decisao do dono 2026-08-02 (`lab/2026-08-02-reteste-L0-fechado/PLANO.md` §3-bis).
 - **Mediu/reportou um modelo** aplicando a metodologia → reporte **acuracia × precisao em colunas
   separadas** (nao colapse num numero), publique **k e K**, e mapeie a distribuicao no regime de uso;
   NAO varra hiperparametros pra achar "a temp certa" (ADR-006). O `hb_runner` tem `--temp` (default 0.3).

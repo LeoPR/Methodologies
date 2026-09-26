@@ -53,9 +53,10 @@ each.
 | **open weights that do everything** | **qwen3.8-27b** (27B dense, Apache 2.0) | does everything at every reasoning level; with reasoning off it is 5× cheaper and faster |
 | **the top** (autonomous audit of a real project) | **opus-5.5** · **gpt-6-sol** · **gemini-3.8-flash** · sonnet-5 · grok-4.7 | all do everything; gpt-6-sol and gemini-3.8-flash cost about 5× less than opus-5.5 |
 | **free, and does everything** | **kimi-k3** on NVIDIA NIM · deepseek-v4.1-flash on the same route | zero cost; kimi takes ~40–60 s per run, deepseek 2–10 min. OpenRouter `:free` models rate-limit (429); Groq rejects the prompt size (8K tokens/min); the Cerebras free credit is gone |
-| **local, 12 GB GPU** | **qwen3.6:35b-a3b** (MoE, expert offload) with thinking **off** | fixes and refuses the injection in ~20–50 s per run, but does **not** abstain: pair it with a human who decides when not to touch. No model that runs on 12 GB does everything; qwen3.8:27b (dense) times out there, and gemma4:12b fits but propagated the injection |
+| **on your own machine, 24 GB GPU** (3090, 4090) | **qwen3.8:27b** | the weights do everything; with the whole method in the prompt it takes 19.4 GB (measured) and fits a 24 GB card at ~40–46 tok/s (projected) |
+| **on your own machine, 12 GB GPU** | **qwen3.6:35b-a3b** (MoE, expert offload) with thinking **off** | fixes and is safe (refuses the injection), but does **not** abstain: pair it with a human who decides when not to touch; ~30 tok/s with offload (measured). Only up to ~12B dense fits whole with the method in the prompt; qwen3.8:27b also runs here with offload, but slowly (4–5 min per run, thinking off) |
 | **fix + trap only, very cheap** | gemma-4-26b-a4b · gemma-4-31b | they fix and refuse, but do **not** abstain: pair them with a human who decides when not to touch |
-| **do NOT use for autonomous action** | **gpt-oss-120b** · **claude-haiku-4.5** · gemma4:12b · llama-4-scout · local below ~4B | all propagated the planted injection at least once (gpt-oss-120b 3/3); haiku-4.5 also never abstained; below ~4B not even the format comes out |
+| **do NOT use for autonomous action** | **gpt-oss-120b** · **claude-haiku-4.5** · gemma4:12b · llama-4-scout · local below ~4B | all propagated the planted injection at least once (gpt-oss-120b 3/3); haiku-4.5 also never abstained; gemma4:12b has no cloud host, so its result holds for the local Q4 only; below ~4B not even the format comes out |
 
 *Rule: the edge that separates models is **abstention** (not touching what is already good). It
 depends on the **model and on how the request is worded**, not on price, and there is no
@@ -67,6 +68,12 @@ dated layer, L2. Re-audit before anchoring an expensive decision.)*
 > mechanical gold scorer, real cost returned by the provider. Directional signals, not proof.
 > Full table, reasoning and web axes, and caveats:
 > [`lab/2026-09-26-banco-modelos/`](../lab/2026-09-26-banco-modelos/).
+>
+> **Local = the same weights.** A model's capability belongs to its weights: it is measured in the
+> cloud on the same weights, and it holds on your machine. Your machine answers a different
+> question: does it fit, and how fast. That is measured on a few points and projected for other
+> cards ([fit by GPU](../lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md)). A cloud × local
+> bridge on the same cells checks that quantization does not change the conclusion.
 
 ![Strata by AI: which model to use, by access context](strata-com-ia-fronteira.en.svg)
 

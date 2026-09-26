@@ -9,22 +9,22 @@
 <text x="590" y="84" font-size="11" font-weight="bold" fill="#b45309">ABSTENÇÃO §9</text>
 <text x="690" y="84" font-size="10.5" font-weight="bold" fill="#444">nota</text>
 <line x1="30" y1="90" x2="930" y2="90" stroke="#ccc"/>
-<text x="30" y="116" font-size="11.5" font-weight="bold" fill="#6b7280">Local · GPU de consumo de 12 GB (grátis)</text>
-<text x="44" y="136" font-size="10.5"><tspan font-weight="bold">qwen3.6:35b-a3b</tspan> <tspan fill="#777">(MoE, offload, sem pensar)</tspan></text>
-<text x="370" y="136" font-size="10.5" fill="#15803d">✓ 2/3</text>
+<text x="30" y="116" font-size="11.5" font-weight="bold" fill="#6b7280">Sua máquina (capacidade = os mesmos pesos, medida na nuvem)</text>
+<text x="44" y="136" font-size="10.5"><tspan font-weight="bold">qwen3.8:27b</tspan> <tspan fill="#777">(24 GB: 3090 / 4090)</tspan></text>
+<text x="370" y="136" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="136" font-size="10.5" fill="#15803d">✓</text>
-<text x="590" y="136" font-size="10.5" fill="#b91c1c">✗</text>
-<text x="690" y="136" font-size="9.5" fill="#555">melhor local; humano decide o não-mexer</text>
-<text x="44" y="156" font-size="10.5"><tspan font-weight="bold">gemma4:12b</tspan> <tspan fill="#777">(cabe inteiro)</tspan></text>
-<text x="370" y="156" font-size="10.5" fill="#15803d">✓</text>
-<text x="470" y="156" font-size="10.5" fill="#b91c1c">✗ injeção 1/3</text>
+<text x="590" y="136" font-size="10.5" fill="#15803d">✓</text>
+<text x="690" y="136" font-size="9.5" fill="#555">cabe inteiro · ~45 tok/s (projeção)</text>
+<text x="44" y="156" font-size="10.5"><tspan font-weight="bold">qwen3.6:35b-a3b</tspan> <tspan fill="#777">(12 GB, MoE offload, sem pensar)</tspan></text>
+<text x="370" y="156" font-size="10.5" fill="#15803d">✓ 2/3</text>
+<text x="470" y="156" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="156" font-size="10.5" fill="#b91c1c">✗</text>
-<text x="690" y="156" font-size="9.5" fill="#555">cabe, mas não é seguro agir sozinho</text>
-<text x="44" y="176" font-size="10.5"><tspan font-weight="bold">qwen3.8:27b</tspan> <tspan fill="#777">(denso, offload)</tspan></text>
-<text x="370" y="176" font-size="10.5" fill="#b91c1c">✗ estoura</text>
-<text x="470" y="176" font-size="10.5" fill="#777">—</text>
-<text x="590" y="176" font-size="10.5" fill="#777">—</text>
-<text x="690" y="176" font-size="9.5" fill="#555">inviável em 12 GB (na nuvem faz tudo)</text>
+<text x="690" y="156" font-size="9.5" fill="#555">~30 tok/s medido; humano decide</text>
+<text x="44" y="176" font-size="10.5"><tspan font-weight="bold">gemma4:12b</tspan> <tspan fill="#777">(12 GB, cabe; só local)</tspan></text>
+<text x="370" y="176" font-size="10.5" fill="#15803d">✓</text>
+<text x="470" y="176" font-size="10.5" fill="#b91c1c">✗ injeção 1/3</text>
+<text x="590" y="176" font-size="10.5" fill="#b91c1c">✗</text>
+<text x="690" y="176" font-size="9.5" fill="#555">sem nuvem: vale só para o Q4 local</text>
 <text x="30" y="202" font-size="11.5" font-weight="bold" fill="#0e7490">Nuvem grátis (NVIDIA NIM): faz tudo</text>
 <text x="44" y="222" font-size="10.5"><tspan font-weight="bold">kimi-k3</tspan> <tspan fill="#777">(🆓)</tspan></text>
 <text x="370" y="222" font-size="10.5" fill="#15803d">✓</text>
@@ -85,9 +85,9 @@
 <text x="590" y="500" font-size="10.5" fill="#777">—</text>
 <text x="690" y="500" font-size="9.5" fill="#555">falhou a armadilha / sem formato</text>
 <line x1="30" y1="516" x2="930" y2="516" stroke="#ccc"/>
-<text x="30" y="534" font-size="9.5" fill="#333">Raciocínio: padrão ou baixo. O alto nunca melhorou uma célula e às vezes quebrou a abstenção ou a armadilha.</text>
+<text x="30" y="534" font-size="9.5" fill="#333">Raciocínio: padrão ou baixo (local: desligado). O alto nunca melhorou uma célula e às vezes quebrou a abstenção ou a armadilha.</text>
 <text x="30" y="551" font-size="9.5" fill="#333">Verificação de fonte (§6): web ligada. Sem web, até modelos de topo confirmaram fatos desatualizados.</text>
 <text x="30" y="568" font-size="9.5" fill="#333">Saída de IA = rascunho a revisar, sempre. Auditoria autônoma de projeto real: só o topo.</text>
 <text x="30" y="585" font-size="9.5" fill="#777">Fixtures sintéticas, K=3, gabarito mecânico, custo real do provedor. Sinais direcionais, não prova. Nomes/preços envelhecem rápido (L2).</text>
-<text x="30" y="602" font-size="9.5" fill="#777">Fonte: lab/2026-09-26-banco-modelos/ (tabela, eixos de raciocínio e web, cuidados).</text>
+<text x="30" y="602" font-size="9.5" fill="#777">Fonte: lab/2026-09-26-banco-modelos/ (banco, ponte, eixos) · encaixe por placa: Comporta STAGE5.</text>
 </svg>

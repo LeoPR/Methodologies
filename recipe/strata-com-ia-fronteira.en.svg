@@ -9,22 +9,22 @@
 <text x="590" y="84" font-size="11" font-weight="bold" fill="#b45309">§9 ABSTAIN</text>
 <text x="690" y="84" font-size="10.5" font-weight="bold" fill="#444">note</text>
 <line x1="30" y1="90" x2="930" y2="90" stroke="#ccc"/>
-<text x="30" y="116" font-size="11.5" font-weight="bold" fill="#6b7280">Local · 12 GB consumer GPU (free)</text>
-<text x="44" y="136" font-size="10.5"><tspan font-weight="bold">qwen3.6:35b-a3b</tspan> <tspan fill="#777">(MoE, offload, think off)</tspan></text>
-<text x="370" y="136" font-size="10.5" fill="#15803d">✓ 2/3</text>
+<text x="30" y="116" font-size="11.5" font-weight="bold" fill="#6b7280">Your own machine (capability = same weights, measured in the cloud)</text>
+<text x="44" y="136" font-size="10.5"><tspan font-weight="bold">qwen3.8:27b</tspan> <tspan fill="#777">(24 GB: 3090 / 4090)</tspan></text>
+<text x="370" y="136" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="136" font-size="10.5" fill="#15803d">✓</text>
-<text x="590" y="136" font-size="10.5" fill="#b91c1c">✗</text>
-<text x="690" y="136" font-size="9.5" fill="#555">best local; a human decides not-touching</text>
-<text x="44" y="156" font-size="10.5"><tspan font-weight="bold">gemma4:12b</tspan> <tspan fill="#777">(fits fully)</tspan></text>
-<text x="370" y="156" font-size="10.5" fill="#15803d">✓</text>
-<text x="470" y="156" font-size="10.5" fill="#b91c1c">✗ injection 1/3</text>
+<text x="590" y="136" font-size="10.5" fill="#15803d">✓</text>
+<text x="690" y="136" font-size="9.5" fill="#555">fits whole · ~45 tok/s (projected)</text>
+<text x="44" y="156" font-size="10.5"><tspan font-weight="bold">qwen3.6:35b-a3b</tspan> <tspan fill="#777">(12 GB, MoE offload, think off)</tspan></text>
+<text x="370" y="156" font-size="10.5" fill="#15803d">✓ 2/3</text>
+<text x="470" y="156" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="156" font-size="10.5" fill="#b91c1c">✗</text>
-<text x="690" y="156" font-size="9.5" fill="#555">fits, but not safe to act alone</text>
-<text x="44" y="176" font-size="10.5"><tspan font-weight="bold">qwen3.8:27b</tspan> <tspan fill="#777">(dense, offload)</tspan></text>
-<text x="370" y="176" font-size="10.5" fill="#b91c1c">✗ timeout</text>
-<text x="470" y="176" font-size="10.5" fill="#777">—</text>
-<text x="590" y="176" font-size="10.5" fill="#777">—</text>
-<text x="690" y="176" font-size="9.5" fill="#555">not viable on 12 GB (does all in cloud)</text>
+<text x="690" y="156" font-size="9.5" fill="#555">~30 tok/s measured; human decides</text>
+<text x="44" y="176" font-size="10.5"><tspan font-weight="bold">gemma4:12b</tspan> <tspan fill="#777">(12 GB, fits; local only)</tspan></text>
+<text x="370" y="176" font-size="10.5" fill="#15803d">✓</text>
+<text x="470" y="176" font-size="10.5" fill="#b91c1c">✗ injection 1/3</text>
+<text x="590" y="176" font-size="10.5" fill="#b91c1c">✗</text>
+<text x="690" y="176" font-size="9.5" fill="#555">no cloud host: holds for local Q4</text>
 <text x="30" y="202" font-size="11.5" font-weight="bold" fill="#0e7490">Free cloud (NVIDIA NIM): does everything</text>
 <text x="44" y="222" font-size="10.5"><tspan font-weight="bold">kimi-k3</tspan> <tspan fill="#777">(🆓)</tspan></text>
 <text x="370" y="222" font-size="10.5" fill="#15803d">✓</text>
@@ -85,9 +85,9 @@
 <text x="590" y="500" font-size="10.5" fill="#777">—</text>
 <text x="690" y="500" font-size="9.5" fill="#555">failed the trap / no format</text>
 <line x1="30" y1="516" x2="930" y2="516" stroke="#ccc"/>
-<text x="30" y="534" font-size="9.5" fill="#333">Reasoning: default or low. High never improved a cell and sometimes broke abstention or the trap.</text>
+<text x="30" y="534" font-size="9.5" fill="#333">Reasoning: default or low (local: off). High never improved a cell and sometimes broke abstention or the trap.</text>
 <text x="30" y="551" font-size="9.5" fill="#333">Source verification (§6): web on. Without web, even top models confirmed outdated facts.</text>
 <text x="30" y="568" font-size="9.5" fill="#333">AI output = a draft to review, always. Autonomous audit of a real project: top tier only.</text>
 <text x="30" y="585" font-size="9.5" fill="#777">Synthetic fixtures, K=3, mechanical gold scorer, real provider cost. Directional signals, not proof. Names/prices age fast (L2).</text>
-<text x="30" y="602" font-size="9.5" fill="#777">Source: lab/2026-09-26-banco-modelos/ (table, reasoning and web axes, caveats).</text>
+<text x="30" y="602" font-size="9.5" fill="#777">Source: lab/2026-09-26-banco-modelos/ (bank, bridge, axes) · fit by GPU: Comporta STAGE5.</text>
 </svg>

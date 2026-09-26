@@ -51,9 +51,10 @@ Cinco regras antes de qualquer modelo:
 | **pesos abertos que fazem tudo** | **qwen3.8-27b** (27B denso, Apache 2.0) | faz tudo em todos os níveis de raciocínio; com o raciocínio desligado fica 5× mais barato e rápido |
 | **o topo** (auditoria autônoma de projeto real) | **opus-5.5** · **gpt-6-sol** · **gemini-3.8-flash** · sonnet-5 · grok-4.7 | todos fazem tudo; gpt-6-sol e gemini-3.8-flash custam cerca de 5× menos que o opus-5.5 |
 | **grátis, e que faz tudo** | **kimi-k3** na NVIDIA NIM · deepseek-v4.1-flash na mesma rota | custo zero; o kimi leva ~40–60 s por run, o deepseek 2–10 min. Os `:free` do OpenRouter dão 429 (limite de taxa); o Groq recusa o tamanho do prompt (8K tokens/min); o crédito grátis do Cerebras acabou |
-| **local, GPU de 12 GB** | **qwen3.6:35b-a3b** (MoE, offload de experts) com pensamento **desligado** | conserta e recusa a injeção em ~20–50 s por run, mas **não** se abstém: junte a um humano que decide quando não mexer. Nenhum modelo que roda em 12 GB faz tudo; o qwen3.8:27b (denso) estoura o tempo ali, e o gemma4:12b cabe mas propagou a injeção |
+| **na própria máquina, GPU de 24 GB** (3090, 4090) | **qwen3.8:27b** | os pesos fazem tudo; com o método inteiro no prompt ocupa 19,4 GB (medido) e cabe numa placa de 24 GB a ~40–46 tok/s (projeção) |
+| **na própria máquina, GPU de 12 GB** | **qwen3.6:35b-a3b** (MoE, offload de experts) com pensamento **desligado** | conserta e é seguro (recusa a injeção), mas **não** se abstém: junte a um humano que decide quando não mexer; ~30 tok/s com offload (medido). Com o método inteiro no prompt, só até ~12B denso cabe inteiro; o qwen3.8:27b também roda aqui com offload, mas devagar (4–5 min por run, sem pensamento) |
 | **só conserto + armadilha, bem barato** | gemma-4-26b-a4b · gemma-4-31b | consertam e recusam, mas **não** se abstêm: junte a um humano que decide quando não mexer |
-| **NÃO usar para ação autônoma** | **gpt-oss-120b** · **claude-haiku-4.5** · gemma4:12b · llama-4-scout · local abaixo de ~4B | todos propagaram a injeção plantada ao menos uma vez (gpt-oss-120b 3/3); o haiku-4.5 também nunca se absteve; abaixo de ~4B nem o formato sai |
+| **NÃO usar para ação autônoma** | **gpt-oss-120b** · **claude-haiku-4.5** · gemma4:12b · llama-4-scout · local abaixo de ~4B | todos propagaram a injeção plantada ao menos uma vez (gpt-oss-120b 3/3); o haiku-4.5 também nunca se absteve; o gemma4:12b não tem hospedagem na nuvem, então o resultado vale só para o Q4 local; abaixo de ~4B nem o formato sai |
 
 *Regra: a borda que separa os modelos é a **abstenção** (não mexer no que já está bom). Ela
 depende do **modelo e da redação do pedido**, não do preço, e não há evidência de que o texto do
@@ -65,6 +66,12 @@ de ancorar decisão cara.)*
 > resposta), K=3, gabarito mecânico, custo real devolvido pelo provedor. Sinais direcionais, não
 > prova. Tabela completa, eixos de raciocínio e web, e ressalvas:
 > [`lab/2026-09-26-banco-modelos/`](../lab/2026-09-26-banco-modelos/).
+>
+> **Local = os mesmos pesos.** A capacidade de um modelo é dos pesos: mede-se na nuvem, nos mesmos
+> pesos, e vale na sua máquina. A sua máquina responde outra pergunta: cabe, e a que velocidade.
+> Isso se mede em poucos pontos e se projeta para outras placas
+> ([encaixe por placa](../lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md)). Uma ponte nuvem
+> × local nas mesmas células confere que a quantização não muda a conclusão.
 
 ![Strata por IA: qual modelo usar, por contexto de acesso](strata-com-ia-fronteira.pt-BR.svg)
 

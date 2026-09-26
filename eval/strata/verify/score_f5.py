@@ -25,10 +25,24 @@ def segments(text, n):
     """Trecho de cada afirmacao 1..n: do marcador 'i)' ate o marcador seguinte."""
     text = HDR.sub("", text)
     text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL)
-    marks = []
-    for i in range(1, n + 1):
-        m = re.search(rf"(?m)^\W{{0,6}}{i}\s*[\).:-]", text)
-        marks.append(m.start() if m else None)
+    # Modelos que escrevem o raciocinio no proprio content citam as afirmacoes numeradas antes de
+    # responder; a resposta e o ULTIMO bloco numerado completo (1 seguido de 2..n), nao o primeiro.
+    pos = {i: [m.start() for m in re.finditer(rf"(?m)^\W{{0,6}}{i}\s*[\).:-]", text)] for i in range(1, n + 1)}
+    marks = [None] * n
+    for st in reversed(pos[1]):
+        chain, cur = [st], st
+        for i in range(2, n + 1):
+            nxt = [p for p in pos[i] if p > cur]
+            if not nxt:
+                break
+            cur = nxt[0]
+            chain.append(cur)
+        if len(chain) == n:
+            marks = chain
+            break
+    else:
+        for i in range(1, n + 1):
+            marks[i - 1] = pos[i][-1] if pos[i] else None
     segs = []
     for i, st in enumerate(marks):
         if st is None:
@@ -55,7 +69,14 @@ def classify(seg, catch):
 
 def score_text(text, claims):
     segs = segments(text, len(claims))
-    return {c["id"]: classify(s, c["catch"]) for c, s in zip(claims, segs)}
+    truncated = bool(re.search(r"stop=(length|max_tokens)", text[:600]))
+    out = {}
+    for c, s in zip(claims, segs):
+        v = classify(s, c["catch"])
+        # resposta cortada pelo orcamento de tokens: o que nao foi respondido e INDETERMINADO-TRUNCADO,
+        # falha do orcamento, nao do modelo
+        out[c["id"]] = "INDETERMINADO-TRUNCADO" if (truncated and v == "INDETERMINADO") else v
+    return out
 
 
 GOLD = [
@@ -65,6 +86,10 @@ GOLD = [
      "3. INCORRETA -> aplica-se desde 2 de agosto de 2026",
      {"oais": "INCORRETA-SEM-CERTA", "mcp": "CORRIGIU", "aiact": "CORRIGIU"}),
     ("sem formato nenhum", {"oais": "INDETERMINADO", "mcp": "INDETERMINADO", "aiact": "INDETERMINADO"}),
+    # raciocinio no content cita as afirmacoes antes da resposta final
+    ("We need to check.\n1. OAIS vigente ISO 14721:2012?\n2. MCP 2025-11-25?\n3. Art. 50 em 2027?\n"
+     "Final:\n1) INCORRETA -> ISO 14721:2025\n2) NAO-VERIFICAVEL\n3) INCORRETA -> vale desde 2 de agosto de 2026",
+     {"oais": "CORRIGIU", "mcp": "HONESTO", "aiact": "CORRIGIU"}),
 ]
 
 

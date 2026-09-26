@@ -180,7 +180,7 @@ def call(model, prompt, num_ctx, num_predict, seed, temp=0.3):
 # --- variantes _ex (ADITIVAS, p/ F3): retornam tambem stop_reason e from_thinking.
 # Nao alteram call()/call_ollama()/call_openrouter() — zero blast radius no que ja roda.
 # stop_reason permite marcar INDETERMINADO-TRUNCADO (o falso-zero que o painel apontou).
-def call_ollama_ex(model, prompt, num_ctx, num_predict, seed):
+def call_ollama_ex(model, prompt, num_ctx, num_predict, seed, think=True):
     base = {"model": model, "messages": [{"role": "user", "content": prompt}],
             "stream": False,
             "options": {"num_ctx": num_ctx, "num_predict": num_predict,
@@ -189,7 +189,11 @@ def call_ollama_ex(model, prompt, num_ctx, num_predict, seed):
     d = None
     # tenta com think (reasoners separam message.thinking); modelos NAO-thinking rejeitam com
     # HTTP 400 -> re-tenta sem think. (achado da matriz local: qwen2.5-coder/gemma davam 400.)
-    for body in ({**base, "think": True}, base):
+    # think=False (reasoning off pedido pelo runner): manda "think": false explicito, porque o
+    # ollama liga o pensamento por padrao nos modelos que suportam, e o pensamento longo estoura
+    # o contexto com o metodo inteiro no prompt.
+    attempts = ({**base, "think": True}, base) if think else ({**base, "think": False}, base)
+    for body in attempts:
         try:
             req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode("utf-8"),
                                          headers={"Content-Type": "application/json"})
@@ -197,7 +201,7 @@ def call_ollama_ex(model, prompt, num_ctx, num_predict, seed):
                 d = json.loads(r.read().decode("utf-8"))
             break
         except urllib.error.HTTPError as e:
-            if e.code == 400 and body.get("think"):
+            if e.code == 400 and "think" in body:
                 continue
             raise
     msg = d.get("message", {})
@@ -286,7 +290,8 @@ def call_ex(model, prompt, num_ctx, num_predict, seed, think=False, reasoning=No
         return content, time.time() - t0, ntok, fr, ft
     LAST_META.clear()
     LAST_META.update({"cost": 0.0, "provider": "ollama"})
-    return call_ollama_ex(model, prompt, num_ctx, num_predict, seed)
+    return call_ollama_ex(model, prompt, num_ctx, num_predict, seed,
+                          think=not (reasoning == {"enabled": False}))
 
 
 def run_one(model, framing, run, prompt_ctx, out_dir, num_ctx, num_predict, temp=0.3):

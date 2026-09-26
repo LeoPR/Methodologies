@@ -37,7 +37,13 @@ Os scripts vivem em subpastas por propósito; **dados ficam na raiz** (`planos/`
 - `aggregate/`: `aggregate_*` + `compare_judges*` · `gen/`: digests, charts, forms, `hash_fixture.py`,
   `build_nc_repo.py` (controle negativo em escala de repositório: planta 5 defeitos L0 + 1 item
   negativo numa cópia deste repo; gabarito e primeiro resultado em `nc-manifest.json`)
-- `ops/`: `run_*.sh` (matrizes prontas) · `legacy/`: `hb_l2_*` (defaults quebrados, registro)
+- `ops/`: `run_*.sh` (matrizes prontas); `bank_run.py` (banco de capacidades por modelo: conserto →
+  armadilha → abstenção, para no conserto; erro de provedor é INFRA, nunca "não atende") ·
+  `legacy/`: `hb_l2_*` (defaults quebrados, registro)
+- `aggregate/aggregate_bank.py` (tabela do banco por rota) · `verify/score_f5.py` (pontuador F5, gate
+  GOLD; `cenarios/f5-recente` = afirmações cuja verdade mudou em 2024-2026, para medir busca na web)
+- `runners/hb_f4.py --reasoning off|low|medium|high` (eixo de raciocínio explícito; o cabeçalho
+  registra o nível, o custo real do provedor e os tokens de raciocínio)
 - `tools/probes/`: sondas auxiliares (estrutura intacta)
 
 ## O pipeline VIVO (runner → fixture → gabarito → verificador → agregador)

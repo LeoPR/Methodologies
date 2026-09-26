@@ -22,6 +22,9 @@ HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STRATA = os.path.normpath(os.path.join(HERE, "..", "..", "recipe", "knowledge-architecture.pt-BR.md"))
 OLLAMA = "http://localhost:11434/api/chat"
 OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
+# Metadados da ULTIMA chamada de nuvem (custo real devolvido pelo provedor, tokens de raciocinio).
+# Aditivo: nao muda a assinatura de retorno de call_ex; o runner le daqui para o cabecalho.
+LAST_META = {}
 PROVIDER = "ollama"  # setado em main() via --provider (ollama | openrouter)
 
 # Strata em prosa ~17k tokens -> precisa num_ctx ~20k. Num 3060 de 12GB, so 7-8B
@@ -210,7 +213,7 @@ def call_ollama_ex(model, prompt, num_ctx, num_predict, seed):
     return content, time.time() - t0, d.get("eval_count", 0), d.get("done_reason"), from_thinking
 
 
-def call_openrouter_ex(model, prompt, num_predict, seed, think=False):
+def call_openrouter_ex(model, prompt, num_predict, seed, think=False, reasoning=None):
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
         raise RuntimeError("OPENROUTER_API_KEY nao setada (veja eval/strata/RUNBOOK-nuvem.md)")
@@ -222,6 +225,12 @@ def call_openrouter_ex(model, prompt, num_predict, seed, think=False):
         body["reasoning"] = {"max_tokens": 3000}
         body["max_tokens"] = num_predict + 3000
         body["temperature"] = 1.0
+    if reasoning is not None:
+        # eixo RACIOCINIO explicito (param unificado da OpenRouter): {"enabled": False} desliga,
+        # {"effort": "low|medium|high"} regula. Vence o --think. Sem isto, cada modelo usa o seu
+        # default (uns pensam, outros nao) e a comparacao mistura regimes sem registro.
+        body["reasoning"] = reasoning
+    body["usage"] = {"include": True}  # custo real por chamada (so contabilidade; nao afeta a geracao)
     data = json.dumps(body).encode("utf-8")
     hdr = {"Content-Type": "application/json", "Authorization": f"Bearer {key}",
            "HTTP-Referer": "https://github.com/LeoPR/Methodologies", "X-Title": "Strata-eval"}
@@ -232,12 +241,17 @@ def call_openrouter_ex(model, prompt, num_predict, seed, think=False):
             with urllib.request.urlopen(urllib.request.Request(OPENROUTER, data=data, headers=hdr), timeout=300) as r:
                 d = json.loads(r.read().decode("utf-8"))
             ch = d["choices"][0]
+            u = d.get("usage", {}) or {}
+            LAST_META.clear()
+            LAST_META.update({"cost": u.get("cost"), "prompt_tokens": u.get("prompt_tokens"),
+                              "reasoning_tokens": (u.get("completion_tokens_details") or {}).get("reasoning_tokens"),
+                              "provider": d.get("provider")})
             content = (ch["message"].get("content") or "").strip()
             from_thinking = False
             if not content:  # reasoner: a resposta foi p/ o canal de raciocinio
                 content = (ch["message"].get("reasoning") or ch["message"].get("reasoning_content") or "").strip()
                 from_thinking = bool(content)
-            return content, time.time() - t0, d.get("usage", {}).get("completion_tokens", 0), ch.get("finish_reason"), from_thinking
+            return content, time.time() - t0, u.get("completion_tokens", 0), ch.get("finish_reason"), from_thinking
         except urllib.error.HTTPError as e:
             last = e
             if e.code in (429, 500, 502, 503, 529) and attempt < 3:
@@ -251,19 +265,27 @@ def call_openrouter_ex(model, prompt, num_predict, seed, think=False):
     raise last
 
 
-def call_ex(model, prompt, num_ctx, num_predict, seed, think=False):
+def call_ex(model, prompt, num_ctx, num_predict, seed, think=False, reasoning=None):
     """Como call(), mas retorna (content, secs, ntok, stop_reason, from_thinking). think=True liga o
     eixo ESFORCO (extended thinking) na nuvem; no ollama o think ja e tentado por padrao."""
     if PROVIDER == "openrouter":
-        return call_openrouter_ex(model, prompt, num_predict, seed, think=think)
+        return call_openrouter_ex(model, prompt, num_predict, seed, think=think, reasoning=reasoning)
     if PROVIDER in ("cerebras", "groq", "nvidia"):
         t0 = time.time()
-        reasoning = {"max_tokens": 3000} if think else None
+        if reasoning is None:
+            reasoning = {"max_tokens": 3000} if think else None
         d = providers.chat(PROVIDER, model, prompt,
                            max_tokens=num_predict + (3000 if think else 0),
                            temperature=(1.0 if think else 0.3), seed=seed, reasoning=reasoning)
         content, fr, ft, ntok = providers.content_of(d)
+        u = d.get("usage", {}) or {}
+        LAST_META.clear()
+        LAST_META.update({"cost": 0.0, "prompt_tokens": u.get("prompt_tokens"),
+                          "reasoning_tokens": (u.get("completion_tokens_details") or {}).get("reasoning_tokens"),
+                          "provider": PROVIDER})
         return content, time.time() - t0, ntok, fr, ft
+    LAST_META.clear()
+    LAST_META.update({"cost": 0.0, "provider": "ollama"})
     return call_ollama_ex(model, prompt, num_ctx, num_predict, seed)
 
 

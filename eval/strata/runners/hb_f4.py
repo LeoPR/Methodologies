@@ -179,6 +179,9 @@ def main():
     ap.add_argument("--framing", choices=["audit", "hunt"], default="audit",
                     help="audit=corrija-o-defeito (default); hunt=ache-problemas (cruzamento R8 no clean)")
     ap.add_argument("--think", action="store_true", help="liga extended thinking (eixo esforco, nuvem)")
+    ap.add_argument("--reasoning", choices=["default", "off", "low", "medium", "high"], default="default",
+                    help="eixo RACIOCINIO explicito (nuvem): default = nao envia (cada modelo no seu "
+                         "default); off desliga; low/medium/high regula o esforco. Vai p/ o cabecalho.")
     ap.add_argument("--num-ctx", type=int, default=24576)
     ap.add_argument("--num-predict", type=int, default=4200)
     a = ap.parse_args()
@@ -257,10 +260,15 @@ def main():
             stamp = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
             print(f"  -> {m} | {arm} | r{run} ...", flush=True)
             try:
+                rsn = (None if a.reasoning == "default" else
+                       {"enabled": False} if a.reasoning == "off" else {"effort": a.reasoning})
                 content, secs, tok, stop, from_think = hb_runner.call_ex(
-                    m, prompt, a.num_ctx, a.num_predict, seed=run, think=a.think)
+                    m, prompt, a.num_ctx, a.num_predict, seed=run, think=a.think, reasoning=rsn)
+                meta = dict(hb_runner.LAST_META)
                 hdr = (f"<!-- F4 {arm} | model={m} | run={run} | {stamp} | {secs:.0f}s | "
                        f"{tok} tok | stop={stop} | from_thinking={from_think} | think={a.think} | "
+                       f"reasoning={a.reasoning} | rtok={meta.get('reasoning_tokens')} | "
+                       f"cost={meta.get('cost')} | provider={a.provider}/{meta.get('provider')} | "
                        f"framing={a.framing} | lang={a.lang} | fixture_sha={sha} | "
                        f"method_sha={msha} | target={a.label} -->\n\n")
                 open(os.path.join(out, name), "w", encoding="utf-8").write(hdr + content)

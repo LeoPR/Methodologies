@@ -38,7 +38,13 @@ Scripts live in purpose folders; **data stays at the root** (`planos/`, `cenario
 - `aggregate/`: `aggregate_*` + `compare_judges*` · `gen/`: digests, charts, forms, `hash_fixture.py`,
   `build_nc_repo.py` (repo-scale negative control: plants 5 L0 defects + 1 negative item in a copy of
   this repo; answer key and first result in `nc-manifest.json`)
-- `ops/`: `run_*.sh` (ready-made matrices) · `legacy/`: `hb_l2_*` (broken defaults, record)
+- `ops/`: `run_*.sh` (ready-made matrices); `bank_run.py` (model capability bank: fix → trap →
+  abstention per model, stops at the fix; provider errors are INFRA, never "cannot") ·
+  `legacy/`: `hb_l2_*` (broken defaults, record)
+- `aggregate/aggregate_bank.py` (bank table per route) · `verify/score_f5.py` (F5 scorer, GOLD gate;
+  `cenarios/f5-recente` = claims whose truth changed in 2024-2026, to measure web search)
+- `runners/hb_f4.py --reasoning off|low|medium|high` (explicit reasoning axis; header records it,
+  plus the provider's real cost and reasoning tokens)
 - `tools/probes/`: auxiliary probes (structure untouched)
 
 ## The LIVE pipeline (runner → fixture → answer key → verifier → aggregator)

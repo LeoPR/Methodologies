@@ -47,6 +47,7 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   └── 2026-08-03-idioma-en/           <- IDIOMA PT×EN: piloto F3 (recusa; EN sem vantagem) + repetição EN do núcleo F4 (paridade de prova do canônico EN)
 │   └── 2026-08-03-dev-environment-revisao/ <- revisão do dev-environment VIVO (2026-08-03); registro lateral, não é produto nem evidência
 │   └── 2026-08-03-prompt-ingenuo/      <- braço NAIVE ("uma IA precisa do Strata pra quê?"): PLANO pré-registrado · RESULTADOS (PT+EN) · PROPOSTA-S9 APLICADA (v1.2.2) e testada: inconclusiva, sem poder (RESULTADOS-verificacao-s9.md)
+│   └── 2026-09-26-banco-modelos/       <- BANCO DE MODELOS 2026-09: faz tudo / mais barato / mais rápido / grátis / local; eixos pensamento e web
 │   └── 2026-09-26-revisao-temporal/    <- revisão temporal: métodos de avaliação, roster, L1/L2, L0 teoria × texto
 │   └── 2026-09-26-revisao-superficie/  <- revisão de superfície do Strata + AUDITORIA declarado × feito (destino por achado)
 ├── eval/                             <- LABORATÓRIO DE PROVA (a "chave de fenda": comprova; NÃO é a metodologia, NÃO é o foco)

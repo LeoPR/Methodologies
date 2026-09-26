@@ -12,6 +12,11 @@ status: 'Consolidado. O que o Strata entrega na prática, por tarefa/capacidade/
 > (histórico append-only) e nos `RESULTADOS-*`; o que falta, no [`BACKLOG`](BACKLOG-fila-geral.md).
 > Cada conclusão passou por crítica adversarial contra exagero. **Tudo é sinal/direção, não prova.**
 > Este documento segue a norma de redação do repositório: [`ESTILO-REDACAO`](../../ESTILO-REDACAO.md).
+>
+> **Qual modelo usar hoje** (quem faz tudo, o mais barato, o mais rápido, o grátis, o local, e
+> como ajustar pensamento e web): o [banco de modelos 2026-09](../2026-09-26-banco-modelos/). Os
+> nomes de modelo citados abaixo são da grade de agosto; valem como histórico da conclusão, não
+> como recomendação de modelo.
 
 ## O que o Strata entrega
 

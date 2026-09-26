@@ -82,6 +82,8 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     (v1.2.2) e testada — INCONCLUSIVO** (A/B do texto do método sem melhora e sem poder para
     detectar o ganho esperado; adendo de poder no `RESULTADOS-verificacao-s9.md`);
     o parágrafo fica por ser norma útil ao leitor humano.
+  - `2026-09-26-banco-modelos/`: **banco de modelos** (quem faz tudo, mais barato, mais rápido,
+    grátis, local; eixos de pensamento e web). Fonte do guia `recipe/strata-com-ia.*`.
   - `2026-09-26-revisao-temporal/`: **revisão temporal** (métodos de avaliação, roster de modelos,
     L1/L2, L0 teoria × texto): achados com fonte e o que foi aplicado. Registro, não fonte de estado.
   - `2026-09-26-revisao-superficie/`: revisão de superfície do Strata + **auditoria declarado × feito**

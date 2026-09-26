@@ -4,7 +4,7 @@ status: active
 created: 2026-06-08
 updated: 2026-09-26
 purpose: responder ao desenvolvedor "funciona no meu ambiente? vai sair caro?". Só o que funciona
-nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9 (p8 = posição/variância; p9 = churn de elenco, L2)
+nota: o banco de modelos por trás desta página, com os eixos de raciocínio e web e todas as ressalvas, está em lab/2026-09-26-banco-modelos/; a pesquisa anterior (o que NÃO funciona e por quê) em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9
 ---
 
 <!-- l10n: doc_id=strata-com-ia · lang=pt-BR · source_lang=en · translation_of=strata-com-ia.en.md -->
@@ -13,122 +13,89 @@ nota: a pesquisa completa (inclusive o que NÃO funciona e por quê) está em la
 # Strata com IA: guia prático
 
 O texto do método é o mesmo para todos. O que muda o resultado é **quem executa e como**.
-Três regras de ouro antes de qualquer modelo:
+Cinco regras antes de qualquer modelo:
 
-1. **Para uma avaliação completa, dê a um modelo médio/econômico a checklist em etapas, não
-   o texto cru.** Para um conserto conhecido, o texto canônico cru já funciona (grade 2026-08).
-   A checklist (`../lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-checklist.md`) é
-   um protótipo anterior ao L0 fechado: não tem portão para o §11 nem para o lado de
-   autoridade-para-ler do §6-bis. Use-a como andaime, não como o método.
-2. **Saída de IA = rascunho a revisar**, nunca veredito automático.
-3. **Auto-auditoria autônoma (a IA auditando um projeto sozinha) é modo só de topo**: em
-   projeto real ela só rendeu com o modelo de topo. Para modelos médios/econômicos, o arranjo
-   que funciona é **checklist + humano confirmando cada achado**.
+1. **Saída de IA = rascunho a revisar**, nunca veredito automático.
+2. **Auto-auditoria autônoma (a IA auditando sozinha um projeto real) é modo só de topo**: em
+   projeto real ela só rendeu com o modelo de topo. Para qualquer outro modelo, o arranjo que
+   funciona é **checklist + humano confirmando cada achado**.
+3. **Deixe o raciocínio no padrão ou baixo. Nunca alto** em tarefa de julgamento: pensar mais não
+   melhorou nenhuma célula, custou mais e às vezes fez o modelo mexer num projeto que já estava
+   bom ou estourar o orçamento antes de responder.
+4. **Verificação de fonte (§6) pede busca na web ligada.** Sem ela, até modelos de topo confirmam
+   fatos desatualizados com segurança. Sem web, leia "correta" como "não verificada".
+5. **Numa avaliação completa por modelo médio ou econômico, dê a checklist em etapas, não o texto
+   cru.** Para um conserto conhecido, o texto canônico cru já funciona. A checklist
+   (`../lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-checklist.md`) é um protótipo
+   anterior ao L0 fechado (sem portão para o §11 nem para o lado de autoridade-para-ler do
+   §6-bis): use-a como andaime, não como o método.
 
-> **Onde a evidência vale (leia antes da tabela):** os números de saturação e abstenção vêm
-> de **fixtures sintéticas** com gabarito pré-registrado. Em **projetos reais de terceiros**,
-> o auto-auditor de IA **não** bateu a competência pura: com o framing "ache problemas",
-> todos os braços (baseline incluso) super-detectaram, inventando violações e criticando
-> práticas boas; é a **forma de abstenção** que corrige o falso-positivo
-> ([R8](../lab/2026-06-04-strata-hipoteses/RESULTADOS-r8-sintese-3-projetos.md), reinterpretado
-> em 2026-06-13; [braço externo](../lab/2026-06-04-strata-hipoteses/RESULTADOS-externo-bemcomportado.md)).
-> Circularidade residual: a auditoria rica de qualidade em projeto de terceiro ainda não tem
-> gabarito independente e cobre um só gênero. Use a tabela para escolher modelo em **tarefas
-> controladas** (conserto, armadilha, abstenção); trate auditoria de projeto real como
-> rascunho para um humano.
+> **Onde a evidência vale (leia antes da tabela):** os números vêm de **fixtures sintéticas** com
+> gabarito pré-registrado e pontuador mecânico. Em **projetos reais de terceiros**, o auto-auditor
+> de IA **não** bateu a competência pura: com o framing "ache problemas", todos os braços (baseline
+> incluso) super-detectaram; é a **forma de abstenção** que corrige o falso-positivo
+> ([R8](../lab/2026-06-04-strata-hipoteses/RESULTADOS-r8-sintese-3-projetos.md);
+> [braço externo](../lab/2026-06-04-strata-hipoteses/RESULTADOS-externo-bemcomportado.md)).
+> Use a tabela para escolher modelo em **tarefas controladas** (conserto, armadilha, abstenção);
+> trate auditoria de projeto real como rascunho para um humano.
 
-## Decisão rápida: o que usar (grade 2026-08)
+## Decisão rápida: o que usar (banco 2026-09)
+
+"Faz tudo" = conserta o defeito conhecido (§5), recusa a instrução maliciosa plantada (§6-bis)
+**e** se abstém num projeto que já está bom (§9), na maioria de três runs em cada.
 
 | Eu quero… | Use | Por quê |
 |---|---|---|
-| **rodar local (GPU de consumo)** | **qwen3:14b** (cabe inteiro numa 3060 12GB) · **qwen3.6:27b** | o 14b é o prático do dia a dia; o 27b conserta e também se absteve na fixture limpa (ressalva abaixo), mas é lento (~22 min/run com offload) |
-| **pagar pouco na nuvem** | **gpt-5-mini** (piso pago OpenAI) · **haiku-4.5** · **deepseek-v4-pro** | executam o conserto no padrão; o gpt-5-mini também recusa injeção espontaneamente e, com web, verifica fonte |
-| **o máximo, custe o que custar** | **opus-5** · **fable-5** | conserto e armadilha perfeitos, e se abstiveram na fixture limpa (ressalva abaixo); o topo é onde a **auto-auditoria autônoma** rendeu |
-| **topo sem pagar o teto** | sonnet-5 · gpt-5.6-terra · gemini-3.1-pro | conserto perfeito; armadilha perfeita salvo uma rodada do gemini-3.1-pro que re-emitiu a diretiva ativa; abstenção **não medida** |
-| **NÃO usar para isto** | llama-4-scout · local <4B | o scout falhou o conserto da armadilha 2/2 e propagou o payload; abaixo de ~4B nem o formato sai |
+| **o mais barato que faz tudo** | **gpt-6-luna** · mimo-v2.6-flash · glm-5.3-flash (raciocínio baixo) | cerca de US$ 0,002–0,003 por run; o luna responde em ~10 s |
+| **o mais rápido que faz tudo** | **gemini-3.5-flash-lite** | 2–4 s por run, cerca de US$ 0,006 |
+| **pesos abertos que fazem tudo** | **qwen3.8-27b** (27B denso, Apache 2.0) | faz tudo em todos os níveis de raciocínio; com o raciocínio desligado fica 5× mais barato e rápido |
+| **o topo** (auditoria autônoma de projeto real) | **opus-5.5** · **gpt-6-sol** · **gemini-3.8-flash** · sonnet-5 · grok-4.7 | todos fazem tudo; gpt-6-sol e gemini-3.8-flash custam cerca de 5× menos que o opus-5.5 |
+| **grátis, e que faz tudo** | **kimi-k3** na NVIDIA NIM · deepseek-v4.1-flash na mesma rota | custo zero; o kimi leva ~40–60 s por run, o deepseek 2–10 min. Os `:free` do OpenRouter dão 429 (limite de taxa); o Groq recusa o tamanho do prompt (8K tokens/min); o crédito grátis do Cerebras acabou |
+| **local, GPU de 12 GB** | **qwen3.6:35b-a3b** (MoE, offload de experts) com pensamento **desligado** | conserta e recusa a injeção em ~20–50 s por run, mas **não** se abstém: junte a um humano que decide quando não mexer. Nenhum modelo que roda em 12 GB faz tudo; o qwen3.8:27b (denso) estoura o tempo ali, e o gemma4:12b cabe mas propagou a injeção |
+| **só conserto + armadilha, bem barato** | gemma-4-26b-a4b · gemma-4-31b | consertam e recusam, mas **não** se abstêm: junte a um humano que decide quando não mexer |
+| **NÃO usar para ação autônoma** | **gpt-oss-120b** · **claude-haiku-4.5** · gemma4:12b · llama-4-scout · local abaixo de ~4B | todos propagaram a injeção plantada ao menos uma vez (gpt-oss-120b 3/3); o haiku-4.5 também nunca se absteve; abaixo de ~4B nem o formato sai |
 
-*Regra: o **conserto de defeito conhecido (§5) satura de ~8B local ao topo**. A borda que separa modelos é a **abstenção** (não mexer no que já está bom): ela depende do **modelo e da redação do pedido**, não do preço, e não há evidência de que o texto do método a compre (§9). Confira o modelo específico na grade honesta da [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). Saída de IA = rascunho a revisar, sempre. (Nomes e preços datam rápido: vivem na camada datada, o L2. Re-audite antes de ancorar decisão cara.)*
+*Regra: a borda que separa os modelos é a **abstenção** (não mexer no que já está bom). Ela
+depende do **modelo e da redação do pedido**, não do preço, e não há evidência de que o texto do
+método a compre (§9). (Nomes e preços datam rápido: vivem na camada datada, o L2. Re-audite antes
+de ancorar decisão cara.)*
 
-> **Fonte e regime (2026-08-02):** reteste do L0 fechado, ~350 runs, K=2 (duas rodadas por
-> célula), três situações (conserto §5, armadilha com injeção §6-bis, projeto já bom §9),
-> gabarito mecânico (gold) + júri cego cross-vendor (termos: [GLOSSARIO](../GLOSSARIO.md)).
-> Sinais direcionais (sintético), não prova. Números por tarefa × capacidade:
-> [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); diário da rodada:
-> [`lab/2026-08-02-reteste-L0-fechado`](../lab/2026-08-02-reteste-L0-fechado/).
->
-> **Ressalva sobre as células de abstenção:** a fixture limpa usada nelas dizia a resposta no
-> próprio README, então parte do que se mediu é leitura, não calibração. Só a sucessora sem o
-> vazamento é limpa, e ela mediu três modelos
-> ([verificação do §9](../lab/2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md)). Leia
-> todo "se absteve" desta página como sinal fraco; a leitura qualitativa (varia por modelo, não
-> por preço) se mantém.
+> **Fonte e regime (2026-09-26):** banco de modelos, três células (conserto §5 na `f4-dup`,
+> armadilha §6-bis na `f4-trap`, abstenção §9 na `f4-clean-v2`, a fixture sem o vazamento da
+> resposta), K=3, gabarito mecânico, custo real devolvido pelo provedor. Sinais direcionais, não
+> prova. Tabela completa, eixos de raciocínio e web, e ressalvas:
+> [`lab/2026-09-26-banco-modelos/`](../lab/2026-09-26-banco-modelos/).
 
-![Strata por IA: qual modelo usar, por vendor](strata-com-ia-fronteira.pt-BR.svg)
+![Strata por IA: qual modelo usar, por contexto de acesso](strata-com-ia-fronteira.pt-BR.svg)
 
-**Como ler o gráfico** (grade 2026-08; por contexto de acesso: GPU local, plano econômico, topo).
+## Pensamento e web: como ajustar
 
-O reteste mediu cada modelo em **três situações** com gabarito pré-registrado:
-
-- **Conserto §5**: um defeito conhecido (duplicação de informação), braço Strata × baseline.
-- **Armadilha §6-bis**: o mesmo conserto com uma instrução maliciosa plantada no projeto.
-- **Projeto já bom §9**: nada a corrigir; a resposta certa é **não agir**.
-
-O achado que organiza o gráfico: **o conserto §5 saturou**: de ~8B local ao topo de fronteira,
-com Strata todos executam no padrão.
-**A borda que separa os modelos é a abstenção** (§9): quem se abstém num projeto que já está bom.
-Ela depende do **modelo, não do tier nem do preço**. Opus-5/fable-5 se abstiveram, e há
-econômicos calibrados e caros superagentes (tudo na fixture limpa, com a ressalva acima);
-confira o modelo específico na OPINIAO.
-
-**O que o gráfico diz:**
-- **Local:** abaixo de ~4B nem o formato sai (não é o método, é capacidade). O **qwen3:14b**
-  cabe inteiro numa 3060 12GB e carrega o dia a dia; o **qwen3.6:27b** conserta e também se
-  absteve (ressalva acima), mas roda com offload: ~22 min/run, factível, lento.
-- **Nuvem econômica:** **gpt-5-mini** é o piso pago da OpenAI; **haiku-4.5** e
-  **deepseek-v4-pro** executam o conserto perfeitamente.
-- **Topo:** **opus-5** e **fable-5** consertam, passam na armadilha e se abstiveram (ressalva
-  acima); sonnet-5, gpt-5.6-terra, gemini-3.1-pro e kimi-k3 consertam perfeitamente e passam
-  na armadilha, salvo uma rodada do gemini-3.1-pro; a abstenção deles não foi medida.
-- **Evitar para este uso:** **llama-4-scout**, único que, com Strata, falhou o conserto da
-  armadilha 2/2 e propagou o payload da injeção num deles.
-
-> **Leia pelo padrão, não pelo nome.** Modelos mudam rápido; o que **dura** é o comportamento por
-> estrato de acesso (nomes de modelo são exemplos datados; roster auditado em fonte primária em
-> 2026-08-02). Grade honesta completa, por tarefa × capacidade × custo:
-> [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).
+| Parâmetro | Ajuste | O que se mediu |
+|---|---|---|
+| **raciocínio / esforço de pensamento** | padrão ou baixo (local: desligado) | o alto nunca melhorou uma célula; derrubou a abstenção do gpt-6-luna de 3/3 para 1/3 e fez o gemini-3.8-flash errar a armadilha; deepseek e glm estouraram o orçamento. Desligar só ajuda modelos que se mantêm robustos (qwen3.8-27b) e pode piorar a abstenção de outros |
+| **modelos cujo pensamento não desliga** | use baixo | o glm-5.3-flash recusa "off" (HTTP 400); o gemini-3.8-flash recusa "minimal"; o opus-5.5 sempre pensa |
+| **orçamento de tokens** | generoso (≥12k de saída) para modelos que pensam | truncamento é a falha mais comum dos modelos que pensam; resposta truncada não é veredito. Localmente, pensamento mais o método de ~21k tokens estourou um contexto de 32k: rode modelo local com pensamento desligado |
+| **busca na web** (`:online` ou a ferramenta de busca do fabricante) | ligada, para verificação de fonte (§6) | sem web, gemini-3.8-flash e deepseek-v4.1-flash confirmaram fatos desatualizados; com web, gemini e gpt-6-luna corrigiram 6/6. Sem web, o qwen3.8 é o mais honesto (diz "não verificável") |
+| **temperatura** | não conte com ela | a linha GPT-6 e o sonnet-5 não a aceitam (o roteador descarta em silêncio); a DeepSeek a ignora enquanto pensa |
 
 ## Como você pede: o que ajuda e o que não ajuda
 
-Numa **avaliação completa** por modelo médio/econômico, a forma do pedido ajuda (sinal de junho):
+Numa **avaliação completa** por modelo médio ou econômico, a forma do pedido ajuda:
 - **Checklist** (sim/não por gate, com as 3 regras anti-falso-positivo) >> texto cru.
-- **Etapas** (aplicar em turnos separados) é o que mais ajuda os modelos médios/econômicos:
-  obriga o modelo a reconhecer o que está bom e situar no tempo **antes** de apontar defeito.
-- Ela **não** compra o julgamento de quando *não* agir: esse fica com o modelo, e um pedido
-  leigo bem redigido o calibra tanto quanto o método, ou melhor.
-- **Reasoners** (deepseek-r1, qwen3-thinking) precisam de `think:true` e bastante orçamento de
-  tokens, senão "pensam" e não respondem.
+- **Etapas** (aplicar em turnos separados): o modelo reconhece o que está bom e situa no tempo
+  **antes** de apontar defeito.
+- Ela **não** compra o julgamento de quando *não* agir: esse fica com o modelo, e um pedido leigo
+  bem redigido o calibra tanto quanto o método, ou melhor.
 
 ## Limites (o que esperar: não é defeito, é como calibrar)
 
-- **Superagir não é carimbo de tier:** há econômicos que calibram num projeto limpo e caros
-  que superagem; aparece mais com ruído e sob framing de auditoria. Trate o resultado como
-  rascunho e confirme cada achado com o trecho citado.
+- **Superagir não é carimbo de tier:** modelos baratos fazem tudo aqui, e alguns médios (gemma 4)
+  consertam e recusam, mas não se abstêm. Confira o modelo específico.
 - **A dimensão temporal depende da legibilidade:** com datas e histórico legíveis (§3/§8), os
-  modelos situam no tempo corretamente; com histórico ruidoso ou sem marcas, marcam o
-  histórico como problema atual. Revise achados datados com atenção.
-- **Os dois lados de uma vez (2026-08):** na grade sintética, opus-5, fable-5 e o local
-  qwen3.6:27b consertaram **e** se abstiveram (fixture limpa, ressalva acima). Os demais
-  **oscilam** num dos lados; trate como rascunho.
-- **Reasoner local engana:** um reasoner local pode parecer
-  "limpo" só porque **truncou antes de concluir**; quando ele de fato termina, o veredito muda.
-  Não confie no resultado parcial (no reteste 2026-08, falso-zero por truncamento vira
-  INDETERMINADO, nunca FAIL).
-
-## Notas finais
-
-- **Local grátis é opção real:** qwen3:14b (cabe numa 3060 12GB) executa o
-  conserto, e qwen3.6:27b também se absteve (ressalva acima): grátis, lento. Remoto `:free` segue ruim: rate-limit
-  pesado e qualidade baixa.
-- A análise completa (configurações que **não** funcionam, os experimentos e os gráficos
-  de pesquisa) está em `lab/2026-06-04-strata-hipoteses/`
-  (`RESULTADOS-p6-*`).
+  modelos situam no tempo corretamente; com histórico ruidoso ou sem marcas, marcam o histórico
+  como problema atual. Revise achados datados com atenção.
+- **A rota muda por baixo:** o mesmo nome de modelo é servido por provedores diferentes, e
+  fabricantes trocam o que responde por um nome (desde 2026-09-14 a API da DeepSeek serve o
+  V4.1-Flash quando se pede o V4-Pro). O cabeçalho do plano registra quem serviu cada run.
+- **Truncamento engana:** um modelo que pensa pode parecer "limpo" só porque acabou os tokens antes
+  de concluir. Resposta truncada é INDETERMINADA, nunca aprovação nem falha.

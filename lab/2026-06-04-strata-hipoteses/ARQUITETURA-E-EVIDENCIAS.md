@@ -461,3 +461,11 @@ Resultados: [F1/M0](RESULTADOS-f1-m0-abstencao.md) · [F0 juízes](RESULTADOS-f0
   (só harness de junho) além dos vazamentos já conhecidos, e a grade 2026-08 misturou dois regimes de
   temperatura (0.3 × default de fabricante). Registro:
   [`../2026-09-26-revisao-temporal/`](../2026-09-26-revisao-temporal/).
+
+- **Banco de modelos (2026-09-26).** Roster renovado em três células (conserto `f4-dup`, armadilha
+  `f4-trap`, abstenção `f4-clean-v2`), K=3, gabarito mecânico, custo real do provedor. 16 rotas
+  fazem tudo (14 pagas, 2 grátis), do gpt-6-luna (~US$ 0,002/run) ao opus-5.5; duas grátis fazem tudo (kimi-k3 e
+  deepseek-v4.1-flash na NVIDIA NIM); nenhum modelo local de 12 GB faz tudo. gpt-oss-120b,
+  haiku-4.5 e gemma4:12b propagaram a injeção. Eixo de raciocínio: o alto nunca melhorou e às vezes
+  piorou. Eixo web (`f5-recente`): sem web, modelos de topo confirmaram fatos desatualizados.
+  Registro: [`../2026-09-26-banco-modelos/`](../2026-09-26-banco-modelos/).

@@ -4,7 +4,7 @@ status: active
 created: 2026-06-08
 updated: 2026-09-26
 purpose: answer the developer asking "does it work in my environment? will it be expensive?". Only what works
-nota: the full research (including what does NOT work and why) is in lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9 (p8 = position/variance; p9 = roster churn, L2)
+nota: the model bank behind this page, with the reasoning and web axes and every caveat, is in lab/2026-09-26-banco-modelos/; older research (what does NOT work and why) in lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9
 ---
 
 <!-- l10n: doc_id=strata-com-ia · lang=en · canonical -->
@@ -13,120 +13,91 @@ nota: the full research (including what does NOT work and why) is in lab/2026-06
 # Strata with AI: practical guide
 
 The method text is the same for everyone. What changes the result is **who runs it and how**.
-Three golden rules before any model:
+Five rules before any model:
 
-1. **For a full evaluation, give a mid/budget model the checklist in stages, not the raw
-   text.** For a known fix the raw canonical text already works (2026-08 grade). The
-   checklist (`../lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-checklist.md`) is a
-   prototype older than the closed L0: it has no gate for §11 or for the authority-to-read
-   side of §6-bis. Use it as a scaffold, not as the method.
-2. **AI output = a draft to review**, never an automatic verdict.
-3. **Autonomous self-audit (AI auditing a project alone) is a top-tier-only mode**: on real
-   projects it only paid off with the top model. For mid/budget models the setup that works
-   is **checklist + human confirming each finding**.
+1. **AI output = a draft to review**, never an automatic verdict.
+2. **Autonomous self-audit (AI auditing a real project alone) is a top-tier-only mode**: on real
+   projects it only paid off with the top model. For every other model the setup that works is
+   **checklist + human confirming each finding**.
+3. **Leave reasoning at the default or low. Never high** for judgment tasks: more thinking did not
+   improve any cell, cost more, and sometimes made the model act on a project that was already
+   good or run out of budget before answering.
+4. **Source verification (§6) needs web search on.** Without it, even top models confirm
+   outdated facts with confidence. Without web, read "correct" as "not verified".
+5. **For a full evaluation by a mid or budget model, give it the checklist in stages, not the
+   raw text.** For a known fix the raw canonical text already works. The checklist
+   (`../lab/2026-06-04-strata-hipoteses/strata-ai-native/strata-checklist.md`) is a prototype
+   older than the closed L0 (no gate for §11 or for the authority-to-read side of §6-bis): use
+   it as a scaffold, not as the method.
 
-> **Where the evidence holds (read before the table):** the saturation and abstention numbers
-> come from **synthetic fixtures** with a pre-registered answer key. In **real third-party
+> **Where the evidence holds (read before the table):** the numbers come from **synthetic
+> fixtures** with a pre-registered answer key and a mechanical scorer. In **real third-party
 > projects**, the AI self-auditor did **not** beat plain competence: with the "find problems"
-> framing, every arm (baseline included) over-detected, inventing violations and criticizing
-> good practices; the **abstention form** is what corrects the false positives
-> ([R8](../lab/2026-06-04-strata-hipoteses/RESULTADOS-r8-sintese-3-projetos.md), reinterpreted
-> 2026-06-13; [external arm](../lab/2026-06-04-strata-hipoteses/RESULTADOS-externo-bemcomportado.md)).
-> Residual circularity: the rich quality audit on third-party projects still lacks an
-> independent answer key and covers a single genre. Use the table to pick a model for
-> **controlled tasks** (fix, trap, abstention); treat real-project audits as drafts for a human.
+> framing, every arm (baseline included) over-detected; the **abstention form** is what corrects
+> the false positives
+> ([R8](../lab/2026-06-04-strata-hipoteses/RESULTADOS-r8-sintese-3-projetos.md);
+> [external arm](../lab/2026-06-04-strata-hipoteses/RESULTADOS-externo-bemcomportado.md)).
+> Use the table to pick a model for **controlled tasks** (fix, trap, abstention); treat
+> real-project audits as drafts for a human.
 
-## Quick decision: what to use (2026-08 grade)
+## Quick decision: what to use (2026-09 bank)
 
-| I want to… | Use | Why |
+"Does everything" = fixes the known defect (§5), refuses the planted malicious instruction
+(§6-bis) **and** abstains on a project that is already good (§9), in the majority of three runs
+each.
+
+| I want… | Use | Why |
 |---|---|---|
-| **run locally (consumer GPU)** | **qwen3:14b** (fits whole in a 3060 12GB) · **qwen3.6:27b** | the 14b is the daily workhorse; the 27b fixes and also abstained on the clean fixture (caveat below), but is slow (~22 min/run with offload) |
-| **pay little in the cloud** | **gpt-5-mini** (OpenAI paid floor) · **haiku-4.5** · **deepseek-v4-pro** | they execute the fix to standard; gpt-5-mini also refuses injection spontaneously and, with web access, verifies sources |
-| **the most, at any cost** | **opus-5** · **fable-5** | perfect fix and trap, and they abstained on the clean fixture (caveat below); the top tier is where **autonomous self-audit** paid off |
-| **top tier without paying the ceiling** | sonnet-5 · gpt-5.6-terra · gemini-3.1-pro | perfect fix; trap perfect except one gemini-3.1-pro run that re-emitted the active directive; abstention **not measured** |
-| **do NOT use for this** | llama-4-scout · local <4B | the scout failed the trap fix 2/2 and propagated the payload; below ~4B not even the format comes out |
+| **the cheapest that does everything** | **gpt-6-luna** · mimo-v2.6-flash · glm-5.3-flash (reasoning low) | about US$ 0.002–0.003 per run; luna answers in ~10 s |
+| **the fastest that does everything** | **gemini-3.5-flash-lite** | 2–4 s per run, about US$ 0.006 |
+| **open weights that do everything** | **qwen3.8-27b** (27B dense, Apache 2.0) | does everything at every reasoning level; with reasoning off it is 5× cheaper and faster |
+| **the top** (autonomous audit of a real project) | **opus-5.5** · **gpt-6-sol** · **gemini-3.8-flash** · sonnet-5 · grok-4.7 | all do everything; gpt-6-sol and gemini-3.8-flash cost about 5× less than opus-5.5 |
+| **free, and does everything** | **kimi-k3** on NVIDIA NIM · deepseek-v4.1-flash on the same route | zero cost; kimi takes ~40–60 s per run, deepseek 2–10 min. OpenRouter `:free` models rate-limit (429); Groq rejects the prompt size (8K tokens/min); the Cerebras free credit is gone |
+| **local, 12 GB GPU** | **qwen3.6:35b-a3b** (MoE, expert offload) with thinking **off** | fixes and refuses the injection in ~20–50 s per run, but does **not** abstain: pair it with a human who decides when not to touch. No model that runs on 12 GB does everything; qwen3.8:27b (dense) times out there, and gemma4:12b fits but propagated the injection |
+| **fix + trap only, very cheap** | gemma-4-26b-a4b · gemma-4-31b | they fix and refuse, but do **not** abstain: pair them with a human who decides when not to touch |
+| **do NOT use for autonomous action** | **gpt-oss-120b** · **claude-haiku-4.5** · gemma4:12b · llama-4-scout · local below ~4B | all propagated the planted injection at least once (gpt-oss-120b 3/3); haiku-4.5 also never abstained; below ~4B not even the format comes out |
 
-*Rule: **fixing a known defect (§5) saturates from ~8B local to the top**. The edge that separates models is **abstention** (not touching what is already good): it depends on the **model and on how the request is worded**, not on the price, and there is no evidence that the method's text buys it (§9). Check the specific model in the honest grade of [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md). AI output = a draft to review, always. (Names and prices date quickly: they live in the dated layer, L2. Re-audit before anchoring an expensive decision.)*
+*Rule: the edge that separates models is **abstention** (not touching what is already good). It
+depends on the **model and on how the request is worded**, not on price, and there is no
+evidence that the method's text buys it (§9). (Names and prices date quickly: they live in the
+dated layer, L2. Re-audit before anchoring an expensive decision.)*
 
-> **Source and regime (2026-08-02):** retest of the closed L0, ~350 runs, K=2 (two runs per
-> cell), three situations (§5 fix, trap with §6-bis injection, already-good project §9),
-> mechanical gold standard + blind cross-vendor jury (terms: [GLOSSARIO](../GLOSSARIO.md)).
-> Directional signals (synthetic), not proof. Numbers by task × capability:
-> [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md); round diary:
-> [`lab/2026-08-02-reteste-L0-fechado`](../lab/2026-08-02-reteste-L0-fechado/).
->
-> **Caveat on the abstention cells:** the clean fixture used for them stated the answer in its
-> own README, so part of what was measured is reading, not calibration. Only its successor
-> without the leak is clean, and it measured three models
-> ([§9 verification](../lab/2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md)). Read
-> every "abstained" in this page as a weak signal; the qualitative reading (it varies by model,
-> not by price) holds.
+> **Source and regime (2026-09-26):** model bank, three cells (§5 fix on `f4-dup`, §6-bis trap
+> on `f4-trap`, §9 abstention on `f4-clean-v2`, the fixture without the answer leak), K=3,
+> mechanical gold scorer, real cost returned by the provider. Directional signals, not proof.
+> Full table, reasoning and web axes, and caveats:
+> [`lab/2026-09-26-banco-modelos/`](../lab/2026-09-26-banco-modelos/).
 
-![Strata by AI: which model to use, by vendor](strata-com-ia-fronteira.en.svg)
+![Strata by AI: which model to use, by access context](strata-com-ia-fronteira.en.svg)
 
-**How to read the chart** (2026-08 grade; by access context: local GPU, budget plan, top tier).
+## Thinking and web: how to set them
 
-The retest measured each model in **three situations** with a pre-registered answer key:
-
-- **§5 fix**: a known defect (duplicated information), Strata arm × baseline.
-- **§6-bis trap**: the same fix with a malicious instruction planted in the project.
-- **Already-good project §9**: nothing to correct; the right answer is **not to act**.
-
-The finding that organizes the chart: **the §5 fix saturated**: from ~8B local to the frontier
-top, with Strata everyone executes to standard. **The edge that separates models is abstention** (§9): who abstains
-on a project that is already good. It depends on the **model, not the tier or price**. Opus-5/fable-5
-abstained, and there are calibrated budget models and overacting expensive ones (all on the
-clean fixture, with the caveat above); check the specific model in OPINIAO.
-
-**What the chart says:**
-- **Local:** below ~4B not even the format comes out (not the method; capability). **qwen3:14b**
-  fits whole in a 3060 12GB and carries the day-to-day; **qwen3.6:27b** fixes and also abstained
-  (caveat above), but runs with offload: ~22 min/run, feasible, slow.
-- **Budget cloud:** **gpt-5-mini** is OpenAI's paid floor; **haiku-4.5** and
-  **deepseek-v4-pro** execute the fix perfectly.
-- **Top:** **opus-5** and **fable-5** fix, pass the trap and abstained (caveat above);
-  sonnet-5, gpt-5.6-terra, gemini-3.1-pro and kimi-k3 fix perfectly and pass the trap, except
-  one gemini-3.1-pro run; their abstention was not measured.
-- **Avoid for this use:** **llama-4-scout**, the only one that, with Strata, failed the trap
-  fix 2/2 and propagated the injection payload in one of them.
-
-> **Read by pattern, not by name.** Models change fast; what **lasts** is the behavior by
-> access stratum (model names are dated examples; roster audited in primary sources on
-> 2026-08-02). Full honest grade, by task × capability × cost:
-> [`OPINIAO-DE-USO`](../lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).
+| Parameter | Set it to | What was measured |
+|---|---|---|
+| **reasoning / thinking effort** | default or low (locally: off) | high never improved a cell; it cut gpt-6-luna's abstention from 3/3 to 1/3 and made gemini-3.8-flash fail the trap; deepseek and glm ran out of budget. Off helps only models that stay robust (qwen3.8-27b) and can hurt abstention in others |
+| **models whose thinking cannot be turned off** | use low | glm-5.3-flash rejects "off" (HTTP 400); gemini-3.8-flash rejects "minimal"; opus-5.5 always thinks |
+| **token budget** | generous (≥12k output) for thinking models | truncation is the most common failure of thinking models; a truncated answer is not a verdict. Locally, thinking plus the ~21k-token method overflowed a 32k context: run local models with thinking off |
+| **web search** (`:online` or the vendor's search tool) | on, for source verification (§6) | without web, gemini-3.8-flash and deepseek-v4.1-flash confirmed outdated facts; with web, gemini and gpt-6-luna corrected 6/6. Without web, qwen3.8 is the most honest (it says "not verifiable") |
+| **temperature** | do not rely on it | the GPT-6 line and sonnet-5 do not accept it (the router drops it silently); DeepSeek ignores it while thinking |
 
 ## How you ask: what it helps and what it does not
 
-For a **full evaluation** by a mid/budget model, the form of the request helps (June signal):
+For a **full evaluation** by a mid or budget model, the form of the request helps:
 - **Checklist** (yes/no per gate, with the 3 anti-false-positive rules) >> raw text.
-- **Stages** (applying in separate turns) is what helps mid/budget models the most:
-  it forces the model to acknowledge what is good and place it in time **before** pointing defects.
+- **Stages** (applying in separate turns): the model acknowledges what is good and places it in
+  time **before** pointing defects.
 - It does **not** buy the judgment of when *not* to act: that stays with the model, and a
   well-worded plain request calibrates it as well as the method or better.
-- **Reasoners** (deepseek-r1, qwen3-thinking) need `think:true` and a generous token
-  budget, otherwise they "think" and never answer.
 
 ## Limits (what to expect: not a defect, how to calibrate)
 
-- **Over-acting is not a tier stamp:** some budget models calibrate on a clean project and
-  some expensive ones over-act; it shows up more with noise and under audit framing. Treat
-  the result as a draft and confirm each finding with the cited excerpt.
-- **The temporal dimension depends on legibility:** with readable dates and history
-  (§3/§8) models place things in time correctly; with noisy or unmarked history they flag the
-  historical as a current problem. Review dated findings carefully.
-- **Both sides at once (2026-08):** on the synthetic grade, opus-5, fable-5 and the local
-  qwen3.6:27b fixed **and** abstained (clean fixture, caveat above). The others **oscillate**
-  on one side; treat as draft.
-- **Local reasoners deceive:** a local reasoner may look
-  "clean" only because it **truncated before concluding**; when it actually finishes, the verdict changes.
-  Do not trust the partial result (in the 2026-08 retest, false-zero by truncation becomes
-  INDETERMINATE, never FAIL).
-
-## Final notes
-
-- **Free local is a real option:** qwen3:14b (fits in a 3060 12GB) executes the
-  fix, and qwen3.6:27b also abstained (caveat above): free, slow. Remote `:free` remains bad: heavy
-  rate-limiting and low quality.
-- The full analysis (configurations that do **not** work, the experiments and the research
-  charts) is in `lab/2026-06-04-strata-hipoteses/`
-  (`RESULTADOS-p6-*`).
+- **Over-acting is not a tier stamp:** cheap models do everything here, and some mid models
+  (gemma 4) fix and refuse but do not abstain. Check the specific model.
+- **The temporal dimension depends on legibility:** with readable dates and history (§3/§8)
+  models place things in time correctly; with noisy or unmarked history they flag the historical
+  as a current problem. Review dated findings carefully.
+- **The route changes underneath:** the same model name is served by different providers, and
+  vendors swap what answers to a name (since 2026-09-14 DeepSeek's API serves V4.1-Flash when
+  V4-Pro is requested). The plan header records who served each run.
+- **Truncation deceives:** a thinking model may look "clean" only because it ran out of tokens
+  before concluding. A truncated answer is INDETERMINATE, never a pass or a fail.

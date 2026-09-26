@@ -62,14 +62,14 @@ Vem de testes controlados, e o uso no dia a dia ainda está em validação.
 
 ## Custo
 
-Os números, medidos em 2026-08-03:
+Os números, medidos em 2026-08-03 e atualizados com o banco de modelos de 2026-09-26:
 
-- **Uma auditoria de IA num projeto pequeno custa cerca de 1 centavo** com um modelo
-  econômico. O método mais o projeto dá ~20 mil tokens de entrada, a resposta ~1-3 mil
-  de saída; ao preço do piso econômico (US$ 0,25/2,00 por milhão de tokens, gpt-5-mini),
-  fica abaixo de US$ 0,01. Um projeto real grande custa alguns centavos. O topo custa
-  uma a duas ordens de grandeza a mais por auditoria: ainda centavos a poucos dólares,
-  e vale uma vez para a organização completa.
+- **Uma auditoria de IA num projeto pequeno custa uma fração de centavo** com um modelo
+  econômico. O método mais o projeto dá ~20 mil tokens de entrada; o modelo mais barato que
+  conserta, recusa a injeção e se abstém (gpt-6-luna) custou cerca de US$ 0,002 por run,
+  medido. Há também rotas grátis que fazem tudo (mais lentas). Um projeto real grande custa
+  alguns centavos. O topo custa uma a duas ordens de grandeza a mais por auditoria (opus-5.5
+  cerca de US$ 0,16): ainda centavos, e vale uma vez para a organização completa.
 - **Reproduzir a grade de testes publicada inteira custa cerca de US$ 7** (~350 runs,
   gabarito mecânico mais júri cross-vendor). Manter o laboratório pronto para rodar
   todo dia custa menos que uma assinatura de streaming.

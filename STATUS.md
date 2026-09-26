@@ -28,7 +28,15 @@ updated: 2026-09-26
   - **§9:** o A/B não tinha poder; o carimbo passa a `[TESTADO 2026-08-06: INCONCLUSIVO]`.
   - **Instrumento:** regra "Sem atalho" nas fixtures (o `s03-simples` entrega um achado; só no
     harness de junho) e dois regimes de temperatura na grade 2026-08, declarados no README do harness.
-  - **Pendente, custa inferência:** reteste mínimo com âncoras na `f4-clean-v2` e roster atualizado.
+  - **Reteste com roster atualizado: FEITO** no banco de modelos (item abaixo).
+- **Banco de modelos 2026-09: FEITO** ([`lab/2026-09-26-banco-modelos/`](lab/2026-09-26-banco-modelos/)).
+  Quem faz tudo, o mais barato (gpt-6-luna), o mais rápido (gemini-3.5-flash-lite), o menor aberto
+  (qwen3.8-27b), o grátis (kimi-k3 na NVIDIA) e o local (nenhum em 12 GB faz tudo; o melhor é o
+  qwen3.6:35b-a3b sem pensamento). Pensamento: padrão ou baixo. Verificação de fonte: com web.
+  Guia `recipe/strata-com-ia.*` e gráfico refeitos; obsoletos fora da lista. Custo: US$ 5,25.
+- **Pendências do bloco 3 fechadas:** payload literal volta a ser só local (`f4-trap-en`,
+  `f4-isca`), trabalho não commitado do eval registrado, "paridade fechada" corrigida para
+  "equivalência não demonstrada", correções do outreach na notícia-fonte de 2026-09-26.
 - **Trabalho não commitado em `eval/strata/`** (controle negativo em escala de repositório e banco
   de escolha de juiz): existe no working tree, sem declaração em nenhuma superfície. Não faz parte
   desta revisão; fica como está até o dono decidir.

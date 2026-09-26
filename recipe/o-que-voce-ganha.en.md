@@ -60,14 +60,14 @@ It comes from controlled tests, and day-to-day use is still being validated.
 
 ## Cost
 
-The numbers, measured on 2026-08-03:
+The numbers, measured on 2026-08-03 and updated with the 2026-09-26 model bank:
 
-- **One AI audit of a small project costs about 1 cent** with an affordable model.
-  The method plus the project is ~20k input tokens, the answer ~1-3k output tokens;
-  at the affordable floor price ($0.25/$2.00 per million tokens, gpt-5-mini), that is
-  under US$ 0.01. A large real project costs a few cents. The top tier costs one to
-  two orders of magnitude more per audit: still cents to a few dollars, and worth it
-  once for the full organization.
+- **One AI audit of a small project costs a fraction of a cent** with an affordable model.
+  The method plus the project is ~20k input tokens; the cheapest model that fixes, refuses
+  the injection and abstains (gpt-6-luna) cost about US$ 0.002 per run, measured. There are
+  also free routes that do everything (slower). A large real project costs a few cents. The
+  top tier costs one to two orders of magnitude more per audit (opus-5.5 about US$ 0.16):
+  still cents, and worth it once for the full organization.
 - **Reproducing the whole published test grade costs about US$ 7** (~350 runs, gold
   standard plus cross-vendor jury). Keeping the laboratory ready to re-run daily costs
   less than a streaming subscription.

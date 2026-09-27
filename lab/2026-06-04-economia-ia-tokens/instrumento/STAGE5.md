@@ -94,6 +94,31 @@ vale a declaração: a OpenAI anunciou o gpt-oss-20b como capaz de rodar com 16 
 de 2025-08-05); com o fundo do desktop medido aqui, ele fica no limite de uma placa de 16 GB. Uma
 sonda local só se justifica se isso for decidir uma compra.
 
+## Caso: DeepSeek V4.1-Flash em casa (consulta de 2026-09-26)
+
+O V4.1-Flash fez tudo no banco (nuvem). Localmente, não roda hoje em nenhuma placa, por dois
+motivos independentes:
+
+- **Memória.** 552B de parâmetros no tronco mais 196B de memória "Engram" (763B no checkpoint), com
+  8B ativos no prefill e 16B no decode; já sai em FP8/FP4 (fonte primária: model card no Hugging
+  Face). As quantizações da comunidade vão de 264,5 GB (Q2_K) a 444,7 GB (Q4_K_M) e 508 GB (Q8_0).
+  Em servidor, via SGLang: ~286 GiB nos aceleradores mais ~190 GiB de RAM para o Engram. A maior
+  placa de consumo (5090) tem 32 GB; a única máquina de caixa única que comporta o Q2_K é um Mac
+  com 512 GB de memória unificada.
+- **Software.** Arquitetura nova, sem suporte nos runtimes de uso doméstico: nada no llama.cpp
+  principal nem no MLX; o Ollama só oferece a versão na nuvem; vLLM com pull request aberto e
+  SGLang só em prévia. Os GGUF publicados têm metadados com defeito.
+
+O antecessor **V4-Flash** (284B/13B ativos) roda hoje via llama.cpp: de 82,5 GB (1-bit) a ~110–135 GB
+(3-bit) e ~162 GB (4-bit), ou seja, estação com 128–192 GB de RAM e uma GPU para o offload dos
+experts; lento, mas possível. Para usar a capacidade do V4.1 hoje, a rota é a nuvem: grátis na
+NVIDIA NIM ou ~US$ 0,009 por run no OpenRouter (banco 2026-09).
+
+Fontes (acesso em 2026-09-26): model card `deepseek-ai/DeepSeek-V4.1-Flash` (Hugging Face);
+modemguides.com "DeepSeek V4.1-Flash Hardware Requirements" (2026-09-10); modelfit.io "DeepSeek V4.1
+Flash on a Mac"; Unsloth, documentação do DeepSeek-V4. Tamanhos de quantização e suporte de runtime
+mudam rápido: reconferir antes de decidir compra.
+
 ## Limites
 
 - Uma placa de referência (3060, Windows com desktop vivo). O fundo do desktop e o "penhasco" do

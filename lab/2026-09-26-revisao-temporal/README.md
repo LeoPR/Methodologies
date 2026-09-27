@@ -113,6 +113,7 @@ Brewer-Nash, LOCKSS, Kuny, Ranganathan, Bowker & Star). Nenhuma contradição in
 3. **Recalcular o A/B do §9** com teste pareado e poder declarado, sem rodar nada novo.
 4. **Esclarecer a temperatura** das células Claude 5 na grade de agosto.
 5. **Reteste mínimo** (seção 2) na `f4-clean-v2`, com âncoras. Custa inferência: decisão do dono.
+   **Feito** no banco de modelos (`lab/2026-09-26-banco-modelos/`), com roster renovado.
 
 ## Execução (2026-09-26)
 

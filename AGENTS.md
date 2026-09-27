@@ -150,6 +150,10 @@ aparecer lugar melhor. O mecanismo de guardar é ferramenta datada; o que ele ca
   a que velocidade?) e serve de **contra-prova** numa ponte de 1-2 celulas rodadas nos dois lados,
   nas mesmas condicoes (inclusive o nivel de raciocinio). Sem substituto na nuvem, o resultado
   local vale so para aquela quantizacao, e isso se declara. Encaixe por placa: Comporta `STAGE5`.
+  **Parcimonia (§6/§9):** especificacao de fonte primaria notoria (tamanho do arquivo, contexto,
+  arquitetura, parametros, preco de catalogo) se aceita, datada; testa-se so o basico para calibrar
+  e contra-provar, e escala-se na nuvem. Duvidar cientificamente nao e re-medir o que ja e solido;
+  o que so se mede aqui e o comportamento do modelo no Strata, que nenhuma documentacao cobre.
   Decisao do dono 2026-08-02 (`lab/2026-08-02-reteste-L0-fechado/PLANO.md` §3-bis).
 - **Mediu/reportou um modelo** aplicando a metodologia → reporte **acuracia × precisao em colunas
   separadas** (nao colapse num numero), publique **k e K**, e mapeie a distribuicao no regime de uso;

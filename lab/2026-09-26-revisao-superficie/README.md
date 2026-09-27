@@ -134,3 +134,6 @@ Ver as linhas "pendente (dono)" em [`AUDITORIA-sync.md`](AUDITORIA-sync.md). Os 
   (C34, C35, C37 a C41, C43, C44, C52; C36 parcial).
 - Seguem pendentes: política de payload (C118), outreach (K0, K3, K4), trabalho não commitado
   do eval e os de severidade baixa.
+- Fechados depois (2026-09-26): política de payload (`9a7c25d`), trabalho do eval registrado
+  (`60fea60`), outreach corrigido por notícia-fonte nova (`8b2bc7d`). **Continuam pendentes só os
+  achados de severidade baixa** da `AUDITORIA-sync.md`.

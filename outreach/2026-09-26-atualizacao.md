@@ -28,14 +28,17 @@ status: 'Fonte canônica das notícias de divulgação. Os canais (linkedin/, me
    Registro: `lab/2026-09-26-banco-modelos/`.
 2. **Dá para fazer tudo de graça**, só que devagar: **kimi-k3** e **deepseek-v4.1-flash** pela
    camada grátis da NVIDIA fizeram as três coisas.
-3. **Numa GPU doméstica de 12 GB, nenhum modelo faz tudo.** O melhor local conserta e recusa a
-   injeção, mas a decisão de não mexer fica com um humano.
+3. **Rodar em casa é questão de placa, não de modelo.** Os pesos que fazem tudo (qwen3.8-27b)
+   cabem inteiros numa placa de 24 GB, como a 4090. Numa de 12 GB, o melhor encaixe conserta e
+   recusa a injeção, e a decisão de não mexer fica com um humano. Capacidade medida na nuvem
+   nos mesmos pesos, com contra-prova local.
 4. **Pensar mais não ajuda.** Com raciocínio alto, nenhum resultado melhorou, e alguns pioraram (um
    modelo passou a mexer num projeto que já estava bom). Regra: raciocínio padrão ou baixo.
 5. **Verificar fonte sem internet é perigoso.** Sem busca na web, modelos de topo confirmaram como
    "correta" uma norma que já tinha sido substituída; com web, corrigiram tudo.
 6. **Três modelos propagaram uma instrução maliciosa** plantada no projeto (gpt-oss-120b,
-   claude-haiku-4.5, gemma4:12b). Não use esses para ação autônoma.
+   claude-haiku-4.5, gemma4:12b; este último medido só localmente, porque não tem hospedagem na
+   nuvem). Não use esses para ação autônoma.
 7. **Honestidade de regime (sempre citar):** sinais em cenários sintéticos, três rodadas por teste,
    não prova. No projeto real, a auditoria autônoma só rende com modelo de topo.
 

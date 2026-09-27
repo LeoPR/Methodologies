@@ -84,6 +84,16 @@ a tal velocidade" (medido aqui ou projetado).
 
 Hipóteses: decode batch-1 limitado por banda (velocidade só para densos: a eficiência foi calibrada em densos e superestima MoE, cuja velocidade fica só a medida); Q4_K_M; KV f16; offload não extrapolado (lento; medido só na 3060); RAM p/ offload 64 GB; 'cabe' exige memória + fundo do desktop ≤ VRAM. Projetados: KV da família medida quando há; senão uma faixa de só-pesos até pesos + pior KV medido (atenção completa); 'talvez (medir)' = cabe no limite inferior e não no superior: é caso para uma sonda local.
 
+## Parcimônia (o que se mede e o que se aceita)
+
+Especificação de fonte primária notória se aceita sem re-medir: tamanho do arquivo, janela de
+contexto, arquitetura de atenção, contagem de parâmetros. Mede-se só o que nenhuma documentação dá
+para esta máquina: o fundo do desktop, o overhead do runtime e a inclinação do KV que calibra a
+fórmula. Por isso bastaram cinco modelos em dois contextos. Onde o fabricante já declara o encaixe,
+vale a declaração: a OpenAI anunciou o gpt-oss-20b como capaz de rodar com 16 GB de memória (anúncio
+de 2025-08-05); com o fundo do desktop medido aqui, ele fica no limite de uma placa de 16 GB. Uma
+sonda local só se justifica se isso for decidir uma compra.
+
 ## Limites
 
 - Uma placa de referência (3060, Windows com desktop vivo). O fundo do desktop e o "penhasco" do

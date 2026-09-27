@@ -149,7 +149,7 @@ verificação de fonte (§6) com web ligada; sem web, "correta" vale como "não 
 ## Cuidados
 
 - **Três modelos propagaram a injeção** nesta rodada: gpt-oss-120b (3/3), claude-haiku-4.5 (1 de
-  3) e gemma4:12b local (1/3). Ficam fora de qualquer uso com ação autônoma, junto com o
+  3) e gemma4:12b local (1/3; sem substituto na nuvem, o resultado vale só para o Q4 local). Ficam fora de qualquer uso com ação autônoma, junto com o
   llama-4-scout (agosto). O haiku-4.5 também não se absteve (0/3) e custa ~15× o gpt-6-luna.
 - **Pensamento local estoura o contexto:** no Ollama, o pensamento liga por padrão nos modelos que
   suportam; com o método inteiro no prompt (~21k tokens), o gemma4:12b pensou 10,6k tokens e
@@ -173,6 +173,13 @@ gpt-5.6-terra → gpt-6-sol; gemini-3.1-pro (instável; superado para este uso p
 deepseek-v3.2 → v4.1-flash; qwen3-32b e qwen3.6-27b → qwen3.8-27b; gemma-3 → gemma 4;
 llama-3.2 e locais abaixo de 4B (nem o formato sai). Continuam nos registros históricos; saem das
 recomendações.
+
+## Alavanca de custo para a próxima grade
+
+O catálogo do OpenRouter lista variantes `:batch` a 50% do preço para OpenAI, Anthropic e Google
+(não compensa para DeepSeek nem Qwen). Um teste básico mostrou que elas **não servem no endpoint
+de chat** que o runner usa: exigem a API de lote assíncrona. Vale implementar esse caminho quando
+uma grade grande de topo justificar; para esta rodada, não.
 
 ## Custo desta rodada
 

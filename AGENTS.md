@@ -133,6 +133,15 @@ aparecer lugar melhor. O mecanismo de guardar é ferramenta datada; o que ele ca
 - **Ferramenta/harness de prova** (runner, scorer, fixture, cenario) → `eval/`, NUNCA em
   `recipe/` (produto) nem misturado com as IDEIAS do `lab/`. A ferramenta e' **meio, nao
   fim**: nao gaste tempo aperfeicoando a chave de fenda; o fim e' **provar a metodologia**.
+- **Fato sobre o mundo externo** (suporte de runtime, encaixe de hardware, lancamento, preco,
+  status de um modelo ou ferramenta) → **verifique em fonte primaria datada antes de afirmar**
+  (repo oficial com PR/release, model card do fabricante, pagina de especificacao, docs oficiais).
+  Conta e projecao so quando nao ha como verificar, e com o rotulo de projecao. Em tema lancado ha
+  dias, a data da fonte pesa mais que a autoridade, e vale procurar como os outros de fato rodam
+  (medicoes publicadas), nao so a conta. Erro que motivou a regra (2026-09-26): afirmei que o
+  DeepSeek V4.1 nao rodava em GB10 somando parametros e lendo um artigo do dia do lancamento, sem
+  abrir o repo do vLLM nem procurar as receitas medidas; ver `lab/2026-06-04-economia-ia-tokens/
+  instrumento/STAGE5.md`.
 - `Glob`/`Grep`/`Test-Path` antes de propor recriar algo. A propria
   metodologia manda (verificacao antes de afirmar).
 - **Editou QUALQUER `.md` com frontmatter** → **bumpe o `updated:`** p/ hoje (rastreabilidade

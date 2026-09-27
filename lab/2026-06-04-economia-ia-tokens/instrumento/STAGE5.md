@@ -91,6 +91,10 @@ Hipóteses: decode batch-1 limitado por banda (velocidade só para densos: a efi
 
 ## Parcimônia (o que se mede e o que se aceita)
 
+Gemma 4 tem tabela oficial de memória (docs do Google, 2026-07-08; Q4_0 com 20% de folga): 12B
+6,7 GB, 26B-A4B 14,4 GB, 31B 17,5 GB. As tags padrão do Ollama são maiores (gemma4:26b, 19 GB); a
+projeção usa as tags do Ollama porque é o que se roda.
+
 Especificação de fonte primária notória se aceita sem re-medir: tamanho do arquivo, janela de
 contexto, arquitetura de atenção, contagem de parâmetros. Mede-se só o que nenhuma documentação dá
 para esta máquina: o fundo do desktop, o overhead do runtime e a inclinação do KV que calibra a
@@ -102,8 +106,8 @@ sonda local só se justifica se isso for decidir uma compra.
 ## Máquinas de memória unificada (GB10, Ryzen AI Max+ 395)
 
 Máquinas em que CPU e GPU dividem um pool grande de memória lenta: o **NVIDIA GB10** (DGX Spark e
-similares de outros fabricantes; 128 GB LPDDR5x, pool inteiro disponível à GPU, 273 GB/s; duas
-unidades se ligam direto, e a comunidade monta aglomerados de 3 a 8 por RoCE) e o **AMD Ryzen AI Max+ 395** ("Strix Halo"; até 128 GB, dos quais até
+similares de outros fabricantes; 128 GB LPDDR5x, pool inteiro disponível à GPU, 273 GB/s; a NVIDIA
+suporta ligar até quatro unidades, para modelos de até 700B parâmetros) e o **AMD Ryzen AI Max+ 395** ("Strix Halo"; até 128 GB, dos quais até
 96 GB viram VRAM, 256 GB/s). Fonte: páginas dos fabricantes (NVIDIA DGX Spark; AMD Ryzen AI Max+
 395), acesso em 2026-09-26.
 
@@ -129,7 +133,8 @@ unidades se ligam direto, e a comunidade monta aglomerados de 3 a 8 por RoCE) e 
 > **Correção (mesma data, horas depois).** A primeira versão desta seção dizia que o V4.1-Flash não
 > rodava localmente em placa nenhuma, nem num par de GB10, e que não havia runtime. Estava
 > desatualizada: as fontes eram de 10 a 13/09, o próprio dia do lançamento, e o terreno mudou em dias.
-> O vLLM principal passou a suportar o V4.1 (builds a partir de 10/09), e a comunidade publicou
+> O vLLM passou a suportar o V4.1 (PRs mesclados em 10 e 11/09; primeira versão estável, a v0.30.0,
+> em 22/09), e a comunidade publicou
 > receitas para GB10 que deixam a memória Engram **no NVMe** em vez de na memória, técnica que a
 > estimativa não considerava. Números medidos (receitas da comunidade, set/2026):
 >
@@ -139,14 +144,33 @@ unidades se ligam direto, e a comunidade monta aglomerados de 3 a 8 por RoCE) e 
 > | 3–4× GB10 | experts no formato nativo (MXFP4), Engram no disco | não conferido | receitas vLLM e SGLang |
 > | 1× GB10 | experts mais usados residentes (74–87 GB), o resto lido do NVMe (~0,9 GB por token) | ~2,6 tok/s | em andamento; degenera depois de ~2.000 tokens |
 >
-> Continua valendo: não roda em placa de vídeo de consumo, e não há suporte no llama.cpp, no MLX nem
-> no Ollama local; não achei receita para o Ryzen AI Max+ 395. O texto abaixo fica como estava, por
+> Continua valendo: não roda em placa de vídeo de consumo, e não há suporte no llama.cpp nem no
+> Ollama local (ver a verificação abaixo; MLX não conferido); não achei receita para o Ryzen AI Max+ 395. O texto abaixo fica como estava, por
 > rastreabilidade.
 >
-> Fontes (acesso em 2026-09-26): vLLM PR de suporte ao V4.1 e página de receitas do vLLM;
-> github.com/sfxnz/DeepSeek-V4.1-Flash-EXL3-vLLM-2x-DGX-Spark; github.com/0xBakeer/deepseek-v41-flash-spark;
-> receitas de 3–4 GB10 listadas na busca (MiaAI-Lab, yunwei37); relato de campo de um colega do dono.
+> Medições de terceiros: repositórios dos próprios autores
+> (github.com/sfxnz/DeepSeek-V4.1-Flash-EXL3-vLLM-2x-DGX-Spark; github.com/0xBakeer/deepseek-v41-flash-spark);
+> relato de campo de um colega do dono. Estado dos runtimes e das máquinas: ver a verificação abaixo.
 
+### Verificação em fonte primária (2026-09-26)
+
+A correção acima veio de analisar no lugar de verificar. Por isso cada fato desta seção e da de
+memória unificada foi reconferido **só em fonte primária** (repo oficial, model card do fabricante,
+página de especificação, docs oficiais):
+
+| afirmação | veredito | fonte primária |
+|---|---|---|
+| vLLM suporta o V4.1-Flash | confirmado: PRs #56208, #56214 e #56228 mesclados em 10–11/09 (o #56201 foi **fechado sem merge**); primeira versão estável v0.30.0, 2026-09-22 | github.com/vllm-project/vllm (PRs e release v0.30.0) |
+| SGLang suporta o V4.1-Flash | parcial: só imagens de prévia (`dev-dsv41`); o PR #38798 foi mesclado em 18/09 mas não está na v0.5.20 | cookbook oficial do sgl-project; API de comparação do GitHub |
+| llama.cpp suporta o V4.1-Flash | não: PR #28696 aberto; o master vai até DeepSeek V4; forks não oficiais existem | github.com/ggml-org/llama.cpp |
+| Ollama roda o V4.1-Flash localmente | não: só `deepseek-v4.1-flash:cloud` | ollama.com/library/deepseek-v4.1-flash/tags |
+| GB10: 128 GB, 273 GB/s | confirmado; até 200B por unidade; até 4 unidades ligadas para 700B (página do produto); 405B em duas (guia do usuário, 2026-09-10) | nvidia.com (DGX Spark); docs.nvidia.com/dgx/dgx-spark |
+| Ryzen AI Max+ 395: 128 GB, 96 GB de VRAM, 256 GB/s | confirmado (LPDDR5x-8000, 256 bits; 96 GB via VGM no Windows) | amd.com (ficha técnica; blogs de 2025-03-17 e 2025-07-29) |
+| DeepSeek-V4-Flash: 284B, 13B ativos | confirmado (experts FP4, resto FP8) | huggingface.co/deepseek-ai/DeepSeek-V4-Flash |
+| DeepSeek-V4.1-Flash: 552B + 196B Engram, 8B/16B ativos | confirmado | huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash |
+
+Tamanhos de quantização GGUF do V4.1 citados no texto abaixo vêm de guia de terceiros e não têm
+valor prático enquanto o llama.cpp não suportar o modelo.
 
 O V4.1-Flash fez tudo no banco (nuvem). Localmente, não roda hoje em nenhuma placa, por dois
 motivos independentes:

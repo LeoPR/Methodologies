@@ -107,7 +107,7 @@ capacidade medida na nuvem vale para quem roda os mesmos pesos em casa. Quando n
 | **Rodar na própria máquina, 24 GB** (3090, 4090) | **qwen3.8:27b** | os pesos fazem tudo (nuvem); a 32k de contexto ocupa 19,4 GB (medido) e cabe inteiro numa placa de 24 GB a ~40–46 tok/s (projeção do STAGE5). Na mesma placa cabem gemma-4-31b e gemma4:26b, que consertam e recusam mas não se abstêm |
 | **Rodar na própria máquina, 12 GB** (3060) | **qwen3.6:35b-a3b** (MoE, offload de experts, pensamento off) | conserta e é seguro, mas não se abstém (ponte acima); com offload mantém ~30 tok/s (medido). Com o método inteiro no prompt, só até ~12B denso cabe inteiro (gemma4:12b, qwen3:8b); o qwen3.8:27b roda com offload a ~5 tok/s (4 a 5 min por run, pensamento off): funciona, mas lento |
 | **Rodar na própria máquina, 16 GB** | nenhum dos que fazem tudo cabe inteiro | gpt-oss:20b fica "talvez (medir)" (KV não medido); o resto é offload. Ver a tabela do STAGE5 |
-| **DeepSeek V4-Flash em casa** | não cabe | o menor GGUF tem 82,5 GB (~110 GB de RAM); nem numa 5090 cabe inteiro |
+| **DeepSeek em casa** | não em placa de consumo; sim em aglomerado de GB10 | o V4.1-Flash (faz tudo na nuvem) roda em GB10 ligadas (a NVIDIA suporta até 4) com vLLM ≥ v0.30.0; medição de terceiros: 2 unidades, experts em 2 bits e Engram no NVMe, 33–40 tok/s. O V4-Flash cabe num GB10 com experts em 2 bits (29,9 tok/s, relato de campo). llama.cpp e Ollama local não suportam o V4.1. Verificação em fonte primária: [STAGE5](../2026-06-04-economia-ia-tokens/instrumento/STAGE5.md) |
 
 ## Eixo: pensamento (raciocínio)
 

@@ -103,7 +103,7 @@ sonda local só se justifica se isso for decidir uma compra.
 
 Máquinas em que CPU e GPU dividem um pool grande de memória lenta: o **NVIDIA GB10** (DGX Spark e
 similares de outros fabricantes; 128 GB LPDDR5x, pool inteiro disponível à GPU, 273 GB/s; duas
-unidades se ligam em par) e o **AMD Ryzen AI Max+ 395** ("Strix Halo"; até 128 GB, dos quais até
+unidades se ligam direto, e a comunidade monta aglomerados de 3 a 8 por RoCE) e o **AMD Ryzen AI Max+ 395** ("Strix Halo"; até 128 GB, dos quais até
 96 GB viram VRAM, 256 GB/s). Fonte: páginas dos fabricantes (NVIDIA DGX Spark; AMD Ryzen AI Max+
 395), acesso em 2026-09-26.
 
@@ -113,11 +113,40 @@ unidades se ligam em par) e o **AMD Ryzen AI Max+ 395** ("Strix Halo"; até 128 
 - **Parcimônia nas faixas.** Onde a coluna mostra faixa, vale a declaração primária quando existe: o
   gpt-oss-120b cabe numa GPU de 80 GB (OpenAI), logo cabe nas duas; o DeepSeek V4 usa atenção
   comprimida e KV em FP4 (model card), logo o KV é pequeno e vale o limite inferior da faixa.
-- **DeepSeek.** V4-Flash em 1-bit (82,5 GB) cabe numa unidade; em ~3 bits (110–135 GB) fica no limite
-  de um GB10 e cabe num par ligado. V4.1-Flash não cabe nem no par: o menor Q2_K tem 264,5 GB e, em
-  servidor, o SGLang pede ~286 GiB em aceleradores. E segue sem runtime doméstico (caso abaixo).
+- **DeepSeek.** V4-Flash em 1-bit (82,5 GB) cabe numa unidade; um relato de campo confirma experts em
+  2 bits num nó só a 29,9 tok/s. O V4.1-Flash roda em aglomerados de GB10 (ver a correção no caso
+  abaixo).
+- **Velocidade de MoE no GB10 (calibração externa).** Um relato de campo de um colega do dono
+  (aglomerado de GB10 em produção, set/2026) dá dois pontos: DeepSeek-V4-Flash, experts em 2 bits,
+  1 nó: **29,9 tok/s**; GLM-5.2 (753B, ~45B ativos, experts em 2 bits), 2 nós: **16,2 tok/s**, que
+  caía para 1,2 tok/s quando o KV grande empurrava os pesos para o disco. Pela conta de bytes lidos
+  por token, os dois dão eficiência de banda de **~0,4** para MoE, contra 0,82 dos densos medidos
+  aqui. A conclusão do relato é a mesma deste estágio: no GB10 manda a banda (273 GB/s) e os bytes
+  por token, não o tamanho do modelo.
 
 ## Caso: DeepSeek V4.1-Flash em casa (consulta de 2026-09-26)
+
+> **Correção (mesma data, horas depois).** A primeira versão desta seção dizia que o V4.1-Flash não
+> rodava localmente em placa nenhuma, nem num par de GB10, e que não havia runtime. Estava
+> desatualizada: as fontes eram de 10 a 13/09, o próprio dia do lançamento, e o terreno mudou em dias.
+> O vLLM principal passou a suportar o V4.1 (builds a partir de 10/09), e a comunidade publicou
+> receitas para GB10 que deixam a memória Engram **no NVMe** em vez de na memória, técnica que a
+> estimativa não considerava. Números medidos (receitas da comunidade, set/2026):
+>
+> | montagem | como cabe | decode | situação |
+> |---|---|---|---|
+> | 2× GB10 | experts em 2 bits (EXL3), Engram no NVMe, KV de 8 GiB por nó | 33–40 tok/s (com decodificação especulativa) | receita publicada |
+> | 3–4× GB10 | experts no formato nativo (MXFP4), Engram no disco | não conferido | receitas vLLM e SGLang |
+> | 1× GB10 | experts mais usados residentes (74–87 GB), o resto lido do NVMe (~0,9 GB por token) | ~2,6 tok/s | em andamento; degenera depois de ~2.000 tokens |
+>
+> Continua valendo: não roda em placa de vídeo de consumo, e não há suporte no llama.cpp, no MLX nem
+> no Ollama local; não achei receita para o Ryzen AI Max+ 395. O texto abaixo fica como estava, por
+> rastreabilidade.
+>
+> Fontes (acesso em 2026-09-26): vLLM PR de suporte ao V4.1 e página de receitas do vLLM;
+> github.com/sfxnz/DeepSeek-V4.1-Flash-EXL3-vLLM-2x-DGX-Spark; github.com/0xBakeer/deepseek-v41-flash-spark;
+> receitas de 3–4 GB10 listadas na busca (MiaAI-Lab, yunwei37); relato de campo de um colega do dono.
+
 
 O V4.1-Flash fez tudo no banco (nuvem). Localmente, não roda hoje em nenhuma placa, por dois
 motivos independentes:

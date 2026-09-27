@@ -27,7 +27,11 @@ REF_BW = 360.0  # GB/s, RTX 3060 12GB (placa de referencia medida)
 GPUS = [("RTX 4060 8GB", 8, 272), ("RTX 3060 12GB", 12, 360), ("RTX 4070 12GB", 12, 504),
         ("RTX 4060 Ti 16GB", 16, 288), ("RTX 5060 Ti 16GB", 16, 448),
         ("RTX 4070 Ti Super 16GB", 16, 672), ("RTX 3090 24GB", 24, 936),
-        ("RTX 4090 24GB", 24, 1008), ("RTX 5090 32GB", 32, 1792)]
+        ("RTX 4090 24GB", 24, 1008), ("RTX 5090 32GB", 32, 1792),
+        # Memoria unificada CPU+GPU: VRAM = o que a GPU enxerga. GB10 (DGX Spark e similares): pool
+        # inteiro de 128 GB, menos ~12 GB de SO/runtime; Ryzen AI Max+ 395: ate 96 GB convertidos em
+        # VRAM (AMD Variable Graphics Memory). Bandas: 273 e 256 GB/s (especificacao dos fabricantes).
+        ("GB10 128GB unificada", 116, 273), ("Ryzen AI Max+ 395 (96GB GPU)", 96, 256)]
 
 # Modelos nao medidos localmente: arquivo Q4 (GB) e parametros (total, ativos) em bilhoes.
 # Fonte: biblioteca Ollama / model cards, via lab/2026-09-26-banco-modelos (relatorio de
@@ -42,7 +46,9 @@ NAO_MEDIDOS = [
     ("nemotron-3.5-lightning 30B-A3B", 25.0, 31.6, 3.6, None),
     ("muse-glimmer:30b", 18.0, 29.6, 29.6, None),
     ("gpt-oss:120b", 65.0, 117, 5.1, None),
-    ("deepseek-v4-flash (284B-A13B)", 82.5, 284, 13, None),
+    ("deepseek-v4-flash (284B-A13B), IQ1_S", 82.5, 284, 13, None),
+    ("deepseek-v4-flash (284B-A13B), ~3-bit", 120.0, 284, 13, None),
+    ("deepseek-v4.1-flash (552B+Engram), Q2_K", 264.5, 552, 16, None),
 ]
 
 

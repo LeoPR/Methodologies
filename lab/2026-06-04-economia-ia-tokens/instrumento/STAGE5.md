@@ -2,7 +2,7 @@
 title: Estágio 5 — encaixe de modelo por placa (poucos pontos medidos, projeção para o mercado)
 created: 2026-09-26
 updated: 2026-09-26
-status: executado 2026-09-26 (5 modelos × 2 contextos na RTX 3060; projeção para 9 placas)
+status: executado 2026-09-26 (5 modelos × 2 contextos na RTX 3060; projeção para 9 placas e 2 máquinas de memória unificada)
 hardware: NVIDIA RTX 3060 12GB, Windows 10, desktop vivo (~1,1 GB de VRAM de fundo), 64 GB de RAM
 instrumento: fit_encaixe.py (mede) + projeta_encaixe.py (projeta); pontos em encaixe_pontos_2026-09-26.json
 ---
@@ -50,6 +50,9 @@ a tal velocidade" (medido aqui ou projetado).
 
 ## Pontos medidos e projeção (saída de `projeta_encaixe.py`)
 
+"offload" para a RAM de sistema (PC com GPU dedicada) não é projetado: nesta tabela vira "não"; os
+pontos com offload medidos na 3060 estão na primeira tabela.
+
 ## Ajuste (placa de referencia RTX 3060 12GB, banda 360 GB/s)
 
 - fundo do desktop medido: 1.10 GB de VRAM antes de carregar o modelo
@@ -67,22 +70,24 @@ a tal velocidade" (medido aqui ou projetado).
 
 ## Projeção @ 32k de contexto (o Strata inteiro no prompt pede ~32k)
 
-| modelo | memória @ctx GB | origem | RTX 4060 8GB | RTX 3060 12GB | RTX 4070 12GB | RTX 4060 Ti 16GB | RTX 5060 Ti 16GB | RTX 4070 Ti Super 16GB | RTX 3090 24GB | RTX 4090 24GB | RTX 5090 32GB |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3:8b | 9.8 | medido | offload | cabe · ~56 tok/s | cabe · ~79 tok/s | cabe · ~45 tok/s | cabe · ~70 tok/s | cabe · ~105 tok/s | cabe · ~146 tok/s | cabe · ~158 tok/s | cabe · ~280 tok/s |
-| gemma4:12b | 8.4 | medido | offload | cabe · ~39 tok/s | cabe · ~54 tok/s | cabe · ~31 tok/s | cabe · ~48 tok/s | cabe · ~73 tok/s | cabe · ~101 tok/s | cabe · ~109 tok/s | cabe · ~194 tok/s |
-| qwen3:14b | 15.0 | medido | offload | offload | offload | offload | offload | offload | cabe · ~82 tok/s | cabe · ~89 tok/s | cabe · ~158 tok/s |
-| qwen3.8:27b | 19.4 | medido | offload | offload | offload | offload | offload | offload | cabe · ~43 tok/s | cabe · ~46 tok/s | cabe · ~82 tok/s |
-| qwen3.6:35b-a3b (MoE) | 23.9 | medido | offload | offload | offload | offload | offload | offload | offload | offload | cabe |
-| gemma4:26b (26B-A4B) (MoE) | 18.6 | projetado (KV da família gemma4:12b) | offload | offload | offload | offload | offload | offload | cabe | cabe | cabe |
-| gemma-4-31b | 19.6 | projetado (KV da família gemma4:12b) | offload | offload | offload | offload | offload | offload | cabe · ~38 tok/s | cabe · ~41 tok/s | cabe · ~73 tok/s |
-| gpt-oss:20b (MoE) | 13.7–26.4 | projetado (faixa: KV desconhecido) | offload | offload | offload | talvez (medir) | talvez (medir) | talvez (medir) | talvez (medir) | talvez (medir) | cabe |
-| nemotron-3.5-lightning 30B-A3B (MoE) | 24.5–47.1 | projetado (faixa: KV desconhecido) | offload | offload | offload | offload | offload | offload | offload | offload | talvez (medir) |
-| muse-glimmer:30b | 17.6–33.9 | projetado (faixa: KV desconhecido) | offload | offload | offload | offload | offload | offload | talvez (medir) | talvez (medir) | talvez (medir) |
-| gpt-oss:120b (MoE) | 63.6–122.3 | projetado (faixa: KV desconhecido) | offload | offload | offload | offload | offload | offload | offload | offload | offload |
-| deepseek-v4-flash (284B-A13B) (MoE) | 80.8–155.3 | projetado (faixa: KV desconhecido) | não | não | não | não | não | não | não | não | offload |
+| modelo | memória @ctx GB | origem | RTX 4060 8GB | RTX 3060 12GB | RTX 4070 12GB | RTX 4060 Ti 16GB | RTX 5060 Ti 16GB | RTX 4070 Ti Super 16GB | RTX 3090 24GB | RTX 4090 24GB | RTX 5090 32GB | GB10 128GB unificada | Ryzen AI Max+ 395 (96GB GPU) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| qwen3:8b | 9.8 | medido | não | cabe · ~56 tok/s | cabe · ~79 tok/s | cabe · ~45 tok/s | cabe · ~70 tok/s | cabe · ~105 tok/s | cabe · ~146 tok/s | cabe · ~158 tok/s | cabe · ~280 tok/s | cabe · ~43 tok/s | cabe · ~40 tok/s |
+| gemma4:12b | 8.4 | medido | não | cabe · ~39 tok/s | cabe · ~54 tok/s | cabe · ~31 tok/s | cabe · ~48 tok/s | cabe · ~73 tok/s | cabe · ~101 tok/s | cabe · ~109 tok/s | cabe · ~194 tok/s | cabe · ~30 tok/s | cabe · ~28 tok/s |
+| qwen3:14b | 15.0 | medido | não | não | não | não | não | não | cabe · ~82 tok/s | cabe · ~89 tok/s | cabe · ~158 tok/s | cabe · ~24 tok/s | cabe · ~23 tok/s |
+| qwen3.8:27b | 19.4 | medido | não | não | não | não | não | não | cabe · ~43 tok/s | cabe · ~46 tok/s | cabe · ~82 tok/s | cabe · ~13 tok/s | cabe · ~12 tok/s |
+| qwen3.6:35b-a3b (MoE) | 23.9 | medido | não | não | não | não | não | não | não | não | cabe | cabe | cabe |
+| gemma4:26b (26B-A4B) (MoE) | 18.6 | projetado (KV da família gemma4:12b) | não | não | não | não | não | não | cabe | cabe | cabe | cabe | cabe |
+| gemma-4-31b | 19.6 | projetado (KV da família gemma4:12b) | não | não | não | não | não | não | cabe · ~38 tok/s | cabe · ~41 tok/s | cabe · ~73 tok/s | cabe · ~11 tok/s | cabe · ~10 tok/s |
+| gpt-oss:20b (MoE) | 13.7–26.4 | projetado (faixa: KV desconhecido) | não | não | não | talvez (medir) | talvez (medir) | talvez (medir) | talvez (medir) | talvez (medir) | cabe | cabe | cabe |
+| nemotron-3.5-lightning 30B-A3B (MoE) | 24.5–47.1 | projetado (faixa: KV desconhecido) | não | não | não | não | não | não | não | não | talvez (medir) | cabe | cabe |
+| muse-glimmer:30b | 17.6–33.9 | projetado (faixa: KV desconhecido) | não | não | não | não | não | não | talvez (medir) | talvez (medir) | talvez (medir) | cabe · ~12 tok/s | cabe · ~12 tok/s |
+| gpt-oss:120b (MoE) | 63.6–122.3 | projetado (faixa: KV desconhecido) | não | não | não | não | não | não | não | não | não | talvez (medir) | talvez (medir) |
+| deepseek-v4-flash (284B-A13B), IQ1_S (MoE) | 80.8–155.3 | projetado (faixa: KV desconhecido) | não | não | não | não | não | não | não | não | não | talvez (medir) | talvez (medir) |
+| deepseek-v4-flash (284B-A13B), ~3-bit (MoE) | 117.5–225.9 | projetado (faixa: KV desconhecido) | não | não | não | não | não | não | não | não | não | não | não |
+| deepseek-v4.1-flash (552B+Engram), Q2_K (MoE) | 258.9–497.9 | projetado (faixa: KV desconhecido) | não | não | não | não | não | não | não | não | não | não | não |
 
-Hipóteses: decode batch-1 limitado por banda (velocidade só para densos: a eficiência foi calibrada em densos e superestima MoE, cuja velocidade fica só a medida); Q4_K_M; KV f16; offload não extrapolado (lento; medido só na 3060); RAM p/ offload 64 GB; 'cabe' exige memória + fundo do desktop ≤ VRAM. Projetados: KV da família medida quando há; senão uma faixa de só-pesos até pesos + pior KV medido (atenção completa); 'talvez (medir)' = cabe no limite inferior e não no superior: é caso para uma sonda local.
+Hipóteses: decode batch-1 limitado por banda (velocidade só para densos: a eficiência foi calibrada em densos e superestima MoE, cuja velocidade fica só a medida); Q4_K_M; KV f16; offload não extrapolado (lento; medido só na 3060); RAM p/ offload 0 GB; 'cabe' exige memória + fundo do desktop ≤ VRAM. Projetados: KV da família medida quando há; senão uma faixa de só-pesos até pesos + pior KV medido (atenção completa); 'talvez (medir)' = cabe no limite inferior e não no superior: é caso para uma sonda local.
 
 ## Parcimônia (o que se mede e o que se aceita)
 
@@ -93,6 +98,24 @@ fórmula. Por isso bastaram cinco modelos em dois contextos. Onde o fabricante j
 vale a declaração: a OpenAI anunciou o gpt-oss-20b como capaz de rodar com 16 GB de memória (anúncio
 de 2025-08-05); com o fundo do desktop medido aqui, ele fica no limite de uma placa de 16 GB. Uma
 sonda local só se justifica se isso for decidir uma compra.
+
+## Máquinas de memória unificada (GB10, Ryzen AI Max+ 395)
+
+Máquinas em que CPU e GPU dividem um pool grande de memória lenta: o **NVIDIA GB10** (DGX Spark e
+similares de outros fabricantes; 128 GB LPDDR5x, pool inteiro disponível à GPU, 273 GB/s; duas
+unidades se ligam em par) e o **AMD Ryzen AI Max+ 395** ("Strix Halo"; até 128 GB, dos quais até
+96 GB viram VRAM, 256 GB/s). Fonte: páginas dos fabricantes (NVIDIA DGX Spark; AMD Ryzen AI Max+
+395), acesso em 2026-09-26.
+
+- **Muita memória, pouca banda.** Cabe muito mais que numa placa de 24 GB, mas um denso decodifica
+  ~3–4× mais devagar que numa 4090 (qwen3.8:27b: ~12–13 tok/s projetados, contra ~46). O ponto forte
+  dessas máquinas são os **MoE grandes com poucos parâmetros ativos**.
+- **Parcimônia nas faixas.** Onde a coluna mostra faixa, vale a declaração primária quando existe: o
+  gpt-oss-120b cabe numa GPU de 80 GB (OpenAI), logo cabe nas duas; o DeepSeek V4 usa atenção
+  comprimida e KV em FP4 (model card), logo o KV é pequeno e vale o limite inferior da faixa.
+- **DeepSeek.** V4-Flash em 1-bit (82,5 GB) cabe numa unidade; em ~3 bits (110–135 GB) fica no limite
+  de um GB10 e cabe num par ligado. V4.1-Flash não cabe nem no par: o menor Q2_K tem 264,5 GB e, em
+  servidor, o SGLang pede ~286 GiB em aceleradores. E segue sem runtime doméstico (caso abaixo).
 
 ## Caso: DeepSeek V4.1-Flash em casa (consulta de 2026-09-26)
 

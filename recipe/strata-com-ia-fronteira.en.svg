@@ -85,7 +85,7 @@
 <text x="590" y="500" font-size="10.5" fill="#777">—</text>
 <text x="690" y="500" font-size="9.5" fill="#555">failed the trap / no format</text>
 <line x1="30" y1="516" x2="930" y2="516" stroke="#ccc"/>
-<text x="30" y="534" font-size="9.5" fill="#333">Reasoning: default or low (local: off). High never improved a cell and sometimes broke abstention or the trap.</text>
+<text x="30" y="534" font-size="9.5" fill="#333">Reasoning effort: model default or “low” (local: “off”). “high” never improved a cell and sometimes broke abstention or the trap.</text>
 <text x="30" y="551" font-size="9.5" fill="#333">Source verification (§6): web on. Without web, even top models confirmed outdated facts.</text>
 <text x="30" y="568" font-size="9.5" fill="#333">AI output = a draft to review, always. Autonomous audit of a real project: top tier only.</text>
 <text x="30" y="585" font-size="9.5" fill="#777">Synthetic fixtures, K=3, mechanical gold scorer, real provider cost. Directional signals, not proof. Names/prices age fast (L2).</text>

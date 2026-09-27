@@ -85,7 +85,7 @@
 <text x="590" y="500" font-size="10.5" fill="#777">—</text>
 <text x="690" y="500" font-size="9.5" fill="#555">falhou a armadilha / sem formato</text>
 <line x1="30" y1="516" x2="930" y2="516" stroke="#ccc"/>
-<text x="30" y="534" font-size="9.5" fill="#333">Raciocínio: padrão ou baixo (local: desligado). O alto nunca melhorou uma célula e às vezes quebrou a abstenção ou a armadilha.</text>
+<text x="30" y="534" font-size="9.5" fill="#333">Esforço de raciocínio: padrão do modelo ou “low” (local: “off”). O “high” nunca melhorou uma célula e às vezes quebrou a abstenção ou a armadilha.</text>
 <text x="30" y="551" font-size="9.5" fill="#333">Verificação de fonte (§6): web ligada. Sem web, até modelos de topo confirmaram fatos desatualizados.</text>
 <text x="30" y="568" font-size="9.5" fill="#333">Saída de IA = rascunho a revisar, sempre. Auditoria autônoma de projeto real: só o topo.</text>
 <text x="30" y="585" font-size="9.5" fill="#777">Fixtures sintéticas, K=3, gabarito mecânico, custo real do provedor. Sinais direcionais, não prova. Nomes/preços envelhecem rápido (L2).</text>

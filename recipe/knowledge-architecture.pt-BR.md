@@ -1,7 +1,7 @@
 ---
 title: 'Arquitetura do conhecimento: organizar, rastrear e gerar'
 project: Strata
-version: 1.2.5
+version: 1.2.6
 type: reference
 status: active
 created: 2026-05-20
@@ -879,7 +879,7 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 
 | Forma (2026) | O que é | Expressa |
 |---|---|---|
-| **AGENTS.md** (+ `CLAUDE.md`) | arquivo de instruções na raiz: inventário + checklist "antes de agir" + lista NUNCA | §2 ponto de entrada p/ o colaborador |
+| **AGENTS.md** | um arquivo de instruções na raiz, lido por todo agente: inventário + checklist "antes de agir" + lista NUNCA | §2 ponto de entrada p/ o colaborador |
 | **MCP** (Model Context Protocol) | padrão de conexão agente↔dados/ferramentas; expor `tickets`/`manifest`/dataset como server local | §3 acesso rastreável a recursos |
 | **Agent Skills** (`SKILL.md`) | capacidade empacotada reutilizável (progressive disclosure), cross-tool | operações repetíveis (auditoria, promoção, export) |
 | **Memória em camadas** | (1) arquivo versionado · (2) auto memória escrita pelo agente (`MEMORY.md`, ligada por default) · (3) memória user-scope · (4) memória filesystem (memory tool, contexto 1M); hooks são **enforcement**, não camada de memória | a 4ª camada do §3 (as camadas (2)+(4) geram drift opaco não-versionado; auditar) |
@@ -892,8 +892,9 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 
 **Estado da matriz (`[VERIFICAR: 2026-09-26]`)**: AGENTS.md é padrão
 **estabelecido** (Agentic AI Foundation/Linux Foundation, 2025), nativo em
-Codex/Copilot/Cursor/Gemini CLI/Aider/Windsurf/Zed; Claude Code auto-carrega
-`CLAUDE.md` (importe AGENTS.md com `@AGENTS.md`). **Agent Skills** virou padrão
+Codex/Copilot/Cursor/Gemini CLI/Aider/Windsurf/Zed e, desde set-2026 (v2.1.277), no Claude
+Code; um `CLAUDE.md` na mesma hierarquia tem precedência ali, salvo configuração para fundir
+os dois, então um AGENTS.md basta e o antigo import `@AGENTS.md` deixou de ser necessário. **Agent Skills** virou padrão
 aberto **cross-tool** (agentskills.io, 2025; ~40 plataformas); audite skills
 de terceiros como audita servers MCP. **MCP**: a spec corrente é
 **2026-07-28** (núcleo stateless; Roots/Sampling/Logging e o transporte

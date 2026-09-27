@@ -1,7 +1,7 @@
 ---
 title: 'Knowledge architecture: organize, track, and generate'
 project: Strata
-version: 1.2.5
+version: 1.2.6
 type: reference
 status: active
 created: 2026-05-20
@@ -875,7 +875,7 @@ the two rules those principles do not give:
 
 | Form (2026) | What it is | Expresses |
 |---|---|---|
-| **AGENTS.md** (+ `CLAUDE.md`) | an instruction file at the root: inventory + "before acting" checklist + a NEVER list | §2 entry point for the collaborator |
+| **AGENTS.md** | one instruction file at the root, read by every agent: inventory + "before acting" checklist + a NEVER list | §2 entry point for the collaborator |
 | **MCP** (Model Context Protocol) | a standard for connecting agent↔data/tools; expose `tickets`/`manifest`/dataset as a local server | §3 traceable access to resources |
 | **Agent Skills** (`SKILL.md`) | a reusable packaged capability (progressive disclosure), cross-tool | repeatable operations (audit, promotion, export) |
 | **Layered memory** | (1) versioned file · (2) agent-written auto memory (`MEMORY.md`, default-on) · (3) user-scope memory · (4) filesystem memory (memory tool, 1M context); hooks are **enforcement**, not a memory layer | the 4th layer of §3 (layers (2)+(4) generate opaque, unversioned drift; audit them) |
@@ -888,8 +888,9 @@ the two rules those principles do not give:
 
 **State of the matrix (`[VERIFY: 2026-09-26]`)**: AGENTS.md is an **established**
 standard (Agentic AI Foundation/Linux Foundation, 2025), native in
-Codex/Copilot/Cursor/Gemini CLI/Aider/Windsurf/Zed; Claude Code auto-loads
-`CLAUDE.md` (import AGENTS.md with `@AGENTS.md`). **Agent Skills** are now an
+Codex/Copilot/Cursor/Gemini CLI/Aider/Windsurf/Zed and, since Sep-2026 (v2.1.277), Claude
+Code; a `CLAUDE.md` in the same hierarchy takes precedence there unless both are set to merge,
+so one AGENTS.md is enough and the old `@AGENTS.md` import is no longer needed. **Agent Skills** are now an
 open **cross-tool** standard (agentskills.io, 2025; ~40 platforms); audit
 third-party skills like you audit MCP servers. **MCP**: current spec is
 **2026-07-28** (stateless core; Roots/Sampling/Logging and the legacy HTTP+SSE

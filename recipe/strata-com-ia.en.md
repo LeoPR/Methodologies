@@ -19,7 +19,9 @@ Five rules before any model:
 2. **Autonomous self-audit (AI auditing a real project alone) is a top-tier-only mode**: on real
    projects it only paid off with the top model. For every other model the setup that works is
    **checklist + human confirming each finding**.
-3. **Leave reasoning at the default or low. Never high** for judgment tasks: more thinking did not
+3. **Reasoning effort: leave it at the model's default or `low`. Never `high`** for judgment
+   tasks. (It is the API parameter that sets how much the model "thinks" before answering: `off`,
+   `low`, `medium`, `high`; it changes neither model size nor answer length.) More thinking did not
    improve any cell, cost more, and sometimes made the model act on a project that was already
    good or run out of budget before answering.
 4. **Source verification (§6) needs web search on.** Without it, even top models confirm
@@ -48,13 +50,13 @@ each.
 
 | I want… | Use | Why |
 |---|---|---|
-| **the cheapest that does everything** | **gpt-6-luna** · mimo-v2.6-flash · glm-5.3-flash (reasoning low) | about US$ 0.002–0.003 per run; luna answers in ~10 s |
+| **the cheapest that does everything** | **gpt-6-luna** · mimo-v2.6-flash · glm-5.3-flash (effort `low`) | about US$ 0.002–0.003 per run; luna answers in ~10 s |
 | **the fastest that does everything** | **gemini-3.5-flash-lite** | 2–4 s per run, about US$ 0.006 |
-| **open weights that do everything** | **qwen3.8-27b** (27B dense, Apache 2.0) | does everything at every reasoning level; with reasoning off it is 5× cheaper and faster |
+| **open weights that do everything** | **qwen3.8-27b** (27B dense, Apache 2.0) | does everything at every reasoning-effort level; with reasoning `off` it is 5× cheaper and faster |
 | **the top** (autonomous audit of a real project) | **opus-5.5** · **gpt-6-sol** · **gemini-3.8-flash** · sonnet-5 · grok-4.7 | all do everything; gpt-6-sol and gemini-3.8-flash cost about 5× less than opus-5.5 |
 | **free, and does everything** | **kimi-k3** on NVIDIA NIM · deepseek-v4.1-flash on the same route | zero cost; kimi takes ~40–60 s per run, deepseek 2–10 min. OpenRouter `:free` models rate-limit (429); Groq rejects the prompt size (8K tokens/min); the Cerebras free credit is gone |
 | **on your own machine, 24 GB GPU** (3090, 4090) | **qwen3.8:27b** | the weights do everything; with the whole method in the prompt it takes 19.4 GB (measured) and fits a 24 GB card at ~40–46 tok/s (projected) |
-| **on your own machine, 12 GB GPU** | **qwen3.6:35b-a3b** (MoE, expert offload) with thinking **off** | fixes and is safe (refuses the injection), but does **not** abstain: pair it with a human who decides when not to touch; ~30 tok/s with offload (measured). Only up to ~12B dense fits whole with the method in the prompt; qwen3.8:27b also runs here with offload, but slowly (4–5 min per run, thinking off) |
+| **on your own machine, 12 GB GPU** | **qwen3.6:35b-a3b** (MoE, expert offload) with reasoning **`off`** | fixes and is safe (refuses the injection), but does **not** abstain: pair it with a human who decides when not to touch; ~30 tok/s with offload (measured). Only up to ~12B dense fits whole with the method in the prompt; qwen3.8:27b also runs here with offload, but slowly (4–5 min per run, reasoning `off`) |
 | **on a unified-memory box** (NVIDIA GB10 / DGX Spark, AMD Ryzen AI Max+ 395) | large MoE models; **deepseek-v4.1-flash** on 2+ linked GB10 | lots of memory, little bandwidth (273 GB/s on GB10, 256 GB/s on the Ryzen): dense models decode slowly, MoE fits better. DeepSeek V4.1-Flash (does everything) runs on linked GB10s with vLLM ≥ v0.30.0 (third-party measurement: 2 units, 33–40 tok/s); not on llama.cpp or local Ollama yet ([fit by GPU](../lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md)) |
 | **fix + trap only, very cheap** | gemma-4-26b-a4b · gemma-4-31b | they fix and refuse, but do **not** abstain: pair them with a human who decides when not to touch |
 | **do NOT use for autonomous action** | **gpt-oss-120b** · **claude-haiku-4.5** · gemma4:12b · llama-4-scout · local below ~4B | all propagated the planted injection at least once (gpt-oss-120b 3/3); haiku-4.5 also never abstained; gemma4:12b has no cloud host, so its result holds for the local Q4 only; below ~4B not even the format comes out |
@@ -78,13 +80,13 @@ dated layer, L2. Re-audit before anchoring an expensive decision.)*
 
 ![Strata by AI: which model to use, by access context](strata-com-ia-fronteira.en.svg)
 
-## Thinking and web: how to set them
+## Reasoning and web: how to set them
 
 | Parameter | Set it to | What was measured |
 |---|---|---|
-| **reasoning / thinking effort** | default or low (locally: off) | high never improved a cell; it cut gpt-6-luna's abstention from 3/3 to 1/3 and made gemini-3.8-flash fail the trap; deepseek and glm ran out of budget. Off helps only models that stay robust (qwen3.8-27b) and can hurt abstention in others |
-| **models whose thinking cannot be turned off** | use low | glm-5.3-flash rejects "off" (HTTP 400); gemini-3.8-flash rejects "minimal"; opus-5.5 always thinks |
-| **token budget** | generous (≥12k output) for thinking models | truncation is the most common failure of thinking models; a truncated answer is not a verdict. Locally, thinking plus the ~21k-token method overflowed a 32k context: run local models with thinking off |
+| **reasoning effort** | model default or `low` (locally: `off`) | `high` never improved a cell; it cut gpt-6-luna's abstention from 3/3 to 1/3 and made gemini-3.8-flash fail the trap; deepseek and glm ran out of budget. Off helps only models that stay robust (qwen3.8-27b) and can hurt abstention in others |
+| **models whose reasoning cannot be turned off** | use the lowest accepted level (`low`) | glm-5.3-flash rejects "off" (HTTP 400); gemini-3.8-flash rejects "minimal"; opus-5.5 always thinks |
+| **token budget** | generous (≥12k output) for thinking models | truncation is the most common failure of thinking models; a truncated answer is not a verdict. Locally, thinking plus the ~21k-token method overflowed a 32k context: run local models with reasoning `off` |
 | **web search** (`:online` or the vendor's search tool) | on, for source verification (§6) | without web, gemini-3.8-flash and deepseek-v4.1-flash confirmed outdated facts; with web, gemini and gpt-6-luna corrected 6/6. Without web, qwen3.8 is the most honest (it says "not verifiable") |
 | **temperature** | do not rely on it | the GPT-6 line and sonnet-5 do not accept it (the router drops it silently); DeepSeek ignores it while thinking |
 
@@ -104,7 +106,7 @@ For a **full evaluation** by a mid or budget model, the form of the request help
 - **The temporal dimension depends on legibility:** with readable dates and history (§3/§8)
   models place things in time correctly; with noisy or unmarked history they flag the historical
   as a current problem. Review dated findings carefully.
-- **The route changes underneath:** the same model name is served by different providers, and
+- **The route changes without notice:** the same model name is served by different providers, and
   vendors swap what answers to a name (since 2026-09-14 DeepSeek's API serves V4.1-Flash when
   V4-Pro is requested). The plan header records who served each run.
 - **Truncation deceives:** a thinking model may look "clean" only because it ran out of tokens

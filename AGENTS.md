@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-09-26
+updated: 2026-09-27
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -86,6 +86,10 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     grátis, local; eixos de pensamento e web). Fonte do guia `recipe/strata-com-ia.*`.
   - `2026-09-26-revisao-temporal/`: **revisão temporal** (métodos de avaliação, roster de modelos,
     L1/L2, L0 teoria × texto): achados com fonte e o que foi aplicado. Registro, não fonte de estado.
+  - `2026-09-26-temporalidade/`: **TEMPORALIDADE** (3a frente, aberta): por que LLMs erram com o
+    tempo. Temporalidade = ordem inferida por dependência de estado + notar a lacuna, não datas.
+    Oito mapas de literatura (filosofia a IA), `ONTOLOGIA.md` v0 e `prototipo/` (demonstrador, não
+    evidência). Nada medido contra modelo ainda.
   - `2026-09-26-revisao-superficie/`: revisão de superfície do Strata + **auditoria declarado × feito**
     (`AUDITORIA-sync.md`, destino por achado). Registro do conserto, não fonte de estado.
 - `eval/`: **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia

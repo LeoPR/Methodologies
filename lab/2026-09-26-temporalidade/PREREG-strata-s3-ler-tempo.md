@@ -112,3 +112,11 @@ modelo × braço (ADR-006). Classes parciais relatadas à parte. Negativo regist
   mistral-nemo-12b, mistral-7b). O piloto grátis fica com **7 fabricantes**. Mistral e Qwen
   (Alibaba; a Qwen não está na NVIDIA, e a capacidade se mede na nuvem, não no Ollama local)
   entram na etapa 2 só pelas regras da §6, pelo modelo mais barato de cada.
+- **2026-09-28, com gpt-oss-20b e nemotron completos e os outros em curso:** o pontuador v1 mandava
+  para REVISAR respostas corretas ditas de outro jeito. Pontuador **v2**, só de leitura e igual para
+  todos os braços (o gabarito não muda): (a) aceita a resposta dada pelos **parâmetros** em vez do
+  nome do arquivo (a tarefa pede "quais parâmetros você usaria"); (b) sim/não e aviso em inglês;
+  (c) "Indeterminado" puro conta como qualificação no `f6-agora`. 17/17 em casos conhecidos. O que
+  seguir sem casar vai para revisão manual registrada em `planos/f6s-piloto-revisao.csv`. Ajuste
+  feito depois de ver saídas parciais de dois modelos; cego ao braço, porque as regras não olham o
+  braço.

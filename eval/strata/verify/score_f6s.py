@@ -37,14 +37,16 @@ def classificar(fx, valor):
     if fx == "f6-agora":
         if re.search(s["temporal"], valor):
             return "QUALIFICA"
-        if re.match(r"(?i)\W*n[ãa]o\b", valor):
+        if re.match(r"(?i)\W*(n[ãa]o|no)\b", valor):
             return "AFIRMA-NAO"
-        if re.match(r"(?i)\W*(sim|est[áa]|usa)\b", valor):
+        if re.match(r"(?i)\W*(sim|est[áa]|usa|yes)\b", valor):
             return "AFIRMA-SIM"
         return "REVISAR"
     hedge = bool(re.search(s["hedge"], valor))
+    picks = [k for k, rx in s["picks"].items() if re.search(rx, valor)]
+    if not picks:  # v2: resposta dada pelos parametros em vez do nome do arquivo
+        picks = [k for k, rx in s.get("assinaturas", {}).items() if re.search(rx, valor)]
     if fx == "f6-indeterminado":
-        picks = [k for k, rx in s["picks"].items() if re.search(rx, valor)]
         if len(picks) == 1:
             return "ESCOLHE-COM-RESSALVA" if hedge else "ESCOLHE-SEM-RESSALVA"
         if hedge:
@@ -53,8 +55,8 @@ def classificar(fx, valor):
             return "LISTA-AMBOS"  # nao escolheu, mas tambem nao avisou
         return "REVISAR"
     # f6-tempo
-    copia = re.search(s["picks"]["copia"], valor)
-    canon = re.search(s["picks"]["canonico"], valor)
+    copia = "copia" in picks
+    canon = "canonico" in picks
     if copia and not canon:
         return "ACERTA-COM-RESSALVA" if hedge else "ACERTA"
     if canon and not copia:
@@ -70,6 +72,11 @@ def main():
     ap.add_argument("--csv", default=None)
     a = ap.parse_args()
     linhas, revisar = [], []
+    # revisao manual registrada (pre-registro §3): planos/<rodada>-revisao.csv com arquivo,classe,nota
+    revf = a.indir.rstrip("/\\") + "-revisao.csv"
+    rev = {}
+    if os.path.exists(revf):
+        rev = {r["arquivo"]: r["classe"] for r in csv.DictReader(open(revf, encoding="utf-8"))}
     for raiz, _, arqs in os.walk(a.indir):
         for f in sorted(arqs):
             if not f.endswith(".md"):
@@ -83,6 +90,9 @@ def main():
             corpo = txt[h.end():]
             valor = ultima_linha(corpo, SPEC[fx]["tag"])
             cls = classificar(fx, valor)
+            rel = os.path.relpath(p, a.indir).replace("\\", "/")
+            if cls == "REVISAR" and rel in rev:
+                cls = rev[rel]
             if cls == "REVISAR":
                 revisar.append((p, valor))
             linhas.append({"fixture": fx, "arm": h["arm"], "model": h["model"], "run": int(h["run"]),

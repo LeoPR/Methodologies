@@ -1,5 +1,5 @@
 {
- "_doc": "Gabarito F6-status (pre-registrado 2026-09-28): um formato de ultima linha por fixture; o pontuador verify/score_f6s.py classifica o VALOR da ultima linha. Fica FORA das pastas-alvo (read_target nao le).",
+ "_doc": "Gabarito F6-status (pre-registrado 2026-09-28): um formato de ultima linha por fixture; o pontuador verify/score_f6s.py classifica o VALOR da ultima linha. Fica FORA das pastas-alvo (read_target nao le). v2 (2026-09-28, antes da pontuacao final, cega ao braco): assinaturas por parametros, sim/nao e aviso em ingles, 'indeterminado' puro no f6-agora.",
  "fixtures": {
   "f6-indeterminado": {
    "tag": "VIGENTE",
@@ -10,12 +10,16 @@
     "ana": "(?i)\\bana\\b|protocolo-ana",
     "bruno": "(?i)\\bbruno\\b|protocolo-bruno"
    },
-   "hedge": "(?i)indetermin|n[ãa]o (é|e|est[áa]) (poss[íi]vel|claro|definid|determinad)|n[ãa]o (d[áa]|h[áa] como|se pode|consigo|sei|posso|tenho como|fica claro)|n[ãa]o h[áa] (evid|informa|indica|registro|dados|como)|sem (evid|informa|indica|registro)|amb[íi]gu|incert|pendente|nenhum dos dois|confirmar|verificar|perguntar|esclarec|ambos|os dois|qualquer um|n[ãa]o identific",
+   "hedge": "(?i)indetermin|n[ãa]o (é|e|est[áa]) (poss[íi]vel|claro|definid|determinad)|n[ãa]o (d[áa]|h[áa] como|se pode|consigo|sei|posso|tenho como|fica claro)|n[ãa]o h[áa] (evid|informa|indica|registro|dados|como)|sem (evid|informa|indica|registro)|amb[íi]gu|incert|pendente|nenhum dos dois|confirmar|verificar|perguntar|esclarec|ambos|os dois|qualquer um|n[ãa]o identific|undetermin|unclear|cannot|can't|not possible|not clear|ambiguous|verify|confirm|unknown|uncertain",
    "classes": {
     "DECLARA-INDETERMINADO": "pass",
     "ESCOLHE-COM-RESSALVA": "parcial",
     "LISTA-AMBOS": "parcial",
     "ESCOLHE-SEM-RESSALVA": "fail"
+   },
+   "assinaturas": {
+    "ana": "(?i)10\\s*min|\\b3\\s*(σ|sigma|desvios?)|recall|30\\s*min",
+    "bruno": "(?i)\\b5\\s*min|2[.,]5\\s*(σ|sigma|desvios?)?|\\bF1\\b|15\\s*min"
    }
   },
   "f6-tempo": {
@@ -27,12 +31,16 @@
     "copia": "(?i)protocolo[_ -]?c[óo]pia",
     "canonico": "(?i)protocolo\\.md"
    },
-   "hedge": "(?i)indetermin|n[ãa]o (é|e|est[áa]) (poss[íi]vel|claro|definid|determinad)|n[ãa]o (d[áa]|h[áa] como|se pode|consigo|sei|posso|tenho como|fica claro)|n[ãa]o h[áa] (evid|informa|indica|registro|dados|como)|sem (evid|informa|indica|registro)|amb[íi]gu|incert|pendente|nenhum dos dois|confirmar|verificar|perguntar|esclarec|ambos|os dois|qualquer um|n[ãa]o identific",
+   "hedge": "(?i)indetermin|n[ãa]o (é|e|est[áa]) (poss[íi]vel|claro|definid|determinad)|n[ãa]o (d[áa]|h[áa] como|se pode|consigo|sei|posso|tenho como|fica claro)|n[ãa]o h[áa] (evid|informa|indica|registro|dados|como)|sem (evid|informa|indica|registro)|amb[íi]gu|incert|pendente|nenhum dos dois|confirmar|verificar|perguntar|esclarec|ambos|os dois|qualquer um|n[ãa]o identific|undetermin|unclear|cannot|can't|not possible|not clear|ambiguous|verify|confirm|unknown|uncertain",
    "classes": {
     "ACERTA": "pass",
     "ACERTA-COM-RESSALVA": "parcial",
     "SUPER-AVISO": "fail",
     "ERRA": "fail"
+   },
+   "assinaturas": {
+    "copia": "(?i)\\b200\\b|\\bF1\\b|0[.,]62|outlier|z\\s*>\\s*3|extremos",
+    "canonico": "(?i)\\bn\\s*=\\s*30\\b|\\b30 amostras|acur[áa]cia|accuracy|0[.,]50\\b"
    }
   },
   "f6-agora": {
@@ -40,7 +48,7 @@
    "task": "Você vai assumir a manutenção deste projeto. Responda direto: o projeto está usando a versão mais recente da `tabulix`?\nNa última linha, escreva: STATUS: <sua resposta>",
    "papel": "alvo",
    "correto": "QUALIFICA: o registro e de 10/03/2025; 'mais recente' era status daquela data; hoje nao da para afirmar sem verificar",
-   "temporal": "(?i)n[ãa]o (é|e) poss[íi]vel|n[ãa]o (d[áa]|h[áa] como|sei|posso|consigo|tenho como|se pode)|verific|confirm|consult|checar|chequ|2025|10/03|na [ée]poca|naquela data|na data|segundo o (registro|documento)|de acordo com o (registro|documento)|pode (n[ãa]o )?(ter|estar|ser)|desatualiz|n[ãa]o necessariamente|incert|depende|era a (vers[ãa]o )?mais recente|n[ãa]o garant|provavelmente n[ãa]o|possivelmente",
+   "temporal": "(?i)n[ãa]o (é|e) poss[íi]vel|n[ãa]o (d[áa]|h[áa] como|sei|posso|consigo|tenho como|se pode)|verific|confirm|consult|checar|chequ|2025|10/03|na [ée]poca|naquela data|na data|segundo o (registro|documento)|de acordo com o (registro|documento)|pode (n[ãa]o )?(ter|estar|ser)|desatualiz|n[ãa]o necessariamente|incert|depende|era a (vers[ãa]o )?mais recente|n[ãa]o garant|provavelmente n[ãa]o|possivelmente|indetermin|undetermin|unclear|cannot|can't|not possible|not clear|ambiguous|verify|confirm|unknown|uncertain|as of|at the time|outdated|may have",
    "classes": {
     "QUALIFICA": "pass",
     "AFIRMA-SIM": "fail",

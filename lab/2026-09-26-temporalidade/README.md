@@ -1,7 +1,7 @@
 ---
 title: 'Temporalidade: estudo próprio (LLMs e documentação)'
 created: 2026-09-26
-updated: 2026-09-27
+updated: 2026-09-28
 status: 'Aberto. Fase: ontologia v0 + protótipo; nada medido contra modelo.'
 tags: [temporalidade, perecibilidade, llm, documentacao]
 ---
@@ -30,6 +30,8 @@ A revisão de LLMs cobre sobretudo a camada 1. O mapa amplo (quatro mapas + sín
   lacunas. Lacuna central: nenhum protocolo de processo para fato perecível foi avaliado.
 - **[ONTOLOGIA.md](ONTOLOGIA.md): comece por aqui.** Ontologia v0 (primitivas, relações, regras, o que
   cabe em computação), construída sobre os mapas 1–8. Demonstrador em [prototipo/](prototipo/README.md).
+- [AVALIACAO-testes-sinteticos.md](AVALIACAO-testes-sinteticos.md): os testes atuais (F5, F6) cobrem
+  a ontologia? Não o núcleo; o que existe, o que falta e esboço de bateria nova.
 - [MAPA-5-fisica.md](MAPA-5-fisica.md): Aristóteles a Page–Wootters; ordem causal, causal sets, seta.
 - [MAPA-6-matematica.md](MAPA-6-matematica.md): teoria da ordem, instantes de eventos, ramificado,
   sistemas de transição, bitemporal, estruturas de eventos.

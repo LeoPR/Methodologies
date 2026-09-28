@@ -120,3 +120,7 @@ modelo × braço (ADR-006). Classes parciais relatadas à parte. Negativo regist
   seguir sem casar vai para revisão manual registrada em `planos/f6s-piloto-revisao.csv`. Ajuste
   feito depois de ver saídas parciais de dois modelos; cego ao braço, porque as regras não olham o
   braço.
+- **2026-09-28, etapa 1 em curso:** `moonshotai/kimi-k3` primeiro deu timeout na NVIDIA (fila
+  travada) e depois **404**, junto com `kimi-k2.6`, embora os dois sigam listados em `/v1/models`.
+  Sem Moonshot grátis: o piloto fica com **6 fabricantes** (OpenAI aberto, NVIDIA, Google aberto,
+  Meta, Z.ai, DeepSeek). Moonshot entra na etapa 2 só pelas regras da §6.

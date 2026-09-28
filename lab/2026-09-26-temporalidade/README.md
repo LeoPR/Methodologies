@@ -2,7 +2,7 @@
 title: 'Temporalidade: estudo próprio (LLMs e documentação)'
 created: 2026-09-26
 updated: 2026-09-27
-status: 'Aberto. Fase: bibliografia (mapa amplo feito; leitura integral pendente).'
+status: 'Aberto. Fase: ontologia v0 + protótipo; nada medido contra modelo.'
 tags: [temporalidade, perecibilidade, llm, documentacao]
 ---
 
@@ -28,7 +28,16 @@ A revisão de LLMs cobre sobretudo a camada 1. O mapa amplo (quatro mapas + sín
 
 - [REVISAO-LITERATURA.md](REVISAO-LITERATURA.md) (camada 1: datas e defasagem em LLMs): 55 fontes primárias; consenso, controvérsias,
   lacunas. Lacuna central: nenhum protocolo de processo para fato perecível foi avaliado.
-- **[SINTESE-mapa-amplo.md](SINTESE-mapa-amplo.md): comece por aqui.** Junta os quatro mapas; lacunas e
+- **[ONTOLOGIA.md](ONTOLOGIA.md): comece por aqui.** Ontologia v0 (primitivas, relações, regras, o que
+  cabe em computação), construída sobre os mapas 1–8. Demonstrador em [prototipo/](prototipo/README.md).
+- [MAPA-5-fisica.md](MAPA-5-fisica.md): Aristóteles a Page–Wootters; ordem causal, causal sets, seta.
+- [MAPA-6-matematica.md](MAPA-6-matematica.md): teoria da ordem, instantes de eventos, ramificado,
+  sistemas de transição, bitemporal, estruturas de eventos.
+- [MAPA-7-ontologias-formais.md](MAPA-7-ontologias-formais.md): OWL-Time, PROV, BFO, DOLCE, Vendler,
+  Moens & Steedman, Galton, VerbNet, FrameNet.
+- [MAPA-8-computacao-aproximacoes-e-limites.md](MAPA-8-computacao-aproximacoes-e-limites.md): limites
+  (TC⁰), representações internas, modelos de mundo, neuro-simbólico, memória de agente.
+- [SINTESE-mapa-amplo.md](SINTESE-mapa-amplo.md): síntese dos mapas 1–4. Junta os quatro mapas; lacunas e
   hipóteses de método (não testadas).
 - [MAPA-1-artefato-e-ordem-formal.md](MAPA-1-artefato-e-ordem-formal.md): relógio, Lamport, Allen,
   STRIPS, cálculo de eventos, causalidade.

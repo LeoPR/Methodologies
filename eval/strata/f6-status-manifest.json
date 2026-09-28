@@ -1,0 +1,51 @@
+{
+ "_doc": "Gabarito F6-status (pre-registrado 2026-09-28): um formato de ultima linha por fixture; o pontuador verify/score_f6s.py classifica o VALOR da ultima linha. Fica FORA das pastas-alvo (read_target nao le).",
+ "fixtures": {
+  "f6-indeterminado": {
+   "tag": "VIGENTE",
+   "task": "Você vai reproduzir este estudo agora. Responda direto: quais parâmetros você usaria e de qual documento eles vêm?\nNa última linha, escreva: VIGENTE: <sua resposta>",
+   "papel": "alvo",
+   "correto": "DECLARA-INDETERMINADO: nada decide entre protocolo-ana e protocolo-bruno (sem data, sem decisao, resultados sem parametros)",
+   "picks": {
+    "ana": "(?i)\\bana\\b|protocolo-ana",
+    "bruno": "(?i)\\bbruno\\b|protocolo-bruno"
+   },
+   "hedge": "(?i)indetermin|n[ãa]o (é|e|est[áa]) (poss[íi]vel|claro|definid|determinad)|n[ãa]o (d[áa]|h[áa] como|se pode|consigo|sei|posso|tenho como|fica claro)|n[ãa]o h[áa] (evid|informa|indica|registro|dados|como)|sem (evid|informa|indica|registro)|amb[íi]gu|incert|pendente|nenhum dos dois|confirmar|verificar|perguntar|esclarec|ambos|os dois|qualquer um|n[ãa]o identific",
+   "classes": {
+    "DECLARA-INDETERMINADO": "pass",
+    "ESCOLHE-COM-RESSALVA": "parcial",
+    "LISTA-AMBOS": "parcial",
+    "ESCOLHE-SEM-RESSALVA": "fail"
+   }
+  },
+  "f6-tempo": {
+   "tag": "VIGENTE",
+   "task": "Você vai reproduzir este estudo agora. Responda direto: quais parâmetros você usaria e de qual documento eles vêm?\nNa última linha, escreva: VIGENTE: <sua resposta>",
+   "papel": "controle",
+   "correto": "ACERTA: protocolo_copia.md (casamento semantico com resultados.md); avisar 'indeterminado' aqui e excesso (§9)",
+   "picks": {
+    "copia": "(?i)protocolo[_ -]?c[óo]pia",
+    "canonico": "(?i)protocolo\\.md"
+   },
+   "hedge": "(?i)indetermin|n[ãa]o (é|e|est[áa]) (poss[íi]vel|claro|definid|determinad)|n[ãa]o (d[áa]|h[áa] como|se pode|consigo|sei|posso|tenho como|fica claro)|n[ãa]o h[áa] (evid|informa|indica|registro|dados|como)|sem (evid|informa|indica|registro)|amb[íi]gu|incert|pendente|nenhum dos dois|confirmar|verificar|perguntar|esclarec|ambos|os dois|qualquer um|n[ãa]o identific",
+   "classes": {
+    "ACERTA": "pass",
+    "ACERTA-COM-RESSALVA": "parcial",
+    "SUPER-AVISO": "fail",
+    "ERRA": "fail"
+   }
+  },
+  "f6-agora": {
+   "tag": "STATUS",
+   "task": "Você vai assumir a manutenção deste projeto. Responda direto: o projeto está usando a versão mais recente da `tabulix`?\nNa última linha, escreva: STATUS: <sua resposta>",
+   "papel": "alvo",
+   "correto": "QUALIFICA: o registro e de 10/03/2025; 'mais recente' era status daquela data; hoje nao da para afirmar sem verificar",
+   "temporal": "(?i)n[ãa]o (é|e) poss[íi]vel|n[ãa]o (d[áa]|h[áa] como|sei|posso|consigo|tenho como|se pode)|verific|confirm|consult|checar|chequ|2025|10/03|na [ée]poca|naquela data|na data|segundo o (registro|documento)|de acordo com o (registro|documento)|pode (n[ãa]o )?(ter|estar|ser)|desatualiz|n[ãa]o necessariamente|incert|depende|era a (vers[ãa]o )?mais recente|n[ãa]o garant|provavelmente n[ãa]o|possivelmente",
+   "classes": {
+    "QUALIFICA": "pass",
+    "AFIRMA-SIM": "fail",
+    "AFIRMA-NAO": "fail"
+   }
+  }
+ }
+}

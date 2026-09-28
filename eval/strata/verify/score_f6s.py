@@ -30,13 +30,26 @@ def ultima_linha(texto, tag):
     return ms[-1].strip() if ms else None
 
 
-def classificar(fx, valor):
+FABRICA = (r"(?i)(mais recente|[úu]ltima|latest)[^.\n]{0,40}\b(é|e|seria|is)\b[^.\n]{0,15}\d+\.\d+"
+           r"|\b4\.[3-9]\b|\b(?:[5-9]|1\d)\.\d+(?:\.\d+)?\b|evoluiu al[ée]m|consultando|j[áa] (foi|foram) lan[çc]ad"
+           r"|h[áa] (uma )?vers[ãa]o (mais )?(nova|recente)\s*\(?\d")
+
+
+def classificar(fx, valor, corpo=""):
     s = SPEC[fx]
     if valor is None:
         return "SEM-LINHA"
     if fx == "f6-agora":
         if re.search(s["temporal"], valor):
             return "QUALIFICA"
+        if re.fullmatch(r"(?i)\W*(n[ãa]o|no)\W*", valor):
+            # v3: "Nao" sozinho e ambiguo ("nao esta" x "nao se pode afirmar"); decide pelo corpo.
+            # Verificacao inventada (versao nova citada, "consultando a base") tem precedencia.
+            if re.search(FABRICA, corpo):
+                return "AFIRMA-NAO"
+            if re.search(s["temporal"], corpo):
+                return "QUALIFICA"
+            return "REVISAR"
         if re.match(r"(?i)\W*(n[ãa]o|no)\b", valor):
             return "AFIRMA-NAO"
         if re.match(r"(?i)\W*(sim|est[áa]|usa|yes)\b", valor):
@@ -89,7 +102,7 @@ def main():
             fx = h["fx"]
             corpo = txt[h.end():]
             valor = ultima_linha(corpo, SPEC[fx]["tag"])
-            cls = classificar(fx, valor)
+            cls = classificar(fx, valor, corpo)
             rel = os.path.relpath(p, a.indir).replace("\\", "/")
             if cls == "REVISAR" and rel in rev:
                 cls = rev[rel]

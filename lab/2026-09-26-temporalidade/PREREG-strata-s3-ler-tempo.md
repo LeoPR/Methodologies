@@ -124,3 +124,9 @@ modelo × braço (ADR-006). Classes parciais relatadas à parte. Negativo regist
   travada) e depois **404**, junto com `kimi-k2.6`, embora os dois sigam listados em `/v1/models`.
   Sem Moonshot grátis: o piloto fica com **6 fabricantes** (OpenAI aberto, NVIDIA, Google aberto,
   Meta, Z.ai, DeepSeek). Moonshot entra na etapa 2 só pelas regras da §6.
+- **2026-09-28, depois do muse completo:** pontuador **v3**, só no `f6-agora` e só para a última
+  linha "Não"/"No" sozinha, que é ambígua por construção ("não está na mais recente" × "não se pode
+  afirmar"). Decide pelo corpo: verificação inventada (versão mais nova citada, "consultando a
+  base", "já evoluiu além") → AFIRMA-NAO, com precedência; qualificação temporal → QUALIFICA; resto
+  → revisão manual. Motivo: o muse respondia "Não" com o corpo certo ("sem verificação na fonte não
+  é possível afirmar") e era contado como falha. Igual para todos os braços.

@@ -104,3 +104,11 @@ modelo × braço (ADR-006). Classes parciais relatadas à parte. Negativo regist
 - O delta entra sem o bloco de fundamentação que o canônico teria.
 - `f6-tempo` já saiu no teto em junho (sem método): controle fácil, mede só o excesso de aviso.
 - Pontuação por regex: REVISAR e LISTA-AMBOS revisados à mão; a revisão fica registrada.
+
+## Desvios (anexados, datados)
+
+- **2026-09-28, início da etapa 1:** `mistralai/mistral-large-2-instruct` responde 404 na NVIDIA,
+  assim como todos os outros IDs Mistral listados (testados: mistral-large, mixtral-8x22b,
+  mistral-nemo-12b, mistral-7b). O piloto grátis fica com **7 fabricantes**. Mistral e Qwen
+  (Alibaba; a Qwen não está na NVIDIA, e a capacidade se mede na nuvem, não no Ollama local)
+  entram na etapa 2 só pelas regras da §6, pelo modelo mais barato de cada.

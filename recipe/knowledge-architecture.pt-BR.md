@@ -1,11 +1,11 @@
 ---
 title: 'Arquitetura do conhecimento: organizar, rastrear e gerar'
 project: Strata
-version: 1.2.6
+version: 1.2.7
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-09-26
+updated: 2026-09-29
 lang: pt-BR
 source_lang: en
 translation_of: knowledge-architecture.en.md
@@ -197,6 +197,13 @@ sempre foi assim.
 fonte forte ≠ afirmação a confirmar ≠ hipótese pessoal ≠ conteúdo gerado por
 um agente. Cada uma carrega sua etiqueta (a forma da etiqueta é L2).
 
+**Ler o tempo de volta.** Quando o registro não data, a ordem se reconstrói pela dependência, não se
+supõe: o que usa um parâmetro, um resultado ou um estado vem depois do que o produziu. Nome de
+arquivo, ordem de leitura e posição não são evidência de tempo. Onde a evidência não decide, a ordem
+ou a vigência é **indeterminada**, e isso se declara em vez de se preencher. Status ("atual", "mais
+recente", "ainda vale") só existe contra um *agora* declarado; para um leitor com fronteira de
+conhecimento (um corte, uma atualização não lida), essa fronteira não é o presente.
+
 > **Fundamentação**: proveniência de dados: Buneman, Khanna & Tan 2001 (ICDT);
 > registro de quem/quando/onde/porquê + versão: Rochkind 1975 (SCCS, *IEEE
 > TSE*; o primeiro controle de versão); registro auditável append-only:
@@ -212,8 +219,21 @@ um agente. Cada uma carrega sua etiqueta (a forma da etiqueta é L2).
 > bitemporalidade (tempo-de-vigência ≠ tempo-de-registro): Snodgrass 1999
 > (*Developing Time-Oriented Database Applications in SQL*, Morgan Kaufmann).
 >
+> Ler o tempo de volta `[WEB ✓ 2026-09-27]`: ordem derivada da dependência, não do relógio:
+> Lamport 1978 ("Time, Clocks, and the Ordering of Events in a Distributed System", *CACM*
+> 21(7)); ontologia temporal construída sobre contingência, não sobre primitivas de tempo: Moens &
+> Steedman 1988 (*Computational Linguistics* 14(2)); ordem fixa (série B) ≠ status relativo a um
+> agora que se move (série A): McTaggart 1908 (*Mind* 17); o "agora" é local a um leitor, não
+> global: Hartle 2005 (*American Journal of Physics* 73).
+>
 > Instância de era `[2026-06]`: a rastreabilidade legível deixa um leitor-IA
 > situar o tempo (sinal, rodada única): `lab/2026-06-04-strata-hipoteses/RESULTADOS-f6-temporal-sem-marcadores.md`.
+>
+> Instância de era `[2026-09]`: com o método no prompt, leitores de 8 fabricantes avisaram
+> mais que sem ele quando a ordem ou a vigência não se resolve; o parágrafo "Ler o tempo de
+> volta", acrescentado depois, deu sinal fraco e desigual entre fabricantes
+> `[TESTADO 2026-09-29: EXPLORATÓRIO, SEM EFEITO GERAL]`. A norma é mantida pelo leitor humano.
+> Registro: `lab/2026-09-26-temporalidade/RESULTADOS-f6-status.md`.
 
 ## 3-bis. Força do artefato: que ato isto é
 

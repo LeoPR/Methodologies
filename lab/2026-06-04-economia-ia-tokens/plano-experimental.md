@@ -92,7 +92,7 @@ observabilidade exige o painel de premium requests do GitHub, não o JSONL.)*
 > - **Achado da baseline**: cache_read domina (94,5% hit) — o prompt caching já
 >   está quente; otimização de contexto compete contra cache barato (ecoa P3/P6).
 > - **Ambiente**: configurado via metodologia dev-environment Z:\ (venv em
->   `Z:\venvs\Methodologies`, Python 3.13). Ver `lab/2026-06-04-dev-environment-z/`.
+>   `Z:\venvs\Methodologies`, Python 3.13).
 
 ---
 

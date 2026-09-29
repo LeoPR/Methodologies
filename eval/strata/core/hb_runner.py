@@ -137,7 +137,7 @@ def call_openrouter(model, prompt, num_predict, seed, temp=0.3):
     Retry/backoff p/ 429/5xx (o que a auditoria apontou faltar)."""
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
-        raise RuntimeError("OPENROUTER_API_KEY nao setada (veja eval/strata/RUNBOOK-nuvem.md)")
+        raise RuntimeError("OPENROUTER_API_KEY nao setada (chave em eval/strata/.openrouter-key ou env; ver eval/strata/README.pt-BR.md, Convencoes)")
     data = json.dumps({"model": model, "messages": [{"role": "user", "content": prompt}],
                        "max_tokens": num_predict, "temperature": temp, "seed": seed}).encode("utf-8")
     hdr = {"Content-Type": "application/json", "Authorization": f"Bearer {key}",
@@ -220,7 +220,7 @@ def call_ollama_ex(model, prompt, num_ctx, num_predict, seed, think=True):
 def call_openrouter_ex(model, prompt, num_predict, seed, think=False, reasoning=None):
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
-        raise RuntimeError("OPENROUTER_API_KEY nao setada (veja eval/strata/RUNBOOK-nuvem.md)")
+        raise RuntimeError("OPENROUTER_API_KEY nao setada (chave em eval/strata/.openrouter-key ou env; ver eval/strata/README.pt-BR.md, Convencoes)")
     body = {"model": model, "messages": [{"role": "user", "content": prompt}],
             "max_tokens": num_predict, "temperature": 0.3, "seed": seed}
     if think:

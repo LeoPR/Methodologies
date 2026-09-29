@@ -1,7 +1,7 @@
 ---
 title: 'Fila geral: backlog PRIORIZADO (pós-consolidação)'
 created: 2026-06-13
-updated: 2026-09-26
+updated: 2026-09-29
 status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O defrag que esta fila esperava: feito.'
 ---
 
@@ -14,8 +14,6 @@ status: 'PRIORIZADO pela consolidação (workflow + crítico de over-claim). O d
 > forte" para "prova" está em [FECHAMENTO-avaliacao-strata.md](FECHAMENTO-avaliacao-strata.md). Os passos
 > baratos primeiro (re-pontuar com 2º juiz, Krippendorff/ECE sobre dado existente, juiz sem o gabarito no prompt).
 
-> **Alavancas de alto impacto (2026-06-20):** [NOTAS-alavancas-o-que-resolvo-e-o-que-so-a-massa.md](NOTAS-alavancas-o-que-resolvo-e-o-que-so-a-massa.md)
-> separa o que dá para resolver com esforço focado (Grupo 1) do que só a experiência em massa resolve (Grupo 2).
 
 ## P0: antes de mais testes
 - ~~**§9 "quando não agir": norma APLICADA e NÃO VERIFICADA.**~~ **VERIFICADO (2026-08-06):

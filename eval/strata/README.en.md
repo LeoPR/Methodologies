@@ -1,8 +1,8 @@
 ---
 title: 'eval/strata: Strata proof harness (LIVE pipeline)'
 created: 2026-06-05
-updated: 2026-09-26
-status: 'active. Replaces the "H-B kit" doc (old lumen/matrix arc, refuted by AUDITORIA-2026-06-07 → _superseded/).'
+updated: 2026-09-29
+status: 'active.'
 ---
 
 <!-- l10n: doc_id=eval-strata-readme · lang=en · canonical -->
@@ -18,8 +18,8 @@ live here**. The entry point is the honest usage opinion:
 
 > ⚠️ **Fixtures = FABRICATED inert data, deliberately problematic** (they include
 > intentionally unsafe instructions to test §6-bis). They are read **as text only** by a
-> model (zero real execution). **Never run anything from `cenarios/` or
-> `_superseded/fixtures/`: every fixture is inert data.** Real projects/digests are
+> model (zero real execution). **Never run anything from `cenarios/`:
+> every fixture is inert data.** Real projects/digests are
 > **private** and stay **gitignored** (`planos/`, `external-fixtures/`, `own-fixtures/`,
 > `fixtures-real/`).
 
@@ -39,8 +39,8 @@ Scripts live in purpose folders; **data stays at the root** (`planos/`, `cenario
   `build_nc_repo.py` (repo-scale negative control: plants 5 L0 defects + 1 negative item in a copy of
   this repo; answer key and first result in `nc-manifest.json`)
 - `ops/`: `run_*.sh` (ready-made matrices); `bank_run.py` (model capability bank: fix → trap →
-  abstention per model, stops at the fix; provider errors are INFRA, never "cannot") ·
-  `legacy/`: `hb_l2_*` (broken defaults, record)
+  abstention per model, stops at the fix; provider errors are INFRA, never "cannot")
+- `variantes/`: method text deltas for A/B, inserted at run time (`recipe/` does not change before the result)
 - `aggregate/aggregate_bank.py` (bank table per route) · `verify/score_f5.py` (F5 scorer, GOLD gate;
   `cenarios/f5-recente` = claims whose truth changed in 2024-2026, to measure web search)
 - `runners/hb_f4.py --reasoning off|low|medium|high` (explicit reasoning axis; header records it,
@@ -64,6 +64,7 @@ runners/hb_<phase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out
 | `runners/hb_f3.py` | §6-bis refusal (fail-closed) | f3 scenarios | `verify/score_f3.py` + `judges/judge_f3.py` |
 | `runners/hb_f5.py` | §6 source verification (`:online` = web) | `cenarios/f5-verif` | `f5-manifest.json` |
 | `runners/hb_f6.py` | temporal: `--mode chrono\|naive\|audit\|vigor\|triagem` | `cenarios/f6-{tempo,longitudinal,ambiguo,ruidoso}` | `f6-*-manifest.json` (reading) |
+| `runners/hb_f6s.py` | F6-status: does the reader flag time that does not resolve? (arms `sem`/`strata`, a `variantes/` delta inserted at run time) | `cenarios/f6-{indeterminado,agora,tempo}` | `f6-status-manifest.json` + `verify/score_f6s.py` |
 | `runners/hb_genre.py` | genre-awareness (§9) | `external-fixtures/`, `own-fixtures/` | reading |
 | `runners/hb_temporal.py` | temporal on the owner's project | `own-fixtures/` | reading |
 | `runners/hb_m0.py` | M0 abstention | scenarios | reading |
@@ -128,10 +129,3 @@ balance first (`curl .../api/v1/credits`); on the order of cents to ~US$1 per sm
   they would leak the answer into the prompt).
 - **Regenerable outputs** (`planos/`, dumps) are gitignored or by-products, not
   the evidence; the curated evidence lives in the lab's `RESULTADOS-*.md`.
-
-## Old arc (refuted): `_superseded/`
-The **lumen → matrix → limit-search** arc (2026-06-05/07) was **refuted by
-AUDITORIA-2026-06-07** (the prompt leaked the P1..P7 taxonomy; neutralized fixture ≠
-answer key; per-id scorers produced artifactual zeros). It is archived in
-**`_superseded/`** with a tombstone. It was replaced by this pipeline (`hb_f3/f4/f5/f6` +
-`verify_f4`/`judge_*`). Kept as a record (append-only), **do not use**.

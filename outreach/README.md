@@ -19,7 +19,7 @@ channel text without updating the dated source first.
 |---|---|
 | [`2026-09-26-update.en.md`](2026-09-26-update.en.md) / [`2026-09-26-atualizacao.md`](2026-09-26-atualizacao.md) | the current news source (EN / PT): model bank, source review, **corrections to 2026-08-03** |
 | [`2026-08-03-update.en.md`](2026-08-03-update.en.md) / [`2026-08-03-atualizacao.md`](2026-08-03-atualizacao.md) | the previous news source (corrected by 2026-09-26) |
-| [`linkedin/`](linkedin/) | LinkedIn channel: `post.*` (short), `artigo.*` (long technical), `2026-06-post.*` (previous edition), images |
+| [`linkedin/`](linkedin/) | LinkedIn channel: `post.*` (short), `artigo.*` (long technical), images |
 | [`medium/`](medium/) | Medium channel: `historia.*` (narrative long-form story) |
 
 Each dated file is the **publication itself** for its channel, not a brief about one.

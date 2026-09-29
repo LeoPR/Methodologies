@@ -18,7 +18,7 @@ de um canal sem antes atualizar a fonte datada.
 |---|---|
 | [`2026-09-26-atualizacao.md`](2026-09-26-atualizacao.md) / [`2026-09-26-update.en.md`](2026-09-26-update.en.md) | a notícia-fonte vigente (PT / EN): banco de modelos, revisão das fontes, **correções a 2026-08-03** |
 | [`2026-08-03-atualizacao.md`](2026-08-03-atualizacao.md) / [`2026-08-03-update.en.md`](2026-08-03-update.en.md) | a notícia-fonte anterior (corrigida pela de 2026-09-26) |
-| [`linkedin/`](linkedin/) | canal LinkedIn: `post.*` (curto), `artigo.*` (técnico longo), `2026-06-post.*` (edição anterior), imagens |
+| [`linkedin/`](linkedin/) | canal LinkedIn: `post.*` (curto), `artigo.*` (técnico longo), imagens |
 | [`medium/`](medium/) | canal Medium: `historia.*` (história narrativa longa) |
 
 Cada arquivo datado é a **própria publicação** do seu canal, não um brief sobre ela.

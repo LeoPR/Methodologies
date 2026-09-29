@@ -26,7 +26,7 @@ methodology nor the focus.
   See [`strata/README.en.md`](strata/README.en.md).
 - `comporta/`: (future) Comporta's proof (e.g.: `detect_env` + environment scenarios).
 
-## Classification rule (from `strata/RASTREAMENTO-E-MELHORIA.md`)
+## Classification rule
 
 Every run is **one** category: `evidencia` (measures a product hypothesis) ·
 `instrumento` (tests/fixes the harness) · `infra` (validates execution/isolation). The

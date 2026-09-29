@@ -27,7 +27,7 @@ metodologia nem o foco.
   Ver [`strata/README.pt-BR.md`](strata/README.pt-BR.md).
 - `comporta/`: (futuro) prova do Comporta (ex.: `detect_env` + cenários de ambiente).
 
-## Regra de classificação (de `strata/RASTREAMENTO-E-MELHORIA.md`)
+## Regra de classificação
 
 Toda execução é **uma** categoria: `evidencia` (mede hipótese de produto) ·
 `instrumento` (testa/corrige o harness) · `infra` (valida execução/isolamento). As

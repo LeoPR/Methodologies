@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-09-27
+updated: 2026-09-29
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -49,9 +49,6 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     roteamento de recursos de IA: compute/memoria/E-S/custo). Tem instrumentos medidos
     (`instrumento/`), arvore de decisao, `prototipo/detect_env.py` (classifica ambiente
     A1-A6). NAO destilado p/ recipe ainda (virara `recipe/comporta-*.md`).
-  - `2026-06-04-dev-environment-z/`: registro lateral da plataforma Python usada
-    no desenvolvimento; NAO e' produto nem evidencia do Strata (`snapshot-fonte/`
-    e' **gitignored**: nao publicar; so o README de contexto vai ao git)
   - `2026-06-04-strata-hipoteses/`: **IDEIAS + EVIDÊNCIA do Strata** (corpus v1 CONSOLIDADO).
     **ENTRE POR AQUI:** `OPINIAO-DE-USO.md` (opinião honesta por tarefa/tier/custo) e o hub
     `ARQUITETURA-E-EVIDENCIAS.md` (estado datado + histórico append-only); backlog em
@@ -59,23 +56,17 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     são os registros por fase (alguns superseded; siga o hub, não conclusões soltas). O HARNESS que gerou
     isso mora em `eval/strata/` (ver `eval/strata/README.pt-BR.md`). *Assinatura: econômico over-age / topo calibra /
     forma padroniza: sinal, não prova (sintético, completion-only).*
-  - `2026-06-06-comprovacao-forte-strata/`: plano de comprovação (gates); **SUPERSEDED** pela consolidação
-    em `strata-hipoteses` (mantido como registro).
   - `2026-08-01-fechamento-camadas/`: **ciclo P1-P5 que FECHOU o L0**: revisão fundamentada em partes
     sob a "régua axiomática" (instanciado sem computador, a operação existe no repertório?). §11 entrou
     enxuto; §6-bis ganhou autoridade-para-VER; persona declarada 1× no lead; âncoras L1 completas.
     Decisões datadas por parte (P1..P5). **É aqui que vive o porquê do estado atual do L0**
     (exceto a revisão do §9 de 2026-08-06, cujo porquê está em `2026-08-03-prompt-ingenuo/`).
-  - `2026-08-02-consolidacao-narrativa/`: auditoria narrativa do corpus (Etapa 1 rastreabilidade
-    e Etapa 2 tom, executadas); régua do dono em 4 linhas. Registro do conserto, não fonte de estado.
   - `2026-08-02-reteste-L0-fechado/`: **RETESTE do L0 fechado** (grade estratos × capacidade,
     gold mecânico + júri cego): `PLANO.md` + `NOTAS-shakedown.md` (diário). As conclusões
     consolidam na `OPINIAO-DE-USO.md`, não aqui.
   - `2026-08-03-idioma-en/`: **IDIOMA PT×EN**: piloto F3 (recusa; EN sem vantagem) +
     repetição EN do núcleo F4. Sem diferença detectada entre os idiomas; equivalência não
     demonstrada (margem pré-registrada não atingida: indeterminado).
-  - `2026-08-03-dev-environment-revisao/`: revisão do dev-environment **vivo** (2026-08-03);
-    registro lateral, como o estudo de 2026-06-04: NÃO é produto nem evidência do Strata.
   - `2026-08-03-prompt-ingenuo/`: **braço NAIVE** ("uma IA precisa do Strata para o quê?"):
     `PLANO.md` pré-registrado, `RESULTADOS.md` (PT + replicação EN), `PROPOSTA-S9.md`
     (revisão do §9 "quando não agir") e `RESULTADOS-verificacao-s9.md`: proposta **aplicada
@@ -88,19 +79,18 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     L1/L2, L0 teoria × texto): achados com fonte e o que foi aplicado. Registro, não fonte de estado.
   - `2026-09-26-temporalidade/`: **TEMPORALIDADE** (3a frente, aberta): por que LLMs erram com o
     tempo. Temporalidade = ordem inferida por dependência de estado + notar a lacuna, não datas.
-    Oito mapas de literatura (filosofia a IA), `ONTOLOGIA.md` v0 e `prototipo/` (demonstrador, não
-    evidência). Nada medido contra modelo ainda.
+    Oito mapas de literatura (filosofia a IA), `ONTOLOGIA.md` v0, `prototipo/` (demonstrador, não
+    evidência) e o A/B F6-status do parágrafo "Ler o tempo de volta" (`RESULTADOS-f6-status.md`).
   - `2026-09-26-revisao-superficie/`: revisão de superfície do Strata + **auditoria declarado × feito**
     (`AUDITORIA-sync.md`, destino por achado). Registro do conserto, não fonte de estado.
 - `eval/`: **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia
   nem o foco; reutilizavel entre metodologias). `strata/` = harness do Strata (runner
-  multi-modelo, scorers, fixtures, cenarios; `RASTREAMENTO-E-MELHORIA.md` e' SUPERSEDED, o
-  estado vivo e' o README); `*/planos/` =
+  multi-modelo, scorers, fixtures, cenarios; o estado vivo e' o README); `*/planos/` =
   saidas brutas **gitignored** (projetos reais sao PRIVADOS). Regra: toda execucao e'
   `evidencia|instrumento|infra`. Ver `eval/README.pt-BR.md`.
   - `eval/strata/`: scripts em **subpastas por proposito** (2026-08-02): `core/` (hb_runner+
     providers), `runners/` (hb_f*/probe_l1), `verify/` (verify_f4→score_f3→verify_agent+
-    calc_stats), `judges/`, `aggregate/`, `gen/`, `ops/` (run_*.sh), `legacy/` (hb_l2_*).
+    calc_stats), `judges/`, `aggregate/`, `gen/`, `ops/` (run_*.sh), `variantes/` (deltas do metodo para A/B).
     **Dados ficam na raiz** (planos/, cenarios/, f4-manifests/, fixtures-*/). Detalhes:
     `eval/strata/README.pt-BR.md`, secao "Layout das pastas".
 - `prototype/`: placeholder (testar a receita em escala; futuro).
@@ -187,6 +177,8 @@ Strata cobre **como organizar, rastrear e gerar** conhecimento de trabalho. NAO 
 
 ## NUNCA
 
+- **Superfície × traço (2026-09-29):** o que só explica o passado sai da superfície; o traço fica
+  no histórico do git (`git log -- <caminho>`). Não recriar pastas removidas para "registro".
 - **Editar `lab/.../experimento-split/`**: e' registro FROZEN de pesquisa
   (imutavel; "frozen = imutavel"). Pra continuar, novo experimento datado.
 - **Editar `lab/.../predecessor/`**: FROZEN, registro historico do predecessor.

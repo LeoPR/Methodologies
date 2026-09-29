@@ -1,8 +1,8 @@
 ---
 title: 'eval/strata: harness de prova do Strata (pipeline VIVO)'
 created: 2026-06-05
-updated: 2026-09-26
-status: 'ativo. Substitui o doc "H-B kit" (arco antigo lumen/matrix, refutado pela AUDITORIA-2026-06-07 → _superseded/).'
+updated: 2026-09-29
+status: 'ativo.'
 ---
 
 <!-- l10n: doc_id=eval-strata-readme · lang=pt-BR · source_lang=en · translation_of=README.en.md -->
@@ -19,7 +19,7 @@ geram os `RESULTADOS-*` do lab. **As conclusões NÃO moram aqui**. A porta de e
 
 > ⚠️ **Fixtures = dados inertes FABRICADOS, deliberadamente problemáticos** (incluem instruções intencionalmente
 > inseguras p/ testar §6-bis). São lidos **só como texto** por um modelo (zero execução real). **Nunca execute
-> nada de `cenarios/` nem de `_superseded/fixtures/`: todo fixture é dado inerte.** Projetos reais/digests são
+> nada de `cenarios/`: todo fixture é dado inerte.** Projetos reais/digests são
 > **privados** e ficam **gitignored** (`planos/`, `external-fixtures/`, `own-fixtures/`, `fixtures-real/`).
 
 ## Layout das pastas (2026-08-02)
@@ -38,8 +38,8 @@ Os scripts vivem em subpastas por propósito; **dados ficam na raiz** (`planos/`
   `build_nc_repo.py` (controle negativo em escala de repositório: planta 5 defeitos L0 + 1 item
   negativo numa cópia deste repo; gabarito e primeiro resultado em `nc-manifest.json`)
 - `ops/`: `run_*.sh` (matrizes prontas); `bank_run.py` (banco de capacidades por modelo: conserto →
-  armadilha → abstenção, para no conserto; erro de provedor é INFRA, nunca "não atende") ·
-  `legacy/`: `hb_l2_*` (defaults quebrados, registro)
+  armadilha → abstenção, para no conserto; erro de provedor é INFRA, nunca "não atende")
+- `variantes/`: deltas de texto do método para A/B, inseridos em tempo de execução (o `recipe/` não muda antes do resultado)
 - `aggregate/aggregate_bank.py` (tabela do banco por rota) · `verify/score_f5.py` (pontuador F5, gate
   GOLD; `cenarios/f5-recente` = afirmações cuja verdade mudou em 2024-2026, para medir busca na web)
 - `runners/hb_f4.py --reasoning off|low|medium|high` (eixo de raciocínio explícito; o cabeçalho
@@ -63,6 +63,7 @@ runners/hb_<fase>.py  --target cenarios/<fix>  --label <out>   →  planos/<out>
 | `runners/hb_f3.py` | recusa §6-bis (fail-closed) | cenários f3 | `verify/score_f3.py` + `judges/judge_f3.py` |
 | `runners/hb_f5.py` | verificação de fonte §6 (`:online` = web) | `cenarios/f5-verif` | `f5-manifest.json` |
 | `runners/hb_f6.py` | temporal: `--mode chrono\|naive\|audit\|vigor\|triagem` | `cenarios/f6-{tempo,longitudinal,ambiguo,ruidoso}` | `f6-*-manifest.json` (leitura) |
+| `runners/hb_f6s.py` | F6-status: o leitor avisa quando o tempo não se resolve? (braços `sem`/`strata`, delta de `variantes/` inserido em tempo de execução) | `cenarios/f6-{indeterminado,agora,tempo}` | `f6-status-manifest.json` + `verify/score_f6s.py` |
 | `runners/hb_genre.py` | gênero-consciência (§9) | `external-fixtures/`, `own-fixtures/` | leitura |
 | `runners/hb_temporal.py` | temporal em projeto do dono | `own-fixtures/` | leitura |
 | `runners/hb_m0.py` | abstenção M0 | cenários | leitura |
@@ -123,9 +124,3 @@ Os `ops/run_*.sh` empacotam matrizes prontas (cloud/local/eco). **Custo:** checa
   ficam **fora** de `cenarios/<fix>/` (senão vazariam a resposta no prompt).
 - **Saídas regeneráveis** (`planos/`, dumps) são gitignored ou subproduto, não a evidência; a evidência
   curada vive nos `RESULTADOS-*.md` do lab.
-
-## Arco antigo (refutado): `_superseded/`
-O arco **lumen → matrix → limit-search** (2026-06-05/07) foi **refutado pela AUDITORIA-2026-06-07** (o prompt
-vazava a taxonomia P1..P7; fixture neutralizado ≠ gabarito; scorers por-id produziam zeros artefatuais).
-Está arquivado em **`_superseded/`** com tombstone. Foi substituído por este pipeline (`hb_f3/f4/f5/f6` +
-`verify_f4`/`judge_*`). Mantido como registro (append-only), **não usar**.

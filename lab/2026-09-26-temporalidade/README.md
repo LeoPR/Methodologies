@@ -33,6 +33,8 @@ A revisão de LLMs cobre sobretudo a camada 1. O mapa amplo (quatro mapas + sín
 - [RESULTADOS-f6-status.md](RESULTADOS-f6-status.md): A/B do parágrafo "Ler o tempo de volta" no
   Strata (8 fabricantes). O método atual já faz a maior parte; o parágrafo dá sinal fraco e desigual.
   Pré-registro em [PREREG-strata-s3-ler-tempo.md](PREREG-strata-s3-ler-tempo.md).
+- [PROPOSTA-S5-fonte-declarada.md](PROPOSTA-S5-fonte-declarada.md): acréscimo ao §5 (fonte declarada ≠
+  fonte usada), com pesquisa, fontes e plano de teste. Aguarda o dono.
 - [AVALIACAO-testes-sinteticos.md](AVALIACAO-testes-sinteticos.md): os testes atuais (F5, F6) cobrem
   a ontologia? Não o núcleo; o que existe, o que falta e esboço de bateria nova.
 - [MAPA-5-fisica.md](MAPA-5-fisica.md): Aristóteles a Page–Wootters; ordem causal, causal sets, seta.

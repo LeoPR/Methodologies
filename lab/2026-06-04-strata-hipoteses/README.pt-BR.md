@@ -2,7 +2,7 @@
 title: 'Hipóteses abertas do Strata: código-como-documento + aferição de compreensão por IA'
 status: open
 created: 2026-06-04
-updated: 2026-08-03
+updated: 2026-09-29
 tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-metodo, ai-native, temporalidade]
 ---
 
@@ -18,7 +18,8 @@ tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-me
 > **[`ARQUITETURA-E-EVIDENCIAS.md`](ARQUITETURA-E-EVIDENCIAS.md)** (estado datado + histórico). Backlog em
 > [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md); o que envelheceu em [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md).
 > **Não leia conclusões soltas** de `RESULTADOS-*` individuais. Alguns estão superseded; siga o hub.
-> *Este README é o índice ORIGINAL de hipóteses (H-A..H-D); H-A e H-C seguem conceituais/não-executadas.*
+> *Este README é o índice ORIGINAL de hipóteses (H-A..H-D). H-B, H-B′ e H-C foram executadas
+> (resultados linkados em cada "Estado"); H-D virou frente própria; só H-A segue conceitual.*
 
 > Hipóteses de refinamento/validação do Strata, registradas para discutir e testar depois.
 
@@ -92,8 +93,8 @@ GATES mais explícitos.
 qualitativamente) com uma medição multi-modelo. Resolve a ressalva do
 `recipe/README.md` ("ainda não comprovado que qualquer IA aplica bem").
 
-**Estado**: plano pronto, aguardando execução (precisa do dono rodar os modelos
-externos manualmente; a avaliação cega volta para cá).
+**Estado**: executada, tier local e nuvem ([tier local + H-B′](RESULTADOS-tier-local.md),
+[tier nuvem limpo](RESULTADOS-tier-nuvem-limpo.md)). O estado atual da evidência está no hub.
 
 ## H-C: Versão "AI-nativa" do Strata (densa/otimizada para máquina)
 
@@ -131,8 +132,10 @@ humana** (o *porquê*, as fontes, a Cerca de Chesterton do §6) que faz o métod
 adotado com julgamento e não cargo-cult. Medir compreensão **E** qualidade de
 aplicação, não só "a IA parseou".
 
-**Estado**: hipótese para uma **próxima versão do Strata** (v2?), depois de H-B.
-Registrada para experimentar, não decidida.
+**Estado**: executada como experimento, com protótipos em [`strata-ai-native/`](strata-ai-native/)
+(não canônicos). O [reteste limpo](RESULTADOS-reteste-limpo.md) confirmou a H-C, mas a compressão
+domina o ganho e os gates só polem; o [AN-v3](RESULTADOS-p1p2-anv3.md) reduz o falso-positivo sem
+instalar a discernância do modelo de topo. O texto canônico segue único (§5).
 
 ## H-B′: A forma de invocação como variável (dual do H-B)
 
@@ -164,8 +167,8 @@ principal (isola o modelo, como já desenhado), e rodar H-B′ como **ablação 
 parte**: 1 modelo forte × 4 framings, ≥2 runs cada. Marcar no resultado do H-B o
 caveat "sob o prompt F1".
 
-**Estado**: registrada. Roda **depois/junto** do H-B principal (mesma infra), como
-controle do confundidor de prompt.
+**Estado**: executada como ablação pequena (1 modelo × 4 framings) em
+[`RESULTADOS-tier-local.md`](RESULTADOS-tier-local.md).
 
 ## H-D: Temporalidade / orientação no tempo (do dono, 2026-06-08)
 
@@ -204,10 +207,10 @@ atual" sem raciocínio sobre qual é a recente/canônica.)
 3. Se for **difícil de capturar** num teste, melhorar o Strata (tornar a orientação
    temporal um gate de 1ª classe, como o §6-bis virou).
 
-**Estado**: registrada para avaliação futura. Revisar junto com a síntese do R8 (a
-temporalidade pode ser uma lente que reinterpreta os falso-positivos). Sem ação agora.
+**Estado**: testada no F6 ([F6](RESULTADOS-f6-temporal-sem-marcadores.md)). A pesquisa continua
+como frente própria em [`lab/2026-09-26-temporalidade/`](../2026-09-26-temporalidade/).
 
 > **Ampliada num dossiê** (2026-06-09): a temporalidade é parte de um *cluster* maior:
 > temporalidade + ordem + verificação de fonte primária + organização de pesquisa ao longo do
-> tempo, com possíveis raízes comuns. Registro da ideia (não estudado) em
+> tempo, com possíveis raízes comuns. Registro da ideia em
 > [`DOSSIE-ia-temporalidade-ordem-fontes.md`](DOSSIE-ia-temporalidade-ordem-fontes.md).

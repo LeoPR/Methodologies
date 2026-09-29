@@ -1,8 +1,8 @@
 ---
 title: 'Arquitetura de testes e evidências do Strata: o que comprova, em que condições (macro)'
 created: 2026-06-13
-updated: 2026-09-26
-status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5/F6 fronteira.
+updated: 2026-09-29
+status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5 exploratório; a temporalidade (F6) segue como frente própria em lab/2026-09-26-temporalidade/.
 ---
 
 # Como o Strata foi testado e o que a evidência mostra
@@ -22,8 +22,11 @@ status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5/F6 front
 ## Ambiente e testes
 
 Os testes rodam em **dois ambientes de modelos de linguagem**.
-Os de **nuvem** são acessados por API, do barato ao forte, via openrouter.com, com modelos das empresas (vendors) Anthropic, OpenAI e Google (como o Haiku, GPT-5 e Gemini).
-Os **locais** rodam na própria máquina do usuário, e são modelos pequenos (de 4 a 8 bilhões de parâmetros), mais ruidosos, como o Deepseek-R1.
+Os de **nuvem** são acessados por API, do barato ao forte: pelo openrouter.com e também direto no provedor (por exemplo, a NVIDIA NIM, na rota grátis).
+Cobrem vários fabricantes (vendors): Anthropic, OpenAI, Google, DeepSeek, Qwen, Z.ai, entre outros.
+Os **locais** rodam na própria máquina (Ollama, GPU de consumo): até ~27B denso e MoE de ~35B com poucos parâmetros ativos (35B-A3B, com offload).
+A capacidade é dos **pesos**: mede-se na nuvem, nos mesmos pesos. A máquina local mede a viabilidade (cabe? a que velocidade?) e serve de contra-prova.
+O roster atual e a ponte nuvem × local estão no [banco de modelos](../2026-09-26-banco-modelos/README.md).
 
 Quando o acerto não é mecânico, quem dá a nota a um plano é outro modelo de IA, o **juiz**.
 Para a nota não herdar o viés de uma só família, a nota é pedida a juízes de vendors diferentes.
@@ -34,13 +37,12 @@ O contrário, um **agente com ferramentas** que roda comandos e altera arquivos 
 
 Os demais termos (os modos M0-M4, *fixture*, *fail-closed*, *tombstone*) estão no [`GLOSSARIO.md`](../../GLOSSARIO.md), seção *Termos de avaliação e teste*.
 
-## Estado das fases: fonte única (atualizado em 2026-08-02)
+## Estado das fases: fonte única (atualizado em 2026-09-29)
 
 > **Ressalva (2026-09-26):** as células de **abstenção** medidas no `f4-clean`, no `f4-clean-en`
 > e no `f6-ruidoso` leem em parte a resposta, que a fixture entrega no README; recalibre-as para
-> baixo (só a `f4-clean-v2` é limpa, e mediu 3 modelos). A tabela ainda não tem linhas para o
-> estudo de idioma PT×EN (`../2026-08-03-idioma-en/`), o estudo do prompt ingênuo e o A/B do §9
-> (`../2026-08-03-prompt-ingenuo/`); até entrarem, o estado deles está nesses registros e no STATUS.
+> baixo (só a `f4-clean-v2` é limpa; o [banco de modelos](../2026-09-26-banco-modelos/README.md)
+> a usa como célula de abstenção).
 
 > Esta tabela é a **fonte canônica** (§5) do estado das evidências. README e demais docs **apontam
 > para cá** em vez de repetir números que envelhecem. **Mudou algo num lab? Atualize só aqui** e
@@ -53,14 +55,18 @@ Os demais termos (os modos M0-M4, *fixture*, *fail-closed*, *tombstone*) estão 
 | **F1/M0** abstenção | sabe *não agir*? | ✅ fechado | média (N pequeno) | [F1/M0](RESULTADOS-f1-m0-abstencao.md) |
 | **P7** camadas | entende L0/L1/L2? | ✅ parcial | média | [P7](RESULTADOS-p7-camadas-entender-aplicar.md) |
 | **F3** recusa | recusa injeção? | ✅ nuvem + local · **2026-08: recusa espontânea sólida na geração atual** (a fragilidade lexical era datada; ver [OPINIAO](OPINIAO-DE-USO.md)) | média-alta (juízes) | [F3](RESULTADOS-f3-recusa.md) |
-| **F4** execução | conserta sem destruir? | ✅ nuvem + eco (real) fecham; local (4-8B) fechado com conclusão **negativa** (zero PASS, pode destruir) | média (N=2) | [F4](RESULTADOS-f4-execucao.md) |
+| **F4** execução | conserta sem destruir? | ✅ nuvem + eco (real) fecham · local: a geração de 2026-06 (4-8B) zerava; no reteste de 2026-08, <4B nem emite o formato, ~8B conserta o §5 e ~27B conserta e se abstém (ver [OPINIAO](OPINIAO-DE-USO.md)) | média (N=2; K=2 no reteste) | [F4](RESULTADOS-f4-execucao.md) · [reteste](../2026-08-02-reteste-L0-fechado/NOTAS-shakedown.md) |
 | **F5** pesquisa (§6/web) | web ajuda a verificar a fonte? | ✅ probe (exploratório) · **2026-08: com web sai com fonte primária** (sinal, K=2; ver [OPINIAO](OPINIAO-DE-USO.md)) | baixa (N=1-2) | [F5](RESULTADOS-f5-pesquisa.md) |
 | **Braço externo** | o falso-positivo é circular? | ✅ bem-comportado + messy (6 repos) | baixa (N=1; messy gênero-confundido) | [externo](RESULTADOS-externo-bemcomportado.md) |
 | **Gênero** | aplica o padrão do gênero? | ✅ probe (com framing) | baixa (N=1) | [gênero](RESULTADOS-genero.md) |
 | **Gênero+Temporal (próprios)** | lê tombstone/supersessão como organização? | ✅ probe (framing+marcadores) | baixa (N=2; **circular**) | [gên+temp próprios](RESULTADOS-genero-temporal-own.md) · [gabarito](GABARITO-genero-temporal-own.md) |
 | **F6** temporalidade | inferir cronologia / drift / abster / **ruído (R8)** | ✅ limpo 16/16 · **ruidoso: barato 4/4 over-flagga, topo 2/2 situa** | baixa (4 fixtures) | [F6](RESULTADOS-f6-temporal-sem-marcadores.md) · [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md) |
-| **Eco/gênero** | vale em +cenários e fora de código? (+ viés do dono) | ⬜ planejado | n/a | [plano](PLANO-evidencia-cenarios-e-narrativa.md) |
+| **Eco/gênero** (P10) | vale em +cenários e fora de código? (+ viés do dono) | ✅ probe (2026-06-16; 9 modelos, K=5, projetos próprios: cadernos de aula, TCF, fg2p): no projeto limpo a escada toda se abstém; no real domina a sub-detecção (só o topo detecta) | baixa (N=1 por projeto; circular; framing confundido) | [P10](RESULTADOS-p10-escada-propria-genero.md) · [plano](PLANO-evidencia-cenarios-e-narrativa.md) |
 | **Escada Claude** (contrato) | Claude Code barato aplica? | ✅ Haiku+Sonnet · ✅ **Opus** (f4-clean 6/6, f4-trap 3/3 Strata) | média (F3 juiz + F4 mec) | [escada-claude](RESULTADOS-escada-claude.md) |
+| **Idioma PT×EN** | o método rende igual em inglês? | ✅ piloto F3 + núcleo F4 repetido em EN: sem diferença detectada; equivalência não demonstrada (margem pré-registrada não atingida); desvio datado na armadilha §6-bis no tier GPU | baixa (K=2; indeterminado) | [idioma](../2026-08-03-idioma-en/RESULTADOS-f4-en.md) · [F3 EN](../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md) |
+| **Braço ingênuo + A/B do §9** | o Strata agrega sobre um pedido leigo? a revisão do §9 melhora a abstenção? | ✅ no agir, o método é o diferencial; no não-agir, a redação pesa mais que o método · A/B do §9: **inconclusivo (sem poder)** | baixa (K=2) | [ingênuo](../2026-08-03-prompt-ingenuo/RESULTADOS.md) · [A/B §9](../2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md) |
+| **Banco de modelos** (2026-09) | quem faz tudo, mais barato, grátis, local? | ✅ grade conserto/armadilha/abstenção por rota (modelo × provedor × raciocínio) + ponte nuvem × local | média (K=3, gold mecânico) | [banco](../2026-09-26-banco-modelos/README.md) |
+| **F6-status** (tempo no §3) | o método faz avisar quando a ordem não se resolve? | ✅ exploratório (8 fabricantes): o método atual sobe o aviso; o parágrafo candidato dá sinal fraco e desigual (regra 5, heterogêneo) | baixa (não confirmatório) | [F6-status](../2026-09-26-temporalidade/RESULTADOS-f6-status.md) |
 
 ## Duas perguntas
 1. O **núcleo (L0)** é fundamentado?: questão de *fundamentação*.
@@ -83,7 +89,7 @@ IA** (a camada L2). O "engajamento" da IA é decomposto numa escada; cada degrau
 | **M1/M2**: compreensão | "entende o método e o projeto?" | parcial | [P7](RESULTADOS-p7-camadas-entender-aplicar.md) |
 | **M3**: diagnóstico | "o que está errado / o que faria?" | exaustivo (L0) | série R/P |
 | **M3.5**: recusa (F3) | "recusa obedecer uma ordem maliciosa lida do projeto?" | fechado (nuvem+local) | [RESULTADOS-f3](RESULTADOS-f3-recusa.md) |
-| **M4**: execução (F4) | "produz o fix sem destruir rastreabilidade?" | nuvem + local fechados (local = conclusão negativa) | [RESULTADOS-f4](RESULTADOS-f4-execucao.md) |
+| **M4**: execução (F4) | "produz o fix sem destruir rastreabilidade?" | nuvem + local fechados (local: ~8B conserta desde o reteste de 2026-08) | [RESULTADOS-f4](RESULTADOS-f4-execucao.md) |
 
 ## Como medimos: a disciplina (por que dá pra confiar nos sinais)
 
@@ -156,10 +162,11 @@ O custo dos experimentos tem **dois usos que viram um**: (1) o que **nós** gast
 > ou **método + humano no loop / orientação em etapas** para os demais.
 
 ## Fronteira (aberto, honesto)
-- **F5** (com/sem ferramentas inverte o ranking de capacidade?) · **F6** (temporalidade/longitudinal;
-  ver [dossiê](DOSSIE-ia-temporalidade-ordem-fontes.md)).
-- **Mais cenários e novos gêneros** (PatchCraft = repetir; **AulaQuantum/DeepLearning** = acompanhamentos
-  de aula, não-projetos) + o **confundidor do "projeto próprio"** (conformidade/circularidade) + o **loop
+- **F5** (com/sem ferramentas inverte o ranking de capacidade?).
+- **Temporalidade (F6):** virou frente própria em [`lab/2026-09-26-temporalidade/`](../2026-09-26-temporalidade/)
+  (o F6-status já rodou; próximo passo lá).
+- **Mais cenários e novos gêneros:** os cadernos de aula e o confundidor do "projeto próprio" têm só sinal
+  direcional (P10); falta repetir num 2º projeto real de código (PatchCraft) e o **loop
   narrativa↔resultado**: plano em [`PLANO-evidencia-cenarios-e-narrativa.md`](PLANO-evidencia-cenarios-e-narrativa.md).
 - **2º cenário-mãe** e **escala da validade de agente-com-ferramentas** (a primeira célula transferiu em 2026-08-02; falta volume) seguem os dois maiores limites a atacar.
 - **Questão de design (método, não teste):** exportar/traduzir para normas externas (o "L3"?): provável
@@ -167,8 +174,8 @@ O custo dos experimentos tem **dois usos que viram um**: (1) o que **nós** gast
   Registro: [`IDEIA-exportacao-traducao.md`](IDEIA-exportacao-traducao.md).
 - **Setup operacional p/ agentes** (Claude Code/Copilot) e **organização de artefatos de ambiente**
   (caches/temp/venvs, `Z:\caches`), registrados na fila geral (área cinzenta Strata×Comporta).
-- **Fila geral / consolidação:** índice das pendências em [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md);
-  **próxima meta = defrag** (fundir as ideias num plano priorizado, **antes de mais testes**).
+- **Fila geral:** as pendências abertas estão em [`BACKLOG-fila-geral.md`](BACKLOG-fila-geral.md);
+  o foco atual e o que aguarda decisão do dono, no [`STATUS.md`](../../STATUS.md).
 - Roadmap de modos: [`PLANO-geral-modos-fechar-lacunas.md`](PLANO-geral-modos-fechar-lacunas.md).
 
 ## Índice da evidência granular

@@ -1,9 +1,9 @@
 ---
 name: revisao-superficie-strata
 type: registro
-status: blocos 1 e 2 executados (commits 1-5); bloco 3 (camada de evidência) aguarda o dono
+status: blocos 1 e 2 executados (commits 1-5); bloco 3 executado em parte; o que segue aberto está no STATUS.md e no BACKLOG-fila-geral
 created: 2026-09-26
-updated: 2026-09-26
+updated: 2026-09-29
 audience: ai-primary
 ---
 
@@ -135,5 +135,6 @@ Ver as linhas "pendente (dono)" em [`AUDITORIA-sync.md`](AUDITORIA-sync.md). Os 
 - Seguem pendentes: política de payload (C118), outreach (K0, K3, K4), trabalho não commitado
   do eval e os de severidade baixa.
 - Fechados depois (2026-09-26): política de payload (`9a7c25d`), trabalho do eval registrado
-  (`60fea60`), outreach corrigido por notícia-fonte nova (`8b2bc7d`). **Continuam pendentes só os
-  achados de severidade baixa** da `AUDITORIA-sync.md`.
+  (`60fea60`), outreach corrigido por notícia-fonte nova (`8b2bc7d`). O que segue aberto é
+  acompanhado no [`STATUS.md`](../../STATUS.md) e no
+  [`BACKLOG-fila-geral.md`](../2026-06-04-strata-hipoteses/BACKLOG-fila-geral.md).

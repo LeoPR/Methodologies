@@ -1,8 +1,8 @@
 ---
 title: 'Pré-registro: o parágrafo "Ler o tempo de volta" (Strata §3) faz o leitor avisar quando o tempo não se resolve?'
 created: 2026-09-28
-updated: 2026-09-28
-status: 'Pré-registrado antes de qualquer rodada (a chamada de fumaça não conta). Etapa 1 grátis; etapa 2 paga só pelas regras da §6.'
+updated: 2026-09-29
+status: 'Etapa 1 executada (2026-09-28/29); regra 5; etapa 2 não justificada; resultados em RESULTADOS-f6-status.md'
 tags: [strata, temporalidade, pre-registro, a-b, f6-status]
 ---
 

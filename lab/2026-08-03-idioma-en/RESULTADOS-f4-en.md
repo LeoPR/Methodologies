@@ -1,8 +1,8 @@
 ---
 title: 'Resultados — repetição EN do núcleo F4 (paridade de prova do canônico inglês)'
 created: 2026-08-03
-updated: 2026-09-26
-status: 'CONCLUÍDO — paridade confirmada no conserto §5 e na abstenção §9; desvio datado na armadilha §6-bis no tier GPU'
+updated: 2026-09-29
+status: 'CONCLUÍDO: sem diferença detectada; equivalência não demonstrada (conserto §5 e abstenção §9); desvio datado na armadilha §6-bis no tier GPU'
 ---
 
 # Resultados — repetição EN do núcleo F4

@@ -1,9 +1,9 @@
 ---
 name: proposta-s9-quando-nao-agir
 type: lab-proposta
-status: aprovada-aplicada-VERIFICADA-sem-efeito
+status: 'aplicada e testada: inconclusivo (sem poder)'
 created: 2026-08-03
-updated: 2026-09-26
+updated: 2026-09-29
 audience: ai-primary
 applies-to: proposta de revisao pontual do §9 (L0 fechado; requer aprovacao do dono)
 ---

@@ -48,7 +48,7 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   - `2026-06-04-economia-ia-tokens/`: **COMPORTA**, a 2a metodologia (economia e
     roteamento de recursos de IA: compute/memoria/E-S/custo). Tem instrumentos medidos
     (`instrumento/`), arvore de decisao, `prototipo/detect_env.py` (classifica ambiente
-    A1-A6). NAO destilado p/ recipe ainda (virara `recipe/comporta-*.md`).
+    A1-A5; A6 nao implementado). NAO destilado p/ recipe ainda (virara `recipe/comporta-*.md`).
   - `2026-06-04-strata-hipoteses/`: **IDEIAS + EVIDÊNCIA do Strata** (corpus v1 CONSOLIDADO).
     **ENTRE POR AQUI:** `OPINIAO-DE-USO.md` (opinião honesta por tarefa/tier/custo) e o hub
     `ARQUITETURA-E-EVIDENCIAS.md` (estado datado + histórico append-only); backlog em

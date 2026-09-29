@@ -1,7 +1,7 @@
 ---
 title: 'Plano — mais cenários reais, novos gêneros, o viés do "projeto próprio", e o loop narrativa↔resultado'
 created: 2026-06-13
-status: 'REGISTRO de plano/raciocínio. NÃO executado — encaixe na fila de evidências. Rodar/estudar adiante.'
+status: 'Parcialmente executado: o eixo de gênero rodou como P10 (RESULTADOS-p10-escada-propria-genero.md); o restante segue aberto no BACKLOG.'
 ---
 
 # Plano — expandir a evidência sem se enganar (a estudar, não executado)

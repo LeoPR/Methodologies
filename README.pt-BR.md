@@ -174,7 +174,7 @@ versão) são **formas** que expressam esse método: moldam, mas não fundam.
   (Como usar e levar consigo: na seção **"Usar e adotar"**, abaixo.)
 
 > **Como foi testado: números e dados.**
-> O macro de como foi testado está no [hub de evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md), e o fechamento honesto (o que é sólido, o que é só sinal, e os gaps nomeados) no [FECHAMENTO](lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
+> O macro de como foi testado está no [hub de evidências](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md), e a leitura honesta (o que é sólido, o que é só sinal, e as ressalvas) na [opinião de uso](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).
 > As estatísticas de concordância entre juízes, corrigidas por acaso, estão na [concordância dos juízes](lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md), e os números por experimento nos `RESULTADOS-*` do mesmo lab.
 > Como a evidência é produzida (runners, projetos-fixture, gabaritos, verificadores) está em [`eval/strata/`](eval/strata/).
 > Os números agregados e os scripts são públicos; as saídas brutas dos modelos e os projetos reais são privados (gitignored), então não há um dado-bruto para baixar.
@@ -195,7 +195,7 @@ e diz se vale usar IA local: *ligar agora / considerar / bloqueado*, com o porqu
 | Pasta | O que é |
 |---|---|
 | [`recipe/`](recipe/) | **produtos prontos**: hoje, Strata (`knowledge-architecture.pt-BR.md`; canônico: `.en.md`) |
-| [`lab/`](lab/) | pesquisa exploratória, datada (fundamentação-L0, future-proof, aderência/portabilidade, **economia de IA**) |
+| [`lab/`](lab/) | pesquisa exploratória, datada (fundamentação-L0, future-proof, aderência/portabilidade, **economia de IA**, **temporalidade**: a 3ª frente, em [`lab/2026-09-26-temporalidade/`](lab/2026-09-26-temporalidade/)) |
 | [`eval/`](eval/) | **laboratório de prova**: runners, scorers e projetos-fixture que testam o método (meio, não a metodologia). `recipe/`, `lab/` e `eval/` são os 3 territórios de artefato |
 | [`prototype/`](prototype/) | teste em escala, em projetos reais (futuro) |
 | [`decisions/`](decisions/) | ADRs: por que cada decisão de design foi tomada |

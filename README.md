@@ -177,7 +177,7 @@ control) are **forms** that express this method: they shape it, but do not found
   (How to use and carry it: in the **"Use and adopt"** section, below.)
 
 > **How it was tested: numbers and data.**
-> The macro of how it was tested is in the [evidence hub](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md), and the honest closing (what is solid, what is only a signal, and the named gaps) in the [CLOSING](lab/2026-06-04-strata-hipoteses/FECHAMENTO-avaliacao-strata.md).
+> The macro of how it was tested is in the [evidence hub](lab/2026-06-04-strata-hipoteses/ARQUITETURA-E-EVIDENCIAS.md), and the honest reading (what is solid, what is only a signal, and the caveats) in the [usage opinion](lab/2026-06-04-strata-hipoteses/OPINIAO-DE-USO.md).
 > The agreement statistics between judges, corrected for chance, are in the [judge agreement](lab/2026-06-04-strata-hipoteses/RESULTADOS-concordancia-juizes.md), and the per-experiment numbers in the `RESULTADOS-*` of the same lab.
 > How the evidence is produced (runners, fixture projects, gold standards, verifiers) is in [`eval/strata/`](eval/strata/).
 > The aggregate numbers and the scripts are public; the raw model outputs and the real projects are private (gitignored), so there is no raw dataset to download.
@@ -198,7 +198,7 @@ and says whether local AI is worth it: *turn on now / consider / blocked*, with 
 | Folder | What it is |
 |---|---|
 | [`recipe/`](recipe/) | **ready products**: today, Strata (`knowledge-architecture.en.md`, canonical; `.pt-BR.md` = pt-BR translation) |
-| [`lab/`](lab/) | exploratory, dated research (L0-grounding, future-proof, adherence/portability, **AI economy**) |
+| [`lab/`](lab/) | exploratory, dated research (L0-grounding, future-proof, adherence/portability, **AI economy**, **temporality**: the 3rd front, in [`lab/2026-09-26-temporalidade/`](lab/2026-09-26-temporalidade/)) |
 | [`eval/`](eval/) | **proof laboratory**: runners, scorers and fixture projects that test the method (a means, not the methodology). `recipe/`, `lab/` and `eval/` are the 3 artifact territories |
 | [`prototype/`](prototype/) | testing at scale, on real projects (future) |
 | [`decisions/`](decisions/) | ADRs: why each design decision was made |

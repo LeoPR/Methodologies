@@ -2,7 +2,7 @@
 title: 'Temporalidade: estudo próprio (LLMs e documentação)'
 created: 2026-09-26
 updated: 2026-09-29
-status: 'Aberto. Fase: ontologia v0 + protótipo; nada medido contra modelo.'
+status: 'Aberto. Ontologia v0 + protótipo; F6-status medido contra modelo (2026-09-29, exploratório): ver RESULTADOS-f6-status.md.'
 tags: [temporalidade, perecibilidade, llm, documentacao]
 ---
 

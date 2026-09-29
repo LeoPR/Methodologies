@@ -1,9 +1,9 @@
 ---
 name: revisao-temporal-strata
 type: registro
-status: executada 2026-09-26 (passos 1-4); pendente só o reteste, que custa inferência
+status: executada 2026-09-26 (passos 1-4); o reteste rodou como o banco de modelos (lab/2026-09-26-banco-modelos/)
 created: 2026-09-26
-updated: 2026-09-26
+updated: 2026-09-29
 audience: ai-primary
 ---
 

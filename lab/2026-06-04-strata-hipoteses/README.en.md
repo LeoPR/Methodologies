@@ -2,7 +2,7 @@
 title: 'Open Strata hypotheses: code-as-document + empirical check of AI comprehension'
 status: open
 created: 2026-06-04
-updated: 2026-08-03
+updated: 2026-09-29
 tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-metodo, ai-native, temporalidade]
 ---
 
@@ -19,8 +19,8 @@ tags: [strata, hipotese, doc-vs-code, ia-compreensao, benchmark, qualidade-de-me
 > [`REVISAO-RETROATIVA.md`](REVISAO-RETROATIVA.md).
 > **Do not read loose conclusions** out of individual `RESULTADOS-*` files. Some are
 > superseded; follow the hub.
-> *This README is the ORIGINAL hypothesis index (H-A..H-D); H-A and H-C remain
-> conceptual/not executed.*
+> *This README is the ORIGINAL hypothesis index (H-A..H-D). H-B, H-B′ and H-C were executed
+> (results linked in each "State"); H-D became its own front; only H-A remains conceptual.*
 
 > Refinement/validation hypotheses for Strata, recorded to discuss and test later.
 
@@ -94,8 +94,8 @@ systematically) points to where Strata's text needs more explicit GATES.
 gaps qualitatively) with a multi-model measurement. Resolves the caveat in
 `recipe/README.pt-BR.md` ("not yet proven that any AI applies it well").
 
-**State**: plan ready, awaiting execution (needs the owner to run the external models
-manually; the blind evaluation comes back here).
+**State**: executed, local and cloud tiers ([local tier + H-B′](RESULTADOS-tier-local.md),
+[clean cloud tier](RESULTADOS-tier-nuvem-limpo.md)). The current state of the evidence is in the hub.
 
 ## H-C: An "AI-native" version of Strata (dense/machine-optimized)
 
@@ -135,8 +135,10 @@ grounding** (the *why*, the sources, the Chesterton Fence of §6) that makes the
 method adopted with judgment rather than cargo-culted. Measure comprehension **AND**
 application quality, not just "the AI parsed it".
 
-**State**: hypothesis for a **next Strata version** (v2?), after H-B. Recorded for
-experimentation, not decided.
+**State**: executed as an experiment, with prototypes in [`strata-ai-native/`](strata-ai-native/)
+(not canonical). The [clean retest](RESULTADOS-reteste-limpo.md) confirmed H-C, but compression
+dominates the gain and the gates only polish it; [AN-v3](RESULTADOS-p1p2-anv3.md) lowers false
+positives without installing the top model's discernment. The canonical text stays single (§5).
 
 ## H-B′: The invocation form as a variable (H-B's dual)
 
@@ -171,8 +173,8 @@ main H-B (isolates the model, as designed), and run H-B′ as a **small separate
 ablation**: 1 strong model × 4 framings, ≥2 runs each. Mark H-B's result with the
 caveat "under prompt F1".
 
-**State**: recorded. Runs **after/alongside** the main H-B (same infra), as a control
-for the prompt confounder.
+**State**: executed as a small ablation (1 model × 4 framings) in
+[`RESULTADOS-tier-local.md`](RESULTADOS-tier-local.md).
 
 ## H-D: Temporality / orientation in time (the owner's, 2026-06-08)
 
@@ -216,10 +218,10 @@ treated as "current conflict" without reasoning about which is recent/canonical.
 3. If it is **hard to capture** in a test, improve Strata (make temporal orientation
    a first-class gate, as §6-bis became).
 
-**State**: recorded for future evaluation. Review together with the R8 synthesis
-(temporality may be a lens that reinterprets the false positives). No action now.
+**State**: tested in F6 ([F6](RESULTADOS-f6-temporal-sem-marcadores.md)). The research continues as
+its own front in [`lab/2026-09-26-temporalidade/`](../2026-09-26-temporalidade/).
 
 > **Expanded into a dossier** (2026-06-09): temporality is part of a larger *cluster*:
 > temporality + order + primary-source verification + research organization over time,
-> with possible common roots. Record of the idea (not studied) in
+> with possible common roots. Record of the idea in
 > [`DOSSIE-ia-temporalidade-ordem-fontes.md`](DOSSIE-ia-temporalidade-ordem-fontes.md).

@@ -3,7 +3,7 @@ title: Comporta — economia e roteamento de recursos de IA
 project: Comporta
 status: open
 created: 2026-06-04
-updated: 2026-09-26
+updated: 2026-09-29
 tags: [comporta, economia-tokens, local-llm, ollama, copilot, rtx3060, vscode, hardware, fornecedores, roteamento]
 phase: lab-sujo (coleta concluída — hipóteses confrontadas — em direção à 1ª recipe)
 ---
@@ -17,7 +17,7 @@ phase: lab-sujo (coleta concluída — hipóteses confrontadas — em direção 
 > (compute / memória / E-S / custo) para render mais sob restrição.
 
 > **Fase de lab sujo**: hipóteses confrontadas com literatura, documentação oficial
-> e **medição de 1ª mão** (Estágios 1–4 rodados na RTX 3060). Nada destilado para
+> e **medição de 1ª mão** (Estágios 1–5 rodados na RTX 3060; ver `instrumento/`). Nada destilado para
 > `recipe/` ainda — quando for, vira `recipe/comporta-*.md` com `project: Comporta`.
 
 ## Documentos deste lab (ordem de leitura)
@@ -34,7 +34,8 @@ phase: lab-sujo (coleta concluída — hipóteses confrontadas — em direção 
 > testa as células incertas. Dois workflows independentes (38 + 26 agentes)
 > convergiram nas mesmas sondas E ambos pegaram a mesma mentira de custo
 > ("Sonnet grátis no Copilot" = falso, é 1× multiplier). A recipe final destila
-> o caminho feliz + os vereditos dos experimentos. **Nada executado ainda.**
+> o caminho feliz + os vereditos dos experimentos. Os Estágios 1–5 já rodaram
+> (resultados em [`instrumento/`](instrumento/)); o que falta está em *Próximo*, no fim.
 
 ## Contexto e pergunta
 
@@ -417,23 +418,22 @@ autor-próprio estão marcadas como não replicadas.
 
 ---
 
-## Próximo (gatilho empírico)
+## Próximo (o que está aberto)
 
-Nenhuma decisão tomada. Sugestões de experimentos para o dono avaliar:
+O plano ([`plano-experimental.md`](plano-experimental.md)) rodou até o Estágio 5. Em aberto:
 
-1. **Instalar Continue.dev + `qwen2.5-coder:7b` no Ollama** e usar por 1 semana
-   para autocomplete/chat de arquivo único. Medir: satisfação subjetiva,
-   quantas vezes escalou para cloud, latência percebida.
-
-2. **Habilitar Copilot Chat + Ollama** (VSCode 1.113 + Ollama 0.18.3) para ter
-   chat privado local paralelo ao Copilot Pro ($10/mês) com completions ilimitadas.
-
-3. **Instalar OllamaClaude MCP** e medir redução de tokens em uma tarefa de
-   leitura de múltiplos arquivos (verificar o claim de 98.75% empiricamente).
-
-4. **Instalar AgentsRoom ou cc-statistics** para ter baseline de custo real
-   antes de qualquer otimização.
+- **Estágio 2, B4a** (Ollama × Foundry Local no Win10): em verificação
+  ([`STAGE2`](instrumento/STAGE2.md)).
+- **Estágio 4, C2/C3** (overhead do editor; Copilot Chat + Ollama): configurações entregues;
+  falta uso real para medir ([`STAGE4`](instrumento/STAGE4.md)).
+- **Estágio 5:** rodou como **encaixe por placa** ([`STAGE5`](instrumento/STAGE5.md)). A matriz
+  fornecedor × tipo de tarefa do desenho original não rodou, e é dela que depende o
+  `recipe_trigger` do plano.
+- **Estágio 6** (validação paga mínima): não rodou.
+- **Destilar a recipe** (`recipe/comporta-*.md`): só quando o `recipe_trigger` for atingido.
 
 ## Decisões aplicadas pelo dono
 
-_A preencher._
+- **2026-08-02: capacidade × viabilidade.** A capacidade de um modelo é dos pesos e se mede na
+  nuvem, nos mesmos pesos; a máquina local mede só a viabilidade e serve de contra-prova. Origem do
+  Estágio 5 ([PLANO §3-bis do reteste](../2026-08-02-reteste-L0-fechado/PLANO.md)).

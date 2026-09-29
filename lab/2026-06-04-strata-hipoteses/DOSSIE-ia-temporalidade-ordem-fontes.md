@@ -1,8 +1,8 @@
 ---
 title: Dossiê (IDEIA, para estudar depois) — por que IAs falham com temporalidade, ordem, fonte primária e organização de pesquisa
 created: 2026-06-09
-updated: 2026-08-02
-status: REGISTRO de ideia/hipótese. NÃO executado. Subsume e amplia a [[H-D temporalidade]]. Estudar adiante.
+updated: 2026-09-29
+status: 'REGISTRO de ideia/hipótese. Subsume e amplia a [[H-D temporalidade]]. Testado no F6 (RESULTADOS-f6-temporal-sem-marcadores.md); o tema continua em lab/2026-09-26-temporalidade/.'
 tags: temporalidade, ordem, fonte-primaria, organizacao-pesquisa, dossie, hipotese
 ---
 
@@ -45,11 +45,12 @@ Esses quatro podem ter **raiz comum** — não são quatro bugs avulsos. Candida
 ## A evidência que JÁ temos (ponteiros — não repetir aqui)
 
 - **H-D**, a hipótese "datas" (modelos tratam o histórico como problema atual;
-  [README.md](README.md), seção H-D) + [RESULTADOS-r8-sintese-3-projetos.md](RESULTADOS-r8-sintese-3-projetos.md)
+  [README.pt-BR.md](README.pt-BR.md), seção H-D) + [RESULTADOS-r8-sintese-3-projetos.md](RESULTADOS-r8-sintese-3-projetos.md)
   (e [RESULTADOS-r8-projeto-real.md](RESULTADOS-r8-projeto-real.md)): em projeto real, os modelos
   tratam o **superado/histórico como problema atual** (falso-positivo temporal).
-- [VIZ-capacidade-por-secao.md](VIZ-capacidade-por-secao.md) (fase P4 da escada de auditoria): a seção **§3/§8 (datas/história)
-  é o ponto cego de longe** (~33%, a mais fraca) — em todos os modelos.
+- Fase P4 da escada de auditoria (capacidade por seção): sugeria a seção §3/§8 (datas/história) como ponto
+  cego (~33%). **Não citável:** média com variância enorme e juiz único; ver
+  [REVISAO-RETROATIVA.md](REVISAO-RETROATIVA.md).
 - [RESULTADOS-p7-camadas-entender-aplicar.md](RESULTADOS-p7-camadas-entender-aplicar.md): na
   **verificação de fonte/conhecimento (§6/L1)**, o modelo médio erra confiante e o pequeno admite
   que "precisaria pesquisar" — toca H-r4.
@@ -92,6 +93,7 @@ para o Strata; por isso vale estudar a fundo.
 > desambiguador** (ambíguo até p/ humano) e o **longitudinal/real ruidoso**.
 
 ## Estado
-Hipótese/dossiê registrado. **Não estudar agora** — retomar com experimentos próprios.
-Cruza com: **H-D** ([README.md](README.md)), e o roadmap F5 (pesquisa) e F6 (temporalidade/
+Hipótese/dossiê registrado. Testado no F6 ([RESULTADOS-f6-temporal-sem-marcadores.md](RESULTADOS-f6-temporal-sem-marcadores.md));
+o tema continua como frente própria em [`lab/2026-09-26-temporalidade/`](../2026-09-26-temporalidade/).
+Cruza com: **H-D** ([README.pt-BR.md](README.pt-BR.md)), e o roadmap F5 (pesquisa) e F6 (temporalidade/
 longitudinal) em [PLANO-geral-modos-fechar-lacunas.md](PLANO-geral-modos-fechar-lacunas.md).

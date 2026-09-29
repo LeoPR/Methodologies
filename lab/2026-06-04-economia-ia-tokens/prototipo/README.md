@@ -7,7 +7,7 @@ relates: [../arvore-decisao.md, ../mapa-recursos-llm.md]
 
 # Protótipo: detect_env.py
 
-Detecta o ambiente do dev, classifica num arquétipo (A1-A6), e emite o que
+Detecta o ambiente do dev, classifica num arquétipo (A1-A5; o A6 da árvore, "qualidade acima de tudo", não está implementado), e emite o que
 **LIGAR AGORA / CONSIDERAR / está BLOQUEADO (com a causa)**, mais um
 `environment-profile.yaml` legível-por-agente. É o rascunho executável da
 árvore de decisão (`../arvore-decisao.md`).

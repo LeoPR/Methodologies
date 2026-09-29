@@ -1,14 +1,14 @@
 ---
 title: Plano experimental de ablação — economia de recursos IA
 created: 2026-06-04
-status: draft (aguardando aprovação do dono para executar)
+status: 'executado até o Estágio 5 (resultados em instrumento/: BASELINE, STAGE2-5); B4a e C2/C3 em aberto; o Estágio 5 rodou como encaixe por placa, não como a matriz fornecedor × tarefa; Estágio 6 não rodou'
 method: fan-out 5 clusters → verificação adversarial por experimento → síntese faseada
 source: workflow w1x4vitmz (26 agentes, ~1.15M tokens) + screenshot/curl do ambiente real
 ---
 
 # Plano experimental de ablação
 
-> **Nada aqui foi executado.** É o desenho. Cada experimento foi submetido a
+> **Este é o desenho.** A execução está em [`instrumento/`](instrumento/) (BASELINE, STAGE2 a STAGE5). Cada experimento foi submetido a
 > verificação adversarial (um agente tentando derrubá-lo). Os agentes leram os
 > JSONL reais, rodaram diagnóstico do ambiente e corrigiram o desenho. O plano
 > abaixo já incorpora as correções.

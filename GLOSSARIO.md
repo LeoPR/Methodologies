@@ -1,6 +1,6 @@
 ---
 created: 2026-06-03
-updated: 2026-08-03
+updated: 2026-09-29
 ---
 
 # Glossário
@@ -126,8 +126,9 @@ ideia (e ecoa o núcleo-duro/cinto-protetor de Lakatos, já citado no método).
 ### Como se julga (e por que dá pra confiar)
 - **Cego:** o avaliador dá a nota **sem saber qual modelo** gerou a resposta (evita favoritismo).
 - **Juiz cross-vendor (de empresas diferentes):** usam-se 2 avaliadores de IA de **empresas distintas**
-  (Google + OpenAI). Empresas diferentes erram de jeitos diferentes; se **concordam**, provavelmente está
-  certo (≠ artefato de um avaliador).
+  (Google + OpenAI). Empresas diferentes erram de jeitos diferentes; se **concordam**, o resultado não é
+  artefato de um avaliador só. Mas convergir não é acertar: juízes podem errar juntos. O caso sólido
+  ancora na verificação mecânica (abaixo), não no consenso.
 - **Verificação mecânica + gabarito-ouro (GOLD):** onde dá, um **programa** confere o resultado por regra
   objetiva (o valor existe? o arquivo foi preservado?), em vez de opinião. Antes de confiar no programa,
   ele é testado contra **respostas de gabarito conhecido**; só é usado se acerta **100%**. O juiz (IA) só

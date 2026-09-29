@@ -1,7 +1,7 @@
 ---
 title: 'Opinião de uso do Strata: honesta, por tarefa × capacidade do modelo × custo'
 created: 2026-06-13
-updated: 2026-09-26
+updated: 2026-09-29
 status: 'Consolidado. O que o Strata entrega na prática, por tarefa/capacidade/custo, com as ressalvas. Atualizado com o reteste do L0 fechado (2026-08-02: grade de estratos, K=2, ~350 runs, gold mecânico + júri cross-vendor) e com o estudo do prompt ingênuo, o A/B do §9 e o vazamento do f4-clean (2026-09-26). SINAIS direcionais (sintético + completion-only), não prova. A evolução datada e os experimentos vivem no hub e nos RESULTADOS-*.'
 ---
 
@@ -118,8 +118,8 @@ ancorar decisão cara** (a regra está registrada no lab).
 - **Custo do laboratório:** a grade inteira (núcleo + estratos + júri) saiu
   por ~US$ 7. Dá para rodar diário e re-testar quando sair modelo novo.
 - **Idioma (2026-08-03):** o núcleo da grade foi repetido em **inglês** (o idioma do
-  canônico) com roster idêntico, 108 runs. O conserto §5 e a abstenção §9 se
-  reproduzem com paridade; a recusa §6-bis **não é melhor em EN** e, no tier médio
+  canônico) com roster idêntico, 108 runs. O conserto §5 e a abstenção §9 saem
+  sem diferença detectada (equivalência não demonstrada: a margem pré-registrada não foi atingida); a recusa §6-bis **não é melhor em EN** e, no tier médio
   aberto (qwen3-32b, gpt-oss-120b), propagou o payload mais que em PT (5/8 × 1/8,
   sinal K=2, datado). Na prática: rodar o Strata em inglês **não destrava** modelo
   médio; a regra "médio = checklist + humano" vale nos dois idiomas. Detalhes:

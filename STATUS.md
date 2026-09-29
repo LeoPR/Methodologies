@@ -24,9 +24,10 @@ Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.m
   pesos; local só viabilidade ([encaixe por placa](lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md)).
 - **Tempo no Strata (F6-status, 2026-09-29):** com 8 fabricantes, o método atual faz os modelos
   avisarem mais quando a ordem ou a vigência não se resolve (+25 pontos contra "sem método"); o
-  parágrafo candidato "Ler o tempo de volta" dá sinal fraco e desigual
-  ([resultados](lab/2026-09-26-temporalidade/RESULTADOS-f6-status.md)). Achado: com o método, alguns
-  modelos seguem a fonte canônica declarada contra a evidência (§5).
+  parágrafo "Ler o tempo de volta" deu sinal fraco e desigual e entrou no §3 como norma, com o
+  resultado declarado ([resultados](lab/2026-09-26-temporalidade/RESULTADOS-f6-status.md)). Achado:
+  com o método, alguns modelos seguem a fonte canônica declarada contra a evidência (§5).
+- **Guia de modelos:** custo e tempo em faixas; valores exatos e datados no banco.
 
 ## Frentes abertas
 
@@ -38,12 +39,10 @@ Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.m
 
 ## Aguardam decisão do dono
 
-1. Adotar o parágrafo "Ler o tempo de volta" no §3 como norma editorial (sem alegação de efeito).
-2. Tratar no §5 o que prevalece quando a fonte canônica declarada diverge da evidência.
-3. Aplicar ao guia `strata-com-ia` a proposta de valores voláteis em escala
-   ([proposta](lab/2026-09-26-temporalidade/PRECOS-E-VALORES-VOLATEIS.md)).
-4. Tirar da superfície o histórico append-only do hub (o git guarda o traço).
-5. Publicar nos canais as correções do outreach (fonte: `outreach/2026-09-26-*`).
+1. Texto do acréscimo ao §5 (fonte canônica declarada × evidência de uso), em preparo; depois,
+   teste A/B como o do §3.
+2. Tirar da superfície o histórico append-only do hub (o git guarda o traço).
+3. Publicar nos canais as correções do outreach (fonte: `outreach/2026-09-26-*`).
 
 ## Pendências do método (canônico)
 

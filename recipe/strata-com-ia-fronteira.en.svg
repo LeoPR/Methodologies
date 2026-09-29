@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="630" font-family="sans-serif">
-<rect width="960" height="630" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="650" font-family="sans-serif">
+<rect width="960" height="650" fill="white"/>
 <text x="30" y="26" font-size="16" font-weight="bold">Strata by AI: what to expect (2026-09 bank)</text>
 <text x="30" y="45" font-size="11" fill="#666">By access context. Does everything = fixes (§5), refuses the planted injection (§6-bis) and abstains on a good project (§9), majority of 3 runs.</text>
 <line x1="30" y1="58" x2="930" y2="58" stroke="#ccc"/>
@@ -14,12 +14,12 @@
 <text x="370" y="136" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="136" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="136" font-size="10.5" fill="#15803d">✓</text>
-<text x="690" y="136" font-size="9.5" fill="#555">fits whole · ~45 tok/s (projected)</text>
+<text x="690" y="136" font-size="9.5" fill="#555">fits whole · tens of tok/s (projected)</text>
 <text x="44" y="156" font-size="10.5"><tspan font-weight="bold">qwen3.6:35b-a3b</tspan> <tspan fill="#777">(12 GB, MoE offload, think off)</tspan></text>
 <text x="370" y="156" font-size="10.5" fill="#15803d">✓ 2/3</text>
 <text x="470" y="156" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="156" font-size="10.5" fill="#b91c1c">✗</text>
-<text x="690" y="156" font-size="9.5" fill="#555">~30 tok/s measured; human decides</text>
+<text x="690" y="156" font-size="9.5" fill="#555">tens of tok/s measured; human decides</text>
 <text x="44" y="176" font-size="10.5"><tspan font-weight="bold">gemma4:12b</tspan> <tspan fill="#777">(12 GB, fits; local only)</tspan></text>
 <text x="370" y="176" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="176" font-size="10.5" fill="#b91c1c">✗ injection 1/3</text>
@@ -30,28 +30,28 @@
 <text x="370" y="222" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="222" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="222" font-size="10.5" fill="#15803d">✓ 2/3</text>
-<text x="690" y="222" font-size="9.5" fill="#555">40–60 s per run</text>
+<text x="690" y="222" font-size="9.5" fill="#555">404 on this route since 2026-09-28</text>
 <text x="44" y="242" font-size="10.5"><tspan font-weight="bold">deepseek-v4.1-flash</tspan> <tspan fill="#777">(🆓)</tspan></text>
 <text x="370" y="242" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="242" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="242" font-size="10.5" fill="#15803d">✓</text>
-<text x="690" y="242" font-size="9.5" fill="#555">2–10 min per run</text>
+<text x="690" y="242" font-size="9.5" fill="#555">minutes per run</text>
 <text x="30" y="268" font-size="11.5" font-weight="bold" fill="#0e7490">Budget cloud: does everything</text>
 <text x="44" y="288" font-size="10.5"><tspan font-weight="bold">gpt-6-luna</tspan> <tspan fill="#777">($)</tspan></text>
 <text x="370" y="288" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="288" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="288" font-size="10.5" fill="#15803d">✓</text>
-<text x="690" y="288" font-size="9.5" fill="#555">cheapest · US$ 0.002/run · 10 s</text>
+<text x="690" y="288" font-size="9.5" fill="#555">cheapest · seconds per run</text>
 <text x="44" y="308" font-size="10.5"><tspan font-weight="bold">gemini-3.5-flash-lite</tspan> <tspan fill="#777">($)</tspan></text>
 <text x="370" y="308" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="308" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="308" font-size="10.5" fill="#15803d">✓</text>
-<text x="690" y="308" font-size="9.5" fill="#555">fastest · 3 s · US$ 0.006</text>
+<text x="690" y="308" font-size="9.5" fill="#555">fastest · seconds per run</text>
 <text x="44" y="328" font-size="10.5"><tspan font-weight="bold">mimo-v2.6-flash · glm-5.3-flash (low)</tspan> <tspan fill="#777">($)</tspan></text>
 <text x="370" y="328" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="328" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="328" font-size="10.5" fill="#15803d">✓</text>
-<text x="690" y="328" font-size="9.5" fill="#555">US$ 0.002–0.003</text>
+<text x="690" y="328" font-size="9.5" fill="#555">fraction of a cent per run</text>
 <text x="44" y="348" font-size="10.5"><tspan font-weight="bold">qwen3.8-27b</tspan> <tspan fill="#777">(open, $)</tspan></text>
 <text x="370" y="348" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="348" font-size="10.5" fill="#15803d">✓</text>
@@ -62,12 +62,12 @@
 <text x="370" y="394" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="394" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="394" font-size="10.5" fill="#15803d">✓</text>
-<text x="690" y="394" font-size="9.5" fill="#555">US$ 0.03/run</text>
+<text x="690" y="394" font-size="9.5" fill="#555">cents per run</text>
 <text x="44" y="414" font-size="10.5"><tspan font-weight="bold">opus-5.5 · sonnet-5 · grok-4.7</tspan> <tspan fill="#777">($$$)</tspan></text>
 <text x="370" y="414" font-size="10.5" fill="#15803d">✓</text>
 <text x="470" y="414" font-size="10.5" fill="#15803d">✓</text>
 <text x="590" y="414" font-size="10.5" fill="#15803d">✓</text>
-<text x="690" y="414" font-size="9.5" fill="#555">US$ 0.05–0.16/run</text>
+<text x="690" y="414" font-size="9.5" fill="#555">cents to tenths of a dollar per run</text>
 <text x="30" y="440" font-size="11.5" font-weight="bold" fill="#b91c1c">Do not use for autonomous action</text>
 <text x="44" y="460" font-size="10.5"><tspan font-weight="bold">gpt-oss-120b</tspan> <tspan fill="#777"></tspan></text>
 <text x="370" y="460" font-size="10.5" fill="#15803d">✓</text>
@@ -88,6 +88,7 @@
 <text x="30" y="534" font-size="9.5" fill="#333">Reasoning effort: model default or “low” (local: “off”). “high” never improved a cell and sometimes broke abstention or the trap.</text>
 <text x="30" y="551" font-size="9.5" fill="#333">Source verification (§6): web on. Without web, even top models confirmed outdated facts.</text>
 <text x="30" y="568" font-size="9.5" fill="#333">AI output = a draft to review, always. Autonomous audit of a real project: top tier only.</text>
-<text x="30" y="585" font-size="9.5" fill="#777">Synthetic fixtures, K=3, mechanical gold scorer, real provider cost. Directional signals, not proof. Names/prices age fast (L2).</text>
-<text x="30" y="602" font-size="9.5" fill="#777">Source: lab/2026-09-26-banco-modelos/ (bank, bridge, axes) · fit by GPU: Comporta STAGE5.</text>
+<text x="30" y="585" font-size="9.5" fill="#777">Cost per run: $ fraction of a cent · $$ cents · $$$ cents to tenths of a dollar. Exact dated values in the bank.</text>
+<text x="30" y="602" font-size="9.5" fill="#777">Synthetic fixtures, K=3, mechanical gold scorer. Directional signals, not proof. Names age fast (L2).</text>
+<text x="30" y="619" font-size="9.5" fill="#777">Source: lab/2026-09-26-banco-modelos/ (bank, bridge, axes) · fit by GPU: Comporta STAGE5.</text>
 </svg>

@@ -2,7 +2,7 @@
 title: Strata com IA (guia prático de uso)
 status: active
 created: 2026-06-08
-updated: 2026-09-26
+updated: 2026-09-29
 purpose: responder ao desenvolvedor "funciona no meu ambiente? vai sair caro?". Só o que funciona
 nota: o banco de modelos por trás desta página, com os eixos de raciocínio e web e todas as ressalvas, está em lab/2026-09-26-banco-modelos/; a pesquisa anterior (o que NÃO funciona e por quê) em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9
 ---
@@ -48,16 +48,21 @@ Cinco regras antes de qualquer modelo:
 
 | Eu quero… | Use | Por quê |
 |---|---|---|
-| **o mais barato que faz tudo** | **gpt-6-luna** · mimo-v2.6-flash · glm-5.3-flash (esforço `low`) | cerca de US$ 0,002–0,003 por run; o luna responde em ~10 s |
-| **o mais rápido que faz tudo** | **gemini-3.5-flash-lite** | 2–4 s por run, cerca de US$ 0,006 |
+| **o mais barato que faz tudo** | **gpt-6-luna** · mimo-v2.6-flash · glm-5.3-flash (esforço `low`) | fração de centavo por run; o luna responde em segundos |
+| **o mais rápido que faz tudo** | **gemini-3.5-flash-lite** | responde em segundos, a fração de centavo por run |
 | **pesos abertos que fazem tudo** | **qwen3.8-27b** (27B denso, Apache 2.0) | faz tudo em todos os níveis de esforço de raciocínio; com o raciocínio desligado (`off`) fica 5× mais barato e rápido |
 | **o topo** (auditoria autônoma de projeto real) | **opus-5.5** · **gpt-6-sol** · **gemini-3.8-flash** · sonnet-5 · grok-4.7 | todos fazem tudo; gpt-6-sol e gemini-3.8-flash custam cerca de 5× menos que o opus-5.5 |
-| **grátis, e que faz tudo** | **kimi-k3** na NVIDIA NIM · deepseek-v4.1-flash na mesma rota | custo zero; o kimi leva ~40–60 s por run, o deepseek 2–10 min. Os `:free` do OpenRouter dão 429 (limite de taxa); o Groq recusa o tamanho do prompt (8K tokens/min); o crédito grátis do Cerebras acabou |
-| **na própria máquina, GPU de 24 GB** (3090, 4090) | **qwen3.8:27b** | os pesos fazem tudo; com o método inteiro no prompt ocupa 19,4 GB (medido) e cabe numa placa de 24 GB a ~40–46 tok/s (projeção) |
-| **na própria máquina, GPU de 12 GB** | **qwen3.6:35b-a3b** (MoE, offload de experts) com raciocínio **desligado** (`off`) | conserta e é seguro (recusa a injeção), mas **não** se abstém: junte a um humano que decide quando não mexer; ~30 tok/s com offload (medido). Com o método inteiro no prompt, só até ~12B denso cabe inteiro; o qwen3.8:27b também roda aqui com offload, mas devagar (4–5 min por run, raciocínio `off`) |
-| **numa máquina de memória unificada** (NVIDIA GB10 / DGX Spark, AMD Ryzen AI Max+ 395) | MoE grandes; **deepseek-v4.1-flash** em 2+ GB10 ligadas | muita memória, pouca banda (273 GB/s no GB10, 256 GB/s no Ryzen): denso decodifica devagar, MoE encaixa melhor. O DeepSeek V4.1-Flash (faz tudo) roda em GB10 ligadas com vLLM ≥ v0.30.0 (medição de terceiros: 2 unidades, 33–40 tok/s); ainda não no llama.cpp nem no Ollama local ([encaixe por placa](../lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md)) |
+| **grátis, e que faz tudo** | **deepseek-v4.1-flash** na NVIDIA NIM | custo zero, minutos por run, com timeouts frequentes. O kimi-k3 também fez tudo nessa rota, mas respondeu 404 lá em 2026-09-28. Os `:free` do OpenRouter dão 429 (limite de taxa); a cota grátis do Groq é menor que um prompt; o crédito grátis do Cerebras acabou |
+| **na própria máquina, GPU de 24 GB** (3090, 4090) | **qwen3.8:27b** | os pesos fazem tudo; com o método inteiro no prompt cabe numa placa de 24 GB (medido), decodificando dezenas de tokens por segundo (projeção) |
+| **na própria máquina, GPU de 12 GB** | **qwen3.6:35b-a3b** (MoE, offload de experts) com raciocínio **desligado** (`off`) | conserta e é seguro (recusa a injeção), mas **não** se abstém: junte a um humano que decide quando não mexer; dezenas de tokens por segundo com offload (medido). Com o método inteiro no prompt, só até ~12B denso cabe inteiro; o qwen3.8:27b também roda aqui com offload, mas devagar (minutos por run, raciocínio `off`) |
+| **numa máquina de memória unificada** (NVIDIA GB10 / DGX Spark, AMD Ryzen AI Max+ 395) | MoE grandes; **deepseek-v4.1-flash** em 2+ GB10 ligadas | muita memória, pouca banda (273 GB/s no GB10, 256 GB/s no Ryzen): denso decodifica devagar, MoE encaixa melhor. O DeepSeek V4.1-Flash (faz tudo) roda em GB10 ligadas com vLLM ≥ v0.30.0 (medição de terceiros em 2 unidades: dezenas de tokens por segundo); ainda não no llama.cpp nem no Ollama local ([encaixe por placa](../lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md)) |
 | **só conserto + armadilha, bem barato** | gemma-4-26b-a4b · gemma-4-31b | consertam e recusam, mas **não** se abstêm: junte a um humano que decide quando não mexer |
 | **NÃO usar para ação autônoma** | **gpt-oss-120b** · **claude-haiku-4.5** · gemma4:12b · llama-4-scout · local abaixo de ~4B | todos propagaram a injeção plantada ao menos uma vez (gpt-oss-120b 3/3); o haiku-4.5 também nunca se absteve; o gemma4:12b não tem hospedagem na nuvem, então o resultado vale só para o Q4 local; abaixo de ~4B nem o formato sai |
+
+*Custo e tempo vão em **faixas**, não em preço do dia: custo por run em fração de centavo (abaixo
+de US$ 0,01), centavos (até US$ 0,10) ou décimos de dólar; tempo por run em segundos (menos de
+15 s), dezenas de segundos ou minutos. Os valores exatos, datados e devolvidos pelo provedor,
+estão no [banco](../lab/2026-09-26-banco-modelos/); o preço de catálogo de hoje, na página do provedor.*
 
 *Regra: a borda que separa os modelos é a **abstenção** (não mexer no que já está bom). Ela
 depende do **modelo e da redação do pedido**, não do preço, e não há evidência de que o texto do
@@ -84,7 +89,7 @@ de ancorar decisão cara.)*
 |---|---|---|
 | **esforço de raciocínio** (`reasoning effort`) | padrão do modelo ou `low` (local: `off`) | `high` nunca melhorou uma célula; derrubou a abstenção do gpt-6-luna de 3/3 para 1/3 e fez o gemini-3.8-flash errar a armadilha; deepseek e glm estouraram o orçamento. Desligar (`off`) só ajuda modelos que se mantêm robustos (qwen3.8-27b) e pode piorar a abstenção de outros |
 | **modelos cujo raciocínio não desliga** | use o nível mais baixo aceito (`low`) | o glm-5.3-flash recusa "off" (HTTP 400); o gemini-3.8-flash recusa "minimal"; o opus-5.5 sempre pensa |
-| **orçamento de tokens** | generoso (≥12k de saída) para modelos com raciocínio | truncamento é a falha mais comum dos modelos com raciocínio; resposta truncada não é veredito. Localmente, o raciocínio mais o método de ~21k tokens estourou um contexto de 32k: rode modelo local com raciocínio `off` |
+| **orçamento de tokens** | generoso (≥12k de saída) para modelos com raciocínio | truncamento é a falha mais comum dos modelos com raciocínio; resposta truncada não é veredito. Localmente, o raciocínio mais o método inteiro estourou um contexto de 32k: rode modelo local com raciocínio `off` |
 | **busca na web** (`:online` ou a ferramenta de busca do fabricante) | ligada, para verificação de fonte (§6) | sem web, gemini-3.8-flash e deepseek-v4.1-flash confirmaram fatos desatualizados; com web, gemini e gpt-6-luna corrigiram 6/6. Sem web, o qwen3.8 é o mais honesto (diz "não verificável") |
 | **temperatura** | não conte com ela | a linha GPT-6 e o sonnet-5 não a aceitam (o roteador descarta em silêncio); a DeepSeek a ignora enquanto pensa |
 

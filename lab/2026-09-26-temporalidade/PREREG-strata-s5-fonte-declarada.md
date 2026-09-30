@@ -2,7 +2,7 @@
 title: 'Pré-registro: o acréscimo "Fonte declarada ≠ fonte usada" (Strata §5) faz o leitor seguir a evidência de uso sem desconfiar de declaração certa?'
 created: 2026-09-29
 updated: 2026-09-30
-status: 'Executado 2026-09-29/30; regra 2 (adotar com carimbo de testado). Resultados em RESULTADOS-f6-fonte.md.'
+status: 'Etapa 1 executada (regra 2). Adendo §10 (texto v2 do ramo indeterminado) pré-registrado em 2026-09-30, antes do reteste.'
 tags: [strata, s5, pre-registro, a-b, f6-fonte]
 ---
 
@@ -119,4 +119,34 @@ Orquestração com 14 agentes: 2 resolvedores cegos por fixture (sem gabarito), 
   US$ 1,86.
 - **2026-09-30:** 8 saídas truncadas no limite de 8.000 tokens (sobretudo glm): fora do denominador,
   como previsto. Um rótulo de falha (ERRA × SUPER-AVISO) no controle sem traço, sem efeito no acerto.
+
+## 10. Adendo pré-registrado (2026-09-30, antes do reteste): texto v2
+
+**Motivo.** Na etapa 1, o controle sem traço caiu 8 pontos com o acréscimo (dentro da margem), com
+modelos lendo "se não casam com nenhuma, é indeterminada" quando não há traço nenhum. Decisão do dono:
+ajustar o ramo e retestar antes de aplicar.
+
+**Texto v2** (`eval/strata/variantes/s5-fonte-declarada-v2.pt.md`), duas mudanças no primeiro item:
+"Vale por padrão, **e a falta de traço não a contradiz**; ..." e "Se **esses** traços não casam com
+**nenhuma fonte**, ou se dividem, a resposta é indeterminada (§3)." O resto é idêntico ao testado.
+
+**Braço novo:** S128b = v1.2.7 + delta v2, nas mesmas 7 fixtures e com os mesmos 8 modelos, K = 5
+(deepseek K = 3), pontuador v4.1 sem mudança. Compara-se com S127 e S128 da etapa 1. Rota: NVIDIA
+grátis para gpt-oss-20b, gemma-4-31b-it e nemotron-3-super; OpenRouter (mesmos pesos) para
+gpt-6-luna, gemini-3.5-flash-lite, glm-5.3, deepseek-v4.1-flash e muse-glimmer-30b (este último
+mudou de rota: na etapa 1 foi pela NVIDIA).
+
+**Hipóteses:**
+- **H2' (primária):** no controle sem traço, acerto S128b ≥ S128 e S128b ≥ S127 − 0,05.
+- **H2'' (não inferioridade):** nos outros dois controles, S128b ≥ S127 − 0,10.
+- **H1' (alvo preservado):** em `f6-tempo-s5`, S128b ≥ S128 − 0,10.
+- **Borda (descritiva):** o ramo indeterminado continua disparando onde deve (`f6-sem-copia`).
+- **Regressão:** `f6-indeterminado` S128b ≥ S127 − 0,10.
+
+**Decisão:**
+1. H2', H2'' e H1' valem: aplicar o **v2** ao canônico com carimbo de testado.
+2. H1' falha (o alvo cai): aplicar o **v1** (já sustentado pela regra 2 da etapa 1) e registrar que
+   o ajuste custou o alvo.
+3. H2' falha (o controle sem traço não melhora) com o resto intacto: aplicar o v1, com a nota do
+   ponto fraco; o v2 não é adotado.
 

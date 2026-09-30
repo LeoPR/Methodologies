@@ -1,8 +1,8 @@
 ---
 title: 'Pré-registro: o acréscimo "Fonte declarada ≠ fonte usada" (Strata §5) faz o leitor seguir a evidência de uso sem desconfiar de declaração certa?'
 created: 2026-09-29
-updated: 2026-09-29
-status: 'Pré-registrado antes de qualquer rodada. Fixtures congeladas por hash; pontuador v4.1 depois do red-team (seção 8).'
+updated: 2026-09-30
+status: 'Executado 2026-09-29/30; regra 2 (adotar com carimbo de testado). Resultados em RESULTADOS-f6-fonte.md.'
 tags: [strata, s5, pre-registro, a-b, f6-fonte]
 ---
 
@@ -110,3 +110,13 @@ Orquestração com 14 agentes: 2 resolvedores cegos por fixture (sem gabarito), 
   regressão).
 - Registros: `proposta-s5-orquestracao.json` (proposta) e `redteam-s5-fixtures-pontuador.json`
   (resolvedores cegos, críticos e red-team do pontuador). Protótipos e casos de teste ficam fora do repo.
+
+## 9. Desvios (anexados, datados)
+
+- **2026-09-30:** glm-5.3 e deepseek-v4.1-flash travaram na fila grátis da NVIDIA. glm completado pelo
+  OpenRouter nos mesmos pesos (células já feitas mantidas); deepseek com a grade inteira pelo
+  OpenRouter (K = 3), e as saídas parciais da NVIDIA só como descritivas. Custo pago total do teste:
+  US$ 1,86.
+- **2026-09-30:** 8 saídas truncadas no limite de 8.000 tokens (sobretudo glm): fora do denominador,
+  como previsto. Um rótulo de falha (ERRA × SUPER-AVISO) no controle sem traço, sem efeito no acerto.
+

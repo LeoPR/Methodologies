@@ -1,7 +1,7 @@
 ---
 title: 'Temporalidade: estudo próprio (LLMs e documentação)'
 created: 2026-09-26
-updated: 2026-09-29
+updated: 2026-09-30
 status: 'Aberto. Ontologia v0 + protótipo; F6-status medido contra modelo (2026-09-29, exploratório): ver RESULTADOS-f6-status.md.'
 tags: [temporalidade, perecibilidade, llm, documentacao]
 ---
@@ -34,7 +34,8 @@ A revisão de LLMs cobre sobretudo a camada 1. O mapa amplo (quatro mapas + sín
   Strata (8 fabricantes). O método atual já faz a maior parte; o parágrafo dá sinal fraco e desigual.
   Pré-registro em [PREREG-strata-s3-ler-tempo.md](PREREG-strata-s3-ler-tempo.md).
 - [PROPOSTA-S5-fonte-declarada.md](PROPOSTA-S5-fonte-declarada.md): acréscimo ao §5 (fonte declarada ≠
-  fonte usada), com pesquisa, fontes e plano de teste. Aguarda o dono.
+  fonte usada), com pesquisa e fontes. Testado: [RESULTADOS-f6-fonte.md](RESULTADOS-f6-fonte.md) (alvo 78% → 92%,
+  controles dentro da margem; regra 2: adotar com carimbo).
 - [AVALIACAO-testes-sinteticos.md](AVALIACAO-testes-sinteticos.md): os testes atuais (F5, F6) cobrem
   a ontologia? Não o núcleo; o que existe, o que falta e esboço de bateria nova.
 - [MAPA-5-fisica.md](MAPA-5-fisica.md): Aristóteles a Page–Wootters; ordem causal, causal sets, seta.

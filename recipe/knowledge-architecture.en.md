@@ -1,11 +1,11 @@
 ---
 title: 'Knowledge architecture: organize, track, and generate'
 project: Strata
-version: 1.2.7
+version: 1.2.8
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-09-29
+updated: 2026-09-30
 lang: en
 canonical-source: Acadêmicos/Methodologies/recipe/knowledge-architecture.en.md (Strata project). This English file is the canonical source (authority migrated 2026-08-01 by explicit decision; see ADR-008, addendum); the Portuguese file is a derived translation.
 license: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
@@ -361,6 +361,21 @@ It is the same cut (canonical voice ⊥ materialization) that reappears in acces
 (§3), in versioning (§8), and in the carrier (§10). **This is the parent principle
 of the durability axis.**
 
+**Declared source ≠ source used.** Which source is canonical is a claim about
+two facts (§3-bis):
+
+- *What produced a result, or how to reproduce it?* The claim is **probative**:
+  reproducing reruns what was used, not what was meant. It holds by default;
+  agreeing traces confirm it without caveat. Specific contradicting traces
+  defeat it: answer from the source they match, as inferred (§6), quoting the
+  claim beside it. If they match none, or split, the answer is undetermined
+  (§3). Names, and a result's word on which source it followed, are not traces.
+- *What holds from now on?* The claim is **dispositive**: only a recorded
+  decision changes it. Past use calls for that decision; it does not make it.
+
+Divergence is drift to declare; neither side wins in silence. (Authority to act:
+§6-bis.)
+
 > **Grounding**: single source (weave/tangle): Knuth 1984 (*The Computer
 > Journal*); the artifact does not contain its own correctness criterion (the
 > oracle problem): Weyuker 1982 (*The Computer Journal* 25(4):465–470; software
@@ -368,6 +383,33 @@ of the durability axis.**
 > Parnas & Clements 1986; DRY of knowledge: Hunt & Thomas 1999. Work ≠
 > expression ≠ manifestation (derived re-expression ≠ authority duplication):
 > FRBR (*Functional Requirements for Bibliographic Records*), IFLA 1998 `[WEB ✓ 2026-06-03]`.
+>
+> Declared source ≠ source used `[WEB ✓ 2026-09-29]`: indications of authorship are "never
+> sufficient *by themselves*" and "only afford a presumption"; *authentic* "has reference to the
+> origin only, not to the contents", so each statement in a document is examined separately; and
+> "the extreme of distrust ... is almost as mischievous as the extreme of credulity": Langlois &
+> Seignobos 1898 (*Introduction to the Study of History*, trans. Berry, bk. II, chs. III and VII).
+> What remains directly from an act (*Überreste*) ≠ what reaches us through someone's account
+> (*Tradition*), the same source being either according to how it is taken: Bernheim 1889
+> (*Lehrbuch der historischen Methode*; read in the 3rd–4th ed., 1903, ch. 3 §1). The recipe
+> (prospective provenance) ≠ the record of the steps executed (retrospective provenance):
+> Davidson & Freire 2008 (SIGMOD '08 tutorial). The authoritative record is the one "considered by
+> the creator to be its official record", a decision rather than a fact of content: InterPARES 2
+> Project, *Glossary* (as of 2025-04-01). A place of publication known to be false is transcribed
+> as found, the actual one supplied beside it ("Philadelphia [that is, Frankfurt]"), with the
+> basis for the correction in a note: *Descriptive Cataloging of Rare Materials* (RDA edition),
+> RBMS/ACRL 2022, rule 5.21.36. Express terms prevail over the course of performance, which counts
+> as evidence of a modification: Uniform Commercial Code §1-303(e)(1) and (f) (contract law; used
+> here as `[ANALOGY]`).
+>
+> Era instance `[2026-09]`: with the method in the prompt, readers from two vendors used the source a
+> notes page declared canonical against the parameters the results reflect, and called those traces
+> drift. With this paragraph, readers from 8 vendors reproduced from the traces more often, and the
+> controls held within the pre-registered margin (declaration confirmed by the traces; declaration
+> uncontradicted; another domain). Some readers still over-warned when a divergent copy existed and
+> nothing contradicted the declaration, concentrated in one vendor; a rewording of the undetermined
+> branch did not change that `[TESTED 2026-09-30: EXPLORATORY; TARGET UP, CONTROLS WITHIN MARGIN]`.
+> Record: `lab/2026-09-26-temporalidade/RESULTADOS-f6-fonte.md`.
 
 ## 6. Source discipline: the epistemology of what you claim
 

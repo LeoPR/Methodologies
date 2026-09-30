@@ -1,11 +1,11 @@
 ---
 title: 'Arquitetura do conhecimento: organizar, rastrear e gerar'
 project: Strata
-version: 1.2.7
+version: 1.2.8
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-09-29
+updated: 2026-09-30
 lang: pt-BR
 source_lang: en
 translation_of: knowledge-architecture.en.md
@@ -362,6 +362,22 @@ acima mede duplicação de **autoridade**, não de **conteúdo**. É o mesmo cor
 (voz canônica ⊥ materialização) que reaparece no acesso (§3), na versão (§8) e no
 portador (§10). **Este é o princípio-mãe do eixo de durabilidade.**
 
+**Fonte declarada ≠ fonte usada.** Qual fonte é a canônica é uma afirmação sobre
+dois fatos (§3-bis):
+
+- *O que produziu um resultado, ou como reproduzi-lo?* É **probatória**:
+  reproduzir é refazer o que foi usado, não o pretendido. Vale por padrão;
+  traços concordantes a confirmam, sem ressalva. Traços específicos que a
+  contradizem a derrubam: responda pela fonte com que casam, como inferência
+  (§6), citando a afirmação ao lado. Se não casam com nenhuma, ou se dividem, a
+  resposta é indeterminada (§3). Nomes, e o que um resultado diz sobre qual
+  fonte seguiu, não são traços.
+- *O que vale daqui em diante?* É **dispositiva**: só uma decisão registrada a
+  muda. O uso passado pede essa decisão; não a toma.
+
+Divergência é deriva a declarar; nenhum lado vence em silêncio. (Autoridade para
+agir: §6-bis.)
+
 > **Fundamentação**: fonte única (weave/tangle): Knuth 1984 (*The Computer
 > Journal*); o artefato não contém seu próprio critério de correção (problema
 > do oráculo): Weyuker 1982 (*The Computer Journal* 25(4):465–470; teste de
@@ -369,6 +385,32 @@ portador (§10). **Este é o princípio-mãe do eixo de durabilidade.**
 > Parnas & Clements 1986; DRY de conhecimento: Hunt & Thomas 1999. Obra ≠
 > expressão ≠ manifestação (re-expressão derivada ≠ duplicação de autoridade):
 > FRBR (*Functional Requirements for Bibliographic Records*), IFLA 1998 `[WEB ✓ 2026-06-03]`.
+>
+> Fonte declarada ≠ fonte usada `[WEB ✓ 2026-09-29]`: indicações de autoria "are never sufficient
+> *by themselves*" e "only afford a presumption"; *autêntico* "has reference to the origin only,
+> not to the contents", e por isso cada afirmação de um documento se examina à parte; e "the
+> extreme of distrust ... is almost as mischievous as the extreme of credulity": Langlois &
+> Seignobos 1898 (*Introduction to the Study of History*, trad. Berry, liv. II, caps. III e VII).
+> O que resta diretamente de um ato (*Überreste*) ≠ o que chega pelo relato de alguém
+> (*Tradition*), a mesma fonte sendo um ou outro conforme é tomada: Bernheim 1889 (*Lehrbuch der
+> historischen Methode*; lido na 3ª–4ª ed., 1903, cap. 3 §1). A receita (proveniência
+> prospectiva) ≠ o registro dos passos executados (proveniência retrospectiva): Davidson & Freire
+> 2008 (tutorial SIGMOD '08). O registro oficial (*authoritative record*) é o "considered by the
+> creator to be its official record", uma decisão e não um fato de conteúdo: InterPARES 2
+> Project, *Glossary* (versão de 2025-04-01). Lugar de publicação sabidamente falso se transcreve
+> como está, com o verdadeiro ao lado ("Philadelphia [that is, Frankfurt]") e a base da correção
+> em nota: *Descriptive Cataloging of Rare Materials* (ed. RDA), RBMS/ACRL 2022, regra 5.21.36.
+> Termos expressos prevalecem sobre a prática, que conta como evidência de modificação: Uniform
+> Commercial Code §1-303(e)(1) e (f) (direito contratual; usado aqui como `[ANALOGIA]`).
+>
+> Instância de era `[2026-09]`: com o método no prompt, leitores de dois fabricantes usaram a fonte
+> que um leia-me declarava canônica contra os parâmetros que os resultados refletem, e chamaram esses
+> traços de deriva. Com este parágrafo, leitores de 8 fabricantes reproduziram pelos traços mais
+> vezes, e os controles ficaram dentro da margem pré-registrada (declaração confirmada pelos traços;
+> declaração sem contradição; outro domínio). Alguns leitores ainda avisaram à toa quando existia uma
+> cópia divergente e nada contradizia a declaração, concentrado num fabricante; uma nova redação do
+> ramo indeterminado não mudou isso `[TESTADO 2026-09-30: EXPLORATÓRIO; ALVO SOBE, CONTROLES NA MARGEM]`.
+> Registro: `lab/2026-09-26-temporalidade/RESULTADOS-f6-fonte.md`.
 
 ## 6. Disciplina de fonte: a epistemologia do que se afirma
 

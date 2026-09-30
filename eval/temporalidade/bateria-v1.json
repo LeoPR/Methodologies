@@ -1,0 +1,678 @@
+{
+ "_doc": "Bateria de temporalidade v1 (2026-09-30). Cada fixture: cenas com letra interna (fixa; e a que o gabarito usa), ordem de apresentacao em 'apresentacao', gabarito de pares (antes), pares sem ordem (incomparaveis), marcas esperadas na NOTA e controles. O modelo NAO ve a letra interna: o runner rotula as cenas A, B, C... na ordem em que aparecem e grava o mapa no cabecalho (mapa=<letras internas na ordem de apresentacao>), para que lacuna e intruso nao vazem pela letra. Pontuador: eval/temporalidade/score_tb.py. Pre-registro: lab/2026-09-26-temporalidade/PREREG-bateria-v1.md.",
+ "tarefa": "Estas cenas descrevem, fora de ordem, um mesmo episódio. Reconstrua a sequência do que aconteceu.\nNas duas últimas linhas, escreva:\nSEQUÊNCIA: <as letras das cenas na ordem, separadas por ' → '; use ' | ' entre cenas cuja ordem relativa não dá para saber>\nNOTA: <ressalvas sobre a reconstrução, se houver; ou 'nenhuma'>",
+ "protocolo": "Protocolo para reconstruir uma sequência:\n1. A ordem sai da dependência: uma cena que pressupõe um estado vem depois da cena que o produz. Posição na lista e ordem de leitura não são evidência de tempo.\n2. Horário anotado é evidência que pode estar errada: se contradiz a dependência, siga a dependência e aponte o conflito.\n3. Se uma cena pressupõe um estado que nenhuma cena mostra, e que não vinha desde o começo do episódio, falta um passo: diga qual.\n4. Uma cena sem relação com as outras (não depende delas, não é pressuposta por elas, nem trata das mesmas pessoas ou objetos) não pertence ao episódio: aponte-a.\n5. Entre duas cenas sem dependência, a ordem não se sabe: não a invente.\n6. O que você inferir, marque como inferido; não preencha em silêncio.",
+ "dominios": {
+  "P": {
+   "nome": "paraquedas",
+   "regras": null
+  },
+  "O": {
+   "nome": "processo inventado",
+   "regras": [
+    "Só se encaixa no suporte um orbe que já foi polido.",
+    "Só se carrega um orbe que está encaixado no suporte.",
+    "Um orbe só brilha depois de carregado.",
+    "O selo só se rompe depois que o orbe começa a brilhar.",
+    "Só se guarda na caixa um orbe cujo selo já se rompeu."
+   ]
+  }
+ },
+ "fixtures": {
+  "T1-P": {
+   "familia": "T1",
+   "dominio": "P",
+   "papel": "ordem",
+   "cenas": {
+    "A": "Ainda no chão, ela sobe a escada e entra no avião, com o paraquedas nas costas.",
+    "B": "Com ela a bordo, o avião decola e sobe até ficar bem acima das nuvens.",
+    "C": "Da porta aberta do avião, ela salta e cai em queda livre, braços abertos.",
+    "D": "Ela puxa o comando, o velame se abre e ela desce devagar até pousar no campo.",
+    "E": "Já no chão, ela recolhe o velame no meio do campo."
+   },
+   "antes": [
+    [
+     "A",
+     "B"
+    ],
+    [
+     "B",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": null,
+   "apresentacao": [
+    [
+     "D",
+     "B",
+     "E",
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "E",
+     "A",
+     "D",
+     "B"
+    ]
+   ]
+  },
+  "T1-O": {
+   "familia": "T1",
+   "dominio": "O",
+   "papel": "ordem",
+   "cenas": {
+    "A": "O orbe está polido e ainda fora do suporte.",
+    "B": "O orbe está encaixado no suporte e já carregado, mas ainda apagado.",
+    "C": "O orbe brilha no suporte; o selo ainda está inteiro.",
+    "D": "O selo está rompido e o orbe ainda brilha no suporte.",
+    "E": "O orbe está guardado na caixa."
+   },
+   "antes": [
+    [
+     "A",
+     "B"
+    ],
+    [
+     "B",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": null,
+   "apresentacao": [
+    [
+     "D",
+     "B",
+     "E",
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "E",
+     "A",
+     "D",
+     "B"
+    ]
+   ]
+  },
+  "T2-P": {
+   "familia": "T2",
+   "dominio": "P",
+   "papel": "horario-errado",
+   "cenas": {
+    "A": "[09h02] Ainda no chão, ela sobe a escada e entra no avião, com o paraquedas nas costas.",
+    "B": "[09h10] Com ela a bordo, o avião decola e sobe até ficar bem acima das nuvens.",
+    "C": "[09h25] Da porta aberta do avião, ela salta e cai em queda livre, braços abertos.",
+    "D": "[09h21] Ela puxa o comando, o velame se abre e ela desce devagar até pousar no campo.",
+    "E": "[09h36] Já no chão, ela recolhe o velame no meio do campo."
+   },
+   "antes": [
+    [
+     "A",
+     "B"
+    ],
+    [
+     "B",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": "conflito",
+   "conflito": [
+    "C",
+    "D"
+   ],
+   "apresentacao": [
+    [
+     "D",
+     "B",
+     "E",
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "E",
+     "A",
+     "D",
+     "B"
+    ]
+   ]
+  },
+  "T2-O": {
+   "familia": "T2",
+   "dominio": "O",
+   "papel": "horario-errado",
+   "cenas": {
+    "A": "[14h05] O orbe está polido e ainda fora do suporte.",
+    "B": "[14h20] O orbe está encaixado no suporte e já carregado, mas ainda apagado.",
+    "C": "[14h41] O orbe brilha no suporte; o selo ainda está inteiro.",
+    "D": "[14h33] O selo está rompido e o orbe ainda brilha no suporte.",
+    "E": "[14h52] O orbe está guardado na caixa."
+   },
+   "antes": [
+    [
+     "A",
+     "B"
+    ],
+    [
+     "B",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": "conflito",
+   "conflito": [
+    "C",
+    "D"
+   ],
+   "apresentacao": [
+    [
+     "D",
+     "B",
+     "E",
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "E",
+     "A",
+     "D",
+     "B"
+    ]
+   ]
+  },
+  "T2c-P": {
+   "familia": "T2c",
+   "dominio": "P",
+   "papel": "controle-horario",
+   "cenas": {
+    "A": "[09h02] Ainda no chão, ela sobe a escada e entra no avião, com o paraquedas nas costas.",
+    "B": "[09h10] Com ela a bordo, o avião decola e sobe até ficar bem acima das nuvens.",
+    "C": "[09h25] Da porta aberta do avião, ela salta e cai em queda livre, braços abertos.",
+    "D": "[09h26] Ela puxa o comando, o velame se abre e ela desce devagar até pousar no campo.",
+    "E": "[09h36] Já no chão, ela recolhe o velame no meio do campo."
+   },
+   "antes": [
+    [
+     "A",
+     "B"
+    ],
+    [
+     "B",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": null,
+   "apresentacao": [
+    [
+     "D",
+     "B",
+     "E",
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "E",
+     "A",
+     "D",
+     "B"
+    ]
+   ]
+  },
+  "T2c-O": {
+   "familia": "T2c",
+   "dominio": "O",
+   "papel": "controle-horario",
+   "cenas": {
+    "A": "[14h05] O orbe está polido e ainda fora do suporte.",
+    "B": "[14h20] O orbe está encaixado no suporte e já carregado, mas ainda apagado.",
+    "C": "[14h33] O orbe brilha no suporte; o selo ainda está inteiro.",
+    "D": "[14h41] O selo está rompido e o orbe ainda brilha no suporte.",
+    "E": "[14h52] O orbe está guardado na caixa."
+   },
+   "antes": [
+    [
+     "A",
+     "B"
+    ],
+    [
+     "B",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": null,
+   "apresentacao": [
+    [
+     "D",
+     "B",
+     "E",
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "E",
+     "A",
+     "D",
+     "B"
+    ]
+   ]
+  },
+  "T3-P": {
+   "familia": "T3",
+   "dominio": "P",
+   "papel": "lacuna",
+   "cenas": {
+    "A": "Ainda no chão, ela sobe a escada e entra no avião, com o paraquedas nas costas.",
+    "C": "Da porta aberta do avião, ela salta e cai em queda livre, braços abertos.",
+    "D": "Ela puxa o comando, o velame se abre e ela desce devagar até pousar no campo.",
+    "E": "Já no chão, ela recolhe o velame no meio do campo."
+   },
+   "antes": [
+    [
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": "lacuna",
+   "lacuna_rx": "(?i)decol|\\bvoo\\b|\\bvo[ao]u\\b|levant\\w* voo|ganh\\w* altitude|sub\\w* .{0,30}(nuvens|altitude|c[ée]u|\\bar\\b)|avi[ãa]o (sobe|subiu|subir|no ar)|do ch[ãa]o .{0,60}(nuvens|no ar|altitude)|(ch[ãa]o|solo) (para|at[ée]) .{0,30}(nuvens|\\bar\\b|altitude)|n[ãa]o h[áa] cena .{0,50}(avi[ãa]o|nuvens)|falt\\w* .{0,50}(avi[ãa]o|nuvens|voo|altitude)|ganh\\w* altur|avi[ãa]o .{0,25}(sub\\w*|sobe|altur|altitude)|subida do avi[ãa]o",
+   "apresentacao": [
+    [
+     "D",
+     "E",
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "E",
+     "A",
+     "D"
+    ]
+   ]
+  },
+  "T3-O": {
+   "familia": "T3",
+   "dominio": "O",
+   "papel": "lacuna",
+   "cenas": {
+    "A": "O orbe está polido e ainda fora do suporte.",
+    "C": "O orbe brilha no suporte; o selo ainda está inteiro.",
+    "D": "O selo está rompido e o orbe ainda brilha no suporte.",
+    "E": "O orbe está guardado na caixa."
+   },
+   "antes": [
+    [
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": "lacuna",
+   "lacuna_rx": "(?i)encaix|carreg|\\bno suporte\\b.{0,40}(falt|n[ãa]o h[áa]|nenhuma)|(falt|n[ãa]o h[áa]|nenhuma)\\w*.{0,60}(encaix|carreg)|coloc\\w* no suporte|energiz|inserid|mont\\w* no suporte",
+   "apresentacao": [
+    [
+     "D",
+     "E",
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "E",
+     "A",
+     "D"
+    ]
+   ]
+  },
+  "T4-P": {
+   "familia": "T4",
+   "dominio": "P",
+   "papel": "intruso",
+   "cenas": {
+    "A": "Ainda no chão, ela sobe a escada e entra no avião, com o paraquedas nas costas.",
+    "B": "Com ela a bordo, o avião decola e sobe até ficar bem acima das nuvens.",
+    "C": "Da porta aberta do avião, ela salta e cai em queda livre, braços abertos.",
+    "D": "Ela puxa o comando, o velame se abre e ela desce devagar até pousar no campo.",
+    "E": "Já no chão, ela recolhe o velame no meio do campo.",
+    "F": "Num quiosque da praia, um vendedor atende a fila de sorvete."
+   },
+   "antes": [
+    [
+     "A",
+     "B"
+    ],
+    [
+     "B",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": "intruso",
+   "intruso": "F",
+   "intruso_rx": "(?i)sorvete|quiosque|praia|vendedor",
+   "apresentacao": [
+    [
+     "D",
+     "B",
+     "F",
+     "E",
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "E",
+     "A",
+     "F",
+     "D",
+     "B"
+    ]
+   ]
+  },
+  "T4-O": {
+   "familia": "T4",
+   "dominio": "O",
+   "papel": "intruso",
+   "cenas": {
+    "A": "O orbe está polido e ainda fora do suporte.",
+    "B": "O orbe está encaixado no suporte e já carregado, mas ainda apagado.",
+    "C": "O orbe brilha no suporte; o selo ainda está inteiro.",
+    "D": "O selo está rompido e o orbe ainda brilha no suporte.",
+    "E": "O orbe está guardado na caixa.",
+    "F": "Numa cidade do litoral, chove forte sobre o telhado de uma igreja."
+   },
+   "antes": [
+    [
+     "A",
+     "B"
+    ],
+    [
+     "B",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": "intruso",
+   "intruso": "F",
+   "intruso_rx": "(?i)chuv|chove|telhado|igreja|litoral",
+   "apresentacao": [
+    [
+     "D",
+     "B",
+     "F",
+     "E",
+     "A",
+     "C"
+    ],
+    [
+     "C",
+     "E",
+     "A",
+     "F",
+     "D",
+     "B"
+    ]
+   ]
+  },
+  "T5-P": {
+   "familia": "T5",
+   "dominio": "P",
+   "papel": "incomparaveis",
+   "cenas": {
+    "A": "Ainda no chão, ela sobe a escada e entra no avião, com o paraquedas nas costas.",
+    "B": "Com ela a bordo, o avião decola e sobe até ficar bem acima das nuvens.",
+    "C": "Da porta aberta do avião, ela salta e cai em queda livre, braços abertos.",
+    "D": "Ela puxa o comando, o velame se abre e ela desce devagar até pousar no campo.",
+    "F": "No hangar, ela veste o paraquedas e aperta as tiras.",
+    "G": "Na pista, um funcionário de solo encosta a escada na porta do avião."
+   },
+   "antes": [
+    [
+     "F",
+     "A"
+    ],
+    [
+     "G",
+     "A"
+    ],
+    [
+     "A",
+     "B"
+    ],
+    [
+     "B",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ]
+   ],
+   "incomparaveis": [
+    [
+     "F",
+     "G"
+    ]
+   ],
+   "nota_esperada": null,
+   "apresentacao": [
+    [
+     "D",
+     "G",
+     "B",
+     "A",
+     "F",
+     "C"
+    ],
+    [
+     "F",
+     "C",
+     "A",
+     "D",
+     "G",
+     "B"
+    ]
+   ],
+   "incomp_txt": {
+    "F": "(?i:vest\\w*|hangar|tiras)",
+    "G": "(?i:encost\\w* a escada|funcion[áa]rio|pista)"
+   }
+  },
+  "T5-O": {
+   "familia": "T5",
+   "dominio": "O",
+   "papel": "incomparaveis",
+   "cenas": {
+    "A": "O orbe está polido e ainda fora do suporte.",
+    "F": "O suporte está vazio e ainda não recebeu nenhum orbe.",
+    "B": "O orbe está encaixado no suporte e já carregado, mas ainda apagado.",
+    "C": "O orbe brilha no suporte; o selo ainda está inteiro.",
+    "D": "O selo está rompido e o orbe ainda brilha no suporte."
+   },
+   "antes": [
+    [
+     "A",
+     "B"
+    ],
+    [
+     "F",
+     "B"
+    ],
+    [
+     "B",
+     "C"
+    ],
+    [
+     "C",
+     "D"
+    ]
+   ],
+   "incomparaveis": [
+    [
+     "A",
+     "F"
+    ]
+   ],
+   "nota_esperada": null,
+   "apresentacao": [
+    [
+     "D",
+     "A",
+     "B",
+     "C",
+     "F"
+    ],
+    [
+     "F",
+     "C",
+     "A",
+     "D",
+     "B"
+    ]
+   ],
+   "incomp_txt": {
+    "A": "(?i:polid|polimento)",
+    "F": "(?i:vazi[oa]|n[ãa]o recebeu)"
+   }
+  },
+  "T6-P": {
+   "familia": "T6",
+   "dominio": "P",
+   "papel": "fora-do-script",
+   "cenas": {
+    "A": "Ainda no chão, ela sobe a escada e entra no avião, com o paraquedas nas costas.",
+    "B": "Com ela a bordo, o avião decola e sobe até ficar bem acima das nuvens.",
+    "X": "Com o avião no alto, ainda dentro da cabine, o velame se abre sozinho e a arrasta pela porta aberta.",
+    "D": "Ela desce pendurada no velame aberto, já longe do avião, até pousar no campo, sem ter passado por queda livre.",
+    "E": "Já no chão, ela recolhe o velame no meio do campo."
+   },
+   "antes": [
+    [
+     "A",
+     "B"
+    ],
+    [
+     "B",
+     "X"
+    ],
+    [
+     "X",
+     "D"
+    ],
+    [
+     "D",
+     "E"
+    ]
+   ],
+   "incomparaveis": [],
+   "nota_esperada": null,
+   "apresentacao": [
+    [
+     "D",
+     "A",
+     "X",
+     "E",
+     "B"
+    ],
+    [
+     "E",
+     "B",
+     "D",
+     "X",
+     "A"
+    ]
+   ]
+  }
+ }
+}

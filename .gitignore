@@ -27,6 +27,7 @@ lab/2026-06-04-dev-environment-z/snapshot-fonte/
 # pesquisa locais; as avaliações de projetos REAIS (NNN/TCF/pdf2md/project_ia) são
 # PRIVADAS. Não publicar os dumps — publicar apenas um RESUMO curado. Visualização é local.
 eval/strata/planos/
+eval/temporalidade/planos/
 
 # Segredos locais (NUNCA versionar) — chaves de API dos provedores (OpenRouter, Cerebras, Groq, NVIDIA...)
 .openrouter-key

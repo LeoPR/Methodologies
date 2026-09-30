@@ -2,7 +2,7 @@
 title: 'Temporalidade: estudo próprio (LLMs e documentação)'
 created: 2026-09-26
 updated: 2026-09-30
-status: 'Aberto. Ontologia v0 + protótipo; F6-status medido contra modelo (2026-09-29, exploratório): ver RESULTADOS-f6-status.md.'
+status: 'Aberto. Ontologia v0 + protótipo; §3 e §5 do Strata testados e aplicados; bateria de capacidade v1 pré-registrada (PREREG-bateria-v1.md).'
 tags: [temporalidade, perecibilidade, llm, documentacao]
 ---
 
@@ -38,6 +38,9 @@ A revisão de LLMs cobre sobretudo a camada 1. O mapa amplo (quatro mapas + sín
   controles dentro da margem). Aplicado ao canônico v1.2.8 (o texto v1; o v2 não melhorou o controle).
 - [AVALIACAO-testes-sinteticos.md](AVALIACAO-testes-sinteticos.md): os testes atuais (F5, F6) cobrem
   a ontologia? Não o núcleo; o que existe, o que falta e esboço de bateria nova.
+- [PREREG-bateria-v1.md](PREREG-bateria-v1.md): a bateria de capacidade que saiu desse esboço (T1–T6,
+  domínio familiar × inventado, braço ingênuo × protocolo da ontologia). Executáveis em
+  `eval/temporalidade/`.
 - [MAPA-5-fisica.md](MAPA-5-fisica.md): Aristóteles a Page–Wootters; ordem causal, causal sets, seta.
 - [MAPA-6-matematica.md](MAPA-6-matematica.md): teoria da ordem, instantes de eventos, ramificado,
   sistemas de transição, bitemporal, estruturas de eventos.

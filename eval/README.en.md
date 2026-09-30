@@ -24,6 +24,11 @@ methodology nor the focus.
 - `strata/` holds Strata's proof: multi-model runner, scorers (the programs that grade
   outputs), fixtures (controlled toy projects), scenarios, `planos/`.
   See [`strata/README.en.md`](strata/README.en.md).
+- `temporalidade/` holds the temporality capability battery: does a model order scenes by state
+  dependency, notice a missing step, an intruder and a wrong timestamp, and leave unordered what
+  the evidence does not order? The battery, runner, scorer, blind review and analysis are in the
+  scripts' headers. It reuses `strata/core/`. The pre-registration is in
+  `lab/2026-09-26-temporalidade/`.
 - `comporta/`: (future) Comporta's proof (e.g.: `detect_env` + environment scenarios).
 
 ## Classification rule

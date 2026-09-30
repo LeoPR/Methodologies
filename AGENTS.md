@@ -94,6 +94,9 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     calc_stats), `judges/`, `aggregate/`, `gen/`, `ops/` (run_*.sh), `variantes/` (deltas do metodo para A/B).
     **Dados ficam na raiz** (planos/, cenarios/, f4-manifests/, fixtures-*/). Detalhes:
     `eval/strata/README.pt-BR.md`, secao "Layout das pastas".
+  - `eval/temporalidade/`: bateria de capacidade de temporalidade (ordem por dependencia, lacuna,
+    intruso, horario errado, ambiguidade); reusa `eval/strata/core/`. Uso no cabecalho dos scripts;
+    pre-registro em `lab/2026-09-26-temporalidade/PREREG-bateria-v1.md`.
 - `prototype/`: placeholder (testar a receita em escala; futuro).
 - `outreach/`: **APOIO** (comunicacao/divulgacao: posts, imagens). Fora dos 3 territorios de
   artefato (e do `decisions/`); nao e produto, pesquisa nem ferramenta. Nao publica metrica nova.

@@ -25,6 +25,11 @@ metodologia nem o foco.
 - `strata/` guarda a prova do Strata: runner multi-modelo, scorers (os programas que dão
   nota às saídas), fixtures (projetinhos controlados), cenários, `planos/`.
   Ver [`strata/README.pt-BR.md`](strata/README.pt-BR.md).
+- `temporalidade/` guarda a bateria de capacidade de temporalidade: o modelo ordena cenas pela
+  dependência entre estados, nota o passo que falta, o intruso e o horário errado, e deixa sem ordem
+  o que a evidência não ordena? A bateria, o runner, o pontuador, a revisão cega e a análise estão
+  descritos no cabeçalho dos scripts. Reusa `strata/core/`. O pré-registro fica em
+  `lab/2026-09-26-temporalidade/`.
 - `comporta/`: (futuro) prova do Comporta (ex.: `detect_env` + cenários de ambiente).
 
 ## Regra de classificação

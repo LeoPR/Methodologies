@@ -3,7 +3,7 @@ name: map-methodologies-project
 type: navigation
 status: active
 created: 2026-06-03
-updated: 2026-09-29
+updated: 2026-09-30
 ---
 
 # Methodologies: mapa
@@ -49,7 +49,8 @@ Methodologies/                        <- Oficina de metodologias (Strata pronto;
 │   └── 2026-09-26-temporalidade/       <- TEMPORALIDADE (3ª frente): 8 mapas de literatura, ONTOLOGIA v0, protótipo, A/B F6-status
 ├── eval/                             <- LABORATÓRIO DE PROVA (a "chave de fenda": comprova; NÃO é a metodologia, NÃO é o foco)
 │   ├── README.en.md / README.pt-BR.md <- princípio (meio≠fim) + 3 territórios + regra evidencia/instrumento/infra
-│   └── strata/                       <- harness do Strata: runner, scorers, fixtures, cenários + planos/ (gitignored)
+│   ├── strata/                       <- harness do Strata: runner, scorers, fixtures, cenários + planos/ (gitignored)
+│   └── temporalidade/                <- bateria de capacidade de temporalidade (fixtures, runner, pontuador, revisão, análise)
 ├── prototype/                        <- cozinha prototipo (escala; futuro)
 ├── outreach/                         <- APOIO: comunicação/divulgação (posts, imagens); fora dos 3 territórios de artefato
 ├── README.md                         <- entry humano (as 3 cozinhas)

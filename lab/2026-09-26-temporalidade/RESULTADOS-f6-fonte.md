@@ -2,7 +2,7 @@
 title: 'Resultados: acréscimo "Fonte declarada ≠ fonte usada" (Strata §5)'
 created: 2026-09-30
 updated: 2026-09-30
-status: 'Etapa exploratória fechada: 8 modelos, 8 fabricantes. Regra 2 do pré-registro (alvo sobe, controles intactos): adotar com carimbo de testado. Decisão de aplicar ao canônico: dono.'
+status: 'Etapa 1 (regra 2) e reteste do texto v2 (adendo §10: H2 principal falhou; regra 3: adota-se o v1, o testado na etapa 1). Aplicação ao canônico: dono.'
 tags: [strata, s5, f6-fonte, a-b, resultados]
 ---
 
@@ -107,3 +107,31 @@ alvo sem método (0/5), acerta os dois (5/5 ∧ 5/5).
   gerar desconfiança geral": **sustentado** no exploratório (8 fabricantes, K = 3 a 5).
 - "Ele não causa aviso à toa": **quase**; há sinal de excesso no caso sem traço, dentro da margem,
   concentrado no gpt-6-luna.
+
+## Reteste do texto v2 (adendo §10 do pré-registro, 2026-09-30)
+
+O v2 muda duas coisas no primeiro item ("a falta de traço não a contradiz"; o ramo indeterminado
+amarrado a "esses traços"). Braço S128b, mesmas fixtures, mesmos 8 modelos. Custo: US$ 1,51.
+
+| fixture | v1.2.7 | acréscimo v1 | acréscimo v2 |
+|---|---|---|---|
+| `f6-tempo-sem-traco` (controle principal) | 37/38 (97%) | 34/38 (89%) | 33/37 (89%) |
+| `f6-tempo-inverso` | 38/38 | 38/38 | 38/38 |
+| `f6-fonte-nova-inverso` | 38/38 | 38/38 | 38/38 |
+| `f6-tempo-s5` (alvo) | 28/36 (78%) | 35/38 (92%) | **38/38 (100%)** |
+| `f6-fonte-nova` | 37/38 | 36/38 | 37/38 |
+| `f6-sem-copia` (borda) | 7/38 (18%) | 14/36 (39%) | 16/37 (43%) |
+| `f6-indeterminado` (regressão) | 28/38 (74%) | 27/37 (73%) | 28/37 (76%) |
+
+- **H2' (primária) falhou:** o controle sem traço não melhorou (89% nos dois textos). As falhas do v2:
+  gpt-6-luna 2 de 5 ("indeterminados — há duas versões incompatíveis"), gemma 1 ("indeterminado,
+  divergência entre protocolo.md e protocolo_copia.md"). A mera existência de uma cópia divergente
+  basta para esses leitores, qualquer que seja a redação do ramo.
+- **H2'' (outros controles), H1' (alvo) e regressão:** ok. O v2 levou o alvo a 100%.
+- **Decisão pela regra 3 do adendo:** o v2 **não** é adotado; vale o v1, testado na etapa 1 (regra 2),
+  com a nota do ponto fraco: excesso de aviso quando existe uma cópia divergente e nada contradiz a
+  declaração, concentrado no gpt-6-luna.
+- Revisão cega: X9 e X10 (regressão, gpt-oss-20b) LISTA-AMBOS; X11, X12 e X13 (glm) truncados, fora.
+- Rota: muse pelo OpenRouter neste braço (na etapa 1, pela NVIDIA). A NVIDIA recusou por um período
+  (HTTP 403) e depois voltou; as saídas foram refeitas.
+

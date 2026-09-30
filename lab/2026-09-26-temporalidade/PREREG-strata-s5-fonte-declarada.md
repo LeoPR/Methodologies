@@ -2,7 +2,7 @@
 title: 'Pré-registro: o acréscimo "Fonte declarada ≠ fonte usada" (Strata §5) faz o leitor seguir a evidência de uso sem desconfiar de declaração certa?'
 created: 2026-09-29
 updated: 2026-09-30
-status: 'Etapa 1 executada (regra 2). Adendo §10 (texto v2 do ramo indeterminado) pré-registrado em 2026-09-30, antes do reteste.'
+status: 'Etapa 1 (regra 2) e reteste v2 (adendo §10) executados. H2 principal do reteste falhou: regra 3, vale o v1. Ver RESULTADOS-f6-fonte.md.'
 tags: [strata, s5, pre-registro, a-b, f6-fonte]
 ---
 

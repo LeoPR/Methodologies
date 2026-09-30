@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-09-29
+updated: 2026-09-30
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -80,7 +80,8 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
   - `2026-09-26-temporalidade/`: **TEMPORALIDADE** (3a frente, aberta): por que LLMs erram com o
     tempo. Temporalidade = ordem inferida por dependência de estado + notar a lacuna, não datas.
     Oito mapas de literatura (filosofia a IA), `ONTOLOGIA.md` v0, `prototipo/` (demonstrador, não
-    evidência) e o A/B F6-status do parágrafo "Ler o tempo de volta" (`RESULTADOS-f6-status.md`).
+    evidência), o A/B F6-status do parágrafo "Ler o tempo de volta" (`RESULTADOS-f6-status.md`) e o
+    teste do acréscimo ao §5 "Fonte declarada ≠ fonte usada" (`RESULTADOS-f6-fonte.md`), ambos no canônico.
   - `2026-09-26-revisao-superficie/`: revisão de superfície do Strata + **auditoria declarado × feito**
     (`AUDITORIA-sync.md`, destino por achado). Registro do conserto, não fonte de estado.
 - `eval/`: **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia

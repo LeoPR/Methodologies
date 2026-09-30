@@ -3,10 +3,10 @@ name: status-methodologies-project
 type: status
 status: active
 created: 2026-06-03
-updated: 2026-09-29
+updated: 2026-09-30
 ---
 
-# STATUS: 2026-09-29
+# STATUS: 2026-09-30
 
 Estado atual, no presente. Estados anteriores estão no histórico do git deste arquivo.
 Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.md).
@@ -26,7 +26,10 @@ Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.m
   avisarem mais quando a ordem ou a vigência não se resolve (+25 pontos contra "sem método"); o
   parágrafo "Ler o tempo de volta" deu sinal fraco e desigual e entrou no §3 como norma, com o
   resultado declarado ([resultados](lab/2026-09-26-temporalidade/RESULTADOS-f6-status.md)). Achado:
-  com o método, alguns modelos seguem a fonte canônica declarada contra a evidência (§5).
+  com o método, alguns modelos seguiam a fonte canônica declarada contra a evidência.
+- **§5 "Fonte declarada ≠ fonte usada" (v1.2.8):** testado com 8 fabricantes; o alvo sobe e os
+  controles ficam na margem; aviso à toa residual quando há cópia divergente e nada contradiz a
+  declaração ([resultados](lab/2026-09-26-temporalidade/RESULTADOS-f6-fonte.md)).
 - **Guia de modelos:** custo e tempo em faixas; valores exatos e datados no banco.
 
 ## Frentes abertas
@@ -39,10 +42,8 @@ Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.m
 
 ## Aguardam decisão do dono
 
-1. Texto do acréscimo ao §5 (fonte canônica declarada × evidência de uso), em preparo; depois,
-   teste A/B como o do §3.
-2. Tirar da superfície o histórico append-only do hub (o git guarda o traço).
-3. Publicar nos canais as correções do outreach (fonte: `outreach/2026-09-26-*`).
+1. Tirar da superfície o histórico append-only do hub (o git guarda o traço).
+2. Publicar nos canais as correções do outreach (fonte: `outreach/2026-09-26-*`).
 
 ## Pendências do método (canônico)
 

@@ -35,7 +35,7 @@ A revisão de LLMs cobre sobretudo a camada 1. O mapa amplo (quatro mapas + sín
   Pré-registro em [PREREG-strata-s3-ler-tempo.md](PREREG-strata-s3-ler-tempo.md).
 - [PROPOSTA-S5-fonte-declarada.md](PROPOSTA-S5-fonte-declarada.md): acréscimo ao §5 (fonte declarada ≠
   fonte usada), com pesquisa e fontes. Testado: [RESULTADOS-f6-fonte.md](RESULTADOS-f6-fonte.md) (alvo 78% → 92%,
-  controles dentro da margem; regra 2: adotar com carimbo).
+  controles dentro da margem). Aplicado ao canônico v1.2.8 (o texto v1; o v2 não melhorou o controle).
 - [AVALIACAO-testes-sinteticos.md](AVALIACAO-testes-sinteticos.md): os testes atuais (F5, F6) cobrem
   a ontologia? Não o núcleo; o que existe, o que falta e esboço de bateria nova.
 - [MAPA-5-fisica.md](MAPA-5-fisica.md): Aristóteles a Page–Wootters; ordem causal, causal sets, seta.

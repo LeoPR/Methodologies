@@ -6,3 +6,4 @@ resultado). O runner registra o `method_sha` do texto final no cabeçalho de cad
 | delta | onde entra | teste |
 |---|---|---|
 | `s3-ler-tempo.pt.md` | §3, antes da fundamentação (âncora `> **Fundamentação**: proveniência de dados`) | F6-status (pré-registro em `lab/2026-09-26-temporalidade/PREREG-strata-s3-ler-tempo.md`) |
+| `s5-fonte-declarada.pt.md` | §5, antes da fundamentação (âncora `> **Fundamentação**: fonte única (weave/tangle)`) | pré-registro em `lab/2026-09-26-temporalidade/PREREG-strata-s5-fonte-declarada.md` |

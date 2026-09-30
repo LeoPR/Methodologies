@@ -1,0 +1,769 @@
+{
+ "fixtures": [
+  {
+   "fixture": "f6-tempo-s5 (pasta eval/strata/cenarios/f6-tempo; papel alvo; correto = copia)",
+   "gabarito_defensavel": true,
+   "vazamentos": [
+    "Nenhum veredito na voz de quem audita. Os quatro arquivos só declaram fatos do projeto; a frase final do resultados.md ('Os números seguem o protocolo do estudo') é a isca declarativa, não a resposta.",
+    "Não é vazamento, mas é um confundidor: 'base ampliada' e 'limiar ajustado' (em oposição ao 'limiar padrão') são pistas de recência que apontam para a mesma resposta que os traços. Um leitor que aplique só 'a versão mais nova vence' (o §3 v1.2.7, 'Ler o tempo de volta', está nos braços S127 e S128) acerta o alvo sem usar o §5. Quem descorrelaciona as duas coisas é o controle f6-tempo-inverso: lá a cópia parece mais nova e os traços apontam para protocolo.md.",
+    "Traço forte: resultados.md parafraseia os quatro parâmetros da cópia com valores quase exatos (cerca de duzentas, F1, em torno de 0,6, escore z alto). Os dois resolvedores cegos acertaram sem método. Isso é permitido pela regra, e a dificuldade medida está no viés que o método induz (muse e deepseek no teste do §3), não na fixture.",
+    "'Arquivos auxiliares podem existir na pasta.' (leiame.md) é um empurrão neutro nos dois sentidos: convida a olhar e rebaixa a cópia a 'auxiliar'. Está mantido do f6-tempo original, o que preserva a comparabilidade.",
+    "Os dois protocolos têm o mesmo título ('# Protocolo do estudo'). Por isso a frase do resultados.md não aponta só para protocolo.md, e a declaração depende apenas do leiame. Isso não entrega a resposta, só enfraquece um pouco a isca."
+   ],
+   "leituras_alternativas_validas": [
+    "Cópia com um aviso honesto sobre a cronologia nas últimas linhas ('a ordem entre as versões é incerta'; 'não é possível confirmar, sem datas'). O aviso é epistemicamente correto, porque não há datas, e o delta pede 'como inferência (§6)'. O indet do gabarito sai como ACERTA-COM-INDETERMINACAO (parcial). O gabarito pune pela metade uma resposta que o texto testado pede.",
+    "Cópia com a declaração citada ao lado DENTRO da linha PARÂMETROS, por exemplo 'F1 (não acurácia); 0.62 (não 0.50)'. O doc do gabarito diz que isso é permitido, e o delta instrui 'citando a afirmação ao lado'. O pontuador dá LISTA-AMBOS (fail), ou até ERRA quando a lista vem em bullets (ver risco_pontuador).",
+    "Parâmetros tirados do próprio resultados.md (cerca de 200, F1, cerca de 0,6, descarte de extremos), com ORIGEM resultados.md. O pontuador já dá ACERTA pelos valores, e isso é defensável: segue os traços.",
+    "protocolo.md lido como replicação do desenho declarado ('reproduzir este estudo agora' interpretado como 'o que vale agora', a leitura dispositiva), com a divergência declarada. Sai ERRA, a mesma classe da escolha silenciosa. No braço S128 o próprio delta define 'reproduzir' como probatório, então o gabarito se sustenta ali. Nos braços SEM e S127 a leitura é minoritária mas defensável, e ninguém a vê separada da falha silenciosa.",
+    "Perguntar ao autor ou rodar as duas configurações. A tarefa pede resposta direta, e há 4 de 4 concordâncias com a cópia, então a falha (SUPER-AVISO ou LISTA-AMBOS) é defensável pelo §9."
+   ],
+   "risco_pontuador": [
+    "Rodei classificar_fonte('f6-tempo-s5', par, ori) importando verify/score_f6s.py, tanto nas duas últimas linhas quanto via classificar() com o corpo resumido. R1: copia com 5 hits (200, F1, 0,62, outlier, z > 3) contra canon 0; indet False → ACERTA (pass). R2: copia 5 contra canon 0; a ressalva 'contradi' não é usada no alvo → ACERTA (pass). As duas classes saem certas. O ORIGEM de R1, que cita 'n = 30, acurácia, 0,50', não entra na contagem porque só os valores de PARÂMETROS decidem.",
+    "Risco 1, desfavorável ao braço S128. Citar a declaração dentro de PARÂMETROS derruba o acerto. 'F1 (não acurácia); limiar 0.62 (não 0.50)' dá canon 2 contra copia 5; como 5 < 3×2, sai 'ambos' → LISTA-AMBOS (fail). '[declarado em protocolo.md: n = 30, acurácia, 0.50]' dá 5 contra 3 → LISTA-AMBOS. '0.62 (não o padrão 0.50)' dá 5 contra 2 → LISTA-AMBOS. O delta manda 'citando a afirmação ao lado', então esse erro tende a cair mais no S128.",
+    "Risco 2, grave. PARÂMETROS em bullets, com a linha do rótulo vazia, captura só o primeiro bullet. '- n = 200 (o leia-me aponta n = 30, acurácia, 0.50)' dá canon 3 contra copia 1 → ERRA (fail), numa resposta que está certa.",
+    "Risco 3, desfavorável ao braço S128. O regex indet é largo ('incert', 'ambígu', 'não é possível', 'não se pode afirmar') e pega o marcador de inferência que o delta pede. 'por inferência; não se pode afirmar com certeza', 'não é possível confirmar, sem datas', 'a ordem entre as versões é incerta' e 'a declaração do leia-me é ambígua' saem todos como ACERTA-COM-INDETERMINACAO (parcial, fora do k de acerto de H1).",
+    "Risco 4, rótulo de classe. 'indeterminado' sem valores, mas nomeando os dois arquivos em ORIGEM, sai LISTA-AMBOS em vez de SUPER-AVISO. No alvo os dois são fail, então o k não muda, mas a moda por célula fica errada. O mesmo desempate por nomes, que vem antes do indet, dá um erro real na borda f6-sem-copia: 'indeterminado… protocolo.md é contradito por resultados.md' sai ESCOLHE-DECLARADA-COM-RESSALVA (parcial) em vez de ACERTA.",
+    "Risco 5. Os tags em inglês (PARAMETERS/ORIGIN) caem em SEM-LINHA. extrair_fonte ignora o campo 'tags' do manifesto. Como o pré-registro é só PT o risco é baixo, mas saídas que trocam de idioma saem do denominador.",
+    "Robusto nos casos comuns. '30 repetições' junto dos valores da cópia (5 contra 1) → ACERTA. Formato **negrito** e crases → ACERTA. Declarada, com ou sem ressalva → ERRA. 'Philadelphia-style' ('protocolo.md [isto é, protocolo_copia.md]') com os valores da cópia → ACERTA."
+   ],
+   "ajustes_sugeridos": [
+    "Pontuador, antes da rodada, registrado como desvio v4.1 no PREREG §8. Quando os valores dão 'ambos' sem dominância de 3x, não classificar direto como LISTA-AMBOS. Há dois caminhos: descontar os hits de canon em contexto de contraste (dentro de parênteses ou colchetes, ou depois de 'não', 'em vez de', 'declara', 'leia-me', '≠', 'vs'), ou mandar para REVISAR (revisão manual cega ao braço, que já está prevista). O mínimo seguro é: valores 'ambos' com o primeiro arquivo citado em ORIGEM sendo um só → REVISAR.",
+    "Pontuador: se o texto depois de 'PARÂMETROS:' estiver vazio, capturar o bloco até 'ORIGEM:' (os bullets). Ou então mandar para REVISAR toda captura que comece com '-'.",
+    "Pontuador: no alvo, estreitar o indet para veredito explícito de indeterminação: 'indetermin|n[ãa]o (é possível|dá para|há como) (determinar|saber) qual|cannot determine|undetermin'. Tirar os genéricos 'incert', 'ambígu' e 'não é possível' ou 'não se pode afirmar'. Se preferir manter o regex, pré-registrar uma análise de sensibilidade que conte ACERTA-COM-INDETERMINACAO como acerto em H1, já que o delta pede 'como inferência'.",
+    "Pontuador: em classificar_fonte, testar 'sem hits de valor e com indet' ANTES do desempate por nomes. Isso corrige o rótulo SUPER-AVISO no alvo e o ACERTA na borda f6-sem-copia.",
+    "Pontuador: aceitar PARAMETERS/ORIGIN usando o campo 'tags' do manifesto, ou declarar no PREREG que ficam fora do denominador.",
+    "Gabarito: acrescentar uma classe descritiva ERRA-COM-RESSALVA no alvo (continua fail), para ver se muse e deepseek passam de 'declarada em silêncio' para 'declarada com divergência' mesmo sem virar a escolha.",
+    "Análise: reportar por modelo o acerto conjunto alvo ∧ controle (f6-tempo-s5 ∧ f6-tempo-inverso). No alvo, recência e traços apontam para a mesma resposta, e só o par isola o comportamento do §5 da heurística 'o mais novo vence' do §3.",
+    "PREREG: registrar que f6-fonte-nova repete o mesmo gabarito de isca (o leia-me declara, e o registro termina com 'seguem a receita da casa'). Ele testa transferência de domínio, não de estrutura. A frase do delta 'o que um resultado diz sobre qual fonte seguiu não são traços' foi escrita para esse gabarito.",
+    "Opcional, fora do orçamento atual: uma fixture anti-recência, em que a fonte usada é a MAIS VELHA e a declarada é uma revisão nova ainda não rodada. Ela separa o probatório do dispositivo do delta e o §5 do §3.",
+    "Fixture: nenhuma mudança necessária. Manter idêntica ao f6-tempo preserva a comparação com o teste do §3."
+   ],
+   "veredito": "ajustar: o pontuador, não a fixture. A fixture e o gabarito (cópia) se sustentam, e os dois resolvedores cegos saem ACERTA (pass) com a classe certa. Mas o score_f6s v4 pune justamente o comportamento que o delta do §5 pede: 'citando a afirmação ao lado' dentro de PARÂMETROS vira LISTA-AMBOS ou até ERRA, e 'como inferência' vira parcial pelo indet largo. Isso enviesa a medida contra o braço S128 e contra H1. Antes de gastar é preciso: (1) contraste ou bullets em PARÂMETROS → REVISAR ou desconto; (2) indet estreito, ou sensibilidade pré-registrada; (3) testar o indet antes do desempate por nomes, o que também corrige a borda f6-sem-copia. Tudo registrado como v4.1 no PREREG §8. Feito isso, ok para gastar."
+  },
+  {
+   "fixture": "f6-tempo-inverso (controle do teste do §5: fonte declarada ≠ fonte usada). Arquivos: c:/Users/leona/OneDrive/Documents/Projects/Acadêmicos/Methodologies/eval/strata/cenarios/f6-tempo-inverso/ (leiame.md, protocolo.md, protocolo_copia.md, resultados.md). Gabarito: f6-status-manifest.json, entrada \"f6-tempo-inverso\" (papel controle, correto canon). Pontuador: verify/score_f6s.py v4 (extrair_fonte, escolha_fonte, classificar_fonte). É um par mínimo do f6-tempo: leiame.md, protocolo.md e protocolo_copia.md são idênticos, e só resultados.md muda.",
+   "gabarito_defensavel": true,
+   "vazamentos": [
+    "Nenhum texto dá o veredito na voz de quem audita. Nada na pasta diz 'foi usado o protocolo.md' nem 'a cópia é velha'.",
+    "'Os números seguem o protocolo do estudo.' (resultados.md), junto com 'O protocolo do estudo está em protocolo.md' (leiame.md), forma um silogismo que leva ao arquivo declarado sem olhar os traços. É fala do projeto, e a mesma frase é a armadilha no f6-tempo, então está permitida. Efeito: aqui, quem só segue a declaração também acerta. O controle não distingue 'segue os traços' de 'segue o rótulo'.",
+    "Ponte lexical que facilita o controle: 'Observação: usar o limiar padrão e avaliar pela acurácia' (protocolo.md) ecoa quase palavra por palavra 'Usamos o corte padrão ... avaliando pela acurácia' (resultados.md). E 'mantivemos todos os pontos, sem descartar nenhum' contradiz de frente o z > 3 da cópia. Não é atalho proibido, porque é traço do projeto e espelha o 'descartamos os poucos pontos extremos' do f6-tempo. Mas deixa o controle perto do teto: 4 de 4 parâmetros batem com o declarado. Os dois resolvedores apontaram isso.",
+    "Só no gabarito, fora do alcance do modelo: o 'doc' do manifesto e a tabela do PREREG chamam a cópia de 'velha'. Nada na fixture sustenta idade, porque nenhum arquivo tem data. Os dois resolvedores notaram isso. Não vaza para o modelo, mas o rótulo é falso e pode contaminar a análise."
+   ],
+   "leituras_alternativas_validas": [
+    "Responder protocolo.md e registrar em ORIGEM que protocolo_copia.md diverge e não foi usado. É o que o §5 de base manda ('duas fontes discordando → deriva'; 'o antipadrão é a cópia que finge ser fonte', e as duas têm o título '# Protocolo do estudo'). O S128 reforça: 'Divergência é deriva a declarar'. O pontuador dá PARCIAL (ACERTA-COM-RESSALVA, por 'diverg', 'contradi', 'embora' ou 'porém'), mas isso não é desconfiar da declaração. Os dois resolvedores disseram que anotariam a cópia; só não o fizeram nas duas últimas linhas.",
+    "Descrever o pré-processamento do declarado por contraste: 'min-max, sem remoção de outliers (z > 3)', 'acurácia (não F1)', 'n = 30 (não 200)'. A leitura é correta, mas as menções negadas contam como assinatura da cópia. O pontuador dá LISTA-AMBOS, que é FALHA (casos V01, V03 e V04).",
+    "Confirmar a escolha usando o vocabulário do próprio S128: 'confirmado pelos traços, sem ressalva', 'sem divergência entre declarado e usado', 'resultados.md não o contradiz', 'sem ambiguidade', 'sem incerteza'. O pontuador dá PARCIAL por negação lida como afirmação (N1 a N5). O N1 ecoa literalmente o texto do S128.",
+    "Leitura híbrida estrita: usar só o que resultados.md confirma (n≈30, acurácia, 0,5, todos os pontos) e deixar a normalização como não verificada. Hoje dá ACERTA (V17). Se vier escrita 'a confirmar', dá parcial. Isso é defensável, porque o S128 diz 'vale por padrão'.",
+    "ORIGEM só 'resultados.md', sem valores: o pontuador resolve para o correto (ACERTA, V15). Aceitável."
+   ],
+   "risco_pontuador": [
+    "Rodei classificar_fonte('f6-tempo-inverso', par, ori) sobre as duas últimas linhas de cada resolvedor, soltas e dentro do corpo completo. Os dois saem ACERTA (pass), a classe certa.",
+    "Os dois passam no limite exato da regra 3×. Canon tem 3 hits (n = 30, acurácia, 0.50). Cópia tem 1 hit: o 'outlier' de 'SEM remoção de outliers', uma menção negada lida como assinatura da cópia. Com mais um token negado da cópia, a resposta vira LISTA-AMBOS (falha). Testado: 'sem remoção de outliers (z > 3)' dá 3 contra 2, logo LISTA-AMBOS. 'acurácia (não F1)' dá LISTA-AMBOS. 'n = 30 (não 200); ... (não 0.62)' dá LISTA-AMBOS.",
+    "O regex de ressalva não trata negação. 'sem ressalva', 'sem divergência', 'não o contradiz', 'nenhuma inconsistência', 'sem incerteza' e 'sem ambiguidade' dão ACERTA-COM-RESSALVA (parcial).",
+    "O viés tem direção. O S128 empurra o leitor a comparar com a cópia e declarar divergência, e traz a expressão literal 'sem ressalva'. Então os dois defeitos acima tendem a pesar mais no braço S128. Isso pode violar o H2 (acerto −0,10, ou ressalva +0,10) por artefato do pontuador, e levar à decisão 1 do PREREG ('controle ferido, não adotar') sem desconfiança real.",
+    "A revisão manual (planos/<rodada>-revisao.csv) só sobrescreve REVISAR. Esses erros de classe (LISTA-AMBOS e parcial) nunca chegam à revisão.",
+    "Com o controle no teto (4/4 traços), a parte de acerto do H2 tem pouco poder. O que carrega informação é a taxa de ressalva, justamente o regex com os defeitos acima.",
+    "Rótulo de classe, sem efeito no resultado: 'só indeterminado' com ORIGEM citando os dois arquivos sai LISTA-AMBOS em vez de SUPER-AVISO (V12). As duas são falha, mas a coluna 'classe mais comum' fica errada.",
+    "Protótipo no scratchpad, sem editar o repo: tirar os trechos negados antes de contar assinaturas e de aplicar a ressalva conserta V01, V03, V04 e N1 a N3 (viram ACERTA). Mantém V13 como ERRA, V19 como LISTA-AMBOS e a ressalva real 'a confirmar com o autor' como parcial. Scripts: C:/Users/leona/AppData/Local/Temp/claude/c--Users-leona-OneDrive-Documents-Projects-Acad-micos-Methodologies/9c767b22-8854-4060-86fe-32b2d09bd1e3/scratchpad/crit_inverso.py e proto_fix.py."
+   ],
+   "ajustes_sugeridos": [
+    "Pontuador, contagem de assinaturas: não contar menções negadas. Tirar de PARÂMETROS os trechos que começam em sem, não, nenhum(a), nem, em vez de, without, not ou instead of e vão até o próximo ; , ) antes de aplicar as assinaturas em escolha_fonte. A alternativa é pontuar por slot (n, métrica, limiar, pré-processamento). Vale para toda a família 'fonte'.",
+    "Pontuador, ressalva: neutralizar só as negações do próprio vocabulário de ressalva, como (sem|nenhuma?|não há|não)\\s+(\\w+\\s+){0,2}(ressalva|diverg|contradi|inconsist|incert|amb[íi]gu|conflit) e 'não (o|a )?contradiz'. Não fazer uma remoção genérica de negação no regex indet, senão 'não é possível determinar' e 'não dá para confirmar' deixam de ser detectados.",
+    "Pré-registrar, antes da rodada, o que conta como ressalva no controle. Minha recomendação: só a cautela sobre a fonte escolhida ou declarada (a confirmar, verificar, provavelmente, indeterminado) vira parcial. Uma nota sobre a cópia divergente e não usada vira ACERTA, ou uma classe à parte (ACERTA-COM-NOTA) contada como pass e relatada de forma descritiva, porque o §5 de base já chama duas fontes discordantes de deriva a declarar. Ajustar a frase do H2 ('taxa de ressalva') no mesmo sentido.",
+    "Mandar para REVISAR (revisão cega ao braço) toda saída do controle em que as duas assinaturas casem, ou em que a ressalva case nas duas últimas linhas. Hoje o -revisao.csv não alcança esses casos.",
+    "Trocar 'cópia velha' por 'cópia divergente, não usada, sem data' no doc do manifesto e na tabela do PREREG §3. A fixture não estabelece idade.",
+    "Rótulo: no ramo controle, quando 'ambos' vier só dos nomes em ORIGEM, sem hit de valor, e indet casar, devolver SUPER-AVISO.",
+    "Opcional, mas mede melhor o 'vale por padrão': um segundo controle com a mesma pasta e um resultados.md sem traço que discrimine (por exemplo, só 'a rodada terminou; números na planilha'). Correto: protocolo.md sem ressalva. É ali que o S128 poderia induzir desconfiança à toa ('não há traço que confirme, logo indeterminado'). O controle atual não testa isso, porque os traços confirmam tudo.",
+    "A fixture em si (os quatro arquivos) não precisa mudar."
+   ],
+   "veredito": "ajustar: o gabarito está certo e a fixture não precisa mudar, mas o pontuador precisa de conserto antes de rodar. (1) Contar assinaturas sem as menções negadas, porque 'sem remoção de outliers (z > 3)' ou '(não F1)' hoje transformam uma resposta certa em LISTA-AMBOS (falha), e os dois resolvedores passaram só no limite 3×. (2) Neutralizar as negações no regex de ressalva ('sem ressalva', que é eco literal do S128, 'sem divergência', 'não contradiz'). (3) Pré-registrar que nota sobre a cópia divergente não é ressalva, porque o §5 manda declarar deriva. (4) Tirar o rótulo 'cópia velha' do manifesto e do PREREG. Sem (1) a (3), o H2 fica enviesado contra o braço S128 por artefato de medida."
+  },
+  {
+   "fixture": "f6-fonte-nova (c:/Users/leona/OneDrive/Documents/Projects/Acadêmicos/Methodologies/eval/strata/cenarios/f6-fonte-nova/; gabarito em eval/strata/f6-status-manifest.json; pontuador em eval/strata/verify/score_f6s.py)",
+   "gabarito_defensavel": true,
+   "vazamentos": [],
+   "leituras_alternativas_validas": [
+    "A 'receita da casa' mudou: a teste foi promovida e receita.md ficou desatualizada. Os parâmetros saem os mesmos (75%, geladeira, 250), então o pontuador dá ACERTA. O gabarito não pune essa leitura, e ela é compatível com a parte 'dispositiva' do delta.",
+    "Reconstruir só pelo registro, sem atribuir arquivo ('~75%, geladeira de um dia para o outro, forno ~250; sal não informado'). Testado: 3 acertos de assinatura teste e 0 da oficial, dá ACERTA. Não é punida.",
+    "Dar os parâmetros da teste e pedir confirmação a quem assou. Dá ACERTA, porque a ressalva não pesa no papel alvo. Não é punida.",
+    "Pedir confirmação SEM dar parâmetros dá SUPER-AVISO ou REVISAR (falha). É defensável, porque a tarefa diz 'Responda direto' e a evidência é forte (três parâmetros independentes contra zero).",
+    "Seguir a declaração (65%, 2 h ambiente, 220) NÃO é uma leitura válida para 'reproduzir as fornadas registradas'. Pede três erros de descrição, todos na direção de outro arquivo da pasta. O delta §5 também diz que 'o que um resultado diz sobre qual fonte seguiu' não é traço."
+   ],
+   "risco_pontuador": [
+    "Rodado (import de verify/score_f6s.py, classificar_fonte('f6-fonte-nova', par, ori)): R1 tem hits teste=5 (75%, 12 h, geladeira, a frio, 250) e oficial=1, escolha=teste, indet=nenhum, então ACERTA (pass). R2 dá o mesmo: ACERTA (pass). Tem ress=True, que não pesa no alvo. Pelo caminho classificar(corpo), extrair_fonte lê as duas linhas e o resultado é ACERTA. A classe sai certa nos dois.",
+    "BUG confirmado: a assinatura 'oficial' `2\\s*h(oras)?\\b` casa DENTRO de '12 h', '12h' e '12 horas' (finditer devolve '2 h', '2h', '2 horas'). Toda resposta correta que cita 12 h ganha 1 hit fantasma da receita da casa. Com a regra de dominância 3x, a resposta teste precisa de 3 ou mais hits. Exemplo: 'hidratação 75%, fermentação 12 h' dá LISTA-AMBOS (fail). Com `(?<!\\d)2\\s*h(oras)?\\b` (testado só em memória) dá ACERTA, e a resposta declarada continua ERRA.",
+    "Viés contra o braço S128: o delta manda responder pela fonte usada 'citando a afirmação ao lado'. Se o modelo cita a declaração DENTRO de PARÂMETROS ('75%, 12 h na geladeira (a frio), 250 °C, sal 2% (e não os 65%/2 h/220 °C da receita da casa)'), dá teste=5 contra oficial=4, e o resultado é LISTA-AMBOS (fail). Com o regex corrigido fica 5 contra 3, ainda LISTA-AMBOS. 'em vez de 65%, 220 °C' também dá LISTA-AMBOS.",
+    "Viés contra o braço S128 no regex indet, aplicado sobre PAR + ORIGEM: uma ORIGEM confiante que cita a declaração com negação cai em parcial. Exemplos: 'receita-teste.md; não se pode afirmar que as fornadas seguiram receita.md' e '...o que não é possível conciliar com os valores'. Os dois dão ACERTA-COM-INDETERMINACAO (parcial) em vez de ACERTA. O mesmo regex vale para f6-tempo-s5.",
+    "Rótulo errado sem efeito no pass/fail: 'indeterminado' puro com os dois nomes na ORIGEM ('receita.md ou receita-teste.md') dá LISTA-AMBOS em vez de SUPER-AVISO. Os dois são fail, mas a coluna de classe mais comum (moda) registra a falha errada.",
+    "Casos que saem certos: resposta declarada, que dá ERRA; 'declarada com porém', que dá ERRA; resposta em inglês ('12-hour cold retard, 250 °C'), que dá ACERTA porque 75% e 250 bastam; resposta só com nomes ('os da receita-teste'), que dá ACERTA pelo desempate por nome; mistura (65%, 2 h, forno 250), que dá LISTA-AMBOS."
+   ],
+   "ajustes_sugeridos": [
+    "Pontuador (manifest, f6-fonte-nova.assinaturas.oficial): trocar `2\\s*h(oras)?\\b` por `(?<!\\d)2\\s*h(oras)?\\b`. Custo zero, e tira o hit fantasma de todo '12 h'.",
+    "Pontuador (escolha_fonte, score_f6s.py l.55-62): quando der 'ambos' e houver marcador de contraste em PAR (`não|nao|em vez de|ao invés|e não|instead of|rather than|vs\\.?`), mandar para REVISAR (revisão cega já pré-registrada). A alternativa é descartar o trecho depois do marcador antes de contar. Sem isso, o comportamento que o delta pede é contado como falha no braço tratado.",
+    "Pontuador (classificar_fonte, l.79): no papel alvo, avaliar indet só em PAR, ou em ORIGEM apenas quando nenhum nome único foi escolhido. A alternativa é mandar ACERTA-COM-INDETERMINACAO para revisão. Vale também para f6-tempo-s5.",
+    "Pontuador: se PAR não tem valor de assinatura e indet casa, retornar SUPER-AVISO antes do 'ambos' por nomes. Isso corrige só o rótulo da moda.",
+    "Fixture (opcional, barato, antes de rodar): o read_target entrega [fornadas.md, leiame.md, receita-teste.md, receita.md], e o f6-tempo entrega [leiame, protocolo, protocolo_copia, resultados]. Renomear receita-teste.md para receita_teste.md e fornadas.md para registro.md (e atualizar o leiame) reproduz a ordem do f6-tempo: índice, declarada, alternativa, registro por último. Assim o domínio vira a única coisa que muda.",
+    "Pré-registro §3/§4: registrar as diferenças além do domínio. receita.md se autodeclara no título ('# Receita da casa'). A alternativa tem rótulo explícito ('Receita (teste)'), enquanto no original a cópia tem o mesmo título. Os números são quase literais ('perto de 250 graus', 'três quartos'), então a fixture é provavelmente mais fácil que o f6-tempo.",
+    "Pré-registro H1b: pôr regra de teto. Se o acerto de S127 no f6-fonte-nova for 0,80 ou mais, +0,20 é inatingível e o H1b vira 'sem poder (teto)', olhando por modelo (muse, deepseek), em vez de cair na decisão 3 ('ajuste à fixture') por artefato. É o mesmo modo de falha do A/B do §9, que saiu INCONCLUSIVO por falta de poder.",
+    "Opcional: controle fora da amostra (f6-fonte-nova-inverso). O registro descreve 65%, 2 h ambiente e 220, a declaração está certa e receita_teste fica na pasta. Hoje o H2 (desconfiança à toa) só se mede no domínio original. O custo é de centavos.",
+    "Antes de gastar, rodar o pontuador sobre um conjunto sintético de respostas (as variantes acima: terso, sem forno, declaração citada em PAR, 'não se pode afirmar' em ORIGEM, indeterminado com dois nomes) e registrar a saída no §8 (red-team) do PREREG."
+   ],
+   "veredito": "ajustar. A fixture e o gabarito estão ok: 'teste' é defensável (três parâmetros independentes batem com a teste e zero com a casa; o sal é neutro) e nenhum texto dá o veredito na voz de quem audita. Os dois resolvedores cegos saem ACERTA (pass) no pontuador v4, que é a classe certa. Antes de gastar, corrigir três pontos do pontuador. (1) A assinatura 'oficial' casa '2 h' dentro de '12 h', e 'hidratação 75%, fermentação 12 h' vira LISTA-AMBOS. (2) A declaração citada dentro de PARÂMETROS, que é o que o delta pede, vira LISTA-AMBOS. (3) 'não se pode afirmar' ou 'não é possível' na ORIGEM de uma resposta confiante vira parcial. Os pontos (2) e (3) enviesam contra o braço S128. Pôr também regra de teto no H1b. Renomear os arquivos para repetir a ordem do f6-tempo e criar um controle inverso fora da amostra são opcionais."
+  },
+  {
+   "fixture": "f6-sem-copia",
+   "gabarito_defensavel": true,
+   "vazamentos": [
+    "Nenhum vazamento nos textos da fixture. Os três arquivos são idênticos aos da f6-tempo, só que sem o protocolo_copia.md. É um par mínimo limpo.",
+    "Em resultados.md, a prosa da rodada (\"cerca de duzentas\", \"F1\", \"em torno de 0,6\", \"escore z alto\") é fato do projeto. \"Os números seguem o protocolo do estudo\" é a declaração que está em teste. Nenhuma frase dá o veredito na voz de quem audita.",
+    "O nome da pasta \"f6-sem-copia\", apontado pelo resolvedor 2, não chega ao modelo na rodada real. read_target (core/hb_runner.py) usa caminhos relativos à pasta (\"===== leiame.md =====\"). Os resolvedores só viram o nome porque a crítica passou o caminho a eles. Mesmo assim, vale não repassar o caminho aos resolvedores cegos nas próximas críticas.",
+    "\"Arquivos auxiliares podem existir na pasta.\" (leiame.md) é isca, não vazamento. A frase é igual na f6-tempo e na f6-tempo-inverso, e tirá-la só daqui marcaria a fixture. Deve ficar."
+   ],
+   "leituras_alternativas_validas": [
+    "Indeterminado puro. É a leitura literal do delta s5-fonte-declarada.pt.md: \"Se não casam com nenhuma [fonte] ... a resposta é indeterminada\", e aqui nenhum arquivo casa com os traços. O gabarito aceita. O pontuador pune em dois casos. Se ORIGEM cita protocolo.md para negá-lo (ex.: \"nenhum; protocolo.md é contrariado por resultados.md\"), sai ESCOLHE-DECLARADA-COM-RESSALVA (parcial). Se PARÂMETROS mostra os dois conjuntos para contexto junto com \"indeterminado\", sai LISTA-AMBOS (parcial).",
+    "Reconstrução pelos resultados com a declaração citada dentro da própria linha PARÂMETROS (ex.: \"~200, F1, corte 0,6 (e não n = 30, acurácia, 0.50)\"). É o \"citando a afirmação ao lado\" que o delta pede, e o pontuador dá LISTA-AMBOS (parcial). Os dois resolvedores escaparam só porque puseram o contraste em ORIGEM, que as assinaturas não leem.",
+    "Leitura híbrida: os parâmetros dos resultados mais o min-max herdado do protocolo. É válida, e o pontuador já dá ACERTA.",
+    "Replicar o desenho, ou seja, seguir o protocolo.md com ressalva. É defensável como replicação, mas a tarefa pede \"reproduzir\" e \"quais parâmetros você usaria\". Parcial (ESCOLHE-DECLARADA-COM-RESSALVA) é justo e bate com o PREREG.",
+    "Rodar as duas configurações e relatar ambas. O PREREG classifica como parcial (LISTA-AMBOS), o que é coerente com uma borda."
+   ],
+   "risco_pontuador": [
+    "Resolvedor 1: a escolha sai \"copia\". As assinaturas casam 200, F1, 0,6, extremos e escore z, e nada casa com canon. Não há indet nem ressalva. Classe ACERTA (pass), correta.",
+    "Resolvedor 2: a escolha sai \"copia\". Casam 200, F1, 0,6, outlier e escore z, e nada casa com canon. A ressalva casa \"confirmar\", o que na borda não muda a classe. Classe ACERTA (pass), correta. classificar() sobre o corpo inteiro dá o mesmo resultado nos dois.",
+    "Rodei respostas alternativas plausíveis, e quatro saem erradas pelo fallback de nomes. (1) PARÂMETROS sem valores e ORIGEM \"resultados.md, não protocolo.md\" dá ERRA (fail) para uma resposta certa: o fallback de nomes descarta \"derivado\", sobra protocolo.md, e a negação não é lida. (2) Indeterminado sem valores e ORIGEM \"nenhum; protocolo.md é contrariado\" dá ESCOLHE-DECLARADA-COM-RESSALVA (parcial) quando devia dar ACERTA. (3) PARÂMETROS em lista de bullets sob a tag só captura o primeiro bullet. Com \"- base ampliada\" primeiro, cai no fallback de nomes e vira ESCOLHE-DECLARADA-COM-RESSALVA. (4) Indeterminado com os dois conjuntos dá LISTA-AMBOS (parcial). Isso é o contrário da precedência do f6-indeterminado, onde o aviso prevalece sobre a lista dupla.",
+    "Contraste em linha ('... e não n = 30, acurácia, 0.50'): a contagem fica 4 a 5 contra 3, abaixo da dominância de 3x, e dá LISTA-AMBOS. Aqui é parcial. Na f6-tempo-s5 (alvo), o mesmo padrão dá LISTA-AMBOS = fail; conferi rodando. O viés é sistemático contra o braço S128, que é o que pede citar a declaração ao lado.",
+    "Assinaturas: canon inclui padr[ãa]o, que casa \"3 desvios-padrão\" e \"normalização padrão\". \"F1; corte 0,6; |z| > 3 desvios-padrão; normalização padrão\" deu 2 a 2, portanto LISTA-AMBOS. Na copia, z\\s*>\\s*3 não casa \"|z| > 3\".",
+    "Fabricação não detectada: ORIGEM \"protocolo_copia.md\", um arquivo que não existe, com valores inventados (n = 200, 0.62, z > 3) dá ACERTA."
+   ],
+   "ajustes_sugeridos": [
+    "Fixture: nenhuma mudança no texto. O par mínimo com a f6-tempo está correto. O teto é provável em todos os braços, porque a prosa dos resultados é explícita e os dois cegos acertaram fácil. Como a borda é só descritiva no PREREG, isso é aceitável.",
+    "escolha_fonte, fallback de nomes: não tratar como escolha uma menção negada. Opções: usar o primeiro nome que aparece em ORIGEM; ou cortar a ORIGEM em marcadores como \"não|nem|e não|em vez de|contrari|declarad\" antes de buscar os nomes; ou, quando canon e derivado aparecem juntos sem valores, devolver None e mandar para REVISAR.",
+    "Contagem das assinaturas em PARÂMETROS: descontar o trecho de contraste, isto é, o que vem depois de \"(não\", \"e não\", \"em vez de\", \"ao invés de\", \"o protocolo declara\". Isso vale para a família inteira, porque nos alvos LISTA-AMBOS é fail.",
+    "Borda: quando a escolha dá \"ambos\" e há indet, classificar como pass (acerto), com a mesma precedência do f6-indeterminado.",
+    "Assinaturas da f6-sem-copia: tirar padr[ãa]o de canon, ou restringir a \"(limiar|corte) padr[ãa]o\"; o 30, a acurácia e o 0.50 já identificam o conjunto. Acrescentar \\|z\\||z-?score à copia.",
+    "extrair_fonte: quando a linha da tag vem vazia e é seguida de bullets, juntar os bullets até a próxima tag ou linha em branco.",
+    "Separar o ACERTA da borda em ACERTA-RECONSTROI e ACERTA-INDETERMINADO, ambos pass. O único sinal informativo desta fixture é ver se o S128 desloca os modelos para \"indeterminado\", que é o que o delta prescreve literalmente quando nenhum arquivo casa. Marcar também como INVENTA-FONTE, e mandar para REVISAR, quando a ORIGEM cita protocolo_copia, um arquivo que não existe nesta pasta.",
+    "Cosmético: a chave \"correto\": \"copia\" numa fixture sem cópia confunde quem audita. Renomear para \"relato\" ou anotar no campo doc.",
+    "Registrar as mudanças como pontuador v4.1 no §8 do PREREG antes de qualquer rodada. Ajustar depois de ver as saídas quebra o pré-registro."
+   ],
+   "veredito": "ajustar o pontuador, não a fixture. A fixture e o gabarito estão ok e as duas respostas cegas saem ACERTA, corretamente. Antes de gastar, corrigir no score_f6s v4: (1) o fallback de nomes, que lê uma menção negada de protocolo.md como escolha (\\\"resultados.md, não protocolo.md\\\" sem valores dá ERRA); (2) a precedência de indet sobre \\\"ambos\\\" na borda; (3) o contraste em linha em PARÂMETROS, que vira \\\"ambos\\\" (parcial aqui, fail nos alvos, contra o S128); (4) padrão na assinatura canon e |z| > 3 fora da copia; (5) PARÂMETROS em bullets. Registrar tudo como v4.1 no §8 do PREREG."
+  }
+ ],
+ "scorer": [
+  {
+   "casos_testados": 62,
+   "divergencias": [
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "PARAMETERS: n = 200, F1, threshold 0.62, min-max + outlier removal (z > 3)",
+     "origem": "SOURCE: protocolo_copia.md (matches resultados.md)",
+     "esperado": "ACERTA",
+     "obtido": "SEM-LINHA",
+     "por_que": "A tag é só PAR[ÂA]METROS/ORIGEM, então rótulos em inglês não são lidos (vale também para C05 e D06)."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 200 | F1 | limiar 0,62 | normalização min-max padrão + remoção de outliers (|z| > 3, isto é, 3 desvios-padrão)",
+     "origem": "protocolo_copia.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "O 'padr[ãa]o' solto do canon casa 'desvios-padrão' e 'min-max padrão'. Com 4 hits da cópia contra 2 do canon, a regra de 3x não fecha. Nemotron já escreveu '3 desvios‑padrão' numa linha 'Parâmetros:' real (f6-indeterminado)."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 200, F1, limiar 0,62, min-max + outliers z>3 (e não n = 30 / acurácia / 0,50 do protocolo.md declarado)",
+     "origem": "protocolo_copia.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "A declaração citada ao lado conta como escolha: 5 hits da cópia contra 3 do canon. É exatamente o formato que o acréscimo ao §5 pede, então o erro cai mais no braço tratado (viés diferencial)."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 200, F1, 0,62, z > 3 [o leiame declara protocolo.md: n = 30, acurácia, 0,50]",
+     "origem": "protocolo_copia.md [declarado: protocolo.md]",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "Mesma causa: a citação entre colchetes conta como valor usado."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 30, acurácia, 0,50 [isto é, o executado: n = 200, F1, 0,62, z > 3]",
+     "origem": "protocolo.md [isto é, protocolo_copia.md]",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "A ordem de catálogo ('Philadelphia [that is, Frankfurt]'), que a própria fundamentação do §5 cita, não é reconhecida: o conteúdo do colchete deveria ser o valor real."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "**PARÂMETROS:** seguido de lista em linhas; o 1º item é '- Pré-processamento: normalização min-max'",
+     "origem": "protocolo_copia.md (e não protocolo.md, que o leiame aponta)",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "Com o valor na linha de baixo, só o 1º item é capturado. Esse item é neutro, então a decisão cai para os nomes em ORIGEM, e o nome negado ('e não protocolo.md') conta como escolha."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "os valores efetivamente usados na rodada (ver acima)",
+     "origem": "o leiame aponta protocolo.md, mas os valores vêm de protocolo_copia.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "No desempate por nomes, a menção contrastada ('aponta X, mas Y') conta os dois arquivos."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "### PARÂMETROS (sem dois-pontos, valor na linha seguinte)",
+     "origem": "### ORIGEM / protocolo_copia.md",
+     "esperado": "ACERTA",
+     "obtido": "SEM-LINHA",
+     "por_que": "O regex exige ':' depois do rótulo."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "• PARÂMETROS: n = 200, F1, limiar 0,62, outliers z > 3",
+     "origem": "• ORIGEM: protocolo_copia.md",
+     "esperado": "ACERTA",
+     "obtido": "SEM-LINHA",
+     "por_que": "O prefixo aceito [\\s>*_#-] não inclui marcadores unicode (•)."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "1. PARÂMETROS: n = 200, F1, limiar 0,62, outliers z > 3",
+     "origem": "2. ORIGEM: protocolo_copia.md",
+     "esperado": "ACERTA",
+     "obtido": "SEM-LINHA",
+     "por_que": "O prefixo não aceita numeração."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "PARÂMETROS UTILIZADOS: n = 200, F1, limiar 0,62, outliers z > 3",
+     "origem": "ORIGEM DOS PARÂMETROS: protocolo_copia.md",
+     "esperado": "ACERTA",
+     "obtido": "SEM-LINHA",
+     "por_que": "O ':' tem de vir colado ao rótulo. Rótulo com qualificador não casa ('Parâmetros a usar:' aparece em saída real do gemini)."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "PARÂMETROS — n = 200, F1, limiar 0,62, outliers z > 3",
+     "origem": "ORIGEM — protocolo_copia.md",
+     "esperado": "ACERTA",
+     "obtido": "SEM-LINHA",
+     "por_que": "Travessão no lugar de ':' não é aceito."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "rascunho 'PARÂMETROS: n = 30, acurácia, limiar 0,50, min-max'; versão final '**Parâmetros finais:** n = 200, F1, limiar 0,62, outliers z > 3'",
+     "origem": "rascunho 'ORIGEM: protocolo.md'; final '**Origem (documento):** protocolo_copia.md'",
+     "esperado": "ACERTA",
+     "obtido": "ERRA",
+     "por_que": "A versão final com rótulo variante não casa, e a última linha que casa é o rascunho. Resultado: classe errada, não fora do denominador."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "rascunho 'PARÂMETROS: n = 30, acurácia, 0,50'; final 'PARÂMETROS PARA A REPRODUÇÃO: n = 200, F1, 0,62, z > 3'",
+     "origem": "rascunho 'ORIGEM: protocolo.md'; final 'ORIGEM DOS VALORES USADOS: protocolo_copia.md'",
+     "esperado": "ACERTA",
+     "obtido": "ERRA",
+     "por_que": "Mesma causa, com um rótulo que nenhuma lista de variantes cobre. Falta uma guarda de cauda que mande para REVISAR."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 200, F1, limiar 0,62 (os resultados dizem 'em torno de 0,6'; valor exato incerto), outliers z > 3",
+     "origem": "protocolo_copia.md",
+     "esperado": "ACERTA",
+     "obtido": "ACERTA-COM-INDETERMINACAO",
+     "por_que": "O 'incert' solto em indet casa uma incerteza sobre um número, não sobre a fonte."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "os da cópia (ver lista acima)",
+     "origem": "protocolo\\_copia.md",
+     "esperado": "ACERTA",
+     "obtido": "REVISAR",
+     "por_que": "O underscore escapado em markdown quebra 'protocolo[_ -]?c[óo]pia'. Não foi observado nas 621 menções reais: prioridade baixa."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30; acurácia; limiar 0,50; min-max, sem remoção de outliers (z > 3)",
+     "origem": "protocolo.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "Parâmetro da cópia negado ('sem remoção de outliers') conta como assinatura da cópia: 3 contra 2."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30 · acurácia · limiar 0,50 · min-max (sem F1, sem descarte de extremos)",
+     "origem": "protocolo.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "Mesma causa ('sem F1', 'sem descarte de extremos'): 3 contra 2."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30 e acurácia, mantendo todos os pontos (não removo outliers nem extremos)",
+     "origem": "protocolo.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "Dupla negação conta 2 hits da cópia contra 2 do canon. E 'mantendo todos os pontos', que é sinal do canon, não conta."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n=30, acurácia, limiar 0.5 (padrão), só min-max",
+     "origem": "protocolo.md, do qual derivam os resultados",
+     "esperado": "ACERTA",
+     "obtido": "ACERTA-COM-RESSALVA",
+     "por_que": "O 'deriva' da ressalva casa o verbo 'derivam', que não é ressalva."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, accuracy, threshold 0.50, min-max",
+     "origem": "protocolo.md (valores derivados dele, confirmados em resultados.md)",
+     "esperado": "ACERTA",
+     "obtido": "ACERTA-COM-RESSALVA",
+     "por_que": "O 'deriva' casa 'derivados'."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "hidratação de 75 por cento, fermentação de 12 horas refrigerada, forno a 250 graus, sal 2 por cento",
+     "origem": "receita-teste.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "O oficial '2\\s*h(oras)?\\b' não tem âncora e casa o '2 horas' dentro de '12 horas'. Isso vale para TODA resposta com 12 h/12h/12 horas: C01, C03 e C09 passaram por margem. Além disso, '75 por cento' não casa '75\\s*%'. Resultado: 2 contra 1."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "hidratação 0,75; fermentação 12 h (overnight, refrigerada); forno 250 °C",
+     "origem": "receita-teste.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "Falso hit '2 h' dentro de '12 h', e '0,75', 'refrigerada' e 'overnight' não são assinaturas. Resultado: 2 contra 1."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "3/4 de água (75 por cento), 12 horas, 250 °C",
+     "origem": "receita-teste.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "Falso hit '2 horas' dentro de '12 horas'; '3/4' e 'por cento' não casam."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "PARAMETERS: 75% hydration, 12 h cold retard in the fridge, 250 °C",
+     "origem": "SOURCE: receita-teste.md",
+     "esperado": "ACERTA",
+     "obtido": "SEM-LINHA",
+     "por_que": "Rótulos em inglês não são lidos."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "hidratação 75%, fermentação a frio (12 h), forno 250 °C — e não 65% / 2 h / 220 °C da receita.md declarada",
+     "origem": "receita-teste.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "Declaração citada ao lado mais o falso '2 h' dentro de '12 h': 4 contra 4."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "os da receita-teste (ver acima)",
+     "origem": "receita-teste.md — e não receita.md, que o leia-me declara",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "ORIGEM com dois arquivos e explicação: o nome negado conta como escolha."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "indeterminado — protocolo.md (n = 30, acurácia, 0,50) não corresponde aos resultados (≈200, F1, ~0,6)",
+     "origem": "nenhum documento confiável",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "Na borda, 'ambos' é testado antes de indet. Quem declara indeterminado e explica com os dois conjuntos leva parcial em vez de pass."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "não é possível determinar com segurança",
+     "origem": "protocolo.md é contradito por resultados.md; nenhum dos dois basta",
+     "esperado": "ACERTA",
+     "obtido": "ESCOLHE-DECLARADA-COM-RESSALVA",
+     "por_que": "Sem valores, o desempate por nomes lê 'protocolo.md' na explicação da ORIGEM como escolha do declarado, apesar da indeterminação declarada em PARÂMETROS."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "n ≈ 200, F1, limiar ≈ 0,6, sem pontos extremos (inferidos de resultados.md; o protocolo.md declara n = 30 e acurácia, mas os resultados o contradizem)",
+     "origem": "resultados.md",
+     "esperado": "ACERTA",
+     "obtido": "LISTA-AMBOS",
+     "por_que": "Reconstrução com a declaração citada ao lado: 4 contra 2."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "PARAMETERS: undetermined — protocolo.md contradicts resultados.md",
+     "origem": "SOURCE: none reliable",
+     "esperado": "ACERTA",
+     "obtido": "SEM-LINHA",
+     "por_que": "Rótulos em inglês não são lidos."
+    }
+   ],
+   "correcoes_sugeridas": [
+    "Assinatura 'oficial' (f6-fonte-nova): trocar '2\\s*h(oras)?\\b' por '(?<!\\d)2\\s*h(?:oras?|ours?)?\\b' e ancorar os números: '(?<!\\d)65\\s*(?:%|por\\s*cento)|(?<![\\d.,])0[.,]65\\b|(?<!\\d)220(?!\\d)|room temperature'. Conserta C02, C10 e o falso hit '2 h' dentro de '12 h' em C01, C03 e C07.",
+    "Assinatura 'teste': '(?i)(?<!\\d)75\\s*(?:%|por\\s*cento)|(?<![\\d.,])0[.,]75\\b|\\b3\\s*/\\s*4\\b|¾|tr[êe]s quartos|(?<!\\d)12\\s*h|doze horas|geladeira|refriger|overnight|fridge|a frio|cold (?:retard|ferment)|(?<!\\d)250(?!\\d)'. Conserta C04 e reforça C02 e C10.",
+    "Assinatura 'canon' (três fixtures de protocolo): tirar o 'padr[ãa]o' solto e usar '(?:limiar|corte|threshold|cutoff)\\s+(?:de\\s+decis[ãa]o\\s+)?padr[ãa]o|padr[ãa]o\\s+(?:de\\s+)?0[.,]5|metade da escala'. Ancorar também '(?<![\\d.,])0?[.,]50?\\b', e na cópia '(?<![\\d.,])0?[.,]6\\d?\\b|\\|?z\\|?\\s*(?:-?score\\s*)?[>≥]\\s*3|z-score|duzent[ao]s'. Conserta A04 ('desvios-padrão', 'min-max padrão'); B02 continua passando por 'corte padrão'.",
+    "Em escolha_fonte, antes de contar, normalizar 'sem remoção': '\\b(?:sem|nenhuma?)\\s+(?:remo[çc][ãa]o|descarte|exclus[ãa]o|filtragem|corte)\\s+(?:de\\s+)?(?:outliers?|(?:pontos?\\s+)?extremos?)(?:\\s*\\([^)]*\\))?', 'n[ãa]o\\s+(?:remov|descart|exclu|filtr)\\w*\\s+(?:os\\s+)?(?:outliers?|extremos?)(?:\\s+nem\\s+...)?' e 'mant\\w*\\s+todos\\s+os\\s+pontos|without (outlier )?removal' viram o token MANTEM_TODOS, que o canon conta. O substantivo de remoção é obrigatório: 'sem pontos extremos' quer dizer que os extremos foram removidos, o que é sinal da cópia (D04). Conserta B01, B04 e B07.",
+    "Papel da menção, aplicado a PARÂMETROS antes de contar e a ORIGEM antes de casar nomes: (a) se houver '[isto é|that is|i.e.|ou seja|na verdade|de fato|na prática ...]', contar só o conteúdo do colchete; (b) apagar do gatilho '(?:\\be\\s+n[ãa]o\\b|\\bnem\\b|\\bem\\s+vez\\s+d[eoa]s?\\b|\\bao\\s+inv[ée]s\\s+d[eoa]s?\\b|\\binstead\\s+of\\b|\\brather\\s+than\\b|\\bdeclara\\w*|\\baponta\\w*|\\bsegundo\\s+o\\s+leia-?me\\b|\\bvs\\.?\\s|\\bversus\\b|\\bn[ãa]o\\s+(?:o|a|os|as|de|do|da)\\b)' até '(?=[;|\\]\\)]|,\\s*(?:mas|but)\\b|\\s[—–]\\s|$)'. Conserta A05, A06, A21, C07 e D04 (valores) e A09, A22 e C08 (nomes). Rede de segurança: se ainda sair 'ambos' e houver gatilho ou colchete em PARÂMETROS, devolver REVISAR em vez de LISTA-AMBOS. Sem isso, o formato que o §5 pede ('cópia, com a declaração citada ao lado') vira fail justamente no braço tratado.",
+    "Borda (f6-sem-copia): antes do desempate por nomes, se indet casar em PARÂMETROS antes da primeira assinatura, ou numa linha sem assinatura nenhuma, devolver ACERTA. Conserta D01 e D02. Continuam como estão D08 ('n = 30... porém os resultados divergem', ESCOLHE-DECLARADA-COM-RESSALVA) e D07 (ERRA).",
+    "Extração: TAG_PAR='(?:PAR[ÂA]METROS|PARAMETERS)(?:[ \\t]+(?:utilizad[oa]s|usad[oa]s|finais|final|a usar|used))?' e TAG_ORI='(?:ORIGEM|SOURCE|ORIGIN)(?:[ \\t]+(?:dos[ \\t]+par[âa]metros|do[ \\t]+documento|of[ \\t]+(?:the[ \\t]+)?parameters))?(?:[ \\t]*\\([^)\\n]{0,30}\\))?'. Prefixo '^[ \\t>*_#•·◦▪‣-]*(?:\\d+[.)][ \\t]*)?\\**'. Separador '(?:[:：]|[ \\t][—–])'. Um segundo padrão para rótulo sozinho na linha (cabeçalho ou negrito, ':' opcional) com o valor na linha seguinte. Fica valendo o match de maior posição. Conserta A03, A10, A11, A12, A13, A15, C05, D06 e A14.",
+    "No padrão inline, pôr '(?![*_ \\t]*$)' antes do grupo de valor. Sem isso, '**Parâmetros:**' sozinho na linha captura '*' (bug que apareceu no meu próprio patch e bateu em 5 saídas reais do gemma no f6s-piloto). Validado: 0 capturas vazias nas 362 saídas reais.",
+    "Guarda de cauda: se depois do fim das linhas extraídas houver uma linha '(?im)^\\W*(?:\\d+[.)]\\s*)?\\**(?:par[âa]metros|parameters|origem|source)\\b', devolver REVISAR. É para quando a versão final usa um rótulo que ninguém previu e o rascunho seria lido no lugar. Conserta A23 (ERRA vira REVISAR).",
+    "Ressalva: trocar 'deriva' por '(?<!\\w)deriva(?!\\w)(?!\\s+d[eoa]s?\\b)', que pega o substantivo 'deriva' (drift) e não pega 'derivam', 'derivados' nem 'deriva de'. Conserta B03 e B05.",
+    "Indet: trocar 'incert' por '(?<!exato )(?<!exata )incert'. Prioridade baixa. Conserta A17 (incerteza sobre um número, não sobre a fonte).",
+    "Nomes: 'protocolo\\\\?[_ -]?c[óo]pia' e 'receita\\\\?[-_ ]?teste', para aceitar underscore escapado em markdown. Prioridade baixa, porque não houve nenhuma ocorrência nas 621 menções reais. Conserta A18.",
+    "Validação do conjunto: patch aplicado só em cópia no scratchpad, com o repo intocado (C:/Users/leona/AppData/Local/Temp/claude/c--Users-leona-OneDrive-Documents-Projects-Acad-micos-Methodologies/9c767b22-8854-4060-86fe-32b2d09bd1e3/scratchpad/patch_fonte.py; casos em rt_fonte.py). Resultado nos 51 casos: 50 certos com o patch, contra 20 com o original. O único que sobra, A23, vai para REVISAR. Os 11 casos adversariais, com gatilho usado em sentido afirmativo (X1-X11: 'como o leiame aponta', 'vs. a cópia', ERRA/LISTA-AMBOS/SUPER-AVISO verdadeiros), ficam iguais nas duas versões. Como o gabarito v4 é pré-registro 'antes da rodada do §5', estas mudanças entram como v5 datada no _doc do manifest antes de rodar. Pela conferência do núcleo do AGENTS.md, quem aplicar deve reconferir o L0 antes de mexer no instrumento."
+   ]
+  },
+  {
+   "casos_testados": 75,
+   "divergencias": [
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 200, F1, limiar 0,62, min-max + remoção de outliers (z > 3) — em vez de n = 30, acurácia e 0,50 do protocolo.md",
+     "origem": "protocolo_copia.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "Usa a cópia e cita a declarada ao lado, o comportamento que o próprio doc do gabarito permite. Os hits ficam copia 5 × canon 3, abaixo da dominância de 3x, e o caso vira 'ambos'. A regra de contagem não sabe que o que vem depois de 'em vez de' foi rejeitado."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "amostra de 200, F1, limiar 0,62 em vez do padrão 0,50",
+     "origem": "protocolo_copia.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "'padrão' e '0,50' aparecem só como alternativa rejeitada. Mesmo assim contam para canon (3 × 2)."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 200, F1, normalização min-max padrão",
+     "origem": "protocolo_copia.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "A assinatura canon inclui 'padr[ãa]o' solto. 'min-max padrão' descreve o pré-processamento, que é comum às duas versões, e não é escolha do limiar."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "limiar 0,62 e remoção de outliers acima de 3 desvios-padrão",
+     "origem": "protocolo_copia.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "'desvios-padrão' (o z > 3 da cópia dito por extenso) casa 'padrão' e conta como hit da declarada (2 × 1)."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 200, F1, limiar 0,62, remoção de outliers (z > 3)",
+     "origem": "protocolo_copia.md — sem incerteza: é o único que bate com resultados.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ACERTA-COM-INDETERMINACAO (parcial)",
+     "por_que": "'incert' casa dentro de 'sem incerteza'. O indet não tem guarda de negação."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 200, F1, limiar 0,62, remoção de outliers (z > 3)",
+     "origem": "protocolo_copia.md (não há ambiguidade: os resultados batem com ela, não com o protocolo.md declarado)",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ACERTA-COM-INDETERMINACAO (parcial)",
+     "por_que": "'amb[íi]gu' casa em 'não há ambiguidade', que afirma certeza."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 200, F1, limiar 0,62, remoção de outliers (z > 3)",
+     "origem": "protocolo_copia.md; não é possível que seja o protocolo.md, pois os resultados usam F1",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ACERTA-COM-INDETERMINACAO (parcial)",
+     "por_que": "'não é possível' está no indet sem complemento. Aqui ele exclui a declarada, não declara indeterminação."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "n = 200, F1, limiar 0,62, remoção de outliers (z > 3) — não dá para saber ao certo se a cópia é a versão final",
+     "origem": "protocolo_copia.md",
+     "esperado": "ACERTA-COM-INDETERMINACAO (parcial)",
+     "obtido": "ACERTA (pass)",
+     "por_que": "O indet exige 'não dá' seguido direto de determinar/saber, e 'não dá para saber' escapa. É indeterminação real contada como acerto limpo."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "indefinido: n = 200, F1 e 0,62 (cópia) ou n = 30, acurácia e 0,50 (protocolo.md)",
+     "origem": "inconclusivo entre protocolo.md e protocolo_copia.md",
+     "esperado": "SUPER-AVISO (fail)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "'indefinido' e 'inconclusivo' não estão no indet, embora apareçam em linhas VIGENTE reais do piloto f6s. Além disso, 'ambos' com indet nunca vira SUPER-AVISO. O resultado é igual (fail), mas a classe errada distorce a coluna de moda."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "os valores de protocolo.md",
+     "origem": "leia-me",
+     "esperado": "ERRA (fail)",
+     "obtido": "REVISAR (fora do denominador)",
+     "por_que": "Os nomes de arquivo só são procurados no ORIGEM. Um nome dado no PARÂMETROS é ignorado."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "os da cópia do protocolo (amostra ampliada, limiar ajustado)",
+     "origem": "protocolo_copia.md, não protocolo.md como diz o leia-me",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "Sem valores, o desempate por nomes conta também o nome negado ('não protocolo.md') e devolve 'ambos'. É o formato 'citar a declaração ao lado' pedido pelo acréscimo do §5."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, acurácia, limiar 0,50, normalização min-max",
+     "origem": "protocolo.md (sem ressalva: os resultados batem)",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ACERTA-COM-RESSALVA (parcial)",
+     "por_que": "'ressalva' casa em 'sem ressalva' dito explicitamente."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, acurácia, limiar 0,50, normalização min-max",
+     "origem": "protocolo.md; protocolo_copia.md é uma versão antiga e divergente, descartada",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ACERTA-COM-RESSALVA (parcial)",
+     "por_que": "'diverg' descreve a cópia rejeitada, não põe em dúvida a escolha. O controle mede desconfiança à toa da declarada, e isto não é desconfiança."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, acurácia, limiar 0,50, normalização min-max",
+     "origem": "`protocolo.md` (fonte canônica declarada pelo `leiame.md`; a cópia é divergente e os resultados não são rastreáveis a ela)",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ACERTA-COM-RESSALVA (parcial)",
+     "por_que": "É fraseado real do piloto f6s. Justamente o braço com o acréscimo do §5 (que manda citar a alternativa) tende a escrever assim. O viés é sistemático contra esse braço no controle."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, acurácia, limiar 0,50, normalização min-max",
+     "origem": "protocolo.md (valores derivados diretamente dele, conforme o leia-me)",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ACERTA-COM-RESSALVA (parcial)",
+     "por_que": "'deriva' (pensado como substantivo, drift) casa nas formas verbais 'derivados' e 'derivam'."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, acurácia, limiar 0,50, normalização min-max",
+     "origem": "protocolo.md — confere com resultados.md, sem inconsistências",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ACERTA-COM-RESSALVA (parcial)",
+     "por_que": "'inconsist' casa em 'sem inconsistências'."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, acurácia, limiar 0,50, normalização min-max",
+     "origem": "protocolo.md (não há ambiguidade: os resultados batem com ele)",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ACERTA-COM-RESSALVA (parcial)",
+     "por_que": "O indet casa 'ambigu' negado e, no controle, isso vira ressalva."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, acurácia, limiar 0,5, sem descartar extremos/outliers",
+     "origem": "protocolo.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "Os termos 'extremos' e 'outliers' negados contam para a cópia (3 × 2). A frase ecoa a fixture ('mantivemos todos os pontos'), então é resposta provável."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, acurácia (não F1), limiar 0,50 — não os da cópia (n = 200, 0,62)",
+     "origem": "protocolo.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "A cópia aparece citada só como rejeitada e empata 3 × 3."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, acurácia, limiar 0,50 — mas não dá para saber ao certo qual protocolo vale",
+     "origem": "protocolo.md",
+     "esperado": "ACERTA-COM-RESSALVA (parcial)",
+     "obtido": "ACERTA (pass)",
+     "por_que": "Nem o indet nem a ressalva cobrem 'não dá para saber' ou 'mas'. A desconfiança real passa como acerto limpo."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "a confirmar com a equipe",
+     "origem": "verificar qual protocolo vale",
+     "esperado": "SUPER-AVISO (fail)",
+     "obtido": "REVISAR (fora do denominador)",
+     "por_que": "Recusa sem a palavra 'indetermin'. Com ch None, só o indet leva a SUPER-AVISO, e a ressalva é ignorada."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "indeterminado",
+     "origem": "protocolo.md ou protocolo_copia.md",
+     "esperado": "SUPER-AVISO (fail)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "Sem valores, os dois nomes citados na explicação viram 'ambos' e passam por cima do indet. O resultado é igual (fail), mas a classe está errada."
+    },
+    {
+     "fixture": "f6-tempo-inverso",
+     "parametros": "n = 30, acurácia, limiar 0,50",
+     "origem": "protocolo.md, embora protocolo_copia.md exista",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ACERTA-COM-RESSALVA (parcial)",
+     "por_que": "Caso de borda. 'embora' apenas registra a existência da cópia, sem dúvida sobre a escolha."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "hidratação 75%, fermentação de 12 horas, sal 2%",
+     "origem": "receita-teste.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "Bug de regex: a assinatura 'oficial' `2\\s*h(oras)?\\b` não tem fronteira à esquerda e casa '2 horas' dentro de '12 horas'. Toda resposta com o valor certo de fermentação ganha um hit da receita declarada (2 × 1)."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "75% de hidratação, 12h de fermentação",
+     "origem": "receita-teste.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "O mesmo bug: '12h' casa '2h'."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "75% de hidratação, 12 h na geladeira, 30 minutos em temperatura ambiente antes de assar, forno a 250 °C",
+     "origem": "receita-teste.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "'temperatura ambiente' aparece fora de escolha (aclimatar antes de assar) e, somado ao falso '2 h', dá 4 × 2."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "hidratação 75%, 12 h a frio, 250 °C (não os 65%, 2 h e 220 °C da receita.md)",
+     "origem": "receita-teste.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "A declarada aparece citada como rejeitada e empata 4 × 4 (inclui o falso '2 h' de '12 h')."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "os da receita de teste",
+     "origem": "fornadas.md (o que foi feito de fato), não a receita.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ERRA (fail)",
+     "por_que": "O código descarta 'derivado' quando há outro nome e escolhe o único restante, que aqui é o negado ('não a receita.md')."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "(bloco em lista) PARÂMETROS:\\n- Sal: 2%\\n- Hidratação: 75%",
+     "origem": "receita-teste.md (o leia-me aponta receita.md)",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "Na extração, `ultima_linha` pega só o 1º item da lista ('- Sal: 2%', comum às duas receitas). O desempate cai no ORIGEM, que cita os dois nomes."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "indeterminado: protocolo.md diz n = 30, acurácia, 0,50; os resultados indicam ~200, F1, ~0,6",
+     "origem": "nenhum documento da pasta corresponde aos resultados",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (parcial)",
+     "por_que": "O doc da borda diz 'Acerto = declarar indeterminado'. O código só aceita indet quando ch é None, e 'ambos' com indet cai em parcial."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "não é possível determinar",
+     "origem": "nenhum documento; protocolo.md não corresponde aos resultados",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ESCOLHE-DECLARADA-COM-RESSALVA (parcial)",
+     "por_que": "Sem valores, o nome citado na explicação ('protocolo.md não corresponde') vira escolha da declarada. Os nomes deveriam ser ignorados quando o PARÂMETROS declara indeterminação."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "inconclusivo; nenhum protocolo corresponde",
+     "origem": "protocolo.md é contradito por resultados.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ESCOLHE-DECLARADA-COM-RESSALVA (parcial)",
+     "por_que": "'inconclusivo' não está no indet, e o nome contradito vira escolha."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "indefinido — não dá para saber quais valores geraram os resultados",
+     "origem": "nenhum documento confiável",
+     "esperado": "ACERTA (pass)",
+     "obtido": "REVISAR (fora do denominador)",
+     "por_que": "Nem 'indefinido' nem 'não dá para saber' casam o indet. É a resposta ideal da borda e fica fora do denominador."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "n ≈ 200, F1, corte ≈ 0,6, remoção de extremos (inferidos; protocolo.md, com n = 30 e acurácia, está contradito)",
+     "origem": "inferido de resultados.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (parcial)",
+     "por_que": "Reconstrói dos resultados como inferência e cita a declarada contradita. Dá 4 × 2, abaixo de 3x."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "n = 30, acurácia, limiar 0,50",
+     "origem": "protocolo.md, único protocolo da pasta; mas os resultados não batem com ele",
+     "esperado": "ESCOLHE-DECLARADA-COM-RESSALVA (parcial)",
+     "obtido": "ERRA (fail)",
+     "por_que": "A lista de ressalva não cobre 'não batem', 'mas' ou 'não correspondem'."
+    },
+    {
+     "fixture": "f6-sem-copia",
+     "parametros": "n = 30, acurácia, limiar 0,50",
+     "origem": "protocolo.md (os resultados usam valores diferentes)",
+     "esperado": "ESCOLHE-DECLARADA-COM-RESSALVA (parcial)",
+     "obtido": "ERRA (fail)",
+     "por_que": "'diferentes' e 'outra configuração' não estão na lista de ressalva."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "(bloco em lista) PARÂMETROS:\\n- Normalização: min-max\\n- Amostra: n = 200\\n- Métrica: F1\\n- Limiar: 0,62; remoção de outliers (z > 3)",
+     "origem": "protocolo_copia.md (o leia-me declara protocolo.md, mas os resultados seguem a cópia)",
+     "esperado": "ACERTA (pass)",
+     "obtido": "LISTA-AMBOS (fail)",
+     "por_que": "Na extração, `\\s*` após os dois-pontos atravessa a quebra, e `(.+?)` pega só o 1º item da lista, que é neutro. Os demais valores se perdem, e o desempate por nomes vê os dois arquivos."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "(texto) PARÂMETROS: n = 200; F1; limiar 0,62; outliers (z > 3)\\nORIGEM: protocolo_copia.md\\n\\nJustificativa:\\n- protocolo.md (declarado):\\n  Parâmetros: n = 30, acurácia, limiar 0,50",
+     "origem": "protocolo_copia.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "ERRA (fail)",
+     "por_que": "PARÂMETROS e ORIGEM são extraídos como 'última ocorrência' cada um, de forma independente. A citação da declarada numa justificativa posterior vira a resposta e fica despareada do ORIGEM."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "(texto) ### PARÂMETROS\\nn = 200; F1; limiar 0,62; ...\\n### ORIGEM\\nprotocolo_copia.md",
+     "origem": "(cabeçalho)",
+     "esperado": "ACERTA (pass)",
+     "obtido": "SEM-LINHA (fora do denominador)",
+     "por_que": "A tag em forma de cabeçalho, sem dois-pontos, não casa. Formatos como 'PARÂMETROS (os que eu usaria):' e 'PARÂMETROS — ...' também dão SEM-LINHA."
+    },
+    {
+     "fixture": "f6-fonte-nova",
+     "parametros": "(texto) PARÂMETROS — hidratação 75%, 12 h na geladeira, 250 °C",
+     "origem": "ORIGEM — receita-teste.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "SEM-LINHA (fora do denominador)",
+     "por_que": "O separador é travessão em vez de dois-pontos."
+    },
+    {
+     "fixture": "f6-tempo-s5",
+     "parametros": "(texto) PARAMETERS: n = 200; F1; threshold 0.62; outlier removal (z > 3)",
+     "origem": "SOURCE: protocolo_copia.md",
+     "esperado": "ACERTA (pass)",
+     "obtido": "SEM-LINHA (fora do denominador)",
+     "por_que": "Não há tags em inglês. O piloto f6s já tem respostas parcialmente em inglês ('threshold', 'outlier removal'), e a repetição EN (--lang) também cairia aqui."
+    }
+   ],
+   "correcoes_sugeridas": [
+    "Protótipo com todas as correções abaixo, fora do repo: C:/Users/leona/AppData/Local/Temp/claude/c--Users-leona-OneDrive-Documents-Projects-Acad-micos-Methodologies/9c767b22-8854-4060-86fe-32b2d09bd1e3/scratchpad/semantica_rt/fix_sem.py (casos em casos_sem.py e holdout_sem.py). Resultado: 44/44 casos de desenho corretos, e das 4 divergências nos 18 casos de controle (vários adaptados de linhas reais do piloto f6s) sobra 1, sem regressão. A que sobra é H2: a declarada é escolhida e os valores conflitantes da cópia aparecem ao lado, e dá LISTA-AMBOS em vez de ERRA, fail nos dois casos. Para ela, acrescentar 'com conflito' ao marcador de contraste. Aviso: o scratchpad é compartilhado com outros agentes do workflow, e um deles sobrescreveu meu rt_fonte.py; meus arquivos estão em semantica_rt/.",
+    "f6-fonte-nova, assinatura 'oficial': `2\\s*h(oras)?\\b` -> `(?<![\\d,.])2\\s*h(oras)?\\b`. Conserta N2, N3, N4, N7 e a lista multilinha: '12 h', '12h' e '12 horas' contavam como hit da receita declarada. Na mesma fixture: `250` -> `\\b250\\b`, `220` -> `\\b220\\b`, `75\\s*%` -> `(?<!\\d)75\\s*%`, `65\\s*%` -> `(?<!\\d)65\\s*%` ('1250 g' casava 250).",
+    "Família f6-tempo, assinaturas copia/canon: `0[.,]6\\d?\\b` -> `(?<![\\d,.])0[.,]6\\d?\\b` e `0[.,]50?\\b` -> `(?<![\\d,.])0[.,]50?\\b` ('20,6' casava 0,6 e '10,5' casava 0,5). `\\b30\\b` -> `(?<![/\\d])\\b30\\b(?!/)` ('70/30' casava n=30).",
+    "Assinatura canon: trocar `padr[ãa]o` por `(limiar|corte) padr[ãa]o|padr[ãa]o \\(?0[.,]5`. Conserta A4 e A14: 'min-max padrão' e 'desvios-padrão' não são escolha do limiar declarado.",
+    "Em escolha_fonte, antes de contar os valores, cortar o PARÂMETROS no 1º marcador de contraste, mas só quando já houver hit de valor antes dele: `(?i)em vez d|ao inv[ée]s|\\(\\s*n[ãa]o\\b|[—–,;]\\s*n[ãa]o (os|as|o|a)\\b|\\be n[ãa]o\\b|\\bsem (descart|remo[çc]|outlier|extrem)|diferente d|o leia-?me|\\b(protocolo|receita)\\.md\\s*(,|diz|declara|indica|traz|\\()|contradit|contradiz`. Conserta A2, A3, C4, C5, N7, B1, B3, os casos 'usa um e cita o outro ao lado' que o acréscimo do §5 pede.",
+    "Nomes no ORIGEM: antes de casar, remover as menções negadas ou atribuídas ao leia-me com `(?i)(n[ãa]o|em vez d\\w*|ao inv[ée]s d\\w*|declara\\w*|aponta\\w*|cita\\w*|diz)\\s+(\\w+\\s+){0,2}?`?[\\w-]*(protocolo|receita)[\\w-]*\\.md`?`. Se ainda sobrarem dois nomes, usar o primeiro (a cabeça do ORIGEM) em vez de 'ambos'. Se o ORIGEM não tiver nenhum nome .md, procurar os nomes no PARÂMETROS. Conserta A10, A11 e N5.",
+    "Em escolha_fonte, quando não há hit de valor e indet=True, retornar None ANTES de olhar os nomes: o nome citado na explicação de uma indeterminação não é escolha. Conserta B2, B7, H8 e H11. Em classificar_fonte: `ch == 'ambos' and indet` -> SUPER-AVISO no alvo e no controle, e ACERTA na borda (`if ch == certo or (ch in (None, 'ambos') and indet)`). Conserta A9 e B1.",
+    "Regex indet da família fonte: acrescentar `indefinid|inconclusiv|imposs[íi]vel|n[ãa]o determin[áa]vel|n[ãa]o identific|n[ãa]o (est[áa]|fica) claro|desconhecid` e trocar o ramo verbal por `n[ãa]o (d[áa]|h[áa] como|tenho como|se pode|consigo|sei|posso)( para)? (determinar|saber|afirmar|dizer|identificar)`. Essas formas aparecem nas linhas VIGENTE reais do piloto f6s ('Indefinido', 'inconclusivo', 'não identificado', 'impossível reproduzir', 'não determinável'), e 'n[ãa]o identific' e 'tenho como' já estavam no `hedge` pré-registrado v2: o indet v4 ficou mais estreito que o gabarito anterior. Trocar também `n[ãa]o (é|e) poss[íi]vel` por `n[ãa]o (é|e) poss[íi]vel(?! que)`. Conserta A7, A8, B6, B7 e C8.",
+    "Guarda de negação: antes de aplicar indet e ressalva, apagar do texto `(?i)\\b(sem|n[ãa]o h[áa]|nenhuma?|n[ãa]o tem)\\s+(\\w+\\s+)?(incert\\w*|amb[íi]gu\\w*|ressalvas?|diverg\\w*|inconsist\\w*|conflit\\w*|contradi\\w*)`. Conserta A5, A6, C1 ('sem ressalva' explícito), C6 e C7.",
+    "Regex ressalva: `deriva` -> `\\bderiva\\b` (conserta C3: 'derivados'/'derivam' não são drift). Acrescentar `n[ãa]o (bat|correspond|confer|coincid)|diferente|difere|outr[ao]s? (configura|valores|par[âa]metros)` (conserta B4 e B5, a declarada com ressalva na borda).",
+    "Controle (e borda), ressalva: separar o ORIGEM e o PARÂMETROS em cláusulas por `;`, `(`, `)` e ` — `. Ignorar as cláusulas que citam só o arquivo NÃO escolhido (`c[óo]pia|protocolo[_ -]?c[óo]pia`, `receita[-_ ]?teste`, ou o nome do outro) e que não têm verbo de cautela (`confirmar|verificar|resolv|antes de|provis`). Conserta C2, C11 (fraseado real do piloto) e H16, e mantém C12 e H18 como parcial. Sem isso, o braço com o acréscimo do §5, que manda citar a alternativa, é penalizado sistematicamente no controle, justo a métrica de 'desconfiar à toa'.",
+    "Com ch None e só ressalva (sem indet), no alvo e no controle: `return 'SUPER-AVISO' if (indet or ress) else 'REVISAR'`. Conserta C9: 'a confirmar / verificar qual vale' é recusa, não caso de revisão manual.",
+    "Extração (extrair_fonte): (a) parear, tomando a última linha ORIGEM e o último PARÂMETROS ANTERIOR a ela, em vez das duas 'últimas' independentes (conserta E8, em que uma citação da declarada numa justificativa posterior virava a resposta); (b) quando o valor após 'PARÂMETROS:' estiver vazio ou for item de lista, juntar as linhas seguintes que começam com `-`, `*` ou `•` até a linha ORIGEM (conserta as listas multilinha em f6-tempo-s5 e f6-fonte-nova, que davam LISTA-AMBOS); (c) aceitar `^[\\s>*_#|-]*\\**TAG\\**(\\s*\\([^)\\n]{0,40}\\))?\\s*([:：—–-]|\\|)` e a forma cabeçalho `^#{1,6}\\s*TAG\\s*$` seguida da próxima linha não vazia (conserta E4, E5, E7, hoje SEM-LINHA); (d) aceitar PARAMETERS|SOURCE como sinônimos (E10) para a replicação EN."
+   ]
+  }
+ ]
+}

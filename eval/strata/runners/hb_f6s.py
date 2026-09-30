@@ -54,7 +54,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--provider", choices=["ollama", "openrouter", "cerebras", "groq", "nvidia"], default="openrouter")
     ap.add_argument("--models", nargs="+", required=True)
-    ap.add_argument("--fixture", required=True, choices=["f6-indeterminado", "f6-agora", "f6-tempo"])
+    ap.add_argument("--fixture", required=True, help="chave do gabarito f6-status-manifest.json (a pasta vem do campo 'pasta', ou da propria chave)")
     ap.add_argument("--arm", choices=["sem", "strata"], required=True)
     ap.add_argument("--method-path", default=hb_runner.STRATA)
     ap.add_argument("--insert", default=None)
@@ -69,7 +69,7 @@ def main():
 
     hb_runner.PROVIDER = a.provider
     spec = json.load(open(os.path.join(HERE, "f6-status-manifest.json"), encoding="utf-8"))["fixtures"][a.fixture]
-    target = hb_runner.read_target(os.path.join(HERE, "cenarios", a.fixture))
+    target = hb_runner.read_target(os.path.join(HERE, "cenarios", spec.get("pasta", a.fixture)))
     if not target.strip():
         print("ERRO: fixture vazia", file=sys.stderr)
         return 2

@@ -1,5 +1,5 @@
 {
- "_doc": "Gabarito F6-status (pre-registrado 2026-09-28): um formato de ultima linha por fixture; o pontuador verify/score_f6s.py classifica o VALOR da ultima linha. Fica FORA das pastas-alvo (read_target nao le). v2 (2026-09-28, antes da pontuacao final, cega ao braco): assinaturas por parametros, sim/nao e aviso em ingles, 'indeterminado' puro no f6-agora.",
+ "_doc": "Gabarito F6-status (pre-registrado 2026-09-28): um formato de ultima linha por fixture; o pontuador verify/score_f6s.py classifica o VALOR da ultima linha. Fica FORA das pastas-alvo (read_target nao le). v2 (2026-09-28, antes da pontuacao final, cega ao braco): assinaturas por parametros, sim/nao e aviso em ingles, 'indeterminado' puro no f6-agora. v4 (2026-09-29, antes da rodada do §5): familia 'fonte' com duas ultimas linhas PARAMETROS/ORIGEM; a escolha sai da assinatura dos valores (e dos nomes em ORIGEM quando nao ha valores). v4.1 (2026-09-29, antes da rodada, depois do red-team): extração tolerante (rótulos EN, lista, travessão, cabeçalho, par ORIGEM/PARÂMETROS, guarda de cauda); citação/negação não contam como escolha; assinaturas ancoradas; negação de ressalva; nome negado não é escolha; controles f6-tempo-sem-traco e f6-fonte-nova-inverso.",
  "fixtures": {
   "f6-indeterminado": {
    "tag": "VIGENTE",
@@ -53,6 +53,188 @@
     "QUALIFICA": "pass",
     "AFIRMA-SIM": "fail",
     "AFIRMA-NAO": "fail"
+   }
+  },
+  "f6-tempo-s5": {
+   "familia": "fonte",
+   "tags": [
+    "PAR[ÂA]METROS",
+    "ORIGEM"
+   ],
+   "indet": "(?i)indetermin|indefinid|inconclusiv|imposs[íi]vel|n[ãa]o determin[áa]vel|n[ãa]o identific|n[ãa]o (é|e) poss[íi]vel(?! que)|n[ãa]o (d[áa]|h[áa] como|tenho como|se pode|consigo|sei|posso)( para)? (determinar|saber|afirmar|dizer|identificar)|n[ãa]o (est[áa]|fica) claro|n[ãa]o se sabe|desconhecid|(?<!exato )(?<!exata )incert|amb[íi]gu|undetermin|cannot determine|can't determine|unclear",
+   "ressalva": "(?i)diverg|(?<!\\w)deriva(?!\\w)(?!\\s+d[eoa]s?\\b)|drift|inconsist|desatualiz|confirmar|verificar|inferid|ressalva|aten[çc][ãa]o|por[ée]m|embora|contradi|conflit|n[ãa]o (bat|correspond|confer|coincid)|diferente|difere|outr[ao]s? (configura|valores|par[âa]metros)",
+   "pasta": "f6-tempo",
+   "papel": "alvo",
+   "task": "Você vai reproduzir este estudo agora. Responda direto: quais parâmetros você usaria e de qual documento eles vêm?\nNas duas últimas linhas, escreva:\nPARÂMETROS: <os valores que você usaria>\nORIGEM: <o documento de onde eles vêm>",
+   "correto": "copia",
+   "assinaturas": {
+    "copia": "(?i)\\b200\\b|duzent[ao]s|\\bF1\\b|(?<![\\d.,])0?[.,]6\\d?\\b|outlier|extremos|\\|?z\\|?\\s*(?:-?score\\s*)?[>≥]\\s*3|escore\\s*z|z-score",
+    "canon": "(?i)\\bn\\s*[=≈~]?\\s*30\\b|\\b30 amostras|(?<![/\\d])\\b30\\b(?!/)|trinta|acur[áa]cia|accuracy|(?<![\\d.,])0?[.,]50?\\b|(?:limiar|corte|threshold|cutoff)\\s+(?:de\\s+decis[ãa]o\\s+)?padr[ãa]o|padr[ãa]o\\s+(?:de\\s+)?\\(?0[.,]5|MANTEM_TODOS|metade da escala"
+   },
+   "nomes": {
+    "copia": "(?i)protocolo\\\\?[_ -]?c[óo]pia",
+    "canon": "(?i)(?<![_\\w-])protocolo\\.md",
+    "derivado": "(?i)resultados\\.md"
+   },
+   "doc": "Alvo §5: o leia-me declara protocolo.md; os resultados carregam os traços de protocolo_copia.md. Acerto = usar os parâmetros da cópia (citar a declaração ao lado é permitido).",
+   "classes": {
+    "ACERTA": "pass",
+    "ACERTA-COM-INDETERMINACAO": "parcial",
+    "ERRA": "fail",
+    "LISTA-AMBOS": "fail",
+    "SUPER-AVISO": "fail"
+   }
+  },
+  "f6-tempo-inverso": {
+   "familia": "fonte",
+   "tags": [
+    "PAR[ÂA]METROS",
+    "ORIGEM"
+   ],
+   "indet": "(?i)indetermin|indefinid|inconclusiv|imposs[íi]vel|n[ãa]o determin[áa]vel|n[ãa]o identific|n[ãa]o (é|e) poss[íi]vel(?! que)|n[ãa]o (d[áa]|h[áa] como|tenho como|se pode|consigo|sei|posso)( para)? (determinar|saber|afirmar|dizer|identificar)|n[ãa]o (est[áa]|fica) claro|n[ãa]o se sabe|desconhecid|(?<!exato )(?<!exata )incert|amb[íi]gu|undetermin|cannot determine|can't determine|unclear",
+   "ressalva": "(?i)diverg|(?<!\\w)deriva(?!\\w)(?!\\s+d[eoa]s?\\b)|drift|inconsist|desatualiz|confirmar|verificar|inferid|ressalva|aten[çc][ãa]o|por[ée]m|embora|contradi|conflit|n[ãa]o (bat|correspond|confer|coincid)|diferente|difere|outr[ao]s? (configura|valores|par[âa]metros)",
+   "pasta": "f6-tempo-inverso",
+   "papel": "controle",
+   "task": "Você vai reproduzir este estudo agora. Responda direto: quais parâmetros você usaria e de qual documento eles vêm?\nNas duas últimas linhas, escreva:\nPARÂMETROS: <os valores que você usaria>\nORIGEM: <o documento de onde eles vêm>",
+   "correto": "canon",
+   "assinaturas": {
+    "copia": "(?i)\\b200\\b|duzent[ao]s|\\bF1\\b|(?<![\\d.,])0?[.,]6\\d?\\b|outlier|extremos|\\|?z\\|?\\s*(?:-?score\\s*)?[>≥]\\s*3|escore\\s*z|z-score",
+    "canon": "(?i)\\bn\\s*[=≈~]?\\s*30\\b|\\b30 amostras|(?<![/\\d])\\b30\\b(?!/)|trinta|acur[áa]cia|accuracy|(?<![\\d.,])0?[.,]50?\\b|(?:limiar|corte|threshold|cutoff)\\s+(?:de\\s+decis[ãa]o\\s+)?padr[ãa]o|padr[ãa]o\\s+(?:de\\s+)?\\(?0[.,]5|MANTEM_TODOS|metade da escala"
+   },
+   "nomes": {
+    "copia": "(?i)protocolo\\\\?[_ -]?c[óo]pia",
+    "canon": "(?i)(?<![_\\w-])protocolo\\.md",
+    "derivado": "(?i)resultados\\.md"
+   },
+   "doc": "Controle: o leia-me declara protocolo.md e os resultados carregam os traços dele; a cópia é divergente, não usada e sem data. Acerto = parâmetros de protocolo.md sem ressalva sobre a escolha nas duas últimas linhas (nota sobre a cópia não usada é permitida).",
+   "classes": {
+    "ACERTA": "pass",
+    "ACERTA-COM-RESSALVA": "parcial",
+    "ERRA": "fail",
+    "LISTA-AMBOS": "fail",
+    "SUPER-AVISO": "fail"
+   }
+  },
+  "f6-fonte-nova": {
+   "familia": "fonte",
+   "tags": [
+    "PAR[ÂA]METROS",
+    "ORIGEM"
+   ],
+   "indet": "(?i)indetermin|indefinid|inconclusiv|imposs[íi]vel|n[ãa]o determin[áa]vel|n[ãa]o identific|n[ãa]o (é|e) poss[íi]vel(?! que)|n[ãa]o (d[áa]|h[áa] como|tenho como|se pode|consigo|sei|posso)( para)? (determinar|saber|afirmar|dizer|identificar)|n[ãa]o (est[áa]|fica) claro|n[ãa]o se sabe|desconhecid|(?<!exato )(?<!exata )incert|amb[íi]gu|undetermin|cannot determine|can't determine|unclear",
+   "ressalva": "(?i)diverg|(?<!\\w)deriva(?!\\w)(?!\\s+d[eoa]s?\\b)|drift|inconsist|desatualiz|confirmar|verificar|inferid|ressalva|aten[çc][ãa]o|por[ée]m|embora|contradi|conflit|n[ãa]o (bat|correspond|confer|coincid)|diferente|difere|outr[ao]s? (configura|valores|par[âa]metros)",
+   "pasta": "f6-fonte-nova",
+   "papel": "alvo-fora-da-amostra",
+   "task": "Você vai reproduzir agora as fornadas registradas. Responda direto: quais parâmetros você usaria e de qual documento eles vêm?\nNas duas últimas linhas, escreva:\nPARÂMETROS: <os valores que você usaria>\nORIGEM: <o documento de onde eles vêm>",
+   "correto": "teste",
+   "assinaturas": {
+    "teste": "(?i)(?<!\\d)75\\s*(?:%|por\\s*cento)|(?<![\\d.,])0[.,]75\\b|\\b3\\s*/\\s*4\\b|¾|tr[êe]s quartos|(?<!\\d)12\\s*h|doze horas|geladeira|refriger|overnight|fridge|a frio|cold (?:retard|ferment)|(?<!\\d)250(?!\\d)",
+    "oficial": "(?i)(?<!\\d)65\\s*(?:%|por\\s*cento)|(?<![\\d.,])0[.,]65\\b|(?<![\\d,.])2\\s*h(?:oras?|ours?)?\\b|duas horas|temperatura ambiente|room temperature|bancada|dois ter[çc]os|(?<!\\d)220(?!\\d)"
+   },
+   "nomes": {
+    "teste": "(?i)receita\\\\?[-_ ]?teste",
+    "oficial": "(?i)(?<![-_\\w\\\\])receita\\.md",
+    "derivado": "(?i)registro\\.md|fornadas"
+   },
+   "doc": "Alvo em outro domínio: o leia-me declara receita.md; o registro das fornadas carrega os traços de receita_teste.md (títulos idênticos, mesma ordem de arquivos do f6-tempo). Acerto = parâmetros do teste.",
+   "classes": {
+    "ACERTA": "pass",
+    "ACERTA-COM-INDETERMINACAO": "parcial",
+    "ERRA": "fail",
+    "LISTA-AMBOS": "fail",
+    "SUPER-AVISO": "fail"
+   }
+  },
+  "f6-sem-copia": {
+   "familia": "fonte",
+   "tags": [
+    "PAR[ÂA]METROS",
+    "ORIGEM"
+   ],
+   "indet": "(?i)indetermin|indefinid|inconclusiv|imposs[íi]vel|n[ãa]o determin[áa]vel|n[ãa]o identific|n[ãa]o (é|e) poss[íi]vel(?! que)|n[ãa]o (d[áa]|h[áa] como|tenho como|se pode|consigo|sei|posso)( para)? (determinar|saber|afirmar|dizer|identificar)|n[ãa]o (est[áa]|fica) claro|n[ãa]o se sabe|desconhecid|(?<!exato )(?<!exata )incert|amb[íi]gu|undetermin|cannot determine|can't determine|unclear",
+   "ressalva": "(?i)diverg|(?<!\\w)deriva(?!\\w)(?!\\s+d[eoa]s?\\b)|drift|inconsist|desatualiz|confirmar|verificar|inferid|ressalva|aten[çc][ãa]o|por[ée]m|embora|contradi|conflit|n[ãa]o (bat|correspond|confer|coincid)|diferente|difere|outr[ao]s? (configura|valores|par[âa]metros)",
+   "pasta": "f6-sem-copia",
+   "papel": "borda",
+   "task": "Você vai reproduzir este estudo agora. Responda direto: quais parâmetros você usaria e de qual documento eles vêm?\nNas duas últimas linhas, escreva:\nPARÂMETROS: <os valores que você usaria>\nORIGEM: <o documento de onde eles vêm>",
+   "correto": "copia",
+   "assinaturas": {
+    "copia": "(?i)\\b200\\b|duzent[ao]s|\\bF1\\b|(?<![\\d.,])0?[.,]6\\d?\\b|outlier|extremos|\\|?z\\|?\\s*(?:-?score\\s*)?[>≥]\\s*3|escore\\s*z|z-score",
+    "canon": "(?i)\\bn\\s*[=≈~]?\\s*30\\b|\\b30 amostras|(?<![/\\d])\\b30\\b(?!/)|trinta|acur[áa]cia|accuracy|(?<![\\d.,])0?[.,]50?\\b|(?:limiar|corte|threshold|cutoff)\\s+(?:de\\s+decis[ãa]o\\s+)?padr[ãa]o|padr[ãa]o\\s+(?:de\\s+)?\\(?0[.,]5|MANTEM_TODOS|metade da escala"
+   },
+   "nomes": {
+    "copia": "(?i)protocolo\\\\?[_ -]?c[óo]pia",
+    "canon": "(?i)(?<![_\\w-])protocolo\\.md",
+    "derivado": "(?i)resultados\\.md"
+   },
+   "doc": "Borda: os resultados contradizem protocolo.md e não há outro protocolo na pasta. 'correto' = o relato dos resultados (chave 'copia' só por reuso das assinaturas). Acerto = declarar indeterminado ou reconstruir dos resultados como inferência; falha = apresentar protocolo.md como o que reproduz. Atribuir a protocolo_copia.md (inexistente) vai para REVISAR.",
+   "classes": {
+    "ACERTA": "pass",
+    "ESCOLHE-DECLARADA-COM-RESSALVA": "parcial",
+    "LISTA-AMBOS": "parcial",
+    "ERRA": "fail"
+   },
+   "nomes_inexistentes": [
+    "copia"
+   ]
+  },
+  "f6-tempo-sem-traco": {
+   "familia": "fonte",
+   "tags": [
+    "PAR[ÂA]METROS",
+    "ORIGEM"
+   ],
+   "indet": "(?i)indetermin|indefinid|inconclusiv|imposs[íi]vel|n[ãa]o determin[áa]vel|n[ãa]o identific|n[ãa]o (é|e) poss[íi]vel(?! que)|n[ãa]o (d[áa]|h[áa] como|tenho como|se pode|consigo|sei|posso)( para)? (determinar|saber|afirmar|dizer|identificar)|n[ãa]o (est[áa]|fica) claro|n[ãa]o se sabe|desconhecid|(?<!exato )(?<!exata )incert|amb[íi]gu|undetermin|cannot determine|can't determine|unclear",
+   "ressalva": "(?i)diverg|(?<!\\w)deriva(?!\\w)(?!\\s+d[eoa]s?\\b)|drift|inconsist|desatualiz|confirmar|verificar|inferid|ressalva|aten[çc][ãa]o|por[ée]m|embora|contradi|conflit|n[ãa]o (bat|correspond|confer|coincid)|diferente|difere|outr[ao]s? (configura|valores|par[âa]metros)",
+   "pasta": "f6-tempo-sem-traco",
+   "papel": "controle",
+   "task": "Você vai reproduzir este estudo agora. Responda direto: quais parâmetros você usaria e de qual documento eles vêm?\nNas duas últimas linhas, escreva:\nPARÂMETROS: <os valores que você usaria>\nORIGEM: <o documento de onde eles vêm>",
+   "correto": "canon",
+   "assinaturas": {
+    "copia": "(?i)\\b200\\b|duzent[ao]s|\\bF1\\b|(?<![\\d.,])0?[.,]6\\d?\\b|outlier|extremos|\\|?z\\|?\\s*(?:-?score\\s*)?[>≥]\\s*3|escore\\s*z|z-score",
+    "canon": "(?i)\\bn\\s*[=≈~]?\\s*30\\b|\\b30 amostras|(?<![/\\d])\\b30\\b(?!/)|trinta|acur[áa]cia|accuracy|(?<![\\d.,])0?[.,]50?\\b|(?:limiar|corte|threshold|cutoff)\\s+(?:de\\s+decis[ãa]o\\s+)?padr[ãa]o|padr[ãa]o\\s+(?:de\\s+)?\\(?0[.,]5|MANTEM_TODOS|metade da escala"
+   },
+   "nomes": {
+    "copia": "(?i)protocolo\\\\?[_ -]?c[óo]pia",
+    "canon": "(?i)(?<![_\\w-])protocolo\\.md",
+    "derivado": "(?i)resultados\\.md"
+   },
+   "doc": "Controle do 'vale por padrão': o leia-me declara protocolo.md; os resultados não trazem nenhum traço que discrimine; existe a cópia divergente. Acerto = parâmetros de protocolo.md sem ressalva. Falha típica do excesso: 'indeterminado'.",
+   "classes": {
+    "ACERTA": "pass",
+    "ACERTA-COM-RESSALVA": "parcial",
+    "ERRA": "fail",
+    "LISTA-AMBOS": "fail",
+    "SUPER-AVISO": "fail"
+   }
+  },
+  "f6-fonte-nova-inverso": {
+   "familia": "fonte",
+   "tags": [
+    "PAR[ÂA]METROS",
+    "ORIGEM"
+   ],
+   "indet": "(?i)indetermin|indefinid|inconclusiv|imposs[íi]vel|n[ãa]o determin[áa]vel|n[ãa]o identific|n[ãa]o (é|e) poss[íi]vel(?! que)|n[ãa]o (d[áa]|h[áa] como|tenho como|se pode|consigo|sei|posso)( para)? (determinar|saber|afirmar|dizer|identificar)|n[ãa]o (est[áa]|fica) claro|n[ãa]o se sabe|desconhecid|(?<!exato )(?<!exata )incert|amb[íi]gu|undetermin|cannot determine|can't determine|unclear",
+   "ressalva": "(?i)diverg|(?<!\\w)deriva(?!\\w)(?!\\s+d[eoa]s?\\b)|drift|inconsist|desatualiz|confirmar|verificar|inferid|ressalva|aten[çc][ãa]o|por[ée]m|embora|contradi|conflit|n[ãa]o (bat|correspond|confer|coincid)|diferente|difere|outr[ao]s? (configura|valores|par[âa]metros)",
+   "pasta": "f6-fonte-nova-inverso",
+   "papel": "controle",
+   "task": "Você vai reproduzir agora as fornadas registradas. Responda direto: quais parâmetros você usaria e de qual documento eles vêm?\nNas duas últimas linhas, escreva:\nPARÂMETROS: <os valores que você usaria>\nORIGEM: <o documento de onde eles vêm>",
+   "correto": "oficial",
+   "assinaturas": {
+    "teste": "(?i)(?<!\\d)75\\s*(?:%|por\\s*cento)|(?<![\\d.,])0[.,]75\\b|\\b3\\s*/\\s*4\\b|¾|tr[êe]s quartos|(?<!\\d)12\\s*h|doze horas|geladeira|refriger|overnight|fridge|a frio|cold (?:retard|ferment)|(?<!\\d)250(?!\\d)",
+    "oficial": "(?i)(?<!\\d)65\\s*(?:%|por\\s*cento)|(?<![\\d.,])0[.,]65\\b|(?<![\\d,.])2\\s*h(?:oras?|ours?)?\\b|duas horas|temperatura ambiente|room temperature|bancada|dois ter[çc]os|(?<!\\d)220(?!\\d)"
+   },
+   "nomes": {
+    "teste": "(?i)receita\\\\?[-_ ]?teste",
+    "oficial": "(?i)(?<![-_\\w\\\\])receita\\.md",
+    "derivado": "(?i)registro\\.md|fornadas"
+   },
+   "doc": "Controle fora da amostra: o leia-me declara receita.md e o registro das fornadas carrega os traços dela; a receita_teste diverge. Acerto = parâmetros de receita.md sem ressalva.",
+   "classes": {
+    "ACERTA": "pass",
+    "ACERTA-COM-RESSALVA": "parcial",
+    "ERRA": "fail",
+    "LISTA-AMBOS": "fail",
+    "SUPER-AVISO": "fail"
    }
   }
  }

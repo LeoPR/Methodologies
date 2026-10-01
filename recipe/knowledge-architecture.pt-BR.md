@@ -1,7 +1,7 @@
 ---
 title: 'Arquitetura do conhecimento: organizar, rastrear e gerar'
 project: Strata
-version: 1.2.9
+version: 1.2.10
 type: reference
 status: active
 created: 2026-05-20
@@ -930,7 +930,8 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 > web-verificada em 2026-06-03 (análise de modernização em
 > `lab/2026-06-03-modernizacao/` no repositório de origem), re-verificada em
 > 2026-08-01 (`lab/2026-08-01-fechamento-camadas/L2-2-ferramentas-ia.md`) e, a
-> matriz de IA, em 2026-09-26 (`lab/2026-09-26-revisao-temporal/`).
+> matriz de IA, em 2026-09-26 (`lab/2026-09-26-revisao-temporal/`); os arquivos de instrução e a
+> camada de garantia, em 2026-10-01 (`lab/2026-10-01-ferramentas-agentes/`).
 
 ## 1. Agentes de IA: a forma de hoje do colaborador sem memória
 
@@ -942,6 +943,7 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 | Forma (2026) | O que é | Expressa |
 |---|---|---|
 | **AGENTS.md** | um arquivo de instruções na raiz, lido por todo agente: inventário + checklist "antes de agir" + lista NUNCA | §2 ponto de entrada p/ o colaborador |
+| **Guardas da ferramenta** | regras de permissão (permitir/perguntar/negar), hooks que podem bloquear, sandbox, configuração gerenciada pelo admin; no forge: proteção de branch, checks obrigatórios, aprovador diferente de quem pediu. Aplicadas pela ferramenta, fora do modelo: um arquivo de instrução é contexto que o modelo pode pular, estas não. Um repositório não se concede autoridade (as próprias configurações não aprovam seus servers MCP nem afrouxam limites do admin) | §6-bis fail-closed (um canal que o conteúdo não forja) + §5 (o que precisa valer mora numa checagem que sinaliza divergência, não em prosa) |
 | **MCP** (Model Context Protocol) | padrão de conexão agente↔dados/ferramentas; expor `tickets`/`manifest`/dataset como server local | §3 acesso rastreável a recursos |
 | **Agent Skills** (`SKILL.md`) | capacidade empacotada reutilizável (progressive disclosure), cross-tool | operações repetíveis (auditoria, promoção, export) |
 | **Memória em camadas** | (1) arquivo versionado · (2) auto memória escrita pelo agente (`MEMORY.md`, ligada por default) · (3) memória user-scope · (4) memória filesystem (memory tool, contexto 1M); hooks são **enforcement**, não camada de memória | a 4ª camada do §3 (as camadas (2)+(4) geram drift opaco não-versionado; auditar) |
@@ -952,17 +954,23 @@ seção acrescenta ao repertório são as duas regras que esses princípios não
 | **Observabilidade (OTel GenAI)** | traces/spans/tokens por sessão de agente (convenções semânticas ainda **Development**, desde a v1.42.0 num repositório GenAI próprio; pine a geração que você usa) | complemento-máquina do diário/manifest (§3) |
 | **Busca grep-first** | agentes descobrem por grep/árvore, não vector DB; semântica (FTS5+sqlite-vec) só p/ corpus grande | §2 achabilidade |
 
-**Estado da matriz (`[VERIFICAR: 2026-09-26]`)**: AGENTS.md é padrão
+**Estado da matriz (`[VERIFICAR: 2026-10-01]`)**: AGENTS.md é padrão
 **estabelecido** (Agentic AI Foundation/Linux Foundation, 2025), nativo em
-Codex/Copilot/Cursor/Gemini CLI/Aider/Windsurf/Zed e, desde set-2026 (v2.1.277), no Claude
-Code; um `CLAUDE.md` na mesma hierarquia tem precedência ali, salvo configuração para fundir
-os dois, então um AGENTS.md basta e o antigo import `@AGENTS.md` deixou de ser necessário. **Agent Skills** virou padrão
-aberto **cross-tool** (agentskills.io, 2025; ~40 plataformas); audite skills
+Codex/Copilot/Cursor/Aider/Windsurf/Zed; no Gemini CLI, por configuração (o arquivo padrão dele é
+o `GEMINI.md`); desde set-2026 (v2.1.277), o Claude Code o lê quando o projeto não tem `CLAUDE.md`
+(uma configuração carrega os dois), então um AGENTS.md basta. As ferramentas combinam fontes de
+instrução de modos diferentes (somadas em umas, o arquivo mais próximo vence em outras): mantenha
+um arquivo com autoridade e deixe qualquer outro apontar para ele (§5). **Agent Skills** virou padrão
+aberto **cross-tool** (agentskills.io, 2025); audite skills
 de terceiros como audita servers MCP. **MCP**: a spec corrente é
 **2026-07-28** (núcleo stateless; Roots/Sampling/Logging e o transporte
 HTTP+SSE legado deprecados; governança sob a AAIF/Linux Foundation).
 **Segurança (NUNCA)**: server MCP com escrita/ação = superfície de ataque:
-menor privilégio; ação com side-effect externo exige aprovação. Marcação de
+menor privilégio; ação com side-effect externo exige aprovação. Os fabricantes agora afirmam que
+arquivo de instrução é contexto, não garantia, e que prompt injection não está resolvido. Um
+aprovador baseado em modelo (modos de autoaprovação) reduz atrito, mas tem taxa de erro
+documentada pelo próprio fabricante: ação **irreversível** pede portão determinístico (regra de
+negação, aprovação obrigatória). Marcação de
 conteúdo gerado por IA: o **EU AI Act Art. 50 aplica-se desde 2-ago-2026** e
 exige marcação legível por máquina, mas é **tecnologicamente neutro** (não
 nomeia padrão); C2PA 2.x (2.4, abr-2026; em fast-track como **ISO 22144**,
@@ -972,7 +980,7 @@ como adequado junto das Guidelines finais e não vinculantes da Comissão para o
 Art. 50 (20-jul-2026). Sistemas colocados
 no mercado antes de 2-ago-2026 têm até 2-dez-2026 **só para o dever de
 marcação do Art. 50(2)** (Art. 111(4), Reg. (UE) 2026/1744).
-`[re-verificado: 2026-09-26]`
+`[re-verificado: 2026-09-26; arquivos de instrução e guardas: 2026-10-01]`
 
 > **Fronteira**: a *economia e o roteamento* de recursos de IA (qual modelo,
 > local vs nuvem, custo, estratégia de cache) pertencem à metodologia

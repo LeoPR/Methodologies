@@ -3,7 +3,7 @@ name: agents-methodologies-project
 type: ai-instructions
 status: active
 created: 2026-06-03
-updated: 2026-09-30
+updated: 2026-10-01
 audience: ai-primary
 applies-to: agentes de IA operando no projeto Methodologies/
 ---
@@ -87,6 +87,8 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     (H2 violada; v2).
   - `2026-09-26-revisao-superficie/`: revisão de superfície do Strata + **auditoria declarado × feito**
     (`AUDITORIA-sync.md`, destino por achado). Registro do conserto, não fonte de estado.
+  - `2026-10-01-ferramentas-agentes/`: fontes da reverificação da Parte III §1 (arquivos de instrução e
+    camada de garantia: permissões, hooks, sandbox, proteção de branch). Registro, não fonte de estado.
 - `eval/`: **LABORATORIO DE PROVA** (a "chave de fenda": comprova; NAO e a metodologia
   nem o foco; reutilizavel entre metodologias). `strata/` = harness do Strata (runner
   multi-modelo, scorers, fixtures, cenarios; o estado vivo e' o README); `*/planos/` =

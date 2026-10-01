@@ -1,7 +1,7 @@
 ---
 title: 'Knowledge architecture: organize, track, and generate'
 project: Strata
-version: 1.2.9
+version: 1.2.10
 type: reference
 status: active
 created: 2026-05-20
@@ -927,7 +927,8 @@ the two rules those principles do not give:
 > 2026-06-03 (modernization analysis in `lab/2026-06-03-modernizacao/` in
 > the source repository), re-verified on 2026-08-01
 > (`lab/2026-08-01-fechamento-camadas/L2-2-ferramentas-ia.md`) and, the AI
-> matrix, on 2026-09-26 (`lab/2026-09-26-revisao-temporal/`).
+> matrix, on 2026-09-26 (`lab/2026-09-26-revisao-temporal/`); instruction files and the
+> enforcement layer on 2026-10-01 (`lab/2026-10-01-ferramentas-agentes/`).
 
 ## 1. AI agents: today's form of the collaborator without memory
 
@@ -939,6 +940,7 @@ the two rules those principles do not give:
 | Form (2026) | What it is | Expresses |
 |---|---|---|
 | **AGENTS.md** | one instruction file at the root, read by every agent: inventory + "before acting" checklist + a NEVER list | §2 entry point for the collaborator |
+| **Harness guardrails** | permission rules (allow/ask/deny), hooks that can block, sandbox, admin-managed settings; on the forge: branch protection, required checks, an approver other than the requester. Applied by the tool, outside the model: an instruction file is context the model may skip, these are not. A repository cannot grant itself authority (its own settings do not approve its MCP servers or loosen admin limits) | §6-bis fail-closed (a channel the content cannot forge) + §5 (what must hold lives in a check that signals divergence, not in prose) |
 | **MCP** (Model Context Protocol) | a standard for connecting agent↔data/tools; expose `tickets`/`manifest`/dataset as a local server | §3 traceable access to resources |
 | **Agent Skills** (`SKILL.md`) | a reusable packaged capability (progressive disclosure), cross-tool | repeatable operations (audit, promotion, export) |
 | **Layered memory** | (1) versioned file · (2) agent-written auto memory (`MEMORY.md`, default-on) · (3) user-scope memory · (4) filesystem memory (memory tool, 1M context); hooks are **enforcement**, not a memory layer | the 4th layer of §3 (layers (2)+(4) generate opaque, unversioned drift; audit them) |
@@ -949,17 +951,23 @@ the two rules those principles do not give:
 | **Observability (OTel GenAI)** | traces/spans/tokens per agent session (semantic conventions still **Development**, since v1.42.0 in a dedicated GenAI repository; pin the generation you use) | the machine complement of the diary/manifest (§3) |
 | **grep-first search** | agents discover by grep/tree, not a vector DB; semantics (FTS5+sqlite-vec) only for a large corpus | §2 findability |
 
-**State of the matrix (`[VERIFY: 2026-09-26]`)**: AGENTS.md is an **established**
+**State of the matrix (`[VERIFY: 2026-10-01]`)**: AGENTS.md is an **established**
 standard (Agentic AI Foundation/Linux Foundation, 2025), native in
-Codex/Copilot/Cursor/Gemini CLI/Aider/Windsurf/Zed and, since Sep-2026 (v2.1.277), Claude
-Code; a `CLAUDE.md` in the same hierarchy takes precedence there unless both are set to merge,
-so one AGENTS.md is enough and the old `@AGENTS.md` import is no longer needed. **Agent Skills** are now an
-open **cross-tool** standard (agentskills.io, 2025; ~40 platforms); audit
+Codex/Copilot/Cursor/Aider/Windsurf/Zed; in Gemini CLI by configuration (its default file is
+`GEMINI.md`); since Sep-2026 (v2.1.277) Claude Code reads it when the project has no `CLAUDE.md`
+(a setting loads both), so one AGENTS.md is enough. Tools combine instruction sources in
+different ways (added together in some, the nearest file wins in others): keep one
+authoritative file and let any other point to it (§5). **Agent Skills** are now an
+open **cross-tool** standard (agentskills.io, 2025); audit
 third-party skills like you audit MCP servers. **MCP**: current spec is
 **2026-07-28** (stateless core; Roots/Sampling/Logging and the legacy HTTP+SSE
 transport deprecated; governance under AAIF/Linux Foundation). **Security
 (NEVER)**: an MCP server with write/action = an attack surface: least
-privilege; an action with an external side effect requires approval. Marking
+privilege; an action with an external side effect requires approval. Vendors now state that
+instruction files are context, not enforcement, and that prompt injection is not solved. A
+model-based approver (auto-approval modes) lowers friction but has a miss rate its vendor
+documents: an **irreversible** action needs a deterministic gate (a deny rule, a required
+approval). Marking
 AI-generated content: **EU AI Act Art. 50 applies since 2-Aug-2026** and
 requires machine-readable marking, but is **technology-neutral** (it names no
 standard); C2PA 2.x (2.4, Apr-2026; fast-tracked as **ISO 22144**, draft,
@@ -969,7 +977,7 @@ adequate alongside the Commission's final, non-binding Art. 50 Guidelines
 (20-Jul-2026). Systems placed on
 the market before 2-Aug-2026 have until 2-Dec-2026 **for the Art. 50(2)
 marking duty only** (Art. 111(4), Reg. (EU) 2026/1744).
-`[re-verified: 2026-09-26]`
+`[re-verified: 2026-09-26; instruction files and guardrails: 2026-10-01]`
 
 > **Boundary**: the *economy and routing* of AI resources (which model, local
 > vs cloud, cost, caching strategy) belongs to the **Comporta** methodology,

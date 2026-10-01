@@ -321,3 +321,20 @@ foi feita por agentes instruídos a não reportar taxa por braço nem por modelo
      reduzia o alarme do braço que mais corta.
    - Agora, na sensibilidade, SEM-LINHA conta como alarme falso nos controles. Isso alinha o código
      ao texto do §4, sem mudar o texto.
+
+### 2026-09-30, depois das duas etapas e antes da revisão manual
+
+8. **Revisão com dois revisores e adjudicação.** O §4 previa um revisor (eu). Ela passa a ter dois
+   revisores independentes e adjudicação minha.
+   - Os revisores são agentes. Cada um classifica todos os itens da amostra sem ver braço, modelo
+     nem a classe do pontuador. Os itens saem de `eval/temporalidade/revisao_itens.py`.
+   - Nas discordâncias entre os dois, eu decido, também sem ver braço, modelo nem classe do
+     pontuador.
+   - Reporta-se a concordância entre os revisores e a concordância pontuador × revisão (a do §4).
+   - Os revisores e eu somos da mesma família de modelos (Claude). Isso se declara.
+   - A amostra, a regra de ampliação e o resto do §4 não mudam.
+9. **Integridade e gasto** (antes de pontuar):
+   - 1248 saídas, 8 modelos × 156, zero erro; cada modelo num provedor e numa rota só.
+   - 116 saídas cortadas por tamanho viram SEM-LINHA: GLM 60, deepseek 45, nemotron 6, muse 3,
+     gpt-oss 2.
+   - Gasto da etapa paga: US$ 2,74. Somando os testes de fumaça, US$ 2,87, abaixo do teto.

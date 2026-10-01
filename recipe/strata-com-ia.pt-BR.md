@@ -2,7 +2,7 @@
 title: Strata com IA (guia prático de uso)
 status: active
 created: 2026-06-08
-updated: 2026-09-29
+updated: 2026-09-30
 purpose: responder ao desenvolvedor "funciona no meu ambiente? vai sair caro?". Só o que funciona
 nota: o banco de modelos por trás desta página, com os eixos de raciocínio e web e todas as ressalvas, está em lab/2026-09-26-banco-modelos/; a pesquisa anterior (o que NÃO funciona e por quê) em lab/2026-06-04-strata-hipoteses/RESULTADOS-p6..p9
 ---
@@ -52,7 +52,7 @@ Cinco regras antes de qualquer modelo:
 | **o mais rápido que faz tudo** | **gemini-3.5-flash-lite** | responde em segundos, a fração de centavo por run |
 | **pesos abertos que fazem tudo** | **qwen3.8-27b** (27B denso, Apache 2.0) | faz tudo em todos os níveis de esforço de raciocínio; com o raciocínio desligado (`off`) fica 5× mais barato e rápido |
 | **o topo** (auditoria autônoma de projeto real) | **opus-5.5** · **gpt-6-sol** · **gemini-3.8-flash** · sonnet-5 · grok-4.7 | todos fazem tudo; gpt-6-sol e gemini-3.8-flash custam cerca de 5× menos que o opus-5.5 |
-| **grátis, e que faz tudo** | **deepseek-v4.1-flash** na NVIDIA NIM | custo zero, minutos por run, com timeouts frequentes. O kimi-k3 também fez tudo nessa rota, mas respondeu 404 lá em 2026-09-28. Os `:free` do OpenRouter dão 429 (limite de taxa); a cota grátis do Groq é menor que um prompt; o crédito grátis do Cerebras acabou |
+| **grátis, e que faz tudo** | **kimi-k3** · **deepseek-v4.1-flash**, os dois na NVIDIA NIM | custo zero; o kimi-k3 leva dezenas de segundos por run, o deepseek-v4.1-flash, minutos. Outras rotas grátis limitam os tokens por minuto abaixo de um prompt do método (o plano grátis do Groq, por exemplo); os limites datados estão no banco |
 | **na própria máquina, GPU de 24 GB** (3090, 4090) | **qwen3.8:27b** | os pesos fazem tudo; com o método inteiro no prompt cabe numa placa de 24 GB (medido), decodificando dezenas de tokens por segundo (projeção) |
 | **na própria máquina, GPU de 12 GB** | **qwen3.6:35b-a3b** (MoE, offload de experts) com raciocínio **desligado** (`off`) | conserta e é seguro (recusa a injeção), mas **não** se abstém: junte a um humano que decide quando não mexer; dezenas de tokens por segundo com offload (medido). Com o método inteiro no prompt, só até ~12B denso cabe inteiro; o qwen3.8:27b também roda aqui com offload, mas devagar (minutos por run, raciocínio `off`) |
 | **numa máquina de memória unificada** (NVIDIA GB10 / DGX Spark, AMD Ryzen AI Max+ 395) | MoE grandes; **deepseek-v4.1-flash** em 2+ GB10 ligadas | muita memória, pouca banda (273 GB/s no GB10, 256 GB/s no Ryzen): denso decodifica devagar, MoE encaixa melhor. O DeepSeek V4.1-Flash (faz tudo) roda em GB10 ligadas com vLLM ≥ v0.30.0 (medição de terceiros em 2 unidades: dezenas de tokens por segundo); ainda não no llama.cpp nem no Ollama local ([encaixe por placa](../lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md)) |

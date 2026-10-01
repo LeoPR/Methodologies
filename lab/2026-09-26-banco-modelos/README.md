@@ -3,7 +3,7 @@ name: banco-modelos-2026-09
 type: registro
 status: grade executada 2026-09-26
 created: 2026-09-26
-updated: 2026-09-26
+updated: 2026-09-30
 audience: ai-primary
 ---
 
@@ -103,7 +103,7 @@ capacidade medida na nuvem vale para quem roda os mesmos pesos em casa. Quando n
 | **Mais rápido que faz tudo** | gemini-3.5-flash-lite | 9/9 em 2 a 4 s por run, US$ 0,006 |
 | **Menor aberto que faz tudo** | qwen3.8-27b (27B denso, Apache 2.0) | 9/9 em todos os níveis de raciocínio; o Gemma 4 (26B-A4B, 31B) conserta e passa na armadilha, mas não se abstém |
 | **Topo** (auto-auditoria autônoma em projeto real, onde só o topo rendeu) | opus-5.5, gpt-6-sol, gemini-3.8-flash, sonnet-5, grok-4.7 | todos 9/9 no sintético; em custo, gpt-6-sol e gemini-3.8-flash saem 5× mais baratos que o opus-5.5 |
-| **Grátis que faz tudo** | **kimi-k3** na NVIDIA NIM (40 a 60 s por run); deepseek-v4.1-flash na mesma rota (2 a 10 min por run) | os dois fazem tudo a custo zero. Os `:free` do OpenRouter deram 429 hoje; o Groq recusa o prompt (413, limite de 8K tokens/min); o crédito grátis do Cerebras acabou (402) |
+| **Grátis que faz tudo** | **kimi-k3** na NVIDIA NIM (40 a 60 s por run); deepseek-v4.1-flash na mesma rota (2 a 10 min por run) | os dois fazem tudo a custo zero. No plano grátis do Groq, o limite é de 8K tokens por minuto nos modelos usados, abaixo de um prompt do método (console.groq.com/docs/rate-limits, consultado em 2026-09-30). OpenRouter `:free` e Cerebras grátis não foram medidos nesta rodada |
 | **Rodar na própria máquina, 24 GB** (3090, 4090) | **qwen3.8:27b** | os pesos fazem tudo (nuvem); a 32k de contexto ocupa 19,4 GB (medido) e cabe inteiro numa placa de 24 GB a ~40–46 tok/s (projeção do STAGE5). Na mesma placa cabem gemma-4-31b e gemma4:26b, que consertam e recusam mas não se abstêm |
 | **Rodar na própria máquina, 12 GB** (3060) | **qwen3.6:35b-a3b** (MoE, offload de experts, pensamento off) | conserta e é seguro, mas não se abstém (ponte acima); com offload mantém ~30 tok/s (medido). Com o método inteiro no prompt, só até ~12B denso cabe inteiro (gemma4:12b, qwen3:8b); o qwen3.8:27b roda com offload a ~5 tok/s (4 a 5 min por run, pensamento off): funciona, mas lento |
 | **Rodar na própria máquina, 16 GB** | nenhum dos que fazem tudo cabe inteiro | gpt-oss:20b fica "talvez (medir)" (KV não medido); o resto é offload. Ver a tabela do STAGE5 |

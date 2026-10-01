@@ -87,9 +87,9 @@ de ancorar decisão cara.)*
 
 | Parâmetro | Ajuste | O que se mediu |
 |---|---|---|
-| **esforço de raciocínio** (`reasoning effort`) | padrão do modelo ou `low` (local: `off`) | `high` nunca melhorou uma célula; derrubou a abstenção do gpt-6-luna de 3/3 para 1/3 e fez o gemini-3.8-flash errar a armadilha; deepseek e glm estouraram o orçamento. Desligar (`off`) só ajuda modelos que se mantêm robustos (qwen3.8-27b) e pode piorar a abstenção de outros |
+| **esforço de raciocínio** (`reasoning effort`) | padrão do modelo ou `low` (local: `off`) | `high` nunca melhorou uma célula; derrubou a abstenção do gpt-6-luna de 3/3 para 1/3 e custa mais tokens e tempo. Desligar (`off`) só ajuda modelos que se mantêm robustos (qwen3.8-27b) e pode piorar a abstenção de outros |
 | **modelos cujo raciocínio não desliga** | use o nível mais baixo aceito (`low`) | o glm-5.3-flash recusa "off" (HTTP 400); o gemini-3.8-flash recusa "minimal"; o opus-5.5 sempre pensa |
-| **orçamento de tokens** | generoso (≥12k de saída) para modelos com raciocínio | truncamento é a falha mais comum dos modelos com raciocínio; resposta truncada não é veredito. Localmente, o raciocínio mais o método inteiro estourou um contexto de 32k: rode modelo local com raciocínio `off` |
+| **orçamento de tokens** | generoso (32k de saída; com 12k alguns modelos com raciocínio ainda cortavam) para modelos com raciocínio | truncamento é a falha mais comum dos modelos com raciocínio; resposta truncada não é veredito. Localmente, o raciocínio mais o método inteiro estourou um contexto de 32k: rode modelo local com raciocínio `off` |
 | **busca na web** (`:online` ou a ferramenta de busca do fabricante) | ligada, para verificação de fonte (§6) | sem web, gemini-3.8-flash e deepseek-v4.1-flash confirmaram fatos desatualizados; com web, gemini e gpt-6-luna corrigiram 6/6. Sem web, o qwen3.8 é o mais honesto (diz "não verificável") |
 | **temperatura** | não conte com ela | a linha GPT-6 e o sonnet-5 não a aceitam (o roteador descarta em silêncio); a DeepSeek a ignora enquanto pensa |
 

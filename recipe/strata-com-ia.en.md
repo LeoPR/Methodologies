@@ -89,9 +89,9 @@ dated layer, L2. Re-audit before anchoring an expensive decision.)*
 
 | Parameter | Set it to | What was measured |
 |---|---|---|
-| **reasoning effort** | model default or `low` (locally: `off`) | `high` never improved a cell; it cut gpt-6-luna's abstention from 3/3 to 1/3 and made gemini-3.8-flash fail the trap; deepseek and glm ran out of budget. Off helps only models that stay robust (qwen3.8-27b) and can hurt abstention in others |
+| **reasoning effort** | model default or `low` (locally: `off`) | `high` never improved a cell; it cut gpt-6-luna's abstention from 3/3 to 1/3 and costs more tokens and time. Off helps only models that stay robust (qwen3.8-27b) and can hurt abstention in others |
 | **models whose reasoning cannot be turned off** | use the lowest accepted level (`low`) | glm-5.3-flash rejects "off" (HTTP 400); gemini-3.8-flash rejects "minimal"; opus-5.5 always thinks |
-| **token budget** | generous (≥12k output) for thinking models | truncation is the most common failure of thinking models; a truncated answer is not a verdict. Locally, thinking plus the whole method overflowed a 32k context: run local models with reasoning `off` |
+| **token budget** | generous (32k output; 12k still truncated some thinking models) for thinking models | truncation is the most common failure of thinking models; a truncated answer is not a verdict. Locally, thinking plus the whole method overflowed a 32k context: run local models with reasoning `off` |
 | **web search** (`:online` or the vendor's search tool) | on, for source verification (§6) | without web, gemini-3.8-flash and deepseek-v4.1-flash confirmed outdated facts; with web, gemini and gpt-6-luna corrected 6/6. Without web, qwen3.8 is the most honest (it says "not verifiable") |
 | **temperature** | do not rely on it | the GPT-6 line and sonnet-5 do not accept it (the router drops it silently); DeepSeek ignores it while thinking |
 

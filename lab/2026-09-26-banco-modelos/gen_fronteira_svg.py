@@ -75,8 +75,8 @@ def build(lang):
     y += 14
     out.append(f'<line x1="30" y1="{y - 8}" x2="930" y2="{y - 8}" stroke="#ccc"/>')
     notes = [
-        (t("Reasoning effort: model default or “low” (local: “off”). “high” never improved a cell and sometimes broke abstention or the trap.",
-           "Esforço de raciocínio: padrão do modelo ou “low” (local: “off”). O “high” nunca melhorou uma célula e às vezes quebrou a abstenção ou a armadilha."), "#333"),
+        (t("Reasoning effort: model default or “low” (local: “off”). “high” never improved a cell and sometimes broke abstention.",
+           "Esforço de raciocínio: padrão do modelo ou “low” (local: “off”). O “high” nunca melhorou uma célula e às vezes quebrou a abstenção."), "#333"),
         (t("Source verification (§6): web on. Without web, even top models confirmed outdated facts.",
            "Verificação de fonte (§6): web ligada. Sem web, até modelos de topo confirmaram fatos desatualizados."), "#333"),
         (t("AI output = a draft to review, always. Autonomous audit of a real project: top tier only.",

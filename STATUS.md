@@ -6,7 +6,7 @@ created: 2026-06-03
 updated: 2026-10-01
 ---
 
-# STATUS: 2026-09-30
+# STATUS: 2026-10-01
 
 Estado atual, no presente. Estados anteriores estão no histórico do git deste arquivo.
 Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.md).
@@ -45,7 +45,10 @@ Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.m
   - **Próximo, se o dono quiser:** v2 do protocolo (lacuna por incompatibilidade de estado; teto de
     tokens decidido antes).
 - **Comporta** (2ª metodologia, [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/)):
-  estágios 1–5 medidos; não destilado para `recipe/`.
+  estágios 1–5 medidos; não destilado para `recipe/`. **Replanejado em 2026-10-01**
+  ([PLANO-v2](lab/2026-06-04-economia-ia-tokens/PLANO-v2.md)): a premissa de junho (modelos "multiplier 0"
+  do Copilot) expirou; a pergunta passa a (modelo × rota × configuração) × tarefa, e boa parte da
+  evidência já existe. Aguarda o dono: escopo da v1, cortes e a fronteira com o guia do Strata.
 
 ## Aguardam decisão do dono
 

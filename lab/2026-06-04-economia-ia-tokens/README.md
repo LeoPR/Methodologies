@@ -3,9 +3,9 @@ title: Comporta — economia e roteamento de recursos de IA
 project: Comporta
 status: open
 created: 2026-06-04
-updated: 2026-09-29
+updated: 2026-10-01
 tags: [comporta, economia-tokens, local-llm, ollama, copilot, rtx3060, vscode, hardware, fornecedores, roteamento]
-phase: lab-sujo (coleta concluída — hipóteses confrontadas — em direção à 1ª recipe)
+phase: replanejamento (PLANO-v2, aguarda decisão do dono)
 ---
 
 # Comporta — economia e roteamento de recursos de IA
@@ -22,6 +22,7 @@ phase: lab-sujo (coleta concluída — hipóteses confrontadas — em direção 
 
 ## Documentos deste lab (ordem de leitura)
 
+0. **[`PLANO-v2.md`](PLANO-v2.md) — o plano ativo (2026-10-01): pergunta reancorada, evidência colhida, escopo e cortes**
 1. [`README.md`](README.md) — este: contexto, hipóteses iniciais, resultado ciclo 1
 2. [`observacoes-ambiente.md`](observacoes-ambiente.md) — evidência primária (tela + curl) do ambiente real
 3. [`hipoteses-ciclo2.md`](hipoteses-ciclo2.md) — bolo de 16 hipóteses (H1–H16) em 3 blocos
@@ -62,7 +63,7 @@ guia da comunidade.
 
 | Hipótese | Veredito | Confiança |
 |---|---|---|
-| H1 — Copilot tem modelos "multiplier 0" | **Confirmada, mas a descoberta mais importante é outra** | Alta |
+| H1 — Copilot tem modelos "multiplier 0" | **Valia em jun/2026; expirou com a cobrança por uso (2026-06-01)** | Alta |
 | H2 — RTX 3060 roda modelos úteis sem custo por token | **Confirmada** com números concretos | Alta |
 | H3 — Ollama + VSCode pipeline sem fricção | **Confirmada** — integração oficial existe | Alta |
 | H4 — Métricas de economia instrumentáveis | **Confirmada** para Claude Code; lacunas em Continue.dev | Alta |
@@ -73,62 +74,11 @@ guia da comunidade.
 
 ## Resultado A — GitHub Copilot: planos e modelos
 
-**Fontes**: [GitHub Docs/Blog](https://docs.github.com/en/copilot) `[Oficial]`,
-tabelas de multiplier trianguladas de 3 blogs independentes `[Blog]`.
-
-### Planos atuais (jun/2026)
-
-| Plano | Custo/mês | Requests incluídos |
-|---|---|---|
-| Free | $0 | 50 premium requests + 2.000 completions |
-| Pro | $10 | 300 premium requests |
-| Pro+ | $39 | 1.500 premium requests |
-| Max | $100 | Maior cota individual |
-| Business | $19/usuário | 300/usuário |
-| Enterprise | $39/usuário | 1.000/usuário |
-
-*Nota: novos sign-ups do Pro/Pro+/Student pausados em mai/2026 por sobrecarga de
-agentic workflows. Assinantes existentes não afetados.*
-
-### O dado mais importante — completions são ilimitadas
-
-**Completions inline (autocomplete) são ILIMITADAS em todos os planos pagos**,
-sem consumir quota. Só chat, agent mode e code review consomem premium requests.
-O "poço artesiano" real do Copilot é o autocomplete, não o chat.
-
-### Modelos multiplier 0 (zero custo, incluídos no plano)
-
-| Modelo | Status |
-|---|---|
-| **GPT-4.1** (default desde mai/2025) | Incluído em todos os planos pagos |
-| **GPT-4o** | Incluído, em processo de deprecação |
-| **GPT-5 mini** | Incluído |
-
-### Tabela de multiplier por modelo
-
-| Multiplier | Modelos |
-|---|---|
-| 0x (grátis) | GPT-4.1, GPT-5 mini |
-| 0.33x | Claude Haiku 4.5, Gemini 3 Flash |
-| 1x | Claude Sonnet 4/4.5/4.6, Gemini 2.5 Pro, GPT-5.x |
-| 3x | Claude Opus 4.5/4.6 |
-| 7.5x–10x | Claude Opus 4.7+ |
-| 13x | Copilot Code Review (por PR) |
-
-*Enable "Auto" → desconto de 10% nos multipliers premium.*
-
-### Capacidade prática por plano (para dev solo)
-
-| Plano | Claude Sonnet/dia | Claude Opus/mês | Melhor uso |
-|---|---|---|---|
-| Pro ($10) | ~15 interações | ~100 | Completions ilimitadas + chat moderado |
-| Pro+ ($39) | ~100 interações | ~500 | Heavy chat + agent mode |
-| Max ($100) | Maior cota | Alto | Sem limites práticos |
-
-**Conclusão**: Copilot Pro ($10/mês) cobre completions ilimitadas (GPT-4.1) +
-chat razoável. Claude Sonnet não é grátis (1x multiplier), mas para 10–15
-interações/dia é coberto pelo Pro. Não existe plano verdadeiramente ilimitado
-para uso interativo.
+Em junho de 2026, o Copilot tinha modelos "multiplier 0" (sem custo nos planos pagos) e cota de
+premium requests. **Isso expirou:** desde 2026-06-01 a cobrança é por uso (AI Credits, ao preço de
+API de cada modelo) e nenhum modelo custa zero nos planos pagos. Sobrevive o achado mais útil de
+junho: o **autocomplete continua ilimitado** nos planos pagos. Verificação datada e fontes no
+[PLANO-v2](PLANO-v2.md); o detalhe de junho está no histórico do git deste arquivo.
 
 ---
 
@@ -420,17 +370,10 @@ autor-próprio estão marcadas como não replicadas.
 
 ## Próximo (o que está aberto)
 
-O plano ([`plano-experimental.md`](plano-experimental.md)) rodou até o Estágio 5. Em aberto:
-
-- **Estágio 2, B4a** (Ollama × Foundry Local no Win10): em verificação
-  ([`STAGE2`](instrumento/STAGE2.md)).
-- **Estágio 4, C2/C3** (overhead do editor; Copilot Chat + Ollama): configurações entregues;
-  falta uso real para medir ([`STAGE4`](instrumento/STAGE4.md)).
-- **Estágio 5:** rodou como **encaixe por placa** ([`STAGE5`](instrumento/STAGE5.md)). A matriz
-  fornecedor × tipo de tarefa do desenho original não rodou, e é dela que depende o
-  `recipe_trigger` do plano.
-- **Estágio 6** (validação paga mínima): não rodou.
-- **Destilar a recipe** (`recipe/comporta-*.md`): só quando o `recipe_trigger` for atingido.
+O plano ativo é o **[PLANO-v2](PLANO-v2.md)** (2026-10-01), que substitui o
+[plano-experimental](plano-experimental.md). Ele reancora a pergunta em (modelo × rota × configuração)
+× tarefa, colhe a evidência já produzida (D1–D8) e propõe escopo, cortes e a fronteira com o Strata,
+para decisão do dono.
 
 ## Decisões aplicadas pelo dono
 

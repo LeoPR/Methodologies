@@ -1,7 +1,8 @@
 ---
 title: Plano experimental de ablação — economia de recursos IA
 created: 2026-06-04
-status: 'executado até o Estágio 5 (resultados em instrumento/: BASELINE, STAGE2-5); B4a e C2/C3 em aberto; o Estágio 5 rodou como encaixe por placa, não como a matriz fornecedor × tarefa; Estágio 6 não rodou'
+updated: 2026-10-01
+status: 'Substituído como plano ativo pelo PLANO-v2 (2026-10-01). Executado até o Estágio 5 (resultados em instrumento/: BASELINE, STAGE2-5); B4a e C2/C3 em aberto; o Estágio 5 rodou como encaixe por placa, não como a matriz fornecedor × tarefa; Estágio 6 não rodou'
 method: fan-out 5 clusters → verificação adversarial por experimento → síntese faseada
 source: workflow w1x4vitmz (26 agentes, ~1.15M tokens) + screenshot/curl do ambiente real
 ---

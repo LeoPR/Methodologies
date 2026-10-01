@@ -1,0 +1,5 @@
+# Pastas FROZEN (registro imutável: "frozen = imutável"). Fonte única da lista; a guarda é
+# tools/check_frozen.py, chamada no pre-commit. Para continuar um trabalho congelado, abra um novo
+# experimento datado. Tirar uma pasta daqui é decisão do dono e fica no histórico.
+lab/2026-06-03-modernizacao/experimento-split/
+lab/2026-06-03-predecessor/

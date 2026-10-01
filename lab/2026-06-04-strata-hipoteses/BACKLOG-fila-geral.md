@@ -1,7 +1,7 @@
 ---
 title: 'Fila geral: backlog PRIORIZADO (só itens abertos)'
 created: 2026-06-13
-updated: 2026-09-29
+updated: 2026-10-01
 status: 'Vivo. Só itens abertos, por prioridade. O que foi feito sai daqui (o git guarda o traço); o estado das evidências está no hub e na OPINIAO-DE-USO.'
 ---
 
@@ -72,6 +72,13 @@ status: 'Vivo. Só itens abertos, por prioridade. O que foi feito sai daqui (o g
 - **Posição/saliência da §9:** decisão tomada ([P8](RESULTADOS-p8-posicao-saliencia-s9.md)): não adicionar
   a âncora ao canônico. Aberto só para blindar, baixa prioridade: **2º juiz não-Claude** (remove a
   circularidade Claude-julga-Claude).
+- **Eixo de segurança (§6-bis), varredura própria de evidência** (item em aberto do canônico):
+  - **Insumo externo, datado:** [`lab/2026-10-01-ferramentas-agentes/`](../2026-10-01-ferramentas-agentes/README.md).
+    Consenso de fabricantes e órgãos: prompt injection não está resolvido; a garantia vem de controle
+    determinístico fora do modelo; privilégio mínimo.
+  - **Do nosso lado:** o ato de **agir** tem medição (F3 recusa, `f4-trap`). O ato de **servir** (entregar
+    artefato além da esfera de leitores) ainda não tem.
+  - **Próximo:** desenhar uma fixture de "servir além da esfera", com controle de excesso de bloqueio (§9).
 - **Temporalidade (F6):** segue como frente própria em [`lab/2026-09-26-temporalidade/`](../2026-09-26-temporalidade/);
   o próximo passo está lá e no `STATUS.md`.
 

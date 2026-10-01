@@ -188,9 +188,10 @@ Strata cobre **como organizar, rastrear e gerar** conhecimento de trabalho. NAO 
 
 - **Superfície × traço (2026-09-29):** o que só explica o passado sai da superfície; o traço fica
   no histórico do git (`git log -- <caminho>`). Não recriar pastas removidas para "registro".
-- **Editar `lab/.../experimento-split/`**: e' registro FROZEN de pesquisa
-  (imutavel; "frozen = imutavel"). Pra continuar, novo experimento datado.
-- **Editar `lab/.../predecessor/`**: FROZEN, registro historico do predecessor.
+- **Editar pasta FROZEN** (registro congelado: "frozen = imutavel"; pra continuar, novo experimento
+  datado). Hoje: `lab/.../experimento-split/` (registro de pesquisa) e `lab/.../predecessor/`
+  (registro historico do predecessor). A lista unica e' `tools/frozen-paths.txt`; a guarda mecanica
+  `tools/check_frozen.py` roda no pre-commit e barra o commit.
 - Duplicar uma tecnica entre `recipe/` e `lab/` como se fossem dois produtos;
   o produto e' so' `recipe/` (single-source).
 - Confundir com o umbrella `Acadêmicos/` (ver `../AGENTS.md`): la' e' umbrella,

@@ -1,7 +1,8 @@
 #!/bin/sh
-# Guardas de documentação (carimbo §3/§8 + pares l10n).
+# Guardas de documentação (carimbo §3/§8 + pares l10n) e de registro congelado (§8).
 # ATENCAO: este repo ja usa um core.hooksPath GLOBAL (~/.githooks). NAO rode
 #   git config core.hooksPath tools/githooks  -> desligaria o hook global.
-# Para ativar: adicione estas duas chamadas ao pre-commit global, ou rode-as manualmente.
+# Para ativar: adicione estas três chamadas ao pre-commit global, ou rode-as manualmente.
 python tools/check_stamps.py || exit 1
-exec python tools/check_l10n.py
+python tools/check_l10n.py || exit 1
+exec python tools/check_frozen.py

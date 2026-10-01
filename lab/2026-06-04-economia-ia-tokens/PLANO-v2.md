@@ -2,11 +2,18 @@
 title: 'Comporta: plano v2 (replanejamento)'
 created: 2026-10-01
 updated: 2026-10-01
-status: 'Proposto, aguarda decisão do dono (escopo da v1 e cortes). Substitui o plano-experimental.md como plano ativo.'
+status: 'Decidido pelo dono em 2026-10-01 (escopo com uso interativo, cortes, fronteira (a)). Substitui o plano-experimental.md como plano ativo.'
 tags: [comporta, plano, replanejamento, roteamento, custo]
 ---
 
 # Comporta: plano v2
+
+## Decisões do dono (2026-10-01)
+
+1. **Escopo da v1:** inclui a economia no uso interativo (M2), como complemento da escolha de modelo,
+   rota e configuração.
+2. **Cortes:** aprovados (Foundry Local, o Estágio 6 de junho, a matriz com multiplier 0).
+3. **Fronteira:** (a). A recipe do Comporta fica com rota e custo; o guia do Strata aponta para ela.
 
 ## Por que replanejar
 
@@ -80,32 +87,57 @@ Temporalidade, com o harness de `eval/`.
 - **M1 (opcional).** Variância entre provedores com os mesmos pesos, desenhada e pré-registrada.
   - Hoje há casos, não taxa: um laço, um parâmetro descartado.
   - Se a recipe só precisa dizer "fixe a rota", M1 não é necessário.
-- **M2 (decisão do dono).** Economia no uso interativo, que era o caso de origem: o dev no VS Code.
-  - O que entra: autocomplete ilimitado × modelo local; chat e agente com modelo local via BYOK ×
-    créditos.
-  - Isso pede uso real, não bateria. É o C2/C3 do [STAGE4](instrumento/STAGE4.md).
+- **M2 (no escopo, decidido).** Economia no uso interativo, que era o caso de origem: o dev no
+  VS Code. Desenho em rascunho na seção seguinte.
 
-## Cortes propostos
+## M2: desenho (rascunho, a fechar com o dono)
+
+O Copilot cobra cada token ao preço de API do modelo. Então o custo de uma tarefa de chat ou de
+agente se calcula por tokens × preço, sem automatizar o Copilot (a política dele proíbe atividade
+automatizada em massa). Isso divide o M2 em duas partes.
+
+- **M2a. Custo por tarefa (calculável).**
+  - Classes de tarefa interativa: pergunta ou explicação curta; edição pequena num arquivo; tarefa
+    de agente em vários arquivos; revisão de diff.
+  - Perfil de tokens de cada classe, tirado de onde já é registrado (os transcripts do Claude Code,
+    via `instrumento/parse_usage.py`) ou de tarefas-modelo rodadas no harness nos mesmos pesos.
+  - Custo por rota: créditos do Copilot ao preço publicado; OpenRouter; local (custo marginal zero,
+    medido em tempo).
+- **M2b. O que só o uso mede.**
+  - Autocomplete: aceitação local (extensão própria) × Copilot.
+  - Chat e agente locais (BYOK): resolveu, escalou para a nuvem ou desistiu.
+  - Atrito percebido.
+  - Instrumento: um diário curto (uma linha por tarefa: classe, rota, desfecho) somado aos logs
+    automáticos (transcripts do Claude Code; saldo de créditos do Copilot por dia).
+  - Duração proposta: duas semanas de uso normal.
+- **Limite declarado.** O M2b é observacional: quem usa escolhe a rota pela dificuldade, então as
+  conclusões são descritivas. O M2a é o que permite comparar rotas na mesma tarefa.
+- **Antes de começar, o dono informa:** plano atual do Copilot; assinatura do Claude; modelos locais
+  em uso; se topa o diário.
+
+## Cortes (aprovados)
 
 - **B4a** (Foundry Local na linha de comando): o catálogo estava inacessível em junho. Sai, salvo se
   o dono usar o Foundry.
 - **Estágio 6 antigo** (Claude Code roteado para o local, subagente mais barato, pré-sumarização):
   - foi desenhado para o regime de junho;
-  - sai da v1;
-  - volta só se M2 entrar.
+  - sai como estágio próprio;
+  - com o M2 no escopo, essas ideias entram, se entrarem, como rotas comparadas no M2a, não como
+    bateria separada.
 - **Matriz "fornecedor × tarefa" com multiplier 0:** sai. Os vereditos D1–D8 a substituem.
 
 ## Condição para destilar (v2)
 
-- **Recipe v1, escopo "escolher modelo, rota e configuração, e o papel da máquina local":**
-  - destila quando D1–D6 e D8 têm veredito com evidência;
-  - pela tabela acima, isso **já está perto**;
-  - D7 e M2 (uso interativo) ficam para a v2 da recipe, se o dono os mantiver.
+- **Recipe v1:** escolher modelo, rota e configuração, o papel da máquina local e a economia no
+  uso interativo.
+  - A parte de escolha destila quando D1–D6 e D8 têm veredito com evidência. Pela tabela acima, isso
+    **já está perto**.
+  - A parte interativa (D7) destila com o M2a, e o M2b a complementa quando o uso real terminar.
 - **Critério de descarte:** se a recipe v1 não muda nenhuma decisão em relação ao guia
   `recipe/strata-com-ia.*`, o Comporta não justifica produto próprio. Nesse caso, o conteúdo vira
   seção do guia do Strata.
 
-## Fronteira com o Strata (decisão do dono)
+## Fronteira com o Strata (decidido: opção a)
 
 O guia `recipe/strata-com-ia.*` já carrega rota, custo, grátis e local. A Parte III do canônico diz
 que economia e roteamento são do Comporta. Opções:
@@ -116,13 +148,10 @@ que economia e roteamento são do Comporta. Opções:
 
 ## Próximos passos, em ordem
 
-1. **Decisões do dono:**
-   - escopo da v1 (com ou sem M2);
-   - os cortes;
-   - a fronteira, (a) ou (b).
-2. **Limpar a superfície do README**:
-   - tirar o detalhe de junho que expirou (o git guarda);
-   - reverificar o "Resultado C" (a integração do Ollama no VS Code mudou: o provedor embutido foi
-     deprecado em favor da extensão oficial).
-3. **Escrever o mapa v2:** D1–D8 com as fontes, sem rodar nada.
-4. **Destilar a recipe v1**, se a condição for atingida.
+1. ~~Decisões do dono~~ (feito, acima).
+2. ~~Limpar a superfície do README~~ (feito: detalhe de junho fora; "Resultado C" reverificado).
+3. ~~Mapa~~ (feito: os achados D3/D4 entraram no [mapa](mapa-recursos-llm.md) como movimento 9,
+   P34 e chutes; a tabela D1–D8 acima é o consolidado, sem cópia).
+4. **Fechar o M2 com o dono** (perguntas acima) e montar o M2a.
+5. **Destilar a recipe v1** (EN primeiro, PT no mesmo commit, como o Strata), com a parte de escolha
+   assim que pronta e a parte interativa depois do M2a.

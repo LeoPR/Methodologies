@@ -158,7 +158,7 @@ docs.codegpt.co `[Oficial]`, github.com/Jadael/OllamaClaude `[Comunidade]`.
 | Extensão | Suporte Ollama | Oficial? | Setup | Autocomplete local? |
 |---|---|---|---|---|
 | **Continue.dev** | Nativo, primeira classe | Sim (ambos os lados) | 5–10 min | Sim (modelo separado) |
-| **GitHub Copilot Chat** | Integrado (VSCode 1.113+) | Sim (Ollama docs) | 5 min | Não (completions ficam remotas) |
+| **GitHub Copilot Chat** | BYOK com a extensão oficial do Ollama (o provedor embutido foi deprecado; ver abaixo) | Sim | 5 min | Não (completions ficam remotas) |
 | **CodeGPT** | Nativo | Sim | 3–5 min | Limitado |
 | Cursor | Workaround OpenAI-compat | Não | 5–10 min | Não |
 
@@ -184,13 +184,16 @@ Falhas comuns:
 - OOM em 14B → reduzir `contextLength` para 2048–4096
 - Porta 11434 bloqueada → verificar com `curl http://localhost:11434`
 
-### Copilot Chat + Ollama (integração oficial)
+### Modelo local no chat e no agente do VS Code (BYOK) `[re-verificado: 2026-10-01]`
 
-Requer VSCode ≥1.113 + Copilot Chat ≥0.41.0 + Ollama ≥0.18.3.
-Setup: Copilot Chat → engrenagem → Add Models → Ollama.
-**Importante**: apenas o chat usa Ollama. As completions inline continuam
-chamando os servidores do GitHub. Isso cobre o caso "chat privado / local +
-completions ilimitadas do Copilot".
+- O VS Code aceita modelo próprio (BYOK), inclusive local via Ollama, no **chat e no agente**, mesmo
+  **sem conta GitHub e sem plano do Copilot** (blog do VS Code, 2026-06-18).
+- O provedor Ollama embutido foi **deprecado**; o caminho atual é a **extensão oficial do Ollama**
+  (doc "language models", 2026-09-30).
+- **Não** há modelo local no autocomplete inline do Copilot. O autocomplete local continua sendo
+  função de extensão própria, como o Continue (linha acima, não reverificada desde junho).
+- Isso cobre o caso "chat e agente locais + autocomplete ilimitado do Copilot" (o autocomplete segue
+  ilimitado nos planos pagos; ver o [PLANO-v2](PLANO-v2.md)).
 
 ### OllamaClaude MCP — Claude Code + Ollama local
 

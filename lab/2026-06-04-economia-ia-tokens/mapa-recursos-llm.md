@@ -2,6 +2,7 @@
 title: Mapa de recursos LLM — primitivas, métrica de esforço e grade epistêmica
 created: 2026-06-04
 status: open
+updated: 2026-10-01
 method: 6 buscas por vetor → consolidação (32 princípios) → refutação adversarial 3-lentes → síntese
 source: workflow wz8rhxrrb (38 agentes, ~1.14M tokens); triangulado com w1x4vitmz (plano experimental)
 ---
@@ -97,6 +98,7 @@ ou **ganho sem trade-off**.
 6. **K-quants > quants legados** no mesmo nº de bits; Q8_0 como baseline lossless (P28) — domina por construção. *[COMPROVADO: arXiv:2601.14277]*
 7. **Confie nas garantias FORMAIS**: speculative decoding não muda a saída (P11), NF4 > int em baixos bits (P27) — mas trate o GANHO de velocidade como algo a medir, não a assumir. *[COMPROVADO: Leviathan et al. ICML 2023; Dettmers & Zettlemoyer ICML 2023]*
 8. **Output custa 2×–6× input** por token enquanto você paga por token (P23-núcleo) — fato de contrato que orienta toda decisão de E/S metered. *[COMPROVADO: pricing oficial]*
+9. **Ao medir, fixe a rota e registre o provedor servido** (P33). Mesmos pesos não garantem mesmo comportamento: a quantização varia por provedor, e parâmetros podem ser descartados em silêncio. Custo zero, ganho sem trade-off. *[MEDIDO 2026-09/10: [PLANO-v2](PLANO-v2.md) D3]*
 
 ---
 
@@ -123,6 +125,7 @@ experimentar na RTX 3060/Copilot/Ollama):
 | P29 | Grandes toleram quant; pequenos frágeis | <7B não descer de 4-bit (Q4_K_M); 70B+ aguentam 4-bit |
 | P30 | Dano do quant não é uniforme | raciocínio/matemática degradam mais → suba o quant (Q5/Q8) para código/matemática |
 | P31 | Custo como "camada sobre a física" | só em regime metered; em flat-rate/quota o $ vira **primitiva própria discreta** |
+| P34 | Teto de saída generoso para modelo que raciocina | quando o raciocínio é longo: resposta cortada pelo teto mede o teto, não o modelo, e o token gasto se perde; o limite é o custo de um laço (o teto o limita) *[MEDIDO: PLANO-v2 D4]* |
 
 *(Lista completa de 26 no output bruto do workflow.)*
 
@@ -153,8 +156,12 @@ Sete viram **experimento** (`must_measure=True`); um é genuinamente indetermina
 - ❌ "quantizar SEMPRE acelera" — no Ampere/3060 batch=1 pode ficar **+30-45% mais lento** que FP16 que cabe.
 - ❌ "janela maior = melhor / use o 1M" — context rot e o gap claimed-vs-effective (RULER) contrariam.
 - ❌ "sempre rode o maior modelo que cabe na VRAM" — inverte para MoE; dominado por plano grátis superior.
-- ❌ **"Sonnet 4.6 via Copilot é grátis"** — é **1× multiplier sobre 300 req/mês finitos** no Pro; só autocomplete inline e GPT-4.1/GPT-5-mini são multiplier-0 de verdade. *(confirmado no lab; era erro nosso de ciclos anteriores)*
+- ❌ **"Sonnet 4.6 via Copilot é grátis"** — é **1× multiplier sobre 300 req/mês finitos** no Pro; só autocomplete inline e GPT-4.1/GPT-5-mini são multiplier-0 de verdade. *(confirmado no lab; era erro nosso de ciclos anteriores. Regime de junho: desde 2026-06-01 o Copilot cobra por uso e nenhum modelo custa zero; ver [PLANO-v2](PLANO-v2.md).)*
 - ❌ "mais thinking sempre ajuda" — modelos pensam 7-10× demais em tarefas triviais (overthinking).
+  *(Confirmado no banco de modelos 2026-09: raciocínio alto nunca melhorou uma célula.)*
+- ❌ "mesmos pesos = mesmo comportamento em qualquer provedor" — quantização e implantação variam; uma implantação entrou em laço onde a oficial concluía (PLANO-v2 D3).
+- ❌ "o parâmetro enviado foi aplicado" — temperatura e nível de raciocínio podem ser descartados em silêncio por um endpoint; confira o que o endpoint aceita ou exija o parâmetro na rota.
+- ❌ "resposta cortada (ou erro 404/429) = o modelo não serve" — corte mede o teto; erro passageiro de rota é incidente, não propriedade.
 - ❌ "self-consistency é barato e vale sempre" — <2% de ganho a ~20× de custo em modelos modernos.
 
 ---

@@ -48,7 +48,9 @@ Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.m
   estágios 1–5 medidos; não destilado para `recipe/`. **Replanejado em 2026-10-01**
   ([PLANO-v2](lab/2026-06-04-economia-ia-tokens/PLANO-v2.md)): a premissa de junho (modelos "multiplier 0"
   do Copilot) expirou; a pergunta passa a (modelo × rota × configuração) × tarefa, e boa parte da
-  evidência já existe. Aguarda o dono: escopo da v1, cortes e a fronteira com o guia do Strata.
+  evidência já existe. Decidido pelo dono no mesmo dia: a v1 inclui a economia no uso interativo (M2);
+  cortes aprovados; a recipe do Comporta fica com rota e custo, e o guia do Strata aponta para ela.
+  **Próximo:** fechar o desenho do M2 com o dono e destilar a parte de escolha (modelo, rota, configuração).
 
 ## Aguardam decisão do dono
 

@@ -102,5 +102,7 @@ status: 'Vivo. Só itens abertos, por prioridade. O que foi feito sai daqui (o g
   (AulaQuantum/DeepLearning) já têm sinal direcional no P10; firmá-lo está no P1. Combina com o braço externo.
 - **Decisões de design abertas:** exportação/tradução = **corolário L0 curto** (não uma "L3"); arquivo-extra
   **Q&A** L1/L2 **só** se não colapsar em "sempre-ache-problema" (medir pelos controles de abstenção antes);
-  **fronteira Strata × Comporta** (aparece em caches E setup-de-agente; resolver de uma vez); classificar
+  **fronteira Strata × Comporta**: rota e custo decididos em 2026-10-01 (a recipe do Comporta absorve; o guia
+  do Strata aponta; ver o [PLANO-v2](../2026-06-04-economia-ia-tokens/PLANO-v2.md)); resta encaixar caches e
+  setup-de-agente; classificar
   artefatos de ambiente (canônico×regenerável×efêmero) como princípio L0/L1 em satélite L2.

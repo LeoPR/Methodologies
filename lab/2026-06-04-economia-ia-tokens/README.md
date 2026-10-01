@@ -5,7 +5,7 @@ status: open
 created: 2026-06-04
 updated: 2026-10-01
 tags: [comporta, economia-tokens, local-llm, ollama, copilot, rtx3060, vscode, hardware, fornecedores, roteamento]
-phase: replanejamento (PLANO-v2, aguarda decisão do dono)
+phase: replanejado (PLANO-v2, decidido 2026-10-01); M2a executado, M2b (diário) em curso
 ---
 
 # Comporta — economia e roteamento de recursos de IA
@@ -23,6 +23,8 @@ phase: replanejamento (PLANO-v2, aguarda decisão do dono)
 ## Documentos deste lab (ordem de leitura)
 
 0. **[`PLANO-v2.md`](PLANO-v2.md) — o plano ativo (2026-10-01): pergunta reancorada, evidência colhida, escopo e cortes**
+   - [`instrumento/M2A.md`](instrumento/M2A.md): custo do uso interativo por rota, do perfil real de tokens
+   - [`M2B-diario.md`](M2B-diario.md): o diário curto de uso (duas semanas)
 1. [`README.md`](README.md) — este: contexto, hipóteses iniciais, resultado ciclo 1
 2. [`observacoes-ambiente.md`](observacoes-ambiente.md) — evidência primária (tela + curl) do ambiente real
 3. [`hipoteses-ciclo2.md`](hipoteses-ciclo2.md) — bolo de 16 hipóteses (H1–H16) em 3 blocos
@@ -375,8 +377,8 @@ autor-próprio estão marcadas como não replicadas.
 
 O plano ativo é o **[PLANO-v2](PLANO-v2.md)** (2026-10-01), que substitui o
 [plano-experimental](plano-experimental.md). Ele reancora a pergunta em (modelo × rota × configuração)
-× tarefa, colhe a evidência já produzida (D1–D8) e propõe escopo, cortes e a fronteira com o Strata,
-para decisão do dono.
+× tarefa e colhe a evidência já produzida (D1–D8). Escopo, cortes e fronteira com o Strata foram
+decididos pelo dono em 2026-10-01. O M2a está feito; o M2b (diário) vai de 2026-10-02 a 2026-10-15.
 
 ## Decisões aplicadas pelo dono
 

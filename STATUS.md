@@ -50,7 +50,9 @@ Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.m
   do Copilot) expirou; a pergunta passa a (modelo × rota × configuração) × tarefa, e boa parte da
   evidência já existe. Decidido pelo dono no mesmo dia: a v1 inclui a economia no uso interativo (M2);
   cortes aprovados; a recipe do Comporta fica com rota e custo, e o guia do Strata aponta para ela.
-  **Próximo:** fechar o desenho do M2 com o dono e destilar a parte de escolha (modelo, rota, configuração).
+  M2a feito ([M2A](lab/2026-06-04-economia-ia-tokens/instrumento/M2A.md): no uso agêntico pesado a assinatura
+  domina; pagando por token, o custo é o contexto acumulado). M2b: diário de 2026-10-02 a 2026-10-15.
+  **Próximo:** destilar a parte de escolha (modelo, rota, configuração).
 
 ## Aguardam decisão do dono
 

@@ -79,7 +79,7 @@ Temporalidade, com o harness de `eval/`.
 | **D4. Teto de saída e raciocínio** | resposta cortada pelo teto mede o teto, não o modelo; raciocínio alto nunca melhorou uma célula, custou mais e às vezes piorou | eixo de pensamento do banco; leitura complementar da bateria (8k → 32k) | L0 + L1 (P20 do mapa) |
 | **D5. Grátis × pago** | há rota grátis que faz tudo, com latência maior; erro passageiro de rota não é propriedade do modelo | [banco](../2026-09-26-banco-modelos/README.md); guia `recipe/strata-com-ia.*` | L2 |
 | **D6. Custo por tarefa, não por token** | o custo real vem da chamada; projeção por catálogo errou por fator de algumas vezes | gastos da bateria v1 (projeção × custo real) | L1 (P22 do mapa) |
-| **D7. Assinatura × pagamento por uso** | a premissa de junho expirou; sobra: autocomplete ilimitado nos planos pagos e modelo local no chat/agente via BYOK | verificação de 2026-10-01 (acima) | L2; repensar, não medir |
+| **D7. Assinatura × pagamento por uso** | no uso agêntico pesado (perfil do dono), a assinatura sai de 16 a 37 vezes mais barata; pagando por token, a alavanca é o contexto acumulado (cache), não a saída; o local não comporta o contexto do harness agêntico e fica no autocomplete e no chat curto | [M2a](instrumento/M2A.md); verificação de 2026-10-01 (acima) | L0 (princípio) + L2 (preços) |
 | **D8. Contexto** (cache, ordem, distratores) | literatura consolidada | [mapa](mapa-recursos-llm.md) §3 | L1 |
 
 ## O que falta medir (só o que nenhuma evidência cobre)
@@ -90,7 +90,7 @@ Temporalidade, com o harness de `eval/`.
 - **M2 (no escopo, decidido).** Economia no uso interativo, que era o caso de origem: o dev no
   VS Code. Desenho em rascunho na seção seguinte.
 
-## M2: desenho (rascunho, a fechar com o dono)
+## M2: desenho (fechado com o dono em 2026-10-01)
 
 O Copilot cobra cada token ao preço de API do modelo. Então o custo de uma tarefa de chat ou de
 agente se calcula por tokens × preço, sem automatizar o Copilot (a política dele proíbe atividade
@@ -112,8 +112,9 @@ automatizada em massa). Isso divide o M2 em duas partes.
   - Duração proposta: duas semanas de uso normal.
 - **Limite declarado.** O M2b é observacional: quem usa escolhe a rota pela dificuldade, então as
   conclusões são descritivas. O M2a é o que permite comparar rotas na mesma tarefa.
-- **Antes de começar, o dono informa:** plano atual do Copilot; assinatura do Claude; modelos locais
-  em uso; se topa o diário.
+- **Respostas do dono (2026-10-01):** Copilot Pro+; Claude Max; modelos locais pelo Ollama no Docker
+  Desktop; topa o diário.
+- **Estado:** M2a executado ([M2A](instrumento/M2A.md)); M2b aberto ([diário](M2B-diario.md)).
 
 ## Cortes (aprovados)
 
@@ -152,6 +153,7 @@ que economia e roteamento são do Comporta. Opções:
 2. ~~Limpar a superfície do README~~ (feito: detalhe de junho fora; "Resultado C" reverificado).
 3. ~~Mapa~~ (feito: os achados D3/D4 entraram no [mapa](mapa-recursos-llm.md) como movimento 9,
    P34 e chutes; a tabela D1–D8 acima é o consolidado, sem cópia).
-4. **Fechar o M2 com o dono** (perguntas acima) e montar o M2a.
+4. ~~Fechar o M2 com o dono e rodar o M2a~~ (feito: [M2A](instrumento/M2A.md)). M2b: diário de 2026-10-02 a
+   2026-10-15.
 5. **Destilar a recipe v1** (EN primeiro, PT no mesmo commit, como o Strata), com a parte de escolha
    assim que pronta e a parte interativa depois do M2a.

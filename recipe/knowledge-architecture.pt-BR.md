@@ -1,11 +1,11 @@
 ---
 title: 'Arquitetura do conhecimento: organizar, rastrear e gerar'
 project: Strata
-version: 1.2.8
+version: 1.2.9
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-09-30
+updated: 2026-10-01
 lang: pt-BR
 source_lang: en
 translation_of: knowledge-architecture.en.md
@@ -229,7 +229,7 @@ conhecimento (um corte, uma atualização não lida), essa fronteira não é o p
 > Instância de era `[2026-06]`: a rastreabilidade legível deixa um leitor-IA
 > situar o tempo (sinal, rodada única): `lab/2026-06-04-strata-hipoteses/RESULTADOS-f6-temporal-sem-marcadores.md`.
 >
-> Instância de era `[2026-09]`: com o método no prompt, leitores de 8 fabricantes avisaram
+> Instância de era `[2026-09]`: com o método no prompt, leitores de 8 modelos (6 fabricantes) avisaram
 > mais que sem ele quando a ordem ou a vigência não se resolve; o parágrafo "Ler o tempo de
 > volta", acrescentado depois, deu sinal fraco e desigual entre fabricantes
 > `[TESTADO 2026-09-29: EXPLORATÓRIO, SEM EFEITO GERAL]`. A norma é mantida pelo leitor humano.
@@ -405,7 +405,7 @@ agir: §6-bis.)
 >
 > Instância de era `[2026-09]`: com o método no prompt, leitores de dois fabricantes usaram a fonte
 > que um leia-me declarava canônica contra os parâmetros que os resultados refletem, e chamaram esses
-> traços de deriva. Com este parágrafo, leitores de 8 fabricantes reproduziram pelos traços mais
+> traços de deriva. Com este parágrafo, leitores de 8 modelos (6 fabricantes) reproduziram pelos traços mais
 > vezes, e os controles ficaram dentro da margem pré-registrada (declaração confirmada pelos traços;
 > declaração sem contradição; outro domínio). Alguns leitores ainda avisaram à toa quando existia uma
 > cópia divergente e nada contradizia a declaração, concentrado num fabricante; uma nova redação do

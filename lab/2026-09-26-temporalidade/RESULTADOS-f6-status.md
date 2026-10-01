@@ -1,8 +1,8 @@
 ---
 title: 'Resultados F6-status: o parágrafo "Ler o tempo de volta" (Strata §3)'
 created: 2026-09-29
-updated: 2026-09-29
-status: 'Etapa 1 (exploratória) fechada: 8 modelos, 8 fabricantes. Sinal fraco e heterogêneo do parágrafo; efeito forte do método atual. Não confirmatório.'
+updated: 2026-10-01
+status: 'Etapa 1 (exploratória) fechada: 8 modelos, 6 fabricantes. Sinal fraco e heterogêneo do parágrafo; efeito forte do método atual. Não confirmatório.'
 tags: [strata, temporalidade, f6-status, a-b, resultados]
 ---
 
@@ -101,6 +101,12 @@ células a classe mais comum aparece em 4 ou 5 de 5.
   com raciocínio); deepseek-v4.1-flash com K = 3 e uma célula com K = 2 (timeouts na fila grátis).
 - Pontuador em três versões, todas só de leitura e cegas ao braço (PREREG, desvios).
 - Temperatura 0,3 pela NVIDIA; GPT-6 ignora temperatura.
+
+- **Ressalva (2026-10-01): temperatura do Gemini.** As 45 chamadas do gemini-3.5-flash-lite foram servidas
+  como `openrouter/Google`, o endpoint Vertex. Pelo catálogo do OpenRouter consultado em 2026-09-30, ele não
+  aceita `temperature`, e sem rota fixa o parâmetro é descartado em silêncio. É provável que esse modelo
+  tenha rodado na temperatura padrão do fabricante, e não em 0,3. O catálogo da data da rodada não foi
+  conferido. O efeito esperado é sobre a consistência entre runs, não sobre a direção dos resultados.
 
 ## Revisão manual (transcrita de `planos/f6s-piloto-revisao.csv`)
 

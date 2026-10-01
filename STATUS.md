@@ -22,12 +22,12 @@ Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.m
 - **Qual modelo usar:** [`recipe/strata-com-ia.*`](recipe/strata-com-ia.pt-BR.md), a partir do
   [banco de modelos 2026-09](lab/2026-09-26-banco-modelos/). Capacidade se mede na nuvem nos mesmos
   pesos; local só viabilidade ([encaixe por placa](lab/2026-06-04-economia-ia-tokens/instrumento/STAGE5.md)).
-- **Tempo no Strata (F6-status, 2026-09-29):** com 8 fabricantes, o método atual faz os modelos
+- **Tempo no Strata (F6-status, 2026-09-29):** com 8 modelos (6 fabricantes), o método atual faz os modelos
   avisarem mais quando a ordem ou a vigência não se resolve (+25 pontos contra "sem método"); o
   parágrafo "Ler o tempo de volta" deu sinal fraco e desigual e entrou no §3 como norma, com o
   resultado declarado ([resultados](lab/2026-09-26-temporalidade/RESULTADOS-f6-status.md)). Achado:
   com o método, alguns modelos seguiam a fonte canônica declarada contra a evidência.
-- **§5 "Fonte declarada ≠ fonte usada" (v1.2.8):** testado com 8 fabricantes; o alvo sobe e os
+- **§5 "Fonte declarada ≠ fonte usada" (v1.2.8):** testado com 8 modelos (6 fabricantes); o alvo sobe e os
   controles ficam na margem; aviso à toa residual quando há cópia divergente e nada contradiz a
   declaração ([resultados](lab/2026-09-26-temporalidade/RESULTADOS-f6-fonte.md)).
 - **Guia de modelos:** custo e tempo em faixas; valores exatos e datados no banco.

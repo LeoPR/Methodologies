@@ -1,7 +1,7 @@
 ---
 title: 'Arquitetura de testes e evidências do Strata: o que comprova, em que condições (macro)'
 created: 2026-06-13
-updated: 2026-09-29
+updated: 2026-10-01
 status: vivo. F0-F4 fechados (nuvem + local; F4 também ecológico); F5 exploratório; a temporalidade (F6) segue como frente própria em lab/2026-09-26-temporalidade/.
 ---
 
@@ -66,7 +66,7 @@ Os demais termos (os modos M0-M4, *fixture*, *fail-closed*, *tombstone*) estão 
 | **Idioma PT×EN** | o método rende igual em inglês? | ✅ piloto F3 + núcleo F4 repetido em EN: sem diferença detectada; equivalência não demonstrada (margem pré-registrada não atingida); desvio datado na armadilha §6-bis no tier GPU | baixa (K=2; indeterminado) | [idioma](../2026-08-03-idioma-en/RESULTADOS-f4-en.md) · [F3 EN](../2026-08-03-idioma-en/RESULTADOS-idioma-f3.md) |
 | **Braço ingênuo + A/B do §9** | o Strata agrega sobre um pedido leigo? a revisão do §9 melhora a abstenção? | ✅ no agir, o método é o diferencial; no não-agir, a redação pesa mais que o método · A/B do §9: **inconclusivo (sem poder)** | baixa (K=2) | [ingênuo](../2026-08-03-prompt-ingenuo/RESULTADOS.md) · [A/B §9](../2026-08-03-prompt-ingenuo/RESULTADOS-verificacao-s9.md) |
 | **Banco de modelos** (2026-09) | quem faz tudo, mais barato, grátis, local? | ✅ grade conserto/armadilha/abstenção por rota (modelo × provedor × raciocínio) + ponte nuvem × local | média (K=3, gold mecânico) | [banco](../2026-09-26-banco-modelos/README.md) |
-| **F6-status** (tempo no §3) | o método faz avisar quando a ordem não se resolve? | ✅ exploratório (8 fabricantes): o método atual sobe o aviso; o parágrafo candidato dá sinal fraco e desigual (regra 5, heterogêneo) | baixa (não confirmatório) | [F6-status](../2026-09-26-temporalidade/RESULTADOS-f6-status.md) |
+| **F6-status** (tempo no §3) | o método faz avisar quando a ordem não se resolve? | ✅ exploratório (8 modelos, 6 fabricantes): o método atual sobe o aviso; o parágrafo candidato dá sinal fraco e desigual (regra 5, heterogêneo) | baixa (não confirmatório) | [F6-status](../2026-09-26-temporalidade/RESULTADOS-f6-status.md) |
 
 ## Duas perguntas
 1. O **núcleo (L0)** é fundamentado?: questão de *fundamentação*.

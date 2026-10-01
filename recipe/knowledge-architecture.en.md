@@ -1,11 +1,11 @@
 ---
 title: 'Knowledge architecture: organize, track, and generate'
 project: Strata
-version: 1.2.8
+version: 1.2.9
 type: reference
 status: active
 created: 2026-05-20
-updated: 2026-09-30
+updated: 2026-10-01
 lang: en
 canonical-source: Acadêmicos/Methodologies/recipe/knowledge-architecture.en.md (Strata project). This English file is the canonical source (authority migrated 2026-08-01 by explicit decision; see ADR-008, addendum); the Portuguese file is a derived translation.
 license: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
@@ -227,7 +227,7 @@ present.
 > Era instance `[2026-06]`: legible traceability lets an AI reader locate time
 > (signal, single run): `lab/2026-06-04-strata-hipoteses/RESULTADOS-f6-temporal-sem-marcadores.md`.
 >
-> Era instance `[2026-09]`: with the method in the prompt, readers from 8 vendors flagged
+> Era instance `[2026-09]`: with the method in the prompt, readers from 8 models (6 vendors) flagged
 > unresolved order or currency more often than without it; the paragraph "Reading time back",
 > added afterwards, gave a weak and uneven signal across vendors
 > `[TESTED 2026-09-29: EXPLORATORY, NO GENERAL EFFECT]`. The norm is kept for the human reader.
@@ -404,7 +404,7 @@ Divergence is drift to declare; neither side wins in silence. (Authority to act:
 >
 > Era instance `[2026-09]`: with the method in the prompt, readers from two vendors used the source a
 > notes page declared canonical against the parameters the results reflect, and called those traces
-> drift. With this paragraph, readers from 8 vendors reproduced from the traces more often, and the
+> drift. With this paragraph, readers from 8 models (6 vendors) reproduced from the traces more often, and the
 > controls held within the pre-registered margin (declaration confirmed by the traces; declaration
 > uncontradicted; another domain). Some readers still over-warned when a divergent copy existed and
 > nothing contradicted the declaration, concentrated in one vendor; a rewording of the undetermined

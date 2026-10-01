@@ -1,7 +1,7 @@
 ---
 title: 'Temporalidade: estudo próprio (LLMs e documentação)'
 created: 2026-09-26
-updated: 2026-09-30
+updated: 2026-10-01
 status: 'Aberto. Ontologia v0 + protótipo; §3 e §5 do Strata testados e aplicados; bateria de capacidade v1 rodada (RESULTADOS-bateria-v1.md).'
 tags: [temporalidade, perecibilidade, llm, documentacao]
 ---
@@ -31,7 +31,7 @@ A revisão de LLMs cobre sobretudo a camada 1. O mapa amplo (quatro mapas + sín
 - **[ONTOLOGIA.md](ONTOLOGIA.md): comece por aqui.** Ontologia v0 (primitivas, relações, regras, o que
   cabe em computação), construída sobre os mapas 1–8. Demonstrador em [prototipo/](prototipo/README.md).
 - [RESULTADOS-f6-status.md](RESULTADOS-f6-status.md): A/B do parágrafo "Ler o tempo de volta" no
-  Strata (8 fabricantes). O método atual já faz a maior parte; o parágrafo dá sinal fraco e desigual.
+  Strata (8 modelos, 6 fabricantes). O método atual já faz a maior parte; o parágrafo dá sinal fraco e desigual.
   Pré-registro em [PREREG-strata-s3-ler-tempo.md](PREREG-strata-s3-ler-tempo.md).
 - [PROPOSTA-S5-fonte-declarada.md](PROPOSTA-S5-fonte-declarada.md): acréscimo ao §5 (fonte declarada ≠
   fonte usada), com pesquisa e fontes. Testado: [RESULTADOS-f6-fonte.md](RESULTADOS-f6-fonte.md) (alvo 78% → 92%,

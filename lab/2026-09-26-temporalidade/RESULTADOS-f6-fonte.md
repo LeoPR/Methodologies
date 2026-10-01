@@ -1,7 +1,7 @@
 ---
 title: 'Resultados: acréscimo "Fonte declarada ≠ fonte usada" (Strata §5)'
 created: 2026-09-30
-updated: 2026-09-30
+updated: 2026-10-01
 status: 'Etapa 1 (regra 2) e reteste do texto v2 (adendo §10: H2 principal falhou; regra 3: adota-se o v1, o testado na etapa 1). Aplicação ao canônico: dono.'
 tags: [strata, s5, f6-fonte, a-b, resultados]
 ---
@@ -94,6 +94,12 @@ alvo sem método (0/5), acerta os dois (5/5 ∧ 5/5).
   quando a leitura é SUPER-AVISO. As duas classes são falha: o acerto não muda.
 - **Temperatura:** 0,3 pela NVIDIA e no OpenRouter; GPT-6 ignora temperatura.
 
+- **Ressalva (2026-10-01): temperatura do Gemini.** As 135 chamadas do gemini-3.5-flash-lite foram servidas
+  como `openrouter/Google`, o endpoint Vertex. Pelo catálogo do OpenRouter consultado em 2026-09-30, ele não
+  aceita `temperature`, e sem rota fixa o parâmetro é descartado em silêncio. É provável que esse modelo
+  tenha rodado na temperatura padrão do fabricante, e não em 0,3. O catálogo da data da rodada não foi
+  conferido. O efeito esperado é sobre a consistência entre runs, não sobre a direção dos resultados.
+
 ## Revisão manual (cega ao braço; de `planos/f6s-fonte-revisao.csv`)
 
 | saída | classe | motivo |
@@ -104,7 +110,7 @@ alvo sem método (0/5), acerta os dois (5/5 ∧ 5/5).
 ## O que isto permite dizer
 
 - "O acréscimo ao §5 corrige o erro de seguir a fonte declarada contra a evidência de uso, sem
-  gerar desconfiança geral": **sustentado** no exploratório (8 fabricantes, K = 3 a 5).
+  gerar desconfiança geral": **sustentado** no exploratório (8 modelos de 6 fabricantes, K = 3 a 5).
 - "Ele não causa aviso à toa": **quase**; há sinal de excesso no caso sem traço, dentro da margem,
   concentrado no gpt-6-luna.
 

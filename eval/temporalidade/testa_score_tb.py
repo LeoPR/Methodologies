@@ -95,4 +95,53 @@ def main():
         print(x)
 
 
+def testa_carregar():
+    """carregar(): cabeçalho antigo e novo, provedor com espaço, stop=length -> SEM-LINHA (vence a revisão manual),
+    'stop=length' no corpo não conta."""
+    import shutil
+    import tempfile
+    fx = "T1-P"
+    mapa = "".join(S.BAT["fixtures"][fx]["apresentacao"][0])
+    d = {k: S.ROTULOS[i] for i, k in enumerate(mapa)}
+    certo = "SEQUÊNCIA: " + " → ".join(d[k] for k in "ABCDE") + "\nNOTA: nenhuma\n"
+    base = (f"<!-- TB | fixture={fx} | arm=ingenuo | perm=0 | model=x/y | run={{run}} | mapa={mapa} | 2026-09-30T00:00:00 | "
+            "1s | 10 tok | stop={stop} | cost=0.0 | provider={prov}{extra} -->\n\n")
+    casos = {
+        "antigo": (base.format(run=1, stop="stop", prov="nvidia/nvidia", extra=""), certo),
+        "novo": (base.format(run=2, stop="stop", prov="openrouter/Google AI Studio",
+                             extra=' | rota={"only":["google-ai-studio"],"allow_fallbacks":false} | ft=1 | rtok=5'), certo),
+        "cortado": (base.format(run=3, stop="length", prov="nvidia/nvidia", extra=" | rota=- | ft=0 | rtok=7990"), certo),
+        "corpo": (base.format(run=1, stop="stop", prov="nvidia/nvidia", extra=""), "texto com | stop=length no corpo\n" + certo),
+    }
+    tmp = tempfile.mkdtemp()
+    ruins = []
+    try:
+        for nome, (cab, corpo) in casos.items():
+            p = os.path.join(tmp, nome, fx, "ingenuo", "p0")
+            os.makedirs(p)
+            open(os.path.join(p, f"x_y-r{nome}.md"), "w", encoding="utf-8").write(cab + corpo)
+        # revisão manual tentando desfazer o corte
+        open(os.path.join(tmp, "cortado-revisao.csv"), "w", encoding="utf-8").write(
+            "arquivo,classe\n" + os.path.join(fx, "ingenuo", "p0", "x_y-rcortado.md") + ",NOTA-LIMPA\n")
+        esp = {
+            "antigo": dict(classe="NOTA-LIMPA", ordem="ORDEM-CERTA", provedor="nvidia/nvidia", rota="", ft=""),
+            "novo": dict(classe="NOTA-LIMPA", ordem="ORDEM-CERTA", provedor="openrouter/Google AI Studio",
+                         rota='{"only":["google-ai-studio"],"allow_fallbacks":false}', ft="1"),
+            "cortado": dict(classe="SEM-LINHA", ordem="", classe_auto="NOTA-LIMPA", rota="-", ft="0"),
+            "corpo": dict(classe="NOTA-LIMPA", stop="stop"),
+        }
+        for nome, e in esp.items():
+            r = S.carregar(os.path.join(tmp, nome))[0]
+            for k, v in e.items():
+                if r[k] != v:
+                    ruins.append((nome, k, r[k], v))
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    n = sum(len(e) for e in esp.values())
+    print(f"carregar: {n - len(ruins)} / {n}")
+    for x in ruins:
+        print("  ", x)
+
+
 main()
+testa_carregar()

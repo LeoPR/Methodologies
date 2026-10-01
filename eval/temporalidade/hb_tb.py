@@ -13,11 +13,15 @@ Pontuação: score_tb.py. Pré-registro: lab/2026-09-26-temporalidade/PREREG-bat
 Uso:
   python hb_tb.py --provider openrouter --models openai/gpt-6-luna --label tb-v1 --runs 3
   python hb_tb.py ... --fixtures T3-P T3-O --arms protocolo
+  python hb_tb.py ... --or-route '{"only":["deepinfra/fp8"],"allow_fallbacks":false}'   (rota fixa na OpenRouter)
+O cabeçalho grava também a rota pedida (rota=), se a resposta veio do canal de raciocínio (ft=1) e os tokens
+de raciocínio (rtok=), quando o provedor informa.
 """
 import argparse
 import datetime
 import json
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -52,9 +56,31 @@ def main():
     ap.add_argument("--runs", type=int, default=3)
     ap.add_argument("--num-ctx", type=int, default=16384)
     ap.add_argument("--num-predict", type=int, default=8000)
+    ap.add_argument("--or-route", default=None, help='objeto "provider" da OpenRouter em JSON (rota fixa); sem ele, roteamento padrão')
     a = ap.parse_args()
     hb_runner.PROVIDER = a.provider
+    if a.or_route:
+        if a.provider != "openrouter":
+            ap.error("--or-route só vale com --provider openrouter")
+        obj = json.loads(a.or_route)
+        if not isinstance(obj, dict) or not obj:
+            ap.error("--or-route precisa ser um objeto JSON não vazio")
+        hb_runner.OR_ROUTE = obj
+    rota = json.dumps(hb_runner.OR_ROUTE, separators=(",", ":")) if hb_runner.OR_ROUTE else "-"
     base = os.path.join(HERE, "planos", a.label)
+    # trava (PREREG §9, 2026-09-30): num rótulo, cada modelo tem uma rota e um provedor só; nunca se divide um modelo
+    for m in a.models:
+        safe = m.replace(":", "_").replace("/", "_")
+        for raiz, _, arqs in os.walk(base):
+            for fn in arqs:
+                if fn.startswith(safe + "-r") and fn.endswith(".md"):
+                    cab = open(os.path.join(raiz, fn), encoding="utf-8").readline()
+                    r0 = re.search(r"\| rota=(.*?)(?= \| | -->)", cab)
+                    p0 = re.search(r"\| provider=([^/ |]+)", cab)
+                    r0, p0 = (r0.group(1) if r0 else "-"), (p0.group(1) if p0 else "")
+                    if r0 != rota or p0 != a.provider:
+                        sys.exit(f"RECUSADO: {m} já tem saídas em '{a.label}' com provider={p0} rota={r0}; "
+                                 f"esta execução pede provider={a.provider} rota={rota}. Use outro --label.")
     for fx in a.fixtures:
         for arm in a.arms:
             for perm in range(len(BAT["fixtures"][fx]["apresentacao"])):
@@ -69,11 +95,12 @@ def main():
                             continue
                         stamp = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
                         try:
-                            content, secs, tok, stop, _ = hb_runner.call_ex(m, prompt, a.num_ctx, a.num_predict, seed=run)
+                            content, secs, tok, stop, ft = hb_runner.call_ex(m, prompt, a.num_ctx, a.num_predict, seed=run)
                             meta = dict(hb_runner.LAST_META)
                             hdr = (f"<!-- TB | fixture={fx} | arm={arm} | perm={perm} | model={m} | run={run} | mapa={mapa} | {stamp} | "
                                    f"{secs:.0f}s | {tok} tok | stop={stop} | cost={meta.get('cost')} | "
-                                   f"provider={a.provider}/{meta.get('provider')} -->\n\n")
+                                   f"provider={a.provider}/{meta.get('provider')} | rota={rota} | ft={int(bool(ft))} | "
+                                   f"rtok={meta.get('reasoning_tokens')} -->\n\n")
                             open(name, "w", encoding="utf-8").write(hdr + (content or ""))
                             print(f"  {fx}/{arm}/p{perm} {m} r{run} OK {secs:.0f}s stop={stop}", flush=True)
                         except Exception as e:  # noqa: BLE001

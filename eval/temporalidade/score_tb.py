@@ -19,7 +19,8 @@ Lê a última SEQUÊNCIA (pula o molde da tarefa; aceita lista em várias linhas
   intruso: INTRUSO-APONTADO se a cena fica fora da sequência, ou se a nota a cita com marca de 'não pertence'.
   incomparaveis: INCOMP-DECLARADO se cada par sem ordem fica no mesmo grupo ou a nota diz que a ordem entre
   eles não se sabe (por rótulo ou por conteúdo, incomp_txt); INCOMP-PARCIAL / INCOMP-FORCADO.
-Sem a linha SEQUÊNCIA: SEM-LINHA (fora do denominador).
+Sem a linha SEQUÊNCIA, ou cortada por tamanho (stop=length, desvio de 2026-09-30): SEM-LINHA (fora do
+denominador); classe_auto guarda a leitura crua.
 Revisão manual: planos/<rodada>-revisao.csv (arquivo,classe) sobrepõe a classe do pontuador.
 Red-team 2026-09-30 (solver cego + ataque ao pontuador) incorporado antes do congelamento.
 Uso: python score_tb.py planos/tb-v1 [--csv saida.csv]
@@ -276,12 +277,18 @@ def carregar(indir):
             if not h:
                 continue
             r = pontuar(h["fx"], t[h.end():], h["mapa"])
-            stop = re.search(r"\| stop=(\w+)", t[:400])
+            cab = t[h.start():].split("-->", 1)[0]
+            stop = re.search(r"\| stop=(\w+)", cab)
+            campo = lambda k: (re.search(rf"\| {k}=(.*?)(?= \| |\s*$)", cab) or [None, ""])[1]  # noqa: E731
+            # desvio 2026-09-30 (PREREG §9): cortada por tamanho = não terminou; o que se lê é rascunho -> SEM-LINHA
+            corte = bool(stop) and stop.group(1) == "length"
             rel_path = os.path.normpath(os.path.relpath(caminho, indir))
             fx = BAT["fixtures"][h["fx"]]
             linhas.append({"arquivo": rel_path, "fixture": h["fx"], "familia": fx["familia"], "dominio": fx["dominio"],
                            "arm": h["arm"], "perm": h["perm"], "model": h["model"], "run": h["run"], "stop": stop.group(1) if stop else "",
-                           "classe": rev.get(rel_path, r["classe"]), "classe_auto": r["classe"], "ordem": r.get("ordem", ""),
+                           "provedor": campo("provider"), "rota": campo("rota"), "ft": campo("ft"),
+                           "classe": "SEM-LINHA" if corte else rev.get(rel_path, r["classe"]), "classe_auto": r["classe"],
+                           "ordem": "" if corte else r.get("ordem", ""),
                            "pares_invertidos": r.get("pares_invertidos", ""), "omitidas": r.get("omitidas", ""),
                            "acrescentados": r.get("acrescentados", ""), "segue_dependencia": r.get("segue_dependencia", ""), "nota_alarme": r.get("nota_alarme", "")})
     return linhas

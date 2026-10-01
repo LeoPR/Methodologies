@@ -61,7 +61,7 @@ def bloco(i, r):
 
 def amostra(indir):
     rng = random.Random(SEMENTE)
-    ls = [r for r in linhas_com_texto(indir) if r["classe_auto"] != "SEM-LINHA"]
+    ls = [r for r in linhas_com_texto(indir) if r["classe_auto"] != "SEM-LINHA" and r["stop"] != "length"]
     est = collections.defaultdict(lambda: {"nt": [], "triv": []})
     for r in ls:
         est[(r["familia"], r["arm"])]["triv" if TRIVIAL.match(r["nota_txt"]) else "nt"].append(r)
@@ -70,6 +70,9 @@ def amostra(indir):
         nt, tv = est[k]["nt"], est[k]["triv"]
         n_nt = len(nt) if len(nt) <= 20 else max(20, round(0.25 * len(nt)))
         escolhidas += rng.sample(nt, n_nt) + rng.sample(tv, max(1, round(0.05 * len(tv))) if tv else 0)
+    # resposta tirada do canal de raciocínio (ft=1, terminou com stop=stop): todas entram (PREREG §9, 2026-09-30)
+    ja = {r["arquivo"] for r in escolhidas}
+    escolhidas += [r for r in ls if r["ft"] == "1" and r["arquivo"] not in ja]
     escrever(indir, escolhidas, rng)
 
 
@@ -92,7 +95,7 @@ def escrever(indir, escolhidas, rng, anexar=False):
 
 
 def ampliar(indir, fam):
-    ls = [r for r in linhas_com_texto(indir) if r["familia"] == fam and r["classe_auto"] != "SEM-LINHA"
+    ls = [r for r in linhas_com_texto(indir) if r["familia"] == fam and r["classe_auto"] != "SEM-LINHA" and r["stop"] != "length"
           and not TRIVIAL.match(r["nota_txt"])]
     escrever(indir, ls, random.Random(SEMENTE + 1), anexar=True)
 

@@ -2,7 +2,7 @@
 title: 'Pré-registro: bateria de temporalidade v1 (ordem por dependência, horário errado, lacuna, intruso, ambiguidade, fora do script)'
 created: 2026-09-30
 updated: 2026-09-30
-status: 'Pré-registrado; não rodado.'
+status: 'Pré-registrado. Etapa grátis rodada; desvios de 2026-09-30 (§9) registrados antes da etapa paga.'
 tags: [temporalidade, pre-registro, bateria, capacidade]
 ---
 
@@ -246,4 +246,78 @@ desvio e se roda de novo antes de gastar. Teto de gasto: US$ 5 (os prompts são 
 
 ## 9. Desvios
 
-(Anexados com data, se houver.)
+### 2026-09-30, antes da etapa paga e de qualquer análise
+
+Nenhuma saída foi pontuada nem comparada por braço antes destas decisões. A leitura do portão do §7
+foi feita por agentes instruídos a não reportar taxa por braço nem por modelo.
+
+1. **Portão do §7: sem defeito de fixture.**
+   - Cinco leitores independentes, um por família, leram as saídas grátis.
+   - Nenhuma família falha por redação.
+   - No T3-P, nenhum modelo nomeou a decolagem. A leitura atribui isso ao fenômeno medido (o leitor
+     preenche o roteiro em silêncio), não ao texto.
+   - Observações leves ficam para uma v2, sem mudar a v1: o paralelo "Ainda no chão" × "Já no chão";
+     "carregado" lido como "transportado"; regras "só… depois" lidas como suficientes.
+2. **Nemotron ficou na NVIDIA.**
+   - A lentidão era latência (raciocínio longo), não falha: nenhum erro nas chamadas.
+   - Trocar de provedor no meio confundiria provedor com família, porque o runner anda em ordem de
+     fixture.
+   - O que faltava rodou em processos paralelos disjuntos (por fixture e braço), no mesmo provedor.
+3. **Etapa paga com rota fixa por modelo.** O §7 previa provedores variando. O catálogo do
+   OpenRouter (consultado em 2026-09-30) mostrou três problemas do roteamento livre:
+   - quantização misturada dentro do modelo: GLM e DeepSeek têm endpoints fp4/nvfp4 entre os mais
+     baratos, e o roteamento padrão favorece o preço;
+   - temperatura descartada em silêncio: os endpoints Vertex do Gemini não aceitam temperature;
+   - custo imprevisível do GLM, conforme o provedor sorteado.
+
+   Por isso cada modelo roda numa rota só, sem fallback, e com `require_parameters` (exceto o GPT-6,
+   que não aceita temperature em nenhum endpoint):
+
+   | modelo | rota (`provider.only`) |
+   |---|---|
+   | `openai/gpt-6-luna` | `openai` |
+   | `google/gemini-3.5-flash-lite` | `google-ai-studio` |
+   | `meta/muse-glimmer-30b` | `deepinfra/bf16` |
+   | `z-ai/glm-5.3` | `atlas-cloud/fp8` (a precisão em que o fabricante serve) |
+   | `deepseek/deepseek-v4.1-flash` | `deepinfra/fp8` |
+
+   - Pela documentação do OpenRouter (consultada em 2026-09-30), o slug do provedor sem sufixo não
+     inclui os tiers de serviço (flex, priority, fast). Então `openai` e `google-ai-studio` atingem
+     só o tier padrão. As outras três rotas são a tag exata de um endpoint.
+   - O runner ganhou a opção aditiva `--or-route`. Sem ela, a requisição é idêntica à de antes
+     (conferido byte a byte por um revisor independente).
+   - O cabeçalho passa a gravar a rota pedida (`rota=`), se a resposta veio do canal de raciocínio
+     (`ft=`) e os tokens de raciocínio (`rtok=`).
+   - O runner recusa rodar um modelo num rótulo que já tenha saídas dele com outra rota ou outro
+     provedor. A análise avisa se encontrar mistura.
+   - Teste de fumaça (rótulo `tb-smoke-rota`, fora da análise): 10 de 10 chamadas no provedor
+     pedido. A resposta informa o provedor, não a quantização. A quantização é garantida pela tag
+     exata com `allow_fallbacks: false`, não observada.
+   - Se uma rota cair, o modelo inteiro é refeito em outra rota, em rótulo próprio. Nunca se divide
+     um modelo entre rotas.
+4. **Saída cortada por tamanho é SEM-LINHA.**
+   - `stop=length` quer dizer que o modelo não terminou. O que se lê nela é rascunho do raciocínio.
+   - Caso real: uma saída cortada ecoou o molde da tarefa em inglês e foi lida como resposta.
+   - Vale para todos os modelos e braços. O pontuador guarda a leitura crua em `classe_auto`.
+   - Essas saídas não entram na amostra da revisão.
+   - Resposta tirada do canal de raciocínio com o modelo tendo terminado (`ft=1`, `stop=stop`)
+     continua pontuada. Ela é reportada à parte, por braço, e todas entram na revisão manual.
+5. **Critérios de fronteira da revisão manual** (esclarecem o §2, sem mudá-lo):
+   - **T4.** O intruso deixado na sequência com `|` só conta como apontado se a nota disser que ele
+     não tem relação com o episódio. "Posição indeterminada" sozinha é INTRUSO-INCLUIDO.
+   - **T3.** Item acrescentado à sequência só conta se nomear o passo ("[decolagem]"). "INFERIDO"
+     sem nome não conta.
+   - **T3-O.** Nomear a carga ou o encaixe conta, como na tabela do §2.
+   - **T2.** Contradição atribuída à cena (e não ao horário) não é apontar o conflito de horário.
+6. **Custo.**
+   - O custo medido nos testes de fumaça projeta bem menos que o teto de US$ 5.
+   - Mesmo assim, vale a vigilância: aos ~25% de cada modelo, projeta-se o gasto total. Se passar
+     de US$ 5, para e volta ao dono.
+   - Erro de operação: um teste do lançador rodou 13 chamadas do GLM a mais no rótulo de fumaça
+     (~US$ 0,12). Elas ficam fora da análise e contam no gasto.
+7. **Correção da análise na sensibilidade.**
+   - O §4 diz que, na análise de sensibilidade, SEM-LINHA conta como falha.
+   - A implementação contava SEM-LINHA como falha na ordem, mas não no alarme falso: lá, ela
+     reduzia o alarme do braço que mais corta.
+   - Agora, na sensibilidade, SEM-LINHA conta como alarme falso nos controles. Isso alinha o código
+     ao texto do §4, sem mudar o texto.

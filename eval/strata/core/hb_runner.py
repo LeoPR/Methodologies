@@ -26,6 +26,7 @@ OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
 # Aditivo: nao muda a assinatura de retorno de call_ex; o runner le daqui para o cabecalho.
 LAST_META = {}
 PROVIDER = "ollama"  # setado em main() via --provider (ollama | openrouter)
+OR_ROUTE = None  # preferencias de provedor da OpenRouter (objeto "provider"), setadas pelo runner; None = roteamento padrao
 
 # Strata em prosa ~17k tokens -> precisa num_ctx ~20k. Num 3060 de 12GB, so 7-8B
 # cabem com 20k de KV (12-14B estouram). Achado que motiva a versao AI-nativa (H-C).
@@ -235,6 +236,8 @@ def call_openrouter_ex(model, prompt, num_predict, seed, think=False, reasoning=
         # default (uns pensam, outros nao) e a comparacao mistura regimes sem registro.
         body["reasoning"] = reasoning
     body["usage"] = {"include": True}  # custo real por chamada (so contabilidade; nao afeta a geracao)
+    if OR_ROUTE:  # rota fixa (objeto "provider" da OpenRouter); sem ela o corpo sai identico ao de antes
+        body["provider"] = OR_ROUTE
     data = json.dumps(body).encode("utf-8")
     hdr = {"Content-Type": "application/json", "Authorization": f"Bearer {key}",
            "HTTP-Referer": "https://github.com/LeoPR/Methodologies", "X-Title": "Strata-eval"}

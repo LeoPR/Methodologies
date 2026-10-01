@@ -62,13 +62,23 @@ def main():
     linhas = todas if a.sensibilidade else [r for r in todas if r["classe"] != "SEM-LINHA"]
     acerto = lambda r: r["classe"] in S.ACERTO  # noqa: E731
     ordem = lambda r: r["ordem"] == "ORDEM-CERTA"  # noqa: E731
-    alarme = lambda r: r["classe"] == "ALARME"  # noqa: E731
+    # na sensibilidade, SEM-LINHA conta como falha em TODAS as métricas (no alarme falso, como alarme)
+    alarme = lambda r: r["classe"] == "ALARME" or (a.sensibilidade and r["classe"] == "SEM-LINHA")  # noqa: E731
     rng = random.Random(SEMENTE)
 
     print(f"# Bateria v1: {a.indir} ({'sensibilidade: SEM-LINHA = falha' if a.sensibilidade else 'SEM-LINHA fora'})\n")
     print(f"Saídas: {len(todas)}; SEM-LINHA: {len(sem)} "
           f"(corte por tamanho {sum(r['stop'] == 'length' for r in sem)}; por braço "
-          + ", ".join(f"{b} {sum(r['arm'] == b for r in sem)}" for b in ("ingenuo", "protocolo")) + ")\n")
+          + ", ".join(f"{b} {sum(r['arm'] == b for r in sem)}" for b in ("ingenuo", "protocolo")) + ")")
+    ft1 = [r for r in todas if r["ft"] == "1"]
+    print(f"Resposta tirada do canal de raciocínio (ft=1): {len(ft1)}"
+          + (" (" + ", ".join(f"{b} {sum(r['arm'] == b for r in ft1)}" for b in ("ingenuo", "protocolo")) + ")" if ft1 else ""))
+    for m in sorted({r["model"] for r in todas}):
+        rotas = {r["rota"] or "-" for r in todas if r["model"] == m}
+        provs = {r["provedor"] for r in todas if r["model"] == m}
+        if len(rotas) > 1 or len({p.split("/")[0] for p in provs}) > 1:
+            print(f"AVISO: {m} mistura rotas {sorted(rotas)} ou provedores {sorted(provs)}")
+    print()
 
     print("## Acerto por família × domínio × braço\n")
     print("| família | domínio | braço | acerto (nota/papel) | ordem certa | apres. 0 | apres. 1 | consistência |")

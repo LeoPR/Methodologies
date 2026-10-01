@@ -2,7 +2,7 @@
 title: 'Pré-registro: bateria de temporalidade v1 (ordem por dependência, horário errado, lacuna, intruso, ambiguidade, fora do script)'
 created: 2026-09-30
 updated: 2026-09-30
-status: 'Pré-registrado. Etapa grátis rodada; desvios de 2026-09-30 (§9) registrados antes da etapa paga.'
+status: 'Executado em 2026-09-30 (desvios no §9). Resultados em RESULTADOS-bateria-v1.md.'
 tags: [temporalidade, pre-registro, bateria, capacidade]
 ---
 
@@ -338,3 +338,11 @@ foi feita por agentes instruídos a não reportar taxa por braço nem por modelo
    - 116 saídas cortadas por tamanho viram SEM-LINHA: GLM 60, deepseek 45, nemotron 6, muse 3,
      gpt-oss 2.
    - Gasto da etapa paga: US$ 2,74. Somando os testes de fumaça, US$ 2,87, abaixo do teto.
+
+### 2026-09-30, errata depois da análise
+
+10. **Fabricantes.** O §7 diz "Painel de 8 fabricantes". São 8 modelos de 6 fabricantes: o Google
+    tem dois (gemma, gemini) e a OpenAI também (gpt-oss, luna).
+    - O desenho não muda.
+    - O bootstrap por modelo tem dois pares do mesmo fabricante; a ameaça fica registrada no
+      RESULTADOS.

@@ -35,8 +35,15 @@ Termos de prova (K, gold mecânico, júri cego, §N): [GLOSSARIO.md](GLOSSARIO.m
 ## Frentes abertas
 
 - **Temporalidade** (3ª frente, [`lab/2026-09-26-temporalidade/`](lab/2026-09-26-temporalidade/)):
-  literatura em 8 mapas, ontologia v0, protótipo de ordenador. Próximo: bateria própria de
-  capacidade (esboço em `AVALIACAO-testes-sinteticos.md`).
+  literatura em 8 mapas, ontologia v0, protótipo de ordenador e a bateria de capacidade v1
+  ([resultados](lab/2026-09-26-temporalidade/RESULTADOS-bateria-v1.md), 8 modelos de 6 fabricantes).
+  - **Sem ajuda:** a ordem por dependência sai certa em 0,93, mas o passo que falta é notado em 1 de
+    92.
+  - **Com o protocolo da ontologia:** a lacuna sobe para 0,48 e o intruso para 0,99 (H1 vale no
+    modo principal; na sensibilidade, 2 de 4). Mas o alarme falso nos controles sobe de 0,02 para
+    0,21 (H2 violada). O protocolo não vira recomendação.
+  - **Próximo, se o dono quiser:** v2 do protocolo (lacuna por incompatibilidade de estado; teto de
+    tokens decidido antes).
 - **Comporta** (2ª metodologia, [`lab/2026-06-04-economia-ia-tokens/`](lab/2026-06-04-economia-ia-tokens/)):
   estágios 1–5 medidos; não destilado para `recipe/`.
 

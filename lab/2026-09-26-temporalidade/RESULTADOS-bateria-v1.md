@@ -271,13 +271,16 @@ manual nessas saídas).
   | GLM cortes = falha | +0,23 [+0,06, +0,42] | +0,51 [+0,32, +0,70] | +0,55 [+0,31, +0,75] | +0,34 [+0,15, +0,56] | +0,21 [+0,10, +0,32] |
 
   H1 vale nas 4 famílias; H2 continua violado. A decisão (regra 1) não muda.
+- **Limites desta leitura.**
+  - As saídas refeitas foram pontuadas sem revisão manual. O pontuador subestima alarme falso (o H2
+    fica conservador) e superestima intruso apontado (o T4 cumpre com folga).
+  - O argumento por extremos fecha H1 e H2. A leitura por modelo do GLM vale para a rota AtlasCloud.
 
 ## O que fica
 
 - **Para a pergunta de fundo (por que as IAs erram com o tempo), nesta bateria:**
   - sem ajuda, a ordem por dependência sai certa em 0,93;
-  - notar o que falta sai em 1 de 92 sem ajuda e em 0,48 com o protocolo (0,43 contando as
-    cortadas).
+  - notar o que falta sai em 1 de 92 sem ajuda e em 0,48 com o protocolo.
 - **Próximo passo, se o dono quiser (uma coisa por vez):**
   - **v2 do protocolo:** regra 3 por incompatibilidade de estado, teto de tokens e nível de
     raciocínio decididos antes, novo pré-registro;

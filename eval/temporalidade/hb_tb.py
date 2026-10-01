@@ -56,6 +56,7 @@ def main():
     ap.add_argument("--runs", type=int, default=3)
     ap.add_argument("--num-ctx", type=int, default=16384)
     ap.add_argument("--num-predict", type=int, default=8000)
+    ap.add_argument("--reasoning", default=None, choices=["low", "medium", "high"], help="nível de raciocínio (OpenRouter); sem ele, padrão do modelo")
     ap.add_argument("--or-route", default=None, help='objeto "provider" da OpenRouter em JSON (rota fixa); sem ele, roteamento padrão')
     a = ap.parse_args()
     hb_runner.PROVIDER = a.provider
@@ -95,12 +96,13 @@ def main():
                             continue
                         stamp = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
                         try:
-                            content, secs, tok, stop, ft = hb_runner.call_ex(m, prompt, a.num_ctx, a.num_predict, seed=run)
+                            content, secs, tok, stop, ft = hb_runner.call_ex(m, prompt, a.num_ctx, a.num_predict, seed=run,
+                                                                          reasoning={"effort": a.reasoning} if a.reasoning else None)
                             meta = dict(hb_runner.LAST_META)
                             hdr = (f"<!-- TB | fixture={fx} | arm={arm} | perm={perm} | model={m} | run={run} | mapa={mapa} | {stamp} | "
                                    f"{secs:.0f}s | {tok} tok | stop={stop} | cost={meta.get('cost')} | "
                                    f"provider={a.provider}/{meta.get('provider')} | rota={rota} | ft={int(bool(ft))} | "
-                                   f"rtok={meta.get('reasoning_tokens')} -->\n\n")
+                                   f"rtok={meta.get('reasoning_tokens')} | reasoning={a.reasoning or 'default'} -->\n\n")
                             open(name, "w", encoding="utf-8").write(hdr + (content or ""))
                             print(f"  {fx}/{arm}/p{perm} {m} r{run} OK {secs:.0f}s stop={stop}", flush=True)
                         except Exception as e:  # noqa: BLE001

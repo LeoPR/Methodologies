@@ -1,7 +1,7 @@
 ---
 title: 'Pré-registro: bateria de temporalidade v1 (ordem por dependência, horário errado, lacuna, intruso, ambiguidade, fora do script)'
 created: 2026-09-30
-updated: 2026-09-30
+updated: 2026-10-01
 status: 'Executado em 2026-09-30 (desvios no §9). Resultados em RESULTADOS-bateria-v1.md.'
 tags: [temporalidade, pre-registro, bateria, capacidade]
 ---
@@ -346,3 +346,11 @@ foi feita por agentes instruídos a não reportar taxa por braço nem por modelo
     - O desenho não muda.
     - O bootstrap por modelo tem dois pares do mesmo fabricante; a ameaça fica registrada no
       RESULTADOS.
+
+### 2026-10-01, complemento depois da análise
+
+11. **Orçamento de tokens.** Os cortes de GLM e deepseek eram do teto de 8000 (configuração). Os dois
+    foram refeitos com 32 000, em rótulo próprio, como leitura complementar; a análise pré-registrada
+    fica como está. O GLM ainda corta 20 na rota AtlasCloud (laço da implantação; a rota oficial Z.ai
+    conclui). Por dedução (cortes fora, como falha ou como acerto), H1 vale em 4 de 4 e H2 segue
+    violado; refazer o GLM noutra rota não mudaria a decisão, e não foi feito.

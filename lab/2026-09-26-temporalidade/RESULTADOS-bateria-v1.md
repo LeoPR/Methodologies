@@ -1,8 +1,8 @@
 ---
 title: 'Resultados: bateria de temporalidade v1'
 created: 2026-09-30
-updated: 2026-09-30
-status: 'Executado. H1 vale no modo principal (4 de 4 famílias); na sensibilidade não vale (2 de 4). H2 violada nos dois modos. Regra 1 do §6: o protocolo, como está, não vira recomendação; texto vai para uma v2.'
+updated: 2026-10-01
+status: 'Executado. H1 vale no modo principal (4 de 4 famílias); a queda na sensibilidade (2 de 4) era o teto de 8000 tokens: com orçamento adequado, 4 de 4. H2 violada nos dois modos. Regra 1 do §6: o protocolo, como está, não vira recomendação; texto vai para uma v2.'
 tags: [temporalidade, bateria, resultados, capacidade]
 ---
 
@@ -38,8 +38,8 @@ Nesta bateria (8 modelos, português, 13 fixtures sintéticas):
   | T2, horário errado | 0,72 | 0,93 |
   | T5, ambiguidade | 0,47 | 0,82 |
 
-  O H1 vale nas 4 famílias. Contando as saídas cortadas como falha, só T3 e T4 cumprem (2 de 4: não
-  vale).
+  O H1 vale nas 4 famílias. Contando as saídas cortadas como falha, só T3 e T4 cumpriam (2 de 4), mas
+  os cortes eram do teto de tokens: refeito com orçamento adequado, o H1 vale nas 4 (seção abaixo).
 - **O mesmo protocolo faz avisar à toa nos controles.** O alarme falso sobe de 0,02 para 0,21, e o
   H2 é violado nos dois modos.
 - **Decisão (regra 1 do §6):** a decisão não depende do modo, porque o H2 é violado nos dois. O
@@ -252,6 +252,25 @@ válidas):
 - **Precisão servida.** A NVIDIA não declara a precisão que serve, e no OpenRouter a quantização é
   garantida pela rota, não observada (§9.3).
 - **Amostra.** Só português, duas apresentações por fixture e uma ou duas fixtures por família.
+
+## Leitura complementar com orçamento adequado
+
+Os 116 cortes vinham do teto de 8000 tokens, uma configuração nossa, não dos modelos. GLM e deepseek
+foram refeitos inteiros com teto de 32 000 (`planos/tb-v1-32k/`, mesma rota; pontuador sem revisão
+manual nessas saídas).
+
+- **deepseek:** nenhum corte (eram 45).
+- **GLM:** 20 respostas ainda sem conclusão. O JSON bruto mostra o texto todo no campo de raciocínio,
+  cortado no meio da linha final. Na rota oficial do fabricante (Z.ai), a mesma fixture conclui em
+  8 de 8 chamadas: o laço é da implantação da AtlasCloud, não do modelo.
+- **Por dedução, sem nova rodada:** com as 20 do GLM fora, contadas como falha ou como acerto, as
+  conclusões são as mesmas:
+
+  | leitura | T2 | T3 | T4 | T5 | alarme falso |
+  |---|---|---|---|---|---|
+  | GLM cortes = falha | +0,23 [+0,06, +0,42] | +0,51 [+0,32, +0,70] | +0,55 [+0,31, +0,75] | +0,34 [+0,15, +0,56] | +0,21 [+0,10, +0,32] |
+
+  H1 vale nas 4 famílias; H2 continua violado. A decisão (regra 1) não muda.
 
 ## O que fica
 

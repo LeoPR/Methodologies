@@ -101,7 +101,7 @@ estado; o que pode faltar é o estado.
   conclusão mesmo com 32k); na rota oficial, a mesma fixture concluiu em 8 de 8.
 - **Etapas por dedução** (§5).
 - **Saídas fora de pasta sincronizada:** o runner escreve onde a variável `TB_PLANOS` mandar (nesta
-  máquina, `Z:\outputs\Methodologies\temporalidade`). No repositório ficam só o código e os resultados.
+  máquina, `Z:\outputs\Methodologies\temporalidade\planos`). No repositório ficam só o código e os resultados.
 
 **Fica:** as 13 fixtures (apresentações e gabarito), a tarefa, as regras 2, 4, 5 e 6, o resto do
 pontuador, o critério do H1, a semente, K = 3 e o procedimento de revisão, com os acréscimos do §6.
@@ -347,6 +347,11 @@ literal e procurou furos no desenho. O que ele achou e o que mudou:
 
 Ficaram como ameaça declarada (§10): a falta de controle novo e as fontes conhecidas de alarme.
 
-## 12. Desvios
+## 12. Desvios e decisões antes dos dados
 
-(nenhum até aqui)
+### 2026-10-01, antes de qualquer chamada da v2
+
+1. **Contingência do GLM (§9): opção (a).** O GLM fica nas duas etapas, na rota `z-ai/fp8`. A Etapa A cabe no
+   saldo atual; a recarga vem antes da Etapa B, se a A mandar seguir. Decisão do dono, só pelo custo.
+2. **Raiz das saídas:** `Z:\outputs\Methodologies\temporalidade\planos` (variável `TB_PLANOS`). É a pasta
+   onde está a cópia verificada dos `planos/` da v1. O texto do §3 foi acertado para esse caminho.

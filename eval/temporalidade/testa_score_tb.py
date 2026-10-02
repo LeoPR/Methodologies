@@ -143,5 +143,108 @@ def testa_carregar():
         print("  ", x)
 
 
+def testa_bateria():
+    """v2: o rótulo com BATERIA.txt carrega a bateria dele; cabeçalho com outra bateria interrompe; rótulo sem marcador
+    volta à v1. A análise roda com placebo (H3) e com --etapa A, sem chamar provedor."""
+    import shutil
+    import subprocess
+    import tempfile
+    tmp = tempfile.mkdtemp()
+    ruins = []
+    try:
+        lab = os.path.join(tmp, "tb-v2-sint")
+        os.makedirs(lab)
+        open(os.path.join(lab, "BATERIA.txt"), "w", encoding="utf-8").write("bateria-v2.json\n")
+        v2 = __import__("json").load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "bateria-v2.json"), encoding="utf-8"))
+        n = 0
+        for m in ("a/m1", "b/m2", "c/m3"):
+            for fx in ("T1-P", "T1-O", "T3-P", "T2-P"):
+                for arm in ("ingenuo", "protocolo", "placebo"):
+                    if arm == "placebo" and fx.startswith("T1"):
+                        continue
+                    mapa = "".join(v2["fixtures"][fx]["apresentacao"][0])
+                    d = {k: S.ROTULOS[i] for i, k in enumerate(mapa)}
+                    seq = " → ".join(d[k] for k in sorted(v2["fixtures"][fx]["cenas"]))
+                    nota = "falta a decolagem do avião" if (fx == "T3-P" and arm == "protocolo") else "nenhuma"
+                    p = os.path.join(lab, fx, arm, "p0")
+                    os.makedirs(p, exist_ok=True)
+                    cab = (f"<!-- TB | fixture={fx} | arm={arm} | perm=0 | model={m} | run=1 | mapa={mapa} | 2026-10-01T00:00:00 | "
+                           f"1s | 10 tok | stop=stop | cost=0.0 | provider=nvidia/nvidia | rota=- | ft=0 | rtok=0 | "
+                           f"reasoning=default | bat=bateria-v2.json -->\n\n")
+                    open(os.path.join(p, f"{m.replace('/', '_')}-r1.md"), "w", encoding="utf-8").write(cab + f"SEQUÊNCIA: {seq}\nNOTA: {nota}\n")
+                    n += 1
+        linhas = S.carregar(lab)
+        if S.BATERIA_NOME != "bateria-v2.json" or "placebo" not in S.BAT or len(linhas) != n:
+            ruins.append(("marcador", S.BATERIA_NOME, len(linhas), n))
+        aqui = os.path.dirname(os.path.abspath(__file__))
+        env = dict(os.environ, PYTHONIOENCODING="utf-8")
+        roda = lambda *xs: subprocess.run([sys.executable, os.path.join(aqui, "analise_tb.py"), lab, *xs],  # noqa: E731
+                                          capture_output=True, text=True, encoding="utf-8", env=env).stdout
+        out_a, out_b = roda("--etapa", "A"), roda()
+        # Etapa A: decisão impressa e placebo selado (nem H3 nem linha de placebo); análise completa: H3
+        if "Decisão da Etapa A" not in out_a or "placebo" in out_a or "H3:" in out_a:
+            ruins.append(("etapa A", "decisão ausente ou placebo vazou"))
+        if "H3:" not in out_b:
+            ruins.append(("analise completa", "sem H3"))
+        # cabeçalho de outra bateria no mesmo rótulo
+        p = os.path.join(lab, "T1-P", "ingenuo", "p0", "z_z-r1.md")
+        open(p, "w", encoding="utf-8").write(open(os.path.join(lab, "T1-P", "ingenuo", "p0", "a_m1-r1.md"), encoding="utf-8").read()
+                                             .replace(" | bat=bateria-v2.json", ""))
+        try:
+            S.carregar(lab)
+            ruins.append(("mistura", "não interrompeu"))
+        except SystemExit:
+            pass
+        os.remove(p)
+        # rótulo sem marcador volta à v1
+        sem = os.path.join(tmp, "v1")
+        os.makedirs(sem)
+        S.carregar(sem)
+        if S.BATERIA_NOME != "bateria-v1.json" or "placebo" in S.BAT:
+            ruins.append(("volta-v1", S.BATERIA_NOME))
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    print(f"bateria: {5 - len(ruins)} / 5" if not ruins else f"bateria: falhas {ruins}")
+
+
+def testa_lacuna_v2():
+    """v2: o lacuna_rx reconhece a lacuna dita por estado ('o avião no ar', 'a carga de energia'), não só por ação;
+    negação e ausência de marca de falta continuam não contando (revisão adversarial de 2026-10-01)."""
+    import json
+    salvo = (S.BAT, S.BATERIA_NOME)
+    S.BAT = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "bateria-v2.json"), encoding="utf-8"))
+    casos = [
+        ("T3-P", "Entre A e B o avião precisa estar no ar, e nenhuma cena mostra isso.", "LACUNA-APONTADA"),
+        ("T3-P", "Nenhuma cena mostra o avião voando; esse estado é inferido.", "LACUNA-APONTADA"),
+        ("T3-P", "Nenhuma cena mostra o avião em pleno ar.", "LACUNA-APONTADA"),
+        ("T3-P", "Nenhuma cena descreve o avião no céu.", "LACUNA-APONTADA"),
+        ("T3-P", "Inferido: o avião precisou sair do chão.", "LACUNA-APONTADA"),
+        ("T3-P", "Falta a decolagem do avião.", "LACUNA-APONTADA"),
+        ("T3-P", "nenhuma", "LACUNA-SILENCIOSA"),
+        ("T3-P", "Não falta nenhum passo: o avião já estava no ar.", "LACUNA-SILENCIOSA"),
+        ("T3-P", "O avião estava no ar quando ela saltou.", "LACUNA-SILENCIOSA"),
+        ("T3-O", "Falta um passo: a carga de energia do orbe.", "LACUNA-APONTADA"),
+        ("T3-O", "Falta o passo em que o orbe recebe energia.", "LACUNA-APONTADA"),
+        ("T3-O", "Nenhuma cena descreve o orbe carregado de energia.", "LACUNA-APONTADA"),
+        ("T3-O", "Sem lacunas: a energia vem das regras.", "LACUNA-SILENCIOSA"),
+    ]
+    ruins = []
+    try:
+        for fx, nota, esp in casos:
+            mapa = "".join(S.BAT["fixtures"][fx]["apresentacao"][0])
+            d = {k: S.ROTULOS[i] for i, k in enumerate(mapa)}
+            seq = " → ".join(d[k] for k in sorted(S.BAT["fixtures"][fx]["cenas"]))
+            got = S.pontuar(fx, f"SEQUÊNCIA: {seq}\nNOTA: {nota}\n", mapa)["classe"]
+            if got != esp:
+                ruins.append((fx, nota, got, esp))
+    finally:
+        S.BAT, S.BATERIA_NOME = salvo
+    print(f"lacuna v2: {len(casos) - len(ruins)} / {len(casos)}")
+    for x in ruins:
+        print("  ", x)
+
+
 main()
 testa_carregar()
+testa_bateria()
+testa_lacuna_v2()

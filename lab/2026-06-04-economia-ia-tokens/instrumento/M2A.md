@@ -110,7 +110,7 @@ Custo do mesmo perfil de tokens, em US$. Claude Max: 100 (5x) ou 200 (20x), fixo
 | C4 multi-arquivo | 220 | 14 / 67 | 612.639 / 904.859 | 25.029 / 71.250 | 5,73 / 15,43 | 58% |
 
 A janela inteira tem o mesmo desenho (C4: 69% do custo; mediana de US$ 5,73 por turno). A saída
-completa por turno fica em `saida-privada/` (gitignored).
+completa por turno é derivada: o script a regenera fora do repositório.
 
 ### Local (RTX 3060)
 

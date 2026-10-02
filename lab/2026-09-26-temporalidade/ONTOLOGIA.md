@@ -1,7 +1,7 @@
 ---
 title: 'Ontologia da temporalidade (v0): primitivas, relações e o que cabe em computação'
 created: 2026-09-27
-updated: 2026-09-27
+updated: 2026-10-01
 status: 'Proposta v0, construída sobre os mapas 1–8. Não testada contra modelo. Cada escolha aponta para o mapa que a sustenta.'
 tags: [temporalidade, ontologia, ordem-parcial, estado, evento, bitemporal, lacuna, metodo]
 ---
@@ -139,4 +139,7 @@ busca**; o "agora" e as duas datas ficam **fora do modelo**.
 - Produtor múltiplo e ameaças (um evento remove a pré-condição de outro) exigem planejamento de ordem
   parcial completo; o protótipo trata só o caso simples e sinaliza o resto.
 - A parte aproximável (extração) não está no protótipo; as cenas entram já estruturadas.
-- Nada aqui foi medido contra modelo. O próximo passo empírico é o instrumento da SINTESE §7.
+- A [bateria v1](RESULTADOS-bateria-v1.md) mediu parte disto contra modelos: a ordem por dependência sai
+  sem ajuda; a lacuna quase nunca. Com as regras 4 e 6 em forma de protocolo, a lacuna é notada, mas o
+  leitor passa a apontar ações implícitas como passos que faltam: o problema do quadro do item acima,
+  na prática. A [v2](PREREG-bateria-v2.md) testa a leitura por estado, não por ação.

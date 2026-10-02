@@ -6,6 +6,9 @@
                          cenas rotuladas, o gabarito em rótulos de exibição e as linhas SEQUÊNCIA/NOTA) e
                          <indir>-revisao-chave.json (id -> arquivo).
   ampliar <indir> <fam>  acrescenta à lista todas as notas não triviais da família (concordância < 0,90).
+  v2 (PREREG-bateria-v2 §6): 'anexar' depois de 'amostra' sorteia só os estratos (família × braço) que ainda não têm
+  item na chave e acrescenta à lista; 'sem-<braço>' (ex.: sem-placebo) deixa um braço de fora (o placebo do T3 fica
+  selado na Etapa A). Ex.: amostra <indir> sem-placebo · ampliar <indir> T3 sem-placebo · amostra <indir> anexar.
   aplicar <indir>        lê <indir>-revisao-ids.csv (id,classe), grava <indir>-revisao.csv (arquivo,classe)
                          e reporta a concordância pontuador × revisão por família (fração e kappa de Cohen).
 """
@@ -53,17 +56,25 @@ def bloco(i, r):
     if f.get("intruso"):
         gab.append(f"intruso: {disp[f['intruso']]}")
     if f["papel"] == "lacuna":
-        gab.append("lacuna: o estado que falta entre as cenas (ver bateria-v1.json)")
+        gab.append(f"lacuna: o estado que falta entre as cenas (ver {S.BATERIA_NOME})")
     return (f"### {i}\n\n" + (("Regras: " + " / ".join(regras) + "\n\n") if regras else "") + f"Cenas:\n{cenas}\n\n"
             f"Gabarito: {'; '.join(gab)}\n\nSEQUÊNCIA: {r['seq_txt']}\nNOTA: {r['nota_txt'] or '(vazia)'}\n\n"
             f"Classe: \n\n")
 
 
-def amostra(indir):
-    rng = random.Random(SEMENTE)
-    ls = [r for r in linhas_com_texto(indir) if r["classe_auto"] != "SEM-LINHA" and r["stop"] != "length"]
+def amostra(indir, anexar=False, sem=()):
+    rng = random.Random(SEMENTE + (2 if anexar else 0))
+    ls = [r for r in linhas_com_texto(indir) if r["classe_auto"] != "SEM-LINHA" and r["stop"] != "length"
+          and r["arm"] not in sem]
+    feitos = set()
+    ch_p = indir.rstrip("/\\") + "-revisao-chave.json"
+    if anexar and os.path.exists(ch_p):
+        na_chave = {os.path.normpath(v) for v in json.load(open(ch_p, encoding="utf-8")).values()}
+        feitos = {(r["familia"], r["arm"]) for r in ls if r["arquivo"] in na_chave}
     est = collections.defaultdict(lambda: {"nt": [], "triv": []})
     for r in ls:
+        if (r["familia"], r["arm"]) in feitos:
+            continue
         est[(r["familia"], r["arm"])]["triv" if TRIVIAL.match(r["nota_txt"]) else "nt"].append(r)
     escolhidas = []
     for k in sorted(est):
@@ -72,8 +83,8 @@ def amostra(indir):
         escolhidas += rng.sample(nt, n_nt) + rng.sample(tv, max(1, round(0.05 * len(tv))) if tv else 0)
     # resposta tirada do canal de raciocínio (ft=1, terminou com stop=stop): todas entram (PREREG §9, 2026-09-30)
     ja = {r["arquivo"] for r in escolhidas}
-    escolhidas += [r for r in ls if r["ft"] == "1" and r["arquivo"] not in ja]
-    escrever(indir, escolhidas, rng)
+    escolhidas += [r for r in ls if r["ft"] == "1" and r["arquivo"] not in ja and (r["familia"], r["arm"]) not in feitos]
+    escrever(indir, escolhidas, rng, anexar=anexar)
 
 
 def escrever(indir, escolhidas, rng, anexar=False):
@@ -94,9 +105,9 @@ def escrever(indir, escolhidas, rng, anexar=False):
     print(f"{len(novas)} saídas na lista (total {len(chave)})")
 
 
-def ampliar(indir, fam):
+def ampliar(indir, fam, sem=()):
     ls = [r for r in linhas_com_texto(indir) if r["familia"] == fam and r["classe_auto"] != "SEM-LINHA" and r["stop"] != "length"
-          and not TRIVIAL.match(r["nota_txt"])]
+          and not TRIVIAL.match(r["nota_txt"]) and r["arm"] not in sem]
     escrever(indir, ls, random.Random(SEMENTE + 1), anexar=True)
 
 
@@ -133,5 +144,7 @@ def aplicar(indir):
 
 if __name__ == "__main__":
     cmd, indir = sys.argv[1], sys.argv[2]
-    {"amostra": lambda: amostra(indir), "aplicar": lambda: aplicar(indir),
-     "ampliar": lambda: ampliar(indir, sys.argv[3])}[cmd]()
+    resto = sys.argv[3:]
+    sem = {x[4:] for x in resto if x.startswith("sem-")}
+    {"amostra": lambda: amostra(indir, "anexar" in resto, sem), "aplicar": lambda: aplicar(indir),
+     "ampliar": lambda: ampliar(indir, resto[0], sem)}[cmd]()

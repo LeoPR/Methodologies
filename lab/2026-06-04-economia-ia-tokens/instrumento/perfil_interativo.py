@@ -14,11 +14,12 @@ Dedup por message.id para o uso (uma resposta aparece em várias linhas); os blo
 lidos em todas as linhas (cada linha pode trazer um bloco diferente da mesma resposta).
 
 Não faz chamada de API. Nenhum conteúdo de conversa é gravado: a saída por turno (CSV) tem só
-números e o id da sessão, e fica em saida-privada/ (gitignored).
+números e o id da sessão. É derivada e regenerável, então fica fora do repositório (e do OneDrive): na
+pasta de COMPORTA_SAIDA, ou na pasta temporária do sistema.
 
 Uso:
     python perfil_interativo.py                      # janela até 2026-10-01T00:00Z
-    python perfil_interativo.py --until 2026-11-01T00:00:00Z --out-dir saida-privada
+    python perfil_interativo.py --until 2026-11-01T00:00:00Z --out-dir <pasta fora do repositório>
 """
 from __future__ import annotations
 
@@ -30,6 +31,7 @@ import json
 import os
 import re
 import statistics
+import tempfile
 from collections import Counter, defaultdict
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -102,7 +104,8 @@ def main(argv=None):
     ap.add_argument("--base", default=os.path.join(os.path.expanduser("~"), ".claude", "projects"))
     ap.add_argument("--until", default="2026-10-01T00:00:00Z")
     ap.add_argument("--precos", default=os.path.join(AQUI, "precos-2026-10-01.json"))
-    ap.add_argument("--out-dir", default=os.path.join(AQUI, "saida-privada"))
+    ap.add_argument("--out-dir", default=os.environ.get("COMPORTA_SAIDA")
+                    or os.path.join(tempfile.gettempdir(), "comporta-m2a"))
     a = ap.parse_args(argv)
 
     P = json.load(open(a.precos, encoding="utf-8"))

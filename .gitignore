@@ -28,8 +28,6 @@ lab/2026-06-04-dev-environment-z/snapshot-fonte/
 # PRIVADAS. Não publicar os dumps — publicar apenas um RESUMO curado. Visualização é local.
 eval/strata/planos/
 eval/temporalidade/planos/
-# Saída por turno do M2a (Comporta): números do uso real do dono, sem conteúdo, mas privados.
-lab/2026-06-04-economia-ia-tokens/instrumento/saida-privada/
 
 # Segredos locais (NUNCA versionar) — chaves de API dos provedores (OpenRouter, Cerebras, Groq, NVIDIA...)
 .openrouter-key

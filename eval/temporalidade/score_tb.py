@@ -23,6 +23,8 @@ Sem a linha SEQUÊNCIA, ou cortada por tamanho (stop=length, desvio de 2026-09-3
 denominador); classe_auto guarda a leitura crua.
 Revisão manual: planos/<rodada>-revisao.csv (arquivo,classe) sobrepõe a classe do pontuador.
 Red-team 2026-09-30 (solver cego + ataque ao pontuador) incorporado antes do congelamento.
+A bateria de um rótulo vem de <indir>/BATERIA.txt (gravado pelo hb_tb.py); sem ele, bateria-v1.json. Um cabeçalho com
+bat= diferente da bateria do rótulo interrompe a leitura.
 Uso: python score_tb.py planos/tb-v1 [--csv saida.csv]
 """
 import argparse
@@ -34,7 +36,8 @@ import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-BAT = json.load(open(os.path.join(HERE, "bateria-v1.json"), encoding="utf-8"))
+BATERIA_NOME = "bateria-v1.json"
+BAT = json.load(open(os.path.join(HERE, BATERIA_NOME), encoding="utf-8"))
 ROTULOS = "ABCDEFGH"
 HDR = re.compile(r"<!-- TB \| fixture=(?P<fx>[^ |]+) \| arm=(?P<arm>[^ |]+) \| perm=(?P<perm>\d+) \| "
                  r"model=(?P<model>[^ |]+) \| run=(?P<run>\d+) \| mapa=(?P<mapa>[A-Z]+)")
@@ -260,7 +263,18 @@ def pontuar(fx, corpo, mapa=None):
 ACERTO = {"NOTA-LIMPA", "CONFLITO-APONTADO", "LACUNA-APONTADA", "INTRUSO-APONTADO", "INCOMP-DECLARADO", "SEGUE-OBSERVADO"}
 
 
+def usar_bateria(indir):
+    """Carrega a bateria do rótulo (BATERIA.txt); sem marcador, a v1."""
+    global BAT, BATERIA_NOME
+    m = os.path.join(indir, "BATERIA.txt")
+    nome = open(m, encoding="utf-8").read().strip() if os.path.exists(m) else "bateria-v1.json"
+    if nome != BATERIA_NOME:
+        BAT = json.load(open(os.path.join(HERE, nome), encoding="utf-8"))
+        BATERIA_NOME = nome
+
+
 def carregar(indir):
+    usar_bateria(indir)
     rev = {}
     p = indir.rstrip("/\\") + "-revisao.csv"
     if os.path.exists(p):
@@ -282,11 +296,13 @@ def carregar(indir):
             campo = lambda k: (re.search(rf"\| {k}=(.*?)(?= \| |\s*$)", cab) or [None, ""])[1]  # noqa: E731
             # desvio 2026-09-30 (PREREG §9): cortada por tamanho = não terminou; o que se lê é rascunho -> SEM-LINHA
             corte = bool(stop) and stop.group(1) == "length"
+            if (campo("bat") or "bateria-v1.json") != BATERIA_NOME:
+                sys.exit(f"bateria do cabeçalho ({campo('bat') or 'v1'}) difere da do rótulo ({BATERIA_NOME}): {caminho}")
             rel_path = os.path.normpath(os.path.relpath(caminho, indir))
             fx = BAT["fixtures"][h["fx"]]
             linhas.append({"arquivo": rel_path, "fixture": h["fx"], "familia": fx["familia"], "dominio": fx["dominio"],
                            "arm": h["arm"], "perm": h["perm"], "model": h["model"], "run": h["run"], "stop": stop.group(1) if stop else "",
-                           "provedor": campo("provider"), "rota": campo("rota"), "ft": campo("ft"),
+                           "provedor": campo("provider"), "rota": campo("rota"), "ft": campo("ft"), "max": campo("max"),
                            "classe": "SEM-LINHA" if corte else rev.get(rel_path, r["classe"]), "classe_auto": r["classe"],
                            "ordem": "" if corte else r.get("ordem", ""),
                            "pares_invertidos": r.get("pares_invertidos", ""), "omitidas": r.get("omitidas", ""),

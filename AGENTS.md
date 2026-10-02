@@ -82,7 +82,8 @@ conclusoes) · `eval/` = EXECUTAVEIS de prova (a "chave de fenda"; meio, NAO a m
     Oito mapas de literatura (filosofia a IA), `ONTOLOGIA.md` v0, `prototipo/` (demonstrador, não
     evidência), o A/B F6-status do parágrafo "Ler o tempo de volta" (`RESULTADOS-f6-status.md`) e o
     teste do acréscimo ao §5 "Fonte declarada ≠ fonte usada" (`RESULTADOS-f6-fonte.md`), ambos no canônico.
-    Bateria de capacidade v1 (`PREREG-bateria-v1.md`, `RESULTADOS-bateria-v1.md`): sem ajuda, a ordem
+    Bateria de capacidade v1 (`PREREG-bateria-v1.md`, `RESULTADOS-bateria-v1.md`; v2 pré-registrada em
+    `PREREG-bateria-v2.md`): sem ajuda, a ordem
     sai certa (0,93) e a lacuna é notada em 1 de 92; o protocolo eleva a nota, mas faz avisar à toa
     (H2 violada; v2).
   - `2026-09-26-revisao-superficie/`: revisão de superfície do Strata + **auditoria declarado × feito**
